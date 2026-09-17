@@ -1,0 +1,254 @@
+#!/bin/bash
+# GENERATO DA censimento_csv.py — RILEGGERE PRIMA DI ESEGUIRE.
+# Sposta i CSV in sottocartelle di replication/. Non cancella nulla.
+set -e
+
+mkdir -p replication/aggregati
+mkdir -p replication/calibrazione
+mkdir -p replication/diagnostiche
+mkdir -p replication/estemporanei
+mkdir -p replication/geo
+mkdir -p replication/identita
+mkdir -p replication/meteo
+mkdir -p replication/onboard
+mkdir -p replication/regressione
+mkdir -p replication/riferimenti
+mkdir -p replication/sparse
+mkdir -p replication/storici
+mkdir -p replication/suite
+mkdir -p replication/superati
+mkdir -p replication/validazione
+mkdir -p replication/validita
+
+mv -n replication/lgb_d15_2024_s0.csv replication/storici/ 2>/dev/null || true
+mv -n replication/lgb_d15_2024_s1.csv replication/storici/ 2>/dev/null || true
+mv -n replication/lgb_d15_2024_s2.csv replication/storici/ 2>/dev/null || true
+mv -n replication/lgb_d8_2023_s0.csv replication/storici/ 2>/dev/null || true
+mv -n replication/lgb_d8_2023_s1.csv replication/storici/ 2>/dev/null || true
+mv -n replication/lgb_d8_2023_s2.csv replication/storici/ 2>/dev/null || true
+mv -n replication/lgb_d8_2024_s0.csv replication/storici/ 2>/dev/null || true
+mv -n replication/lgb_d8_2024_s1.csv replication/storici/ 2>/dev/null || true
+mv -n replication/lgb_d8_2024_s2.csv replication/storici/ 2>/dev/null || true
+mv -n replication/lgb_t4clon_s0.csv replication/storici/ 2>/dev/null || true
+mv -n replication/lgb_t4clon_s1.csv replication/storici/ 2>/dev/null || true
+mv -n replication/lgb_t4clon_s2.csv replication/storici/ 2>/dev/null || true
+mv -n replication/lgb_t4cmad_s0.csv replication/storici/ 2>/dev/null || true
+mv -n replication/lgb_t4cmad_s1.csv replication/storici/ 2>/dev/null || true
+mv -n replication/lgb_t4cmad_s2.csv replication/storici/ 2>/dev/null || true
+mv -n replication/lgb_t4cmel_s0.csv replication/storici/ 2>/dev/null || true
+mv -n replication/lgb_t4cmel_s1.csv replication/storici/ 2>/dev/null || true
+mv -n replication/lgb_t4cmel_s2.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_d15_2024_s0.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_d15_2024_s1.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_d15_2024_s2.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_d8_2023_s0.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_d8_2023_s1.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_d8_2023_s2.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_d8_2024_s0.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_d8_2024_s1.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_d8_2024_s2.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_t4clon_s0.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_t4clon_s1.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_t4clon_s2.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_t4cmad_s0.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_t4cmad_s1.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_t4cmad_s2.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_t4cmel_s0.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_t4cmel_s1.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_t4cmel_s2.csv replication/storici/ 2>/dev/null || true
+mv -n results/componenti/weather_abl_d8_2024_s0.csv replication/meteo/ 2>/dev/null || true
+mv -n results/componenti/weather_abl_d8_2024_s1.csv replication/meteo/ 2>/dev/null || true
+mv -n results/componenti/weather_abl_d8_2024_s2.csv replication/meteo/ 2>/dev/null || true
+mv -n results/componenti/weather_abl_t4clon_s0.csv replication/meteo/ 2>/dev/null || true
+mv -n results/componenti/weather_abl_t4clon_s1.csv replication/meteo/ 2>/dev/null || true
+mv -n results/componenti/weather_abl_t4clon_s2.csv replication/meteo/ 2>/dev/null || true
+mv -n results/componenti/weather_abl_t4cmad_s0.csv replication/meteo/ 2>/dev/null || true
+mv -n results/componenti/weather_abl_t4cmad_s1.csv replication/meteo/ 2>/dev/null || true
+mv -n results/componenti/weather_abl_t4cmad_s2.csv replication/meteo/ 2>/dev/null || true
+mv -n results/componenti/weather_abl_t4cmel_s0.csv replication/meteo/ 2>/dev/null || true
+mv -n results/componenti/weather_abl_t4cmel_s1.csv replication/meteo/ 2>/dev/null || true
+mv -n results/componenti/weather_abl_t4cmel_s2.csv replication/meteo/ 2>/dev/null || true
+mv -n results/onboarding/onboard_lon_s0.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboard_lon_s1.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboard_lon_s2.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboard_mad_s0.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboard_mad_s1.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboard_mad_s2.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboard_mel_s0.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboard_mel_s1.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboard_mel_s2.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboard_mel_s3.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboard_mel_s4.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardC_lon_s0.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardC_lon_s1.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardC_lon_s2.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardC_mad_s0.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardC_mad_s1.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardC_mad_s2.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardC_mel_s0.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardC_mel_s1.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardC_mel_s2.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardC_mel_s3.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardC_mel_s4.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardB_lon_s0.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardB_lon_s1.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardB_lon_s2.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardB_mad_s0.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardB_mad_s1.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardB_mad_s2.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardB_mel_s0.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardB_mel_s1.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardB_mel_s2.csv replication/onboard/ 2>/dev/null || true
+mv -n stae_full_t4clon_s0.csv replication/validita/ 2>/dev/null || true
+mv -n stae_full_t4clon_s1.csv replication/validita/ 2>/dev/null || true
+mv -n stae_full_t4clon_s2.csv replication/validita/ 2>/dev/null || true
+mv -n stae_full_t4cmad_s0.csv replication/validita/ 2>/dev/null || true
+mv -n stae_full_t4cmad_s1.csv replication/validita/ 2>/dev/null || true
+mv -n stae_full_t4cmad_s2.csv replication/validita/ 2>/dev/null || true
+mv -n results/componenti/sparse_geoF_long_s0.csv replication/geo/ 2>/dev/null || true
+mv -n results/componenti/sparse_geoF_long_s1.csv replication/geo/ 2>/dev/null || true
+mv -n results/componenti/sparse_geoF_long_s2.csv replication/geo/ 2>/dev/null || true
+mv -n results/componenti/sparse_geoF_short_s0.csv replication/geo/ 2>/dev/null || true
+mv -n results/componenti/sparse_geoF_short_s1.csv replication/geo/ 2>/dev/null || true
+mv -n results/componenti/sparse_geoF_short_s2.csv replication/geo/ 2>/dev/null || true
+mv -n replication/lgb_d8_p85tr_s0.csv replication/storici/ 2>/dev/null || true
+mv -n replication/lgb_d8_p85tr_s1.csv replication/storici/ 2>/dev/null || true
+mv -n replication/lgb_d8_p85tr_s2.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_d8_p85tr_s0.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_d8_p85tr_s1.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_d8_p85tr_s2.csv replication/storici/ 2>/dev/null || true
+mv -n replication/lgb_t4cmad_g075_s0.csv replication/storici/ 2>/dev/null || true
+mv -n replication/lgb_t4cmad_g075_s1.csv replication/storici/ 2>/dev/null || true
+mv -n replication/lgb_t4cmad_g075_s2.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_t4cmad_g075_s0.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_t4cmad_g075_s1.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_t4cmad_g075_s2.csv replication/storici/ 2>/dev/null || true
+mv -n replication/lgb_t4cmad_g085_s0.csv replication/storici/ 2>/dev/null || true
+mv -n replication/lgb_t4cmad_g085_s1.csv replication/storici/ 2>/dev/null || true
+mv -n replication/lgb_t4cmad_g085_s2.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_t4cmad_g085_s0.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_t4cmad_g085_s1.csv replication/storici/ 2>/dev/null || true
+mv -n replication/suite/lgb_t4cmad_g085_s2.csv replication/storici/ 2>/dev/null || true
+mv -n results/componenti/weather_abl_t4clon_precip_s0.csv replication/meteo/ 2>/dev/null || true
+mv -n results/componenti/weather_abl_t4clon_precip_s1.csv replication/meteo/ 2>/dev/null || true
+mv -n results/componenti/weather_abl_t4clon_precip_s2.csv replication/meteo/ 2>/dev/null || true
+mv -n results/componenti/weather_abl_t4cmel_precip_s0.csv replication/meteo/ 2>/dev/null || true
+mv -n results/componenti/weather_abl_t4cmel_precip_s1.csv replication/meteo/ 2>/dev/null || true
+mv -n results/componenti/weather_abl_t4cmel_precip_s2.csv replication/meteo/ 2>/dev/null || true
+mv -n results/componenti/winabl_w12_s0.csv replication/meteo/ 2>/dev/null || true
+mv -n results/componenti/winabl_w12_s1.csv replication/meteo/ 2>/dev/null || true
+mv -n results/componenti/winabl_w12_s2.csv replication/meteo/ 2>/dev/null || true
+mv -n results/componenti/winabl_w24_s0.csv replication/meteo/ 2>/dev/null || true
+mv -n results/componenti/winabl_w24_s1.csv replication/meteo/ 2>/dev/null || true
+mv -n results/componenti/winabl_w24_s2.csv replication/meteo/ 2>/dev/null || true
+mv -n results/componenti/winabl_w4_s0.csv replication/meteo/ 2>/dev/null || true
+mv -n results/componenti/winabl_w4_s1.csv replication/meteo/ 2>/dev/null || true
+mv -n results/componenti/winabl_w4_s2.csv replication/meteo/ 2>/dev/null || true
+mv -n results/onboarding/onboard_base_recheck_lon.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboard_base_recheck_mad.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboard_base_recheck_mel.csv replication/onboard/ 2>/dev/null || true
+mv -n results/componenti/weather_t4clon.csv replication/meteo/ 2>/dev/null || true
+mv -n results/componenti/weather_t4cmad.csv replication/meteo/ 2>/dev/null || true
+mv -n results/onboarding/onboardA_lon_s0.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardA_mad_s0.csv replication/onboard/ 2>/dev/null || true
+mv -n results/suite/FINDINGS_check.csv replication/aggregati/ 2>/dev/null || true
+mv -n results/suite/MODEL_leaderboard.csv replication/aggregati/ 2>/dev/null || true
+mv -n results/onboarding/placement_Londra.csv replication/diagnostiche/ 2>/dev/null || true
+mv -n results/onboarding/placement_Madrid.csv replication/diagnostiche/ 2>/dev/null || true
+mv -n results/onboarding/placement_Melbourne.csv replication/diagnostiche/ 2>/dev/null || true
+mv -n results/fondativi/classify_results.csv replication/estemporanei/ 2>/dev/null || true
+mv -n results/fondativi/gwn_results.csv replication/estemporanei/ 2>/dev/null || true
+mv -n results/fondativi/rnn_baseline_results.csv replication/estemporanei/ 2>/dev/null || true
+mv -n results/fondativi/sota_baseline_results.csv replication/estemporanei/ 2>/dev/null || true
+mv -n results/fondativi/sparse_results.csv replication/estemporanei/ 2>/dev/null || true
+mv -n results/fondativi/stgnn_results.csv replication/estemporanei/ 2>/dev/null || true
+mv -n results/componenti/sparse_geoF_probe.csv replication/geo/ 2>/dev/null || true
+mv -n results/componenti/ign_lon_s0_all.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_lon_s0_transd.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_lon_s0_x-y-degree-road_class-lanes-max_capacity.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_lon_s0_x-y-degree-road_class.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_lon_s0_x-y-degree.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_lon_s1_all.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_lon_s1_transd.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_lon_s1_x-y-degree-road_class-lanes-max_capacity.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_lon_s1_x-y-degree-road_class.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_lon_s1_x-y-degree.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_lon_s2_all.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_lon_s2_transd.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_lon_s2_x-y-degree-road_class-lanes-max_capacity.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_lon_s2_x-y-degree-road_class.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_lon_s2_x-y-degree.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mad_s0_all.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mad_s0_transd.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mad_s0_x-y-degree-road_class-lanes-max_capacity.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mad_s0_x-y-degree-road_class.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mad_s0_x-y-degree.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mad_s1_all.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mad_s1_transd.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mad_s1_x-y-degree-road_class-lanes-max_capacity.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mad_s1_x-y-degree-road_class.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mad_s1_x-y-degree.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mad_s2_all.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mad_s2_transd.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mad_s2_x-y-degree-road_class-lanes-max_capacity.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mad_s2_x-y-degree-road_class.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mad_s2_x-y-degree.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mel_s0_all.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mel_s0_transd.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mel_s0_x-y-degree-road_class-lanes-max_capacity.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mel_s0_x-y-degree-road_class.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mel_s0_x-y-degree.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mel_s1_all.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mel_s1_transd.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mel_s1_x-y-degree-road_class-lanes-max_capacity.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mel_s1_x-y-degree-road_class.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mel_s1_x-y-degree.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mel_s2_all.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mel_s2_transd.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mel_s2_x-y-degree-road_class-lanes-max_capacity.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mel_s2_x-y-degree-road_class.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/ign_mel_s2_x-y-degree.csv replication/identita/ 2>/dev/null || true
+mv -n results/fondativi/ign_results.csv replication/identita/ 2>/dev/null || true
+mv -n results/componenti/weather_ablation_results.csv replication/meteo/ 2>/dev/null || true
+mv -n results/onboarding/onboardA_lon_s0_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardA_mad_s0_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardB_lon_s0_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardB_lon_s1_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardB_lon_s2_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardB_mad_s0_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardB_mad_s1_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardB_mad_s2_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardB_mel_s0_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardB_mel_s1_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardB_mel_s2_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardC_lon_s0_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardC_lon_s1_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardC_lon_s2_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardC_mad_s0_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardC_mad_s1_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardC_mad_s2_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardC_mel_s0_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardC_mel_s1_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardC_mel_s2_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardC_mel_s3_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboardC_mel_s4_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboard_base_recheck_lon_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboard_base_recheck_mad_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboard_base_recheck_mel_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboard_lon_s0_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboard_lon_s1_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboard_lon_s2_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboard_mad_s0_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboard_mad_s1_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboard_mad_s2_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboard_mel_s0_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboard_mel_s1_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboard_mel_s2_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboard_mel_s3_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/onboarding/onboard_mel_s4_pernode.csv replication/onboard/ 2>/dev/null || true
+mv -n results/fondativi/onboard_results.csv replication/onboard/ 2>/dev/null || true
+mv -n replication/suite/lgb_fair_results.csv replication/storici/ 2>/dev/null || true
+mv -n results/fondativi/lgb_fair_results.csv replication/storici/ 2>/dev/null || true
+mv -n results/suite/ALL_results.csv replication/aggregati/ 2>/dev/null || true
+
+echo "fatto. Aggiornare gli schemi di percorso degli script."

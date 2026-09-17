@@ -1,0 +1,82 @@
+
+======================================================================
+[1] GERARCHIA DEI MODELLI (test dei segni + Friedman sui contesti)
+======================================================================
+  contesti esclusi (rietichettature): ['d8_p85tr', 't4cmad_g075', 't4cmad_g085'] -> 9 diventano 6
+  classificazione dei modelli in fasce (verifica):
+    gwn_adaptive                     -> identita
+    staeformer                       -> identita
+    gwn_none                         -> identita
+    agcrn                            -> identita
+    dcrnn                            -> senza_identita
+    lgb_fair                         -> gbdt
+    hist_prior                       -> riferimento
+    t4c_gnn                          -> senza_identita
+
+  contesti: ['d15_2024', 'd8_2023', 'd8_2024', 't4clon', 't4cmad', 't4cmel']
+    d15_2024       identita=0.6902  senza=0.7330  -> identita meglio
+    d8_2023        identita=0.6627  senza=0.7052  -> identita meglio
+    d8_2024        identita=0.6633  senza=0.6933  -> identita meglio
+    t4clon         identita=0.8451  senza=0.8820  -> identita meglio
+    t4cmad         identita=0.9034  senza=0.9476  -> identita meglio
+    t4cmel         identita=0.7894  senza=0.7919  -> identita meglio
+  TEST DEI SEGNI (identita batte senza-identita): 6/6 contesti, p = 0.0156  (H0: nessuna differenza sistematica)
+  TEST DEI SEGNI (identita batte gradient boosting): 6/6, p = 0.0156
+
+  FRIEDMAN DEL PROTOCOLLO (§7.2.10): 4 modelli x 6 contesti -> chi2=18.000, p asintotico(3 gdl)=0.0004398, p ESATTO per enumerazione (191,102,976 assegnazioni) = 1.256e-07
+    ranghi medi: gwn_adaptive=1.00, gwn_none=2.00, lgb_fair=3.00, hist_prior=4.00
+    (i quattro modelli presenti in tutte le configurazioni)
+
+  FRIEDMAN su tutti i modelli comuni: 8 modelli x 6 contesti -> chi2=36.056, p asintotico(7 gdl)=7.076e-06, p per permutazione campionaria (200,000 estrazioni) = 5e-06
+    ranghi medi: gwn_adaptive=1.33, staeformer=2.67, gwn_none=3.17, agcrn=3.50, t4c_gnn=4.67, dcrnn=5.67, lgb_fair=7.00, hist_prior=8.00
+    (p piccolo = esiste una struttura di ranghi: cioe' le FASCE sono reali)
+  FRIEDMAN sulla fascia di testa: 3 modelli x 6 contesti -> chi2=7.000, p asintotico(2 gdl)=0.0302, p ESATTO per enumerazione (46,656 assegnazioni) = 0.02894
+    ranghi medi: gwn_adaptive=1.17, staeformer=2.17, agcrn=2.67
+    (p ALTO = non si puo' rifiutare l'uguaglianza dentro la fascia)
+  Nota: con 6 blocchi la potenza del Friedman e' limitata;
+  i p ESATTI sono quelli da citare: con pochi blocchi l'approssimazione chi2 non e' affidabile.
+
+======================================================================
+[2] FINDING F1/F2/F3 — intervalli di confidenza sui semi + equivalenza F2
+======================================================================
+  contesti: ['d15_2024', 'd8_2023', 'd8_2024', 'd8_p85tr', 't4clon', 't4cmad', 't4cmad_g075', 't4cmad_g085', 't4cmel'] | semi: [np.int64(0), np.int64(1), np.int64(2)]
+
+  --- d15_2024 ---
+    F1 neurale>GBDT: +11.3%  IC95% [+9.7%, +12.8%]  (criterio > +10%)
+    F2 grafo denso (con segno): 0.16%  IC95% [-0.19%, 0.51%]  TOST equivalenza entro ±3%: p = 0.000 (EQUIVALENTE a 0)
+    F3 grafo severo: +22.9%  IC95% [+17.3%, +28.5%]  (criterio > +10%)
+  --- d8_2023 ---
+    F1 neurale>GBDT: +13.9%  IC95% [+11.7%, +16.2%]  (criterio > +10%)
+    F2 grafo denso (con segno): 0.16%  IC95% [0.01%, 0.32%]  TOST equivalenza entro ±3%: p = 0.000 (EQUIVALENTE a 0)
+    F3 grafo severo: +26.4%  IC95% [+24.1%, +28.8%]  (criterio > +10%)
+  --- d8_2024 ---
+    F1 neurale>GBDT: +15.5%  IC95% [+14.4%, +16.5%]  (criterio > +10%)
+    F2 grafo denso (con segno): 0.14%  IC95% [-1.40%, 1.69%]  TOST equivalenza entro ±3%: p = 0.008 (EQUIVALENTE a 0)
+    F3 grafo severo: +24.3%  IC95% [+18.2%, +30.3%]  (criterio > +10%)
+  --- d8_p85tr ---
+    F1 neurale>GBDT: +15.5%  IC95% [+13.2%, +17.9%]  (criterio > +10%)
+    F2 grafo denso (con segno): 0.25%  IC95% [-0.79%, 1.29%]  TOST equivalenza entro ±3%: p = 0.004 (EQUIVALENTE a 0)
+    F3 grafo severo: +24.3%  IC95% [+15.1%, +33.5%]  (criterio > +10%)
+  --- t4clon ---
+    F1 neurale>GBDT: +6.5%  IC95% [+6.2%, +6.9%]  (criterio > +10%)
+    F2 grafo denso (con segno): 1.33%  IC95% [0.60%, 2.07%]  TOST equivalenza entro ±3%: p = 0.005 (EQUIVALENTE a 0)
+    F3 grafo severo: +16.1%  IC95% [+10.9%, +21.4%]  (criterio > +10%)
+  --- t4cmad ---
+    F1 neurale>GBDT: +7.1%  IC95% [+6.6%, +7.7%]  (criterio > +10%)
+    F2 grafo denso (con segno): 0.44%  IC95% [-0.00%, 0.88%]  TOST equivalenza entro ±3%: p = 0.001 (EQUIVALENTE a 0)
+    F3 grafo severo: +11.4%  IC95% [+10.2%, +12.7%]  (criterio > +10%)
+  --- t4cmad_g075 ---
+    F1 neurale>GBDT: +7.7%  IC95% [+7.1%, +8.4%]  (criterio > +10%)
+    F2 grafo denso (con segno): 0.42%  IC95% [-0.30%, 1.14%]  TOST equivalenza entro ±3%: p = 0.002 (EQUIVALENTE a 0)
+    F3 grafo severo: +6.3%  IC95% [+3.4%, +9.1%]  (criterio > +10%)
+  --- t4cmad_g085 ---
+    F1 neurale>GBDT: +6.7%  IC95% [+6.4%, +7.1%]  (criterio > +10%)
+    F2 grafo denso (con segno): 0.40%  IC95% [0.04%, 0.76%]  TOST equivalenza entro ±3%: p = 0.001 (EQUIVALENTE a 0)
+    F3 grafo severo: +6.1%  IC95% [+3.9%, +8.2%]  (criterio > +10%)
+  --- t4cmel ---
+    F1 neurale>GBDT: +15.0%  IC95% [+13.9%, +16.1%]  (criterio > +10%)
+    F2 grafo denso (con segno): 1.42%  IC95% [0.74%, 2.11%]  TOST equivalenza entro ±3%: p = 0.005 (EQUIVALENTE a 0)
+    F3 grafo severo: +5.7%  IC95% [+1.3%, +10.2%]  (criterio > +10%)
+
+  Nota: IC a t con soli 3 semi (2 gradi di liberta') sono ampi per costruzione;
+  vanno letti come misura di stabilita', non come prova di potenza elevata.

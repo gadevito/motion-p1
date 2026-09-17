@@ -1,0 +1,360 @@
+"""
+Test statistici a supporto del deliverable MOTION
+=================================================
+I test sono scelti in base alla STRUTTURA dei dati disponibili — 5 contesti,
+3 semi per configurazione, correlazioni per-coppia per la validazione incrociata —
+e alla DOMANDA, non applicati alla cieca. Con soli 3 semi un t-test fra due modelli
+avrebbe potenza trascurabile: per la gerarchia dei modelli si usano perciò test
+NON parametrici sui ranghi/segni attraverso i contesti, che è dove sta il segnale.
+
+Produce quattro blocchi:
+
+  [1] GERARCHIA DEI MODELLI
+      - Test dei segni: la fascia "con identità" batte la fascia "senza identità"
+        in tutti e 5 i contesti? (H0: 1/2 per contesto -> p = binomiale)
+      - Friedman su tutti i modelli attraverso i 5 contesti (esiste struttura?)
+      - Friedman sui soli 3 modelli di testa (sono indistinguibili? atteso p alto)
+      Input: MODEL_leaderboard.csv  (context, model, wCE_mean, ...)
+
+  [2] FINDING F1/F2/F3 (intervalli di confidenza sui semi + equivalenza per F2)
+      - per ciascun contesto: effetto medio ± IC t (piccolo campione) sui 3 semi
+      - F2 e' una tesi di EQUIVALENZA (grafo ~ 0): test TOST entro ±3%
+      Input: ALL_results.csv  (model, horizon, wCE, experiment, context, seed)
+
+  [3] VALIDAZIONE INCROCIATA (§7.9)
+      - IC bootstrap della mediana delle correlazioni per-coppia
+      - Wilcoxon dei ranghi con segno: la correlazione per-coppia e' centrata su 0?
+      Input: crossval_*.csv  (colonna 'corr', una riga per coppia sensore-segmento)
+
+  [4] ROBUSTEZZA: geografia > 0 nella scomposizione dell'identita' (opzionale)
+      Input: gli aggregati dell'ablazione statiche, se forniti.
+
+Uso (da models/ o dalla radice):
+  poetry run python stats_tests.py \
+      --leaderboard suite_out/MODEL_leaderboard.csv \
+      --replication replication/ALL_results.csv \
+      --crossval crossval_t4cmad.csv \
+      --out stats_report.txt
+
+Ogni input e' opzionale: lo script esegue i blocchi per cui trova i dati.
+Richiede: numpy, pandas, scipy.
+"""
+from pathlib import Path
+import argparse, sys
+import numpy as np
+import pandas as pd
+# --- aggiunto: valore p esatto per enumerazione dei multiinsiemi -------------
+def _p_friedman_esatto(mat, q0, max_multiinsiemi=3_000_000):
+    """Valore p esatto sotto l'ipotesi nulla di Friedman.
+
+    Sotto l'ipotesi nulla ogni blocco contribuisce una permutazione dei ranghi
+    1..k con uguale probabilita'. Anziche' enumerare (k!)^n assegnazioni si
+    enumerano i MULTIINSIEMI di permutazioni, pesati con il coefficiente
+    multinomiale: la statistica dipende infatti dalle sole SOMME dei ranghi, che
+    non cambiano permutando l'ordine dei blocchi.
+
+    Restituisce (p, numero di assegnazioni pesate) oppure (None, 0) se
+    l'enumerazione non e' praticabile.
+    """
+    import itertools, math
+    from collections import Counter
+    nb, nk = mat.shape
+    np_ = math.factorial(nk)
+    if math.comb(np_ + nb - 1, nb) > max_multiinsiemi:
+        return None, 0
+    perm = list(itertools.permutations(range(1, nk + 1)))
+
+    def _q(R):
+        rm = np.asarray(R, float) / nb
+        return 12 * nb / (nk * (nk + 1)) * ((rm - (nk + 1) / 2) ** 2).sum()
+
+    tot = favor = 0
+    for combo in itertools.combinations_with_replacement(range(len(perm)), nb):
+        c = Counter(combo)
+        w = math.factorial(nb)
+        for v in c.values():
+            w //= math.factorial(v)
+        R = [sum(perm[i][j] for i in combo) for j in range(nk)]
+        tot += w
+        if _q(R) >= q0 - 1e-9:
+            favor += w
+    return favor / tot, tot
+
+try:
+    from scipy import stats
+except Exception:
+    print("ERRORE: serve scipy (poetry add scipy).", file=sys.stderr); raise
+
+ap = argparse.ArgumentParser(description="Test statistici del deliverable MOTION")
+ap.add_argument("--leaderboard", type=Path, default=None, help="MODEL_leaderboard.csv")
+ap.add_argument("--replication", type=Path, default=None, help="ALL_results.csv (run_replication)")
+ap.add_argument("--crossval", type=Path, default=None, help="crossval_*.csv con colonna 'corr'")
+ap.add_argument("--statics-glob", default=None, help="glob dei CSV ign_*_s*.csv per il blocco 4")
+ap.add_argument("--f2-margin", type=float, default=0.03, help="soglia di equivalenza per F2 (default 3%%)")
+ap.add_argument("--boot", type=int, default=10000, help="ripetizioni bootstrap")
+ap.add_argument("--escludi-ctx", default="d8_p85tr,t4cmad_g075,t4cmad_g085",
+                help="contesti da escludere: rietichettature a soglia diversa degli stessi dati")
+ap.add_argument("--unita", default="",
+                help="perimetro inferenziale: elenco di contesti separati da virgola (es. d8_2024,t4clon,t4cmel)")
+ap.add_argument("--out", type=Path, default=Path("stats_report.txt"))
+args = ap.parse_args()
+np.random.seed(0)
+LOG = []
+def out(*a):
+    line = " ".join(str(x) for x in a); print(line); LOG.append(line)
+
+# classificazione dei modelli in fasce, per parole chiave (robusta ai nomi esatti)
+def tier(name):
+    n = str(name).lower()
+    if any(k in n for k in ["wavenet", "gwn", "agcrn", "staeformer", "stae"]):
+        return "identita"
+    if any(k in n for k in ["dcrnn", "gcn", "gnn", "t4c_gnn", "t4c"]):
+        return "senza_identita"
+    if any(k in n for k in ["lightgbm", "lgb", "gradient", "boosting"]):
+        return "gbdt"
+    if any(k in n for k in ["prior", "priore", "persist", "storic"]):
+        return "riferimento"
+    return "altro"
+
+TOP3 = ["gwn_adaptive", "agcrn", "staeformer"]   # nomi esatti: il match per sottostringa falliva su gwn_adaptive        # i tre di testa (per Friedman ristretto)
+
+# ------------------------------------------------------------------ [1] ------
+def block_hierarchy(path):
+    out("\n" + "=" * 70)
+    out("[1] GERARCHIA DEI MODELLI (test dei segni + Friedman sui contesti)")
+    out("=" * 70)
+    df = pd.read_csv(path)
+    # riconoscere la colonna della metrica media
+    wcol = next((c for c in ["wCE_mean", "wCE", "wce_mean", "wce"] if c in df.columns), None)
+    ccol = next((c for c in ["context", "contesto", "ctx"] if c in df.columns), None)
+    mcol = next((c for c in ["model", "modello", "modmodello"] if c in df.columns), None)
+    if not (wcol and ccol and mcol):
+        out("  colonne non riconosciute:", list(df.columns), "-> salto."); return
+    df = df[[ccol, mcol, wcol]].copy(); df.columns = ["context", "model", "wCE"]
+    _esc = [c.strip() for c in args.escludi_ctx.split(",") if c.strip()]
+    if _esc:
+        _pre = df.context.nunique(); df = df[~df.context.isin(_esc)]
+        out(f"  contesti esclusi (rietichettature): {_esc} -> {_pre} diventano {df.context.nunique()}")
+    if args.unita:
+        _u = [c.strip() for c in args.unita.split(",")]
+        df = df[df.context.isin(_u)]
+        out(f"  PERIMETRO INFERENZIALE: {_u}")
+    df["tier"] = df["model"].map(tier)
+    out("  classificazione dei modelli in fasce (verifica):")
+    for m, t in df[["model", "tier"]].drop_duplicates().itertuples(index=False):
+        out(f"    {m:<32s} -> {t}")
+    contexts = sorted(df["context"].unique())
+    out(f"\n  contesti: {contexts}")
+
+    # --- test dei segni: identita < senza_identita in ogni contesto ---
+    wins = 0; tot = 0
+    for c in contexts:
+        sub = df[df.context == c]
+        a = sub[sub.tier == "identita"]["wCE"].mean()
+        b = sub[sub.tier == "senza_identita"]["wCE"].mean()
+        if np.isfinite(a) and np.isfinite(b):
+            tot += 1; wins += int(a < b)
+            out(f"    {c:<14s} identita={a:.4f}  senza={b:.4f}  -> {'identita meglio' if a<b else 'no'}")
+    if tot:
+        p = stats.binomtest(wins, tot, 0.5, alternative="greater").pvalue
+        out(f"  TEST DEI SEGNI (identita batte senza-identita): {wins}/{tot} contesti, "
+            f"p = {p:.4f}  (H0: nessuna differenza sistematica)")
+    # stessa cosa identita vs gbdt
+    wins = tot = 0
+    for c in contexts:
+        sub = df[df.context == c]
+        a = sub[sub.tier == "identita"]["wCE"].mean(); b = sub[sub.tier == "gbdt"]["wCE"].mean()
+        if np.isfinite(a) and np.isfinite(b): tot += 1; wins += int(a < b)
+    if tot:
+        p = stats.binomtest(wins, tot, 0.5, alternative="greater").pvalue
+        out(f"  TEST DEI SEGNI (identita batte gradient boosting): {wins}/{tot}, p = {p:.4f}")
+
+    # --- Friedman su tutti i modelli comuni a tutti i contesti ---
+    piv = df.pivot_table(index="model", columns="context", values="wCE")
+    piv_all = piv.dropna(axis=0)
+
+    def _friedman(sub, etichetta):
+        """blocchi = contesti (righe), trattamenti = modelli (colonne). Con pochi blocchi
+        l'approssimazione chi2 non e' affidabile: si riporta anche il p esatto."""
+        mat = sub.T.values                       # (contesti, modelli)
+        nb, nk = mat.shape
+        assert nb == sub.shape[1] and nk == sub.shape[0], f"orientazione errata: {mat.shape}"
+        if nb < 3 or nk < 3:
+            out(f"  {etichetta}: non eseguibile ({nb} blocchi, {nk} trattamenti)"); return
+        def Q(m):
+            r = np.apply_along_axis(stats.rankdata, 1, m)
+            return 12*nb/(nk*(nk+1))*((r.mean(0)-(nk+1)/2)**2).sum()
+        q0 = Q(mat); pa = stats.chi2.sf(q0, nk-1)
+        # esatto per enumerazione dove praticabile, campionario altrimenti:
+        # con pochi trattamenti il campionamento non risolve valori p molto piccoli
+        pe, n_ass = _p_friedman_esatto(mat, q0)
+        if pe is not None:
+            proc = f"ESATTO per enumerazione ({n_ass:,} assegnazioni)"
+        else:
+            rng = np.random.default_rng(0); B = 200000
+            c = sum(Q(np.apply_along_axis(rng.permutation, 1, mat.copy())) >= q0-1e-9
+                    for _ in range(B))
+            pe = (c+1)/(B+1)
+            lim = " (LIMITE SUPERIORE: nessun successo campionato)" if c == 0 else ""
+            proc = f"per permutazione campionaria ({B:,} estrazioni){lim}"
+        out(f"  {etichetta}: {nk} modelli x {nb} contesti -> chi2={q0:.3f}, "
+            f"p asintotico({nk-1} gdl)={pa:.4g}, p {proc} = {pe:.4g}")
+        rm = np.apply_along_axis(stats.rankdata, 1, mat).mean(0)
+        out("    ranghi medi: " + ", ".join(f"{m}={r:.2f}" for m, r in
+            sorted(zip(sub.index, rm), key=lambda x: x[1])))
+    out("")
+    # --- Friedman DEL PROTOCOLLO: i quattro modelli di §7.2.10 ---------------
+    # Le due varianti di Graph WaveNet, il metodo tabellare a parita' di
+    # informazione e il riferimento non addestrato: sono i quattro modelli
+    # presenti in tutte le configurazioni sperimentali. E' il test dichiarato
+    # nel disegno, ed e' quello il cui valore va citato nel documento.
+    QUATTRO = ["gwn_adaptive", "gwn_none", "lgb_fair", "hist_prior"]
+    prot = piv[piv.index.isin(QUATTRO)].dropna(axis=0)
+    mancanti = [m for m in QUATTRO if m not in prot.index]
+    if mancanti:
+        out(f"  ATTENZIONE: Friedman del protocollo non eseguibile, mancano {mancanti}")
+    else:
+        _friedman(prot, "FRIEDMAN DEL PROTOCOLLO (§7.2.10)")
+        out("    (i quattro modelli presenti in tutte le configurazioni)")
+    out("")
+    _friedman(piv_all, "FRIEDMAN su tutti i modelli comuni")
+    out("    (p piccolo = esiste una struttura di ranghi: cioe' le FASCE sono reali)")
+    # --- Friedman ristretto ai 3 di testa: attesa indistinguibilita' (p alto) ---
+    top = piv[piv.index.isin(TOP3)].dropna(axis=0)
+    if top.shape[0] < 3:
+        out(f"  ATTENZIONE: Friedman di testa non eseguibile, trovati {top.shape[0]} modelli su 3 ({list(top.index)})")
+    # tenere una riga per keyword (evita di contare due varianti GWN)
+    _friedman(top, "FRIEDMAN sulla fascia di testa")
+    # SOTTOINSIEMI: se le due famiglie producono ordinamenti diversi, la
+    # differenza fra gli esiti sui due perimetri non e' di potenza ma di
+    # struttura, e l'attribuzione alla numerosita' dei blocchi va riformulata.
+    for _eti, _sel in (("citta", [c for c in top.columns if str(c).startswith("t4c")]),
+                       ("spire", [c for c in top.columns if not str(c).startswith("t4c")])):
+        if len(_sel) < 2:
+            continue
+        _sub = top[_sel]
+        _r = _sub.rank(axis=0).mean(axis=1)
+        out(f"    su {_eti} ({len(_sel)} blocchi): ordine "
+            + " < ".join(_r.sort_values().index)
+            + "   ranghi " + ", ".join(f"{k}={v:.2f}" for k, v in _r.items()))
+    # il p minimo ottenibile dipende dal disegno: con k trattamenti e n blocchi
+    # le assegnazioni sono (k!)^n e la concordanza perfetta ne occupa k!
+    import math as _m
+    _k, _n = top.shape[0], top.shape[1]
+    out(f"    p minimo ottenibile con {_k} trattamenti e {_n} blocchi: "
+        f"{_m.factorial(_k) / _m.factorial(_k) ** _n:.4f}")
+    out("    (p ALTO = non si puo' rifiutare l'uguaglianza dentro la fascia)")
+    out(f"  Nota: con {df.context.nunique()} blocchi la potenza del Friedman e' limitata;")
+    out("  i p ESATTI sono quelli da citare: con pochi blocchi l'approssimazione chi2 non e' affidabile.")
+
+# ------------------------------------------------------------------ [2] ------
+def block_findings(path):
+    out("\n" + "=" * 70)
+    out("[2] FINDING F1/F2/F3 — intervalli di confidenza sui semi + equivalenza F2")
+    out("=" * 70)
+    df = pd.read_csv(path)
+    need = {"wCE", "experiment", "context", "seed", "model"}
+    if not need.issubset(df.columns):
+        out("  colonne attese non trovate:", sorted(need - set(df.columns)), "-> salto."); return
+    # media sugli orizzonti per (experiment, context, seed, model)
+    g = df.groupby(["experiment", "context", "seed", "model"], as_index=False)["wCE"].mean()
+
+    def pick(exp_kw, model_kw, ctx, seed):
+        m = g[(g.context == ctx) & (g.seed == seed)
+              & g.experiment.str.contains(exp_kw, case=False, na=False)
+              & g.model.str.contains(model_kw, case=False, na=False)]
+        return m["wCE"].mean() if len(m) else np.nan
+
+    def tci(vals):
+        vals = np.asarray([v for v in vals if np.isfinite(v)], float)
+        if len(vals) < 2: return (np.nan, np.nan, np.nan)
+        m, sd = vals.mean(), vals.std(ddof=1)
+        h = stats.t.ppf(0.975, len(vals) - 1) * sd / np.sqrt(len(vals))
+        return m, m - h, m + h
+
+    contexts = sorted(g.context.unique()); seeds = sorted(g.seed.unique())
+    out(f"  contesti: {contexts} | semi: {seeds}\n")
+    for ctx in contexts:
+        f1 = []; f2 = []; f3 = []
+        for s in seeds:
+            lgb = pick("lgb", "lightgbm|lgb", ctx, s)
+            neu = pick("classify", "none|no.?graph|senza", ctx, s)
+            ad = pick("classify", "adaptive|con.?graf|grafo", ctx, s)
+            sev_n = pick("sparse", "none|senza", ctx, s)
+            sev_a = pick("sparse", "adaptive|grafo", ctx, s)
+            if np.isfinite(lgb) and np.isfinite(neu): f1.append((lgb - neu) / lgb)
+            if np.isfinite(ad) and np.isfinite(neu): f2.append((neu - ad) / neu)  # verso pre-registrato §7.2.5: (senza grafo - con grafo)/senza grafo
+            if np.isfinite(sev_n) and np.isfinite(sev_a): f3.append((sev_n - sev_a) / sev_n)
+        m1, lo1, hi1 = tci(f1); m2, lo2, hi2 = tci(f2); m3, lo3, hi3 = tci(f3)
+        out(f"  --- {ctx} ---")
+        if np.isfinite(m1): out(f"    F1 neurale>GBDT: {m1:+.1%}  IC95% [{lo1:+.1%}, {hi1:+.1%}]  (criterio > +10%)")
+        if np.isfinite(m2):
+            # TOST equivalenza entro ±margine
+            vals = np.asarray(f2); n = len(vals)
+            if n >= 2:
+                mu, sd = vals.mean(), vals.std(ddof=1); se = sd / np.sqrt(n)
+                t_low = (mu - (-args.f2_margin)) / se; t_high = (mu - args.f2_margin) / se
+                p_tost = max(stats.t.sf(t_low, n - 1), stats.t.cdf(t_high, n - 1))
+                out(f"    F2 grafo denso (con segno): {m2:.2%}  IC95% [{lo2:.2%}, {hi2:.2%}]  "
+                    f"TOST equivalenza entro ±{args.f2_margin:.0%}: p = {p_tost:.3f} "
+                    f"({'EQUIVALENTE a 0' if p_tost < 0.05 else 'non conclusivo'})")
+        if np.isfinite(m3): out(f"    F3 grafo severo: {m3:+.1%}  IC95% [{lo3:+.1%}, {hi3:+.1%}]  (criterio > +10%)")
+    out("\n  Nota: IC a t con soli 3 semi (2 gradi di liberta') sono ampi per costruzione;")
+    out("  vanno letti come misura di stabilita', non come prova di potenza elevata.")
+
+# ------------------------------------------------------------------ [3] ------
+def block_crossval(path):
+    out("\n" + "=" * 70)
+    out("[3] VALIDAZIONE INCROCIATA — IC bootstrap della mediana + Wilcoxon")
+    out("=" * 70)
+    df = pd.read_csv(path)
+    cc = next((c for c in ["corr", "correlazione", "r"] if c in df.columns), None)
+    if cc is None:
+        out("  colonna 'corr' non trovata:", list(df.columns), "-> salto."); return
+    r = df[cc].to_numpy(float); r = r[np.isfinite(r)]
+    n = len(r)
+    med = np.median(r); mean = r.mean()
+    boot = np.array([np.median(np.random.choice(r, n, replace=True)) for _ in range(args.boot)])
+    lo, hi = np.percentile(boot, [2.5, 97.5])
+    out(f"  coppie valide: {n}")
+    out(f"  correlazione per-coppia: mediana {med:.3f} (IC95% bootstrap [{lo:.3f}, {hi:.3f}]), media {mean:.3f}")
+    # Wilcoxon: la distribuzione e' centrata su 0?
+    try:
+        w, p = stats.wilcoxon(r, alternative="two-sided", zero_method="wilcox")
+        out(f"  Wilcoxon (H0: mediana = 0): p = {p:.4g}")
+    except Exception as e:
+        out(f"  Wilcoxon non calcolabile ({e})")
+    frac = np.mean(np.abs(r) > 0.3)
+    out(f"  quota di coppie con |correlazione| > 0,3: {frac:.1%}")
+    out("  Lettura: se l'IC della mediana include o sfiora 0, la ricostruzione non traccia")
+    out("  la velocita' misurata; il risultato negativo di §7.9 e' cosi' quantificato.")
+
+# ------------------------------------------------------------------ [4] ------
+def block_statics(glob):
+    out("\n" + "=" * 70)
+    out("[4] SCOMPOSIZIONE IDENTITA' — la geografia recupera > 0? (opzionale)")
+    out("=" * 70)
+    files = sorted(Path(".").glob(glob))
+    if not files:
+        out(f"  nessun file per '{glob}' -> salto."); return
+    out(f"  trovati {len(files)} file; per un test formale servono i divari colmati per seme/citta'.")
+    out("  (Questo blocco e' un segnaposto: fornire gli aggregati di ign_aggregate per abilitarlo.)")
+
+# ------------------------------------------------------------------ main -----
+def _run(flag, fn, label):
+    if flag is None: return False
+    if not Path(flag).exists():
+        out(f"\n[ATTENZIONE] {label}: file non trovato ({flag}) -> blocco saltato. "
+            f"Controlla il nome (es. 'ls {Path(flag).name.split('.')[0]}*.csv').")
+        return False
+    fn(flag); return True
+
+ran = False
+ran |= _run(args.leaderboard, block_hierarchy, "leaderboard")
+ran |= _run(args.replication, block_findings, "replication")
+ran |= _run(args.crossval, block_crossval, "crossval")
+if args.statics_glob: block_statics(args.statics_glob); ran = True
+if not ran:
+    out("Nessun input valido. Fornire almeno uno tra --leaderboard, --replication, --crossval.")
+args.out.write_text("\n".join(LOG) + "\n")
+out(f"\n[report salvato in {args.out}]")

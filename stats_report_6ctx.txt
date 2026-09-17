@@ -1,0 +1,71 @@
+
+======================================================================
+[1] GERARCHIA DEI MODELLI (test dei segni + Friedman sui contesti)
+======================================================================
+  classificazione dei modelli in fasce (verifica):
+    gwn_adaptive                     -> identita
+    gwn_none                         -> identita
+    staeformer                       -> identita
+    agcrn                            -> identita
+    t4c_gnn                          -> senza_identita
+    dcrnn                            -> senza_identita
+    lgb_fair                         -> gbdt
+    hist_prior                       -> riferimento
+
+  contesti: ['d15_2024', 'd8_2023', 'd8_2024', 't4clon', 't4cmad', 't4cmel']
+    d15_2024       identita=0.6904  senza=0.7331  -> identita meglio
+    d8_2023        identita=0.6617  senza=0.7058  -> identita meglio
+    d8_2024        identita=0.6628  senza=0.6931  -> identita meglio
+    t4clon         identita=0.8451  senza=0.8820  -> identita meglio
+    t4cmad         identita=0.9034  senza=0.9476  -> identita meglio
+    t4cmel         identita=0.7894  senza=0.7919  -> identita meglio
+  TEST DEI SEGNI (identita batte senza-identita): 6/6 contesti, p = 0.0156  (H0: nessuna differenza sistematica)
+  TEST DEI SEGNI (identita batte gradient boosting): 6/6, p = 0.0156
+
+  FRIEDMAN su tutti i 8 modelli comuni x 6 contesti: chi2=30.57, p=1.138e-05
+    (p piccolo = esiste una struttura di ranghi: cioe' le FASCE sono reali)
+  Nota: con 5 contesti la potenza del Friedman e' limitata; il test dei segni
+  sulla direzione (5/5) e' l'evidenza piu' robusta della gerarchia.
+
+======================================================================
+[2] FINDING F1/F2/F3 — intervalli di confidenza sui semi + equivalenza F2
+======================================================================
+  contesti: ['d15_2024', 'd8_2023', 'd8_2024', 't4clon', 't4cmad', 't4cmel'] | semi: [np.int64(0), np.int64(1), np.int64(2)]
+
+  --- d15_2024 ---
+    F1 neurale>GBDT: +16.7%  IC95% [+16.0%, +17.4%]  (criterio > +10%)
+    F2 |grafo| denso: 0.16%  IC95% [-0.19%, 0.51%]  TOST equivalenza entro ±3%: p = 0.000 (EQUIVALENTE a 0)
+    F3 grafo severo: +22.9%  IC95% [+17.3%, +28.5%]  (criterio > +10%)
+  --- d8_2023 ---
+    F1 neurale>GBDT: +22.6%  IC95% [+21.8%, +23.3%]  (criterio > +10%)
+    F2 |grafo| denso: 0.16%  IC95% [0.01%, 0.32%]  TOST equivalenza entro ±3%: p = 0.000 (EQUIVALENTE a 0)
+    F3 grafo severo: +26.4%  IC95% [+24.1%, +28.8%]  (criterio > +10%)
+  --- d8_2024 ---
+    F1 neurale>GBDT: +24.7%  IC95% [+23.9%, +25.6%]  (criterio > +10%)
+    F2 |grafo| denso: 0.52%  IC95% [0.19%, 0.85%]  TOST equivalenza entro ±3%: p = 0.000 (EQUIVALENTE a 0)
+    F3 grafo severo: +24.3%  IC95% [+18.2%, +30.3%]  (criterio > +10%)
+  --- t4clon ---
+    F1 neurale>GBDT: +8.9%  IC95% [+8.3%, +9.5%]  (criterio > +10%)
+    F2 |grafo| denso: 1.33%  IC95% [0.60%, 2.07%]  TOST equivalenza entro ±3%: p = 0.005 (EQUIVALENTE a 0)
+    F3 grafo severo: +16.1%  IC95% [+10.9%, +21.4%]  (criterio > +10%)
+  --- t4cmad ---
+    F1 neurale>GBDT: +7.5%  IC95% [+7.3%, +7.7%]  (criterio > +10%)
+    F2 |grafo| denso: 0.44%  IC95% [-0.00%, 0.88%]  TOST equivalenza entro ±3%: p = 0.001 (EQUIVALENTE a 0)
+    F3 grafo severo: +11.4%  IC95% [+10.2%, +12.7%]  (criterio > +10%)
+  --- t4cmel ---
+    F1 neurale>GBDT: +20.0%  IC95% [+18.5%, +21.4%]  (criterio > +10%)
+    F2 |grafo| denso: 1.42%  IC95% [0.74%, 2.11%]  TOST equivalenza entro ±3%: p = 0.005 (EQUIVALENTE a 0)
+    F3 grafo severo: +5.7%  IC95% [+1.3%, +10.2%]  (criterio > +10%)
+
+  Nota: IC a t con soli 3 semi (2 gradi di liberta') sono ampi per costruzione;
+  vanno letti come misura di stabilita', non come prova di potenza elevata.
+
+======================================================================
+[3] VALIDAZIONE INCROCIATA — IC bootstrap della mediana + Wilcoxon
+======================================================================
+  coppie valide: 399
+  correlazione per-coppia: mediana 0.041 (IC95% bootstrap [0.034, 0.046]), media 0.063
+  Wilcoxon (H0: mediana = 0): p = 5.24e-47
+  quota di coppie con |correlazione| > 0,3: 2.8%
+  Lettura: se l'IC della mediana include o sfiora 0, la ricostruzione non traccia
+  la velocita' misurata; il risultato negativo di §7.9 e' cosi' quantificato.

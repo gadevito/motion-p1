@@ -1,0 +1,32 @@
+verifica;contesto;valore;soglia pre-registrata;esito;natura del mancato;perimetro;fonte
+R1 neurale > GBDT;d15/2024;+11,3%;>= +10%;SUPERATO;-;principale;FINDINGS_check
+R2 grafo ~ 0 (denso);d15/2024;0,16%;entro +/-3% (TOST);SUPERATO;-;principale;FINDINGS_check
+R3 grafo >> 0 (severo);d15/2024;+22,9%;>= +10%;SUPERATO;-;principale;FINDINGS_check
+R1 neurale > GBDT;d8/2023;+13,9%;>= +10%;SUPERATO;-;principale;FINDINGS_check
+R2 grafo ~ 0 (denso);d8/2023;0,16%;entro +/-3% (TOST);SUPERATO;-;principale;FINDINGS_check
+R3 grafo >> 0 (severo);d8/2023;+26,4%;>= +10%;SUPERATO;-;principale;FINDINGS_check
+R1 neurale > GBDT;d8/2024;+15,5%;>= +10%;SUPERATO;-;principale;FINDINGS_check
+R2 grafo ~ 0 (denso);d8/2024;0,14%;entro +/-3% (TOST);SUPERATO;-;principale;FINDINGS_check
+R3 grafo >> 0 (severo);d8/2024;+24,3%;>= +10%;SUPERATO;-;principale;FINDINGS_check
+R1 neurale > GBDT;Londra;+6,5%;>= +10%;SOTTO SOGLIA;ampiezza (segno preservato);principale;FINDINGS_check
+R2 grafo ~ 0 (denso);Londra;1,33%;entro +/-3% (TOST);SUPERATO;-;principale;FINDINGS_check
+R3 grafo >> 0 (severo);Londra;+16,1%;>= +10%;SUPERATO;-;principale;FINDINGS_check
+R1 neurale > GBDT;Madrid;+7,1%;>= +10%;SOTTO SOGLIA;ampiezza (segno preservato);principale;FINDINGS_check
+R2 grafo ~ 0 (denso);Madrid;0,44%;entro +/-3% (TOST);SUPERATO;-;principale;FINDINGS_check
+R3 grafo >> 0 (severo);Madrid;+11,4%;>= +10%;SUPERATO;-;principale;FINDINGS_check
+R1 neurale > GBDT (sensibilita);Madrid g=0,75;+7,7%;>= +10%;SOTTO SOGLIA;ampiezza (rarita del rosso, v. §8.7);esteso;FINDINGS_check
+R2 grafo ~ 0 (denso) (sensibilita);Madrid g=0,75;0,42%;entro +/-3% (TOST);SUPERATO;-;esteso;FINDINGS_check
+R3 grafo >> 0 (severo) (sensibilita);Madrid g=0,75;+6,3%;>= +10%;SOTTO SOGLIA;ampiezza (rarita del rosso, v. §8.7);esteso;FINDINGS_check
+R1 neurale > GBDT (sensibilita);Madrid g=0,85;+6,7%;>= +10%;SOTTO SOGLIA;ampiezza (rarita del rosso, v. §8.7);esteso;FINDINGS_check
+R2 grafo ~ 0 (denso) (sensibilita);Madrid g=0,85;0,40%;entro +/-3% (TOST);SUPERATO;-;esteso;FINDINGS_check
+R3 grafo >> 0 (severo) (sensibilita);Madrid g=0,85;+6,0%;>= +10%;SOTTO SOGLIA;ampiezza (rarita del rosso, v. §8.7);esteso;FINDINGS_check
+R1 neurale > GBDT;Melbourne;+15,0%;>= +10%;SUPERATO;-;principale;FINDINGS_check
+R2 grafo ~ 0 (denso);Melbourne;1,42%;entro +/-3% (TOST);SUPERATO;-;principale;FINDINGS_check
+R3 grafo >> 0 (severo);Melbourne;+5,7%;>= +10%;SOTTO SOGLIA;"spiegazione candidata: spaziatura fra i sensori (V1 ne mostra la sufficienza su Madrid; disegno definito dopo l'esito, esplorativo)";principale;FINDINGS_check
+R4 inserimento a 24h;Madrid;"92.9% (3 semi; Tab.18 arrotonda dai medesimi semi)";>= 70% divario colmato;SUPERATO;-;principale;onboard_*_s?.csv (ricalcolo)
+R4 inserimento a 24h;Londra;"101.9% (3 semi; Tab.18 arrotonda dai medesimi semi)";>= 70% divario colmato;SUPERATO;-;principale;onboard_*_s?.csv (ricalcolo)
+R4 inserimento a 24h;Melbourne;"20.8% (5 semi [estensione a 5 semi decisa dopo il primo esito]; Tab.18 arrotonda dai medesimi semi)";>= 70% divario colmato;SOTTO SOGLIA;"spiegazione candidata: identita di forma (profilo orario: 21->53%, sotto criterio e senza tabella dedicata; differenziale di difficolta -0,0354 su divario 0,079 non escluso)";principale;onboard_*_s?.csv (ricalcolo)
+V1 geometria (seguito R3);Madrid, grafo 50 m vs 272 m;"short +10.3/+9.7/+9.2 vs long +0.2/+1.4/+0.5; Delta 10.1/8.3/8.7";"long < 10% E Delta >= 5 pt; sanity 11.4 +/- 5";SUPERATO (3/3 semi);-;validita;sparse_geoF_*.csv (ricalcolo)
+V2 finestra d'ingresso;Madrid, finestra 1/3/6 h;scarto max 0.31% (medie per finestra: w12=0.9046, w24=0.9054, w4=0.9074);differenze < 1% fra finestre (Tab.12);SUPERATO;-;validita;"winabl (9 file; filtro model=base, subset=all; media per finestra sui semi)"
+V3 scala piena STAEformer;Madrid + Londra;"Madrid 0.90491->0.90760 (+0.30%); Londra 0.84802->0.84831 (+0.034%)";|scarto| < 1% dalla configurazione della suite, per citta (Tab.12);SUPERATO;-;validita;stae_full_* vs MODEL_leaderboard (ricalcolo per citta)
+V4 riferimento p85 train-only;d8/2024 (variante);F1 +15,5%, F2 0,25%, F3 +24,3%;gerarchia e segni invariati vs d8/2024;SUPERATO;-;validita;FINDINGS riga d8_p85tr

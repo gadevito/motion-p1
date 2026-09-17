@@ -1,0 +1,28 @@
+# --- dati di ingresso: grandi, immutabili, versionati altrove ---------------
+data_collection/
+austin/
+*.npz
+*.npy
+*.parquet
+
+# --- risultati ed esecuzioni: tracciati dal registro, non da git ------------
+replication/
+results/
+log/
+*.log
+descrittori/
+figure/
+_archivio/
+
+# --- artefatti di lavoro ----------------------------------------------------
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+/tmp/
+*.docx
+*.pdf
+
+# --- eccezioni: questi SI' ---------------------------------------------------
+!evoluzione/**/*.md
+!README*.md

@@ -1,0 +1,1278 @@
+radice: /Users/gabrieledevito/Personal/MOTION/deliverables/OR3
+CSV: 1947  |  di cui sorgente (intoccabili): 33  |  firme distinte fra i risultati: 286
+
+SORGENTE — 33 file sotto austin/, data_collection/, descrittori/, geo_sweep/, kit_archivio/, papers/, prereg/
+   dati sorgente e artefatti della pipeline: NON vengono spostati.
+   fra questi 16 anagrafiche di sensori. Le revisioni
+   datate vanno tenute TUTTE: dal 6/7/2026 l'anagrafica GO-MO ha
+   perso `max_capacity` e `has_data`, e gli esperimenti che le
+   richiedono devono usare quella dei run originali.
+
+  #  file       periodo destinazione   contenuto
+------------------------------------------------------------------------------------------------------
+  0    36   06/07–26/07 suite          riferimento tabellare
+                                        campagna: lgb
+                                        modelli: lgb_fair
+                                        esempio: replication/_lgb_storico/lgb_d15_2024_s0.csv
+  1    30   19/08–20/08 identita       descrittore osservabile di nodo
+                                        campagna: a6A
+                                        modelli: gwn_none,hist_prior
+                                        esempio: replication/a6A_d15_2024_s0.csv
+  2    30   19/08–20/08 identita       descrittore osservabile di nodo
+                                        campagna: a6C
+                                        modelli: gwn_none,hist_prior
+                                        esempio: replication/a6C_d15_2024_s0.csv
+  3    30   20/08–21/08 identita       descrittore osservabile di nodo
+                                        campagna: a6N8
+                                        modelli: gwn_none,hist_prior
+                                        esempio: replication/a6N8_d15_2024_s0.csv
+  4    30   19/08–20/08 identita       descrittore osservabile di nodo
+                                        campagna: a6P2
+                                        modelli: gwn_none,hist_prior
+                                        esempio: replication/a6P2_d15_2024_s0.csv
+  5    30   19/08–20/08 identita       descrittore osservabile di nodo
+                                        campagna: a6P8
+                                        modelli: gwn_none,hist_prior
+                                        esempio: replication/a6P8_d15_2024_s0.csv
+  6    30   21/08–21/08 identita       descrittore osservabile di nodo
+                                        campagna: a6X8
+                                        modelli: gwn_none,hist_prior
+                                        esempio: replication/a6X8_d15_2024_s0.csv
+  7    30   01/08–04/08 storici        riconosciuto dal nome   [rifatta dopo la patch dell'attributo di distanza]
+                                        campagna: camp_classify
+                                        modelli: gwn_adaptive,gwn_none,hist_prior
+                                        esempio: replication/camp_classify_d15_2024_s0.csv
+  8    30   01/08–03/08 suite          riferimento tabellare
+                                        campagna: camp_lgb
+                                        modelli: lgb_fair
+                                        esempio: replication/camp_lgb_d15_2024_s0.csv
+  9    30   05/08–08/08 superati       riferimenti ricorrenti   ANTERIORE ALLA PATCH
+                                        campagna: camp_rnn
+                                        modelli: agcrn,dcrnn
+                                        esempio: replication/camp_rnn_d15_2024_s0.csv
+ 10    30   06/08–08/08 superati       STAEformer + GCN stile Traffic4cast   ANTERIORE ALLA PATCH
+                                        campagna: camp_sota
+                                        modelli: staeformer,t4c_gnn
+                                        esempio: replication/camp_sota_d15_2024_s0.csv
+ 11    30   01/08–04/08 storici        riconosciuto dal nome   [rifatta dopo la patch dell'attributo di distanza]
+                                        campagna: camp_sparse
+                                        modelli: gwn_adaptive,gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/camp_sparse_d15_2024_s0.csv
+ 12    30   08/08–09/08 superati       combinazione di modelli non riconosciuta   ANTERIORE ALLA PATCH
+                                        campagna: densefix
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/densefix_d15_2024_s0.csv
+ 13    30   18/08–19/08 identita       descrittore osservabile: proiezione a 2 e a 8 dimensioni
+                                        campagna: desc2
+                                        modelli: gwn_none,hist_prior
+                                        esempio: replication/desc2_d15_2024_s0.csv
+ 14    30   18/08–19/08 identita       descrittore osservabile: proiezione a 2 e a 8 dimensioni
+                                        campagna: desc8
+                                        modelli: gwn_none,hist_prior
+                                        esempio: replication/desc8_d15_2024_s0.csv
+ 15    30   24/08–25/08 suite          riferimento tabellare
+                                        campagna: lgbreg
+                                        modelli: lgb_fair
+                                        esempio: replication/lgbreg_d15_2024_s0.csv
+ 16    30   16/08–17/08 suite          riferimento tabellare
+                                        campagna: lgbristr
+                                        modelli: lgb_fair
+                                        esempio: replication/lgbristr_d15_2024_s0.csv
+ 17    30   09/08–14/08 suite          riconosciuto dal nome
+                                        campagna: prec_classify
+                                        modelli: gwn_adaptive,gwn_none,gwn_stid,hist_prior
+                                        esempio: replication/prec_classify_d15_2024_s0.csv
+ 18    30   10/08–14/08 suite          riferimento tabellare
+                                        campagna: prec_lgb
+                                        modelli: lgb_fair
+                                        esempio: replication/prec_lgb_d15_2024_s0.csv
+ 19    30   10/08–14/08 superati       riferimenti ricorrenti   ANTERIORE ALLA PATCH
+                                        campagna: prec_rnn
+                                        modelli: agcrn,dcrnn
+                                        esempio: replication/prec_rnn_d15_2024_s0.csv
+ 20    30   10/08–14/08 superati       STAEformer + GCN stile Traffic4cast   ANTERIORE ALLA PATCH
+                                        campagna: prec_sota
+                                        modelli: staeformer,t4c_gnn
+                                        esempio: replication/prec_sota_d15_2024_s0.csv
+ 21    30   17/08–18/08 calibrazione   ramo neurale della campagna di calibrazione (Tabella 24)
+                                        campagna: val_classify
+                                        modelli: gwn_none,hist_prior
+                                        esempio: replication/val_classify_d15_2024_s0.csv
+ 22    30   17/08–18/08 suite          riferimento tabellare
+                                        campagna: val_lgb
+                                        modelli: lgb_fair
+                                        esempio: replication/val_lgb_d15_2024_s0.csv
+ 23    24   10/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboard
+                                        modelli: —
+                                        esempio: models/onboard_lon_s0.csv
+ 24    24   16/07–22/07 meteo          ablazione del meteo, due rami
+                                        campagna: weather_abl
+                                        modelli: base,weather
+                                        esempio: models/weather_abl_d8_2024_s0.csv
+ 25    22   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardC
+                                        modelli: —
+                                        esempio: models/onboardC_lon_s0.csv
+ 26    18   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardB
+                                        modelli: —
+                                        esempio: models/onboardB_lon_s0.csv
+ 27    18   06/07–15/07 suite          riconosciuto dal nome
+                                        campagna: classify
+                                        modelli: gwn_adaptive,gwn_none,hist_prior
+                                        esempio: replication/classify_d15_2024_s0.csv
+ 28    18   29/07–29/07 suite          riferimento tabellare
+                                        campagna: lgbT4c
+                                        modelli: lgb_fair
+                                        esempio: replication/lgbT4c_d15_2024_s0.csv
+ 29    18   28/07–28/07 suite          riferimento tabellare
+                                        campagna: lgbfair
+                                        modelli: lgb_fair
+                                        esempio: replication/metrics/lgbfair_d15_2024_s0.csv
+ 30    18   27/07–28/07 diagnostiche   riconosciuto dal nome
+                                        campagna: metrics
+                                        modelli: —
+                                        esempio: replication/metrics/metrics_d15_2024_s0.csv
+ 31    18   28/07–28/07 diagnostiche   riconosciuto dal nome
+                                        campagna: metrics_lgbfair
+                                        modelli: —
+                                        esempio: replication/metrics/metrics_lgbfair_d15_2024_s0.csv
+ 32    18   08/07–21/07 superati       riferimenti ricorrenti   ANTERIORE ALLA PATCH
+                                        campagna: rnn
+                                        modelli: agcrn,dcrnn
+                                        esempio: replication/rnn_d15_2024_s0.csv
+ 33    18   08/07–21/07 superati       STAEformer + GCN stile Traffic4cast   ANTERIORE ALLA PATCH
+                                        campagna: sota
+                                        modelli: staeformer,t4c_gnn
+                                        esempio: replication/sota_d15_2024_s0.csv
+ 34    18   06/07–15/07 sparse         riconosciuto dal nome
+                                        campagna: sparse
+                                        modelli: gwn_adaptive,gwn_none,hist_prior
+                                        esempio: replication/sparse_d15_2024_s0.csv
+ 35    18   31/07–31/07 storici        riconosciuto dal nome   [confronto fra file di date diverse: artefatto noto]
+                                        campagna: sparse_fixed
+                                        modelli: gwn_fixed,hist_prior
+                                        esempio: replication/sparse_fixed_d15_2024_s0.csv
+ 36    18   29/07–29/07 riferimenti    priore storico di classe + 5/5 riferimenti spaziali
+                                        campagna: spatial_ref2
+                                        modelli: hist_prior,idw,idw_dist,knn,nbr_idw,nbr_prior
+                                        esempio: replication/spatial_ref2_d15_2024_s0.csv
+ 37    18   30/07–30/07 riferimenti    priore storico di classe + 5/5 riferimenti spaziali
+                                        campagna: spatial_ref3
+                                        modelli: hist_prior,idw,idw_dist,knn,nbr_idw,nbr_prior
+                                        esempio: replication/spatial_ref3_d15_2024_s0.csv
+ 38    18   29/07–29/07 riferimenti    priore storico di classe + 3/5 riferimenti spaziali
+                                        campagna: spatial_ref
+                                        modelli: hist_prior,idw,knn,nbr_prior
+                                        esempio: replication/spatial_ref_d15_2024_s0.csv
+ 39    18   25/07–25/07 validita       riconosciuto dal nome
+                                        campagna: stid
+                                        modelli: gwn_stid,hist_prior,lightgbm
+                                        esempio: replication/stid_d15_2024_s0.csv
+ 40    15   22/08–24/08 suite          riconosciuto dal nome
+                                        campagna: fix_classify
+                                        modelli: gwn_adaptive,gwn_none,hist_prior
+                                        esempio: replication/fix_classify_d15_2024_s0.csv
+ 41    15   22/08–24/08 sparse         riconosciuto dal nome
+                                        campagna: fix_sparse
+                                        modelli: gwn_adaptive,gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/fix_sparse_d15_2024_s0.csv
+ 42    15   26/08–28/08 suite          riferimenti ricorrenti
+                                        campagna: fixgraph_rnn
+                                        modelli: agcrn,dcrnn
+                                        esempio: replication/fixgraph_rnn_d15_2024_s0.csv
+ 43    15   26/08–28/08 suite          STAEformer + GCN stile Traffic4cast
+                                        campagna: fixgraph_sota
+                                        modelli: staeformer,t4c_gnn
+                                        esempio: replication/fixgraph_sota_d15_2024_s0.csv
+ 44    15   30/07–30/07 identita       griglia 2x2 sull'identita': A emb+HA, B solo emb, C solo HA, D nessuna
+                                        campagna: cellA
+                                        modelli: gwn_none,hist_prior
+                                        esempio: replication/grid2x2/cellA_d15_2024_s0.csv
+ 45    15   30/07–30/07 identita       griglia 2x2 sull'identita': A emb+HA, B solo emb, C solo HA, D nessuna
+                                        campagna: cellB
+                                        modelli: gwn_none,hist_prior
+                                        esempio: replication/grid2x2/cellB_d15_2024_s0.csv
+ 46    15   30/07–30/07 identita       griglia 2x2 sull'identita': A emb+HA, B solo emb, C solo HA, D nessuna
+                                        campagna: cellC
+                                        modelli: gwn_none,hist_prior
+                                        esempio: replication/grid2x2/cellC_d15_2024_s0.csv
+ 47    15   19/08–19/08 identita       griglia 2x2 sull'identita': A emb+HA, B solo emb, C solo HA, D nessuna
+                                        campagna: cellC
+                                        modelli: gwn_none,hist_prior
+                                        esempio: replication/grid2x2/cellC_d8_2023_s0.csv
+ 48    15   30/07–31/07 identita       griglia 2x2 sull'identita': A emb+HA, B solo emb, C solo HA, D nessuna
+                                        campagna: cellD-adaptive
+                                        modelli: gwn_adaptive,hist_prior
+                                        esempio: replication/grid2x2/cellD-adaptive_d15_2024_s0.csv
+ 49    15   30/07–31/07 superati       griglia 2x2 sull'identita': A emb+HA, B solo emb, C solo HA, D nessuna   ANTERIORE ALLA PATCH
+                                        campagna: cellD-fixed
+                                        modelli: gwn_fixed,hist_prior
+                                        esempio: replication/grid2x2/cellD-fixed_d15_2024_s0.csv
+ 50    15   30/07–30/07 identita       griglia 2x2 sull'identita': A emb+HA, B solo emb, C solo HA, D nessuna
+                                        campagna: cellD
+                                        modelli: gwn_none,hist_prior
+                                        esempio: replication/grid2x2/cellD_d15_2024_s0.csv
+ 51    15   28/08–29/08 da_classificare combinazione di modelli non riconosciuta
+                                        campagna: fixdensefix
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/suite/fixdensefix_d15_2024_s0.csv
+ 52    15   25/08–25/08 meteo          ablazione del meteo, due rami
+                                        campagna: wx_permutato
+                                        modelli: base,weather
+                                        esempio: replication/wx_permutato_t4clon_s0.csv
+ 53    15   25/08–25/08 meteo          ablazione del meteo, due rami
+                                        campagna: wx_reale
+                                        modelli: base,weather
+                                        esempio: replication/wx_reale_t4clon_s0.csv
+ 54    12   25/07–26/07 identita       ablazione sulla capacita' del codice di identita'
+                                        campagna: emb_abl_d8_2024
+                                        modelli: gwn_adaptive,hist_prior,lightgbm
+                                        esempio: replication/emb_abl/emb_abl_d8_2024_D2_s1.csv
+ 55    12   25/07–26/07 identita       ablazione sulla capacita' del codice di identita'
+                                        campagna: emb_abl_t4cmad
+                                        modelli: gwn_adaptive,hist_prior,lightgbm
+                                        esempio: replication/emb_abl/emb_abl_t4cmad_D2_s1.csv
+ 56    12   14/07–22/07 validita       solo STAEformer: probabile scala piena
+                                        campagna: stae_full
+                                        modelli: staeformer
+                                        esempio: results/validita/stae_full_t4clon_s0.csv
+ 57     9   27/07–28/07 diagnostiche   curve precisione-richiamo, --modes adaptive con --dump-metrics
+                                        campagna: precrec
+                                        modelli: gwn_adaptive,hist_prior
+                                        esempio: replication/metrics/precrec_d15_2024_s0.csv
+ 58     9   27/07–27/07 diagnostiche   curve precisione-richiamo, --modes adaptive con --dump-metrics
+                                        campagna: precrec
+                                        modelli: gwn_adaptive,hist_prior,lightgbm
+                                        esempio: replication/metrics/precrec_d8_2024_s0.csv
+ 59     6   22/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboard_base_recheck
+                                        modelli: —
+                                        esempio: models/onboard_base_recheck_lon.csv
+ 60     6   21/07–22/07 geo            grafo geometrico a raggio corto/lungo, braccio fixed
+                                        campagna: sparse_geoF_long
+                                        modelli: gwn_fixed,hist_prior
+                                        esempio: models/sparse_geoF_long_s0.csv
+ 61     6   21/07–22/07 geo            grafo geometrico a raggio corto/lungo, braccio fixed
+                                        campagna: sparse_geoF_short
+                                        modelli: gwn_adaptive,gwn_fixed,gwn_none,hist_prior
+                                        esempio: models/sparse_geoF_short_s0.csv
+ 62     6   19/07–22/07 meteo          ablazione del meteo, due rami
+                                        campagna: weather_abl_t4clon_precip
+                                        modelli: base,weather
+                                        esempio: models/weather_abl_t4clon_precip_s0.csv
+ 63     6   19/07–22/07 meteo          ablazione del meteo, due rami
+                                        campagna: weather_abl_t4cmel_precip
+                                        modelli: base,weather
+                                        esempio: models/weather_abl_t4cmel_precip_s0.csv
+ 64     6   27/07–27/07 meteo          controllo a rumore
+                                        campagna: weather_placebo1
+                                        modelli: base,placebo
+                                        esempio: models/weather_placebo1_t4clon_s0.csv
+ 65     6   27/07–27/07 meteo          controllo a rumore
+                                        campagna: weather_placebo5
+                                        modelli: base,placebo
+                                        esempio: models/weather_placebo5_t4clon_s0.csv
+ 66     6   04/08–04/08 meteo          ablazione del meteo, due rami
+                                        campagna: wgate_concat
+                                        modelli: base,weather
+                                        esempio: models/wgate_concat_t4clon_s0.csv
+ 67     6   04/08–04/08 meteo          ablazione del meteo, due rami
+                                        campagna: wgate_film
+                                        modelli: base,weather
+                                        esempio: models/wgate_film_t4clon_s0.csv
+ 68     6   04/08–04/08 meteo          controllo a rumore
+                                        campagna: wgate_placebo
+                                        modelli: base,placebo
+                                        esempio: models/wgate_placebo_t4clon_s0.csv
+ 69     6   19/07–22/07 meteo          ablazione del meteo, due rami
+                                        campagna: winabl_w12
+                                        modelli: base,weather
+                                        esempio: models/winabl_w12_s0.csv
+ 70     6   19/07–22/07 meteo          ablazione del meteo, due rami
+                                        campagna: winabl_w24
+                                        modelli: base,weather
+                                        esempio: models/winabl_w24_s0.csv
+ 71     6   19/07–22/07 meteo          ablazione del meteo, due rami
+                                        campagna: winabl_w4
+                                        modelli: base,weather
+                                        esempio: models/winabl_w4_s0.csv
+ 72     6   05/08–05/08 meteo          ablazione del meteo, due rami
+                                        campagna: wnotime
+                                        modelli: base,weather
+                                        esempio: models/wnotime_t4clon_s0.csv
+ 73     6   22/07–26/07 suite          riferimento tabellare
+                                        campagna: lgb_d8_p85tr
+                                        modelli: lgb_fair
+                                        esempio: replication/_lgb_storico/lgb_d8_p85tr_s0.csv
+ 74     6   16/07–26/07 suite          riferimento tabellare
+                                        campagna: lgb_t4cmad_g075
+                                        modelli: lgb_fair
+                                        esempio: replication/_lgb_storico/lgb_t4cmad_g075_s0.csv
+ 75     6   17/07–27/07 suite          riferimento tabellare
+                                        campagna: lgb_t4cmad_g085
+                                        modelli: lgb_fair
+                                        esempio: replication/_lgb_storico/lgb_t4cmad_g085_s0.csv
+ 76     5   26/07–26/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardD
+                                        modelli: —
+                                        esempio: models/onboardD_mel_s0.csv
+ 77     5   26/07–26/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardE
+                                        modelli: —
+                                        esempio: models/onboardE_mel_s0.csv
+ 78     5   23/08–24/08 suite          riferimento tabellare
+                                        campagna: alphaG_d8_2024_a00
+                                        modelli: lgb_fair
+                                        esempio: replication/alphaG_d8_2024_a00_s0.csv
+ 79     5   22/08–23/08 suite          riferimento tabellare
+                                        campagna: alphaG_d8_2024_a05
+                                        modelli: lgb_fair
+                                        esempio: replication/alphaG_d8_2024_a05_s0.csv
+ 80     5   22/08–22/08 suite          riferimento tabellare
+                                        campagna: alphaG_d8_2024_a10
+                                        modelli: lgb_fair
+                                        esempio: replication/alphaG_d8_2024_a10_s0.csv
+ 81     5   22/08–22/08 suite          riferimento tabellare
+                                        campagna: alphaG_t4cmad_a00
+                                        modelli: lgb_fair
+                                        esempio: replication/alphaG_t4cmad_a00_s0.csv
+ 82     5   22/08–22/08 suite          riferimento tabellare
+                                        campagna: alphaG_t4cmad_a05
+                                        modelli: lgb_fair
+                                        esempio: replication/alphaG_t4cmad_a05_s0.csv
+ 83     5   22/08–22/08 suite          riferimento tabellare
+                                        campagna: alphaG_t4cmad_a10
+                                        modelli: lgb_fair
+                                        esempio: replication/alphaG_t4cmad_a10_s0.csv
+ 84     5   22/08–22/08 suite          riferimento tabellare
+                                        campagna: alphaG_t4cmel_a00
+                                        modelli: lgb_fair
+                                        esempio: replication/alphaG_t4cmel_a00_s0.csv
+ 85     5   21/08–22/08 suite          riferimento tabellare
+                                        campagna: alphaG_t4cmel_a05
+                                        modelli: lgb_fair
+                                        esempio: replication/alphaG_t4cmel_a05_s0.csv
+ 86     5   21/08–21/08 suite          riferimento tabellare
+                                        campagna: alphaG_t4cmel_a10
+                                        modelli: lgb_fair
+                                        esempio: replication/alphaG_t4cmel_a10_s0.csv
+ 87     5   22/08–23/08 validita       riconosciuto dal nome
+                                        campagna: alphaN_d8_2024_a00
+                                        modelli: gwn_none,hist_prior
+                                        esempio: replication/alphaN_d8_2024_a00_s0.csv
+ 88     5   22/08–23/08 validita       riconosciuto dal nome
+                                        campagna: alphaN_d8_2024_a05
+                                        modelli: gwn_none,hist_prior
+                                        esempio: replication/alphaN_d8_2024_a05_s0.csv
+ 89     5   22/08–23/08 validita       riconosciuto dal nome
+                                        campagna: alphaN_d8_2024_a10
+                                        modelli: gwn_none,hist_prior
+                                        esempio: replication/alphaN_d8_2024_a10_s0.csv
+ 90     5   24/08–24/08 validita       riconosciuto dal nome
+                                        campagna: alphaN_t4cmad_a00
+                                        modelli: gwn_none,hist_prior
+                                        esempio: replication/alphaN_t4cmad_a00_s0.csv
+ 91     5   24/08–24/08 validita       riconosciuto dal nome
+                                        campagna: alphaN_t4cmad_a05
+                                        modelli: gwn_none,hist_prior
+                                        esempio: replication/alphaN_t4cmad_a05_s0.csv
+ 92     5   24/08–24/08 validita       riconosciuto dal nome
+                                        campagna: alphaN_t4cmad_a10
+                                        modelli: gwn_none,hist_prior
+                                        esempio: replication/alphaN_t4cmad_a10_s0.csv
+ 93     5   24/08–24/08 validita       riconosciuto dal nome
+                                        campagna: alphaN_t4cmel_a00
+                                        modelli: gwn_none,hist_prior
+                                        esempio: replication/alphaN_t4cmel_a00_s0.csv
+ 94     5   24/08–24/08 validita       riconosciuto dal nome
+                                        campagna: alphaN_t4cmel_a05
+                                        modelli: gwn_none,hist_prior
+                                        esempio: replication/alphaN_t4cmel_a05_s0.csv
+ 95     5   24/08–24/08 validita       riconosciuto dal nome
+                                        campagna: alphaN_t4cmel_a10
+                                        modelli: gwn_none,hist_prior
+                                        esempio: replication/alphaN_t4cmel_a10_s0.csv
+ 96     5   09/08–09/08 geo            controllo randomizzato sul compito denso
+                                        campagna: densrand
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/densrand_t4clon_s0.csv
+ 97     5   05/08–05/08 geo            riconosciuto dal nome
+                                        campagna: geo_madrid_comp_q2020
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/geo/geo_madrid_comp_q2020_s0.csv
+ 98     5   05/08–05/08 geo            riconosciuto dal nome
+                                        campagna: geo_madrid_comp_q2050
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/geo/geo_madrid_comp_q2050_s0.csv
+ 99     5   05/08–05/08 geo            riconosciuto dal nome
+                                        campagna: geo_madrid_comp_q2080
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/geo/geo_madrid_comp_q2080_s0.csv
+100     5   05/08–05/08 geo            riconosciuto dal nome
+                                        campagna: geo_madrid_comp_q5020
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/geo/geo_madrid_comp_q5020_s0.csv
+101     5   05/08–05/08 geo            riconosciuto dal nome
+                                        campagna: geo_madrid_comp_q5050
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/geo/geo_madrid_comp_q5050_s0.csv
+102     5   05/08–05/08 geo            riconosciuto dal nome
+                                        campagna: geo_madrid_comp_q5080
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/geo/geo_madrid_comp_q5080_s0.csv
+103     5   05/08–05/08 geo            riconosciuto dal nome
+                                        campagna: geo_madrid_comp_q8020
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/geo/geo_madrid_comp_q8020_s0.csv
+104     5   05/08–05/08 geo            riconosciuto dal nome
+                                        campagna: geo_madrid_comp_q8050
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/geo/geo_madrid_comp_q8050_s0.csv
+105     5   05/08–05/08 geo            riconosciuto dal nome
+                                        campagna: geo_madrid_comp_q8080
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/geo/geo_madrid_comp_q8080_s0.csv
+106     5   05/08–05/08 geo            riconosciuto dal nome
+                                        campagna: geo_madrid_neg_rand_q2080
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/geo/geo_madrid_neg_rand_q2080_s0.csv
+107     5   05/08–05/08 geo            riconosciuto dal nome
+                                        campagna: geo_madrid_neg_rand_q5020
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/geo/geo_madrid_neg_rand_q5020_s0.csv
+108     5   05/08–05/08 geo            riconosciuto dal nome
+                                        campagna: geo_melbourne_comp_q2020
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/geo/geo_melbourne_comp_q2020_s0.csv
+109     5   05/08–05/08 geo            riconosciuto dal nome
+                                        campagna: geo_melbourne_comp_q2050
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/geo/geo_melbourne_comp_q2050_s0.csv
+110     5   05/08–05/08 geo            riconosciuto dal nome
+                                        campagna: geo_melbourne_comp_q2080
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/geo/geo_melbourne_comp_q2080_s0.csv
+111     5   05/08–05/08 geo            riconosciuto dal nome
+                                        campagna: geo_melbourne_comp_q5020
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/geo/geo_melbourne_comp_q5020_s0.csv
+112     5   05/08–05/08 geo            riconosciuto dal nome
+                                        campagna: geo_melbourne_comp_q5050
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/geo/geo_melbourne_comp_q5050_s0.csv
+113     5   05/08–05/08 geo            riconosciuto dal nome
+                                        campagna: geo_melbourne_comp_q5080
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/geo/geo_melbourne_comp_q5080_s0.csv
+114     5   05/08–05/08 geo            riconosciuto dal nome
+                                        campagna: geo_melbourne_comp_q8020
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/geo/geo_melbourne_comp_q8020_s0.csv
+115     5   05/08–05/08 geo            riconosciuto dal nome
+                                        campagna: geo_melbourne_comp_q8050
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/geo/geo_melbourne_comp_q8050_s0.csv
+116     5   05/08–05/08 geo            riconosciuto dal nome
+                                        campagna: geo_melbourne_comp_q8080
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/geo/geo_melbourne_comp_q8080_s0.csv
+117     5   05/08–05/08 geo            riconosciuto dal nome
+                                        campagna: geo_melbourne_dec1
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/geo/geo_melbourne_dec1_s0.csv
+118     5   05/08–05/08 geo            riconosciuto dal nome
+                                        campagna: geo_melbourne_dec2
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/geo/geo_melbourne_dec2_s0.csv
+119     5   05/08–05/08 geo            riconosciuto dal nome
+                                        campagna: geo_melbourne_dec6
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/geo/geo_melbourne_dec6_s0.csv
+120     5   05/08–05/08 geo            riconosciuto dal nome
+                                        campagna: geo_melbourne_neg_rand_q5080
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/geo/geo_melbourne_neg_rand_q5080_s0.csv
+121     5   21/08–21/08 identita       adiacenza identita': collaudo della saturazione
+                                        campagna: ident
+                                        modelli: gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/ident_t4cmad_s0.csv
+122     4   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardA
+                                        modelli: —
+                                        esempio: models/onboardA_lon_s0.csv
+123     4   09/07–22/07 meteo          ablazione del meteo, due rami
+                                        campagna: weather
+                                        modelli: base,weather
+                                        esempio: models/weather_t4clon.csv
+124     4   31/07–01/08 superati       combinazione di modelli non riconosciuta   ANTERIORE ALLA PATCH
+                                        campagna: sparse3
+                                        modelli: gwn_adaptive,gwn_fixed,gwn_none,hist_prior
+                                        esempio: replication/sparse3_d15_2024_s3.csv
+125     3   22/07–23/07 validita       verifica sulle scelte di costruzione: soglie di classe e riferimento p85
+                                        campagna: classify_d8_p85tr
+                                        modelli: gwn_adaptive,gwn_none,hist_prior
+                                        esempio: replication/classify_d8_p85tr_s0.csv
+126     3   16/07–16/07 validita       verifica sulle scelte di costruzione: soglie di classe e riferimento p85
+                                        campagna: classify_t4cmad_g075
+                                        modelli: gwn_adaptive,gwn_none,hist_prior
+                                        esempio: replication/classify_t4cmad_g075_s0.csv
+127     3   17/07–17/07 validita       verifica sulle scelte di costruzione: soglie di classe e riferimento p85
+                                        campagna: classify_t4cmad_g085
+                                        modelli: gwn_adaptive,gwn_none,hist_prior
+                                        esempio: replication/classify_t4cmad_g085_s0.csv
+128     3   29/07–29/07 suite          riferimento tabellare
+                                        campagna: lgbT4c_d8_p85tr
+                                        modelli: lgb_fair
+                                        esempio: replication/lgbT4c_d8_p85tr_s0.csv
+129     3   29/07–29/07 suite          riferimento tabellare
+                                        campagna: lgbT4c_t4cmad_g075
+                                        modelli: lgb_fair
+                                        esempio: replication/lgbT4c_t4cmad_g075_s0.csv
+130     3   29/07–29/07 suite          riferimento tabellare
+                                        campagna: lgbT4c_t4cmad_g085
+                                        modelli: lgb_fair
+                                        esempio: replication/lgbT4c_t4cmad_g085_s0.csv
+131     3   27/07–27/07 suite          LightGBM, ramo interno di gomo_classify
+                                        campagna: lgbonly
+                                        modelli: lightgbm
+                                        esempio: replication/metrics/lgbonly_d8_2024.csv
+132     3   27/07–27/07 diagnostiche   riconosciuto dal nome
+                                        campagna: metrics_lgb
+                                        modelli: —
+                                        esempio: replication/metrics/metrics_lgb_d8_2024.csv
+133     3   23/07–23/07 validita       verifica sulle scelte di costruzione: soglie di classe e riferimento p85
+                                        campagna: sparse_d8_p85tr
+                                        modelli: gwn_adaptive,gwn_none,hist_prior
+                                        esempio: replication/sparse_d8_p85tr_s0.csv
+134     3   16/07–16/07 validita       verifica sulle scelte di costruzione: soglie di classe e riferimento p85
+                                        campagna: sparse_t4cmad_g075
+                                        modelli: gwn_adaptive,gwn_none,hist_prior
+                                        esempio: replication/sparse_t4cmad_g075_s0.csv
+135     3   17/07–17/07 validita       verifica sulle scelte di costruzione: soglie di classe e riferimento p85
+                                        campagna: sparse_t4cmad_g085
+                                        modelli: gwn_adaptive,gwn_none,hist_prior
+                                        esempio: replication/sparse_t4cmad_g085_s0.csv
+136     3   01/08–01/08 riferimenti    priore storico di classe + 1/5 riferimenti spaziali
+                                        campagna: spatial_ref3_t4cmad_g075
+                                        modelli: hist_prior,idw
+                                        esempio: replication/spatial_ref3_t4cmad_g075_s0.csv
+137     3   01/08–01/08 riferimenti    priore storico di classe + 1/5 riferimenti spaziali
+                                        campagna: spatial_ref3_t4cmad_g085
+                                        modelli: hist_prior,idw
+                                        esempio: replication/spatial_ref3_t4cmad_g085_s0.csv
+138     3   27/07–27/07 diagnostiche   difficolta' del sottoinsieme escluso (R4)
+                                        campagna: subset_diff
+                                        modelli: —
+                                        esempio: replication/subset_diff_lon.csv
+139     2   05/07–22/07 suite          riferimento tabellare
+                                        campagna: lgb_fair_results
+                                        modelli: lgb_fair
+                                        esempio: baselines/lgb_fair_results.csv
+140     2   05/07–22/07 estemporanei   uscita predefinita: invocazione senza --out, nessuna campagna
+                                        campagna: rnn_baseline_results
+                                        modelli: agcrn,dcrnn
+                                        esempio: baselines/rnn_baseline_results.csv
+141     2   05/07–22/07 estemporanei   uscita predefinita: invocazione senza --out, nessuna campagna
+                                        campagna: sota_baseline_results
+                                        modelli: staeformer,t4c_gnn
+                                        esempio: baselines/sota_baseline_results.csv
+142     2   05/07–22/07 estemporanei   uscita predefinita: invocazione senza --out, nessuna campagna
+                                        campagna: classify_results
+                                        modelli: gwn_adaptive,gwn_none,hist_prior,lightgbm
+                                        esempio: models/classify_results.csv
+143     2   04/07–22/07 estemporanei   uscita predefinita: invocazione senza --out, nessuna campagna
+                                        campagna: gwn_results
+                                        modelli: adaptive,fixed,none
+                                        esempio: models/gwn_results.csv
+144     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_lon_s0_all
+                                        modelli: ign
+                                        esempio: models/ign_lon_s0_all.csv
+145     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_lon_s0_transd
+                                        modelli: transductive
+                                        esempio: models/ign_lon_s0_transd.csv
+146     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_lon_s0_x-y-degree-road_class-lanes-max_capacity
+                                        modelli: ign
+                                        esempio: models/ign_lon_s0_x-y-degree-road_class-lanes-max_capacity.csv
+147     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_lon_s0_x-y-degree-road_class
+                                        modelli: ign
+                                        esempio: models/ign_lon_s0_x-y-degree-road_class.csv
+148     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_lon_s0_x-y-degree
+                                        modelli: ign
+                                        esempio: models/ign_lon_s0_x-y-degree.csv
+149     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_lon_s1_all
+                                        modelli: ign
+                                        esempio: models/ign_lon_s1_all.csv
+150     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_lon_s1_transd
+                                        modelli: transductive
+                                        esempio: models/ign_lon_s1_transd.csv
+151     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_lon_s1_x-y-degree-road_class-lanes-max_capacity
+                                        modelli: ign
+                                        esempio: models/ign_lon_s1_x-y-degree-road_class-lanes-max_capacity.csv
+152     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_lon_s1_x-y-degree-road_class
+                                        modelli: ign
+                                        esempio: models/ign_lon_s1_x-y-degree-road_class.csv
+153     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_lon_s1_x-y-degree
+                                        modelli: ign
+                                        esempio: models/ign_lon_s1_x-y-degree.csv
+154     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_lon_s2_all
+                                        modelli: ign
+                                        esempio: models/ign_lon_s2_all.csv
+155     2   11/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_lon_s2_transd
+                                        modelli: transductive
+                                        esempio: models/ign_lon_s2_transd.csv
+156     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_lon_s2_x-y-degree-road_class-lanes-max_capacity
+                                        modelli: ign
+                                        esempio: models/ign_lon_s2_x-y-degree-road_class-lanes-max_capacity.csv
+157     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_lon_s2_x-y-degree-road_class
+                                        modelli: ign
+                                        esempio: models/ign_lon_s2_x-y-degree-road_class.csv
+158     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_lon_s2_x-y-degree
+                                        modelli: ign
+                                        esempio: models/ign_lon_s2_x-y-degree.csv
+159     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mad_s0_all
+                                        modelli: ign
+                                        esempio: models/ign_mad_s0_all.csv
+160     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mad_s0_transd
+                                        modelli: transductive
+                                        esempio: models/ign_mad_s0_transd.csv
+161     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mad_s0_x-y-degree-road_class-lanes-max_capacity
+                                        modelli: ign
+                                        esempio: models/ign_mad_s0_x-y-degree-road_class-lanes-max_capacity.csv
+162     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mad_s0_x-y-degree-road_class
+                                        modelli: ign
+                                        esempio: models/ign_mad_s0_x-y-degree-road_class.csv
+163     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mad_s0_x-y-degree
+                                        modelli: ign
+                                        esempio: models/ign_mad_s0_x-y-degree.csv
+164     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mad_s1_all
+                                        modelli: ign
+                                        esempio: models/ign_mad_s1_all.csv
+165     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mad_s1_transd
+                                        modelli: transductive
+                                        esempio: models/ign_mad_s1_transd.csv
+166     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mad_s1_x-y-degree-road_class-lanes-max_capacity
+                                        modelli: ign
+                                        esempio: models/ign_mad_s1_x-y-degree-road_class-lanes-max_capacity.csv
+167     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mad_s1_x-y-degree-road_class
+                                        modelli: ign
+                                        esempio: models/ign_mad_s1_x-y-degree-road_class.csv
+168     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mad_s1_x-y-degree
+                                        modelli: ign
+                                        esempio: models/ign_mad_s1_x-y-degree.csv
+169     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mad_s2_all
+                                        modelli: ign
+                                        esempio: models/ign_mad_s2_all.csv
+170     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mad_s2_transd
+                                        modelli: transductive
+                                        esempio: models/ign_mad_s2_transd.csv
+171     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mad_s2_x-y-degree-road_class-lanes-max_capacity
+                                        modelli: ign
+                                        esempio: models/ign_mad_s2_x-y-degree-road_class-lanes-max_capacity.csv
+172     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mad_s2_x-y-degree-road_class
+                                        modelli: ign
+                                        esempio: models/ign_mad_s2_x-y-degree-road_class.csv
+173     2   10/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mad_s2_x-y-degree
+                                        modelli: ign
+                                        esempio: models/ign_mad_s2_x-y-degree.csv
+174     2   15/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mel_s0_all
+                                        modelli: ign,transductive
+                                        esempio: models/ign_mel_s0_all.csv
+175     2   16/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mel_s0_transd
+                                        modelli: transductive
+                                        esempio: models/ign_mel_s0_transd.csv
+176     2   15/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mel_s0_x-y-degree-road_class-lanes-max_capacity
+                                        modelli: ign,transductive
+                                        esempio: models/ign_mel_s0_x-y-degree-road_class-lanes-max_capacity.csv
+177     2   15/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mel_s0_x-y-degree-road_class
+                                        modelli: ign,transductive
+                                        esempio: models/ign_mel_s0_x-y-degree-road_class.csv
+178     2   15/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mel_s0_x-y-degree
+                                        modelli: ign,transductive
+                                        esempio: models/ign_mel_s0_x-y-degree.csv
+179     2   16/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mel_s1_all
+                                        modelli: ign,transductive
+                                        esempio: models/ign_mel_s1_all.csv
+180     2   16/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mel_s1_transd
+                                        modelli: transductive
+                                        esempio: models/ign_mel_s1_transd.csv
+181     2   16/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mel_s1_x-y-degree-road_class-lanes-max_capacity
+                                        modelli: ign,transductive
+                                        esempio: models/ign_mel_s1_x-y-degree-road_class-lanes-max_capacity.csv
+182     2   16/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mel_s1_x-y-degree-road_class
+                                        modelli: ign,transductive
+                                        esempio: models/ign_mel_s1_x-y-degree-road_class.csv
+183     2   15/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mel_s1_x-y-degree
+                                        modelli: ign,transductive
+                                        esempio: models/ign_mel_s1_x-y-degree.csv
+184     2   16/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mel_s2_all
+                                        modelli: ign,transductive
+                                        esempio: models/ign_mel_s2_all.csv
+185     2   16/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mel_s2_transd
+                                        modelli: transductive
+                                        esempio: models/ign_mel_s2_transd.csv
+186     2   16/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mel_s2_x-y-degree-road_class-lanes-max_capacity
+                                        modelli: ign,transductive
+                                        esempio: models/ign_mel_s2_x-y-degree-road_class-lanes-max_capacity.csv
+187     2   16/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mel_s2_x-y-degree-road_class
+                                        modelli: ign,transductive
+                                        esempio: models/ign_mel_s2_x-y-degree-road_class.csv
+188     2   16/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_mel_s2_x-y-degree
+                                        modelli: ign,transductive
+                                        esempio: models/ign_mel_s2_x-y-degree.csv
+189     2   05/07–22/07 identita       identita' da attributi statici
+                                        campagna: ign_results
+                                        modelli: ign,transductive
+                                        esempio: models/ign_results.csv
+190     2   10/07–10/07 identita       identita' da attributi statici
+                                        campagna: ign
+                                        modelli: ign,transductive
+                                        esempio: models/ign_t4clon.csv
+191     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardA_lon_s0_pernode
+                                        modelli: —
+                                        esempio: models/onboardA_lon_s0_pernode.csv
+192     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardA_mad_s0_pernode
+                                        modelli: —
+                                        esempio: models/onboardA_mad_s0_pernode.csv
+193     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardB_lon_s0_pernode
+                                        modelli: —
+                                        esempio: models/onboardB_lon_s0_pernode.csv
+194     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardB_lon_s1_pernode
+                                        modelli: —
+                                        esempio: models/onboardB_lon_s1_pernode.csv
+195     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardB_lon_s2_pernode
+                                        modelli: —
+                                        esempio: models/onboardB_lon_s2_pernode.csv
+196     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardB_mad_s0_pernode
+                                        modelli: —
+                                        esempio: models/onboardB_mad_s0_pernode.csv
+197     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardB_mad_s1_pernode
+                                        modelli: —
+                                        esempio: models/onboardB_mad_s1_pernode.csv
+198     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardB_mad_s2_pernode
+                                        modelli: —
+                                        esempio: models/onboardB_mad_s2_pernode.csv
+199     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardB_mel_s0_pernode
+                                        modelli: —
+                                        esempio: models/onboardB_mel_s0_pernode.csv
+200     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardB_mel_s1_pernode
+                                        modelli: —
+                                        esempio: models/onboardB_mel_s1_pernode.csv
+201     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardB_mel_s2_pernode
+                                        modelli: —
+                                        esempio: models/onboardB_mel_s2_pernode.csv
+202     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardC_lon_s0_pernode
+                                        modelli: —
+                                        esempio: models/onboardC_lon_s0_pernode.csv
+203     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardC_lon_s1_pernode
+                                        modelli: —
+                                        esempio: models/onboardC_lon_s1_pernode.csv
+204     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardC_lon_s2_pernode
+                                        modelli: —
+                                        esempio: models/onboardC_lon_s2_pernode.csv
+205     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardC_mad_s0_pernode
+                                        modelli: —
+                                        esempio: models/onboardC_mad_s0_pernode.csv
+206     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardC_mad_s1_pernode
+                                        modelli: —
+                                        esempio: models/onboardC_mad_s1_pernode.csv
+207     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardC_mad_s2_pernode
+                                        modelli: —
+                                        esempio: models/onboardC_mad_s2_pernode.csv
+208     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardC_mel_s0_pernode
+                                        modelli: —
+                                        esempio: models/onboardC_mel_s0_pernode.csv
+209     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardC_mel_s1_pernode
+                                        modelli: —
+                                        esempio: models/onboardC_mel_s1_pernode.csv
+210     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardC_mel_s2_pernode
+                                        modelli: —
+                                        esempio: models/onboardC_mel_s2_pernode.csv
+211     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardC_mel_s3_pernode
+                                        modelli: —
+                                        esempio: models/onboardC_mel_s3_pernode.csv
+212     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardC_mel_s4_pernode
+                                        modelli: —
+                                        esempio: models/onboardC_mel_s4_pernode.csv
+213     2   22/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboard_base_recheck_lon_pernode
+                                        modelli: —
+                                        esempio: models/onboard_base_recheck_lon_pernode.csv
+214     2   22/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboard_base_recheck_mad_pernode
+                                        modelli: —
+                                        esempio: models/onboard_base_recheck_mad_pernode.csv
+215     2   22/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboard_base_recheck_mel_pernode
+                                        modelli: —
+                                        esempio: models/onboard_base_recheck_mel_pernode.csv
+216     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboard_lon_s0_pernode
+                                        modelli: —
+                                        esempio: models/onboard_lon_s0_pernode.csv
+217     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboard_lon_s1_pernode
+                                        modelli: —
+                                        esempio: models/onboard_lon_s1_pernode.csv
+218     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboard_lon_s2_pernode
+                                        modelli: —
+                                        esempio: models/onboard_lon_s2_pernode.csv
+219     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboard_mad_s0_pernode
+                                        modelli: —
+                                        esempio: models/onboard_mad_s0_pernode.csv
+220     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboard_mad_s1_pernode
+                                        modelli: —
+                                        esempio: models/onboard_mad_s1_pernode.csv
+221     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboard_mad_s2_pernode
+                                        modelli: —
+                                        esempio: models/onboard_mad_s2_pernode.csv
+222     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboard_mel_s0_pernode
+                                        modelli: —
+                                        esempio: models/onboard_mel_s0_pernode.csv
+223     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboard_mel_s1_pernode
+                                        modelli: —
+                                        esempio: models/onboard_mel_s1_pernode.csv
+224     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboard_mel_s2_pernode
+                                        modelli: —
+                                        esempio: models/onboard_mel_s2_pernode.csv
+225     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboard_mel_s3_pernode
+                                        modelli: —
+                                        esempio: models/onboard_mel_s3_pernode.csv
+226     2   17/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboard_mel_s4_pernode
+                                        modelli: —
+                                        esempio: models/onboard_mel_s4_pernode.csv
+227     2   05/07–22/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboard_results
+                                        modelli: —
+                                        esempio: models/onboard_results.csv
+228     2   21/07–22/07 geo            sonda a un seme sul grafo geometrico corto
+                                        campagna: sparse_geoF_probe
+                                        modelli: gwn_fixed,hist_prior
+                                        esempio: models/sparse_geoF_probe.csv
+229     2   05/07–22/07 estemporanei   uscita predefinita: invocazione senza --out, nessuna campagna
+                                        campagna: sparse_results
+                                        modelli: gwn_adaptive,gwn_fixed,gwn_none,hist_prior
+                                        esempio: models/sparse_results.csv
+230     2   04/07–22/07 estemporanei   uscita predefinita: invocazione senza --out, nessuna campagna
+                                        campagna: stgnn_results
+                                        modelli: graph,temporal
+                                        esempio: models/stgnn_results.csv
+231     2   15/07–22/07 meteo          ablazione del meteo, due rami
+                                        campagna: weather_ablation_results
+                                        modelli: base,weather
+                                        esempio: models/weather_ablation_results.csv
+232     2   17/07–22/07 diagnostiche   posizionamento dei sensori (R4)
+                                        campagna: placement_Londra
+                                        modelli: —
+                                        esempio: placement_Londra.csv
+233     2   17/07–22/07 diagnostiche   posizionamento dei sensori (R4)
+                                        campagna: placement_Madrid
+                                        modelli: —
+                                        esempio: placement_Madrid.csv
+234     2   17/07–22/07 diagnostiche   posizionamento dei sensori (R4)
+                                        campagna: placement_Melbourne
+                                        modelli: —
+                                        esempio: placement_Melbourne.csv
+235     2   22/07–27/07 aggregati      tabella aggregata degli orchestratori: filtrare `experiment`
+                                        campagna: FINDINGS_check
+                                        modelli: —
+                                        esempio: replication/FINDINGS_check.csv
+236     2   22/07–27/07 aggregati      tabella aggregata degli orchestratori: filtrare `experiment`
+                                        campagna: MODEL_leaderboard
+                                        modelli: agcrn,dcrnn,gwn_adaptive,gwn_none,hist_prior,lgb_fair,staeformer,t
+                                        esempio: replication/MODEL_leaderboard.csv
+237     1   01/08–01/08 diagnostiche   copertura realizzata dalle maschere
+                                        campagna: copertura_realizzata
+                                        modelli: —
+                                        esempio: copertura_realizzata.csv
+238     1   30/07–30/07 diagnostiche   regola di strada vuota
+                                        campagna: imputazione_aggregato
+                                        modelli: —
+                                        esempio: imputazione_aggregato.csv
+239     1   30/07–30/07 diagnostiche   regola di strada vuota
+                                        campagna: imputazione_per_ora
+                                        modelli: —
+                                        esempio: imputazione_per_ora.csv
+240     1   30/07–30/07 diagnostiche   regola di strada vuota
+                                        campagna: imputazione_per_sensore
+                                        modelli: —
+                                        esempio: imputazione_per_sensore.csv
+241     1   17/07–17/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardA_s0
+                                        modelli: —
+                                        esempio: models/onboardA_s0_mel.csv
+242     1   17/07–17/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardA_s0_mel_pernode
+                                        modelli: —
+                                        esempio: models/onboardA_s0_mel_pernode.csv
+243     1   26/07–26/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardD_mel_s0_pernode
+                                        modelli: —
+                                        esempio: models/onboardD_mel_s0_pernode.csv
+244     1   26/07–26/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardD_mel_s1_pernode
+                                        modelli: —
+                                        esempio: models/onboardD_mel_s1_pernode.csv
+245     1   26/07–26/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardD_mel_s2_pernode
+                                        modelli: —
+                                        esempio: models/onboardD_mel_s2_pernode.csv
+246     1   26/07–26/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardD_mel_s3_pernode
+                                        modelli: —
+                                        esempio: models/onboardD_mel_s3_pernode.csv
+247     1   26/07–26/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardD_mel_s4_pernode
+                                        modelli: —
+                                        esempio: models/onboardD_mel_s4_pernode.csv
+248     1   26/07–26/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardE_mel_s0_pernode
+                                        modelli: —
+                                        esempio: models/onboardE_mel_s0_pernode.csv
+249     1   26/07–26/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardE_mel_s1_pernode
+                                        modelli: —
+                                        esempio: models/onboardE_mel_s1_pernode.csv
+250     1   26/07–26/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardE_mel_s2_pernode
+                                        modelli: —
+                                        esempio: models/onboardE_mel_s2_pernode.csv
+251     1   26/07–26/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardE_mel_s3_pernode
+                                        modelli: —
+                                        esempio: models/onboardE_mel_s3_pernode.csv
+252     1   26/07–26/07 onboard        R4: inserimento di un sensore nuovo
+                                        campagna: onboardE_mel_s4_pernode
+                                        modelli: —
+                                        esempio: models/onboardE_mel_s4_pernode.csv
+253     1   27/07–27/07 aggregati      tabella aggregata degli orchestratori: filtrare `experiment`
+                                        campagna: ALL_results
+                                        modelli: agcrn,dcrnn,gwn_adaptive,gwn_none,gwn_stid,hist_prior,lgb_fair,lig
+                                        esempio: replication/ALL_results.csv
+254     1   26/07–26/07 aggregati      tabella aggregata degli orchestratori: filtrare `experiment`
+                                        campagna: ALL_results_pre_lgbES
+                                        modelli: agcrn,dcrnn,gwn_adaptive,gwn_none,hist_prior,lgb_fair,staeformer,t
+                                        esempio: replication/ALL_results_pre_lgbES.csv
+255     1   26/07–26/07 aggregati      tabella aggregata degli orchestratori: filtrare `experiment`
+                                        campagna: ALL_results_snapshot_23lug
+                                        modelli: agcrn,dcrnn,gwn_adaptive,gwn_none,hist_prior,lgb_fair,staeformer,t
+                                        esempio: replication/ALL_results_snapshot_23lug.csv
+256     1   25/07–25/07 riferimenti    priore storico di classe
+                                        campagna: prior_d15_2024_a0
+                                        modelli: hist_prior
+                                        esempio: replication/prior_d15_2024_a0.csv
+257     1   25/07–25/07 riferimenti    priore storico di classe
+                                        campagna: prior_d15_2024_a05
+                                        modelli: hist_prior
+                                        esempio: replication/prior_d15_2024_a05.csv
+258     1   25/07–25/07 riferimenti    priore storico di classe
+                                        campagna: prior_d15_2024_a1
+                                        modelli: hist_prior
+                                        esempio: replication/prior_d15_2024_a1.csv
+259     1   25/07–25/07 riferimenti    priore storico di classe
+                                        campagna: prior_d15_2024_a2
+                                        modelli: hist_prior
+                                        esempio: replication/prior_d15_2024_a2.csv
+260     1   25/07–25/07 riferimenti    priore storico di classe
+                                        campagna: prior_d8_2023_a0
+                                        modelli: hist_prior
+                                        esempio: replication/prior_d8_2023_a0.csv
+261     1   25/07–25/07 riferimenti    priore storico di classe
+                                        campagna: prior_d8_2023_a05
+                                        modelli: hist_prior
+                                        esempio: replication/prior_d8_2023_a05.csv
+262     1   25/07–25/07 riferimenti    priore storico di classe
+                                        campagna: prior_d8_2023_a1
+                                        modelli: hist_prior
+                                        esempio: replication/prior_d8_2023_a1.csv
+263     1   25/07–25/07 riferimenti    priore storico di classe
+                                        campagna: prior_d8_2023_a2
+                                        modelli: hist_prior
+                                        esempio: replication/prior_d8_2023_a2.csv
+264     1   25/07–25/07 riferimenti    priore storico di classe
+                                        campagna: prior_d8_2024_a0
+                                        modelli: hist_prior
+                                        esempio: replication/prior_d8_2024_a0.csv
+265     1   25/07–25/07 riferimenti    priore storico di classe
+                                        campagna: prior_d8_2024_a05
+                                        modelli: hist_prior
+                                        esempio: replication/prior_d8_2024_a05.csv
+266     1   25/07–25/07 riferimenti    priore storico di classe
+                                        campagna: prior_d8_2024_a1
+                                        modelli: hist_prior
+                                        esempio: replication/prior_d8_2024_a1.csv
+267     1   25/07–25/07 riferimenti    priore storico di classe
+                                        campagna: prior_d8_2024_a2
+                                        modelli: hist_prior
+                                        esempio: replication/prior_d8_2024_a2.csv
+268     1   27/07–27/07 riferimenti    priore storico di classe
+                                        campagna: prior_d8_p85tr_a1
+                                        modelli: hist_prior
+                                        esempio: replication/prior_d8_p85tr_a1.csv
+269     1   25/07–25/07 riferimenti    priore storico di classe
+                                        campagna: prior_t4clon_a0
+                                        modelli: hist_prior
+                                        esempio: replication/prior_t4clon_a0.csv
+270     1   25/07–25/07 riferimenti    priore storico di classe
+                                        campagna: prior_t4clon_a05
+                                        modelli: hist_prior
+                                        esempio: replication/prior_t4clon_a05.csv
+271     1   25/07–25/07 riferimenti    priore storico di classe
+                                        campagna: prior_t4clon_a1
+                                        modelli: hist_prior
+                                        esempio: replication/prior_t4clon_a1.csv
+272     1   25/07–25/07 riferimenti    priore storico di classe
+                                        campagna: prior_t4clon_a2
+                                        modelli: hist_prior
+                                        esempio: replication/prior_t4clon_a2.csv
+273     1   25/07–25/07 riferimenti    priore storico di classe
+                                        campagna: prior_t4cmad_a0
+                                        modelli: hist_prior
+                                        esempio: replication/prior_t4cmad_a0.csv
+274     1   25/07–25/07 riferimenti    priore storico di classe
+                                        campagna: prior_t4cmad_a05
+                                        modelli: hist_prior
+                                        esempio: replication/prior_t4cmad_a05.csv
+275     1   25/07–25/07 riferimenti    priore storico di classe
+                                        campagna: prior_t4cmad_a1
+                                        modelli: hist_prior
+                                        esempio: replication/prior_t4cmad_a1.csv
+276     1   25/07–25/07 riferimenti    priore storico di classe
+                                        campagna: prior_t4cmad_a2
+                                        modelli: hist_prior
+                                        esempio: replication/prior_t4cmad_a2.csv
+277     1   25/07–25/07 riferimenti    priore storico di classe
+                                        campagna: prior_t4cmad_g075_a1
+                                        modelli: hist_prior
+                                        esempio: replication/prior_t4cmad_g075_a1.csv
+278     1   25/07–25/07 riferimenti    priore storico di classe
+                                        campagna: prior_t4cmad_g085_a1
+                                        modelli: hist_prior
+                                        esempio: replication/prior_t4cmad_g085_a1.csv
+279     1   25/07–25/07 riferimenti    priore storico di classe
+                                        campagna: prior_t4cmel_a0
+                                        modelli: hist_prior
+                                        esempio: replication/prior_t4cmel_a0.csv
+280     1   25/07–25/07 riferimenti    priore storico di classe
+                                        campagna: prior_t4cmel_a05
+                                        modelli: hist_prior
+                                        esempio: replication/prior_t4cmel_a05.csv
+281     1   25/07–25/07 riferimenti    priore storico di classe
+                                        campagna: prior_t4cmel_a1
+                                        modelli: hist_prior
+                                        esempio: replication/prior_t4cmel_a1.csv
+282     1   25/07–25/07 riferimenti    priore storico di classe
+                                        campagna: prior_t4cmel_a2
+                                        modelli: hist_prior
+                                        esempio: replication/prior_t4cmel_a2.csv
+283     1   27/08–27/08 regressione    metriche regressive: harness di regressione
+                                        campagna: continui
+                                        modelli: hist_avg,lightgbm,persistence
+                                        esempio: replication/riferimenti/continui_d8_2024.csv
+284     1   22/07–22/07 validazione    validazione incrociata contro le sonde
+                                        campagna: crossval_results
+                                        modelli: —
+                                        esempio: results/componenti/crossval_results.csv
+285     1   22/07–22/07 aggregati      tabella aggregata degli orchestratori: filtrare `experiment`
+                                        campagna: ALL_results
+                                        modelli: agcrn,dcrnn,gwn_adaptive,gwn_none,hist_prior,lgb_fair,staeformer,t
+                                        esempio: results/suite/ALL_results.csv
+------------------------------------------------------------------------------------------------------
+
+riepilogo per destinazione:
+   replication/identita           453 file
+   replication/suite              392 file
+   replication/superati           205 file
+   replication/onboard            170 file
+   replication/geo                139 file
+   replication/meteo              126 file
+   replication/validita            93 file
+   replication/riferimenti         87 file
+   replication/storici             78 file
+   replication/diagnostiche        70 file
+   replication/sparse              33 file
+   replication/calibrazione        30 file
+   replication/da_classificare     15 file
+   replication/estemporanei        12 file
+   replication/aggregati            8 file
+   replication/regressione          1 file
+   replication/validazione          1 file
+
+STORICI — 78 file  (rifatti da una campagna piu' recente: SEGREGARE, non cancellare)
+   replication/camp_classify_d15_2024_s0.csv
+   replication/camp_classify_d15_2024_s1.csv
+   replication/camp_classify_d15_2024_s2.csv
+   replication/camp_classify_d15_2024_s3.csv
+   replication/camp_classify_d15_2024_s4.csv
+   replication/camp_classify_d8_2023_s0.csv
+   ... e altri 24 della stessa firma
+   replication/camp_sparse_d15_2024_s0.csv
+   replication/camp_sparse_d15_2024_s1.csv
+   replication/camp_sparse_d15_2024_s2.csv
+   replication/camp_sparse_d15_2024_s3.csv
+   replication/camp_sparse_d15_2024_s4.csv
+   replication/camp_sparse_d8_2023_s0.csv
+   ... e altri 24 della stessa firma
+   replication/sparse_fixed_d15_2024_s0.csv
+   replication/sparse_fixed_d15_2024_s1.csv
+   replication/sparse_fixed_d15_2024_s2.csv
+   replication/sparse_fixed_d8_2023_s0.csv
+   replication/sparse_fixed_d8_2023_s1.csv
+   replication/sparse_fixed_d8_2023_s2.csv
+   ... e altri 12 della stessa firma
+
+SUPERATI — 205 file  (anteriori alla patch: SEGREGARE, non cancellare)
+   replication/camp_rnn_d15_2024_s0.csv
+   replication/camp_rnn_d15_2024_s1.csv
+   replication/camp_rnn_d15_2024_s2.csv
+   replication/camp_rnn_d15_2024_s3.csv
+   replication/camp_rnn_d15_2024_s4.csv
+   replication/camp_rnn_d8_2023_s0.csv
+   ... e altri 24 della stessa firma
+   replication/camp_sota_d15_2024_s0.csv
+   replication/camp_sota_d15_2024_s1.csv
+   replication/camp_sota_d15_2024_s2.csv
+   replication/camp_sota_d15_2024_s3.csv
+   replication/camp_sota_d15_2024_s4.csv
+   replication/camp_sota_d8_2023_s0.csv
+   ... e altri 24 della stessa firma
+   replication/densefix_d15_2024_s0.csv
+   replication/densefix_d15_2024_s1.csv
+   replication/densefix_d15_2024_s2.csv
+   replication/densefix_d15_2024_s3.csv
+   replication/densefix_d15_2024_s4.csv
+   replication/densefix_d8_2023_s0.csv
+   ... e altri 24 della stessa firma
+   replication/prec_rnn_d15_2024_s0.csv
+   replication/prec_rnn_d15_2024_s1.csv
+   replication/prec_rnn_d15_2024_s2.csv
+   replication/prec_rnn_d15_2024_s3.csv
+   replication/prec_rnn_d15_2024_s4.csv
+   replication/prec_rnn_d8_2023_s0.csv
+   ... e altri 24 della stessa firma
+   replication/prec_sota_d15_2024_s0.csv
+   replication/prec_sota_d15_2024_s1.csv
+   replication/prec_sota_d15_2024_s2.csv
+   replication/prec_sota_d15_2024_s3.csv
+   replication/prec_sota_d15_2024_s4.csv
+   replication/prec_sota_d8_2023_s0.csv
+   ... e altri 24 della stessa firma
+   replication/rnn_d15_2024_s0.csv
+   replication/rnn_d15_2024_s1.csv
+   replication/rnn_d15_2024_s2.csv
+   replication/rnn_d8_2023_s0.csv
+   replication/rnn_d8_2023_s1.csv
+   replication/rnn_d8_2023_s2.csv
+   ... e altri 12 della stessa firma
+   replication/sota_d15_2024_s0.csv
+   replication/sota_d15_2024_s1.csv
+   replication/sota_d15_2024_s2.csv
+   replication/sota_d8_2023_s0.csv
+   replication/sota_d8_2023_s1.csv
+   replication/sota_d8_2023_s2.csv
+   ... e altri 12 della stessa firma
+   replication/grid2x2/cellD-fixed_d15_2024_s0.csv
+   replication/grid2x2/cellD-fixed_d15_2024_s1.csv
+   replication/grid2x2/cellD-fixed_d15_2024_s2.csv
+   replication/grid2x2/cellD-fixed_d15_2024_s3.csv
+   replication/grid2x2/cellD-fixed_d15_2024_s4.csv
+   replication/grid2x2/cellD-fixed_d8_2024_s0.csv
+   ... e altri 9 della stessa firma
+   replication/sparse3_d15_2024_s3.csv
+   replication/sparse3_d15_2024_s4.csv
+   replication/sparse3_t4cmel_s3.csv
+   replication/sparse3_t4cmel_s4.csv
+
+DA_CLASSIFICARE — 15 file  (combinazione non riconosciuta: guardare uno per uno)
+   replication/suite/fixdensefix_d15_2024_s0.csv
+   replication/suite/fixdensefix_d15_2024_s1.csv
+   replication/suite/fixdensefix_d15_2024_s2.csv
+   replication/suite/fixdensefix_d15_2024_s3.csv
+   replication/suite/fixdensefix_d15_2024_s4.csv
+   replication/suite/fixdensefix_d8_2023_s0.csv
+   ... e altri 9 della stessa firma
+
+ILLEGGIBILI — 1
+   tabella_verifiche_preregistrate.csv: Error tokenizing data. C error: Expected 2 fields in line 17
+
+NON vengono spostati: i CSV sotto austin/, data_collection/, descrittori/, geo_sweep/, kit_archivio/, papers/, prereg/,
+ne' le cartelle dei dump (probs/, probsval/, probs_wx/).
+Dopo lo spostamento gli script di analisi vanno invocati con il percorso
+nuovo: tutti accettano lo schema come argomento (--sparse, --dir, --probs).
