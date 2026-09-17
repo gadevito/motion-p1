@@ -11,12 +11,13 @@ from evoluzione.analisi.analizza_raccordo import (
     CONTESTI, VARIANTI, aggregati, carica, pesi_classe, perdita)
 
 D = Path("results/evoluzione/raccordo")
-M = Path("results/evoluzione/maschere")
+PZ = Path("results/evoluzione/pesi")
 print(f"{'citta':11s} {'delta[p,s] per partizione e inizializzazione':>52}")
 for c in CONTESTI:
-    w = pesi_classe(c, M)
     G = np.full((3, 3), np.nan)
     for p in range(3):
+        # i pesi vengono dall'ARTEFATTO, e sono per PARTIZIONE
+        w = pesi_classe(c, p, PZ).vettore()
         for s in range(3):
             X = carica(D, c, p, s)
             if X is None: continue

@@ -147,12 +147,45 @@ def _descrittori(D, nodi, t_rif, variante, norm):
 
 
 def _lotto(x, classe, istanti, nodi):
+    """(X, Y, M) con la MASCHERA di validita' del bersaglio.
+
+    `classe` vale ZERO dove il bersaglio non e' assegnato, 1/2/3 per le classi.
+    Sottrarre uno e troncare a [0, 2] porterebbe i non assegnati alla classe
+    VERDE: il modello imparerebbe a prevedere verde dove non c'e' misura, e la
+    metrica lo premierebbe — mentre i pesi sono stimati sulle sole celle valide.
+
+    Sui tre contesti i non assegnati sono il 14,1%, il 40,0% e il 19,6% del
+    periodo di prova: su Londra due bersagli su cinque sarebbero inventati.
+
+    La maschera si restituisce e si USA: la perdita e la valutazione escludono
+    quelle celle, non le trattano come verdi.
+    """
     X = np.stack([x[t - FINESTRA + 1:t + 1] for t in istanti])   # (B,T,C,K)
     X = torch.as_tensor(X).permute(0, 2, 3, 1)[:, :, nodi]       # (B,C,K,T)
-    Y = torch.as_tensor(np.stack(
-        [np.stack([classe[t + h] for h in ORIZZONTI], -1) for t in istanti]
-    )[:, nodi]) - 1
-    return X, Y.clamp(0, 2)
+    C = np.stack([np.stack([classe[t + h] for h in ORIZZONTI], -1)
+                  for t in istanti])[:, nodi]                    # (B,K,H)
+    M = torch.as_tensor(C > 0)
+    Y = torch.as_tensor(np.where(C > 0, C - 1, 0))
+    return X, Y, M
+
+
+def _perdita(out, Y, M, wt):
+    """Perdita pesata sui SOLI bersagli assegnati, per orizzonte e poi media.
+
+    Un orizzonte senza bersagli validi nel lotto NON contribuisce: sostituirlo
+    con zero abbasserebbe la perdita, con la media degli altri la inventerebbe.
+    """
+    perdite = []
+    for h in range(len(ORIZZONTI)):
+        m = M[..., h].reshape(-1)
+        if not bool(m.any()):
+            continue
+        o = out[..., h, :].reshape(-1, 3)[m]
+        y = Y[..., h].reshape(-1)[m]
+        perdite.append(F.cross_entropy(o, y, weight=wt))
+    if not perdite:
+        raise FallimentoMetodo("nessun bersaglio valido nel lotto")
+    return torch.stack(perdite).mean(), len(perdite)
 
 
 def _pesi(E, D, nodi, ist, radice: Path, versione: str):
@@ -232,21 +265,19 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
         idx = g.choice(ist["addestramento"], size=min(cfg["lotto"],
                                                       len(ist["addestramento"])),
                        replace=False)
-        X, Y = _lotto(x, D["classe"], np.sort(idx), nodi["addestramento"])
+        X, Y, Mk = _lotto(x, D["classe"], np.sort(idx), nodi["addestramento"])
         out = m(X, dtr, stat[nodi["addestramento"]])
-        # PESATA, come la metrica: un modello che ottimizzi l'entropia semplice
-        # e venga giudicato su quella pesata non e' quello del protocollo
-        L = F.cross_entropy(out.reshape(-1, 3), Y.reshape(-1), weight=wt)
+        # PESATA e sui SOLI bersagli assegnati
+        L, _ = _perdita(out, Y, Mk, wt)
         if not torch.isfinite(L):
             raise FallimentoMetodo(f"perdita non finita all'epoca {ep}")
         opt.zero_grad(); L.backward(); opt.step()
         m.eval()
         with torch.inference_mode():
-            Xv, Yv = _lotto(x, D["classe"], ist["validazione"][:cfg["lotto"]],
-                            nodi["validazione"])
-            pv = float(F.cross_entropy(
-                m(Xv, dva, stat[nodi["validazione"]]).reshape(-1, 3),
-                Yv.reshape(-1), weight=wt))
+            Xv, Yv, Mv = _lotto(x, D["classe"], ist["validazione"][:cfg["lotto"]],
+                                nodi["validazione"])
+            lv, _ = _perdita(m(Xv, dva, stat[nodi["validazione"]]), Yv, Mv, wt)
+            pv = float(lv)
         if not np.isfinite(pv):
             raise FallimentoMetodo(f"validazione non finita all'epoca {ep}")
         if pv < migliore:                       # a parita', la PRIMA
@@ -270,12 +301,16 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
                   validazione=migliore)
     dpr = _descrittori(D, nodi["prova"], int(ist["prova"][0]), E.variante, NORM)
     righe = []
+    scartate = 0
     with torch.inference_mode():
         for t in ist["prova"]:
-            X, Y = _lotto(x, D["classe"], [int(t)], nodi["prova"])
+            X, Y, Mk = _lotto(x, D["classe"], [int(t)], nodi["prova"])
             o = torch.softmax(m2(X, dpr, stat[nodi["prova"]])[0], -1).numpy()
             for i, k in enumerate(nodi["prova"]):
                 for h, hz in enumerate(ORIZZONTI):
+                    if not bool(Mk[0, i, h]):
+                        scartate += 1      # bersaglio NON assegnato: si esclude
+                        continue
                     righe.append((E.contesto, E.partizione, E.inizializzazione,
                                   int(k), int(t), int(hz), int(Y[0, i, h]),
                                   *o[i, h]))
@@ -286,6 +321,34 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
         raise ValueError("chiavi duplicate nelle predizioni")
     out = ck.with_name(ck.name.replace("ck_", "pred_").replace(".pt", ".csv"))
     P.to_csv(out, index=False)
+    # CONTROLLO BLOCCANTE: la popolazione valutata deve coincidere con quella
+    # su cui i pesi sono stimati. Senza, i non assegnati rientrerebbero come
+    # classe verde e la metrica peserebbe una popolazione diversa.
+    if (P.vero < 0).any() or (P.vero > 2).any():
+        raise ValueError("classi fuori intervallo nelle predizioni")
+    # Il confronto NON e' con la distribuzione di addestramento — le due
+    # differiscono legittimamente fra periodi — ma con quella delle celle VALIDE
+    # del periodo e dei nodi di PROVA, calcolata qui dai bersagli grezzi. Ogni
+    # scarto e' allora un difetto della selezione, non deriva temporale.
+    att = np.zeros(3, dtype="float64")
+    for h in ORIZZONTI:
+        tt = ist["prova"] + h
+        tt = tt[tt < D["classe"].shape[0]]
+        y = D["classe"][np.ix_(tt, nodi["prova"])]
+        for k in (1, 2, 3):
+            att[k - 1] += float((y == k).sum())
+    if att.sum() == 0:
+        raise ValueError("nessun bersaglio valido nel periodo di prova")
+    att /= att.sum()
+    oss = np.array([(P.vero == k).mean() for k in range(3)])
+    scarto = float(np.abs(oss - att).max())
+    if scarto > 1e-6:
+        raise ValueError(
+            f"la distribuzione valutata {np.round(oss, 6).tolist()} non "
+            f"coincide con quella delle celle VALIDE di prova "
+            f"{np.round(att, 6).tolist()} (scarto {scarto:.2e}): la "
+            f"popolazione della metrica non e' quella dichiarata")
     reg.evento(f"epoca selezionata {epoca}, validazione {migliore:.6f}, "
-               f"{len(P):,} predizioni")
+               f"{len(P):,} predizioni, {scartate:,} celle senza bersaglio "
+               f"assegnate ESCLUSE")
     return out

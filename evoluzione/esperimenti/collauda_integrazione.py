@@ -162,6 +162,52 @@ def main() -> int:
                  f"delta = {delta:+.3f}% — valore del COLLAUDO, non un "
                  f"risultato")
 
+    # ------------------------------------------------------------- [3bis] -
+    print("\n[3bis] popolazione valutata: i non assegnati sono ESCLUSI")
+    # NIENTE `import numpy as np` qui: renderebbe `np` locale a tutta la
+    # funzione, e le righe PRECEDENTI che lo usano fallirebbero. E' gia'
+    # importato in testa al modulo.
+    T4 = "data_collection/traffic4cast"
+    tp = {"Madrid": f"{T4}/MADRID_2022/gomo_fmt/targets_t4cmad_d8.npz",
+          "Londra": f"{T4}/LONDON_2022/gomo_fmt/targets_t4cmad_d8.npz",
+          "Melbourne": f"{T4}/MELBOURNE_2022/gomo_fmt/targets_t4cmel_d8.npz"
+          }[a.contesto]
+    C = np.load(tp, allow_pickle=True)["congestion_emp"]
+    if len(PR) == 2:
+        A = PR["LEGACY"]
+        nodi_pr = np.unique(A.nodo.to_numpy())
+        ist_pr = np.unique(A.istante.to_numpy())
+        att = np.zeros(3)
+        for h in (1, 2, 4, 8):
+            tt = ist_pr + h
+            tt = tt[tt < C.shape[0]]
+            y = C[np.ix_(tt, nodi_pr)]
+            for k in (1, 2, 3):
+                att[k - 1] += float((y == k).sum())
+        att /= att.sum()
+        oss = np.array([(A.vero.to_numpy() == k).mean() for k in range(3)])
+        scarto = float(np.abs(oss - att).max())
+        verifica("3e", "la distribuzione valutata coincide con quella delle "
+                 "celle VALIDE",
+                 scarto < 1e-6,
+                 f"valutata {np.round(oss, 5).tolist()}, valide "
+                 f"{np.round(att, 5).tolist()}, scarto {scarto:.2e}")
+        # quante celle sono state escluse: devono essere quelle non assegnate
+        tot = 0
+        for h in (1, 2, 4, 8):
+            tt = ist_pr + h
+            tt = tt[tt < C.shape[0]]
+            tot += int(C[np.ix_(tt, nodi_pr)].size)
+        nz = tot - len(A)
+        verifica("3f", "le celle escluse sono quelle senza bersaglio assegnato",
+                 nz > 0 and abs(nz / tot
+                                - float((C[np.ix_(ist_pr + 1, nodi_pr)] == 0).mean())
+                                ) < 0.05,
+                 f"{nz:,} escluse su {tot:,} ({nz/tot:.2%}) — su questo contesto "
+                 f"i non assegnati sono attesi in quella proporzione")
+        verifica("3g", "nessuna classe fuori intervallo",
+                 bool(((A.vero >= 0) & (A.vero <= 2)).all()))
+
     # ------------------------------------------------------------- [4] ----
     print("\n[4] ripresa senza duplicare i completati")
     matrice(P, out / "raccordo")
