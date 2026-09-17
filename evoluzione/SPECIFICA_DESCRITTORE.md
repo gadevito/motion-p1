@@ -56,6 +56,34 @@ standardizzazione** — ossia la media di addestramento — e la componente di $
 corrispondente vale **zero**. Non si usa uno zero ambiguo: $q$ dice quali parti di
 $s$ siano affidabili.
 
+**Convenzione numerica del bersaglio.** Il tipo e le regole di confronto fanno
+parte della definizione implementativa, non sono un dettaglio.
+
+| | |
+|---|---|
+| tipo di `speed` e `ff` nell'artefatto | `float32` |
+| tipo della divisione | `float64` |
+| tipo in cui si valutano le soglie | **`float32`** |
+| regole | critica `r < 0,4`; intermedia `0,4 ≤ r < 0,8`; libera `r ≥ 0,8` |
+| ordine | validazione → divisione → controllo di finitezza → troncamento → classificazione |
+| troncamento | `[0; 1,5]`, applicato solo alle celle valide |
+
+**Le differenze fra le due convenzioni numeriche, pur molto piccole, modificano
+l'assegnazione di alcune celle prossime alle soglie**: 0,248 per mille su Madrid,
+0,415 su Londra e 0,0175 su Melbourne. Su Madrid e Londra sono **alcuni decimi di
+per mille**.
+
+Vanno conservati come prove di regressione alcuni di quei casi, insieme a valori
+immediatamente sotto, uguali e sopra ciascuna soglia. **La versione delle librerie
+numeriche va registrata**, poiché il comportamento ai bordi può dipenderne.
+
+**Ordine delle operazioni sul rapporto**: si validano gli operandi, si divide solo
+dove sono validi, si verifica che il rapporto sia finito, e **solo allora** si
+tronca. Il riferimento è valido se finito e positivo; la velocità se finita e non
+negativa — **lo zero è ammesso**, poiché rappresenta traffico fermo. Una cella non
+valida vale `nan` e non zero, che sarebbe indistinguibile da un rapporto
+legittimamente nullo.
+
 **Tolleranza sulle variazioni**: $\tau = 0{,}005$ in unità di $r$, fissata prima
 degli esperimenti. Le variazioni in modulo inferiori a $\tau$ non contano né come
 incremento né come decremento.
@@ -70,6 +98,16 @@ Per ciascun canale $c \in \{r, f, o\}$, sulle osservazioni valide della finestra
 
 $$\mu_c = \frac{S^{(1)}_c}{n_c}, \qquad
 \sigma_c = \sqrt{\max\!\left(\frac{S^{(2)}_c}{n_c} - \mu_c^2,\; 0\right)}$$
+
+**Normalizzazione**: con media $\mu_x$ e scala $\sigma_x$ del canale stimate sul
+periodo di addestramento,
+
+$$\text{media normalizzata} = \frac{m - \mu_x}{\sigma_x}, \qquad
+\text{deviazione normalizzata} = \frac{v}{\sigma_x}$$
+
+**La media del canale non si sottrae dalla deviazione.** Una standardizzazione
+propria della caratteristica «deviazione» richiederebbe media e scala sue, stimate
+sul periodo ammesso.
 
 **Denominatore**: $n_c$, il numero di osservazioni valide **di quel canale**, non
 la lunghezza della finestra.
@@ -150,19 +188,76 @@ esiste.
 
 ---
 
-## 5. Le due varianti
+## 4bis. Schemi per sorgente
 
-| | $s$ | $q$ | totale |
+**I canali dipendono dalla sorgente, e lo schema è dichiarato.** Il componente non
+decide quali caratteristiche rimuovere osservando se un canale sia costante: **un
+canale realmente misurato può legittimamente esserlo.**
+
+| sorgente | canali | nota |
+|---|---|---|
+| **traffic4cast** | `r`, `volume_class` | l'occupazione è **assente dalla sorgente**, non mancante |
+| **gomo** | `r`, `conteggio`, `occupazione` | `r` vi è **ricostruito**, non misurato |
+
+`volume_class` è una classe discretizzata a tre livelli — 1, 3, 5 — con zero dove il
+dato manca. **Non condivide il nome con il conteggio veicolare**, perché non è la
+stessa grandezza: `media_volume_class` e `dev_volume_class` sono sommari della
+**codifica**, non stime del flusso, e la loro interpretazione dipende dai livelli.
+La standardizzazione non le rende fisicamente equivalenti.
+
+L'invocazione dichiara entrambe:
+
+    source_schema      = traffic4cast | gomo
+    descriptor_variant = LEGACY | BASE-CORRECTED | EXTENDED
+
+## 5. Le tre varianti
+
+| | GO-MO | **Traffic4cast** | funzione |
 |---|---|---|---|
-| **BASE** | gruppi 1–2 → **14** | durata nominale, copertura di $r$ → **2** | **16** |
-| **EXTENDED** | gruppi 1–5 → **20** | tutte → **15** | **35** |
+| **LEGACY** | 14 + 2 = **16** | 14 + 2 = **16** | riproduzione, **non esercizio** |
+| **BASE-CORRECTED** | 14 + 15 = **29** | 12 + 14 = **26** | base della campagna |
+| **EXTENDED** | 20 + 15 = **35** | 18 + 14 = **32** | configurazione principale |
 
-**BASE riproduce la rappresentazione attuale dell'inserimento** in modalità `both`:
-sei fra medie e deviazioni, otto bande, quota di validi, codice di durata. Si
-conserva come ablazione.
+**Su Traffic4cast si rimuovono tre componenti**: `media_occupazione`,
+`dev_occupazione` e `copertura_occupazione`.
 
-**EXTENDED è la configurazione principale.** Il confronto fra le due stabilirà se
-le aggiunte siano utili: **è una domanda sperimentale, non una premessa.**
+**LEGACY resta a 16 su entrambe le sorgenti**, poiché la sua funzione è la fedeltà
+alle funzioni storiche, non la coerenza con il dato.
+
+**La differenza fra LEGACY e BASE-CORRECTED su Traffic4cast è di 10 componenti e
+640 pesi** nel primo strato a 64 unità.
+
+**LEGACY su Traffic4cast ha 16 componenti nominali e 14 variabili**: `media_occupazione`
+e `dev_occupazione` sono costanti a zero, poiché il canale è assente dalla sorgente.
+Si conservano — eliminarle cambierebbe parametrizzazione e inizializzazione — e la
+normalizzazione usa la convenzione storica `std + 1e-6`, **dichiarata** come gestione
+di un canale costante.
+
+**Il contratto distingue** una scala accidentalmente nulla, che è un errore, da un
+canale costante esplicitamente dichiarato, che è ammesso e registrato.
+
+**BASE-CORRECTED ed EXTENDED condividono il blocco di disponibilità per intero.**
+Se cambiassero anche quelle, il confronto fra le due misurerebbe il beneficio
+complessivo della rappresentazione anziché quello delle **sei sole statistiche
+aggiuntive**: frequenze delle tre classi, autocorrelazione, quote di incremento e
+decremento.
+
+**LEGACY riproduce le convenzioni storiche**, comprese quelle che la specifica
+altrove corregge:
+
+| | LEGACY | BASE-CORRECTED |
+|---|---|---|
+| denominatore | protetto a uno — **mai zero** | numerosità vera |
+| canale senza osservazioni | media zero, indistinguibile | **non stimabile** |
+| fascia mai osservata | riempita con la media globale | **non stimabile** |
+| non stimabili dichiarati | **nessuno** | elenco esplicito |
+
+> Il denominatore protetto e l'imputazione con la media globale **non sono difetti
+> in sé**: sono una protezione aritmetica e una scelta metodologica. Lo diventano
+> senza maschera, perché il risultato è presentato come statistica osservata senza
+> indicarne l'indisponibilità.
+
+**LEGACY serve al raccordo con i risultati pubblicati e non entra nella campagna.**
 
 ---
 
@@ -219,8 +314,57 @@ separatamente, ed è parte dell'audit C.
 
 ---
 
+## Versione di implementazione, distinta da quella di schema
+
+**Lo schema elenca nomi e ordine delle caratteristiche; l'implementazione dice come
+sono calcolate.** Una correzione che non tocchi l'elenco lascia lo schema invariato
+e incrementa la versione di implementazione.
+
+| implementazione | correzione |
+|---|---|
+| 1.0 | prima stesura |
+| 1.1 | soglie in precisione singola; ordine delle operazioni sul rapporto; accumulatori traslati |
+| 1.2 | schemi per sorgente; deviazione scalata e non centrata |
+| **1.3** | **`copertura_coppie` spostata nel blocco condiviso** |
+
+### La correzione 1.3
+
+`copertura_coppie` era calcolata **solo dentro il ramo `EXTENDED`**, mentre
+appartiene al blocco di disponibilità condiviso: su BASE-CORRECTED restava
+**costantemente zero**.
+
+> Le due varianti **non condividevano davvero le informazioni di disponibilità**,
+> che è il requisito posto perché il confronto isolasse le statistiche
+> comportamentali. Una delle quattordici componenti era nulla in una variante e
+> corretta nell'altra.
+
+**Due verifiche aggiunte**: che la componente sia calcolata e non lasciata a zero, e
+che **tutte e quattordici** le componenti coincidano fra BASE-CORRECTED ed EXTENDED,
+confrontate una per una sulle medesime istanze.
+
+**Lo schema resta alla 1.2**: nomi, ordine e dimensioni non cambiano — 26 e 32
+componenti su Traffic4cast. **Il disegno del raccordo resta alla versione 4**: è una
+correzione implementativa, non una modifica del protocollo.
+
+**I manifesti delle nuove esecuzioni riportano entrambe le versioni**, `schema_version`
+e `implementation_version`, sicché l'esecuzione è identificabile senza ambiguità.
+
+## Due precisazioni da conservare
+
+**L'uguaglianza delle quattordici componenti riguarda BASE-CORRECTED ed EXTENDED.**
+Il raccordo con LEGACY continua a valutare **il pacchetto di trattamento esplicito
+della disponibilità**: LEGACY ne ha due, non quattordici.
+
+**Le componenti sono quantità numeriche normalizzate, non indicatori binari.**
+Sui casi reali nessuna assume soltanto zero e uno: `copertura_r` varia fra 0,22 e
+0,66, le disponibilità di banda fra 0 e 1, `copertura_coppie` fra 0,05 e 0,54.
+
 ## Registro delle versioni
 
 | versione | data | modifica |
 |---|---|---|
 | 1.0 | — | prima stesura, decisioni del revisore senior recepite |
+| 1.1 | — | precisione di valutazione delle soglie e ordine delle operazioni sul rapporto |
+| 1.4 | — | contratto di normalizzazione bloccante; canale costante dichiarato; dimensione nominale distinta da quella variabile |
+| 1.3 | — | schemi per sorgente: Traffic4cast senza occupazione, `volume_class` distinto dal conteggio |
+| 1.2 | — | tre varianti LEGACY, BASE-CORRECTED ed EXTENDED; disponibilità condivisa fra le ultime due; deviazione scalata e non centrata; fasce confermate sull'ora locale |
