@@ -1,6 +1,6 @@
 # Disegno del raccordo LEGACY ↔ BASE-CORRECTED
 
-**Versione 4 — CONGELATA.** Approvata dal revisore senior. Ogni modifica successiva
+**Versione 5 — CONGELATA.** Approvata dal revisore senior. Ogni modifica successiva
 incrementa la versione e va registrata in coda; il protocollo **non si modifica in
 base ai risultati**.
 
@@ -266,6 +266,77 @@ operativa** se le metriche secondarie mostrano deterioramenti rilevanti.
 | 5 | **ricampionamento**: coerente con la media su partizioni e inizializzazioni, molteplicità preservate, confronti appaiati |
 | 6 | **interpretazione**: confronto del pacchetto di modifiche, non effetto isolato dell'imputazione o delle maschere; metriche secondarie complementari, fuori dal criterio |
 
+## 8bis. Fallimenti: due categorie, due regole
+
+**Non tutti i fallimenti si trattano allo stesso modo.**
+
+### Fallimenti TECNICI recuperabili
+
+Interruzione del processo, problemi di ingresso e uscita, indisponibilità
+temporanea dell'ambiente.
+
+| | |
+|---|---|
+| tentativi | **tre complessivi**, cioè due aggiuntivi |
+| seme, dati, configurazione, codice | **invariati** |
+| registrazione | **ogni tentativo**, con la causa |
+| ripresa da punto di controllo | **solo se ripristina anche lo stato dell'ottimizzatore e dei generatori casuali** |
+
+> **Si usa il primo tentativo tecnicamente completato e valido**, non quello con la
+> prestazione migliore.
+
+### Fallimenti del METODO
+
+Perdita non finita, divergenza, superamento riproducibile delle risorse.
+
+| | |
+|---|---|
+| esito | **fallimento della configurazione**, da riportare |
+| ripetizioni | servono alla **diagnosi**, non a ottenere un risultato favorevole |
+| sostituzione | **vietata**: se una ripetizione riesce, si riportano **entrambe** |
+
+> **Il backend può non essere deterministico a seme fissato**: ripetere fino al
+> successo selezionerebbe anche senza cambiare seme.
+
+### Non sono fallimenti
+
+Una prestazione scarsa, un arresto anticipato regolare, il mancato raggiungimento
+della non inferiorità.
+
+### Nessuna modifica implicita
+
+Durante i tentativi **non si cambiano** dimensione del lotto, precisione,
+troncamento del gradiente, numero di epoche o altri iperparametri.
+
+**Un errore nel codice che richieda correzione sospende le esecuzioni
+interessate**: nuova versione registrata e valutazione esplicita di quali risultati
+rigenerare. **Non è un nuovo tentativo.**
+
+## 8ter. Esecuzioni mancanti e confronto appaiato
+
+| | |
+|---|---|
+| seme sostitutivo | **vietato** |
+| imputazione mediante medie | **vietata** |
+| risultato senza il proprio termine di confronto | **si conserva** e si riporta |
+
+**Una coppia è utilizzabile solo se entrambe le varianti hanno un risultato valido.**
+
+Se mancano coppie:
+
+- si riporta la **matrice completa** delle esecuzioni e dei fallimenti;
+- i **tassi di completamento delle due varianti restano distinti**;
+- **non si ricalcola in silenzio una media piatta sui superstiti**.
+
+L'analisi sulle coppie complete **mantiene uguale peso alle partizioni
+rappresentate** e si dichiara **condizionata alle esecuzioni completate**. Il
+ricampionamento riflette la struttura effettiva, **senza inventare inizializzazioni
+mancanti**.
+
+> **Una perdita potenzialmente legata al metodo impedisce di assumere che il
+> verdetto sulle sole esecuzioni riuscite valga per l'intera configurazione
+> prevista.**
+
 ## 9. Condizioni per avviare le esecuzioni
 
 Le cinquantaquattro esecuzioni possono partire **dopo** che:
@@ -320,4 +391,5 @@ non una regola universale di compensazione.
 | 1 | prima stesura |
 | 2 | protocollo induttivo, non inferiorità, ricampionamento a tre livelli, manifesto bloccante |
 | **3** | congelata: partizioni separate, incertezza condizionata al periodo di prova, nessun verdetto aggregato, condizioni per l'avvio |
-| **4** | **congelata**: schemi per sorgente, nove canali con maschere, LEGACY a 16 nominali e 14 variabili, formulazione qualificata di cosa il raccordo misura |
+| **4** | congelata: schemi per sorgente, nove canali con maschere, LEGACY a 16 nominali e 14 variabili, formulazione qualificata di cosa il raccordo misura |
+| **5** | **congelata**: distinzione fra fallimenti tecnici e del metodo, regola delle esecuzioni mancanti e del confronto appaiato |
