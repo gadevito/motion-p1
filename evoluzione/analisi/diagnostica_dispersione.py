@@ -10,8 +10,13 @@ sys.path.insert(0, ".")
 from evoluzione.analisi.analizza_raccordo import (
     CONTESTI, VARIANTI, aggregati, carica, pesi_classe, perdita)
 
-D = Path("results/evoluzione/raccordo")
-PZ = Path("results/evoluzione/pesi")
+import argparse
+_ap = argparse.ArgumentParser(description="diagnostica della dispersione")
+_ap.add_argument("--dir", type=Path, default=Path("results/evoluzione/raccordo"))
+_ap.add_argument("--pesi", type=Path, default=Path("results/evoluzione/pesi"))
+_a = _ap.parse_args()
+D, PZ = _a.dir, _a.pesi
+print(f"campagna: {D}\n")
 print(f"{'citta':11s} {'delta[p,s] per partizione e inizializzazione':>52}")
 for c in CONTESTI:
     G = np.full((3, 3), np.nan)

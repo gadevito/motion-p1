@@ -1,0 +1,31 @@
+#!/usr/bin/env python3
+"""
+I semi della campagna, in un modulo che non importa nulla.
+==========================================================
+Vivono qui perche' orchestratore, preparazione degli stati e audit ne hanno
+bisogno, e farli importare l'uno dall'altro chiuderebbe un ciclo.
+
+I SEMI DICHIARATI NON SONO QUELLI PASSATI A `torch.manual_seed`. L'orchestratore
+semina un generatore numpy con `SEME_INIZIALIZZAZIONE[s]` e ne ESTRAE il seme di
+torch, sicche' 7, 18 e 29 diventano 2.029.167.940, 1.918.988.776 e 2.007.055.255.
+
+**Derivarli, e non copiarli**, impedisce che una modifica dell'orchestratore li
+disallinei in silenzio — che e' esattamente cio' che stava per accadere.
+"""
+import numpy as np
+
+PARTIZIONI = (0, 1, 2)
+INIZIALIZZAZIONI = (0, 1, 2)
+SEME_PARTIZIONE = {p: 1000 + 37 * p for p in PARTIZIONI}
+SEME_INIZIALIZZAZIONE = {s: 7 + 11 * s for s in INIZIALIZZAZIONI}
+
+SEMI_DICHIARATI = tuple(SEME_INIZIALIZZAZIONE[s]
+                        for s in sorted(INIZIALIZZAZIONI))
+
+
+def seme_torch(seme_dichiarato: int) -> int:
+    """Il seme che l'orchestratore passa a `torch.manual_seed`."""
+    return int(np.random.default_rng(seme_dichiarato).integers(0, 2 ** 31 - 1))
+
+
+SEMI_TORCH = tuple(seme_torch(s) for s in SEMI_DICHIARATI)

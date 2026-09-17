@@ -244,7 +244,33 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
     # -- il modello: generatore di INIZIALIZZAZIONE, reinizializzato ---------
     seme_i = int(gen["inizializzazione"].integers(0, 2**31 - 1))
     torch.manual_seed(seme_i)
+    # SI COSTRUISCE COMUNQUE nell'ordine consueto, anche quando lo stato verra'
+    # sovrascritto: cosi' il generatore avanza esattamente come nella campagna
+    # precedente, e l'ordine dei campionamenti successivi non cambia. Caricare
+    # uno `state_dict` non ripristinerebbe il generatore.
     m = PredittorePerNodo(d_desc, 5, sorgente="traffic4cast")
+    impronta_iniziale = None
+    if cfg.get("appaiamento") and E.variante == "BASE-CORRECTED":
+        from evoluzione.esperimenti.prepara_stati_iniziali import (
+            chiave as chiave_stato, impronta_stato)
+        k = chiave_stato("BASE-CORRECTED", seme_i, d_desc, True)
+        f = Path(cfg.get("stati_iniziali",
+                         "results/evoluzione/stati_iniziali")) / f"{k}.pt"
+        if not f.exists():
+            raise ValueError(
+                f"stato iniziale allineato assente: {f}. Eseguire prima "
+                f"`prepara_stati_iniziali.py`: l'addendum richiede che gli "
+                f"stati siano SALVATI, non identificati dal solo seme.")
+        d = torch.load(f, map_location="cpu", weights_only=False)
+        m.load_state_dict(d["state_dict"])
+        impronta_iniziale = d["impronta"]
+        reg.evento(f"stato iniziale ALLINEATO caricato da {f.name}, impronta "
+                   f"{impronta_iniziale}: `stat`, `e1` ed `e2` presi da LEGACY")
+    elif cfg.get("appaiamento"):
+        from evoluzione.esperimenti.prepara_stati_iniziali import impronta_stato
+        impronta_iniziale = impronta_stato(m.state_dict())
+        reg.evento(f"stato iniziale originario di LEGACY, impronta "
+                   f"{impronta_iniziale}: invariato")
     opt = torch.optim.Adam(m.parameters(), lr=cfg["passo"])
     stat = torch.as_tensor(np.stack([
         D["m_r"].mean(0), np.zeros(K), np.ones(K), np.zeros(K), np.ones(K)],
@@ -255,8 +281,16 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
                        int(ist["validazione"][0]), E.variante, NORM)
     reg.modello(m, n_nodi=K, **{k: cfg[k] for k in
                                 ("epoche", "lotto", "passo", "pazienza")})
+    if impronta_iniziale:
+        reg.artefatto("stato_iniziale", impronta=impronta_iniziale,
+                      appaiamento=True,
+                      campagna_precedente=cfg.get("campagna_precedente"),
+                      versione_addendum=cfg.get("versione_addendum"))
 
-    migliore, epoca, pazienza, ck = float("inf"), -1, 0, radice / "raccordo" / \
+    # LA CARTELLA SEGUE L'ETICHETTA: scrivere in "raccordo" fisso
+    # sovrascriverebbe la campagna congelata
+    dir_camp = radice / cfg.get("etichetta", "raccordo")
+    migliore, epoca, pazienza, ck = float("inf"), -1, 0, dir_camp / \
         f"ck_{E.contesto}_p{E.partizione}_s{E.inizializzazione}_{E.variante}.pt"
     ck.parent.mkdir(parents=True, exist_ok=True)
     g = np.random.default_rng(seme_i)

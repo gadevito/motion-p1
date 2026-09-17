@@ -230,23 +230,44 @@ def esito_eq(r):
 
 
 # ------------------------------------------------------ metriche secondarie -
-def secondarie(D, w):
-    """Average precision sulla classe critica; precisione e richiamo a soglia.
+def _average_precision(p3, y):
+    o = np.argsort(-p3, kind="stable")
+    yy = y[o]
+    tp = np.cumsum(yy)
+    prec = tp / np.arange(1, len(yy) + 1)
+    return float((prec * yy).sum() / max(yy.sum(), 1))
+
+
+def secondarie(dati_per_coppia, w_per_partizione):
+    """Average precision sulla classe critica, e perdita sui soli positivi.
+
+    **SI RICALCOLANO PER OGNI CAMPAGNA.** Non si trasferiscono da una campagna
+    all'altra: un modello diverso ha ordinamenti diversi, e il peggioramento
+    osservato altrove non vale qui.
 
     FUORI dal criterio principale, riportate anche se contraddicono.
+
+    Su TUTTE le coppie, non su una sola: con tre inizializzazioni un valore
+    preso da `p0 s0` descriverebbe una colonna della matrice, non la campagna.
     """
     fuori = {}
     for v in VARIANTI:
-        d = D[v]
-        p3 = d.p3.to_numpy()
-        y = (d.vero.to_numpy() == 2).astype(int)
-        o = np.argsort(-p3)
-        yy = y[o]
-        tp = np.cumsum(yy)
-        prec = tp / np.arange(1, len(yy) + 1)
-        ap = float((prec * yy).sum() / max(yy.sum(), 1))
-        fuori[v] = {"average_precision_critica": ap,
-                    "frequenza_critica": float(y.mean())}
+        ap, lp, n = [], [], []
+        for (p, s), D in sorted(dati_per_coppia.items()):
+            d = D[v]
+            y = (d.vero.to_numpy() == 2).astype(int)
+            ap.append(_average_precision(d.p3.to_numpy(), y))
+            # la perdita sui soli POSITIVI: il peso si cancella nel rapporto
+            m = y == 1
+            pt = np.clip(d.p3.to_numpy()[m], 1e-7, 1.0)
+            lp.append(float(np.mean(-np.log(pt))) if m.any() else np.nan)
+            n.append(int(m.sum()))
+        fuori[v] = {
+            "average_precision_critica": float(np.mean(ap)),
+            "ap_per_coppia": [float(x) for x in ap],
+            "ap_minimo": float(np.min(ap)), "ap_massimo": float(np.max(ap)),
+            "perdita_sui_positivi": float(np.nanmean(lp)),
+            "positivi": int(np.sum(n)), "coppie": len(ap)}
     return fuori
 
 
@@ -318,15 +339,32 @@ def main() -> int:
         print(f"\n  NON INFERIORITA': {ni}")
         print(f"  EQUIVALENZA:      {eq}")
 
-        # metriche secondarie, fuori dal criterio
-        D0 = carica(a.dir, c, 0, 0)
-        sec = secondarie(D0, PZ[0].vettore()) if D0 else {}
+        # metriche secondarie, fuori dal criterio, su TUTTE le coppie
+        per_coppia = {}
+        for p in (0, 1, 2):
+            for s in (0, 1, 2):
+                D = carica(a.dir, c, p, s)
+                if D is not None:
+                    per_coppia[(p, s)] = D
+        sec = secondarie(per_coppia, PZ) if per_coppia else {}
         if sec:
-            print(f"\n  metriche secondarie (p0 s0, FUORI dal criterio):")
+            print(f"\n  metriche secondarie, FUORI dal criterio, su "
+                  f"{sec['LEGACY']['coppie']} coppie:")
+            print(f"     {'':16s} {'AP critica':>11} {'estremi':>18} "
+                  f"{'perdita positivi':>18}")
             for v in VARIANTI:
-                print(f"     {v:16s} average precision critica "
-                      f"{sec[v]['average_precision_critica']:.4f}  "
-                      f"(frequenza {sec[v]['frequenza_critica']:.4f})")
+                x = sec[v]
+                print(f"     {v:16s} {x['average_precision_critica']:11.4f} "
+                      f"[{x['ap_minimo']:.4f};{x['ap_massimo']:.4f}] "
+                      f"{x['perdita_sui_positivi']:18.4f}")
+            dap = (sec["BASE-CORRECTED"]["average_precision_critica"]
+                   - sec["LEGACY"]["average_precision_critica"])
+            dlp = (sec["BASE-CORRECTED"]["perdita_sui_positivi"]
+                   - sec["LEGACY"]["perdita_sui_positivi"])
+            print(f"     {'differenza':16s} {dap:+11.4f} "
+                  f"{'':18} {dlp:+18.4f}")
+            print(f"     ricalcolate su QUESTA campagna: non si trasferiscono "
+                  f"da un'altra")
         risultati[c] = {"stima": r["stima"], "ni_sup": r["ni_sup"],
                         "eq": [r["eq_inf"], r["eq_sup"]],
                         "non_inferiorita": ni, "equivalenza": eq,

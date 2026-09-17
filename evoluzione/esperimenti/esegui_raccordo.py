@@ -50,15 +50,15 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from evoluzione.componente.estrattore import (  # noqa: E402
     SCHEMA_VERSIONE, SCHEMI_T4C, VERSIONE_IMPLEMENTAZIONE)
 from evoluzione.componente.registro import Registro  # noqa: E402
+from evoluzione.esperimenti.semi import (  # noqa: E402
+    INIZIALIZZAZIONI, PARTIZIONI, SEME_INIZIALIZZAZIONE,
+    SEME_PARTIZIONE)
 from evoluzione.esperimenti.addestramento import addestra_una  # noqa: E402
 
 CONTESTI = ("Madrid", "Londra", "Melbourne")
 VARIANTI = ("LEGACY", "BASE-CORRECTED")
-PARTIZIONI = (0, 1, 2)
-INIZIALIZZAZIONI = (0, 1, 2)
-# semi SEPARATI: partizione e inizializzazione non condividono la sequenza
-SEME_PARTIZIONE = {p: 1000 + 37 * p for p in PARTIZIONI}
-SEME_INIZIALIZZAZIONE = {s: 7 + 11 * s for s in INIZIALIZZAZIONI}
+# i semi vivono in `semi.py`, che non importa nulla: preparazione degli stati e
+# audit ne hanno bisogno, e farli importare da qui chiuderebbe un ciclo
 TENTATIVI_MAX = 3            # complessivi, per i soli fallimenti tecnici
 
 COMPLETATA = "completata"
@@ -182,7 +182,7 @@ def esegui_una(E: Esecuzione, addestra, cfg, radice: Path) -> Esecuzione:
             E.tentativi.append(Tentativo(n, datetime.now(timezone.utc).isoformat(),
                                          tipo, causa, time.time() - t0))
             # gli artefatti del tentativo fallito NON restano fra quelli validi
-            _sposta_falliti(radice, E, n)
+            _sposta_falliti(radice, E, n, cfg.get('etichetta', 'raccordo'))
             if tipo == METODO:
                 # NON si ripete per ottenere un risultato favorevole: e' un esito
                 E.esito = METODO
@@ -216,13 +216,13 @@ def gia_completate(out: Path) -> dict:
     return fuori
 
 
-def _sposta_falliti(radice: Path, E, n: int):
+def _sposta_falliti(radice: Path, E, n: int, etichetta: str = "raccordo"):
     """Sposta i residui di un tentativo fallito in una cartella separata.
 
     Un punto di controllo parziale accanto a quelli validi verrebbe raccolto
     dall'analisi come se fosse buono.
     """
-    base = radice / "raccordo"
+    base = radice / etichetta
     dest = base / "tentativi_falliti"
     radice_nome = (f"{E.contesto}_p{E.partizione}_s{E.inizializzazione}_"
                    f"{E.variante}")
@@ -358,6 +358,13 @@ def main() -> int:
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
     ap.add_argument("--riparti", action="store_true",
                     help="ignora la matrice precedente e rifa' tutto")
+    ap.add_argument("--appaiamento", action="store_true",
+                    help="sostituisce ramo statico e teste di BASE-CORRECTED "
+                         "con quelli iniziali di LEGACY (addendum 1)")
+    ap.add_argument("--stati-iniziali", dest="stati_iniziali", type=Path,
+                    default=Path("results/evoluzione/stati_iniziali"))
+    ap.add_argument("--campagna-precedente", dest="campagna_precedente",
+                    default="raccordo")
     ap.add_argument("--etichetta", default="raccordo",
                     help="identificativo della campagna: il collaudo "
                          "dell'integrazione ne usa uno DISTINTO, e non entra "
@@ -370,7 +377,10 @@ def main() -> int:
            "storia_descrittore_passi": 96,      # ventiquattro ore
            "finestra_dinamica_passi": 12,       # tre ore
            "orizzonti": [1, 2, 4, 8], "sorgente": "traffic4cast",
-           "etichetta": a.etichetta}
+           "etichetta": a.etichetta, "appaiamento": a.appaiamento,
+           "stati_iniziali": str(a.stati_iniziali),
+           "campagna_precedente": a.campagna_precedente if a.appaiamento else None,
+           "versione_addendum": "1" if a.appaiamento else None}
     P = [e for e in piano() if e.contesto in a.contesto]
 
     print("=" * 80)
@@ -407,7 +417,7 @@ def main() -> int:
         """
         return addestra_una(E, reg, cfg, gen, a.out)
 
-    fatte = gia_completate(a.out / "raccordo") if not a.riparti else {}
+    fatte = gia_completate(a.out / a.etichetta) if not a.riparti else {}
     if fatte:
         print(f"\n  RIPRESA: {len(fatte)} esecuzioni gia' completate, non "
               f"ripetute.")
@@ -420,7 +430,7 @@ def main() -> int:
                 E.uscita = d.get("uscita", "")
                 E.tentativi = [Tentativo(**x) for x in d.get("tentativi", [])]
 
-    f = salva_ordine(P, a.out / "raccordo")
+    f = salva_ordine(P, a.out / a.etichetta)
     print(f"\n  ordine salvato in {f} — NON modificabile in funzione dei "
           f"risultati\n")
     for i, E in enumerate(P, 1):
@@ -439,7 +449,7 @@ def main() -> int:
             traceback.print_exc()
             break
 
-    matrice(P, a.out / "raccordo")
+    matrice(P, a.out / a.etichetta)
     return 0
 
 
