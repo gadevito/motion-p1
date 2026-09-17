@@ -41,6 +41,9 @@ from evoluzione.componente.estrattore import (  # noqa: E402
 from evoluzione.componente.normalizzazione import verifica_contratto  # noqa: E402
 from evoluzione.componente.predittore import (  # noqa: E402
     CANALI_T4C, FINESTRA, ORIZZONTI, PredittorePerNodo)
+from evoluzione.analisi.pesi import (  # noqa: E402
+    ClasseAssente, calcola as calcola_pesi, carica as carica_pesi,
+    media_orizzonti, percorso as percorso_pesi, salva as salva_pesi)
 
 L_STORIA = 96
 COSTANTI = frozenset({"occupazione", "conteggio"})
@@ -152,12 +155,44 @@ def _lotto(x, classe, istanti, nodi):
     return X, Y.clamp(0, 2)
 
 
+def _pesi(E, D, nodi, ist, radice: Path, versione: str):
+    """L'artefatto dei pesi, UNO per citta' e partizione.
+
+    Si calcola la prima volta e si riusa: le tre inizializzazioni e le due
+    varianti devono consumare lo STESSO vettore, altrimenti il confronto
+    appaiato non ha la medesima metrica ai due lati.
+    """
+    dir_pesi = radice / "pesi"
+    f = percorso_pesi(dir_pesi, E.contesto, E.partizione)
+    if f.exists():
+        return carica_pesi(dir_pesi, E.contesto, E.partizione)
+    P = calcola_pesi(E.contesto, E.partizione, D["classe"],
+                     nodi["addestramento"], ist["addestramento"], ORIZZONTI,
+                     versione_codice=versione)
+    salva_pesi(P, dir_pesi)
+    return P
+
+
 def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
     """Una esecuzione. Restituisce il percorso delle predizioni salvate."""
     dir_masc = radice / "maschere"
     D = _carica(E.contesto, dir_masc)
     nodi, ist = _partizioni(D, gen)
     NORM, nr, nv = _normalizzazione(D, nodi, ist)
+
+    # -- i PESI: stesso artefatto per addestramento e analisi ---------------
+    PZ = _pesi(E, D, nodi, ist, radice, cfg.get("etichetta", ""))
+    w = PZ.vettore()
+    wt = torch.as_tensor(w, dtype=torch.float32)
+    reg.metrica(nome="wCE", pesi=w,
+                aggregazione=PZ.regola_aggregazione,
+                ordine_classi=PZ.ordine_classi, conteggi=PZ.conteggi,
+                n_train=PZ.n_train,
+                nodi_stima=f"{len(PZ.nodi_addestramento)} di addestramento",
+                periodo_stima=PZ.periodo_addestramento,
+                riduzione=PZ.regola_riduzione,
+                conteggio_per_orizzonte=PZ.conteggio_per_orizzonte,
+                versione_pesi=PZ.versione_pesi, impronta_pesi=PZ.impronta)
     S = SCHEMI_T4C[E.variante]
     verifica_contratto(S["statistiche"], S["disponibilita"], NORM,
                        f"{E.variante}/traffic4cast", canali_costanti=COSTANTI)
@@ -199,7 +234,9 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
                        replace=False)
         X, Y = _lotto(x, D["classe"], np.sort(idx), nodi["addestramento"])
         out = m(X, dtr, stat[nodi["addestramento"]])
-        L = F.cross_entropy(out.reshape(-1, 3), Y.reshape(-1))
+        # PESATA, come la metrica: un modello che ottimizzi l'entropia semplice
+        # e venga giudicato su quella pesata non e' quello del protocollo
+        L = F.cross_entropy(out.reshape(-1, 3), Y.reshape(-1), weight=wt)
         if not torch.isfinite(L):
             raise FallimentoMetodo(f"perdita non finita all'epoca {ep}")
         opt.zero_grad(); L.backward(); opt.step()
@@ -209,7 +246,7 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
                             nodi["validazione"])
             pv = float(F.cross_entropy(
                 m(Xv, dva, stat[nodi["validazione"]]).reshape(-1, 3),
-                Yv.reshape(-1)))
+                Yv.reshape(-1), weight=wt))
         if not np.isfinite(pv):
             raise FallimentoMetodo(f"validazione non finita all'epoca {ep}")
         if pv < migliore:                       # a parita', la PRIMA
