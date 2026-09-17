@@ -42,15 +42,11 @@ import torch
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from evoluzione.componente.estrattore import SCHEMI_T4C  # noqa: E402
 from evoluzione.componente.predittore import PredittorePerNodo  # noqa: E402
-from evoluzione.esperimenti.semi import (  # noqa: E402
-    SEMI_DICHIARATI, SEMI_TORCH)
+from evoluzione.esperimenti.semi import configurazione  # noqa: E402
 
 ESITI = []
-# I SEMI DI TORCH, derivati come nell'orchestratore: 7, 18 e 29 seminano un
-# generatore numpy da cui si ESTRAE il seme passato a `torch.manual_seed`.
-# Confrontare i modelli costruiti con 7, 18 e 29 verificherebbe la proprieta'
-# giusta sui semi sbagliati.
-SEMI = SEMI_TORCH
+# i semi si fissano in `main` dalla configurazione della campagna
+SEMI = SEMI_DICHIARATI = ()
 D_STAT = 5
 
 
@@ -102,6 +98,13 @@ def gruppo(k):
 
 
 def main() -> int:
+    import argparse
+    ap = argparse.ArgumentParser(description="audit dell'inizializzazione")
+    ap.add_argument("--conferma", action="store_true",
+                    help="addendum 2: dodici inizializzazioni nuove")
+    a = ap.parse_args()
+    global SEMI, SEMI_DICHIARATI
+    _, SEMI_DICHIARATI, SEMI = configurazione(a.conferma)
     print("=" * 84)
     print("AUDIT DELL'INIZIALIZZAZIONE")
     print("=" * 84)

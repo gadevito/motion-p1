@@ -46,11 +46,11 @@ import torch
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from evoluzione.componente.estrattore import (  # noqa: E402
     SCHEMA_VERSIONE, SCHEMI_T4C, VERSIONE_IMPLEMENTAZIONE)
-from evoluzione.esperimenti.semi import (  # noqa: E402
-    SEMI_DICHIARATI, SEMI_TORCH)
+from evoluzione.esperimenti.semi import configurazione  # noqa: E402
 from evoluzione.componente.predittore import PredittorePerNodo  # noqa: E402
 
 VERSIONE_ADDENDUM = "1"
+SEMI = SEMI_DICHIARATI = ()        # fissati in `main` dalla configurazione
 
 # I SEMI DICHIARATI NON SONO QUELLI PASSATI A `torch.manual_seed`. L'orchestratore
 # semina un generatore numpy con SEME_INIZIALIZZAZIONE[s] e ne ESTRAE il seme di
@@ -61,7 +61,6 @@ VERSIONE_ADDENDUM = "1"
 # sicche' 7, 18 e 29 diventano 2.029.167.940, 1.918.988.776 e 2.007.055.255.
 # Derivarli qui con la stessa formula, anziche' copiarli, impedisce che una
 # modifica dell'orchestratore li disallinei in silenzio.
-SEMI = SEMI_TORCH
 D_STAT = 5
 SORGENTE = "traffic4cast"
 MODULI_SOSTITUITI = ("stat", "e1", "e2")
@@ -132,7 +131,11 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="prepara gli stati iniziali")
     ap.add_argument("--out", type=Path,
                     default=Path("results/evoluzione/stati_iniziali"))
+    ap.add_argument("--conferma", action="store_true",
+                    help="addendum 2: dodici inizializzazioni nuove")
     a = ap.parse_args()
+    global SEMI, SEMI_DICHIARATI
+    _, SEMI_DICHIARATI, SEMI = configurazione(a.conferma)
     a.out.mkdir(parents=True, exist_ok=True)
 
     print("=" * 84)
@@ -187,7 +190,13 @@ def main() -> int:
         print(f"     differenze fra originaria e allineata: {len(div)} tensori "
               f"({'solo i previsti' if set(x.split('.')[0] for x in div) <= set(MODULI_SOSTITUITI) else 'ALTRI COINVOLTI'})")
 
-    (a.out / "registro_stati.json").write_text(json.dumps(
+    # UN REGISTRO PER CAMPAGNA: scriverne uno solo sovrascriverebbe quello
+    # precedente, e i suoi stati sparirebbero dalla documentazione pur restando
+    # su disco. E' accaduto: dodici semi hanno soppiantato i tre della campagna
+    # appaiata.
+    nome_reg = ("registro_stati_conferma.json" if a.conferma
+                else "registro_stati.json")
+    (a.out / nome_reg).write_text(json.dumps(
         {"versione_addendum": VERSIONE_ADDENDUM,
          "schema_version": SCHEMA_VERSIONE,
          "implementation_version": VERSIONE_IMPLEMENTAZIONE,
@@ -200,12 +209,13 @@ def main() -> int:
              "L'addestramento ricostruisce il modello nell'ordine consueto con "
              "il seme dichiarato e vi sovrascrive i pesi: il generatore avanza "
              "allora esattamente come nella campagna precedente."),
+         "campagna": "conferma" if a.conferma else "appaiamento",
          "stati": reg, "istante": datetime.now(timezone.utc).isoformat()},
         indent=2, ensure_ascii=False))
 
     print(f"\n{'=' * 84}")
     print(f"  {len(reg)} stati salvati in {a.out}")
-    print(f"  registro in {a.out / 'registro_stati.json'}")
+    print(f"  registro in {a.out / nome_reg}")
     print("\n  Caricare uno `state_dict` NON ripristina i generatori casuali.")
     print("  L'addestramento ricostruisce il modello nell'ordine consueto con il")
     print("  seme dichiarato e vi sovrascrive i pesi: il generatore avanza")

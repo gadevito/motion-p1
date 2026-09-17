@@ -22,6 +22,19 @@ SEME_INIZIALIZZAZIONE = {s: 7 + 11 * s for s in INIZIALIZZAZIONI}
 SEMI_DICHIARATI = tuple(SEME_INIZIALIZZAZIONE[s]
                         for s in sorted(INIZIALIZZAZIONI))
 
+# ---------------------------------------------------------------- CONFERMA --
+# Addendum 2: DODICI inizializzazioni nuove, 101..112, mai usate per valutazioni
+# predittive. La sequenza consecutiva e' ammissibile: non serve cercare numeri
+# apparentemente piu' casuali.
+#
+# NOTA: il valore 101 e' gia' stato usato come seme di PARTIZIONE nelle prove
+# tecniche, che non producevano valutazioni predittive della campagna. Qui e' un
+# seme di INIZIALIZZAZIONE, e i due ruoli non si toccano.
+INIZIALIZZAZIONI_CONFERMA = tuple(range(12))
+SEME_INIZIALIZZAZIONE_CONFERMA = {s: 101 + s for s in INIZIALIZZAZIONI_CONFERMA}
+SEMI_DICHIARATI_CONFERMA = tuple(
+    SEME_INIZIALIZZAZIONE_CONFERMA[s] for s in INIZIALIZZAZIONI_CONFERMA)
+
 
 def seme_torch(seme_dichiarato: int) -> int:
     """Il seme che l'orchestratore passa a `torch.manual_seed`."""
@@ -29,3 +42,12 @@ def seme_torch(seme_dichiarato: int) -> int:
 
 
 SEMI_TORCH = tuple(seme_torch(s) for s in SEMI_DICHIARATI)
+SEMI_TORCH_CONFERMA = tuple(seme_torch(s) for s in SEMI_DICHIARATI_CONFERMA)
+
+
+def configurazione(conferma: bool):
+    """(inizializzazioni, semi dichiarati, semi di torch) per la campagna."""
+    if conferma:
+        return (INIZIALIZZAZIONI_CONFERMA, SEMI_DICHIARATI_CONFERMA,
+                SEMI_TORCH_CONFERMA)
+    return INIZIALIZZAZIONI, SEMI_DICHIARATI, SEMI_TORCH

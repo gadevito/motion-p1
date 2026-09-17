@@ -32,7 +32,8 @@ import torch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from evoluzione.esperimenti.prepara_stati_iniziali import (  # noqa: E402
-    MODULI_SOSTITUITI, SEMI, chiave, costruisci, d_descrittore, impronta_stato)
+    MODULI_SOSTITUITI, chiave, costruisci, d_descrittore, impronta_stato)
+from evoluzione.esperimenti.semi import configurazione  # noqa: E402
 
 ESITI = []
 
@@ -55,7 +56,11 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="controlli dell'appaiamento")
     ap.add_argument("--stati", type=Path,
                     default=Path("results/evoluzione/stati_iniziali"))
+    ap.add_argument("--conferma", action="store_true",
+                    help="addendum 2: dodici inizializzazioni nuove")
     a = ap.parse_args()
+    _, SEMI_DICH, SEMI = configurazione(a.conferma)
+    print(f"  semi dichiarati {list(SEMI_DICH)}")
 
     print("=" * 84)
     print("CONTROLLI PRIMA DEL LANCIO — campagna appaiata")
@@ -138,7 +143,8 @@ def main() -> int:
 
     # ---- [5] gli stati sono salvati, non solo identificati ---------------
     print(f"\n  artefatti")
-    r = a.stati / "registro_stati.json"
+    r = a.stati / ("registro_stati_conferma.json" if a.conferma
+                   else "registro_stati.json")
     verifica("5", "il registro degli stati esiste", r.exists(), str(r))
     if r.exists():
         d = json.loads(r.read_text())

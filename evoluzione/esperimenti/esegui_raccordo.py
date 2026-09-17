@@ -51,8 +51,8 @@ from evoluzione.componente.estrattore import (  # noqa: E402
     SCHEMA_VERSIONE, SCHEMI_T4C, VERSIONE_IMPLEMENTAZIONE)
 from evoluzione.componente.registro import Registro  # noqa: E402
 from evoluzione.esperimenti.semi import (  # noqa: E402
-    INIZIALIZZAZIONI, PARTIZIONI, SEME_INIZIALIZZAZIONE,
-    SEME_PARTIZIONE)
+    INIZIALIZZAZIONI, INIZIALIZZAZIONI_CONFERMA, PARTIZIONI,
+    SEME_INIZIALIZZAZIONE, SEME_INIZIALIZZAZIONE_CONFERMA, SEME_PARTIZIONE)
 from evoluzione.esperimenti.addestramento import addestra_una  # noqa: E402
 
 CONTESTI = ("Madrid", "Londra", "Melbourne")
@@ -239,6 +239,18 @@ def _sposta_falliti(radice: Path, E, n: int, etichetta: str = "raccordo"):
     return mossi
 
 
+def configura(conferma: bool):
+    """Sostituisce le costanti di modulo con quelle della campagna scelta.
+
+    L'addendum 2 usa DODICI inizializzazioni nuove; la campagna di sensibilita'
+    ne usava tre. Le partizioni restano le stesse.
+    """
+    global INIZIALIZZAZIONI, SEME_INIZIALIZZAZIONE
+    if conferma:
+        INIZIALIZZAZIONI = INIZIALIZZAZIONI_CONFERMA
+        SEME_INIZIALIZZAZIONE = SEME_INIZIALIZZAZIONE_CONFERMA
+
+
 def piano():
     """L'ordine approvato, fissato PRIMA del lancio e non modificabile dopo.
 
@@ -358,6 +370,8 @@ def main() -> int:
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
     ap.add_argument("--riparti", action="store_true",
                     help="ignora la matrice precedente e rifa' tutto")
+    ap.add_argument("--conferma", action="store_true",
+                    help="addendum 2: dodici inizializzazioni nuove, 101..112")
     ap.add_argument("--appaiamento", action="store_true",
                     help="sostituisce ramo statico e teste di BASE-CORRECTED "
                          "con quelli iniziali di LEGACY (addendum 1)")
@@ -371,6 +385,7 @@ def main() -> int:
                          "nelle 54 esecuzioni")
     a = ap.parse_args()
 
+    configura(a.conferma)          # PRIMA di costruire il piano
     cfg = {"epoche": a.epoche, "lotto": a.lotto, "passo": a.passo,
            "pazienza": a.pazienza,
            # DUE FINESTRE DISTINTE, da non confondere nel manifesto
@@ -380,7 +395,8 @@ def main() -> int:
            "etichetta": a.etichetta, "appaiamento": a.appaiamento,
            "stati_iniziali": str(a.stati_iniziali),
            "campagna_precedente": a.campagna_precedente if a.appaiamento else None,
-           "versione_addendum": "1" if a.appaiamento else None}
+           "versione_addendum": ("2" if a.conferma
+                                 else "1" if a.appaiamento else None)}
     P = [e for e in piano() if e.contesto in a.contesto]
 
     print("=" * 80)
