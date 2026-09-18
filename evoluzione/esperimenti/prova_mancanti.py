@@ -289,7 +289,7 @@ def main() -> int:
             m.train()
             X, Y = lotto(xt, D["classe"], ist_tr[:24], nodi["addestramento"])
             L = F.cross_entropy(
-                m(X, dtr, stat[nodi["addestramento"]]).reshape(-1, 3),
+                m(X, node_ids=nodi["addestramento"], descriptor=dtr, static_inputs=stat[nodi["addestramento"]]).reshape(-1, 3),
                 Y.reshape(-1))
             opt.zero_grad(); L.backward(); opt.step()
         torch.save({"state_dict": m.state_dict()}, dep / f"{v}.pt")
@@ -299,13 +299,13 @@ def main() -> int:
         dcasi = DESC[v][:len(nodi_casi)]
         with torch.inference_mode():
             X, _ = lotto(xt, D["classe"], ist_casi[:4], nodi_casi)
-            o1 = m(X, dcasi, stat[nodi_casi])
+            o1 = m(X, node_ids=nodi_casi, descriptor=dcasi, static_inputs=stat[nodi_casi])
         m2 = PredittorePerNodo(dd, stat.shape[1], sorgente="traffic4cast")
         m2.load_state_dict(torch.load(dep / f"{v}.pt",
                                       weights_only=False)["state_dict"])
         m2.eval()
         with torch.inference_mode():
-            o2 = m2(X, dcasi, stat[nodi_casi])
+            o2 = m2(X, node_ids=nodi_casi, descriptor=dcasi, static_inputs=stat[nodi_casi])
         verifica(f"5-{v[:6]}", f"{v}: stato invariato sui casi con bande vuote",
                  impronta_stato(m) == pre)
         verifica(f"5-{v[:6]}b", f"{v}: il ricaricato riproduce le predizioni",

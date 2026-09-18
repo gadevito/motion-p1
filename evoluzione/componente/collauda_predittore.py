@@ -63,7 +63,9 @@ def _stato_fermo(mv, d_desc, d_stat):
     pre = impronta(mv)
     with torch.inference_mode():
         for K in (10, 37, 200):
-            mv(*dati(K, d_desc, d_stat))
+            mv(dati(K, d_desc, d_stat)[0], node_ids=list(range(K)),
+               descriptor=dati(K, d_desc, d_stat)[1],
+               static_inputs=dati(K, d_desc, d_stat)[2])
     return impronta(mv) == pre
 
 
@@ -73,7 +75,9 @@ def _invariato(mv, d_desc, d_stat):
     mv.eval()
     with torch.inference_mode():
         for K in (10, 50, 200):
-            mv(*dati(K, d_desc, d_stat))
+            mv(dati(K, d_desc, d_stat)[0], node_ids=list(range(K)),
+               descriptor=dati(K, d_desc, d_stat)[1],
+               static_inputs=dati(K, d_desc, d_stat)[2])
     return sum(p.numel() for p in mv.parameters()) == prima
 
 
@@ -100,7 +104,8 @@ def main() -> int:
         S = SCHEMI_T4C[v]
         di = len(S["statistiche"]) + len(S["disponibilita"])
         mv = PredittorePerNodo(di, d_stat, sorgente="traffic4cast")
-        pe = sum(p.numel() for p in mv.enc.parameters())
+        # il fornitore, non piu' `enc`: forma canonica unica
+        pe = sum(p.numel() for p in mv.identita.parameters())
         tot = sum(p.numel() for p in mv.parameters())
         ok = (di, pe, tot) == (di_att, pe_att, tot_att)
         conforme &= ok
@@ -127,7 +132,7 @@ def main() -> int:
     for k in ("sorgente", "n_canali_ingresso", "profilo_storico_settimanale", "finestra",
               "nucleo", "dilatazioni", "campo_ricettivo", "imbottitura",
               "nascosti", "blocchi", "normalizzazione", "d_descrittore",
-              "orizzonti", "parametri_totali", "parametri_encoder"):
+              "orizzonti", "parametri_totali", "parametri_identita"):
         print(f"  {k:32s} {D[k]}")
     print(f"  {'canali':32s} {', '.join(CANALI_INGRESSO)}")
     print(f"  {'buffer':32s} {len(D['buffer'])} "
@@ -155,7 +160,9 @@ def main() -> int:
     m.eval()
     with torch.inference_mode():
         for K in (10, 50, 200):
-            m(*dati(K, d_desc, d_stat))
+            m(dati(K, d_desc, d_stat)[0], node_ids=list(range(K)),
+              descriptor=dati(K, d_desc, d_stat)[1],
+              static_inputs=dati(K, d_desc, d_stat)[2])
     verifica("1b", "aggiungere sensori non aumenta i parametri",
              sum(p.numel() for p in m.parameters()) == tot)
     verifica("1c", "nessun `nn.Parameter` con primo asse pari ai nodi",
@@ -174,11 +181,15 @@ def main() -> int:
     pre = impronta(m)
     with torch.inference_mode():
         for K in (10, 37, 200):
-            m(*dati(K, d_desc, d_stat))
+            m(dati(K, d_desc, d_stat)[0], node_ids=list(range(K)),
+              descriptor=dati(K, d_desc, d_stat)[1],
+              static_inputs=dati(K, d_desc, d_stat)[2])
     verifica("2b", "in VALUTAZIONE lo stato non cambia", impronta(m) == pre,
              f"impronta {pre[:16]}")
     m.train()
-    m(*dati(50, d_desc, d_stat))
+    m(dati(50, d_desc, d_stat)[0], node_ids=list(range(50)),
+      descriptor=dati(50, d_desc, d_stat)[1],
+      static_inputs=dati(50, d_desc, d_stat)[2])
     cambiato = impronta(m) != pre
     verifica("2c", "in ADDESTRAMENTO lo stato CAMBIA, come deve", cambiato,
              "le medie correnti si aggiornano: l'audit D ha senso in valutazione, "
@@ -193,8 +204,9 @@ def main() -> int:
     x, dd, ss = dati(K, d_desc, d_stat)
     perm = torch.randperm(K, generator=torch.Generator().manual_seed(1))
     with torch.inference_mode():
-        a = m(x, dd, ss)
-        b = m(x[:, :, perm], dd[perm], ss[perm])
+        a = m(x, node_ids=list(range(K)), descriptor=dd, static_inputs=ss)
+        b = m(x[:, :, perm], node_ids=[int(i) for i in perm],
+              descriptor=dd[perm], static_inputs=ss[perm])
     verifica(3, "le uscite seguono la permutazione degli ingressi",
              torch.allclose(a[:, perm], b, atol=ATOL),
              f"scarto massimo {float((a[:, perm]-b).abs().max()):.2e}")
@@ -204,7 +216,8 @@ def main() -> int:
     d2 = torch.cat([dd, torch.randn(15, d_desc)])
     s2 = torch.cat([ss, torch.randn(15, d_stat)])
     with torch.inference_mode():
-        c = m(x2, d2, s2)
+        c = m(x2, node_ids=list(range(K + 15)), descriptor=d2,
+              static_inputs=s2)
     verifica(4, "le predizioni dei sensori esistenti non cambiano",
              torch.allclose(a, c[:, :K], atol=ATOL),
              f"scarto massimo {float((a-c[:, :K]).abs().max()):.2e} "
@@ -212,8 +225,9 @@ def main() -> int:
              f"risultato scientifico")
     m.train()
     with torch.no_grad():
-        at = m(x, dd, ss)
-        ct = m(x2, d2, s2)
+        at = m(x, node_ids=list(range(K)), descriptor=dd, static_inputs=ss)
+        ct = m(x2, node_ids=list(range(K + 15)), descriptor=d2,
+               static_inputs=s2)
     verifica("4b", "in ADDESTRAMENTO l'invarianza NON vale",
              not torch.allclose(at, ct[:, :K], atol=ATOL),
              "la BatchNorm accoppia i sensori attraverso le statistiche del "
@@ -226,7 +240,7 @@ def main() -> int:
     x4 = x.clone()
     x4[..., -1] = 99.0                                    # ultimo passo alterato
     with torch.inference_mode():
-        e = m(x4, dd, ss)
+        e = m(x4, node_ids=list(range(K)), descriptor=dd, static_inputs=ss)
     verifica(5, "alterare l'ultimo passo cambia le predizioni",
              not torch.allclose(a, e, atol=ATOL),
              "se non cambiasse, l'ultima posizione non entrerebbe nel calcolo")
@@ -235,7 +249,7 @@ def main() -> int:
     m.train()
     y = torch.randint(0, 3, (x.shape[0], K, len(D["orizzonti"])))
     opt = torch.optim.Adam(m.parameters(), lr=1e-3)
-    out = m(x, dd, ss)
+    out = m(x, node_ids=list(range(K)), descriptor=dd, static_inputs=ss)
     perdita = torch.nn.functional.cross_entropy(
         out.reshape(-1, 3), y.reshape(-1))
     perdita.backward()

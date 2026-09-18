@@ -144,7 +144,23 @@ class PredittorePerNodo(nn.Module):
                  sorgente: str = "traffic4cast",
                  c_in: int | None = None, nascosti: int = NASCOSTI,
                  dilatazioni=DILATAZIONI, n_orizzonti: int = len(ORIZZONTI),
-                 n_classi: int = N_CLASSI, d_statiche_uscita: int = 8):
+                 n_classi: int = N_CLASSI, d_statiche_uscita: int = 8,
+                 identita=None):
+        """`identita` e' un FornitoreIdentita; assente, si costruisce
+        l'encoder osservabile — **lo stesso fornitore esplicito**, non una forma
+        diversa.
+
+        **L'ORDINE DI COSTRUZIONE E' QUELLO STORICO**: `start`, `blocchi`,
+        identita', `stat`, `e1`, `e2`. Il fornitore ha dimensioni diverse fra i
+        bracci, sicche' `stat`, `e1` ed `e2` ricevono estrazioni diverse: **e'
+        l'ARTEFATTO CANONICO a uniformarli**, ed e' il meccanismo unico e
+        verificabile prescritto dal protocollo.
+
+        Costruire l'identita' per ultima preverrebbe il disallineamento
+        all'origine, ma renderebbe i quarantacinque stati iniziali gia' salvati
+        non piu' riproducibili da questo codice: sono registrazioni di cio' che
+        e' stato eseguito, e la loro riproducibilita' e' verificata da
+        `collauda_appaiamento.py`."""
         super().__init__()
         if sorgente not in ("traffic4cast", "gomo"):
             raise ValueError(f"sorgente ignota: {sorgente}")
@@ -155,19 +171,43 @@ class PredittorePerNodo(nn.Module):
         self.n_orizzonti, self.n_classi = n_orizzonti, n_classi
         self.start = nn.Conv2d(c_in, nascosti, (1, 1))
         self.blocchi = nn.ModuleList([Blocco(nascosti, d) for d in dilatazioni])
-        # l'identita' osservabile: encoder condiviso, specifica gia' fissata
-        self.enc = costruisci_torch(d_descrittore, NASCOSTE, USCITA)
+        # L'IDENTITA', separata dal backbone. **UNA SOLA FORMA CANONICA**: il
+        # fornitore c'e' sempre, e il valore predefinito costruisce lo stesso
+        # fornitore esplicito e lo stesso albero dei moduli.
+        #
+        # La compatibilita' storica vive nel CARICATORE degli artefatti
+        # (`migra_chiavi.py`), non qui: due forme per lo stesso modello sono
+        # l'ambiguita' che poi produce difetti.
+        from evoluzione.componente.identita import ObservableIdentityEncoder
+        self.identita = (identita if identita is not None
+                         else ObservableIdentityEncoder(d_descrittore, NASCOSTE))
+
         # l'anagrafica: ramo SEPARATO, comune alle strategie
         self.stat = nn.Linear(d_statiche, d_statiche_uscita)
         d_fuso = nascosti + USCITA + d_statiche_uscita
         self.e1 = nn.Conv2d(d_fuso, nascosti, (1, 1))
         self.e2 = nn.Conv2d(nascosti, n_orizzonti * n_classi, (1, 1))
 
-    def forward(self, x, descrittore, statiche):
-        """x (B, C_IN, K, T) | descrittore (K, d) o (B, K, d) | statiche (K, d).
+    def forward(self, dynamic_inputs, *, node_ids, descriptor=None,
+                static_inputs=None):
+        """`dynamic_inputs` (B, C_IN, K, T); il resto SOLO per nome.
+
+        **`node_ids` e' obbligatorio per tutti i fornitori**, come metadato di
+        allineamento: non diventa per questo un'informazione appresa.
+
+            ObservableIdentityEncoder   richiede `descriptor`, ne verifica
+                                        dimensione e corrispondenza con i nodi
+            LearnedNodeEmbedding        usa `node_ids`; RIFIUTA un descrittore
+            AdaptedNodeEmbedding        usa `node_ids`; verifica l'appartenenza
+            NoIdentity                  non usa gli identificativi come
+                                        caratteristiche; RIFIUTA un descrittore
 
         Restituisce (B, K, orizzonti, classi).
         """
+        x = dynamic_inputs
+        statiche = static_inputs
+        if statiche is None:
+            raise ValueError("`static_inputs` e' obbligatorio")
         B, _, K, _ = x.shape
         h = self.start(x)
         skip = 0
@@ -176,10 +216,8 @@ class PredittorePerNodo(nn.Module):
             skip = skip + s[..., -1:]          # l'ultima posizione temporale
         skip = F.relu(skip)                    # (B, nascosti, K, 1)
 
-        d = descrittore
-        if d.dim() == 2:
-            d = d.unsqueeze(0).expand(B, -1, -1)
-        z = self.enc(d).permute(0, 2, 1).unsqueeze(-1)        # (B, 8, K, 1)
+        z = self.identita(B, K, node_ids=node_ids,
+                          descriptor=descriptor)       # (B, 8, K, 1)
         a = F.relu(self.stat(statiche))
         if a.dim() == 2:
             a = a.unsqueeze(0).expand(B, -1, -1)
@@ -216,7 +254,13 @@ class PredittorePerNodo(nn.Module):
             "orizzonti": list(ORIZZONTI),
             "classi": self.n_classi,
             "parametri_totali": sum(p.numel() for p in self.parameters()),
-            "parametri_encoder": sum(p.numel() for p in self.enc.parameters()),
+            "parametri_identita": sum(p.numel()
+                                      for p in self.identita.parameters()),
+            "identita": (self.identita.descrizione()
+                         if self.identita is not None
+                         else {"tipo": "ObservableIdentityEncoder",
+                               "moduli_autorizzati": [],
+                               "parametri_per_nodo": 0}),
             "buffer": [n for n, _ in self.named_buffers()],
             "parametri_senza_gradiente": [
                 f"blocchi.{len(self.blocchi)-1}.bn.weight",

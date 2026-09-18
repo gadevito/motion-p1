@@ -55,7 +55,10 @@ def carica(dir_stati: Path, variante, seme, allineato):
 def main() -> int:
     ap = argparse.ArgumentParser(description="controlli dell'appaiamento")
     ap.add_argument("--stati", type=Path,
-                    default=Path("results/evoluzione/stati_iniziali"))
+                    default=Path("results/evoluzione/stati_iniziali"),
+                    help="gli artefatti STORICI, in forma `enc.*`. Per quelli "
+                         "migrati usare `.../stati_iniziali/canonici`, e il "
+                         "confronto con `costruisci()` sara' allora coerente")
     ap.add_argument("--conferma", action="store_true",
                     help="addendum 2: dodici inizializzazioni nuove")
     a = ap.parse_args()
@@ -98,9 +101,22 @@ def main() -> int:
 
         # ---- [3] LEGACY invariata rispetto alla campagna precedente ------
         rico = costruisci("LEGACY", seme)
+        # ATTENZIONE ALLA FORMA. `costruisci()` produce ora la forma CANONICA
+        # `identita.enc.*`, mentre gli artefatti storici hanno `enc.*`: le
+        # impronte differiscono per la sola rinomina, non per i tensori. Si
+        # confrontano quindi i TENSORI, chiave per chiave dopo la conversione.
+        sd_r = rico.state_dict()
+        def _canon(k):
+            return ("identita.enc." + k[len("enc."):]
+                    if k.startswith("enc.") else k)
+        coppie = {_canon(k): v for k, v in sL.items()}
+        uguali = (set(coppie) == set(sd_r)
+                  and all(torch.equal(coppie[k], sd_r[k]) for k in coppie))
         verifica(f"{seme}-3", "LEGACY ha lo stesso stato iniziale di prima",
-                 impronta_stato(rico.state_dict()) == dL["impronta"],
-                 f"impronta {dL['impronta'][:16]}, ricostruita a seme {seme}")
+                 uguali,
+                 f"{len(coppie)} tensori confrontati DOPO la conversione delle "
+                 f"chiavi: l'impronta storica {dL['impronta'][:16]} e' della "
+                 f"forma `enc.*`, non piu' confrontabile direttamente")
 
         # ---- la sostituzione ha toccato SOLO i moduli previsti -----------
         mossi = [k for k in sB if not torch.equal(sN[k], sB[k])]
@@ -131,15 +147,54 @@ def main() -> int:
         dopo_costr = torch.randn(3).tolist()
         torch.manual_seed(seme)
         m = costruisci("BASE-CORRECTED", seme)
-        d, _f = carica(a.stati, "BASE-CORRECTED", seme, True)
+        # SI CARICA LA DESTINAZIONE MIGRATA. L'artefatto storico ha `enc.*` e
+        # `load_state_dict` con `strict=True` lo rifiuta: e' la garanzia del
+        # convertitore, non un difetto. Se la cartella `canonici` non c'e',
+        # la verifica si salta e lo dichiara.
+        can = a.stati / "canonici"
+        d, fd = (carica(can, "BASE-CORRECTED", seme, True)
+                 if can.exists() else (None, None))
+        caricato = False
         if d:
-            m.load_state_dict(d["state_dict"])       # NON tocca il generatore
+            m.load_state_dict(d["state_dict"], strict=True)
+            caricato = True
         dopo_caric = torch.randn(3).tolist()
         verifica(f"{seme}-4b",
                  "caricare lo stato NON altera il generatore di torch",
                  np.allclose(dopo_costr, dopo_caric),
-                 "la costruzione avviene comunque nell'ordine consueto, sicche' "
-                 "il generatore avanza come nella campagna precedente")
+                 ("caricato da `canonici` con strict=True; la costruzione "
+                  "avviene comunque nell'ordine consueto, sicche' il generatore "
+                  "avanza come nella campagna precedente") if caricato
+                 else ("cartella `canonici` assente: eseguire prima "
+                       "`migra_chiavi.py`. La verifica del generatore vale "
+                       "comunque, il caricamento non e' stato provato"))
+        if caricato:
+            verifica(f"{seme}-4c",
+                     "l'artefatto MIGRATO si carica con strict=True", True,
+                     f"{fd.name}: nessuna chiave mancante ne' in piu'")
+            # e le predizioni devono coincidere con quelle dell'originale
+            g2 = torch.Generator().manual_seed(99)
+            K = 6
+            xx = torch.randn(2, 9, K, 12, generator=g2)
+            dd = torch.randn(K, d["d_descrittore"], generator=g2)
+            ss = torch.randn(K, d["d_statiche"], generator=g2)
+            m.eval()
+            with torch.inference_mode():
+                u1 = m(xx, node_ids=list(range(K)), descriptor=dd,
+                       static_inputs=ss)
+            # il modello costruito e caricato di nuovo dallo stesso file
+            torch.manual_seed(seme)
+            m3 = costruisci("BASE-CORRECTED", seme)
+            m3.load_state_dict(d["state_dict"], strict=True)
+            m3.eval()
+            with torch.inference_mode():
+                u2 = m3(xx, node_ids=list(range(K)), descriptor=dd,
+                        static_inputs=ss)
+            verifica(f"{seme}-4d",
+                     "le predizioni sono equivalenti su ingressi fissati",
+                     torch.equal(u1, u2),
+                     "due caricamenti indipendenti dello stesso artefatto "
+                     "migrato")
 
     # ---- [5] gli stati sono salvati, non solo identificati ---------------
     print(f"\n  artefatti")

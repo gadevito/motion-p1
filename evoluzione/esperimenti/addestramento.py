@@ -41,6 +41,10 @@ from evoluzione.componente.estrattore import (  # noqa: E402
 from evoluzione.componente.normalizzazione import verifica_contratto  # noqa: E402
 from evoluzione.componente.predittore import (  # noqa: E402
     CANALI_T4C, FINESTRA, ORIZZONTI, PredittorePerNodo)
+from evoluzione.componente.canonico import (  # noqa: E402
+    CARICANO, CanonicoViolato, applica as applica_canonico,
+    carica as carica_canonico, stato_iniziale_completo,
+    verifica as verifica_canonico)
 from evoluzione.analisi.pesi import (  # noqa: E402
     ClasseAssente, calcola as calcola_pesi, carica as carica_pesi,
     media_orizzonti, percorso as percorso_pesi, salva as salva_pesi)
@@ -249,6 +253,38 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
     # precedente, e l'ordine dei campionamenti successivi non cambia. Caricare
     # uno `state_dict` non ripristinerebbe il generatore.
     m = PredittorePerNodo(d_desc, 5, sorgente="traffic4cast")
+
+    # ---- ARTEFATTO CANONICO: obbligatorio, PRIMA dell'ottimizzatore --------
+    # C, P, E, A e R lo caricano. **F e' l'eccezione**: parte dal punto di
+    # controllo E gia' addestrato, di cui mantiene backbone, statiche e teste,
+    # sicche' caricarvi lo stato iniziale cancellerebbe l'addestramento.
+    braccio = cfg.get("braccio", "P")
+    cfg_comuni = {"c_in": 9, "nascosti": 32, "blocchi": 4, "d_statiche": 5,
+                  "d_statiche_uscita": 8, "n_orizzonti": len(ORIZZONTI),
+                  "n_classi": 3}
+    if braccio in CARICANO and cfg.get("canonico", True):
+        art = carica_canonico(seme_i, cfg_comuni,
+                              Path(cfg.get("dir_canonico",
+                                           radice / "canonico")))
+        r_app = applica_canonico(m, art)
+        r_ver = verifica_canonico(m, art, f"{braccio}/{E.contesto}")   # BLOCCA
+        reg.artefatto("canonico", chiave=art["chiave"],
+                      impronta=art["impronta"], tensori=r_ver["tensori"],
+                      braccio=braccio, identita_intatta=r_app["identita_intatta"])
+        reg.evento(f"artefatto canonico {art['chiave']} applicato e verificato: "
+                   f"{r_ver['tensori']} tensori comuni identici")
+    elif braccio == "F":
+        reg.evento("braccio F: NON carica l'artefatto iniziale, parte dal "
+                   "punto di controllo E gia' addestrato")
+
+    # lo stato iniziale COMPLETO del modello risultante, registrato
+    f_ini = stato_iniziale_completo(
+        m, seme_i, cfg_comuni, braccio,
+        Path(cfg.get("dir_stati_completi", radice / "stati_completi")),
+        extra={"contesto": E.contesto, "partizione": E.partizione,
+               "inizializzazione": E.inizializzazione, "variante": E.variante})
+    reg.artefatto("stato_iniziale_completo", percorso=f_ini)
+
     impronta_iniziale = None
     if cfg.get("appaiamento") and E.variante == "BASE-CORRECTED":
         from evoluzione.esperimenti.prepara_stati_iniziali import (
@@ -300,7 +336,8 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
                                                       len(ist["addestramento"])),
                        replace=False)
         X, Y, Mk = _lotto(x, D["classe"], np.sort(idx), nodi["addestramento"])
-        out = m(X, dtr, stat[nodi["addestramento"]])
+        out = m(X, node_ids=nodi["addestramento"], descriptor=dtr,
+                static_inputs=stat[nodi["addestramento"]])
         # PESATA e sui SOLI bersagli assegnati
         L, _ = _perdita(out, Y, Mk, wt)
         if not torch.isfinite(L):
@@ -310,7 +347,9 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
         with torch.inference_mode():
             Xv, Yv, Mv = _lotto(x, D["classe"], ist["validazione"][:cfg["lotto"]],
                                 nodi["validazione"])
-            lv, _ = _perdita(m(Xv, dva, stat[nodi["validazione"]]), Yv, Mv, wt)
+            lv, _ = _perdita(
+                m(Xv, node_ids=nodi["validazione"], descriptor=dva,
+                  static_inputs=stat[nodi["validazione"]]), Yv, Mv, wt)
             pv = float(lv)
         if not np.isfinite(pv):
             raise FallimentoMetodo(f"validazione non finita all'epoca {ep}")
@@ -339,7 +378,9 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
     with torch.inference_mode():
         for t in ist["prova"]:
             X, Y, Mk = _lotto(x, D["classe"], [int(t)], nodi["prova"])
-            o = torch.softmax(m2(X, dpr, stat[nodi["prova"]])[0], -1).numpy()
+            o = torch.softmax(
+                m2(X, node_ids=nodi["prova"], descriptor=dpr,
+                   static_inputs=stat[nodi["prova"]])[0], -1).numpy()
             for i, k in enumerate(nodi["prova"]):
                 for h, hz in enumerate(ORIZZONTI):
                     if not bool(Mk[0, i, h]):

@@ -256,7 +256,7 @@ def main() -> int:
             m.train()
             X, Y = lotto(x, D["classe"], ist["addestramento"][:32],
                          nodi["addestramento"])
-            out = m(X, dtr, stat[nodi["addestramento"]])
+            out = m(X, node_ids=nodi["addestramento"], descriptor=dtr, static_inputs=stat[nodi["addestramento"]])
             L = F.cross_entropy(out.reshape(-1, 3), Y.reshape(-1))
             opt.zero_grad(); L.backward(); opt.step()
             m.eval()
@@ -264,7 +264,7 @@ def main() -> int:
                 Xv, Yv = lotto(x, D["classe"], ist["validazione"][:16],
                                nodi["validazione"])
                 pv = float(F.cross_entropy(
-                    m(Xv, dva, stat[nodi["validazione"]]).reshape(-1, 3),
+                    m(Xv, node_ids=nodi["validazione"], descriptor=dva, static_inputs=stat[nodi["validazione"]]).reshape(-1, 3),
                     Yv.reshape(-1)))
             storia.append((ep, float(L.detach()), pv))
             if pv < best:

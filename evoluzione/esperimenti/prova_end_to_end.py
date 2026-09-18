@@ -123,7 +123,9 @@ def addestra(variante, x, y, nodi, ist, d_stat, semi, epoche, dep: Path):
     for e in range(epoche):
         m.train()
         X, Y = lotto(x, y, ist["addestramento"][:24], nodi["addestramento"])
-        out = m(X, desc[nodi["addestramento"]], stat[nodi["addestramento"]])
+        out = m(X, node_ids=nodi["addestramento"],
+                descriptor=desc[nodi["addestramento"]],
+                static_inputs=stat[nodi["addestramento"]])
         perdita = F.cross_entropy(out.reshape(-1, 3), Y.reshape(-1))
         opt.zero_grad(); perdita.backward(); opt.step()
         # selezione sulla VALIDAZIONE INDUTTIVA: nodi mai visti
@@ -131,8 +133,10 @@ def addestra(variante, x, y, nodi, ist, d_stat, semi, epoche, dep: Path):
         with torch.inference_mode():
             Xv, Yv = lotto(x, y, ist["validazione"][:12], nodi["validazione"])
             pv = float(F.cross_entropy(
-                m(Xv, desc[nodi["validazione"]],
-                  stat[nodi["validazione"]]).reshape(-1, 3), Yv.reshape(-1)))
+                m(Xv, node_ids=nodi["validazione"],
+                  descriptor=desc[nodi["validazione"]],
+                  static_inputs=stat[nodi["validazione"]]).reshape(-1, 3),
+                Yv.reshape(-1)))
         storia.append({"epoca": e, "addestramento": float(perdita.detach()),
                        "validazione": pv})
         # a parita', la PRIMA
@@ -153,7 +157,8 @@ def predici(m, x, y, ist, nodi, desc, stat, contesto, partizione_id, seme):
     with torch.inference_mode():
         for t in ist:
             X, Y = lotto(x, y, [t], nodi)
-            out = m(X, desc[nodi], stat[nodi])[0]        # (K, H, C)
+            out = m(X, node_ids=nodi, descriptor=desc[nodi],
+                    static_inputs=stat[nodi])[0]     # (K, H, C)
             for i, nodo in enumerate(nodi):
                 for h, orizz in enumerate(ORIZZONTI):
                     chiavi.append((contesto, partizione_id, seme,
@@ -259,8 +264,12 @@ def main() -> int:
         m2.eval()
         Xp, _ = lotto(x, y, ist["prova"][:4], nodi["prova"])
         with torch.inference_mode():
-            a1 = M[v](Xp, D[v][nodi["prova"]], ST[v][nodi["prova"]])
-            a2 = m2(Xp, D[v][nodi["prova"]], ST[v][nodi["prova"]])
+            a1 = M[v](Xp, node_ids=nodi["prova"],
+                      descriptor=D[v][nodi["prova"]],
+                      static_inputs=ST[v][nodi["prova"]])
+            a2 = m2(Xp, node_ids=nodi["prova"],
+                    descriptor=D[v][nodi["prova"]],
+                    static_inputs=ST[v][nodi["prova"]])
         verifica(f"4-{v[:6]}", f"{v}: il ricaricato riproduce le predizioni",
                  torch.equal(a1, a2),
                  f"epoca {ck['epoca']}, validazione {ck['validazione']:.4f}")

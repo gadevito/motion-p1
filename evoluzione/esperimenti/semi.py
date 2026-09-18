@@ -41,12 +41,29 @@ def seme_torch(seme_dichiarato: int) -> int:
     return int(np.random.default_rng(seme_dichiarato).integers(0, 2 ** 31 - 1))
 
 
+# --------------------------------------------------------- INSERIMENTO -----
+# Esperimento principale: DODICI inizializzazioni nuove, 201..212. Non si usano
+# ne' i tre semi di sviluppo (7, 18, 29) ne' i dodici della conferma (101..112):
+# quelli hanno gia' prodotto valutazioni predittive.
+INIZIALIZZAZIONI_INSERIMENTO = tuple(range(12))
+SEME_INIZIALIZZAZIONE_INSERIMENTO = {s: 201 + s
+                                     for s in INIZIALIZZAZIONI_INSERIMENTO}
+SEMI_DICHIARATI_INSERIMENTO = tuple(
+    SEME_INIZIALIZZAZIONE_INSERIMENTO[s] for s in INIZIALIZZAZIONI_INSERIMENTO)
+
 SEMI_TORCH = tuple(seme_torch(s) for s in SEMI_DICHIARATI)
 SEMI_TORCH_CONFERMA = tuple(seme_torch(s) for s in SEMI_DICHIARATI_CONFERMA)
+SEMI_TORCH_INSERIMENTO = tuple(seme_torch(s)
+                               for s in SEMI_DICHIARATI_INSERIMENTO)
 
 
-def configurazione(conferma: bool):
+def configurazione(conferma: bool = False, inserimento: bool = False):
     """(inizializzazioni, semi dichiarati, semi di torch) per la campagna."""
+    if conferma and inserimento:
+        raise ValueError("conferma e inserimento si escludono")
+    if inserimento:
+        return (INIZIALIZZAZIONI_INSERIMENTO, SEMI_DICHIARATI_INSERIMENTO,
+                SEMI_TORCH_INSERIMENTO)
     if conferma:
         return (INIZIALIZZAZIONI_CONFERMA, SEMI_DICHIARATI_CONFERMA,
                 SEMI_TORCH_CONFERMA)

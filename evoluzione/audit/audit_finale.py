@@ -212,17 +212,18 @@ def sezione_C():
         d = len(nomi)
         torch.manual_seed(0)
         m = PredittorePerNodo(d, 5, sorgente="traffic4cast")
+        enc = m.identita.enc          # forma canonica: identita.enc.*
         esito(f"C1-{v[:6]}", f"{v}: dimensione d'ingresso dell'encoder",
-              m.enc[0].in_features == d,
-              f"{m.enc[0].in_features} attesi {d}; nomi[0]={nomi[0]}, "
+              enc[0].in_features == d,
+              f"{enc[0].in_features} attesi {d}; nomi[0]={nomi[0]}, "
               f"nomi[-1]={nomi[-1]}")
         # perturbare UNA caratteristica cambia UNA colonna
         K = 5
         Z = torch.zeros(K, d)
         Z2 = Z.clone(); Z2[:, 3] = 1.0
         with torch.no_grad():
-            a = m.enc(Z); b = m.enc(Z2)
-        col = (m.enc[0].weight[:, 3].abs() > 0).any()
+            a = enc(Z); b = enc(Z2)
+        col = (enc[0].weight[:, 3].abs() > 0).any()
         esito(f"C2-{v[:6]}", f"{v}: perturbare la caratteristica 3 cambia "
               f"l'uscita", bool((a - b).abs().max() > 0) and bool(col),
               f"nome della caratteristica 3: «{nomi[3]}»")
@@ -250,7 +251,7 @@ def sezione_D():
     m = PredittorePerNodo(d, 5, sorgente="traffic4cast")
     opt = torch.optim.Adam(m.parameters(), lr=1e-2)
     nomi_opt = {id(p) for gr in opt.param_groups for p in gr["params"]}
-    enc = [p for p in m.enc.parameters()]
+    enc = [p for p in m.identita.parameters()]
     esito("D1", "l'encoder e' incluso nell'ottimizzatore",
           all(id(p) in nomi_opt for p in enc),
           f"{len(enc)} tensori dell'encoder fra i {len(nomi_opt)} ottimizzati")
@@ -269,7 +270,8 @@ def sezione_D():
     Mk = torch.ones(B, K, len(ORIZZONTI), dtype=torch.bool)
     prima = {n: p.detach().clone() for n, p in m.named_parameters()}
     m.train()
-    L, _ = _perdita(m(x, dd, st), Y, Mk, torch.tensor([1., 1., 1.]))
+    L, _ = _perdita(m(x, node_ids=list(range(K)), descriptor=dd,
+                      static_inputs=st), Y, Mk, torch.tensor([1., 1., 1.]))
     opt.zero_grad(); L.backward(); opt.step()
     senza = [n for n, p in m.named_parameters() if p.grad is None]
     fermi = [n for n, p in m.named_parameters()
