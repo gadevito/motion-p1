@@ -148,6 +148,32 @@ utilizzati per diagnosticare e sviluppare la procedura di appaiamento**.
 
 **Chiude il raccordo**, non l'intero progetto.
 
+> **L'audit finale non ha rilevato difetti nei percorsi implementativi
+> verificati.** Questo consente di affermare «nessun difetto rilevato nei
+> percorsi verificati», **non di escludere in assoluto qualsiasi errore
+> implementativo**.
+
+**E le due possibilità residue possono INTERAGIRE**: la sensibilità
+all'ottimizzazione e l'effetto della rappresentazione non sono
+necessariamente spiegazioni alternative.
+
+### Conseguenza per il lavoro
+
+**Si adotta BASE-CORRECTED come base ingegneristica**, motivandola con la
+**gestione esplicita e verificabile della disponibilità** — non con una
+superiorità predittiva. **LEGACY resta il riferimento documentato.**
+
+### Che cosa il raccordo non stabilisce
+
+**Confronta due modi di rappresentare la storia disponibile.** Non stabilisce
+se l'identità osservabile sostituisca efficacemente gli embedding, né se
+renda conveniente l'espansione della rete.
+
+**Il prossimo passo è l'esperimento principale sull'inserimento**:
+quantificare, sugli stessi nodi nuovi, il beneficio del descrittore rispetto
+alla sua assenza e il divario rispetto alle strategie di adattamento o
+riaddestramento.
+
 > **BASE-CORRECTED può essere studiata come soluzione ingegneristica
 > esplicita e verificabile, ma non va presentata come universalmente priva di
 > costo predittivo entro l'1%.**
