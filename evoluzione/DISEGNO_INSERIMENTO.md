@@ -1,6 +1,6 @@
 # Disegno dell'esperimento principale sull'inserimento
 
-**Versione 2.2.** Recepisce le specificazioni operative. Nessuna esecuzione
+**Versione 2.4.** Recepisce le specificazioni operative. Nessuna esecuzione
 avviata.
 
 ---
@@ -142,6 +142,45 @@ ovunque, salvo verifica sui singoli nodi di prova.
 **Il 1° gennaio di Londra** cade nel periodo, con il traffico anomalo del
 capodanno. **Resta parte dell'esperimento**: non si sposta l'installazione per
 ottenere condizioni migliori.
+
+### Il requisito di ammissibilità, e il calendario di validazione
+
+**La finestra è una DURATA di calendario**, e le serie hanno interruzioni: 109
+giorni distinti su 214, con quindici o sedici salti. **Novantasei passi possono
+coprire otto giorni**, ed è quanto accade nel periodo di validazione di Madrid e
+Londra.
+
+> **REQUISITO, deterministico e fissato prima di osservare prestazioni:** il
+> **primo $t_0$** del periodo tale che l'intervallo $[t_0, t_0 + 24\text{h}]$
+> contenga **almeno 90 marche temporali**.
+
+**Si applica a validazione e test**, senza regole ad hoc. Novanta su novantasei
+tollera qualche marca mancante senza ammettere episodi sostanzialmente vuoti.
+
+### Il calendario, per entrambi gli episodi
+
+| città | episodio | $t_0$ | $t_1$ | marche | scarto |
+|---|---|---|---|---|---|
+| **Madrid** | validazione | 7392 — 2021-11-02 00:00 | 7488 — 2021-11-03 00:00 | 97 | 73 |
+| | **prova** | 8887 — 2021-12-01 13:45 | 8983 — 2021-12-02 13:45 | 97 | **0** |
+| **Londra** | validazione | 7389 — 2019-12-02 00:00 | 7485 — 2019-12-03 00:00 | 97 | 5 |
+| | **prova** | 8966 — 2020-01-01 10:15 | 9062 — 2020-01-02 10:15 | 97 | **0** |
+| **Melbourne** | validazione | 7251 — 2020-10-24 12:45 | 7347 — 2020-10-25 12:45 | 97 | **0** |
+| | **prova** | 8806 — 2020-11-30 17:30 | 8902 — 2020-12-01 17:30 | 97 | **0** |
+
+> **La regola CONFERMA il calendario di test su tutte e tre le città**: scarto
+> zero dall'inizio del periodo, 97 marche ciascuno. **Nessuna riesecuzione della
+> campagna E è necessaria.**
+
+**Sulla validazione la regola sposta $t_0$** di 73 passi su Madrid e 5 su Londra,
+saltando i tratti con interruzioni. Senza il requisito, Londra avrebbe avuto
+**cinque marche** in ventiquattro ore.
+
+### Copertura degli episodi, da riportare coi risultati
+
+> **L'episodio di validazione e quello di test possono avere copertura diversa.**
+> La configurazione di F è scelta in condizioni che possono non coincidere con
+> quelle di applicazione, e la differenza **va riportata coi risultati**.
 
 ### Regole del calendario
 
@@ -523,6 +562,43 @@ stati iniziali possono essere generati con una convenzione nuova.
 **Per questa campagna la convenzione è unica: ordine storico per tutti e cinque i
 bracci.**
 
+## 8ter. Nota di raccordo fra protocolli
+
+**Le campagne precedenti non si uniformano retroattivamente** a un protocollo
+introdotto per un esperimento diverso.
+
+| campagna | popolazione per la selezione del punto di controllo |
+|---|---|
+| raccordo, appaiamento, conferma | **nodi di validazione induttiva** |
+| **inserimento: C, P, E, A, R** | **nodi della RETE INIZIALE** |
+
+> **P mantiene la stessa specifica architetturale e rappresentativa, ma viene
+> addestrato e selezionato con un protocollo diverso. Il verdetto quantitativo
+> del raccordo non gli si trasferisce automaticamente.**
+
+**Per A ed R «rete iniziale» indica lo stesso insieme originario di nodi**, non
+quello ampliato: i nodi nuovi non entrano nella metrica di selezione, e
+l'esecutore li **rifiuta** invece di filtrarli in silenzio.
+
+**La validazione induttiva resta riservata** alla selezione degli iperparametri
+di adattamento di F, secondo l'episodio già definito.
+
+### Politica dichiarata nell'esecutore
+
+```
+checkpoint_selection_population = initial_network
+```
+
+**Non si riusa una variabile generica** `validation_nodes` per due scopi diversi:
+è il difetto che ha prodotto questa correzione.
+
+> **È una correzione implementativa, non una nuova scelta scientifica**: la
+> scelta era già nel disegno, e il codice non la implementava.
+
+**Eventuali esecuzioni dell'inserimento già selezionate con la regola sbagliata
+vanno marcate non conformi e rieseguite.** Le campagne del raccordo non sono
+interessate.
+
 ## 9. Controlli bloccanti, prima del lancio
 
 | | |
@@ -608,5 +684,8 @@ selezione di F sulla validazione**.
 | bozza 1 dell'inserimento | quattro bracci, superata |
 | versione 2 | cinque bracci, R aggiunto, F da E, recupero secondario |
 | versione 2.1 | calendario, selezione di F, ammissibilità, arresto, corpus, disponibilità |
-| **versione 2.2** | **questo documento**: ordine storico conservato, artefatto canonico come meccanismo unico, controllo bloccante registrato |
+| versione 2.2 | ordine storico, artefatto canonico, controllo bloccante |
+| versione 2.3 | nota di raccordo fra protocolli, politica di selezione |
+| **versione 2.4** | **questo documento**: requisito di ammissibilità N=90, calendario di validazione e test confermato |
+| _2.3_ | _sostituita_: ordine storico conservato, artefatto canonico come meccanismo unico, controllo bloccante registrato |
 | _2.1_ | _sostituita_: calendario, selezione di F eseguibile, ammissibilità degli esempi, regola di arresto comune, corpus di R, istante di disponibilità |

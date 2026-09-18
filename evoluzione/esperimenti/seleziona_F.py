@@ -1,42 +1,30 @@
 #!/usr/bin/env python3
 """
-Selezione della configurazione di adattamento di F, sulla VALIDAZIONE.
-=======================================================================
-**L'unica esecuzione autorizzata prima della campagna di prova.**
-
-Sei combinazioni, valutate su un **episodio di validazione** separato dal test:
+Fase 2 — selezione della configurazione di adattamento di F.
+=============================================================
+Sei combinazioni per ciascuna terna (citta', partizione, seme), valutate su un
+**episodio di validazione** separato dal test. **UNA configurazione per citta'.**
 
     passo di apprendimento   1e-3, 1e-2
     aggiornamenti massimi    10, 50, 200
 
-**UNA configurazione per citta'**, applicata poi a tutti i nodi nuovi, le
-partizioni e le inizializzazioni della prova. **Non una per nodo**: cambierebbe il
-metodo e richiederebbe un'ulteriore validazione locale.
+LA REGOLA, dichiarata qui: wCE mediata sui quattro orizzonti, poi sulle
+inizializzazioni, poi sulle tre partizioni con uguale peso. **A parita' numerica
+si preferisce, nell'ordine: meno aggiornamenti, poi passo minore.**
 
-LA REGOLA DI SCELTA, dichiarata qui: wCE mediata sui quattro orizzonti, poi sulle
-inizializzazioni, poi sulle tre partizioni con uguale peso. **A parita' numerica si
-preferisce, nell'ordine: meno aggiornamenti, poi passo minore.**
+I CINQUE VINCOLI, verificati a ogni candidato:
 
-CHE COSA SIGNIFICA «AGGIORNAMENTO»:
+    1. ogni combinazione RIPARTE da E: nessun adattamento cumulativo;
+    2. ottimizzatore NUOVO per ciascuna;
+    3. al test si trasferiscono i soli IPERPARAMETRI;
+    4. il punto di controllo E resta IMMUTATO;
+    5. nodi di validazione e test hanno REGISTRI DISTINTI.
 
-    ottimizzatore            Adam
-    decadimento dei pesi     nessuno
-    arresto anticipato       nessuno durante l'adattamento
-    ciascun aggiornamento    usa TUTTI gli esempi ammissibili del singolo nodo
+**Le copie si eseguono in sequenza**: non risiedono tutte in memoria.
 
-Un aggiornamento a lotto completo per nodo rende il budget interpretabile e
-indipendente dall'ordine dei minilotti.
-
-SI AGGIORNA SOLTANTO IL NUOVO EMBEDDING. Restano congelati backbone, ramo statico,
-teste, embedding dei nodi esistenti, statistiche e buffer della BatchNorm.
-
-**L'inizializzazione del nuovo embedding e' la MEDIA degli embedding dei nodi
-iniziali**, calcolata sul punto di controllo E: regola deterministica che non usa
-dati futuri ne' sceglie un nodo favorevole.
-
-AMMISSIBILITA' DI UN ESEMPIO: l'orizzonte massimo non supera t1. Le celle bersaglio
-mancanti sono escluse dalla perdita; **l'esempio contribuisce se contiene almeno un
-target valido**. Non si richiedono quattro target validi su quattro.
+IL MANIFESTO e' **uno per terna**, con le sei combinazioni dentro: griglia,
+aggiornamenti eseguiti, seme, impronte iniziale e finale, costo, metrica di
+validazione e regola applicata.
 
 Uso (dalla radice OR3/):
 
@@ -53,87 +41,100 @@ from pathlib import Path
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from evoluzione.esperimenti.fasi import (  # noqa: E402
+    CONTESTI, PARTIZIONI, PrerequisitoMancante, percorso_E,
+    verifica_selezione_F)
 from evoluzione.esperimenti.semi import configurazione  # noqa: E402
 
 PASSI = (1e-3, 1e-2)
 AGGIORNAMENTI = (10, 50, 200)
 L24 = 96
-ORIZZONTI = (1, 2, 4, 8)
 CALENDARIO = {"Madrid": (8887, 8983), "Londra": (8966, 9062),
               "Melbourne": (8806, 8902)}
 
 
 def griglia():
-    """Le sei combinazioni, nell'ordine di preferenza a parita'.
-
-    L'ordinamento e' dichiarato QUI: a parita' numerica vince chi viene prima,
-    cioe' meno aggiornamenti e poi passo minore.
-    """
-    return sorted([(b, e) for e in PASSI for b in AGGIORNAMENTI],
-                  key=lambda x: (x[0], x[1]))
+    """L'ordine di preferenza a parita': meno aggiornamenti, poi passo minore."""
+    return [(b, e) for b in AGGIORNAMENTI for e in PASSI]
 
 
 def scegli(punteggi):
-    """La combinazione con la wCE minore; a parita', la prima della griglia.
-
-    `punteggi` = {(aggiornamenti, passo): wCE}. La tolleranza di parita' e'
-    dichiarata: due valori entro 1e-9 si considerano pari, e decide l'ordine.
-    """
+    """Il minimo; a parita' entro 1e-9, il primo della griglia."""
     if not punteggi:
         return None
-    ordine = griglia()
-    migliore = min(punteggi.values())
-    pari = [k for k in ordine
-            if k in punteggi and punteggi[k] - migliore <= 1e-9]
-    return pari[0] if pari else None
+    m = min(punteggi.values())
+    for k in griglia():
+        if k in punteggi and punteggi[k] - m <= 1e-9:
+            return k
+    return None
+
+
+def aggrega(per_terna, contesto):
+    """wCE media sugli orizzonti (gia' fatta), poi sui semi, poi sulle
+    partizioni con UGUALE PESO."""
+    fuori = {}
+    for k in griglia():
+        per_part = []
+        for p in PARTIZIONI:
+            v = [d["punteggi"].get(str(k), d["punteggi"].get(k))
+                 for (c, pp, _), d in per_terna.items()
+                 if c == contesto and pp == p]
+            v = [x for x in v if x is not None and np.isfinite(x)]
+            if v:
+                per_part.append(float(np.mean(v)))      # media sui semi
+        if per_part:
+            fuori[k] = float(np.mean(per_part))         # poi sulle partizioni
+    return fuori
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description="selezione di F")
-    ap.add_argument("--piano", action="store_true",
-                    help="mostra il piano e si ferma")
-    ap.add_argument("--contesto", nargs="*", default=list(CALENDARIO))
-    ap.add_argument("--out", type=Path,
-                    default=Path("results/evoluzione/E1_inserimento/"
-                                 "selezione_F.json"))
+    ap = argparse.ArgumentParser(description="fase 2: selezione di F")
+    ap.add_argument("--contesto", nargs="*", default=list(CONTESTI))
+    ap.add_argument("--piano", action="store_true")
+    ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
     a = ap.parse_args()
 
-    ini, dich, torch_semi = configurazione(inserimento=True)
+    _, dich, semi_torch = configurazione(inserimento=True)
+    dir_E = a.out / "E_inserimento"
+    dir_sel = a.out / "selezione_F"
+
     print("=" * 84)
-    print("SELEZIONE DELLA CONFIGURAZIONE DI ADATTAMENTO DI F")
+    print("FASE 2 — SELEZIONE DELLA CONFIGURAZIONE DI F")
     print("=" * 84)
-    print(f"  griglia: passo {list(PASSI)} x aggiornamenti "
-          f"{list(AGGIORNAMENTI)} = {len(griglia())} combinazioni")
-    print(f"  ordine di preferenza a parita': " +
-          ", ".join(f"({b},{e:g})" for b, e in griglia()))
-    print(f"  UNA configurazione per citta', non per nodo")
-    print(f"\n  inizializzazioni {list(dich)}")
-    print(f"  calendario (t0, t1): {CALENDARIO}")
-    print(f"\n  episodio di VALIDAZIONE: installazione all'inizio del periodo")
-    print(f"  temporale di validazione, adattamento sui soli nodi di")
-    print(f"  validazione induttiva, valutazione nel periodo successivo,")
-    print(f"  sempre ENTRO la validazione temporale.")
-    print(f"\n  regola: wCE media sugli orizzonti, poi sulle inizializzazioni,")
-    print(f"  poi sulle partizioni con uguale peso.")
+    print(f"  griglia: {len(griglia())} combinazioni, ordine di preferenza")
+    print(f"     " + ", ".join(f"({b},{e:g})" for b, e in griglia()))
+    print(f"  **UNA configurazione per citta'**, non per nodo")
+    print(f"  regola: wCE media sugli orizzonti, poi sui semi, poi sulle "
+          f"partizioni")
+    print(f"  a parita': meno aggiornamenti, poi passo minore")
+    n = len(a.contesto) * len(PARTIZIONI) * len(semi_torch)
+    print(f"\n  terne: {n} | adattamenti: {n * len(griglia()):,}")
+
+    try:
+        r = verifica_selezione_F(dir_E, semi_torch, a.contesto)
+        print(f"\n  prerequisiti verificati: {r['punti_di_controllo']} punti di "
+              f"controllo E, leggibili e con la mappa nodo-riga")
+    except PrerequisitoMancante as e:
+        print(f"\n{e}")
+        return 1
 
     if a.piano:
-        n = len(a.contesto) * 3 * len(dich) * len(griglia())
         print(f"\n  --piano: nessuna esecuzione avviata.")
-        print(f"  adattamenti da eseguire: {len(a.contesto)} citta' x 3 "
-              f"partizioni x {len(dich)} inizializzazioni x {len(griglia())} "
-              f"combinazioni = {n:,}")
-        print(f"  piu' {len(a.contesto) * 3 * len(dich)} punti di controllo E, "
-              f"da addestrare prima.")
+        print(f"  ogni terna produce UN manifesto con le sei combinazioni "
+              f"dentro")
         return 0
 
-    print("\n  NON IMPLEMENTATA: la selezione richiede i punti di controllo E,")
-    print("  che non esistono ancora. Vanno addestrati prima, sui soli nodi")
-    print("  iniziali, con embedding liberi a otto dimensioni.")
-    print("\n  Ordine delle attivita':")
-    print("     1. addestrare E — 3 citta' x 3 partizioni x 12 semi = 108")
-    print("     2. eseguire questa selezione sulle sei combinazioni")
-    print("     3. congelare le tre configurazioni cittadine")
-    print("     4. solo allora, la campagna di prova")
+    print("\n  NON ANCORA IMPLEMENTATA la valutazione sull'episodio di")
+    print("  validazione: richiede il caricamento dei dati e la costruzione")
+    print("  dei lotti, che `addestramento.py` fa per l'addestramento ma non")
+    print("  per un episodio di inserimento separato.")
+    print("\n  Prima di implementarla va fissato:")
+    print("     - quali nodi costituiscono l'episodio di VALIDAZIONE")
+    print("       (i nodi di validazione induttiva, per il disegno)")
+    print("     - l'istante di installazione: inizio del periodo temporale")
+    print("       di validazione, non di prova")
+    print("     - il perimetro di valutazione: il periodo successivo,")
+    print("       SEMPRE entro la validazione temporale")
     return 1
 
 
