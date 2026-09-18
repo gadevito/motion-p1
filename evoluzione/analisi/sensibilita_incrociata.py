@@ -44,7 +44,8 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from evoluzione.analisi.analizza_raccordo import (  # noqa: E402
     CONTESTI, LIVELLO_EQ, LIVELLO_NI, MARGINE, aggregati, carica, controlla,
-    esito_eq, esito_ni, perdita, pesi_classe)
+    coppie_presenti, esito_eq, esito_ni, partizioni_presenti, perdita,
+    pesi_classe)
 
 
 def _stima(dati, occorrenze, c):
@@ -129,18 +130,18 @@ def main() -> int:
 
     fuori = {}
     for c in CONTESTI:
-        PZ = {p: pesi_classe(c, p, a.pesi) for p in (0, 1, 2)}
+        PZ = {p: pesi_classe(c, p, a.pesi)
+              for p in partizioni_presenti(a.dir, c)}
         dati = {}
-        for p in (0, 1, 2):
-            for s in (0, 1, 2):
-                D = carica(a.dir, c, p, s)
-                if D is None:
-                    continue
-                controlla(D, c, p, s)               # BLOCCANTE, come sempre
-                w = PZ[p].vettore()
-                na, Sa, Wa = aggregati(D["LEGACY"], w)
-                nb, Sb, Wb = aggregati(D["BASE-CORRECTED"], w)
-                dati[(p, s)] = (na, Sa, Wa, Sb, Wb)
+        for p, s in coppie_presenti(a.dir, c):
+            D = carica(a.dir, c, p, s)
+            if D is None:
+                continue
+            controlla(D, c, p, s)                   # BLOCCANTE, come sempre
+            w = PZ[p].vettore()
+            na, Sa, Wa = aggregati(D["LEGACY"], w)
+            nb, Sb, Wb = aggregati(D["BASE-CORRECTED"], w)
+            dati[(p, s)] = (na, Sa, Wa, Sb, Wb)
         if not dati:
             print(f"\n{c}: nessuna coppia")
             continue

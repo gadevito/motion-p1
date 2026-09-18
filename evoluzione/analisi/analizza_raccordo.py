@@ -34,6 +34,7 @@ Uso (dalla radice OR3/):
 """
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -58,6 +59,26 @@ class PerimetroViolato(RuntimeError):
 
 
 # ------------------------------------------------------------ caricamento ---
+def coppie_presenti(dir_racc: Path, contesto):
+    """Le coppie (partizione, inizializzazione) EFFETTIVAMENTE presenti.
+
+    Si scoprono dai file, non si fissano: la campagna di sensibilita' ne ha tre
+    per partizione, quella di conferma dodici, e un elenco fisso ne perderebbe
+    nove in silenzio.
+    """
+    fuori = set()
+    for f in Path(dir_racc).glob(f"pred_{contesto}_p*_s*_LEGACY.csv"):
+        m = re.match(rf"pred_{re.escape(contesto)}_p(\d+)_s(\d+)_LEGACY\.csv",
+                     f.name)
+        if m:
+            fuori.add((int(m.group(1)), int(m.group(2))))
+    return sorted(fuori)
+
+
+def partizioni_presenti(dir_racc: Path, contesto):
+    return sorted({p for p, _ in coppie_presenti(dir_racc, contesto)})
+
+
 def carica(dir_racc: Path, contesto, p, s):
     fuori = {}
     for v in VARIANTI:
@@ -301,10 +322,15 @@ def main() -> int:
     risultati = {}
     for c in CONTESTI:
         print(f"\n{'=' * 84}\n{c}\n{'=' * 84}")
-        PZ = {p: pesi_classe(c, p, a.pesi) for p in (0, 1, 2)}
+        CP = coppie_presenti(a.dir, c)
+        if not CP:
+            print(f"\n{'=' * 84}\n{c}\n{'=' * 84}\n  nessuna coppia")
+            continue
+        PZ = {p: pesi_classe(c, p, a.pesi)
+              for p in partizioni_presenti(a.dir, c)}
         dati, righe = {}, 0
-        for p in (0, 1, 2):
-            for s in (0, 1, 2):
+        for p, s in CP:
+            if True:
                 D = carica(a.dir, c, p, s)
                 if D is None:
                     print(f"  p{p} s{s}: coppia assente")
@@ -321,7 +347,7 @@ def main() -> int:
             print("  nessuna coppia: contesto non analizzabile")
             continue
         print(f"  {len(dati)} coppie | {righe:,} predizioni per variante")
-        for p in (0, 1, 2):
+        for p in sorted(PZ):
             print(f"     p{p}: pesi {np.round(PZ[p].vettore(), 4).tolist()} "
                   f"| impronta {PZ[p].impronta} | N {PZ[p].n_train:,}")
 
@@ -341,11 +367,10 @@ def main() -> int:
 
         # metriche secondarie, fuori dal criterio, su TUTTE le coppie
         per_coppia = {}
-        for p in (0, 1, 2):
-            for s in (0, 1, 2):
-                D = carica(a.dir, c, p, s)
-                if D is not None:
-                    per_coppia[(p, s)] = D
+        for p, s in CP:
+            D = carica(a.dir, c, p, s)
+            if D is not None:
+                per_coppia[(p, s)] = D
         sec = secondarie(per_coppia, PZ) if per_coppia else {}
         if sec:
             print(f"\n  metriche secondarie, FUORI dal criterio, su "

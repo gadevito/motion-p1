@@ -35,38 +35,50 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from evoluzione.analisi.analizza_raccordo import (  # noqa: E402
-    CONTESTI, aggregati, carica, controlla, perdita, pesi_classe)
+    CONTESTI, aggregati, carica, controlla, coppie_presenti,
+    partizioni_presenti, perdita, pesi_classe)
 
 
 def matrice_delta(dir_camp: Path, dir_pesi: Path, contesto):
-    """delta[p, s] e le perdite delle due varianti."""
-    G = np.full((3, 3), np.nan)
-    LA = np.full((3, 3), np.nan)
-    LB = np.full((3, 3), np.nan)
-    for p in (0, 1, 2):
-        w = pesi_classe(contesto, p, dir_pesi).vettore()
-        for s in (0, 1, 2):
-            D = carica(dir_camp, contesto, p, s)
-            if D is None:
-                continue
-            controlla(D, contesto, p, s)
-            _, Sa, Wa = aggregati(D["LEGACY"], w)
-            _, Sb, Wb = aggregati(D["BASE-CORRECTED"], w)
-            u = np.ones(len(Sa))
-            la, lb = perdita(Sa, Wa, u), perdita(Sb, Wb, u)
-            LA[p, s], LB[p, s] = la, lb
-            if np.isfinite(la) and la > 0:
-                G[p, s] = 100 * (lb - la) / la
-    return G, LA, LB
+    """delta[p, s], le perdite, e gli indici effettivi.
+
+    **LE DUE CAMPAGNE HANNO NUMEROSITA' DIVERSE**: tre inizializzazioni la
+    sensibilita', dodici la conferma. Le matrici non si sovrappongono cella per
+    cella, sicche' si restituiscono anche gli indici e il confronto si limita a
+    cio' che le due hanno in comune — dichiarandolo.
+    """
+    CP = coppie_presenti(dir_camp, contesto)
+    PP = sorted({p for p, _ in CP})
+    SS = sorted({s for _, s in CP})
+    G = np.full((len(PP), len(SS)), np.nan)
+    LA = np.full_like(G, np.nan)
+    LB = np.full_like(G, np.nan)
+    W = {p: pesi_classe(contesto, p, dir_pesi).vettore() for p in PP}
+    for p, s in CP:
+        D = carica(dir_camp, contesto, p, s)
+        if D is None:
+            continue
+        controlla(D, contesto, p, s)
+        _, Sa, Wa = aggregati(D["LEGACY"], W[p])
+        _, Sb, Wb = aggregati(D["BASE-CORRECTED"], W[p])
+        u = np.ones(len(Sa))
+        la, lb = perdita(Sa, Wa, u), perdita(Sb, Wb, u)
+        i, j = PP.index(p), SS.index(s)
+        LA[i, j], LB[i, j] = la, lb
+        if np.isfinite(la) and la > 0:
+            G[i, j] = 100 * (lb - la) / la
+    return G, LA, LB, PP, SS
 
 
 def struttura(G):
     """Dispersione fra partizioni e fra inizializzazioni."""
     mp = np.nanmean(G, 1)
     ms = np.nanmean(G, 0)
-    fra_p = float(np.nanstd(mp, ddof=1))
-    fra_s = float(np.nanstd(ms, ddof=1))
-    entro = float(np.nanmean([np.nanstd(G[p], ddof=1) for p in range(3)]))
+    fra_p = float(np.nanstd(mp, ddof=1)) if len(mp) > 1 else float("nan")
+    fra_s = float(np.nanstd(ms, ddof=1)) if len(ms) > 1 else float("nan")
+    entro = float(np.nanmean([np.nanstd(G[i], ddof=1)
+                              for i in range(G.shape[0])])) if G.shape[1] > 1 \
+        else float("nan")
     return {"media": float(np.nanmean(G)), "fra_partizioni": fra_p,
             "fra_inizializzazioni": fra_s, "entro_partizione": entro,
             "rapporto": fra_p / max(entro, 1e-9), "per_seme": ms.tolist()}
@@ -94,20 +106,35 @@ def main() -> int:
     for c in CONTESTI:
         print(f"\n{'=' * 88}\n{c}\n{'=' * 88}")
         try:
-            Go, LAo, LBo = matrice_delta(a.congelata, a.pesi, c)
-            Gn, LAn, LBn = matrice_delta(a.appaiata, a.pesi, c)
+            Go, LAo, LBo, PPo, SSo = matrice_delta(a.congelata, a.pesi, c)
+            Gn, LAn, LBn, PPn, SSn = matrice_delta(a.appaiata, a.pesi, c)
         except Exception as e:                          # noqa: BLE001
             print(f"  non confrontabile: {type(e).__name__}: {e}")
             continue
 
         # ---- [5] la VECCHIA e la NUOVA LEGACY ---------------------------
-        d = LAn - LAo
-        rel = 100 * d / LAo
+        # si confrontano le sole celle COMUNI: numerosita' diverse non si
+        # sovrappongono, e ignorarlo darebbe un errore di forma o, peggio, un
+        # confronto fra celle che non corrispondono
+        Pc = [p for p in PPo if p in PPn]
+        Sc = [s for s in SSo if s in SSn]
         print(f"\n  [5] il controllo LEGACY: vecchia contro nuova")
-        print(f"     {'':6s} " + "".join(f"{'s'+str(s):>13}" for s in (0, 1, 2)))
-        for p in (0, 1, 2):
+        if len(SSo) != len(SSn) or len(PPo) != len(PPn):
+            print(f"     numerosita' diverse: congelata {len(PPo)}x{len(SSo)}, "
+                  f"appaiata {len(PPn)}x{len(SSn)}")
+            print(f"     confronto limitato alle {len(Pc)}x{len(Sc)} celle "
+                  f"COMUNI, dichiarato")
+        rel = np.full((len(Pc), len(Sc)), np.nan)
+        for i, p in enumerate(Pc):
+            for j, s in enumerate(Sc):
+                o, n = LAo[PPo.index(p), SSo.index(s)], LAn[PPn.index(p),
+                                                            SSn.index(s)]
+                if np.isfinite(o) and o > 0:
+                    rel[i, j] = 100 * (n - o) / o
+        print(f"     {'':6s} " + "".join(f"{'s'+str(s):>13}" for s in Sc))
+        for i, p in enumerate(Pc):
             print(f"     p{p}    " + "".join(
-                f"{rel[p, s]:+12.4f}%" for s in (0, 1, 2)))
+                f"{rel[i, j]:+12.4f}%" for j in range(len(Sc))))
         mx = float(np.nanmax(np.abs(rel)))
         identiche = mx < 1e-9
         print(f"\n     scarto relativo massimo {mx:.2e}%")
@@ -135,11 +162,10 @@ def main() -> int:
               f"{sn['rapporto']:12.3f}")
 
         print(f"\n     delta medio per SEME (la struttura per colonna)")
-        print(f"     {'':10s} " + "".join(f"{'s'+str(s):>12}" for s in (0, 1, 2)))
-        print(f"     {'congelata':10s} "
-              + "".join(f"{so['per_seme'][s]:+11.3f}%" for s in (0, 1, 2)))
-        print(f"     {'appaiata':10s} "
-              + "".join(f"{sn['per_seme'][s]:+11.3f}%" for s in (0, 1, 2)))
+        print(f"     {'congelata':10s} " + "  ".join(
+            f"s{s}{so['per_seme'][i]:+.3f}%" for i, s in enumerate(SSo)))
+        print(f"     {'appaiata':10s} " + "  ".join(
+            f"s{s}{sn['per_seme'][i]:+.3f}%" for i, s in enumerate(SSn)))
         amp_o = max(so["per_seme"]) - min(so["per_seme"])
         amp_n = max(sn["per_seme"]) - min(sn["per_seme"])
         print(f"     escursione fra i semi: {amp_o:.3f} -> {amp_n:.3f} "

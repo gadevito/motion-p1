@@ -53,7 +53,8 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from evoluzione.analisi.analizza_raccordo import (  # noqa: E402
-    CONTESTI, ORIZZONTI, VARIANTI, carica, controlla, pesi_classe)
+    CONTESTI, ORIZZONTI, VARIANTI, carica, controlla, coppie_presenti,
+    partizioni_presenti, pesi_classe)
 from evoluzione.analisi.pesi import media_orizzonti  # noqa: E402
 
 N_BANDE = 8
@@ -156,11 +157,13 @@ def main() -> int:
     fuori = {}
     for c in a.contesto:
         print(f"\n{'=' * 92}\n{c}\n{'=' * 92}")
-        PZ = {p: pesi_classe(c, p, a.pesi) for p in (0, 1, 2)}
+        CP = coppie_presenti(a.dir, c)
+        PZ = {p: pesi_classe(c, p, a.pesi)
+              for p in partizioni_presenti(a.dir, c)}
         celle = []
         car = {}
-        for p in (0, 1, 2):
-            for s in (0, 1, 2):
+        for p, s in CP:
+            if True:
                 D = carica(a.dir, c, p, s)
                 if D is None:
                     continue
@@ -199,8 +202,7 @@ def main() -> int:
 
         # --- 1. per inizializzazione e partizione -------------------------
         rr = [riga(f"p{p} s{s}", NA, DA, NB, DB, OR,
-                   ((T.p == p) & (T.s == s)).to_numpy())
-              for p in (0, 1, 2) for s in (0, 1, 2)]
+                   ((T.p == p) & (T.s == s)).to_numpy()) for p, s in CP]
         stampa("[1] per partizione e inizializzazione  (descrive la struttura "
                "gia' osservata, non la conferma)", rr)
         R["partizione_inizializzazione"] = rr
@@ -271,11 +273,12 @@ def main() -> int:
 
         # -- i valori per INIZIALIZZAZIONE, separati -----------------------
         print(f"\n  [4bis] copertura, separata per inizializzazione")
-        print(f"     {'gruppo':22s} " + "".join(f"{'s'+str(s):>12}" for s in (0,1,2)))
+        SS = sorted({s for _, s in CP})
+        print(f"     {'gruppo':22s} " + "".join(f"{'s'+str(s):>12}" for s in SS))
         for i in range(len(CONFINI_COP) - 1):
             lo, hi = CONFINI_COP[i], CONFINI_COP[i + 1]
             v = []
-            for s in (0, 1, 2):
+            for s in SS:
                 m = ((T.copertura >= lo) & (T.copertura < hi)
                      & (T.s == s)).to_numpy()
                 r = riga("", NA, DA, NB, DB, OR, m)

@@ -31,22 +31,23 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from evoluzione.analisi.analizza_raccordo import (  # noqa: E402
-    CONTESTI, MARGINE, aggregati, carica, controlla, pesi_classe)
+    CONTESTI, MARGINE, aggregati, carica, controlla, coppie_presenti,
+    partizioni_presenti, pesi_classe)
 from evoluzione.analisi.sensibilita_incrociata import intervalli  # noqa: E402
 
 
 def prepara(dir_camp: Path, dir_pesi: Path, contesto):
     dati = {}
-    for p in (0, 1, 2):
-        w = pesi_classe(contesto, p, dir_pesi).vettore()
-        for s in (0, 1, 2):
-            D = carica(dir_camp, contesto, p, s)
-            if D is None:
-                continue
-            controlla(D, contesto, p, s)
-            na, Sa, Wa = aggregati(D["LEGACY"], w)
-            _, Sb, Wb = aggregati(D["BASE-CORRECTED"], w)
-            dati[(p, s)] = (na, Sa, Wa, Sb, Wb)
+    W = {p: pesi_classe(contesto, p, dir_pesi).vettore()
+         for p in partizioni_presenti(dir_camp, contesto)}
+    for p, s in coppie_presenti(dir_camp, contesto):
+        D = carica(dir_camp, contesto, p, s)
+        if D is None:
+            continue
+        controlla(D, contesto, p, s)
+        na, Sa, Wa = aggregati(D["LEGACY"], W[p])
+        _, Sb, Wb = aggregati(D["BASE-CORRECTED"], W[p])
+        dati[(p, s)] = (na, Sa, Wa, Sb, Wb)
     return dati
 
 
