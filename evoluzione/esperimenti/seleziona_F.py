@@ -2,11 +2,19 @@
 """
 Fase 2 — selezione della configurazione di adattamento di F.
 =============================================================
-Sei combinazioni per ciascuna terna (citta', partizione, seme), valutate su un
+Sei combinazioni per ciascun GRUPPO (citta', partizione, seme), valutate su un
 **episodio di validazione** separato dal test. **UNA configurazione per citta'.**
 
     passo di apprendimento   1e-3, 1e-2
     aggiornamenti massimi    10, 50, 200
+
+IL PERIMETRO DI VALUTAZIONE e' la GIORNATA prescritta: ventiquattro ore dopo
+l'acquisizione, con le sole origini i cui bersagli fino a due ore vi ricadano.
+**Non il resto della validazione**: usarlo sarebbe un'estensione
+dell'emendamento, non un riallineamento.
+
+**ORIGINE = timestamp previsionale distinto.** Il manifesto riporta
+separatamente timestamp distinti, istanze nodo-timestamp e celle per orizzonte.
 
 LA REGOLA, dichiarata qui: wCE mediata sui quattro orizzonti, poi sulle
 inizializzazioni, poi sulle tre partizioni con uguale peso. **A parita' numerica
@@ -22,7 +30,7 @@ I CINQUE VINCOLI, verificati a ogni candidato:
 
 **Le copie si eseguono in sequenza**: non risiedono tutte in memoria.
 
-IL MANIFESTO e' **uno per terna**, con le sei combinazioni dentro: griglia,
+IL MANIFESTO e' **uno per gruppo**, con le sei combinazioni dentro: griglia,
 aggiornamenti eseguiti, seme, impronte iniziale e finale, costo, metrica di
 validazione e regola applicata.
 
@@ -39,18 +47,32 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
+import torch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from evoluzione.esperimenti.fasi import (  # noqa: E402
     CONTESTI, PARTIZIONI, PrerequisitoMancante, percorso_E,
     verifica_selezione_F)
-from evoluzione.esperimenti.semi import configurazione  # noqa: E402
+from evoluzione.esperimenti.semi import (  # noqa: E402
+    SEME_PARTIZIONE, configurazione)
+from evoluzione.componente.adattamento import (  # noqa: E402
+    adatta, carica_E, copia_da_E, verifica_vincoli)
+from evoluzione.componente.episodio import (  # noqa: E402
+    EpisodioVuoto, giornata_valutazione, lotti_episodio, origini_adattamento,
+    origini_valutazione, riepilogo)
+from evoluzione.esperimenti.addestramento import (  # noqa: E402
+    _canali, _carica, _normalizzazione, _partizioni, _perdita)
+from evoluzione.analisi.pesi import carica as carica_pesi  # noqa: E402
 
 PASSI = (1e-3, 1e-2)
 AGGIORNAMENTI = (10, 50, 200)
 L24 = 96
-CALENDARIO = {"Madrid": (8887, 8983), "Londra": (8966, 9062),
-              "Melbourne": (8806, 8902)}
+# il calendario dell'episodio di VALIDAZIONE, congelato nel disegno 2.4 dal
+# requisito di ammissibilita': primo t0 con almeno 90 marche in 24 ore
+CALENDARIO_VAL = {"Madrid": (7392, 7488), "Londra": (7389, 7485),
+                  "Melbourne": (7251, 7347)}
+# il confine superiore del periodo di validazione, oltre il quale non si valuta
+FINE_VAL = {"Madrid": 8887, "Londra": 8966, "Melbourne": 8806}
 
 
 def griglia():
@@ -69,7 +91,7 @@ def scegli(punteggi):
     return None
 
 
-def aggrega(per_terna, contesto):
+def aggrega(per_gruppo, contesto):
     """wCE media sugli orizzonti (gia' fatta), poi sui semi, poi sulle
     partizioni con UGUALE PESO."""
     fuori = {}
@@ -77,7 +99,7 @@ def aggrega(per_terna, contesto):
         per_part = []
         for p in PARTIZIONI:
             v = [d["punteggi"].get(str(k), d["punteggi"].get(k))
-                 for (c, pp, _), d in per_terna.items()
+                 for (c, pp, _), d in per_gruppo.items()
                  if c == contesto and pp == p]
             v = [x for x in v if x is not None and np.isfinite(x)]
             if v:
@@ -108,7 +130,7 @@ def main() -> int:
           f"partizioni")
     print(f"  a parita': meno aggiornamenti, poi passo minore")
     n = len(a.contesto) * len(PARTIZIONI) * len(semi_torch)
-    print(f"\n  terne: {n} | adattamenti: {n * len(griglia()):,}")
+    print(f"\n  gruppi di sei candidati: {n} | adattamenti: {n * len(griglia()):,}")
 
     try:
         r = verifica_selezione_F(dir_E, semi_torch, a.contesto)
@@ -120,22 +142,166 @@ def main() -> int:
 
     if a.piano:
         print(f"\n  --piano: nessuna esecuzione avviata.")
-        print(f"  ogni terna produce UN manifesto con le sei combinazioni "
+        print(f"  ogni gruppo produce UN manifesto con le sei combinazioni "
               f"dentro")
         return 0
 
-    print("\n  NON ANCORA IMPLEMENTATA la valutazione sull'episodio di")
-    print("  validazione: richiede il caricamento dei dati e la costruzione")
-    print("  dei lotti, che `addestramento.py` fa per l'addestramento ma non")
-    print("  per un episodio di inserimento separato.")
-    print("\n  Prima di implementarla va fissato:")
-    print("     - quali nodi costituiscono l'episodio di VALIDAZIONE")
-    print("       (i nodi di validazione induttiva, per il disegno)")
-    print("     - l'istante di installazione: inizio del periodo temporale")
-    print("       di validazione, non di prova")
-    print("     - il perimetro di valutazione: il periodo successivo,")
-    print("       SEMPRE entro la validazione temporale")
-    return 1
+    dir_sel.mkdir(parents=True, exist_ok=True)
+    per_gruppo, tempi, guai = {}, [], []
+    n_fatte = 0
+    for c in a.contesto:
+        t0v, t1v = CALENDARIO_VAL[c]
+        D = _carica(c, a.out / "maschere")
+        for p in PARTIZIONI:
+            gen = {"partizione": np.random.default_rng(SEME_PARTIZIONE[p])}
+            nodi, ist = _partizioni(D, gen)
+            NORM, nr, nv = _normalizzazione(D, nodi, ist)
+            x = _canali(D, nr, nv)
+            # le STATICHE, costruite come nell'addestramento: la copertura
+            # media della sorgente piu' quattro colonne fisse
+            K = D["r"].shape[1]
+            stat = np.stack([D["m_r"].mean(0), np.zeros(K), np.ones(K),
+                             np.zeros(K), np.ones(K)], 1).astype("float32")
+            # la firma e' (dir_pesi, contesto, partizione)
+            w = torch.as_tensor(
+                carica_pesi(a.out / "pesi", c, p).vettore(),
+                dtype=torch.float32)
+            # I NODI DELL'EPISODIO sono quelli di VALIDAZIONE INDUTTIVA
+            nodi_ep = nodi["validazione"]
+            o_ad = origini_adattamento(t0v, t1v)
+            # LA GIORNATA prescritta, non il resto della validazione
+            o_va = origini_valutazione(D["ts"], t1v, FINE_VAL[c])
+            fine_g = giornata_valutazione(D["ts"], t1v, FINE_VAL[c])
+            for s in semi_torch:
+                f_man = dir_sel / f"sel_{c}_p{p}_s{s}.json"
+                if f_man.exists():
+                    per_gruppo[(c, p, int(s))] = json.loads(f_man.read_text())
+                    continue
+                fE = percorso_E(dir_E, c, p, int(s))
+                dE, nodi_in, imp_E = carica_E(fE, 5)
+                punteggi, dettagli = {}, []
+                t_gruppo = time.time()
+                # I LOTTI, costruiti UNA VOLTA per gruppo. **Non `per_nodo`**:
+                # l'adattamento e' vettorizzato ed equivalente, e un lotto per
+                # nodo costava 135 passaggi in avanti per aggiornamento.
+                lotti = lotti_episodio(x, D["classe"], stat, nodi_ep, o_ad)
+                lotti_val = lotti_episodio(x, D["classe"], stat, nodi_ep,
+                                           o_va)
+                for b, e in griglia():
+                    # COPIA INDIPENDENTE, in sequenza: nessun adattamento
+                    # cumulativo, ottimizzatore nuovo
+                    mF, forn = copia_da_E(dE, nodi_in, nodi_ep, 5)
+                    imp_ini = float(forn.nuovi.detach().abs().sum())
+                    reg_ad = []
+                    t_c = time.time()
+                    print(f"    {c[:3]} p{p} s{int(s):<11d} "
+                          f"({b:3d},{e:g})", end="", flush=True)
+                    n_agg = adatta(mF, forn, lotti, w, e, b, reg_ad)
+                    dt = time.time() - t_c
+                    mF.eval()
+                    with torch.inference_mode():
+                        L = []
+                        for Xv, nv_, Yv, Mv, Sv in lotti_val:
+                            out = mF(Xv, node_ids=nv_, static_inputs=Sv)
+                            lv, _ = _perdita(out, Yv, Mv, w)
+                            L.append(float(lv))
+                    punteggi[(b, e)] = float(np.mean(L)) if L else float("nan")
+                    print(f"  wCE {punteggi[(b, e)]:.5f}  {dt:5.1f}s",
+                          flush=True)
+                    verifica_vincoli(mF, forn, dE, imp_E,
+                                     dE["state_dict"]["identita.embedding"], fE)
+                    dettagli.append({
+                        "aggiornamenti_richiesti": b, "passo": e,
+                        "aggiornamenti_eseguiti": n_agg,
+                        "impronta_iniziale": imp_ini,
+                        "impronta_finale": float(
+                            forn.nuovi.detach().abs().sum()),
+                        "wCE_validazione": punteggi[(b, e)],
+                        "secondi": dt, "nodi_adattati": len(lotti),
+                        "registro_adattamento": reg_ad})
+                    del mF, forn
+                rip_ac = riepilogo(D["classe"], nodi_ep, o_ad, t0v, t1v)
+                rip_va = riepilogo(D["classe"], nodi_ep, o_va, t1v, fine_g)
+                man = {"contesto": c, "partizione": p, "seme": int(s),
+                       "acquisizione": {
+                           "inizio": int(t0v), "fine": int(t1v),
+                           "istante_inizio": str(D["ts"][t0v]),
+                           "istante_fine": str(D["ts"][t1v]), **rip_ac},
+                       "valutazione": {
+                           "inizio": int(t1v), "fine": int(fine_g),
+                           "istante_inizio": str(D["ts"][t1v]),
+                           "istante_fine": str(D["ts"][fine_g]), **rip_va},
+                       "impronta_E": imp_E, "punto_di_controllo_E": fE.name,
+                       "punteggi": {str(k): v for k, v in punteggi.items()},
+                       "candidati": dettagli,
+                       "regola": "wCE media sugli orizzonti, poi sui semi, poi "
+                                 "sulle partizioni; a parita': meno "
+                                 "aggiornamenti, poi passo minore",
+                       "versione_protocollo": "2.4",
+                       "istante": datetime.now(timezone.utc).isoformat()}
+                f_man.write_text(json.dumps(man, indent=2, ensure_ascii=False))
+                per_gruppo[(c, p, int(s))] = man
+                tempi.append(time.time() - t_gruppo)
+                n_fatte += 1
+                print(f"  {c:11s} p{p} s{int(s):11d}  "
+                      + " ".join(f"{punteggi[k]:.4f}" for k in griglia())
+                      + f"  {tempi[-1]:5.1f}s")
+
+    # ---- l'aggregazione e la scelta, UNA per citta' ----------------------
+    print(f"\n{'=' * 84}\nSCELTA PER CITTA'\n{'=' * 84}")
+    # le scelte gia' congelate in esecuzioni precedenti si CONSERVANO: una
+    # esecuzione su una citta' sola non deve cancellare le altre
+    f_pre = dir_sel / "configurazione_F.json"
+    pre = json.loads(f_pre.read_text()) if f_pre.exists() else {}
+    scelte = dict(pre.get("scelte", {}))
+    aggregati = dict(pre.get("aggregati", {}))
+    for c in a.contesto:
+        gruppi = {k: v for k, v in per_gruppo.items() if k[0] == c}
+        attese = len(PARTIZIONI) * len(semi_torch)
+        if len(gruppi) < attese:
+            print(f"  {c}: {len(gruppi)}/{attese} gruppi — SELEZIONE SOSPESA")
+            print(f"     non si sceglie su un insieme incompleto")
+            continue
+        agg = aggrega(gruppi, c)
+        aggregati[c] = {str(k): v for k, v in agg.items()}
+        k = scegli(agg)
+        scelte[c] = {"aggiornamenti": k[0], "passo": k[1],
+                     "wCE": agg[k], "gruppi": len(gruppi)}
+        print(f"\n  {c}")
+        for kk in griglia():
+            m = " <- SCELTA" if kk == k else ""
+            print(f"     ({kk[0]:3d}, {kk[1]:g})  {agg.get(kk, float('nan')):.6f}{m}")
+
+    # LA CONFIGURAZIONE SI CONGELA SOLO SE COMPLETA su TUTTE le citta' del
+    # protocollo, non su quelle di questa esecuzione: con `--contesto Madrid`
+    # il confronto con `a.contesto` sarebbe soddisfatto da una citta' sola, e
+    # la fase di prova partirebbe senza le altre due.
+    completa = all(c in scelte for c in CONTESTI)
+    f_cfg = dir_sel / "configurazione_F.json"
+    f_cfg.write_text(json.dumps(
+        {"congelata": completa,
+         "citta_del_protocollo": list(CONTESTI),
+         "citta_con_scelta": sorted(scelte),
+         "mancanti": [c for c in CONTESTI if c not in scelte],
+         "scelte": scelte, "aggregati": aggregati,
+         "griglia": [list(k) for k in griglia()],
+         "regola_spareggio": "meno aggiornamenti, poi passo minore",
+         "calendario_validazione": CALENDARIO_VAL,
+         "versione_protocollo": "2.4",
+         "istante": datetime.now(timezone.utc).isoformat()},
+        indent=2, ensure_ascii=False))
+    print(f"\n  {n_fatte} gruppi eseguiti")
+    if tempi:
+        print(f"  COSTO: mediana {np.median(tempi):.1f}s per gruppo "
+              f"({len(griglia())} adattamenti), proiezione per 108: "
+              f"{108 * np.median(tempi) / 60:.0f} minuti")
+    manca = [c for c in CONTESTI if c not in scelte]
+    print(f"  configurazione in {f_cfg}, "
+          f"{'CONGELATA' if completa else 'NON congelata'}")
+    if manca:
+        print(f"  mancano: {manca} — la fase di prova NON parte finche' la")
+        print(f"  configurazione non e' completa su tutte e tre le citta'.")
+    return 0 if completa else 1
 
 
 if __name__ == "__main__":
