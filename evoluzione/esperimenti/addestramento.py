@@ -70,6 +70,12 @@ class FallimentoMetodo(RuntimeError):
     """
 
 
+from evoluzione.componente.griglia import (  # noqa: E402
+    filtra as _filtra_griglia, maschera_origini as _maschera_origini,
+    passi_regolari as _passi_regolari,
+    verifica_finestra_descrittore as _verifica_finestra)
+
+
 def _carica(contesto, dir_masc: Path):
     tp, eti = CTX[contesto]
     M = np.load(dir_masc / f"maschere_{eti}.npz", allow_pickle=True)
@@ -194,17 +200,24 @@ def _perdita(out, Y, M, wt):
     return torch.stack(perdite).mean(), len(perdite)
 
 
-def _pesi(E, D, nodi, ist, radice: Path, versione: str):
+def _pesi(E, D, nodi, ist, radice: Path, versione: str, dir_pesi=None,
+          solo_carica: bool = False):
     """L'artefatto dei pesi, UNO per citta' e partizione.
 
     Si calcola la prima volta e si riusa: le tre inizializzazioni e le due
     varianti devono consumare lo STESSO vettore, altrimenti il confronto
     appaiato non ha la medesima metrica ai due lati.
     """
-    dir_pesi = radice / "pesi"
+    dir_pesi = Path(dir_pesi) if dir_pesi else radice / "pesi"
     f = percorso_pesi(dir_pesi, E.contesto, E.partizione)
     if f.exists():
         return carica_pesi(dir_pesi, E.contesto, E.partizione)
+    if solo_carica:
+        # Con la griglia reale i pesi si PREPARANO prima, una volta: calcolarli
+        # qui, con piu' processi in parallelo, produrrebbe scritture
+        # concorrenti sullo stesso file.
+        raise FallimentoMetodo(
+            f"pesi assenti in {dir_pesi}: eseguire prima prepara_pesi_griglia.py")
     P = calcola_pesi(E.contesto, E.partizione, D["classe"],
                      nodi["addestramento"], ist["addestramento"], ORIZZONTI,
                      versione_codice=versione)
@@ -331,6 +344,23 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
     nodi, ist = _partizioni(D, gen)
     NORM, nr, nv = _normalizzazione(D, nodi, ist)
 
+    # LA GRIGLIA TEMPORALE. `ist` resta l'insieme delle RIGHE del periodo — la
+    # normalizzazione, appena calcolata, le usa come osservazioni e non dipende
+    # dalla regola. `orig` sono le ORIGINI: con la griglia reale, soltanto
+    # quelle la cui finestra e i cui bersagli non attraversano salti.
+    #   indice  il percorso storico, INVARIATO: le origini sono le righe
+    #   reale   la regola approvata, in tutte le fasi
+    griglia = cfg.get("griglia_temporale", "indice")
+    if griglia not in ("indice", "reale"):
+        raise ValueError(f"griglia temporale ignota: {griglia}")
+    ok_griglia = None
+    if griglia == "reale":
+        ok_griglia = _passi_regolari(D["ts"])
+        amm = _maschera_origini(ok_griglia)
+        orig = {k: _filtra_griglia(v, amm) for k, v in ist.items()}
+    else:
+        orig = ist
+
     # **La RETE INIZIALE non e' la popolazione di addestramento.** Per A ed R
     # quest'ultima e' ampliata coi nodi nuovi, che NON devono entrare nella
     # metrica di selezione.
@@ -345,7 +375,10 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
             f"vederli.")
 
     # -- i PESI: stesso artefatto per addestramento e analisi ---------------
-    PZ = _pesi(E, D, nodi, ist, radice, cfg.get("etichetta", ""))
+    PZ = _pesi(E, D, nodi, orig, radice, cfg.get("etichetta", ""),
+               dir_pesi=cfg.get("dir_pesi"), solo_carica=(griglia == "reale"))
+    reg.evento(f"griglia_temporale = {griglia}: origini ammissibili "
+               + ", ".join(f"{k} {len(orig[k])}/{len(ist[k])}" for k in ist))
     w = PZ.vettore()
     wt = torch.as_tensor(w, dtype=torch.float32)
     reg.metrica(nome="wCE", pesi=w,
@@ -476,13 +509,20 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
     # I NODI DELLA METRICA DI SELEZIONE, secondo la politica dichiarata
     nodi_ck = (nodi_rete_iniziale if politica_ck == "initial_network"
                else nodi["validazione"])
-    ist_ck = ist["validazione"]          # il PERIODO e' quello di validazione
+    ist_ck = orig["validazione"]         # le ORIGINI del periodo di validazione
+    # il riferimento del descrittore resta l'INIZIO DEL PERIODO, non la prima
+    # origine ammissibile: filtrare le origini non deve spostarlo
+    t_desc_va = int(ist["validazione"][0])
+    t_desc_tr = int(ist["addestramento"][-1])
+    if ok_griglia is not None:
+        _verifica_finestra(ok_griglia, t_desc_tr)
+        _verifica_finestra(ok_griglia, t_desc_va)
 
     dtr = dva = None
     if usa_desc:
-        dtr = _descrittori(D, nodi["addestramento"],
-                           int(ist["addestramento"][-1]), E.variante, NORM)
-        dva = _descrittori(D, nodi_ck, int(ist_ck[0]), E.variante, NORM)
+        dtr = _descrittori(D, nodi["addestramento"], t_desc_tr, E.variante,
+                           NORM)
+        dva = _descrittori(D, nodi_ck, t_desc_va, E.variante, NORM)
     reg.modello(m, n_nodi=K, **{k: cfg[k] for k in
                                 ("epoche", "lotto", "passo", "pazienza")})
     if impronta_iniziale:
@@ -516,12 +556,12 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
     reg.evento(f"training_protocol = {protocollo}")
     if protocollo == "principale":
         epoca, migliore = _ciclo_principale(
-            m, opt, g, x, D, ist, nodi, nodi_ck, ist_ck, stat, dtr, dva, wt,
+            m, opt, g, x, D, orig, nodi, nodi_ck, ist_ck, stat, dtr, dva, wt,
             cfg, reg, ck, forn, braccio_, d_desc, E, seme_i)
     for ep in (range(cfg["epoche"]) if protocollo == "storico" else ()):
         m.train()
-        idx = g.choice(ist["addestramento"], size=min(cfg["lotto"],
-                                                      len(ist["addestramento"])),
+        idx = g.choice(orig["addestramento"],
+                       size=min(cfg["lotto"], len(orig["addestramento"])),
                        replace=False)
         X, Y, Mk = _lotto(x, D["classe"], np.sort(idx), nodi["addestramento"])
         out = m(X, node_ids=nodi["addestramento"], descriptor=dtr,
@@ -580,12 +620,14 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
         reg.uscita(ck)
         return ck
 
+    if ok_griglia is not None and usa_desc:
+        _verifica_finestra(ok_griglia, int(ist["prova"][0]))
     dpr = (_descrittori(D, nodi["prova"], int(ist["prova"][0]), E.variante,
                         NORM) if usa_desc else None)
     righe = []
     scartate = 0
     with torch.inference_mode():
-        for t in ist["prova"]:
+        for t in orig["prova"]:
             X, Y, Mk = _lotto(x, D["classe"], [int(t)], nodi["prova"])
             o = torch.softmax(
                 m2(X, node_ids=nodi["prova"], descriptor=dpr,
@@ -616,7 +658,7 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
     # scarto e' allora un difetto della selezione, non deriva temporale.
     att = np.zeros(3, dtype="float64")
     for h in ORIZZONTI:
-        tt = ist["prova"] + h
+        tt = orig["prova"] + h
         tt = tt[tt < D["classe"].shape[0]]
         y = D["classe"][np.ix_(tt, nodi["prova"])]
         for k in (1, 2, 3):

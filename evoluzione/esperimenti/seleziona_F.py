@@ -57,6 +57,7 @@ from evoluzione.esperimenti.semi import (  # noqa: E402
     SEME_PARTIZIONE, configurazione)
 from evoluzione.componente.adattamento import (  # noqa: E402
     adatta, carica_E, copia_da_E, verifica_vincoli)
+from evoluzione.componente import griglia as GR  # noqa: E402
 from evoluzione.componente.episodio import (  # noqa: E402
     EpisodioVuoto, giornata_valutazione, lotti_episodio, origini_adattamento,
     origini_valutazione, riepilogo)
@@ -73,6 +74,12 @@ CALENDARIO_VAL = {"Madrid": (7392, 7488), "Londra": (7389, 7485),
                   "Melbourne": (7251, 7347)}
 # il confine superiore del periodo di validazione, oltre il quale non si valuta
 FINE_VAL = {"Madrid": 8887, "Londra": 8966, "Melbourne": 8806}
+# IL CALENDARIO CON LA REGOLA APPROVATA: tutti i 96 intervalli di (t0, t1]
+# e la giornata successiva completa. Melbourne cambia rispetto al calendario
+# precedente (7251), che violava la condizione sulla giornata di valutazione.
+# Si RICALCOLA a ogni esecuzione e si confronta con questa tabella.
+CALENDARIO_VAL_GRIGLIA = {"Madrid": (7392, 7488), "Londra": (7389, 7485),
+                          "Melbourne": (7392, 7488)}
 
 
 def griglia():
@@ -114,8 +121,8 @@ def main() -> int:
     ap.add_argument("--contesto", nargs="*", default=list(CONTESTI))
     ap.add_argument("--piano", action="store_true")
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
-    ap.add_argument("--protocollo", default="principale",
-                    choices=("principale", "storico"),
+    ap.add_argument("--protocollo", default="griglia",
+                    choices=("griglia", "principale", "storico"),
                     help="quali punti E usare; la selezione storica non si "
                          "sovrascrive")
     a = ap.parse_args()
@@ -125,9 +132,11 @@ def main() -> int:
     # E a 35 aggiornamenti, e' un risultato della procedura precedente e non si
     # sovrascrive. La scelta `(200, 0.01)` NON si trasferisce ai nuovi E.
     dir_E = a.out / {"storico": "E_inserimento",
-                     "principale": "E_inserimento_principale"}[a.protocollo]
+                     "principale": "E_inserimento_principale",
+                     "griglia": "E_inserimento_griglia"}[a.protocollo]
     dir_sel = a.out / {"storico": "selezione_F",
-                       "principale": "selezione_F_principale"}[a.protocollo]
+                       "principale": "selezione_F_principale",
+                       "griglia": "selezione_F_griglia"}[a.protocollo]
 
     print("=" * 84)
     print("FASE 2 — SELEZIONE DELLA CONFIGURAZIONE DI F")
@@ -146,7 +155,7 @@ def main() -> int:
         # NEL PRINCIPALE non basta che il file dei pesi esista: il ciclo salva
         # il migliore a ogni miglioramento, e un'esecuzione interrotta ne
         # lascia uno che SEMBRA completo. Serve il marcatore `.fatto`.
-        if a.protocollo == "principale":
+        if a.protocollo in ("principale", "griglia"):
             senza = [percorso_E(dir_E, c, p, int(s)).name
                      for c in a.contesto for p in PARTIZIONI
                      for s in semi_torch
@@ -174,8 +183,20 @@ def main() -> int:
     per_gruppo, tempi, guai = {}, [], []
     n_fatte = 0
     for c in a.contesto:
-        t0v, t1v = CALENDARIO_VAL[c]
         D = _carica(c, a.out / "maschere")
+        ok_g = GR.passi_regolari(D["ts"]) if a.protocollo == "griglia" else None
+        if ok_g is not None:
+            t0v, t1v = CALENDARIO_VAL_GRIGLIA[c]
+            e_ = D["r"].shape[0] - GR.MAX_ORIZZ
+            ricalc = GR.primo_t0(D["ts"], ok_g, int(e_ * .70), int(e_ * .85),
+                                 giornata_dopo=True)
+            if ricalc != t0v:
+                raise PrerequisitoMancante(
+                    f"{c}: la regola approvata da' t0={ricalc}, la tabella "
+                    f"dice {t0v}. Il calendario va verificato prima di "
+                    f"selezionare.")
+        else:
+            t0v, t1v = CALENDARIO_VAL[c]
         for p in PARTIZIONI:
             gen = {"partizione": np.random.default_rng(SEME_PARTIZIONE[p])}
             nodi, ist = _partizioni(D, gen)
@@ -188,14 +209,21 @@ def main() -> int:
                              np.zeros(K), np.ones(K)], 1).astype("float32")
             # la firma e' (dir_pesi, contesto, partizione)
             w = torch.as_tensor(
-                carica_pesi(a.out / "pesi", c, p).vettore(),
+                # I PESI DELLA STESSA PIPELINE dei punti E: con la griglia sono
+                # ricalcolati sulle origini ammissibili
+                carica_pesi(a.out / ("pesi_griglia" if a.protocollo == "griglia"
+                                     else "pesi"), c, p).vettore(),
                 dtype=torch.float32)
             # I NODI DELL'EPISODIO sono quelli di VALIDAZIONE INDUTTIVA
             nodi_ep = nodi["validazione"]
-            o_ad = origini_adattamento(t0v, t1v)
+            # CONVENZIONE (t0, t1] e GRIGLIA: la riga t0 non si usa, e nessuna
+            # finestra attraversa un salto
+            o_ad = (GR.origini_acquisizione(ok_g, t0v, t1v) if ok_g is not None
+                    else origini_adattamento(t0v, t1v))
             # LA GIORNATA prescritta, non il resto della validazione
-            o_va = origini_valutazione(D["ts"], t1v, FINE_VAL[c])
             fine_g = giornata_valutazione(D["ts"], t1v, FINE_VAL[c])
+            o_va = (GR.origini_dopo(ok_g, t1v, fine_g + 1) if ok_g is not None
+                    else origini_valutazione(D["ts"], t1v, FINE_VAL[c]))
             for s in semi_torch:
                 f_man = dir_sel / f"sel_{c}_p{p}_s{s}.json"
                 if f_man.exists():
@@ -313,7 +341,13 @@ def main() -> int:
          "scelte": scelte, "aggregati": aggregati,
          "griglia": [list(k) for k in griglia()],
          "regola_spareggio": "meno aggiornamenti, poi passo minore",
-         "calendario_validazione": CALENDARIO_VAL,
+         "calendario_validazione": (CALENDARIO_VAL_GRIGLIA
+                                    if a.protocollo == "griglia"
+                                    else CALENDARIO_VAL),
+         "griglia_temporale": ("reale" if a.protocollo == "griglia"
+                               else "indice"),
+         "convenzione_estremi": ("(t0, t1]" if a.protocollo == "griglia"
+                                 else "[t0, t1], storica"),
          "versione_protocollo": "2.4",
          "istante": datetime.now(timezone.utc).isoformat()},
         indent=2, ensure_ascii=False))

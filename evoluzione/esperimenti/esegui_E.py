@@ -44,7 +44,14 @@ RADICE = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(RADICE))
 
 BRACCIO = "E"
-CARTELLA = {"storico": "E_inserimento", "principale": "E_inserimento_principale"}
+# Tre serie, tre cartelle: nessuna sovrascrive le altre.
+#   storico     35 aggiornamenti, validazione sui primi 32 istanti
+#   principale  2.290 aggiornamenti, V-full; origini PER INDICE — pipeline
+#               precedente, congelata come tale
+#   griglia     come principale, con la GRIGLIA TEMPORALE REALE in tutte le
+#               fasi e i pesi ricalcolati sulle origini ammissibili
+CARTELLA = {"storico": "E_inserimento", "principale": "E_inserimento_principale",
+            "griglia": "E_inserimento_griglia"}
 
 
 class Esec:
@@ -143,8 +150,8 @@ def main() -> int:
 
     ap = argparse.ArgumentParser(description="fase 1: punti di controllo E")
     ap.add_argument("--contesto", nargs="*", default=list(CONTESTI))
-    ap.add_argument("--protocollo", default="principale",
-                    choices=("principale", "storico"))
+    ap.add_argument("--protocollo", default="griglia",
+                    choices=("griglia", "principale", "storico"))
     ap.add_argument("--lavoratori", type=int, default=1)
     ap.add_argument("--fili", type=int, default=1)
     ap.add_argument("--piano", action="store_true")
@@ -160,7 +167,12 @@ def main() -> int:
            "storia_descrittore_passi": 96, "finestra_dinamica_passi": 12,
            "orizzonti": [1, 2, 4, 8], "sorgente": "traffic4cast",
            "etichetta": etichetta, "braccio": BRACCIO,
-           "training_protocol": a.protocollo,
+           "training_protocol": ("principale" if a.protocollo == "griglia"
+                                 else a.protocollo),
+           "griglia_temporale": ("reale" if a.protocollo == "griglia"
+                                 else "indice"),
+           "dir_pesi": str(a.out / ("pesi_griglia" if a.protocollo == "griglia"
+                                    else "pesi")),
            "checkpoint_selection_population": "initial_network",
            "dir_canonico": str(a.out / "canonico"),
            "dir_stati_completi": str(a.out / f"stati_completi_{etichetta}")}
@@ -171,14 +183,16 @@ def main() -> int:
     d = descrivi_braccio(BRACCIO)
     print(f"  popolazione: {d['popolazione']} | corpus: {d['corpus']}")
     print(f"  protocollo: **{a.protocollo}** -> {dir_E}")
-    if a.protocollo == "principale":
+    if a.protocollo in ("principale", "griglia"):
         print(f"     2.290 aggiornamenti, undici punti, selezione su V-full, "
               f"nessun arresto anticipato")
+    print(f"  griglia temporale: **{cfg['griglia_temporale']}** | pesi: "
+          f"{cfg['dir_pesi']}")
     print(f"  parallelismo: {a.lavoratori} lavoratori x {a.fili} filo/i, "
           f"backend CPU")
 
     try:
-        verifica_E(a.out / "canonico", a.out / "maschere", a.out / "pesi",
+        verifica_E(a.out / "canonico", a.out / "maschere", Path(cfg["dir_pesi"]),
                    semi_torch, a.contesto)
         print(f"  prerequisiti verificati: canonico, maschere, pesi")
     except PrerequisitoMancante as e:

@@ -50,7 +50,15 @@ def main() -> int:
 
     r = []
     A = r.append
-    A("# Congelamento — fase E principale e selezione di F")
+    A("# Congelamento — fase E principale e selezione di F, PIPELINE PRECEDENTE")
+    A("")
+    A("> **Risultati della pipeline precedente alla correzione della griglia "
+      "temporale.** Le origini erano costruite per indice di riga: circa il 2,6% "
+      "attraversava un salto della serie, con orizzonti che non corrispondevano "
+      "al tempo reale. **Questi punti E e questa selezione di F non sono gli "
+      "artefatti preparatori definitivi**: si rigenerano con la regola approvata. "
+      "Le configurazioni scelte qui **non si trasferiscono** alla selezione "
+      "corretta.")
     A("")
     A(f"**Congelato il {datetime.now(timezone.utc).date().isoformat()}.** "
       f"Protocollo di addestramento `principale`: 2.290 aggiornamenti, undici "
@@ -158,8 +166,8 @@ def main() -> int:
     A("")
     A("**Nessun dato di test è stato consultato.** La selezione non si modifica "
       "più.")
-    Path("CONGELAMENTO_E_F_PRINCIPALE.md").write_text("\n".join(r) + "\n")
-    print(f"generato CONGELAMENTO_E_F_PRINCIPALE.md, {len(r)} righe")
+    Path("CONGELAMENTO_E_F_PIPELINE_PRECEDENTE.md").write_text("\n".join(r) + "\n")
+    print(f"generato CONGELAMENTO_E_F_PIPELINE_PRECEDENTE.md, {len(r)} righe")
     return 0
 
 

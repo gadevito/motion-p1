@@ -30,6 +30,8 @@ from __future__ import annotations
 
 import numpy as np
 
+from evoluzione.componente import griglia as GR
+
 ORIZZONTI = (1, 2, 4, 8)
 FINESTRA = 12
 MAX_ORIZZ = max(ORIZZONTI)
@@ -66,7 +68,8 @@ def costruisci_corpus_iniziale(nodi_iniziali, ist_addestramento) -> dict:
 
 
 def costruisci_corpus_privilegiato(nodi_iniziali, nodi_nuovi,
-                                   ist_addestramento, t0: int) -> dict:
+                                   ist_addestramento, t0: int,
+                                   ok=None) -> dict:
     """A — il nodo era PRESENTE nell'addestramento iniziale.
 
     Riceve la storia dei nodi nuovi **anteriore a t0**: e' precisamente
@@ -75,6 +78,8 @@ def costruisci_corpus_privilegiato(nodi_iniziali, nodi_nuovi,
     nodi = np.concatenate([np.asarray(nodi_iniziali, dtype="int64"),
                            np.asarray(nodi_nuovi, dtype="int64")])
     ist = np.asarray(ist_addestramento, dtype="int64")
+    if ok is not None:              # GRIGLIA REALE: nessuna origine sui salti
+        ist = GR.filtra(ist, GR.maschera_origini(ok))
     anteriori = int((ist < t0).sum())
     if anteriori == 0:
         raise CorpusViolato(
@@ -94,7 +99,7 @@ def costruisci_corpus_privilegiato(nodi_iniziali, nodi_nuovi,
 
 def costruisci_corpus_post_installazione(nodi_iniziali, nodi_nuovi,
                                          ist_addestramento, t0: int,
-                                         t1: int) -> dict:
+                                         t1: int, ok=None) -> dict:
     """R — riaddestramento completo dopo l'installazione.
 
     Il corpus originario dei nodi iniziali **piu'** gli esempi ammissibili delle
@@ -104,13 +109,24 @@ def costruisci_corpus_post_installazione(nodi_iniziali, nodi_nuovi,
     ini = np.asarray(nodi_iniziali, dtype="int64")
     nuo = np.asarray(nodi_nuovi, dtype="int64")
     ist_ini = np.asarray(ist_addestramento, dtype="int64")
-    # le origini dei nodi NUOVI: solo dentro l'episodio, con bersagli entro t1
-    ist_nuo = np.array([t for t in range(t0 + FINESTRA - 1, t1 + 1)
-                        if t + MAX_ORIZZ <= t1], dtype="int64")
+    if ok is not None:
+        # GRIGLIA REALE e convenzione (t0, t1]: la riga t0 non si usa, e
+        # nessuna finestra attraversa un salto
+        ist_ini = GR.filtra(ist_ini, GR.maschera_origini(ok))
+        ist_nuo = np.array(GR.origini_acquisizione(ok, t0, t1), dtype="int64")
+    else:
+        # percorso storico: le origini dei nodi NUOVI dentro l'episodio
+        ist_nuo = np.array([t for t in range(t0 + FINESTRA - 1, t1 + 1)
+                            if t + MAX_ORIZZ <= t1], dtype="int64")
     if not len(ist_nuo):
         raise CorpusViolato(
             f"R senza esempi ammissibili per i nodi nuovi in [{t0}; {t1}]")
-    fuori = ist_nuo[(ist_nuo < t0) | (ist_nuo + MAX_ORIZZ > t1)]
+    if ok is not None:
+        # (t0, t1]: la PRIMA RIGA di ogni finestra deve essere almeno t0 + 1
+        fuori = ist_nuo[(ist_nuo - FINESTRA + 1 < t0 + 1)
+                        | (ist_nuo + MAX_ORIZZ > t1)]
+    else:
+        fuori = ist_nuo[(ist_nuo < t0) | (ist_nuo + MAX_ORIZZ > t1)]
     if len(fuori):
         raise CorpusViolato(
             f"R con istanti fuori dall'episodio: {fuori[:4].tolist()}")
