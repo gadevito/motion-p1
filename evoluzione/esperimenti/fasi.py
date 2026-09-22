@@ -64,10 +64,14 @@ def percorso_E(dir_E: Path, contesto, partizione, seme) -> Path:
 
 
 def verifica_E(dir_canonico: Path, dir_maschere: Path, dir_pesi: Path,
-               semi, contesti=CONTESTI) -> dict:
-    """Prerequisiti della fase E: canonico, maschere, pesi."""
+               semi, contesti=CONTESTI, campagna: str = "inserimento") -> dict:
+    """Prerequisiti della fase E: canonico, maschere, pesi.
+
+    **Il registro canonico e' uno per campagna** (`registro_canonico_<campagna>
+    .json`): quello unico veniva sovrascritto da ogni preparazione.
+    """
     guai = []
-    reg = Path(dir_canonico) / "registro_canonico.json"
+    reg = Path(dir_canonico) / f"registro_canonico_{campagna}.json"
     if not reg.exists():
         guai.append(f"registro canonico assente: {reg}. Eseguire prima "
                     f"`prepara_canonico.py`.")

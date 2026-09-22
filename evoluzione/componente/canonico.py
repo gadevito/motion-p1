@@ -162,7 +162,27 @@ def stato_iniziale_completo(modello, seme: int, cfg: dict, braccio: str,
                             dir_stati: Path, extra: dict | None = None) -> Path:
     """Lo stato iniziale COMPLETO del modello risultante, da registrare."""
     sd = {k: v.detach().clone() for k, v in modello.state_dict().items()}
-    f = Path(dir_stati) / f"iniziale_{braccio}_{chiave(seme, cfg)}.pt"
+    # IL NOME DEVE IDENTIFICARE L'ESECUZIONE, non solo seme e configurazione:
+    # per E, A, R la tabella degli embedding dipende dai nodi, quindi da citta'
+    # e partizione. Col nome di prima, nove esecuzioni con lo stesso seme
+    # scrivevano contenuti DIVERSI nello STESSO file, e il manifesto puntava a
+    # un file che non conteneva piu' cio' che registrava.
+    ex = extra or {}
+    parti = [str(ex[k]) for k in ("contesto", "partizione", "inizializzazione")
+             if k in ex]
+    suff = ("_" + "_".join(parti)) if parti else ""
+    f = Path(dir_stati) / f"iniziale_{braccio}{suff}_{chiave(seme, cfg)}.pt"
+    if f.exists():
+        # un TENTATIVO ripetuto della stessa esecuzione produce lo stesso stato:
+        # si accetta. Un contenuto DIVERSO sotto lo stesso nome e' una
+        # collisione, e si rifiuta.
+        pre = torch.load(f, map_location="cpu", weights_only=False)
+        if pre.get("impronta") != impronta(sd):
+            raise CanonicoViolato(
+                f"collisione su {f.name}: esiste con impronta "
+                f"{pre.get('impronta')}, il nuovo stato ha {impronta(sd)}. "
+                f"Sovrascriverlo renderebbe falsa l'impronta gia' registrata.")
+        return f
     f.parent.mkdir(parents=True, exist_ok=True)
     torch.save({"state_dict": sd, "braccio": braccio, "seme": int(seme),
                 "configurazione": dict(cfg),
@@ -175,7 +195,8 @@ def stato_iniziale_completo(modello, seme: int, cfg: dict, braccio: str,
     return f
 
 
-def prepara(costruttore, semi, cfg: dict, dir_can: Path) -> list:
+def prepara(costruttore, semi, cfg: dict, dir_can: Path,
+            campagna: str = "") -> list:
     """Costruisce e salva l'artefatto per ciascun seme, UNA volta.
 
     `costruttore(seme)` restituisce un modello qualunque con i moduli comuni
@@ -189,8 +210,13 @@ def prepara(costruttore, semi, cfg: dict, dir_can: Path) -> list:
         fuori.append({"seme": int(s), "chiave": d["chiave"],
                       "impronta": d["impronta"], "n_tensori": d["n_tensori"],
                       "file": f.name})
-    (Path(dir_can) / "registro_canonico.json").write_text(json.dumps(
-        {"versione_canonico": VERSIONE_CANONICO,
+    # UN REGISTRO PER CAMPAGNA: scriverne uno solo sovrascriverebbe quello
+    # precedente, e i suoi artefatti sparirebbero dalla documentazione pur
+    # restando su disco. E' gia' accaduto con gli stati iniziali.
+    nome = (f"registro_canonico_{campagna}.json" if campagna
+            else "registro_canonico.json")
+    (Path(dir_can) / nome).write_text(json.dumps(
+        {"versione_canonico": VERSIONE_CANONICO, "campagna": campagna,
          "moduli_comuni": list(MODULI_COMUNI),
          "bracci_che_caricano": list(CARICANO),
          "eccezione": ("F NON carica l'artefatto iniziale: parte dal punto di "

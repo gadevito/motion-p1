@@ -64,6 +64,45 @@ controllo è selezionato su **32 istanti su circa 1.560** disponibili, cioè il
 
 **Vale per tutte le campagne**, incluse le tre congelate del raccordo.
 
+### Da aggiungere alla descrizione delle campagne precedenti
+
+> **Oltre al limite massimo di 35 aggiornamenti, la selezione del punto di
+> controllo utilizzava soltanto i primi 32 istanti del periodo di validazione
+> dichiarato.**
+
+**I risultati non si cancellano**, ma il nuovo esperimento **non è una loro
+validazione retrospettiva completa**: sono risultati ottenuti con un **budget
+breve** e una **selezione temporalmente ristretta**.
+
+### Il rischio, e ciò che non dimostra
+
+**L'ottimizzatore non apprende dai bersagli di validazione**, che non producono
+gradiente. **È la selezione del punto di controllo** che può adattarsi alla
+finestra ristretta.
+
+| |
+|---|
+| scarsa rappresentatività temporale |
+| selezione favorevole a quella finestra |
+| confronto fra modelli condizionato a un piccolo segmento |
+
+> **Usare i primi 32 istanti è una restrizione non dichiarata del periodo**, e
+> non dimostra da sola che la misura sia sempre inadeguata o distorta in una
+> direzione specifica.
+
+**E il difetto non sarà innocuo se due curve risultassero concordi**: la
+concordanza sarebbe una verifica **circoscritta ai modelli e alle esecuzioni
+esaminate**.
+
+### La regola per la campagna principale, fissata ora
+
+> **La selezione del punto di controllo userà l'intero perimetro di validazione
+> prescritto.**
+
+**La prova comparativa serve a comprendere la conseguenza della restrizione
+precedente**, non a decidere se conservare i primi 32 istanti qualora
+risultassero convenienti.
+
 > Non era stato richiesto di verificarlo, ed emerge dall'audit del budget.
 > **Riguarda la selezione del punto di controllo**, quindi va deciso insieme al
 > budget e non dopo.

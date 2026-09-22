@@ -43,11 +43,14 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="prepara gli artefatti canonici")
     ap.add_argument("--conferma", action="store_true")
     ap.add_argument("--inserimento", action="store_true")
+    ap.add_argument("--adeguatezza", action="store_true",
+                    help="i tre semi della prova del budget: 301, 302, 303")
     ap.add_argument("--out", type=Path,
                     default=Path("results/evoluzione/canonico"))
     a = ap.parse_args()
     _, dich, semi = configurazione(conferma=a.conferma,
-                                   inserimento=a.inserimento)
+                                   inserimento=a.inserimento,
+                                   adeguatezza=a.adeguatezza)
 
     cfg = {"c_in": len(CANALI_T4C), "nascosti": NASCOSTI, "blocchi": 4,
            "d_statiche": D_STAT, "d_statiche_uscita": 8,
@@ -69,13 +72,16 @@ def main() -> int:
         torch.manual_seed(seme)
         return PredittorePerNodo(D_DESC_RIF, D_STAT, sorgente="traffic4cast")
 
-    r = prepara(costruttore, semi, cfg, a.out)
+    campagna = ("conferma" if a.conferma else
+                "inserimento" if a.inserimento else
+                "adeguatezza" if a.adeguatezza else "sviluppo")
+    r = prepara(costruttore, semi, cfg, a.out, campagna)
     print(f"\n  {'seme':>12} {'tensori':>8}  {'impronta':16s} file")
     for x in r:
         print(f"  {x['seme']:12d} {x['n_tensori']:8d}  {x['impronta']:16s} "
               f"{x['file'][:44]}")
     print(f"\n  {len(r)} artefatti in {a.out}")
-    print(f"  registro in {a.out / 'registro_canonico.json'}")
+    print(f"  registro in {a.out}/registro_canonico_{campagna}.json")
     # le impronte devono essere DISTINTE fra i semi
     imp = {x["impronta"] for x in r}
     print(f"\n  impronte distinte: {len(imp)}/{len(r)} "

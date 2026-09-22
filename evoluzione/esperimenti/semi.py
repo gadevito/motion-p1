@@ -51,16 +51,31 @@ SEME_INIZIALIZZAZIONE_INSERIMENTO = {s: 201 + s
 SEMI_DICHIARATI_INSERIMENTO = tuple(
     SEME_INIZIALIZZAZIONE_INSERIMENTO[s] for s in INIZIALIZZAZIONI_INSERIMENTO)
 
+# ------------------------------------------------- PROVA DI ADEGUATEZZA -----
+# Tre inizializzazioni per la prova del budget, su UNA partizione (seme 1000).
+# 301, 302, 303: mai usati per selezioni predittive.
+INIZIALIZZAZIONI_ADEGUATEZZA = (0, 1, 2)
+SEME_INIZIALIZZAZIONE_ADEGUATEZZA = {s: 301 + s
+                                     for s in INIZIALIZZAZIONI_ADEGUATEZZA}
+SEMI_DICHIARATI_ADEGUATEZZA = tuple(
+    SEME_INIZIALIZZAZIONE_ADEGUATEZZA[s] for s in INIZIALIZZAZIONI_ADEGUATEZZA)
+
 SEMI_TORCH = tuple(seme_torch(s) for s in SEMI_DICHIARATI)
 SEMI_TORCH_CONFERMA = tuple(seme_torch(s) for s in SEMI_DICHIARATI_CONFERMA)
 SEMI_TORCH_INSERIMENTO = tuple(seme_torch(s)
                                for s in SEMI_DICHIARATI_INSERIMENTO)
+SEMI_TORCH_ADEGUATEZZA = tuple(seme_torch(s)
+                               for s in SEMI_DICHIARATI_ADEGUATEZZA)
 
 
-def configurazione(conferma: bool = False, inserimento: bool = False):
+def configurazione(conferma: bool = False, inserimento: bool = False,
+                   adeguatezza: bool = False):
     """(inizializzazioni, semi dichiarati, semi di torch) per la campagna."""
-    if conferma and inserimento:
-        raise ValueError("conferma e inserimento si escludono")
+    if sum((conferma, inserimento, adeguatezza)) > 1:
+        raise ValueError("le campagne si escludono a vicenda")
+    if adeguatezza:
+        return (INIZIALIZZAZIONI_ADEGUATEZZA, SEMI_DICHIARATI_ADEGUATEZZA,
+                SEMI_TORCH_ADEGUATEZZA)
     if inserimento:
         return (INIZIALIZZAZIONI_INSERIMENTO, SEMI_DICHIARATI_INSERIMENTO,
                 SEMI_TORCH_INSERIMENTO)

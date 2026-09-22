@@ -235,6 +235,95 @@ def _fornitore(braccio: str, d_desc: int, nodi_addestramento):
         f"controllo E gia' addestrato, tramite `adattamento.copia_da_E`")
 
 
+PUNTI_PRINCIPALE = (35, 229, 458, 687, 916, 1145, 1374, 1603, 1832, 2061,
+                    2290)
+AGGIORNAMENTI_PRINCIPALE = 2290
+
+
+def _ciclo_principale(m, opt, g, x, D, ist, nodi, nodi_ck, ist_ck, stat, dtr,
+                      dva, wt, cfg, reg, ck, forn, braccio_, d_desc, E, seme_i):
+    """Il ciclo della campagna principale. CONGELAMENTO_BUDGET.md.
+
+        max_optimizer_updates           2.290
+        punti di controllo              35, 229, 458, ..., 2290
+        checkpoint_selection            minimo di V-FULL, a parita' il PRECEDENTE
+        arresto anticipato              NESSUNO
+        campionamento                   INVARIATO: 32 istanti distinti per
+                                        aggiornamento, nuove estrazioni ai
+                                        successivi
+
+    **Il costo riportato e' quello dell'intera procedura**, non fino al punto
+    selezionato. Le esposizioni si registrano.
+    """
+    import time as _t
+    from evoluzione.componente.valutazione import valuta
+    stat_np = stat.numpy() if hasattr(stat, "numpy") else stat
+    tetto = int(cfg.get("max_optimizer_updates", AGGIORNAMENTI_PRINCIPALE))
+    punti = tuple(cfg.get("punti", PUNTI_PRINCIPALE))
+    if punti[-1] != tetto:
+        raise ValueError(f"l'ultimo punto {punti[-1]} deve essere il tetto "
+                         f"{tetto}")
+    migliore, u_mig, curve, visti = float("inf"), -1, [], []
+    t0, t_val = _t.time(), 0.0
+    for u in range(1, tetto + 1):
+        m.train()
+        idx = g.choice(ist["addestramento"], size=min(cfg["lotto"],
+                                                      len(ist["addestramento"])),
+                       replace=False)
+        visti.append(idx)
+        X, Y, Mk = _lotto(x, D["classe"], np.sort(idx), nodi["addestramento"])
+        out = m(X, node_ids=nodi["addestramento"], descriptor=dtr,
+                static_inputs=stat[nodi["addestramento"]])
+        L, _ = _perdita(out, Y, Mk, wt)
+        if not torch.isfinite(L):
+            raise FallimentoMetodo(f"perdita non finita all'aggiornamento {u}")
+        opt.zero_grad(); L.backward(); opt.step()
+        if u in punti:
+            tv = _t.time()
+            r = valuta(m, x, D["classe"], stat_np, nodi_ck, ist_ck, wt,
+                       descrittore=dva)
+            t_val += _t.time() - tv
+            pv = r["perdita"]
+            if not np.isfinite(pv):
+                raise FallimentoMetodo(f"V-full non finita all'aggiornamento {u}")
+            curve.append({"aggiornamento": u, "training": float(L.detach()),
+                          "V-full": pv, "celle": r["celle_totali"]})
+            reg.evento(f"u{u}: training {float(L.detach()):.5f}, "
+                       f"V-full {pv:.5f}")
+            if pv < migliore:                   # a parita', il PRECEDENTE
+                migliore, u_mig = pv, u
+                torch.save({"state_dict": m.state_dict(), "epoca": u,
+                            "aggiornamento": u, "validazione": pv,
+                            "criterio": "minimum_full_validation_wCE",
+                            "training_protocol": "principale",
+                            "braccio": braccio_,
+                            "fornitore": type(forn).__name__,
+                            "nodi_iniziali": [int(z) for z in nodi["addestramento"]],
+                            "nodi_validazione": [int(z) for z in nodi["validazione"]],
+                            "nodi_prova": [int(z) for z in nodi["prova"]],
+                            "d_descrittore": d_desc,
+                            "contesto": E.contesto, "partizione": E.partizione,
+                            "seme_inizializzazione": seme_i}, ck)
+    dur = _t.time() - t0
+    tutte = np.concatenate(visti)
+    uu, cc = np.unique(tutte, return_counts=True)
+    reg.artefatto("protocollo_principale",
+                  aggiornamenti=tetto, punti=list(punti),
+                  aggiornamento_selezionato=u_mig, V_full_selezionata=migliore,
+                  curve=curve, secondi_totali=dur, secondi_valutazione=t_val,
+                  origini_distinte=int(len(uu)),
+                  origini_disponibili=int(len(ist["addestramento"])),
+                  esposizioni_per_origine={"minimo": int(cc.min()),
+                                           "mediana": float(np.median(cc)),
+                                           "massimo": int(cc.max())},
+                  finestre_per_aggiornamento=int(cfg["lotto"] *
+                                                 len(nodi["addestramento"])))
+    reg.evento(f"protocollo principale: {tetto} aggiornamenti, selezionato "
+               f"u{u_mig} (V-full {migliore:.5f}), {dur/60:.1f} min di cui "
+               f"{t_val/60:.1f} di valutazione")
+    return u_mig, migliore
+
+
 def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
     """Una esecuzione. Restituisce il percorso delle predizioni salvate."""
     dir_masc = radice / "maschere"
@@ -413,7 +502,23 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
     migliore, epoca, pazienza, ck = float("inf"), -1, 0, dir_camp / nome_ck
     ck.parent.mkdir(parents=True, exist_ok=True)
     g = np.random.default_rng(seme_i)
-    for ep in range(cfg["epoche"]):
+    # IL PROTOCOLLO DI ADDESTRAMENTO, esplicito.
+    #
+    #   storico     al massimo `epoche` AGGIORNAMENTI, validazione dopo ognuno
+    #               sui primi `lotto` istanti, pazienza su aggiornamenti.
+    #               E' il percorso delle campagne congelate, e NON si tocca:
+    #               deve poterle riprodurre.
+    #   principale  2.290 aggiornamenti, undici punti, selezione su V-FULL,
+    #               nessun arresto anticipato. CONGELAMENTO_BUDGET.md.
+    protocollo = cfg.get("training_protocol", "storico")
+    if protocollo not in ("storico", "principale"):
+        raise ValueError(f"protocollo di addestramento ignoto: {protocollo}")
+    reg.evento(f"training_protocol = {protocollo}")
+    if protocollo == "principale":
+        epoca, migliore = _ciclo_principale(
+            m, opt, g, x, D, ist, nodi, nodi_ck, ist_ck, stat, dtr, dva, wt,
+            cfg, reg, ck, forn, braccio_, d_desc, E, seme_i)
+    for ep in (range(cfg["epoche"]) if protocollo == "storico" else ()):
         m.train()
         idx = g.choice(ist["addestramento"], size=min(cfg["lotto"],
                                                       len(ist["addestramento"])),

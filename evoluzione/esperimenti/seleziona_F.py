@@ -114,11 +114,20 @@ def main() -> int:
     ap.add_argument("--contesto", nargs="*", default=list(CONTESTI))
     ap.add_argument("--piano", action="store_true")
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
+    ap.add_argument("--protocollo", default="principale",
+                    choices=("principale", "storico"),
+                    help="quali punti E usare; la selezione storica non si "
+                         "sovrascrive")
     a = ap.parse_args()
 
     _, dich, semi_torch = configurazione(inserimento=True)
-    dir_E = a.out / "E_inserimento"
-    dir_sel = a.out / "selezione_F"
+    # LE DUE SERIE IN CARTELLE DISTINTE: la selezione storica, fatta sui punti
+    # E a 35 aggiornamenti, e' un risultato della procedura precedente e non si
+    # sovrascrive. La scelta `(200, 0.01)` NON si trasferisce ai nuovi E.
+    dir_E = a.out / {"storico": "E_inserimento",
+                     "principale": "E_inserimento_principale"}[a.protocollo]
+    dir_sel = a.out / {"storico": "selezione_F",
+                       "principale": "selezione_F_principale"}[a.protocollo]
 
     print("=" * 84)
     print("FASE 2 — SELEZIONE DELLA CONFIGURAZIONE DI F")
@@ -134,6 +143,21 @@ def main() -> int:
 
     try:
         r = verifica_selezione_F(dir_E, semi_torch, a.contesto)
+        # NEL PRINCIPALE non basta che il file dei pesi esista: il ciclo salva
+        # il migliore a ogni miglioramento, e un'esecuzione interrotta ne
+        # lascia uno che SEMBRA completo. Serve il marcatore `.fatto`.
+        if a.protocollo == "principale":
+            senza = [percorso_E(dir_E, c, p, int(s)).name
+                     for c in a.contesto for p in PARTIZIONI
+                     for s in semi_torch
+                     if not percorso_E(dir_E, c, p, int(s)).with_name(
+                         percorso_E(dir_E, c, p, int(s)).name + ".fatto"
+                     ).exists()]
+            if senza:
+                raise PrerequisitoMancante(
+                    f"{len(senza)} punti E SENZA marcatore di completamento, "
+                    f"per esempio {senza[:3]}: possono essere addestramenti "
+                    f"interrotti. Completare prima la fase E.")
         print(f"\n  prerequisiti verificati: {r['punti_di_controllo']} punti di "
               f"controllo E, leggibili e con la mappa nodo-riga")
     except PrerequisitoMancante as e:
@@ -238,6 +262,9 @@ def main() -> int:
                                  "sulle partizioni; a parita': meno "
                                  "aggiornamenti, poi passo minore",
                        "versione_protocollo": "2.4",
+         "protocollo_E": a.protocollo,
+         "cartella_E": str(dir_E),
+                       "protocollo_E": a.protocollo,
                        "istante": datetime.now(timezone.utc).isoformat()}
                 f_man.write_text(json.dumps(man, indent=2, ensure_ascii=False))
                 per_gruppo[(c, p, int(s))] = man
