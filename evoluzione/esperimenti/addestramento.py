@@ -181,6 +181,41 @@ def _lotto(x, classe, istanti, nodi):
     return X, Y, M
 
 
+def _lotto_coppie(x, classe, coppie_t, coppie_n):
+    """Un lotto di COPPIE (nodo, origine), non di istanti per tutti i nodi.
+
+    Il campionamento uniforme per nodo di R estrae coppie: rappresentarle nel
+    lotto denso [istanti x nodi] richiederebbe migliaia di origini per
+    aggiornamento. **Il predittore e' per nodo e non usa il grafo**, quindi
+    ogni coppia e' indipendente e il contratto dei tensori resta lo stesso, con
+    un solo nodo per colonna.
+
+    Restituisce X [P, C, 1, FINESTRA], Y [P, 1, H], M [P, 1, H].
+    """
+    tt = np.asarray(coppie_t, dtype="int64")
+    nn = np.asarray(coppie_n, dtype="int64")
+    idx = tt[:, None] + np.arange(-FINESTRA + 1, 1)          # [P, FINESTRA]
+    # x e' [T, C, K]: la finestra di CIASCUNA coppia, in UNA SOLA
+    # indicizzazione. Indicizzare prima sul tempo e poi ridurre costruirebbe
+    # un intermedio [P, FINESTRA, C, K] — 6,7 GB per aggiornamento con 20.160
+    # coppie e 765 nodi — per poi scartarne quasi tutto.
+    X = x[idx[:, :, None],
+          np.arange(x.shape[1])[None, None, :],
+          nn[:, None, None]]                                 # [P, FINESTRA, C]
+    # **Le coppie occupano l'asse dei NODI, non quello del lotto**: il contratto
+    # dell'identita' richiede un identificativo per colonna del tensore, e ogni
+    # coppia ha il proprio nodo. Con [1, C, P, FINESTRA] i due coincidono.
+    X = torch.from_numpy(np.ascontiguousarray(
+        X.transpose(2, 0, 1)[None]))                         # [1, C, P, FIN]
+    Y = np.zeros((1, len(tt), len(ORIZZONTI)), dtype="int64")
+    M = np.zeros((1, len(tt), len(ORIZZONTI)), dtype=bool)
+    for h, o in enumerate(ORIZZONTI):
+        c = classe[tt + o, nn]
+        M[0, :, h] = c > 0
+        Y[0, :, h] = np.clip(c - 1, 0, 2)
+    return X, torch.from_numpy(Y), torch.from_numpy(M)
+
+
 def _perdita(out, Y, M, wt):
     """Perdita pesata sui SOLI bersagli assegnati, per orizzonte e poi media.
 
@@ -276,17 +311,46 @@ def _ciclo_principale(m, opt, g, x, D, ist, nodi, nodi_ck, ist_ck, stat, dtr,
     if punti[-1] != tetto:
         raise ValueError(f"l'ultimo punto {punti[-1]} deve essere il tetto "
                          f"{tetto}")
+    # IL CAMPIONAMENTO, dichiarato.
+    #   uniforme_istanti  32 istanti distinti per aggiornamento, tutti i nodi
+    #   uniforme_nodo     il contratto di R: si estrae uniformemente un NODO
+    #                     della rete ampliata, poi un'origine ammissibile per
+    #                     quel nodo. **Budget invariato**: 32 x K_iniziali
+    #                     finestre nodo-origine per aggiornamento.
+    camp = cfg.get("campionamento", "uniforme_istanti")
+    if camp not in ("uniforme_istanti", "uniforme_nodo"):
+        raise ValueError(f"campionamento ignoto: {camp}")
+    pop = n_estrazioni = None
+    if camp == "uniforme_nodo":
+        from evoluzione.componente.campionamento import (
+            campiona, esposizione_attesa, esposizione_realizzata, prepara)
+        pop = prepara(D["classe"], cfg["nodi_iniziali_R"], ist["addestramento"],
+                      cfg["nodi_nuovi"], cfg["origini_nuovi"])
+        n_estrazioni = int(cfg["lotto"]) * len(cfg["nodi_iniziali_R"])
+        reg.evento(f"campionamento uniforme per nodo: {n_estrazioni} finestre "
+                   f"per aggiornamento, {len(pop['ammessi'])} nodi ammessi, "
+                   f"{len(pop['esclusi'])} esclusi")
     migliore, u_mig, curve, visti = float("inf"), -1, [], []
+    estratti_n, estratti_o = [], []
     t0, t_val = _t.time(), 0.0
     for u in range(1, tetto + 1):
         m.train()
-        idx = g.choice(ist["addestramento"], size=min(cfg["lotto"],
-                                                      len(ist["addestramento"])),
-                       replace=False)
-        visti.append(idx)
-        X, Y, Mk = _lotto(x, D["classe"], np.sort(idx), nodi["addestramento"])
-        out = m(X, node_ids=nodi["addestramento"], descriptor=dtr,
-                static_inputs=stat[nodi["addestramento"]])
+        if camp == "uniforme_nodo":
+            nn_, oo_ = campiona(pop, n_estrazioni, g)
+            estratti_n.append(nn_); estratti_o.append(oo_)
+            visti.append(np.unique(oo_))
+            X, Y, Mk = _lotto_coppie(x, D["classe"], oo_, nn_)
+            out = m(X, node_ids=[int(z) for z in nn_], descriptor=dtr,
+                    static_inputs=stat[nn_])
+        else:
+            idx = g.choice(ist["addestramento"],
+                           size=min(cfg["lotto"], len(ist["addestramento"])),
+                           replace=False)
+            visti.append(idx)
+            X, Y, Mk = _lotto(x, D["classe"], np.sort(idx),
+                              nodi["addestramento"])
+            out = m(X, node_ids=nodi["addestramento"], descriptor=dtr,
+                    static_inputs=stat[nodi["addestramento"]])
         L, _ = _perdita(out, Y, Mk, wt)
         if not torch.isfinite(L):
             raise FallimentoMetodo(f"perdita non finita all'aggiornamento {u}")
@@ -320,6 +384,11 @@ def _ciclo_principale(m, opt, g, x, D, ist, nodi, nodi_ck, ist_ck, stat, dtr,
     dur = _t.time() - t0
     tutte = np.concatenate(visti)
     uu, cc = np.unique(tutte, return_counts=True)
+    if camp == "uniforme_nodo":
+        att = esposizione_attesa(pop, n_estrazioni * tetto)
+        rea = esposizione_realizzata(pop, np.concatenate(estratti_n),
+                                     np.concatenate(estratti_o))
+        reg.artefatto("campionamento_uniforme_nodo", attesa=att, realizzata=rea)
     reg.artefatto("protocollo_principale",
                   aggiornamenti=tetto, punti=list(punti),
                   aggiornamento_selezionato=u_mig, V_full_selezionata=migliore,
@@ -441,7 +510,24 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
     # sovrascritto: cosi' il generatore avanza esattamente come nella campagna
     # precedente, e l'ordine dei campionamenti successivi non cambia. Caricare
     # uno `state_dict` non ripristinerebbe il generatore.
-    forn, usa_desc = _fornitore(braccio_, d_desc, nodi["addestramento"])
+    # LA POPOLAZIONE DI ADDESTRAMENTO, dichiarata.
+    #   iniziale  i soli nodi iniziali: C, P, E
+    #   ampliata  nodi iniziali PIU' i nodi nuovi: A e R, che li hanno in rete
+    # La RETE INIZIALE, su cui si seleziona il punto di controllo, resta quella
+    # di prima in entrambi i casi.
+    popolazione = cfg.get("popolazione", "iniziale")
+    if popolazione not in ("iniziale", "ampliata"):
+        raise ValueError(f"popolazione ignota: {popolazione}")
+    nodi_nuovi = np.asarray(cfg.get("nodi_nuovi", []), dtype="int64")
+    if popolazione == "ampliata":
+        if not len(nodi_nuovi):
+            raise ValueError("popolazione ampliata senza nodi nuovi")
+        nodi_add = np.concatenate([nodi["addestramento"], nodi_nuovi])
+    else:
+        nodi_add = np.asarray(nodi["addestramento"], dtype="int64")
+    reg.evento(f"popolazione {popolazione}: {len(nodi_add)} nodi "
+               f"({len(nodi_nuovi)} nuovi)")
+    forn, usa_desc = _fornitore(braccio_, d_desc, nodi_add)
     m = PredittorePerNodo(d_desc, 5, sorgente="traffic4cast", identita=forn)
     reg.evento(f"braccio {braccio_}: fornitore {type(forn).__name__}, "
                f"descrittori {'usati' if usa_desc else 'NON usati'}")
@@ -520,8 +606,7 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
 
     dtr = dva = None
     if usa_desc:
-        dtr = _descrittori(D, nodi["addestramento"], t_desc_tr, E.variante,
-                           NORM)
+        dtr = _descrittori(D, nodi_add, t_desc_tr, E.variante, NORM)
         dva = _descrittori(D, nodi_ck, t_desc_va, E.variante, NORM)
     reg.modello(m, n_nodi=K, **{k: cfg[k] for k in
                                 ("epoche", "lotto", "passo", "pazienza")})
@@ -535,10 +620,14 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
     # sovrascriverebbe la campagna congelata
     dir_camp = radice / cfg.get("etichetta", "raccordo")
     # il NOME segue la convenzione della fase: per E, `ck_E_<citta>_p<n>_s<seme>`
-    nome_ck = (f"ck_E_{E.contesto}_p{E.partizione}_s{seme_i}.pt"
-               if braccio_ == "E" else
-               f"ck_{E.contesto}_p{E.partizione}_s{E.inizializzazione}_"
-               f"{E.variante}.pt")
+    # Il nome puo' essere DICHIARATO dalla fase: nella campagna di inserimento
+    # `inizializzazione` e `variante` sono costanti, e il nome storico farebbe
+    # scrivere tutte le esecuzioni di uno stesso braccio sullo STESSO file.
+    nome_ck = cfg.get("nome_ck") or (
+        f"ck_E_{E.contesto}_p{E.partizione}_s{seme_i}.pt"
+        if braccio_ == "E" else
+        f"ck_{E.contesto}_p{E.partizione}_s{E.inizializzazione}_"
+        f"{E.variante}.pt")
     migliore, epoca, pazienza, ck = float("inf"), -1, 0, dir_camp / nome_ck
     ck.parent.mkdir(parents=True, exist_ok=True)
     g = np.random.default_rng(seme_i)
@@ -556,16 +645,17 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
     reg.evento(f"training_protocol = {protocollo}")
     if protocollo == "principale":
         epoca, migliore = _ciclo_principale(
-            m, opt, g, x, D, orig, nodi, nodi_ck, ist_ck, stat, dtr, dva, wt,
+            m, opt, g, x, D, orig, {**nodi, "addestramento": nodi_add},
+            nodi_ck, ist_ck, stat, dtr, dva, wt,
             cfg, reg, ck, forn, braccio_, d_desc, E, seme_i)
     for ep in (range(cfg["epoche"]) if protocollo == "storico" else ()):
         m.train()
         idx = g.choice(orig["addestramento"],
                        size=min(cfg["lotto"], len(orig["addestramento"])),
                        replace=False)
-        X, Y, Mk = _lotto(x, D["classe"], np.sort(idx), nodi["addestramento"])
-        out = m(X, node_ids=nodi["addestramento"], descriptor=dtr,
-                static_inputs=stat[nodi["addestramento"]])
+        X, Y, Mk = _lotto(x, D["classe"], np.sort(idx), nodi_add)
+        out = m(X, node_ids=nodi_add, descriptor=dtr,
+                static_inputs=stat[nodi_add])
         # PESATA e sui SOLI bersagli assegnati
         L, _ = _perdita(out, Y, Mk, wt)
         if not torch.isfinite(L):
@@ -587,7 +677,7 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
             torch.save({"state_dict": m.state_dict(), "epoca": ep,
                         "validazione": pv, "braccio": braccio_,
                         "fornitore": type(forn).__name__,
-                        "nodi_iniziali": [int(x) for x in nodi["addestramento"]],
+                        "nodi_iniziali": [int(x) for x in nodi_add],
                         "nodi_validazione": [int(x) for x in nodi["validazione"]],
                         "nodi_prova": [int(x) for x in nodi["prova"]],
                         "d_descrittore": d_desc,
@@ -603,7 +693,7 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
         raise FallimentoMetodo("nessuna epoca ha migliorato la validazione")
 
     # -- valutazione del punto SELEZIONATO, in modalita' congelata ----------
-    forn2, _ = _fornitore(braccio_, d_desc, nodi["addestramento"])
+    forn2, _ = _fornitore(braccio_, d_desc, nodi_add)
     m2 = PredittorePerNodo(d_desc, 5, sorgente="traffic4cast", identita=forn2)
     m2.load_state_dict(torch.load(ck, weights_only=False)["state_dict"])
     m2.eval()
