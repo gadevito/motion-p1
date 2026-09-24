@@ -710,6 +710,15 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
         reg.uscita(ck)
         return ck
 
+    # LA VALUTAZIONE INTERNA e' quella del RACCORDO: valuta sul periodo di
+    # prova con il descrittore riferito all'INIZIO del periodo. La fase di
+    # inserimento ha la propria valutazione, con il descrittore a t1, e non la
+    # usa: richiederla costringerebbe a un riferimento che non e' quello
+    # dell'episodio.
+    if not cfg.get("valutazione_interna", True):
+        reg.evento("valutazione interna del raccordo NON eseguita: la fase la "
+                   "sostituisce con la propria")
+        return ck
     if ok_griglia is not None and usa_desc:
         _verifica_finestra(ok_griglia, int(ist["prova"][0]))
     dpr = (_descrittori(D, nodi["prova"], int(ist["prova"][0]), E.variante,

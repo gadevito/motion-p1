@@ -55,6 +55,8 @@ def cfg_braccio(b: str, c: str, p: int, s: int, out: Path, nodi,
            "dir_stati_completi": str(out / f"stati_completi_{ETICHETTA}"),
            "nodi_rete_iniziale": [int(z) for z in nodi["addestramento"]],
            "nodi_nuovi": [int(z) for z in nodi["prova"]],
+           # la valutazione della fase e' `valuta_prova`, col descrittore a t1
+           "valutazione_interna": False,
            "popolazione": "iniziale", "campionamento": "uniforme_istanti",
            # UN FILE PER ESECUZIONE: il nome storico userebbe `variante` e
            # `inizializzazione`, costanti qui, e tutte le esecuzioni di uno
@@ -147,12 +149,19 @@ def valuta_prova(b, c, p, s, out: Path, D, nodi, ist, t1, ok, reg, ck, mod,
     per = GR.origini_dopo(ok, t1, fine)
     if not per:
         raise RuntimeError("perimetro di valutazione vuoto")
+    t_desc = 0.0
     if mod is None:
         m, d = _modello_da_ck(ck, D, nodi, None)
-        desc = (_descrittori(D, nodi["prova"], int(t1), "BASE-CORRECTED", NORM)
-                if d["d_descrittore"] else None)
+        desc = None
         if d["d_descrittore"]:
+            # IL DESCRITTORE DI P SI COSTRUISCE ALL'INSERIMENTO, dalle 24 ore
+            # di acquisizione: il suo costo appartiene all'inserimento, non
+            # all'addestramento iniziale
             GR.verifica_finestra_descrittore(ok, int(t1))
+            t_ = time.time()
+            desc = _descrittori(D, nodi["prova"], int(t1), "BASE-CORRECTED",
+                                NORM)
+            t_desc = time.time() - t_
     else:
         m, desc = mod, None
     t_inf = time.time()
@@ -171,4 +180,5 @@ def valuta_prova(b, c, p, s, out: Path, D, nodi, ist, t1, ok, reg, ck, mod,
     fuori["impronta_chiavi"] = impronta_nodi(nodi["prova"])
     return {"metriche": fuori,
             "costo": {"inferenza_s": time.time() - t_inf,
+                      "costruzione_descrittore_s": t_desc,
                       "origini_valutate": len(per)}}

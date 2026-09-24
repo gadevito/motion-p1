@@ -89,6 +89,37 @@ def piano(contesti, dich, torchsemi, partizioni):
     return fuori
 
 
+# LE VENTIQUATTRO ORE DI ACQUISIZIONE, in secondi: sono attesa di DATI, non
+# calcolo, e vanno nel tempo di disponibilita' di chi le richiede.
+ACQUISIZIONE_S = 24 * 3600
+
+
+def costo_addestramento(b: str, dt: float) -> dict:
+    """Dove va il tempo di addestramento, secondo QUANDO avviene.
+
+        C, P  il modello si addestra PRIMA dell'installazione: costo iniziale
+        A     idem, ma con informazione non disponibile in esercizio
+        R     **riaddestra DOPO l'installazione**: e' costo di INSERIMENTO
+
+    Attribuire a R un inserimento a costo zero rovescerebbe il confronto.
+    """
+    if b == "R":
+        return {"addestramento_s": 0.0, "inserimento_s": dt}
+    return {"addestramento_s": dt, "inserimento_s": 0.0}
+
+
+def tempo_disponibilita(b: str, costo: dict) -> dict:
+    """Quando la configurazione e' pronta, dall'installazione: **attesa dei
+    dati** e **calcolo**, distinti."""
+    attesa = ACQUISIZIONE_S if b in ("P", "F", "R") else 0.0
+    calcolo = costo.get("inserimento_s", 0.0)
+    return {"attesa_dati_s": attesa, "calcolo_inserimento_s": calcolo,
+            "disponibilita_s": attesa + calcolo,
+            "nota": ("A non e' disponibile in esercizio: e' il livello "
+                     "raggiungibile avendo il nodo fin dall'inizio"
+                     if b == "A" else "")}
+
+
 def nel_campione_isolato(x) -> bool:
     return (x["partizione"] == ISOLATO["partizione"]
             and x["seme"] in ISOLATO["semi"])
@@ -153,8 +184,7 @@ def _lavora(args):
             # e' il file delle predizioni interne all'esecutore
             ck = out / cfg["etichetta"] / cfg["nome_ck"]
             reg.evento(f"predizioni interne in {Path(pred).name}")
-            costo = {"addestramento_s": time.time() - t_tr,
-                     "inserimento_s": 0.0}
+            costo = costo_addestramento(b, time.time() - t_tr)
             mod = None
         else:
             mod, costo = adatta_F(c, p, x["seme_torch"], out, D, nodi, ist,
@@ -162,8 +192,14 @@ def _lavora(args):
             ck = None
         r = valuta_prova(b, c, p, s, out, D, nodi, ist, t1, ok, reg, ck, mod,
                          FASCE)
+        costo_tot = {**costo, **r["costo"]}
+        # il descrittore di P si costruisce all'inserimento
+        costo_tot["inserimento_s"] = (costo_tot.get("inserimento_s", 0.0)
+                                      + costo_tot.get(
+                                          "costruzione_descrittore_s", 0.0))
         man = {**x, "modalita_misura": modalita, "fili_torch": fili,
-               "costo": {**costo, **r["costo"]}, "valutazione": r["metriche"],
+               "costo": costo_tot,
+               "tempo_disponibilita": tempo_disponibilita(b, costo_tot), "valutazione": r["metriche"],
                "corpus": (corp["manifesto"] if corp is not None else None),
                "origini_acquisizione": len(o_acq),
                "istante": datetime.now(timezone.utc).isoformat()}
