@@ -44,7 +44,10 @@ SCHEMA_VERSIONE = "1.2"
 #        due varianti non condividevano davvero le informazioni di
 #        disponibilita'. Aggiunte due verifiche: che sia calcolata, e che tutte
 #        e quattordici le componenti coincidano fra le due varianti.
-VERSIONE_IMPLEMENTAZIONE = "1.3"
+#   1.4  sorgente `pems04`, con identificazione propria: stessa struttura di
+#        GO-MO — velocita' relativa, conteggio CONTINUO, occupazione — ma
+#        distinta nello schema versionato.
+VERSIONE_IMPLEMENTAZIONE = "1.4"
 
 # I CANALI DIPENDONO DALLA SORGENTE, non dai dati. Lo schema e' DICHIARATO: il
 # componente non deve decidere quali caratteristiche rimuovere osservando se un
@@ -60,9 +63,16 @@ VERSIONE_IMPLEMENTAZIONE = "1.3"
 # `volume_class` e conteggio veicolare non condividono il nome, perche' non sono
 # la stessa grandezza fisica: media e deviazione della prima sono sommari della
 # CODIFICA discretizzata, e la loro interpretazione dipende dai livelli 1/3/5.
+#   pems04         flusso veicolare CONTINUO e occupazione: la stessa struttura
+#                  di GO-MO, ma con **identificazione propria**, perche' la
+#                  provenienza, la risoluzione e il riferimento di velocita'
+#                  sono diversi e lo schema versionato deve poterlo distinguere.
+#                  Il flusso NON si discretizza: i terzili sono una proposta
+#                  scartata prima del test.
 SORGENTI = {
     "traffic4cast": ("r", "volume_class"),
     "gomo": ("r", "conteggio", "occupazione"),
+    "pems04": ("r", "conteggio", "occupazione"),
 }
 # mappa nome di canale -> attributo di `Osservazioni`
 ATTRIBUTO = {"r": "r", "volume_class": "f", "conteggio": "f", "occupazione": "o"}
@@ -122,6 +132,8 @@ SCHEMI = {s: schema_di(s, "gomo")
           for s in ("LEGACY", "BASE-CORRECTED", "EXTENDED")}
 SCHEMI_T4C = {s: schema_di(s, "traffic4cast")
               for s in ("LEGACY", "BASE-CORRECTED", "EXTENDED")}
+SCHEMI_PEMS04 = {s: schema_di(s, "pems04")
+                 for s in ("LEGACY", "BASE-CORRECTED", "EXTENDED")}
 
 
 # ---------------------------------------------------------- osservazioni ----

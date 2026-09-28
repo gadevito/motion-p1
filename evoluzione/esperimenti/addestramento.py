@@ -37,7 +37,7 @@ import torch.nn.functional as F
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from evoluzione.componente.estrattore import (  # noqa: E402
-    SCHEMI_T4C, Osservazioni, estrai_diretto)
+    SCHEMI_PEMS04, SCHEMI_T4C, Osservazioni, estrai_diretto)
 from evoluzione.componente.normalizzazione import verifica_contratto  # noqa: E402
 from evoluzione.componente.predittore import (  # noqa: E402
     CANALI_T4C, FINESTRA, ORIZZONTI, PredittorePerNodo)
@@ -58,6 +58,49 @@ CTX = {"Madrid": (f"{T4}/MADRID_2022/gomo_fmt/targets_t4cmad_d8.npz", "Madrid"),
        "Londra": (f"{T4}/LONDON_2022/gomo_fmt/targets_t4cmad_d8.npz", "Londra"),
        "Melbourne": (f"{T4}/MELBOURNE_2022/gomo_fmt/targets_t4cmel_d8.npz",
                      "Melbourne")}
+
+# VERIFICA ESTERNA SU PEMS04. **Ogni contesto e' UNA partizione**: il
+# riferimento empirico di rete e' stimato sui soli nodi iniziali di quella
+# partizione ed e' congelato dentro l'artefatto, sicche' contesto e partizione
+# non sono piu' indipendenti. `_coerenza_pems04` lo impone.
+PEMS = "data_collection/pems04"
+CTX.update({f"PEMS04_p{k}": (f"{PEMS}/bersagli_PEMS04_p{k}.npz",
+                             f"PEMS04_p{k}") for k in (0, 1, 2)})
+
+
+def sorgente_di(contesto) -> str:
+    """La SORGENTE del contesto: decide canali, schema e dimensioni.
+
+    PEMS04 ha tre grandezze dinamiche e tre maschere — undici ingressi col
+    calendario — contro le due e due di Traffic4cast. **Punti di controllo e
+    artefatti canonici non sono confrontabili fra le due sorgenti.**
+    """
+    return "pems04" if str(contesto).startswith("PEMS04_p") else "traffic4cast"
+
+
+def canali_di(sorgente: str) -> tuple:
+    return (("r", "conteggio", "occupazione", "m_r", "m_conteggio",
+             "m_occupazione") if sorgente == "pems04"
+            else tuple(CANALI_T4C[:4])) + ("sin_ora", "cos_ora", "sin_dow",
+                                           "cos_dow", "fine_settimana")
+
+
+def _coerenza_pems04(contesto, partizione: int) -> None:
+    """Su PEMS04 il contesto DICHIARA la propria partizione.
+
+    Eseguire `PEMS04_p0` con `partizione=1` darebbe nodi iniziali diversi da
+    quelli su cui il riferimento e' stato stimato, **senza alcun errore**: il
+    riferimento e le classi resterebbero quelli del file, e il confronto
+    sarebbe silenziosamente sbagliato.
+    """
+    if not str(contesto).startswith("PEMS04_p"):
+        return
+    atteso = int(str(contesto).rsplit("_p", 1)[1])
+    if int(partizione) != atteso:
+        raise ValueError(
+            f"{contesto} richiede partizione {atteso}, ricevuta {partizione}: "
+            f"il riferimento empirico di rete e' stimato sui nodi iniziali di "
+            f"quella partizione e congelato nell'artefatto")
 
 
 class FallimentoMetodo(RuntimeError):
@@ -85,6 +128,17 @@ def _carica(contesto, dir_masc: Path):
         raise ValueError(f"{contesto}: maschere e bersagli disallineati")
     ts = pd.to_datetime(M["timestamps"])
     rif = np.asarray(M["riferimento_risolto"], "float64")
+    if sorgente_di(contesto) == "pems04":
+        # tre grandezze e tre maschere: il conteggio e' CONTINUO, non una classe
+        return {"sid": M["sensor_ids"].astype(str), "ts": ts,
+                "ore": ts.hour.to_numpy(), "dow": ts.dayofweek.to_numpy(),
+                "r": np.asarray(M["speed_grezza"], "float64") / rif[None, :],
+                "vol": np.asarray(M["conteggio_grezzo"], "float64"),
+                "occ": np.asarray(M["occupazione_grezza"], "float64"),
+                "m_r": M["maschera_r"], "m_v": M["maschera_conteggio"],
+                "m_o": M["maschera_occupazione"],
+                "classe": np.asarray(B["congestion_emp"], "int64"),
+                "rif": rif, "sorgente": "pems04"}
     return {"sid": M["sensor_ids"].astype(str), "ts": ts,
             "ore": ts.hour.to_numpy(), "dow": ts.dayofweek.to_numpy(),
             "r": np.asarray(M["speed_grezza"], "float64") / rif[None, :],
@@ -117,28 +171,51 @@ def _normalizzazione(D, nodi, ist):
                                "addestramento")
     nr = (float(rv.mean()), float(rv.std()) + 1e-6)
     nv = (float(vv.mean()), float(vv.std()) + 1e-6)
+    if D.get("sorgente") == "pems04":
+        ov = D["occ"][reg][D["m_o"][reg]]
+        if not len(ov):
+            raise FallimentoMetodo("nessuna occupazione valida nel perimetro")
+        no = (float(ov.mean()), float(ov.std()) + 1e-6)
+        # la si ripone in D: i chiamanti di `_canali` passano tre argomenti, e
+        # cambiarne la firma ovunque moltiplicherebbe i punti di rottura
+        D["norm_occ"] = no
+        return {"media_r": nr, "media_conteggio": nv,
+                "media_occupazione": no}, nr, nv
     return {"media_r": nr, "media_volume_class": nv,
             "media_conteggio": nv, "media_occupazione": (0.0, 1e-6)}, nr, nv
 
 
-def _canali(D, nr, nv):
+def _canali(D, nr, nv, no=None):
     T, K = D["r"].shape
-    x = np.zeros((T, len(CANALI_T4C), K), dtype="float32")
+    pems = D.get("sorgente") == "pems04"
+    n_din = 6 if pems else 4
+    x = np.zeros((T, n_din + 5, K), dtype="float32")
     x[:, 0] = (np.where(D["m_r"], D["r"], 0.0) - nr[0]) / nr[1]
     x[:, 1] = (np.where(D["m_v"], D["vol"], 0.0) - nv[0]) / nv[1]
-    x[:, 2] = D["m_r"]; x[:, 3] = D["m_v"]
+    if pems:
+        # **l'occupazione e' la terza grandezza**, e la sua maschera la terza
+        no = no or D.get("norm_occ")
+        if no is None:
+            raise FallimentoMetodo(
+                "statistica dell'occupazione assente: `_normalizzazione` va "
+                "eseguita prima di `_canali` su PEMS04")
+        x[:, 2] = (np.where(D["m_o"], D["occ"], 0.0) - no[0]) / no[1]
+        x[:, 3] = D["m_r"]; x[:, 4] = D["m_v"]; x[:, 5] = D["m_o"]
+    else:
+        x[:, 2] = D["m_r"]; x[:, 3] = D["m_v"]
     o, w = D["ore"], D["dow"]
     for i, c in enumerate([np.sin(2 * np.pi * o / 24), np.cos(2 * np.pi * o / 24),
                            np.sin(2 * np.pi * w / 7), np.cos(2 * np.pi * w / 7),
                            (w >= 5).astype("float64")]):
-        x[:, 4 + i] = c[:, None]
+        x[:, n_din + i] = c[:, None]
     if not np.isfinite(x).all():
         raise FallimentoMetodo("ingressi non finiti dopo la preparazione")
     return x
 
 
 def _descrittori(D, nodi, t_rif, variante, norm):
-    S = SCHEMI_T4C[variante]
+    S = (SCHEMI_PEMS04 if D.get("sorgente") == "pems04"
+         else SCHEMI_T4C)[variante]
     d = len(S["statistiche"]) + len(S["disponibilita"])
     T = D["r"].shape[0]
     Z = np.zeros((len(nodi), d), dtype="float32")
@@ -409,6 +486,7 @@ def _ciclo_principale(m, opt, g, x, D, ist, nodi, nodi_ck, ist_ck, stat, dtr,
 def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
     """Una esecuzione. Restituisce il percorso delle predizioni salvate."""
     dir_masc = radice / "maschere"
+    _coerenza_pems04(E.contesto, E.partizione)
     D = _carica(E.contesto, dir_masc)
     nodi, ist = _partizioni(D, gen)
     NORM, nr, nv = _normalizzazione(D, nodi, ist)
@@ -528,7 +606,7 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
     reg.evento(f"popolazione {popolazione}: {len(nodi_add)} nodi "
                f"({len(nodi_nuovi)} nuovi)")
     forn, usa_desc = _fornitore(braccio_, d_desc, nodi_add)
-    m = PredittorePerNodo(d_desc, 5, sorgente="traffic4cast", identita=forn)
+    m = PredittorePerNodo(d_desc, 5, sorgente=sorgente_di(E.contesto), identita=forn)
     reg.evento(f"braccio {braccio_}: fornitore {type(forn).__name__}, "
                f"descrittori {'usati' if usa_desc else 'NON usati'}")
     reg.evento(f"checkpoint_selection_population = {politica_ck}")
@@ -694,7 +772,7 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
 
     # -- valutazione del punto SELEZIONATO, in modalita' congelata ----------
     forn2, _ = _fornitore(braccio_, d_desc, nodi_add)
-    m2 = PredittorePerNodo(d_desc, 5, sorgente="traffic4cast", identita=forn2)
+    m2 = PredittorePerNodo(d_desc, 5, sorgente=sorgente_di(E.contesto), identita=forn2)
     m2.load_state_dict(torch.load(ck, weights_only=False)["state_dict"])
     m2.eval()
     reg.artefatto("punto_di_controllo", percorso=ck, epoca=epoca,
