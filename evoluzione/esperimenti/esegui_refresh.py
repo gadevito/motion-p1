@@ -46,10 +46,20 @@ from evoluzione.esperimenti.semi import SEME_PARTIZIONE, configurazione  # noqa
 
 DIR_C = Path("results/evoluzione/inserimento_griglia")
 L = GR.L_DESCRITTORE
+# LA VERIFICA ESTERNA: tre contesti, una partizione ciascuno, punti di
+# controllo in cartella propria. Il calendario del test non richiede la ricerca
+# del primo t0 ammissibile: **la griglia di PEMS04 e' regolare**, quindi il
+# primo istante utile del periodo di prova soddisfa gia' la regola. Lo si
+# verifica comunque, invece di assumerlo.
+PEMS = {"contesti": ("PEMS04_p0", "PEMS04_p1", "PEMS04_p2"),
+        "dir_ck": Path("results/evoluzione/pems04"),
+        "dir_pesi": "pesi_pems04"}
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
+    ap.add_argument("--pems04", action="store_true",
+                    help="la verifica esterna: tre contesti, punti in pems04")
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
     ap.add_argument("--dir-pred", type=Path,
                     default=Path("results/evoluzione/predizioni_refresh"))
@@ -61,10 +71,24 @@ def main() -> int:
     print("P-REFRESH — stessi pesi, descrittore aggiornato a ogni origine")
     print("=" * 84)
     righe, guai = [], []
-    for c in ("Madrid", "Londra", "Melbourne"):
+    contesti = PEMS["contesti"] if a.pems04 else ("Madrid", "Londra",
+                                                  "Melbourne")
+    for i_c, c in enumerate(contesti):
         D = _carica(c, a.out / "maschere")
         ok = GR.passi_regolari(D["ts"])
-        t0, t1 = CALENDARIO[c]
+        if a.pems04:
+            # il periodo di prova comincia al 85% delle origini: il primo t0
+            # con ventiquattro ore complete e' il primo istante utile, e la
+            # regola approvata deve confermarlo
+            e_ = D["r"].shape[0] - GR.MAX_ORIZZ
+            t0 = GR.primo_t0(D["ts"], ok, int(e_ * .85), e_,
+                             giornata_dopo=False)
+            if t0 is None:
+                raise RuntimeError(f"{c}: nessun t0 ammissibile nella prova")
+            t1 = t0 + L
+            print(f"\n{c}: t0 = {t0} ({D['ts'][t0]}), t1 = {t1}")
+        else:
+            t0, t1 = CALENDARIO[c]
         fine = D["r"].shape[0] - max(ORIZZONTI)
         per = GR.origini_dopo(ok, t1, fine)
         # LA COPERTURA, decisa dalla griglia e non dai risultati
@@ -73,13 +97,15 @@ def main() -> int:
         assert min(t - L + 1 for t in per) > t0
         print(f"\n{c}: {len(per)} origini, finestra completa in "
               f"{int(completa.sum())} ({completa.mean():.1%})")
-        for p in (0, 1, 2):
+        for p in ([i_c] if a.pems04 else (0, 1, 2)):
             nodi, ist = _partizioni(D, {"partizione": np.random.default_rng(
                 SEME_PARTIZIONE[p])})
             NORM, nr, nv = _normalizzazione(D, nodi, ist)
             x = _canali(D, nr, nv)
             stat = statiche(D)
-            pesi = np.asarray(carica_pesi(a.out / "pesi_griglia", c, p)
+            pesi = np.asarray(carica_pesi(
+                a.out / (PEMS["dir_pesi"] if a.pems04 else "pesi_griglia"),
+                c, p)
                               .vettore(), dtype="float64")
             S = torch.as_tensor(stat[nodi["prova"]])
             # i descrittori, UNO PER ORIGINE, calcolati una volta per partizione
@@ -93,7 +119,8 @@ def main() -> int:
                            if completa[i] else desc_frozen)
             costo_desc = time.time() - t_d
             for s in dich:
-                ck = DIR_C / f"ck_P_{c}_p{p}_s{int(s)}.pt"
+                ck = (PEMS["dir_ck"] / f"ck_P_{c}_s{int(s)}.pt" if a.pems04
+                      else DIR_C / f"ck_P_{c}_p{p}_s{int(s)}.pt")
                 if not ck.exists():
                     guai.append(f"{ck.name}: assente"); continue
                 m, dck = _modello_da_ck(ck, D, nodi, None)

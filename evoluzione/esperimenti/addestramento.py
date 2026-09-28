@@ -631,7 +631,11 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
     # controllo E gia' addestrato, di cui mantiene backbone, statiche e teste,
     # sicche' caricarvi lo stato iniziale cancellerebbe l'addestramento.
     braccio = cfg.get("braccio", "P")
-    cfg_comuni = {"c_in": 9, "nascosti": 32, "blocchi": 4, "d_statiche": 5,
+    # **`c_in` DIPENDE DALLA SORGENTE**: undici su PEMS04, nove su
+    # Traffic4cast. Entra nella CHIAVE dell'artefatto canonico, sicche' un
+    # valore fisso caricherebbe l'artefatto sbagliato — ed e' quanto accadeva.
+    cfg_comuni = {"c_in": len(canali_di(sorgente_di(E.contesto))),
+                  "nascosti": 32, "blocchi": 4, "d_statiche": 5,
                   "d_statiche_uscita": 8, "n_orizzonti": len(ORIZZONTI),
                   "n_classi": 3}
     if braccio in CARICANO and cfg.get("canonico", True):
