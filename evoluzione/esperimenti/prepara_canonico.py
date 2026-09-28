@@ -43,6 +43,8 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="prepara gli artefatti canonici")
     ap.add_argument("--conferma", action="store_true")
     ap.add_argument("--inserimento", action="store_true")
+    ap.add_argument("--pems04", action="store_true",
+                    help="la verifica esterna: undici canali, sorgente pems04")
     ap.add_argument("--adeguatezza", action="store_true",
                     help="i tre semi della prova del budget: 301, 302, 303")
     ap.add_argument("--out", type=Path,
@@ -52,7 +54,13 @@ def main() -> int:
                                    inserimento=a.inserimento,
                                    adeguatezza=a.adeguatezza)
 
-    cfg = {"c_in": len(CANALI_T4C), "nascosti": NASCOSTI, "blocchi": 4,
+    # LA SORGENTE decide i canali, e con essi la CHIAVE dell'artefatto: quelli
+    # di PEMS04, con undici ingressi, sono percio' distinti da quelli di
+    # Traffic4cast senza bisogno di altro.
+    from evoluzione.componente.predittore import CANALI_PEMS04
+    srg = "pems04" if a.pems04 else "traffic4cast"
+    canali = CANALI_PEMS04 if a.pems04 else CANALI_T4C
+    cfg = {"c_in": len(canali), "nascosti": NASCOSTI, "blocchi": 4,
            "d_statiche": D_STAT, "d_statiche_uscita": 8,
            "n_orizzonti": len(ORIZZONTI), "n_classi": N_CLASSI}
 
@@ -62,6 +70,7 @@ def main() -> int:
     print(f"  moduli comuni: {', '.join(MODULI_COMUNI)}")
     print(f"  li caricano: {', '.join(CARICANO)}  |  **F NO**: parte da E "
           f"gia' addestrato")
+    print(f"  sorgente: {srg} | canali: {len(canali)}")
     print(f"  configurazione: {cfg}")
     print(f"  semi dichiarati {list(dich)}")
     print(f"\n  ordine di costruzione STORICO: start, blocchi, identita', "
@@ -70,9 +79,10 @@ def main() -> int:
 
     def costruttore(seme):
         torch.manual_seed(seme)
-        return PredittorePerNodo(D_DESC_RIF, D_STAT, sorgente="traffic4cast")
+        return PredittorePerNodo(D_DESC_RIF, D_STAT, sorgente=srg)
 
-    campagna = ("conferma" if a.conferma else
+    campagna = ("pems04" if a.pems04 else
+                "conferma" if a.conferma else
                 "inserimento" if a.inserimento else
                 "adeguatezza" if a.adeguatezza else "sviluppo")
     r = prepara(costruttore, semi, cfg, a.out, campagna)

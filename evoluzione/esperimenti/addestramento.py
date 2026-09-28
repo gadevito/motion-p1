@@ -52,7 +52,15 @@ from evoluzione.analisi.pesi import (  # noqa: E402
     media_orizzonti, percorso as percorso_pesi, salva as salva_pesi)
 
 L_STORIA = 96
+# I CANALI DICHIARATI COSTANTI dipendono dalla SORGENTE. Su Traffic4cast
+# occupazione e conteggio non sono misurati; **su PEMS04 lo sono entrambi**, e
+# dichiararli costanti farebbe saltare la loro normalizzazione.
 COSTANTI = frozenset({"occupazione", "conteggio"})
+COSTANTI_PEMS04 = frozenset()
+
+
+def costanti_di(sorgente: str) -> frozenset:
+    return COSTANTI_PEMS04 if sorgente == "pems04" else COSTANTI
 T4 = "data_collection/traffic4cast"
 CTX = {"Madrid": (f"{T4}/MADRID_2022/gomo_fmt/targets_t4cmad_d8.npz", "Madrid"),
        "Londra": (f"{T4}/LONDON_2022/gomo_fmt/targets_t4cmad_d8.npz", "Londra"),
@@ -214,8 +222,10 @@ def _canali(D, nr, nv, no=None):
 
 
 def _descrittori(D, nodi, t_rif, variante, norm):
-    S = (SCHEMI_PEMS04 if D.get("sorgente") == "pems04"
-         else SCHEMI_T4C)[variante]
+    # LA SORGENTE decide schema, canali e chiavi di normalizzazione: passarne
+    # una fissa farebbe cercare all'estrattore parametri che non esistono.
+    srg = "pems04" if D.get("sorgente") == "pems04" else "traffic4cast"
+    S = (SCHEMI_PEMS04 if srg == "pems04" else SCHEMI_T4C)[variante]
     d = len(S["statistiche"]) + len(S["disponibilita"])
     T = D["r"].shape[0]
     Z = np.zeros((len(nodi), d), dtype="float32")
@@ -224,11 +234,14 @@ def _descrittori(D, nodi, t_rif, variante, norm):
             istanti=np.arange(T),
             r=np.where(D["m_r"][:, k], D["r"][:, k], np.nan),
             f=np.where(D["m_v"][:, k], D["vol"][:, k], np.nan),
-            o=np.full(T, np.nan), classe=D["classe"][:, k],
+            # su PEMS04 l'occupazione e' MISURATA: non e' un canale assente
+            o=(np.where(D["m_o"][:, k], D["occ"][:, k], np.nan)
+               if srg == "pems04" else np.full(T, np.nan)),
+            classe=D["classe"][:, k],
             ora_locale=D["ore"], t0=max(t_rif - L_STORIA, 0))
         e = estrai_diretto(oss, t=t_rif, L=L_STORIA, sensor_id=str(k),
-                           schema=variante, norm=norm, sorgente="traffic4cast",
-                           canali_costanti=COSTANTI)
+                           schema=variante, norm=norm, sorgente=srg,
+                           canali_costanti=costanti_di(srg))
         Z[i] = np.concatenate([e.statistics, e.availability])
     if not np.isfinite(Z).all():
         raise FallimentoMetodo("descrittori non finiti")
@@ -564,11 +577,13 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
             f"variante «{E.variante}» ignota per il braccio {braccio_}, che usa "
             f"descrittori. Ammesse: {list(SCHEMI_T4C)}")
     else:
-        S = SCHEMI_T4C[E.variante]
+        S = (SCHEMI_PEMS04 if sorgente_di(E.contesto) == "pems04"
+             else SCHEMI_T4C)[E.variante]
     if S["statistiche"]:
+        srg_ = sorgente_di(E.contesto)
         verifica_contratto(S["statistiche"], S["disponibilita"], NORM,
-                           f"{E.variante}/traffic4cast",
-                           canali_costanti=COSTANTI)
+                           f"{E.variante}/{srg_}",
+                           canali_costanti=costanti_di(srg_))
     x = _canali(D, nr, nv)
     K = D["r"].shape[1]
     d_desc = len(S["statistiche"]) + len(S["disponibilita"])

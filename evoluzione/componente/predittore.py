@@ -76,6 +76,13 @@ CANALI_T4C = ["r_riempito", "volume_class_riempito",
 CANALI_GOMO = ["r_riempito", "conteggio_norm", "occupazione_norm",
                "maschera_r", "maschera_conteggio", "maschera_occupazione",
                "ora_sin", "ora_cos", "giorno_sin", "giorno_cos", "festivo"]
+# SU PEMS04 SONO UNDICI, come su GO-MO: velocita' relativa, flusso CONTINUO e
+# occupazione, le loro tre maschere, cinque di calendario. La lista e' dichiarata
+# a parte perche' la SORGENTE e' diversa — provenienza, risoluzione e riferimento
+# di velocita' non coincidono — anche se la struttura e' la stessa.
+CANALI_PEMS04 = ["r_riempito", "conteggio_norm", "occupazione_norm",
+                 "maschera_r", "maschera_conteggio", "maschera_occupazione",
+                 "ora_sin", "ora_cos", "giorno_sin", "giorno_cos", "festivo"]
 CANALI_INGRESSO = CANALI_T4C          # il raccordo gira su Traffic4cast
 FINESTRA = 12
 NUCLEO = 2
@@ -162,10 +169,12 @@ class PredittorePerNodo(nn.Module):
         e' stato eseguito, e la loro riproducibilita' e' verificata da
         `collauda_appaiamento.py`."""
         super().__init__()
-        if sorgente not in ("traffic4cast", "gomo"):
+        CANALI = {"traffic4cast": CANALI_T4C, "gomo": CANALI_GOMO,
+                  "pems04": CANALI_PEMS04}
+        if sorgente not in CANALI:
             raise ValueError(f"sorgente ignota: {sorgente}")
         self.sorgente = sorgente
-        self.canali = CANALI_T4C if sorgente == "traffic4cast" else CANALI_GOMO
+        self.canali = CANALI[sorgente]
         c_in = len(self.canali) if c_in is None else c_in
         self.d_descrittore, self.d_statiche = d_descrittore, d_statiche
         self.n_orizzonti, self.n_classi = n_orizzonti, n_classi
