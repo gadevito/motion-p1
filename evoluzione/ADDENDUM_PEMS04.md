@@ -14,9 +14,23 @@ flusso–occupazione +0,615.
 
 | grandezza | aggregazione a 15 minuti |
 |---|---|
-| flusso | **somma**, valida in quanto conteggio per intervallo secondo la fonte documentale; il nome del canale non basta |
+| flusso | **somma**, valida in quanto conteggio per intervallo secondo la fonte documentale; il nome del canale non basta. **Continuo**: i terzili sono una proposta scartata prima del test |
 | occupazione | **media**, aggregazione temporale dichiarata |
 | velocità | **media dei valori pubblicati**, senza attribuirle il significato di velocità media spaziale o ponderata per veicolo |
+
+### Componenti costanti, verificate una per una
+
+Misurate sulle finestre effettivamente usate, non dedotte dalle maschere:
+**12 su 29**. Le tre coperture — `copertura_r`, `copertura_conteggio`,
+`copertura_occupazione` — le otto `disponibilita_banda_*`, e
+`copertura_coppie`.
+
+**`durata_nominale`, `durata_effettiva` e `n_valide` restano variabili**, e
+**tutte e quattordici le statistiche** lo sono: la parte comportamentale del
+descrittore, che la politica di aggiornamento mette in gioco, è intatta.
+
+Le costanti sono normalizzate secondo il contratto per caratteristiche costanti:
+**nessuna divisione per zero, nessun trattamento silenzioso**, verificato.
 
 **Lo schema non coincide con Traffic4cast.** Là due grandezze dinamiche e due
 maschere; qui tre grandezze e tre maschere, e cambiano le componenti del
@@ -58,9 +72,25 @@ valore prodotto dalla regola si registra**, non si fissa a priori.
 comune**, non la congestione normalizzata sul riferimento proprio di ciascun
 tratto. Soglie dichiarate: ≥ 0,8, 0,5–0,8, < 0,5.
 
-**I pesi si ricalcolano sul solo addestramento ammesso**, col nuovo bersaglio.
+### Valori prodotti dalla regola
+
+| partizione | riferimento | classi, tutte le celle | origini | pesi |
+|---|---|---|---|---|
+| p0 | **69,67** mph | 91,5 / 6,1 / 2,5 | 3.948 / 3.948 | 0,367 / 5,089 / 13,041 |
+| p1 | **69,83** | 91,4 / 6,1 / 2,5 | 3.948 / 3.948 | 0,363 / 5,586 / 14,621 |
+| p2 | **69,83** | 91,4 / 6,1 / 2,5 | 3.948 / 3.948 | 0,368 / 4,831 / 13,324 |
+
 La distribuzione 92,4 / 5,2 / 2,4 veniva dal riferimento precedente ed è
 **superata**: non si riusa.
+
+**Nessuna origine esclusa dalla regola della griglia**: la serie distribuita è
+regolare per costruzione, mentre su Traffic4cast se ne perdeva il 2,6%.
+
+> **I pesi sono molto più estremi** che nella campagna principale: rapporto di
+> circa 36 fra terza e prima classe, contro circa 5 sui dati urbani. **La wCE su
+> PEMS04 non è confrontabile in scala** con quella di Traffic4cast, e
+> l'average precision sulla classe rara sarà instabile. Le soglie non sono state
+> toccate.
 
 I nodi il cui riferimento proprio è distante restano una **diagnostica
 privilegiata**, mai un ingresso né un criterio per escluderli dal risultato
