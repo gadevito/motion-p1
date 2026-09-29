@@ -102,7 +102,7 @@ def _lavora(args):
     from evoluzione.esperimenti.semi import SEME_PARTIZIONE
     out = Path(out)
     ck = percorso_E(out / cfg["etichetta"], x["contesto"], x["partizione"],
-                    x["seme_torch"])
+                    x["seme_torch"], braccio=x["braccio"])
     t0 = time.time()
     reg = Registro.avvia(f"{cfg['etichetta']}/{cfg['braccio']}",
                          note=f"{x['contesto']} p{x['partizione']} "
@@ -225,9 +225,9 @@ def main() -> int:
         print(f"\n{e}")
         return 1
 
-    fatte = [x for x in P if marcatore(percorso_E(dir_E, x["contesto"],
-                                                  x["partizione"],
-                                                  x["seme_torch"])).exists()]
+    fatte = [x for x in P if marcatore(percorso_E(
+        dir_E, x["contesto"], x["partizione"], x["seme_torch"],
+        braccio=x["braccio"])).exists()]
     da_fare = [x for x in P if x not in fatte]
     print(f"\n  completate (marcatore presente): {len(fatte)} | "
           f"da eseguire: {len(da_fare)}")

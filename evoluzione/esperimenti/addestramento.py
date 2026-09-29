@@ -582,7 +582,10 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
                           "inductive_validation")
     if politica_ck not in ("initial_network", "inductive_validation"):
         raise ValueError(f"politica ignota: {politica_ck}")
-    if braccio_ in ("C", "E", "A", "R"):
+    # **E1 non usa descrittori**, come E: il token ignoto e' identita' appresa,
+    # non una statistica osservabile. Ometterlo da questo elenco lo faceva
+    # trattare come P e chiedere una variante che non ha.
+    if braccio_ in ("C", "E", "E1", "A", "R"):
         S = {"statistiche": [], "disponibilita": []}
     elif E.variante not in SCHEMI_T4C:
         raise ValueError(

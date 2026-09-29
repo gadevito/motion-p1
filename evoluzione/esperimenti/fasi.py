@@ -55,12 +55,15 @@ def _elenco(mancanti, quanti=6):
     return f"{x[:quanti]}{'…' if len(x) > quanti else ''} ({len(x)} in tutto)"
 
 
-def chiave_E(contesto, partizione, seme) -> str:
-    return f"E_{contesto}_p{partizione}_s{seme}"
+def chiave_E(contesto, partizione, seme, braccio: str = "E") -> str:
+    """**Il braccio fa parte della chiave**: E1 e' E con il token ignoto, e i
+    suoi punti di controllo non sono intercambiabili con quelli di E."""
+    return f"{braccio}_{contesto}_p{partizione}_s{seme}"
 
 
-def percorso_E(dir_E: Path, contesto, partizione, seme) -> Path:
-    return Path(dir_E) / f"ck_{chiave_E(contesto, partizione, seme)}.pt"
+def percorso_E(dir_E: Path, contesto, partizione, seme,
+               braccio: str = "E") -> Path:
+    return Path(dir_E) / f"ck_{chiave_E(contesto, partizione, seme, braccio)}.pt"
 
 
 def verifica_E(dir_canonico: Path, dir_maschere: Path, dir_pesi: Path,
