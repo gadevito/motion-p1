@@ -80,10 +80,14 @@ def _modello_da_ck(ck: Path, D, nodi, cfg):
     costruttori dell'addestramento."""
     from evoluzione.componente.predittore import PredittorePerNodo
     from evoluzione.esperimenti.addestramento import _fornitore
+    from evoluzione.esperimenti.addestramento import sorgente_di
     d = torch.load(ck, map_location="cpu", weights_only=False)
     nodi_add = np.asarray(d["nodi_iniziali"], dtype="int64")
     forn, _ = _fornitore(d["braccio"], d["d_descrittore"], nodi_add)
-    m = PredittorePerNodo(d["d_descrittore"], D_STAT, sorgente="traffic4cast",
+    # **LA SORGENTE VIENE DAL PUNTO DI CONTROLLO**: costruirne uno a nove
+    # canali per pesi che ne hanno undici fallirebbe, ed e' quanto accadeva.
+    m = PredittorePerNodo(d["d_descrittore"], D_STAT,
+                          sorgente=sorgente_di(d.get("contesto", "")),
                           identita=forn)
     m.load_state_dict(d["state_dict"], strict=True)
     m.eval()

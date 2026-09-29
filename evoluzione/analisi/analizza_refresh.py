@@ -91,14 +91,20 @@ def main() -> int:
                      default=Path("results/evoluzione/predizioni_fase3"))
     ap_.add_argument("--refr", type=Path,
                      default=Path("results/evoluzione/predizioni_refresh"))
+    ap_.add_argument("--pems04", action="store_true")
     ap_.add_argument("--out", type=Path, default=None)
     a = ap_.parse_args()
     rng = np.random.default_rng(20260924)
+    tutti, semi_tutti = {}, []
     print("=" * 84)
-    print("P-REFRESH contro P-FROZEN e C")
+    print("P-REFRESH contro P-FROZEN e C"
+          + (" — VERIFICA ESTERNA SU PEMS04" if a.pems04 else ""))
     print("=" * 84)
     fuori = {}
-    for c in CITTA:
+    citta = (("PEMS04_p0", "PEMS04_p1", "PEMS04_p2") if a.pems04 else CITTA)
+    # per la STIMA AGGREGATA: i dati di ogni contesto, indicizzati per braccio
+    tutti, semi_tutti = {}, []
+    for c in citta:
         ff = sorted(a.froz.glob(f"P_{c}_p*_s*.npz"))
         if not ff:
             continue
@@ -110,10 +116,18 @@ def main() -> int:
             dati[("C", p, s)] = carica(a.froz / f"C_{c}_p{p}_s{s}.npz")
             dati[("R", p, s)] = carica(a.refr / f"Prefresh_{c}_p{p}_s{s}.npz")
         parts = sorted({k[1] for k in dati}); semi = sorted({k[2] for k in dati})
+        if a.pems04:
+            for n in ("P", "C", "R"):
+                tutti[(c, n)] = {s: dati[(n, parts[0], s)] for s in semi}
+            semi_tutti = semi
         from evoluzione.analisi.pesi import carica as carica_pesi
-        pesi = {p: np.asarray(carica_pesi(
-            Path("results/evoluzione/pesi_griglia"), c, p).vettore(),
-            dtype="float64") for p in parts}
+        d_pesi = Path("results/evoluzione/"
+                      + ("pesi_pems04" if a.pems04 else "pesi_griglia"))
+        pesi = {p: np.asarray(carica_pesi(d_pesi, c, p).vettore(),
+                              dtype="float64") for p in parts}
+        for n_ in ("P", "C", "R"):
+            tutti[(c, n_)] = {s: dati[(n_, p, s)] for p in parts for s in semi}
+        semi_tutti = list(semi)
         print(f"\n{c}  {len(chiavi)} esecuzioni, copertura finestre "
               f"{dati[('R', parts[0], semi[0])]['completa'].mean():.1%}")
         print(f"  {'confronto':22s} {'media':>10} "
@@ -170,6 +184,65 @@ def main() -> int:
     if a.out:
         a.out.write_text(json.dumps(fuori, indent=2))
         print(f"\n  salvato in {a.out}")
+    if a.pems04:
+        # ---- STIMA AGGREGATA: l'unita' di analisi e' IL DATASET ----------
+        # p0, p1, p2 sono PARTIZIONI dei nodi, non contesti indipendenti: il
+        # criterio riguarda i due effetti sul dataset, con uguale peso a
+        # partizioni e inizializzazioni. Le partizioni restano analisi di
+        # supporto.
+        print(f"\n{'=' * 84}\nSTIMA AGGREGATA SU PEMS04 — l'unita' di analisi\n"
+              f"{'=' * 84}")
+        agg = {}
+        for n1, n2, eti in (("R", "C", "Δ_C = refresh − C"),
+                            ("R", "P", "Δ_F = refresh − frozen")):
+            v1, v2 = [], []
+            for _ in range(B):
+                cs = rng.choice(len(citta), len(citta), True)
+                ss = rng.choice(semi_tutti, len(semi_tutti), True)
+                q1, q2 = [], []
+                for i in cs:
+                    c_ = citta[i]
+                    K = tutti[(c_, n1)][semi_tutti[0]]["A"].shape[0]
+                    nd = rng.integers(0, K, K)
+                    for s_ in ss:
+                        d1, d2 = tutti[(c_, n1)][s_], tutti[(c_, n2)][s_]
+                        q1.append(wce(d1["A"], d1["B"]) - wce(d2["A"], d2["B"]))
+                        q2.append(wce(d1["A"], d1["B"], nd)
+                                  - wce(d2["A"], d2["B"], nd))
+                v1.append(np.mean(q1)); v2.append(np.mean(q2))
+            m0 = float(np.mean(v1))
+            q_o = np.percentile(v1, [2.5, 97.5])
+            q_n = np.percentile(v2, [2.5, 97.5])
+            sup = float(np.percentile(v2, 95))     # UNILATERALE, come fissato
+            agg[eti] = {"media": m0, "ic_originario": q_o.tolist(),
+                        "ic_con_nodi": q_n.tolist(), "sup_unilaterale_95": sup}
+            print(f"  {eti:22s} {m0:+.5f}  IC95 [{q_n[0]:+.5f}, {q_n[1]:+.5f}]"
+                  f"  sup unilaterale {sup:+.5f}")
+        fuori["PEMS04/aggregato"] = agg
+        ok_tot = all(v["sup_unilaterale_95"] < 0 for v in agg.values())
+        print(f"\n  > criterio congiunto sul DATASET: "
+              f"**{'SODDISFATTO' if ok_tot else 'NON SODDISFATTO'}**")
+        if not ok_tot:
+            print("  > effetti circoscritti ed esiti non conclusivi")
+        print(f"\n{'=' * 84}\nPER PARTIZIONE — analisi di supporto\n"
+              f"{'=' * 84}")
+        print("  affermazione solo se il limite superiore unilaterale al 95%")
+        print("  e' sotto zero per ENTRAMBI i confronti, in ciascun contesto\n")
+        ok_tot = True
+        for c in citta:
+            dC = fuori.get(f"{c}/P-refresh − C", {})
+            dF = fuori.get(f"{c}/P-refresh − P-frozen", {})
+            sC = dC.get("ic_con_nodi", [0, 1])[1]
+            sF = dF.get("ic_con_nodi", [0, 1])[1]
+            ok = sC < 0 and sF < 0
+            ok_tot &= ok
+            print(f"  {c:12s} sup(Δ_C) {sC:+.5f}  sup(Δ_F) {sF:+.5f}  "
+                  f"{'soddisfatto' if ok else 'NON soddisfatto'}")
+        print(f"\n  > **{'BENEFICIO CONFERMATO' if ok_tot else 'NON CONFERMATO'}** "
+              f"nel perimetro dei tre contesti")
+        if not ok_tot:
+            print("  > si riportano effetti circoscritti ed esiti non "
+                  "conclusivi; nessuna maggioranza trasformata in successo")
     print("\n  Gli intervalli «con nodi» non confermano i precedenti: ne")
     print("  correggono il perimetro. L'analisi congelata resta.")
     return 0

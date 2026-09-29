@@ -89,6 +89,9 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--braccio", default="P",
                     choices=("C", "P", "A", "R", "F"))
+    ap.add_argument("--pems04", action="store_true",
+                    help="verifica esterna. **Nessun aggregato storico da "
+                         "riprodurre**: la campagna PEMS04 non ne salva")
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
     ap.add_argument("--dir-pred", type=Path,
                     default=Path("results/evoluzione/predizioni_fase3"))
@@ -101,25 +104,35 @@ def main() -> int:
           f"tolleranza {TOLLERANZA:g} relativa")
     print("=" * 84)
     guai, righe = [], []
-    for c in ("Madrid", "Londra", "Melbourne"):
+    contesti = (("PEMS04_p0", "PEMS04_p1", "PEMS04_p2") if a.pems04
+                else ("Madrid", "Londra", "Melbourne"))
+    for i_c, c in enumerate(contesti):
         D = _carica(c, a.out / "maschere")
         ok = GR.passi_regolari(D["ts"])
-        t0, t1 = CALENDARIO[c]
         fine = D["r"].shape[0] - max(ORIZZONTI)
+        if a.pems04:
+            t0 = GR.primo_t0(D["ts"], ok, int(fine * .85), fine, False)
+            t1 = t0 + GR.L_DESCRITTORE
+        else:
+            t0, t1 = CALENDARIO[c]
         per = GR.origini_dopo(ok, t1, fine)
-        for p in (0, 1, 2):
+        for p in ([i_c] if a.pems04 else (0, 1, 2)):
             nodi, ist = _partizioni(D, {"partizione": np.random.default_rng(
                 SEME_PARTIZIONE[p])})
             NORM, nr, nv = _normalizzazione(D, nodi, ist)
             x = _canali(D, nr, nv)
             stat = statiche(D)
-            pesi = np.asarray(carica_pesi(a.out / "pesi_griglia", c, p)
-                              .vettore(), dtype="float64")
+            pesi = np.asarray(carica_pesi(
+                a.out / ("pesi_pems04" if a.pems04 else "pesi_griglia"),
+                c, p).vettore(), dtype="float64")
             for s in dich:
-                man = DIR_C / f"{a.braccio}_{c}_p{p}_s{int(s)}.json"
-                if not man.exists():
-                    guai.append(f"manifesto {man.name}: assente"); continue
-                d_man = json.loads(man.read_text())
+                if a.pems04:
+                    d_man = None          # nessun aggregato da riprodurre
+                else:
+                    man = DIR_C / f"{a.braccio}_{c}_p{p}_s{int(s)}.json"
+                    if not man.exists():
+                        guai.append(f"manifesto {man.name}: assente"); continue
+                    d_man = json.loads(man.read_text())
                 desc = None
                 if a.braccio == "F":
                     # F non e' un punto di controllo: si RIADATTA dal punto E,
@@ -136,7 +149,9 @@ def main() -> int:
                     ck = Path(f"(riadattato da ck_E_{c}_p{p}_s{st_}.pt)")
                     imp_ck = f"E:{st_}"
                 else:
-                    ck = DIR_C / f"ck_{a.braccio}_{c}_p{p}_s{int(s)}.pt"
+                    ck = (Path("results/evoluzione/pems04")
+                          / f"ck_{a.braccio}_{c}_s{int(s)}.pt" if a.pems04
+                          else DIR_C / f"ck_{a.braccio}_{c}_p{p}_s{int(s)}.pt")
                     if not ck.exists():
                         guai.append(f"{ck.name}: assente"); continue
                     m, dck = _modello_da_ck(ck, D, nodi, None)
@@ -170,6 +185,31 @@ def main() -> int:
                        for k, v in m.state_dict().items()):
                     guai.append(f"{ck.name}: lo stato e' cambiato in inferenza")
                 w_new, per_h = wce_da_predizioni(PB, YY, MM, pesi)
+                if d_man is None:
+                    w_old, rel, rel_h = float("nan"), 0.0, 0.0
+                    righe.append({"contesto": c, "partizione": p,
+                                  "seme": int(s), "braccio": a.braccio,
+                                  "impronta_ck": imp_ck,
+                                  "wce_ricalcolata": w_new,
+                                  "wce_conservata": None,
+                                  "scarto_relativo": 0.0,
+                                  "scarto_relativo_max_orizzonte": 0.0,
+                                  "origini": len(per),
+                                  "nodi": len(nodi["prova"]),
+                                  "secondi_inferenza": dt})
+                    Ah, Bh, Nh = aggregati_per_nodo(PB, YY, MM, pesi)
+                    np.savez_compressed(
+                        a.dir_pred / f"{a.braccio}_{c}_p{p}_s{int(s)}.npz",
+                        prob=PB, y=YY, m=MM, A_per_nodo=Ah, B_per_nodo=Bh,
+                        celle_per_nodo=Nh,
+                        nodi=np.asarray(nodi["prova"], dtype="int32"),
+                        origini=np.asarray(per, dtype="int32"),
+                        orizzonti=np.asarray(ORIZZONTI, dtype="int16"),
+                        contesto=c, partizione=p, seme=int(s),
+                        braccio=a.braccio, t0=t0, t1=t1, impronta_ck=imp_ck)
+                    print(f"  {c} s{int(s)}  wCE {w_new:.6f}  {dt:5.1f}s",
+                          flush=True)
+                    continue
                 w_old = d_man["valutazione"]["perimetro_primario"]["perdita"]
                 oh_old = d_man["valutazione"]["perimetro_primario"][
                     "per_orizzonte"]
