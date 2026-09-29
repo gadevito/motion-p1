@@ -26,3 +26,4 @@ __pycache__/
 # --- eccezioni: questi SI' ---------------------------------------------------
 !evoluzione/**/*.md
 !README*.md
+evoluzione/Archivio.zip
