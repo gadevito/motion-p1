@@ -350,7 +350,7 @@ def _pesi(E, D, nodi, ist, radice: Path, versione: str, dir_pesi=None,
     return P
 
 
-def _fornitore(braccio: str, d_desc: int, nodi_addestramento):
+def _fornitore(braccio: str, d_desc: int, nodi_addestramento, rho=None):
     """Il fornitore di identita', scelto dal BRACCIO dichiarato.
 
     **Non si deduce dalla presenza di un descrittore**: il braccio e' un
@@ -360,7 +360,14 @@ def _fornitore(braccio: str, d_desc: int, nodi_addestramento):
         C        NoIdentity                  nessun parametro per nodo
         P        ObservableIdentityEncoder   encoder condiviso
         E, A, R  LearnedNodeEmbedding        una riga per nodo AMMESSO
+        E1       come E, piu' un TOKEN IGNOTO appreso e identity dropout
         F        costruito altrove, da E gia' addestrato
+
+    **E1 (E2 del protocollo)**: per una frazione `rho` dei nodi di ogni lotto
+    l'embedding e' sostituito dal token ignoto, cosi' il modello vede un nodo
+    senza identita' PRIMA che ne arrivi uno vero. Il dropout agisce solo in
+    addestramento; `rho` e' dichiarato nella configurazione e fissato a 0,15
+    prima di qualunque esecuzione.
     """
     if braccio == "C":
         return NoIdentity(), False
@@ -368,6 +375,11 @@ def _fornitore(braccio: str, d_desc: int, nodi_addestramento):
         return ObservableIdentityEncoder(d_desc), True
     if braccio in ("E", "A", "R"):
         return LearnedNodeEmbedding(nodi_addestramento), False
+    if braccio == "E1":
+        if rho is None:
+            raise ValueError("il braccio E1 richiede `rho` dichiarato")
+        return LearnedNodeEmbedding(nodi_addestramento, token_ignoto=True,
+                                    rho=float(rho)), False
     raise ValueError(
         f"braccio «{braccio}» non costruibile qui: F parte dal punto di "
         f"controllo E gia' addestrato, tramite `adattamento.copia_da_E`")
@@ -620,7 +632,8 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
         nodi_add = np.asarray(nodi["addestramento"], dtype="int64")
     reg.evento(f"popolazione {popolazione}: {len(nodi_add)} nodi "
                f"({len(nodi_nuovi)} nuovi)")
-    forn, usa_desc = _fornitore(braccio_, d_desc, nodi_add)
+    forn, usa_desc = _fornitore(braccio_, d_desc, nodi_add,
+                                rho=cfg.get("rho"))
     m = PredittorePerNodo(d_desc, 5, sorgente=sorgente_di(E.contesto), identita=forn)
     reg.evento(f"braccio {braccio_}: fornitore {type(forn).__name__}, "
                f"descrittori {'usati' if usa_desc else 'NON usati'}")
@@ -721,8 +734,8 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
     # `inizializzazione` e `variante` sono costanti, e il nome storico farebbe
     # scrivere tutte le esecuzioni di uno stesso braccio sullo STESSO file.
     nome_ck = cfg.get("nome_ck") or (
-        f"ck_E_{E.contesto}_p{E.partizione}_s{seme_i}.pt"
-        if braccio_ == "E" else
+        f"ck_{braccio_}_{E.contesto}_p{E.partizione}_s{seme_i}.pt"
+        if braccio_ in ("E", "E1") else
         f"ck_{E.contesto}_p{E.partizione}_s{E.inizializzazione}_"
         f"{E.variante}.pt")
     migliore, epoca, pazienza, ck = float("inf"), -1, 0, dir_camp / nome_ck
@@ -790,7 +803,7 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
         raise FallimentoMetodo("nessuna epoca ha migliorato la validazione")
 
     # -- valutazione del punto SELEZIONATO, in modalita' congelata ----------
-    forn2, _ = _fornitore(braccio_, d_desc, nodi_add)
+    forn2, _ = _fornitore(braccio_, d_desc, nodi_add, rho=cfg.get("rho"))
     m2 = PredittorePerNodo(d_desc, 5, sorgente=sorgente_di(E.contesto), identita=forn2)
     m2.load_state_dict(torch.load(ck, weights_only=False)["state_dict"])
     m2.eval()
@@ -800,9 +813,9 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
     # contiene i soli nodi di addestramento, e chiedere una riga per un nodo
     # nuovo solleverebbe. **E' il punto dell'esperimento**: E non sa prevedere
     # su chi non ha visto, e F nasce proprio per questo.
-    if braccio_ == "E":
-        reg.evento("braccio E preparatorio: nessuna valutazione sui nodi di "
-                   "prova, che non sono registrati nella tabella degli "
+    if braccio_ in ("E", "E1"):
+        reg.evento(f"braccio {braccio_} preparatorio: nessuna valutazione sui "
+                   "nodi di prova, che non sono registrati nella tabella degli "
                    "embedding. Il punto di controllo e' l'uscita della fase.")
         reg.uscita(ck)
         return ck

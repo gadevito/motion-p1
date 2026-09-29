@@ -37,7 +37,9 @@ import torch
 VERSIONE_CANONICO = "1.0"
 MODULI_COMUNI = ("start", "blocchi", "stat", "e1", "e2")
 # i bracci che CARICANO l'artefatto iniziale; F ne e' escluso per costruzione
-CARICANO = ("C", "P", "E", "A", "R")
+# E1 e' E con il token ignoto: carica lo stesso artefatto, perche' il token e'
+# un modulo PER NODO e resta fuori dai moduli comuni.
+CARICANO = ("C", "P", "E", "E1", "A", "R")
 
 
 class CanonicoViolato(RuntimeError):

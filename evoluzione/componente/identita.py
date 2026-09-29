@@ -179,7 +179,20 @@ class LearnedNodeEmbedding(FornitoreIdentita):
     solleva, invece di restituire una riga arbitraria.
     """
 
-    def __init__(self, nodi, scala: float = 0.05, generatore=None):
+    def __init__(self, nodi, scala: float = 0.05, generatore=None,
+                 token_ignoto: bool = False, rho: float = 0.0):
+        """`token_ignoto` aggiunge una riga APPRESA per il nodo sconosciuto.
+
+        **Identity dropout (E2)**: in addestramento, una frazione `rho` dei nodi
+        del lotto riceve quella riga al posto della propria. Serve a far vedere
+        al modello un nodo senza identita' PRIMA che ne arrivi uno vero, e a
+        dargli un punto di partenza dichiarato invece della media degli
+        embedding — media che, in una rete non lineare, non produce un
+        comportamento medio.
+
+        **Il dropout agisce SOLO in addestramento**: in valutazione, prova e
+        inserimento il fornitore e' deterministico.
+        """
         super().__init__()
         self.registra_ordine = [int(x) for x in nodi]
         self.indice = {n: i for i, n in enumerate(self.registra_ordine)}
@@ -188,6 +201,16 @@ class LearnedNodeEmbedding(FornitoreIdentita):
         w = torch.randn(len(self.registra_ordine), self.uscita,
                         generator=generatore) * scala
         self.embedding = nn.Parameter(w)
+        self.rho = float(rho)
+        if token_ignoto:
+            if not 0.0 <= self.rho <= 1.0:
+                raise ValueError(f"rho fuori da [0, 1]: {self.rho}")
+            self.ignoto = nn.Parameter(
+                torch.randn(1, self.uscita, generator=generatore) * scala)
+        else:
+            self.ignoto = None
+            if self.rho:
+                raise ValueError("rho senza token ignoto")
 
     def righe(self, nodi):
         """Le righe dei nodi richiesti. SOLLEVA se uno non e' registrato."""
@@ -200,17 +223,32 @@ class LearnedNodeEmbedding(FornitoreIdentita):
         return torch.as_tensor([self.indice[int(n)] for n in nodi],
                                dtype=torch.long)
 
-    def forward(self, B: int, K: int, *, node_ids, descriptor=None):
+    def forward(self, B: int, K: int, *, node_ids, descriptor=None,
+                ignoti=None):
+        """`ignoti`: maschera booleana lunga K dei nodi da trattare come
+        sconosciuti. Se assente e il dropout e' attivo, in ADDESTRAMENTO si
+        estrae con probabilita' `rho`."""
         self._rifiuta_descrittore(descriptor, "LearnedNodeEmbedding")
         idx = self.righe(self._controlla_nodi(node_ids, K))
         z = self.embedding[idx]                       # (K, 8)
+        if self.ignoto is not None:
+            if ignoti is None and self.training and self.rho > 0:
+                ignoti = torch.rand(K, device=z.device) < self.rho
+            if ignoti is not None:
+                m = torch.as_tensor(ignoti, dtype=torch.bool,
+                                    device=z.device).reshape(K, 1)
+                z = torch.where(m, self.ignoto.expand_as(z), z)
+        elif ignoti is not None:
+            raise ValueError("nodi ignoti richiesti senza token ignoto")
         return z.T.unsqueeze(0).unsqueeze(-1).expand(B, -1, -1, -1)
 
     def moduli_per_nodo(self):
-        return ["embedding"]
+        return ["embedding"] + (["ignoto"] if self.ignoto is not None else [])
 
     def descrizione(self):
         return {"tipo": "LearnedNodeEmbedding",
+                "token_ignoto": self.ignoto is not None,
+                "rho": self.rho,
                 "n_nodi_registrati": len(self.registra_ordine),
                 "parametri_per_nodo": self.uscita,
                 "moduli_autorizzati": ["embedding"],

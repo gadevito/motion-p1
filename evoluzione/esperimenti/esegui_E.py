@@ -50,7 +50,10 @@ BRACCIO = "E"
 #               precedente, congelata come tale
 #   griglia     come principale, con la GRIGLIA TEMPORALE REALE in tutte le
 #               fasi e i pesi ricalcolati sulle origini ammissibili
-CARTELLA = {"storico": "E_inserimento", "principale": "E_inserimento_principale",
+# E2 del protocollo: E1 e' E con TOKEN IGNOTO e identity dropout. Cartella
+# propria, perche' i punti di controllo non sono intercambiabili con quelli di E.
+CARTELLA = {"griglia_E1": "E1_inserimento_griglia",
+            "storico": "E_inserimento", "principale": "E_inserimento_principale",
             "griglia": "E_inserimento_griglia"}
 
 
@@ -101,7 +104,7 @@ def _lavora(args):
     ck = percorso_E(out / cfg["etichetta"], x["contesto"], x["partizione"],
                     x["seme_torch"])
     t0 = time.time()
-    reg = Registro.avvia(f"{cfg['etichetta']}/{BRACCIO}",
+    reg = Registro.avvia(f"{cfg['etichetta']}/{cfg['braccio']}",
                          note=f"{x['contesto']} p{x['partizione']} "
                               f"seme {x['seme']}",
                          radice=out / "registro")
@@ -130,15 +133,19 @@ def _lavora(args):
                 "errore": f"{type(e).__name__}: {e}"[:300]}
 
 
-def piano(contesti, semi_dich, semi_torch, partizioni):
-    """Contesti intercalati e partizioni ruotate."""
+def piano(contesti, semi_dich, semi_torch, partizioni, braccio=BRACCIO):
+    """Contesti intercalati e partizioni ruotate.
+
+    **Il braccio e' un parametro**: leggerlo dagli argomenti del comando qui
+    dentro lo renderebbe invisibile a chi chiama la funzione.
+    """
     fuori = []
     for i, (s, st) in enumerate(zip(semi_dich, semi_torch)):
         for j, p in enumerate(partizioni):
             r = (i * len(partizioni) + j) % len(contesti)
             for c in contesti[r:] + contesti[:r]:
                 fuori.append({"contesto": c, "partizione": p, "seme": int(s),
-                              "seme_torch": int(st), "braccio": BRACCIO})
+                              "seme_torch": int(st), "braccio": braccio})
     return fuori
 
 
@@ -151,7 +158,11 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="fase 1: punti di controllo E")
     ap.add_argument("--contesto", nargs="*", default=list(CONTESTI))
     ap.add_argument("--protocollo", default="griglia",
-                    choices=("griglia", "principale", "storico"))
+                    choices=("griglia", "griglia_E1", "principale", "storico"))
+    ap.add_argument("--braccio", default="E", choices=("E", "E1"),
+                    help="E1: token ignoto e identity dropout (E2 del protocollo)")
+    ap.add_argument("--rho", type=float, default=0.15,
+                    help="frazione di identity dropout, DICHIARATA prima del lancio")
     ap.add_argument("--lavoratori", type=int, default=1)
     ap.add_argument("--fili", type=int, default=1)
     ap.add_argument("--piano", action="store_true")
@@ -161,17 +172,26 @@ def main() -> int:
     _, dich, semi_torch = configurazione(inserimento=True)
     etichetta = CARTELLA[a.protocollo]
     dir_E = a.out / etichetta
-    P = [x for x in piano(list(a.contesto), dich, semi_torch, PARTIZIONI)
+    P = [x for x in piano(list(a.contesto), dich, semi_torch, PARTIZIONI,
+                          braccio=a.braccio)
          if x["contesto"] in a.contesto]
     cfg = {"epoche": 35, "lotto": 32, "passo": 1e-3, "pazienza": 8,
            "storia_descrittore_passi": 96, "finestra_dinamica_passi": 12,
            "orizzonti": [1, 2, 4, 8], "sorgente": "traffic4cast",
-           "etichetta": etichetta, "braccio": BRACCIO,
-           "training_protocol": ("principale" if a.protocollo == "griglia"
+           "etichetta": etichetta, "braccio": a.braccio,
+           **({"rho": a.rho} if a.braccio == "E1" else {}),
+           # **LA GRIGLIA REALE VALE PER TUTTI I PROTOCOLLI CHE LA USANO**:
+           # confrontare con la sola stringa "griglia" escludeva griglia_E1, e
+           # l'esperimento sarebbe partito con origini per indice e pesi
+           # sbagliati, senza alcun errore.
+           "training_protocol": ("principale"
+                                 if a.protocollo.startswith("griglia")
                                  else a.protocollo),
-           "griglia_temporale": ("reale" if a.protocollo == "griglia"
+           "griglia_temporale": ("reale"
+                                 if a.protocollo.startswith("griglia")
                                  else "indice"),
-           "dir_pesi": str(a.out / ("pesi_griglia" if a.protocollo == "griglia"
+           "dir_pesi": str(a.out / ("pesi_griglia"
+                                    if a.protocollo.startswith("griglia")
                                     else "pesi")),
            "checkpoint_selection_population": "initial_network",
            "dir_canonico": str(a.out / "canonico"),
@@ -180,10 +200,16 @@ def main() -> int:
     print("=" * 84)
     print(f"FASE 1 — PUNTI DI CONTROLLO E  ({len(P)} addestramenti)")
     print("=" * 84)
-    d = descrivi_braccio(BRACCIO)
+    if a.braccio == "E1" and a.protocollo != "griglia_E1":
+        raise SystemExit("il braccio E1 richiede --protocollo griglia_E1: "
+                         "i suoi punti di controllo vanno in cartella propria")
+    print(f"  braccio {a.braccio}"
+          + (f" | rho = {a.rho} **dichiarato prima del lancio**"
+             if a.braccio == "E1" else ""))
+    d = descrivi_braccio("E" if a.braccio == "E1" else a.braccio)
     print(f"  popolazione: {d['popolazione']} | corpus: {d['corpus']}")
     print(f"  protocollo: **{a.protocollo}** -> {dir_E}")
-    if a.protocollo in ("principale", "griglia"):
+    if a.protocollo == "principale" or a.protocollo.startswith("griglia"):
         print(f"     2.290 aggiornamenti, undici punti, selezione su V-full, "
               f"nessun arresto anticipato")
     print(f"  griglia temporale: **{cfg['griglia_temporale']}** | pesi: "
