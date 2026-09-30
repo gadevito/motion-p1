@@ -280,6 +280,23 @@ def main() -> int:
       f"campionamenti accettati {camp_ok}, selezioni {sel_ok}; senza "
       f"esecutore: {senza}")
 
+    # l'orchestratore della fase 3 non importa torch a livello di modulo:
+    # si interroga la sua funzione di instradamento per OGNI braccio
+    from evoluzione.esperimenti import esegui_inserimento as EI
+    vie = {}
+    for b in T:
+        try:
+            vie[b] = EI.esecutore(b)
+        except ValueError as e:
+            vie[b] = f"ERRORE: {e}"
+    v("4b", "l'orchestratore instrada ogni braccio che addestra ad "
+      "`addestra_una` e F ad `adatta_F`",
+      all((vie[b] == "addestra_una") == T[b].addestra for b in T)
+      and vie["F"] == "adatta_F",
+      ", ".join(f"{b}->{vie[b]}" for b in T))
+    v("4c", "un braccio ignoto e' rifiutato dall'orchestratore",
+      _solleva(lambda: EI.esecutore("X"), ValueError))
+
     # ------------------------------------------------------------ [5] ----
     print("\n[5] confronti sul nome del braccio rimasti nel codice")
     rest = confronti_letterali()

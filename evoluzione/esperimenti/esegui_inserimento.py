@@ -45,12 +45,32 @@ RADICE = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(RADICE))
 
 from evoluzione.componente.bracci import (  # noqa: E402
-    proprieta as proprieta_braccio)
+    bracci_con, proprieta as proprieta_braccio)
 
 # I CINQUE BRACCI DELLA CAMPAGNA: e' il piano della fase 3, non una proprieta'
-# del braccio. Chi addestra e chi adatta lo dice la tabella unica.
+# del braccio. Chi addestra e chi adatta lo dice la tabella unica, PER TUTTI
+# i bracci dichiarati: derivare `ADDESTRANO` dai soli cinque della fase 3
+# mandava R-orig e R-mon nel ramo di F, e 216 adattamenti sono usciti con il
+# nome di un riaddestramento. Un minuto l'uno: e' cosi' che si e' visto.
 BRACCI = ("C", "P", "A", "R", "F")
-ADDESTRANO = tuple(b for b in BRACCI if proprieta_braccio(b).addestra)
+ADDESTRANO = bracci_con(addestra=True)
+ADATTANO = bracci_con(addestra=False)
+
+
+def esecutore(b: str) -> str:
+    """Quale esecutore tratta il braccio: `addestra_una` o `adatta_F`.
+
+    E' una funzione, non un ramo dentro `_lavora`, perche' cosi' si collauda
+    SENZA addestrare: `collauda_bracci.py` la interroga per ogni braccio della
+    tabella."""
+    if b in ADDESTRANO:
+        return "addestra_una"
+    if b in ADATTANO:
+        if proprieta_braccio(b).fornitore != "adattato_da_E":
+            raise ValueError(f"braccio {b}: non addestra, ma l'unico "
+                             f"adattamento implementato parte da E")
+        return "adatta_F"
+    raise ValueError(f"braccio {b} non dichiarato nella tabella")
 ETICHETTA = "inserimento_griglia"
 CALENDARIO = {"Madrid": (8887, 8983), "Londra": (8966, 9062),
               "Melbourne": (8806, 8902)}
@@ -186,7 +206,9 @@ def _lavora(args):
         cfg = cfg_braccio(b, c, p, s, out, nodi, o_acq, t1=t1)
         reg.configurazione({**cfg, **x, "modalita_misura": modalita,
                             "fili_torch": fili})
-        if b in ADDESTRANO:
+        via = esecutore(b)                     # solleva se non lo conosce
+        reg.evento(f"esecutore: {via}")
+        if via == "addestra_una":
             from evoluzione.esperimenti.addestramento import addestra_una
             gen = {"partizione": np.random.default_rng(SEME_PARTIZIONE[p]),
                    "inizializzazione": np.random.default_rng(s)}
@@ -310,7 +332,11 @@ def main() -> int:
                   + (f"\n        {res['errore']}"
                      if res["esito"] == "fallita" else ""), flush=True)
     falliti = [r for r in esiti if r["esito"] == "fallita"]
-    scrivi_atomico(dir_c / f"esito_{modalita}.json", json.dumps(
+    # UN ESITO PER LANCIO, nominato dai bracci: il file unico della fase 3 e'
+    # stato sovrascritto dal primo lancio di E3, e non si ripete
+    nome_esito = (f"esito_{modalita}.json" if tuple(a.braccio) == BRACCI
+                  else f"esito_{modalita}_{'_'.join(a.braccio)}.json")
+    scrivi_atomico(dir_c / nome_esito, json.dumps(
         {"modalita": modalita, "lavoratori": a.lavoratori, "fili": a.fili,
          "completate": len(esiti) - len(falliti), "fallite": falliti,
          "ore_calendario": (time.time() - t_in) / 3600,
