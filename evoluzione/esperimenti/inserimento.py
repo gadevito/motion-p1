@@ -42,9 +42,21 @@ def impronta_nodi(ids) -> str:
     return hashlib.sha256(a.tobytes()).hexdigest()[:16]
 
 
+# le ULTIME 6 ORE dell'acquisizione, in passi da 15 minuti: le origini che
+# R-mon usa per la selezione, e SOLO quelle (protocol/E3.md)
+PASSI_6H = 24
+
+
+def origini_selezione_nuovi(o_acq, t1: int) -> list:
+    """Le origini d'acquisizione nelle ultime 6 ore prima di t1: i bersagli
+    maturano entro t1 per costruzione di `origini_acquisizione`."""
+    return [int(t) for t in o_acq if int(t) > int(t1) - PASSI_6H]
+
+
 def cfg_braccio(b: str, c: str, p: int, s: int, out: Path, nodi,
-                o_acq) -> dict:
-    """La configurazione del braccio: popolazione, corpus, campionamento."""
+                o_acq, t1=None) -> dict:
+    """La configurazione del braccio: popolazione, corpus, campionamento,
+    selezione del punto di controllo. Tutto dalla tabella unica."""
     cfg = {"epoche": 35, "lotto": 32, "passo": 1e-3, "pazienza": 8,
            "storia_descrittore_passi": 96, "finestra_dinamica_passi": 12,
            "orizzonti": list(ORIZZONTI), "sorgente": "traffic4cast",
@@ -79,6 +91,13 @@ def cfg_braccio(b: str, c: str, p: int, s: int, out: Path, nodi,
         # iniziali finestre per aggiornamento, origini nuove dichiarate
         cfg["nodi_iniziali_R"] = [int(z) for z in nodi["addestramento"]]
         cfg["origini_nuovi"] = [int(z) for z in o_acq]
+    if pb.addestra and pb.selezione_ck != "initial_network":
+        if t1 is None:
+            raise ValueError(f"{b}: la selezione «{pb.selezione_ck}» richiede t1")
+        cfg["checkpoint_selection_population"] = pb.selezione_ck
+        cfg["origini_selezione_nuovi"] = origini_selezione_nuovi(o_acq, t1)
+        if not cfg["origini_selezione_nuovi"]:
+            raise ValueError(f"{b}: nessuna origine nelle ultime 6 ore")
     return cfg
 
 

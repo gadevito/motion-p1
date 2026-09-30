@@ -79,15 +79,19 @@ def scrivi_atomico(f: Path, testo: str):
     os.replace(tmp, f)
 
 
-def piano(contesti, dich, torchsemi, partizioni):
-    """I cinque bracci della stessa combinazione ADIACENTI, ordine ruotato."""
+def piano(contesti, dich, torchsemi, partizioni, bracci=BRACCI):
+    """I bracci della stessa combinazione ADIACENTI, ordine ruotato.
+
+    `bracci` e' il piano della campagna: i cinque della fase 3 per
+    impostazione, R-orig e R-mon per E3."""
+    bracci = tuple(bracci)
     fuori = []
     for i, (s, st) in enumerate(zip(dich, torchsemi)):
         for j, p in enumerate(partizioni):
             r = (i * len(partizioni) + j) % len(contesti)
             for c in contesti[r:] + contesti[:r]:
-                k = (i * len(partizioni) + j) % len(BRACCI)
-                for b in BRACCI[k:] + BRACCI[:k]:
+                k = (i * len(partizioni) + j) % len(bracci)
+                for b in bracci[k:] + bracci[:k]:
                     fuori.append({"contesto": c, "partizione": p,
                                   "seme": int(s), "seme_torch": int(st),
                                   "braccio": b})
@@ -179,7 +183,7 @@ def _lavora(args):
             raise ValueError(f"corpus «{corpus}» senza costruttore")
         if corp is not None:
             reg.artefatto("corpus", **verifica_corpus(corp, nodi["prova"], t0))
-        cfg = cfg_braccio(b, c, p, s, out, nodi, o_acq)
+        cfg = cfg_braccio(b, c, p, s, out, nodi, o_acq, t1=t1)
         reg.configurazione({**cfg, **x, "modalita_misura": modalita,
                             "fili_torch": fili})
         if b in ADDESTRANO:
@@ -232,7 +236,10 @@ def main() -> int:
     from evoluzione.esperimenti.semi import configurazione
     ap = argparse.ArgumentParser(description="fase 3: cinque bracci")
     ap.add_argument("--contesto", nargs="*", default=list(CONTESTI))
-    ap.add_argument("--braccio", nargs="*", default=list(BRACCI))
+    # i bracci ammessi sono quelli della tabella unica che passano da questi
+    # esecutori: i cinque della fase 3 e, per E3, R-orig e R-mon
+    ap.add_argument("--braccio", nargs="*", default=list(BRACCI),
+                    choices=list(BRACCI) + ["R-orig", "R-mon"])
     ap.add_argument("--isolato", action="store_true",
                     help="solo il campione prefissato, UN processo alla volta")
     ap.add_argument("--lavoratori", type=int, default=1)
@@ -242,7 +249,8 @@ def main() -> int:
     a = ap.parse_args()
     _, dich, semi_torch = configurazione(inserimento=True)
     dir_c = a.out / ETICHETTA
-    P = [x for x in piano(list(a.contesto), dich, semi_torch, PARTIZIONI)
+    P = [x for x in piano(list(a.contesto), dich, semi_torch, PARTIZIONI,
+                          bracci=list(a.braccio))
          if x["contesto"] in a.contesto and x["braccio"] in a.braccio]
     if a.isolato:
         P = [x for x in P if nel_campione_isolato(x)]

@@ -134,6 +134,65 @@ def campiona(pop: dict, quante: int, rng) -> tuple:
     return nodi, orig
 
 
+# ------------------------------------------------------- PER ORIGINE (E3) --
+# R-orig e R-mon: si estrae uniformemente una COPPIA (nodo, origine) fra tutte
+# quelle ammissibili della rete ampliata.
+#
+#     Pr(i, t) = 1 / N,   N = somma_i n_i
+#
+# Ogni origine ha la stessa probabilita', quindi un nodo pesa quanto la sua
+# storia: un nodo nuovo con 77 origini pesa 77/N, uno iniziale con 7.000 pesa
+# 7.000/N. **Il rapporto atteso fra le riviste di un'origine nuova e di una
+# iniziale e' 1**: e' il controllo obbligatorio di E3. Stesso budget, stesso
+# generatore dedicato, stessi nodi esclusi di `prepara`.
+
+
+def _coppie(pop: dict) -> tuple:
+    """Le coppie ammissibili appiattite, costruite UNA volta e conservate."""
+    if "coppie_nodo" not in pop:
+        nn = np.concatenate([np.full(len(pop["origini"][int(n)]), int(n),
+                                     dtype="int64") for n in pop["ammessi"]])
+        oo = np.concatenate([np.asarray(pop["origini"][int(n)], dtype="int64")
+                             for n in pop["ammessi"]])
+        pop["coppie_nodo"], pop["coppie_orig"] = nn, oo
+    return pop["coppie_nodo"], pop["coppie_orig"]
+
+
+def campiona_per_origine(pop: dict, quante: int, rng) -> tuple:
+    """`quante` coppie (nodo, origine), uniformi sulla COPPIA."""
+    nn, oo = _coppie(pop)
+    idx = rng.integers(0, len(nn), size=quante)
+    return nn[idx], oo[idx]
+
+
+def esposizione_attesa_per_origine(pop: dict, estrazioni: int) -> dict:
+    """Esposizione attesa: `estrazioni / N` per OGNI origine, iniziale o
+    nuova; per nodo, proporzionale a n_i."""
+    nn, _ = _coppie(pop)
+    N = int(len(nn))
+    per_orig = estrazioni / N
+    n_ini = np.array([pop["n_i"][n] for n in pop["ammessi_iniziali"]])
+    n_nuo = np.array([pop["n_i"][n] for n in pop["ammessi_nuovi"]])
+
+    def d(a):
+        if not len(a):
+            return {}
+        return {"minimo": float(a.min()), "mediana": float(np.median(a)),
+                "massimo": float(a.max()), "media": float(a.mean())}
+
+    return {"nodi_ammessi": int(len(pop["ammessi"])), "coppie_ammesse": N,
+            "estrazioni": estrazioni,
+            "attese_per_origine": per_orig,
+            "quota_attesa_nuovi": float(n_nuo.sum() / N) if len(n_nuo) else 0.0,
+            "n_i_iniziali": d(n_ini), "n_i_nuovi": d(n_nuo),
+            "esposizione_per_origine_iniziali": d(np.full(len(n_ini), per_orig)),
+            "esposizione_per_origine_nuovi": d(np.full(len(n_nuo), per_orig)),
+            "rapporto_mediane": 1.0 if len(n_ini) and len(n_nuo) else None,
+            "nota": ("uniforme per origine: ogni coppia (nodo, origine) ha la "
+                     "stessa probabilita'; il rapporto atteso nuovi/iniziali "
+                     "e' 1 per costruzione, quello realizzato va verificato")}
+
+
 def esposizione_realizzata(pop: dict, nodi, origini) -> dict:
     """Che cosa il campionamento ha DAVVERO prodotto.
 

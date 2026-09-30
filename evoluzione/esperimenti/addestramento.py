@@ -425,26 +425,48 @@ def _ciclo_principale(m, opt, g, x, D, ist, nodi, nodi_ck, ist_ck, stat, dtr,
     #                     della rete ampliata, poi un'origine ammissibile per
     #                     quel nodo. **Budget invariato**: 32 x K_iniziali
     #                     finestre nodo-origine per aggiornamento.
+    #   uniforme_origine  E3, R-orig e R-mon: si estrae uniformemente una
+    #                     COPPIA (nodo, origine) fra tutte le ammissibili.
+    #                     Stesso budget, stesso generatore dedicato.
     camp = cfg.get("campionamento", "uniforme_istanti")
-    if camp not in ("uniforme_istanti", "uniforme_nodo"):
+    if camp not in ("uniforme_istanti", "uniforme_nodo", "uniforme_origine"):
         raise ValueError(f"campionamento ignoto: {camp}")
     pop = n_estrazioni = None
-    if camp == "uniforme_nodo":
+    if camp in ("uniforme_nodo", "uniforme_origine"):
         from evoluzione.componente.campionamento import (
-            campiona, esposizione_attesa, esposizione_realizzata, prepara)
+            campiona, campiona_per_origine, esposizione_attesa,
+            esposizione_attesa_per_origine, esposizione_realizzata, prepara)
         pop = prepara(D["classe"], cfg["nodi_iniziali_R"], ist["addestramento"],
                       cfg["nodi_nuovi"], cfg["origini_nuovi"])
         n_estrazioni = int(cfg["lotto"]) * len(cfg["nodi_iniziali_R"])
-        reg.evento(f"campionamento uniforme per nodo: {n_estrazioni} finestre "
+        estrai = campiona if camp == "uniforme_nodo" else campiona_per_origine
+        attesa = (esposizione_attesa if camp == "uniforme_nodo"
+                  else esposizione_attesa_per_origine)
+        reg.evento(f"campionamento {camp}: {n_estrazioni} finestre "
                    f"per aggiornamento, {len(pop['ammessi'])} nodi ammessi, "
                    f"{len(pop['esclusi'])} esclusi")
+    # LA SELEZIONE DEL PUNTO DI CONTROLLO. `nodi_ck`/`ist_ck` sono la rete
+    # iniziale nel periodo di validazione. R-mon (E3) aggiunge i nodi nuovi
+    # sulle ULTIME 6 ORE delle loro 24, in media pesata per numero di celle:
+    # le origini sono dichiarate dalla configurazione, e sono SOLO quelle.
+    sel_mon = (cfg.get("checkpoint_selection_population")
+               == "initial_network_piu_nuovi_6h")
+    if sel_mon:
+        nodi_mon = np.asarray(cfg["nodi_nuovi"], dtype="int64")
+        ist_mon = np.asarray(cfg["origini_selezione_nuovi"], dtype="int64")
+        if not len(ist_mon):
+            raise ValueError("selezione con i nodi nuovi senza origini dichiarate")
+        reg.evento(f"selezione: rete iniziale ({len(nodi_ck)} nodi, "
+                   f"{len(ist_ck)} origini) PIU' {len(nodi_mon)} nodi nuovi su "
+                   f"{len(ist_mon)} origini delle ultime 6 h, media pesata per "
+                   f"celle")
     migliore, u_mig, curve, visti = float("inf"), -1, [], []
     estratti_n, estratti_o = [], []
     t0, t_val = _t.time(), 0.0
     for u in range(1, tetto + 1):
         m.train()
-        if camp == "uniforme_nodo":
-            nn_, oo_ = campiona(pop, n_estrazioni, g)
+        if camp in ("uniforme_nodo", "uniforme_origine"):
+            nn_, oo_ = estrai(pop, n_estrazioni, g)
             estratti_n.append(nn_); estratti_o.append(oo_)
             visti.append(np.unique(oo_))
             X, Y, Mk = _lotto_coppie(x, D["classe"], oo_, nn_)
@@ -467,19 +489,32 @@ def _ciclo_principale(m, opt, g, x, D, ist, nodi, nodi_ck, ist_ck, stat, dtr,
             tv = _t.time()
             r = valuta(m, x, D["classe"], stat_np, nodi_ck, ist_ck, wt,
                        descrittore=dva)
+            pv_ini = r["perdita"]
+            riga = {"aggiornamento": u, "training": float(L.detach()),
+                    "V-full": pv_ini, "celle": r["celle_totali"]}
+            if sel_mon:
+                r2 = valuta(m, x, D["classe"], stat_np, nodi_mon, ist_mon, wt)
+                n1, n2 = r["celle_totali"], r2["celle_totali"]
+                pv = (pv_ini * n1 + r2["perdita"] * n2) / (n1 + n2)
+                riga.update({"V-nuovi-6h": r2["perdita"], "celle_nuovi": n2,
+                             "V-selezione": pv})
+            else:
+                pv = pv_ini
             t_val += _t.time() - tv
-            pv = r["perdita"]
             if not np.isfinite(pv):
                 raise FallimentoMetodo(f"V-full non finita all'aggiornamento {u}")
-            curve.append({"aggiornamento": u, "training": float(L.detach()),
-                          "V-full": pv, "celle": r["celle_totali"]})
+            curve.append(riga)
             reg.evento(f"u{u}: training {float(L.detach()):.5f}, "
-                       f"V-full {pv:.5f}")
+                       f"V-full {pv_ini:.5f}"
+                       + (f", V-nuovi-6h {riga['V-nuovi-6h']:.5f}, "
+                          f"selezione {pv:.5f}" if sel_mon else ""))
             if pv < migliore:                   # a parita', il PRECEDENTE
                 migliore, u_mig = pv, u
                 torch.save({"state_dict": m.state_dict(), "epoca": u,
                             "aggiornamento": u, "validazione": pv,
-                            "criterio": "minimum_full_validation_wCE",
+                            "criterio": ("minimum_full_validation_wCE"
+                                         if not sel_mon else
+                                         "minimum_initial_plus_new6h_wCE"),
                             "training_protocol": "principale",
                             "braccio": braccio_,
                             "fornitore": type(forn).__name__,
@@ -492,11 +527,13 @@ def _ciclo_principale(m, opt, g, x, D, ist, nodi, nodi_ck, ist_ck, stat, dtr,
     dur = _t.time() - t0
     tutte = np.concatenate(visti)
     uu, cc = np.unique(tutte, return_counts=True)
-    if camp == "uniforme_nodo":
-        att = esposizione_attesa(pop, n_estrazioni * tetto)
+    if camp in ("uniforme_nodo", "uniforme_origine"):
+        att = attesa(pop, n_estrazioni * tetto)
         rea = esposizione_realizzata(pop, np.concatenate(estratti_n),
                                      np.concatenate(estratti_o))
-        reg.artefatto("campionamento_uniforme_nodo", attesa=att, realizzata=rea)
+        # IL CONTEGGIO DELLE RIVISTE, salvato: E3 lo dichiara invalidante se
+        # manca. `ripetizioni_per_origine` iniziali contro nuovi e' la tabella.
+        reg.artefatto(f"campionamento_{camp}", attesa=att, realizzata=rea)
     reg.artefatto("protocollo_principale",
                   aggiornamenti=tetto, punti=list(punti),
                   aggiornamento_selezionato=u_mig, V_full_selezionata=migliore,
@@ -587,10 +624,19 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
     # **Non si riusa una variabile generica `validation_nodes`**: la selezione
     # del punto di controllo e la selezione degli iperparametri di F usano
     # popolazioni diverse, e confonderle e' il difetto appena corretto.
+    #   initial_network_piu_nuovi_6h  R-mon (E3): rete iniziale PIU' i nodi
+    #                        nuovi sulle ultime 6 ore delle loro 24, media
+    #                        pesata per celle; i nodi della rete iniziale
+    #                        restano `nodi_ck`, i nuovi li aggiunge il ciclo
     politica_ck = cfg.get("checkpoint_selection_population",
                           "inductive_validation")
-    if politica_ck not in ("initial_network", "inductive_validation"):
+    if politica_ck not in ("initial_network", "inductive_validation",
+                           "initial_network_piu_nuovi_6h"):
         raise ValueError(f"politica ignota: {politica_ck}")
+    if politica_ck == "initial_network_piu_nuovi_6h" and \
+            cfg.get("training_protocol") != "principale":
+        raise ValueError("la selezione con i nodi nuovi esiste solo nel "
+                         "protocollo principale")
     # **Chi non usa descrittori lo dice la tabella**, non un elenco qui: quando
     # l'elenco era locale, E1 ne restava fuori e veniva trattato come P,
     # chiedendo una variante che non ha.
@@ -726,7 +772,7 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
     # i descrittori si calcolano SOLO per P: per gli altri bracci sarebbero
     # un costo inutile, e passarli farebbe sollevare il fornitore
     # I NODI DELLA METRICA DI SELEZIONE, secondo la politica dichiarata
-    nodi_ck = (nodi_rete_iniziale if politica_ck == "initial_network"
+    nodi_ck = (nodi_rete_iniziale if politica_ck.startswith("initial_network")
                else nodi["validazione"])
     ist_ck = orig["validazione"]         # le ORIGINI del periodo di validazione
     # il riferimento del descrittore resta l'INIZIO DEL PERIODO, non la prima

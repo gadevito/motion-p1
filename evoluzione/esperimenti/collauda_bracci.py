@@ -11,9 +11,9 @@ i bracci erano confrontati per nome. Questo collaudo verifica che:
     [2] le viste derivate (CARICANO, PREPARATORI, ...) coincidono;
     [3] `fasi` legge dalla tabella e i suoi controlli trattano R-orig e R-mon
         come R;
-    [4] i valori di campionamento e selezione dichiarati in tabella che
-        `addestra_una` NON accetta ancora sono esattamente quelli di E3:
-        l'esecutore mancante e' dichiarato, non scoperto a meta' campagna;
+    [4] ogni valore di campionamento e selezione dichiarato in tabella e'
+        accettato da `addestra_una`: un braccio senza esecutore si scopre
+        qui, non a meta' campagna;
     [5] nel codice non restano confronti sul nome del braccio fuori da un
         elenco chiuso di eccezioni motivate.
 
@@ -273,8 +273,10 @@ def main() -> int:
     senza = sorted(b for b in T if T[b].addestra and
                    (T[b].campionamento not in camp_ok or
                     T[b].selezione_ck not in sel_ok))
-    v("4a", "i bracci senza esecutore sono esattamente quelli di E3",
-      senza == ["R-mon", "R-orig"],
+    # E3: gli esecutori di R-orig e R-mon esistono (campionamento per
+    # origine, selezione con i nodi nuovi sulle ultime 6 ore)
+    v("4a", "ogni braccio dichiarato ha il suo esecutore in `addestra_una`",
+      senza == [],
       f"campionamenti accettati {camp_ok}, selezioni {sel_ok}; senza "
       f"esecutore: {senza}")
 
