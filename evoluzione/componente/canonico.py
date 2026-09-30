@@ -34,12 +34,14 @@ from pathlib import Path
 
 import torch
 
+from evoluzione.componente.bracci import CARICANO  # noqa: E402,F401
+
 VERSIONE_CANONICO = "1.0"
 MODULI_COMUNI = ("start", "blocchi", "stat", "e1", "e2")
-# i bracci che CARICANO l'artefatto iniziale; F ne e' escluso per costruzione
-# E1 e' E con il token ignoto: carica lo stesso artefatto, perche' il token e'
-# un modulo PER NODO e resta fuori dai moduli comuni.
-CARICANO = ("C", "P", "E", "E1", "A", "R")
+# i bracci che CARICANO l'artefatto iniziale vengono dalla TABELLA UNICA
+# (`componente/bracci.py`, proprieta' `carica_canonico`): F ne e' escluso per
+# costruzione, E1 lo carica perche' il token ignoto e' un modulo PER NODO e
+# resta fuori dai moduli comuni. `CARICANO` resta importabile da qui.
 
 
 class CanonicoViolato(RuntimeError):

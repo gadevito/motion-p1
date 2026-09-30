@@ -22,28 +22,19 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import sys as _sys
+
+_sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from evoluzione.componente.bracci import (  # noqa: E402
+    TABELLA as _TABELLA, proprieta as _proprieta)
+
 CONTESTI = ("Madrid", "Londra", "Melbourne")
 PARTIZIONI = (0, 1, 2)
-BRACCI = ("C", "P", "E", "A", "R", "F")
-# le popolazioni e i corpus, dichiarati: A ed R condividono l'esecutore
-POPOLAZIONE = {
-    "C": "nodi iniziali",
-    "P": "nodi iniziali",
-    "E": "nodi iniziali",
-    "A": "nodi iniziali + nodi che simulano le nuove installazioni",
-    "R": "nodi iniziali + nodi nuovi",
-    "F": "nodi iniziali (da E) + nodi nuovi registrati separatamente",
-}
-CORPUS = {
-    "C": "addestramento originario",
-    "P": "addestramento originario",
-    "E": "addestramento originario",
-    "A": "addestramento originario ESTESO, con la storia anteriore a t0 dei "
-         "nodi privilegiati",
-    "R": "addestramento originario + esempi ammissibili delle prime 24 ore "
-         "dei nodi nuovi, SENZA storia anteriore a t0",
-    "F": "esempi ammissibili delle prime 24 ore dei soli nodi nuovi",
-}
+# i bracci, le popolazioni e i corpus vengono dalla TABELLA UNICA
+# (`componente/bracci.py`): qui restano le viste che gli orchestratori leggono
+BRACCI = tuple(_TABELLA)
+POPOLAZIONE = {b.nome: b.descrizione_popolazione for b in _TABELLA.values()}
+CORPUS = {b.nome: b.descrizione_corpus for b in _TABELLA.values()}
 
 
 class PrerequisitoMancante(RuntimeError):
@@ -159,13 +150,12 @@ def verifica_prova(dir_E: Path, dir_sel: Path, semi,
 
 def descrivi_braccio(b: str) -> dict:
     """Popolazione e corpus dichiarati, da registrare nel manifesto."""
-    if b not in BRACCI:
-        raise ValueError(f"braccio ignoto: {b}")
+    pb = _proprieta(b)                       # solleva se non dichiarato
     return {"braccio": b, "popolazione": POPOLAZIONE[b], "corpus": CORPUS[b],
-            "carica_canonico": b != "F",
-            "nota": ("F parte dal punto di controllo E gia' addestrato"
-                     if b == "F" else
-                     "carica l'artefatto canonico prima dell'ottimizzatore")}
+            "carica_canonico": pb.carica_canonico,
+            "nota": ("carica l'artefatto canonico prima dell'ottimizzatore"
+                     if pb.carica_canonico else
+                     f"{b} parte dal punto di controllo E gia' addestrato")}
 
 
 def controlli_A_R(braccio: str, nodi_addestramento, nodi_nuovi,
@@ -178,19 +168,23 @@ def controlli_A_R(braccio: str, nodi_addestramento, nodi_nuovi,
     na = {int(x) for x in nodi_addestramento}
     nn = {int(x) for x in nodi_nuovi}
     guai = []
-    if braccio == "A":
+    # il CORPUS dichiarato nella tabella decide quale controllo si applica:
+    # R-orig e R-mon (E3) ereditano quello di R senza un caso in piu' qui
+    corpus = _proprieta(braccio).corpus
+    if corpus == "privilegiato":
         if not nn <= na:
-            guai.append("A deve includere i nodi nuovi nella popolazione di "
-                        "addestramento")
+            guai.append(f"{braccio} deve includere i nodi nuovi nella "
+                        f"popolazione di addestramento")
         if min(istanti_addestramento) >= t0:
-            guai.append("A deve poter usare la storia anteriore a t0")
-    elif braccio == "R":
+            guai.append(f"{braccio} deve poter usare la storia anteriore a t0")
+    elif corpus == "post_installazione":
         if not nn <= na:
-            guai.append("R deve includere i nodi nuovi nella popolazione")
+            guai.append(f"{braccio} deve includere i nodi nuovi nella "
+                        f"popolazione")
         anteriori = [int(x) for x in istanti_addestramento if int(x) < t0]
         if not anteriori:
-            guai.append("R non ha istanti anteriori a t0 per i nodi iniziali: "
-                        "il corpus originario manca")
+            guai.append(f"{braccio} non ha istanti anteriori a t0 per i nodi "
+                        f"iniziali: il corpus originario manca")
     else:
         if nn & na:
             guai.append(f"{braccio} non deve avere nodi nuovi in "

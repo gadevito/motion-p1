@@ -43,6 +43,9 @@ from pathlib import Path
 RADICE = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(RADICE))
 
+from evoluzione.componente.bracci import (  # noqa: E402
+    PREPARATORI, proprieta as proprieta_braccio)
+
 BRACCIO = "E"
 # Tre serie, tre cartelle: nessuna sovrascrive le altre.
 #   storico     35 aggiornamenti, validazione sui primi 32 istanti
@@ -159,7 +162,9 @@ def main() -> int:
     ap.add_argument("--contesto", nargs="*", default=list(CONTESTI))
     ap.add_argument("--protocollo", default="griglia",
                     choices=("griglia", "griglia_E1", "principale", "storico"))
-    ap.add_argument("--braccio", default="E", choices=("E", "E1"),
+    # i bracci PREPARATORI, dalla tabella unica: E ed E1 oggi, senza un
+    # elenco locale da tenere allineato
+    ap.add_argument("--braccio", default="E", choices=PREPARATORI,
                     help="E1: token ignoto e identity dropout (E2 del protocollo)")
     ap.add_argument("--rho", type=float, default=0.15,
                     help="frazione di identity dropout, DICHIARATA prima del lancio")
@@ -179,7 +184,8 @@ def main() -> int:
            "storia_descrittore_passi": 96, "finestra_dinamica_passi": 12,
            "orizzonti": [1, 2, 4, 8], "sorgente": "traffic4cast",
            "etichetta": etichetta, "braccio": a.braccio,
-           **({"rho": a.rho} if a.braccio == "E1" else {}),
+           **({"rho": a.rho} if proprieta_braccio(a.braccio).richiede_rho
+              else {}),
            # **LA GRIGLIA REALE VALE PER TUTTI I PROTOCOLLI CHE LA USANO**:
            # confrontare con la sola stringa "griglia" escludeva griglia_E1, e
            # l'esperimento sarebbe partito con origini per indice e pesi
@@ -205,8 +211,8 @@ def main() -> int:
                          "i suoi punti di controllo vanno in cartella propria")
     print(f"  braccio {a.braccio}"
           + (f" | rho = {a.rho} **dichiarato prima del lancio**"
-             if a.braccio == "E1" else ""))
-    d = descrivi_braccio("E" if a.braccio == "E1" else a.braccio)
+             if "rho" in cfg else ""))
+    d = descrivi_braccio(a.braccio)
     print(f"  popolazione: {d['popolazione']} | corpus: {d['corpus']}")
     print(f"  protocollo: **{a.protocollo}** -> {dir_E}")
     if a.protocollo == "principale" or a.protocollo.startswith("griglia"):

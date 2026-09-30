@@ -34,22 +34,19 @@ BRACCI = {"F0p": "predizioni_e2", "F0meanp": "predizioni_e2",
           "F": "predizioni_fase3", "C": "predizioni_fase3"}
 
 
-def main() -> int:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--radice", type=Path, default=Path("results/evoluzione"))
-    a = ap.parse_args()
+def verifica(radice: Path) -> dict:
+    """Le quattro verifiche su ogni cella. Restituisce `{"celle", "ricalcoli",
+    "anomalie": [...]}`: il generatore del congelamento lo legge da qui."""
     guai, celle, ric = [], 0, 0
     from evoluzione.analisi.pesi import carica as carica_pesi
-    print("=" * 80)
-    print("APPAIAMENTO DEI CONFRONTI")
-    print("=" * 80)
+    radice = Path(radice)
     for c in CITTA:
-        for f in sorted((a.radice / "predizioni_e2").glob(f"F0p_{c}_p*_s*.npz")):
+        for f in sorted((radice / "predizioni_e2").glob(f"F0p_{c}_p*_s*.npz")):
             p = int(f.stem.split("_p")[1].split("_")[0])
             s = int(f.stem.split("_s")[1])
             rif = None
             for b, dd in BRACCI.items():
-                g = a.radice / dd / f"{b}_{c}_p{p}_s{s}.npz"
+                g = radice / dd / f"{b}_{c}_p{p}_s{s}.npz"
                 if not g.exists():
                     guai.append(f"{g.name}: assente"); continue
                 z = np.load(g, allow_pickle=True)
@@ -65,9 +62,9 @@ def main() -> int:
             celle += 1
             # [4] su un campione: gli aggregati riproducono la wCE per cella?
             if celle % 20 == 1:
-                pesi = np.asarray(carica_pesi(a.radice / "pesi_griglia", c, p)
+                pesi = np.asarray(carica_pesi(radice / "pesi_griglia", c, p)
                                   .vettore(), dtype="float64")
-                z = np.load(a.radice / "predizioni_e2" /
+                z = np.load(radice / "predizioni_e2" /
                             f"F0p_{c}_p{p}_s{s}.npz", allow_pickle=True)
                 w1, _ = wce_da_predizioni(z["prob"], z["y"], z["m"], pesi)
                 A, Bm, _ = aggregati_per_nodo(z["prob"], z["y"], z["m"], pesi)
@@ -81,7 +78,20 @@ def main() -> int:
                 # e gli aggregati salvati coincidono con quelli ricalcolati?
                 if not np.allclose(A, z["A_per_nodo"], atol=0, rtol=1e-12):
                     guai.append(f"{c} p{p} s{s}: A_per_nodo salvato diverso")
-    print(f"  {celle} celle controllate, {ric} ricalcoli cella per cella")
+    return {"celle": celle, "ricalcoli": ric, "anomalie": guai}
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--radice", type=Path, default=Path("results/evoluzione"))
+    a = ap.parse_args()
+    print("=" * 80)
+    print("APPAIAMENTO DEI CONFRONTI")
+    print("=" * 80)
+    r = verifica(a.radice)
+    guai = r["anomalie"]
+    print(f"  {r['celle']} celle controllate, {r['ricalcoli']} ricalcoli "
+          f"cella per cella")
     print(f"  **{len(guai)} anomalie**")
     for g in guai[:10]:
         print(f"     {g}")

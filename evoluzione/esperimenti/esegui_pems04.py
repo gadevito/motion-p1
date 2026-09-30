@@ -53,6 +53,7 @@ def scrivi_atomico(f: Path, testo: str):
 
 
 def cfg_pems(b: str, c: str, p: int, s: int, out: Path) -> dict:
+    from evoluzione.componente.bracci import proprieta as proprieta_braccio
     return {"epoche": 35, "lotto": 32, "passo": 1e-3, "pazienza": 8,
             "storia_descrittore_passi": 96, "finestra_dinamica_passi": 12,
             "orizzonti": [1, 2, 4, 8], "sorgente": "pems04",
@@ -65,7 +66,8 @@ def cfg_pems(b: str, c: str, p: int, s: int, out: Path) -> dict:
             "popolazione": "iniziale", "campionamento": "uniforme_istanti",
             "valutazione_interna": False,
             "nome_ck": f"ck_{b}_{c}_s{s}.pt",
-            "variante": "BASE-CORRECTED" if b == "P" else None}
+            # lo schema del descrittore lo dice la tabella unica dei bracci
+            "variante": proprieta_braccio(b).variante}
 
 
 def _lavora(args):

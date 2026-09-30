@@ -44,9 +44,11 @@ from evoluzione.componente.predittore import (  # noqa: E402
 from evoluzione.componente.identita import (  # noqa: E402
     LearnedNodeEmbedding, NoIdentity, ObservableIdentityEncoder)
 from evoluzione.componente.canonico import (  # noqa: E402
-    CARICANO, CanonicoViolato, applica as applica_canonico,
+    CanonicoViolato, applica as applica_canonico,
     carica as carica_canonico, stato_iniziale_completo,
     verifica as verifica_canonico)
+from evoluzione.componente.bracci import (  # noqa: E402
+    proprieta as proprieta_braccio)
 from evoluzione.analisi.pesi import (  # noqa: E402
     ClasseAssente, calcola as calcola_pesi, carica as carica_pesi,
     media_orizzonti, percorso as percorso_pesi, salva as salva_pesi)
@@ -355,13 +357,14 @@ def _fornitore(braccio: str, d_desc: int, nodi_addestramento, rho=None):
 
     **Non si deduce dalla presenza di un descrittore**: il braccio e' un
     parametro del protocollo, e dedurlo renderebbe un errore di configurazione
-    indistinguibile da una scelta.
+    indistinguibile da una scelta. **Quale fornitore spetti a quale braccio lo
+    dice la tabella unica** (`componente/bracci.py`, proprieta' `fornitore`):
 
-        C        NoIdentity                  nessun parametro per nodo
-        P        ObservableIdentityEncoder   encoder condiviso
-        E, A, R  LearnedNodeEmbedding        una riga per nodo AMMESSO
-        E1       come E, piu' un TOKEN IGNOTO appreso e identity dropout
-        F        costruito altrove, da E gia' addestrato
+        nessuna          NoIdentity                  C
+        descrittore      ObservableIdentityEncoder   P
+        embedding        LearnedNodeEmbedding        E, A, R, R-orig, R-mon
+        embedding_token  come sopra, piu' un TOKEN IGNOTO appreso    E1
+        adattato_da_E    costruito altrove, da E gia' addestrato      F
 
     **E1 (E2 del protocollo)**: per una frazione `rho` dei nodi di ogni lotto
     l'embedding e' sostituito dal token ignoto, cosi' il modello vede un nodo
@@ -369,20 +372,23 @@ def _fornitore(braccio: str, d_desc: int, nodi_addestramento, rho=None):
     addestramento; `rho` e' dichiarato nella configurazione e fissato a 0,15
     prima di qualunque esecuzione.
     """
-    if braccio == "C":
+    # LA TABELLA decide: componente/bracci.py. Qui si costruisce soltanto.
+    b = proprieta_braccio(braccio)
+    if b.fornitore == "nessuna":
         return NoIdentity(), False
-    if braccio == "P":
+    if b.fornitore == "descrittore":
         return ObservableIdentityEncoder(d_desc), True
-    if braccio in ("E", "A", "R"):
+    if b.fornitore == "embedding":
         return LearnedNodeEmbedding(nodi_addestramento), False
-    if braccio == "E1":
+    if b.fornitore == "embedding_token":
         if rho is None:
-            raise ValueError("il braccio E1 richiede `rho` dichiarato")
+            raise ValueError(f"il braccio {braccio} richiede `rho` dichiarato")
         return LearnedNodeEmbedding(nodi_addestramento, token_ignoto=True,
                                     rho=float(rho)), False
     raise ValueError(
-        f"braccio «{braccio}» non costruibile qui: F parte dal punto di "
-        f"controllo E gia' addestrato, tramite `adattamento.copia_da_E`")
+        f"braccio «{braccio}» (fornitore {b.fornitore}) non costruibile qui: "
+        f"F parte dal punto di controllo E gia' addestrato, tramite "
+        f"`adattamento.copia_da_E`")
 
 
 PUNTI_PRINCIPALE = (35, 229, 458, 687, 916, 1145, 1374, 1603, 1832, 2061,
@@ -564,10 +570,13 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
                 versione_pesi=PZ.versione_pesi, impronta_pesi=PZ.impronta)
     # VARIANTE e BRACCIO sono cose diverse: la prima e' lo schema del
     # descrittore (LEGACY, BASE-CORRECTED, EXTENDED), il secondo la strategia
-    # di identita' (C, P, E, A, R, F). **I bracci che non usano descrittori non
-    # hanno variante**, e chiederne lo schema sarebbe un errore di
+    # di identita' (componente/bracci.py). **I bracci che non usano descrittori
+    # non hanno variante**, e chiederne lo schema sarebbe un errore di
     # configurazione mascherato da KeyError.
     braccio_ = cfg.get("braccio", "P")
+    # LE PROPRIETA' DEL BRACCIO vengono dalla tabella unica: un nome non
+    # dichiarato si ferma qui, prima di caricare dati o costruire modelli.
+    B_ = proprieta_braccio(braccio_)
     # POLITICA DI SELEZIONE DEL PUNTO DI CONTROLLO, esplicita.
     #
     #   initial_network      wCE sui nodi della RETE INIZIALE, nel periodo di
@@ -582,10 +591,10 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
                           "inductive_validation")
     if politica_ck not in ("initial_network", "inductive_validation"):
         raise ValueError(f"politica ignota: {politica_ck}")
-    # **E1 non usa descrittori**, come E: il token ignoto e' identita' appresa,
-    # non una statistica osservabile. Ometterlo da questo elenco lo faceva
-    # trattare come P e chiedere una variante che non ha.
-    if braccio_ in ("C", "E", "E1", "A", "R"):
+    # **Chi non usa descrittori lo dice la tabella**, non un elenco qui: quando
+    # l'elenco era locale, E1 ne restava fuori e veniva trattato come P,
+    # chiedendo una variante che non ha.
+    if not B_.usa_descrittore:
         S = {"statistiche": [], "disponibilita": []}
     elif E.variante not in SCHEMI_T4C:
         raise ValueError(
@@ -626,6 +635,17 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
     popolazione = cfg.get("popolazione", "iniziale")
     if popolazione not in ("iniziale", "ampliata"):
         raise ValueError(f"popolazione ignota: {popolazione}")
+    # LA CONFIGURAZIONE NON PUO' CONTRADDIRE LA TABELLA: popolazione e
+    # campionamento sono proprieta' del braccio, e una configurazione che ne
+    # dichiara altre e' un errore, non una variante.
+    for chiave_, val_, att_ in (
+            ("popolazione", popolazione, B_.popolazione),
+            ("campionamento", cfg.get("campionamento", "uniforme_istanti"),
+             B_.campionamento)):
+        if val_ != att_:
+            raise ValueError(
+                f"braccio {braccio_}: la configurazione dichiara {chiave_} = "
+                f"«{val_}», la tabella dei bracci «{att_}»")
     nodi_nuovi = np.asarray(cfg.get("nodi_nuovi", []), dtype="int64")
     if popolazione == "ampliata":
         if not len(nodi_nuovi):
@@ -646,7 +666,7 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
     # C, P, E, A e R lo caricano. **F e' l'eccezione**: parte dal punto di
     # controllo E gia' addestrato, di cui mantiene backbone, statiche e teste,
     # sicche' caricarvi lo stato iniziale cancellerebbe l'addestramento.
-    braccio = cfg.get("braccio", "P")
+    braccio = braccio_
     # **`c_in` DIPENDE DALLA SORGENTE**: undici su PEMS04, nove su
     # Traffic4cast. Entra nella CHIAVE dell'artefatto canonico, sicche' un
     # valore fisso caricherebbe l'artefatto sbagliato — ed e' quanto accadeva.
@@ -654,7 +674,7 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
                   "nascosti": 32, "blocchi": 4, "d_statiche": 5,
                   "d_statiche_uscita": 8, "n_orizzonti": len(ORIZZONTI),
                   "n_classi": 3}
-    if braccio in CARICANO and cfg.get("canonico", True):
+    if B_.carica_canonico and cfg.get("canonico", True):
         art = carica_canonico(seme_i, cfg_comuni,
                               Path(cfg.get("dir_canonico",
                                            radice / "canonico")))
@@ -665,9 +685,9 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
                       braccio=braccio, identita_intatta=r_app["identita_intatta"])
         reg.evento(f"artefatto canonico {art['chiave']} applicato e verificato: "
                    f"{r_ver['tensori']} tensori comuni identici")
-    elif braccio == "F":
-        reg.evento("braccio F: NON carica l'artefatto iniziale, parte dal "
-                   "punto di controllo E gia' addestrato")
+    elif not B_.carica_canonico:
+        reg.evento(f"braccio {braccio}: NON carica l'artefatto iniziale, parte "
+                   f"dal punto di controllo E gia' addestrato")
 
     # lo stato iniziale COMPLETO del modello risultante, registrato
     f_ini = stato_iniziale_completo(
@@ -738,7 +758,7 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
     # scrivere tutte le esecuzioni di uno stesso braccio sullo STESSO file.
     nome_ck = cfg.get("nome_ck") or (
         f"ck_{braccio_}_{E.contesto}_p{E.partizione}_s{seme_i}.pt"
-        if braccio_ in ("E", "E1") else
+        if B_.prefisso_ck else
         f"ck_{E.contesto}_p{E.partizione}_s{E.inizializzazione}_"
         f"{E.variante}.pt")
     migliore, epoca, pazienza, ck = float("inf"), -1, 0, dir_camp / nome_ck
@@ -816,7 +836,7 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
     # contiene i soli nodi di addestramento, e chiedere una riga per un nodo
     # nuovo solleverebbe. **E' il punto dell'esperimento**: E non sa prevedere
     # su chi non ha visto, e F nasce proprio per questo.
-    if braccio_ in ("E", "E1"):
+    if B_.preparatorio:
         reg.evento(f"braccio {braccio_} preparatorio: nessuna valutazione sui "
                    "nodi di prova, che non sono registrati nella tabella degli "
                    "embedding. Il punto di controllo e' l'uscita della fase.")

@@ -15,6 +15,10 @@ Di supporto: F0' - F0mean' (effetto del solo token) e F' - F.
 **Lettura ESPLORATIVA dichiarata**, non pre-registrata: la relazione fra la
 distanza del token dalla media e la prestazione di F0'.
 
+Il calcolo vive in `calcola`, cosi' che il generatore del congelamento lo
+esegua e ne legga l'esito invece di ricopiare numeri: **stesso generatore,
+stesso seme, stesso ordine delle estrazioni** del comando da terminale.
+
 Uso (dalla radice OR3/):
 
     poetry run python evoluzione/analisi/analizza_e2.py
@@ -27,6 +31,7 @@ import numpy as np
 
 CITTA = ("Madrid", "Londra", "Melbourne")
 B = 4000
+SEME_BOOTSTRAP = 20260930
 CONFRONTI = (("F0p", "C", "1. F0' - C      trasferimento", True),
              ("F0p", "F0", "2. F0' - F0     embedding medio", False),
              ("Fp", "C", "3. F' - C       adattamento", True),
@@ -42,41 +47,39 @@ def wce(A, Bm, idx=None):
                                      np.nan)))
 
 
-def main() -> int:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--e2", type=Path,
-                    default=Path("results/evoluzione/predizioni_e2"))
-    ap.add_argument("--f0", type=Path,
-                    default=Path("results/evoluzione/predizioni_f0"))
-    ap.add_argument("--altri", type=Path,
-                    default=Path("results/evoluzione/predizioni_fase3"))
-    ap.add_argument("--out", type=Path, default=None)
-    a = ap.parse_args()
-    rng = np.random.default_rng(20260930)
-    print("=" * 88)
-    print("E2 — il costo di trasferimento e' rimosso dall'addestramento "
-          "con token ignoto?")
-    print("=" * 88)
-    fuori, esito1, esito3 = {}, [], []
+def calcola(dir_e2: Path, dir_f0: Path, dir_altri: Path, stampa=print) -> dict:
+    """I cinque confronti per citta', con intervallo a ricampionamento
+    congiunto (partizioni x semi x nodi), e il verdetto sul criterio.
+
+    Restituisce `{"confronti": {citta/n1-n2: {media, ic_con_nodi, include_zero}},
+    "celle": {citta: {semi, partizioni, nodi}}, "esito1": [...], "esito3": [...],
+    "criterio": {...}, "mancanti": {citta: [...]}}`.
+    """
+    rng = np.random.default_rng(SEME_BOOTSTRAP)
+    fuori, celle, esito1, esito3, mancanti = {}, {}, [], [], {}
     for c in CITTA:
         d, manca = {}, []
-        for f in sorted(a.e2.glob(f"F0p_{c}_p*_s*.npz")):
+        for f in sorted(Path(dir_e2).glob(f"F0p_{c}_p*_s*.npz")):
             p = int(f.stem.split("_p")[1].split("_")[0])
             s = int(f.stem.split("_s")[1])
-            for b_, dirs in (("F0p", a.e2), ("F0meanp", a.e2), ("Fp", a.e2),
-                             ("F0", a.f0), ("F", a.altri), ("C", a.altri)):
-                g = dirs / f"{b_}_{c}_p{p}_s{s}.npz"
+            for b_, dirs in (("F0p", dir_e2), ("F0meanp", dir_e2),
+                             ("Fp", dir_e2), ("F0", dir_f0),
+                             ("F", dir_altri), ("C", dir_altri)):
+                g = Path(dirs) / f"{b_}_{c}_p{p}_s{s}.npz"
                 if g.exists():
                     d[(b_, p, s)] = np.load(g, allow_pickle=True)
                 else:
                     manca.append(g.name)
-        if manca:
-            print(f"\n{c}: mancano {len(manca)} file, per esempio {manca[0]}")
+        if manca or not d:
+            mancanti[c] = manca or ["nessun file F0p"]
+            stampa(f"\n{c}: mancano {len(mancanti[c])} file, per esempio "
+                   f"{mancanti[c][0]}")
             continue
         parts = sorted({k[1] for k in d}); semi = sorted({k[2] for k in d})
         K = d[("F0p", parts[0], semi[0])]["A_per_nodo"].shape[0]
-        print(f"\n{c}  {len(semi)} semi x {len(parts)} partizioni, {K} nodi")
-        print(f"  {'confronto':28s} {'media':>10} {'IC95 con nodi':>26}")
+        celle[c] = {"semi": len(semi), "partizioni": len(parts), "nodi": int(K)}
+        stampa(f"\n{c}  {len(semi)} semi x {len(parts)} partizioni, {K} nodi")
+        stampa(f"  {'confronto':28s} {'media':>10} {'IC95 con nodi':>26}")
         for n1, n2, eti, chiave in CONFRONTI:
             m0 = float(np.mean([
                 wce(d[(n1, p, s)]["A_per_nodo"], d[(n1, p, s)]["B_per_nodo"])
@@ -94,15 +97,41 @@ def main() -> int:
                           d[(n2, p, s)]["B_per_nodo"], nd)
                     for p in ps for s in ss]))
             q = np.percentile(v, [2.5, 97.5])
-            fuori[f"{c}/{n1}-{n2}"] = {"media": m0, "ic_con_nodi": q.tolist()}
-            zero = q[0] * q[1] <= 0
-            print(f"  {eti:28s} {m0:+10.5f} [{q[0]:+.5f}, {q[1]:+.5f}]"
-                  + ("   include lo zero" if zero else ""))
+            zero = bool(q[0] * q[1] <= 0)
+            fuori[f"{c}/{n1}-{n2}"] = {"media": m0, "ic_con_nodi": q.tolist(),
+                                       "include_zero": zero,
+                                       "etichetta": eti.strip()}
+            stampa(f"  {eti:28s} {m0:+10.5f} [{q[0]:+.5f}, {q[1]:+.5f}]"
+                   + ("   include lo zero" if zero else ""))
             if eti.startswith("1."):
-                esito1.append(zero or q[1] < 0)
+                esito1.append(zero or bool(q[1] < 0))
             if eti.startswith("3."):
-                esito3.append(q[1] < 0)
+                esito3.append(bool(q[1] < 0))
+    ok = sum(esito1) == 3 and sum(esito3) >= 2 and len(esito1) == 3
+    return {"confronti": fuori, "celle": celle, "esito1": esito1,
+            "esito3": esito3, "mancanti": mancanti,
+            "repliche": B, "seme_bootstrap": SEME_BOOTSTRAP,
+            "criterio": {"condizione_1_citta": int(sum(esito1)),
+                         "condizione_3_citta": int(sum(esito3)),
+                         "soddisfatto": bool(ok)}}
 
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--e2", type=Path,
+                    default=Path("results/evoluzione/predizioni_e2"))
+    ap.add_argument("--f0", type=Path,
+                    default=Path("results/evoluzione/predizioni_f0"))
+    ap.add_argument("--altri", type=Path,
+                    default=Path("results/evoluzione/predizioni_fase3"))
+    ap.add_argument("--out", type=Path, default=None)
+    a = ap.parse_args()
+    print("=" * 88)
+    print("E2 — il costo di trasferimento e' rimosso dall'addestramento "
+          "con token ignoto?")
+    print("=" * 88)
+    r = calcola(a.e2, a.f0, a.altri)
+    esito1, esito3 = r["esito1"], r["esito3"]
     print("\n" + "=" * 88)
     print("CRITERIO PRE-REGISTRATO")
     print("=" * 88)
@@ -110,13 +139,13 @@ def main() -> int:
           f"{'soddisfatto' if sum(esito1) == 3 else 'NON soddisfatto'}")
     print(f"  (3) F' - C negativo con intervallo che esclude lo zero in "
           f"{sum(esito3)}/3  {'soddisfatto' if sum(esito3) >= 2 else 'NON soddisfatto'}")
-    ok = sum(esito1) == 3 and sum(esito3) >= 2
+    ok = r["criterio"]["soddisfatto"]
     print(f"\n  > **{'SUCCESSO' if ok else 'NON SODDISFATTO'}**: "
           + ("il costo di trasferimento e' rimosso dall'addestramento con "
              "token ignoto, e l'adattamento locale resta utile"
              if ok else "si riportano gli effetti circoscritti"))
     if a.out:
-        a.out.write_text(json.dumps(fuori, indent=2))
+        a.out.write_text(json.dumps(r, indent=2))
         print(f"\n  salvato in {a.out}")
     return 0
 

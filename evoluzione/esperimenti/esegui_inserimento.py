@@ -44,8 +44,13 @@ from pathlib import Path
 RADICE = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(RADICE))
 
+from evoluzione.componente.bracci import (  # noqa: E402
+    proprieta as proprieta_braccio)
+
+# I CINQUE BRACCI DELLA CAMPAGNA: e' il piano della fase 3, non una proprieta'
+# del braccio. Chi addestra e chi adatta lo dice la tabella unica.
 BRACCI = ("C", "P", "A", "R", "F")
-ADDESTRANO = ("C", "P", "A", "R")
+ADDESTRANO = tuple(b for b in BRACCI if proprieta_braccio(b).addestra)
 ETICHETTA = "inserimento_griglia"
 CALENDARIO = {"Madrid": (8887, 8983), "Londra": (8966, 9062),
               "Melbourne": (8806, 8902)}
@@ -103,7 +108,7 @@ def costo_addestramento(b: str, dt: float) -> dict:
 
     Attribuire a R un inserimento a costo zero rovescerebbe il confronto.
     """
-    if b == "R":
+    if proprieta_braccio(b).costo_all_inserimento:
         return {"addestramento_s": 0.0, "inserimento_s": dt}
     return {"addestramento_s": dt, "inserimento_s": 0.0}
 
@@ -111,7 +116,8 @@ def costo_addestramento(b: str, dt: float) -> dict:
 def tempo_disponibilita(b: str, costo: dict) -> dict:
     """Quando la configurazione e' pronta, dall'installazione: **attesa dei
     dati** e **calcolo**, distinti."""
-    attesa = ACQUISIZIONE_S if b in ("P", "F", "R") else 0.0
+    attesa = (ACQUISIZIONE_S if proprieta_braccio(b).attende_acquisizione
+              else 0.0)
     calcolo = costo.get("inserimento_s", 0.0)
     return {"attesa_dati_s": attesa, "calcolo_inserimento_s": calcolo,
             "disponibilita_s": attesa + calcolo,
@@ -154,20 +160,23 @@ def _lavora(args):
             SEME_PARTIZIONE[p])})
         ok = GR.passi_regolari(D["ts"])
         o_acq = GR.origini_acquisizione(ok, t0, t1)
-        # I CORPUS, con i loro controlli bloccanti
-        if b in ("C", "P"):
+        # I CORPUS, con i loro controlli bloccanti: quale, lo dice la tabella
+        corpus = proprieta_braccio(b).corpus
+        if corpus == "originario":
             corp = costruisci_corpus_iniziale(nodi["addestramento"],
                                               ist["addestramento"])
-        elif b == "A":
+        elif corpus == "privilegiato":
             corp = costruisci_corpus_privilegiato(
                 nodi["addestramento"], nodi["prova"], ist["addestramento"],
                 t0, ok=ok)
-        elif b == "R":
+        elif corpus == "post_installazione":
             corp = costruisci_corpus_post_installazione(
                 nodi["addestramento"], nodi["prova"], ist["addestramento"],
                 t0, t1, ok=ok)
-        else:
+        elif corpus == "acquisizione":
             corp = None
+        else:
+            raise ValueError(f"corpus «{corpus}» senza costruttore")
         if corp is not None:
             reg.artefatto("corpus", **verifica_corpus(corp, nodi["prova"], t0))
         cfg = cfg_braccio(b, c, p, s, out, nodi, o_acq)

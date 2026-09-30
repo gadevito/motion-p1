@@ -19,6 +19,7 @@ import torch
 from evoluzione.componente import griglia as GR
 from evoluzione.componente.adattamento import adatta, carica_E, copia_da_E, \
     verifica_vincoli
+from evoluzione.componente.bracci import proprieta as proprieta_braccio
 from evoluzione.componente.episodio import lotti_episodio
 from evoluzione.componente.predittore import ORIZZONTI
 from evoluzione.componente.valutazione import valuta
@@ -63,13 +64,19 @@ def cfg_braccio(b: str, c: str, p: int, s: int, out: Path, nodi,
            # stesso braccio scriverebbero sullo stesso punto di controllo
            "nome_ck": f"ck_{b}_{c}_p{p}_s{s}.pt",
            "variante": None}
-    if b == "P":
-        cfg["variante"] = "BASE-CORRECTED"
-    if b in ("A", "R"):
-        cfg["popolazione"] = "ampliata"
-    if b == "R":
-        # il contratto di R: uniforme per NODO, budget invariato
-        cfg["campionamento"] = "uniforme_nodo"
+    # popolazione, campionamento e variante vengono dalla TABELLA UNICA
+    # (`componente/bracci.py`): qui non si confrontano nomi
+    # **Anche F passa di qui**: la sua configurazione va nel manifesto, e
+    # `addestra_una` non la vede. Per chi non addestra restano i predefiniti
+    # («iniziale», «uniforme_istanti», nessuna variante), come prima.
+    pb = proprieta_braccio(b)
+    if pb.addestra:
+        cfg["variante"] = pb.variante
+        cfg["popolazione"] = pb.popolazione
+        cfg["campionamento"] = pb.campionamento
+    if pb.addestra and pb.campionamento != "uniforme_istanti":
+        # il contratto di R e dei suoi derivati: budget invariato, 32 x K
+        # iniziali finestre per aggiornamento, origini nuove dichiarate
         cfg["nodi_iniziali_R"] = [int(z) for z in nodi["addestramento"]]
         cfg["origini_nuovi"] = [int(z) for z in o_acq]
     return cfg
