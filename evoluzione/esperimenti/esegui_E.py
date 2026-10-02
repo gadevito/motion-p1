@@ -256,6 +256,7 @@ def main() -> int:
     ctx = mp.get_context("spawn")
     esiti, t0 = [], time.time()
     lavori = [(x, cfg, str(a.out), a.fili) for x in da_fare]
+    lo, hi = proprieta_braccio(a.braccio).parete_attesa_min
     with ctx.Pool(a.lavoratori) as pool:
         for i, r in enumerate(pool.imap_unordered(_lavora, lavori), 1):
             esiti.append(r)
@@ -267,8 +268,17 @@ def main() -> int:
                   f"{trasc/3600:5.1f} h, ne restano ~{resto/3600:5.1f} h"
                   + (f"\n        {r['errore']}" if r["esito"] == "fallita"
                      else ""), flush=True)
+            # tempo di parete come ASSERT (protocollo §13): fuori intervallo
+            # si ferma il lancio
+            if r["esito"] == "completata" and not (lo <= r["secondi"] / 60 <= hi):
+                print(f"\n  **FERMO IL LANCIO**: {r['secondi']/60:.1f} min fuori "
+                      f"dall'intervallo atteso [{lo:g}, {hi:g}] per {a.braccio}",
+                      flush=True)
+                esiti.append({**r, "esito": "fuori_intervallo"})
+                pool.terminate()
+                break
 
-    fallite = [r for r in esiti if r["esito"] == "fallita"]
+    fallite = [r for r in esiti if r["esito"] in ("fallita", "fuori_intervallo")]
     scrivi_atomico_testo(dir_E / "esito_E.json", json.dumps(
         {"protocollo": a.protocollo, "completate": len(esiti) - len(fallite),
          "fallite": fallite, "gia_fatte": len(fatte),

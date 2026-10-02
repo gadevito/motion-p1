@@ -504,6 +504,17 @@ def _ciclo_principale(m, opt, g, x, D, ist, nodi, nodi_ck, ist_ck, stat, dtr,
             if not np.isfinite(pv):
                 raise FallimentoMetodo(f"V-full non finita all'aggiornamento {u}")
             curve.append(riga)
+            # SU RICHIESTA, ogni punto di controllo si salva a parte (analisi
+            # aggiunta del 2/10: riselezione post hoc). Il punto MIGLIORE resta
+            # quello del protocollo, salvato sotto; questi non lo toccano.
+            if cfg.get("salva_tutti_i_punti"):
+                torch.save({"state_dict": m.state_dict(), "aggiornamento": u,
+                            "V-full": pv_ini, "V-selezione": pv,
+                            "braccio": braccio_, "contesto": E.contesto,
+                            "partizione": E.partizione,
+                            "nodi_iniziali": [int(z) for z in nodi["addestramento"]],
+                            "d_descrittore": d_desc, "seme_inizializzazione": seme_i},
+                           ck.with_name(f"{ck.stem}_u{u}.pt"))
             reg.evento(f"u{u}: training {float(L.detach()):.5f}, "
                        f"V-full {pv_ini:.5f}"
                        + (f", V-nuovi-6h {riga['V-nuovi-6h']:.5f}, "

@@ -356,6 +356,7 @@ def main() -> int:
     ctx = mp.get_context("spawn")
     esiti, t_in = [], time.time()
     lavori = [(x, str(a.out), a.fili, modalita) for x in da_fare]
+    fuori_intervallo = None
     with ctx.Pool(a.lavoratori) as pool:
         for i, res in enumerate(pool.imap_unordered(_lavora, lavori), 1):
             esiti.append(res)
@@ -366,7 +367,25 @@ def main() -> int:
                   f"{tr/3600:4.1f} h, restano ~{tr/i*(len(lavori)-i)/3600:4.1f} h"
                   + (f"\n        {res['errore']}"
                      if res["esito"] == "fallita" else ""), flush=True)
+            # IL TEMPO DI PARETE E' UN ASSERT (protocollo §13): un'esecuzione
+            # completata fuori dall'intervallo dichiarato per il braccio ferma
+            # il lancio. Un minuto per un riaddestramento non e' un
+            # riaddestramento.
+            lo, hi = proprieta_braccio(res["braccio"]).parete_attesa_min
+            if res["esito"] == "completata" and not (lo <= res["secondi"] / 60 <= hi):
+                fuori_intervallo = (res, lo, hi)
+                print(f"\n  **FERMO IL LANCIO**: {res['braccio']} "
+                      f"{res['contesto']} p{res['partizione']} s{res['seme']} "
+                      f"ha impiegato {res['secondi']/60:.1f} min, fuori "
+                      f"dall'intervallo atteso [{lo:g}, {hi:g}] min. Il "
+                      f"manifesto resta: va esaminato, non rilanciato.",
+                      flush=True)
+                pool.terminate()
+                break
     falliti = [r for r in esiti if r["esito"] == "fallita"]
+    if fuori_intervallo is not None:
+        falliti.append({**fuori_intervallo[0], "esito": "fuori_intervallo",
+                        "intervallo_min": list(fuori_intervallo[1:])})
     # UN ESITO PER LANCIO, nominato dai bracci: il file unico della fase 3 e'
     # stato sovrascritto dal primo lancio di E3, e non si ripete
     nome_esito = (f"esito_{modalita}.json" if tuple(a.braccio) == BRACCI

@@ -65,6 +65,9 @@ class Braccio:
     variante: str | None        # schema del descrittore, se lo usa
     descrizione_popolazione: str
     descrizione_corpus: str
+    parete_attesa_min: tuple    # (min, max) minuti di parete per esecuzione,
+                                # misura compresa, anche in concorrenza a 8:
+                                # un'esecuzione fuori intervallo FERMA il lancio
 
     def __post_init__(self):
         guai = []
@@ -86,6 +89,9 @@ class Braccio:
             guai.append("rho incoerente col fornitore")
         if not self.addestra and (self.carica_canonico or self.preparatorio):
             guai.append("non addestra ma carica il canonico o e' preparatorio")
+        lo, hi = self.parete_attesa_min
+        if not (0 < lo < hi):
+            guai.append(f"intervallo di parete incoerente {self.parete_attesa_min}")
         if guai:
             raise ValueError(f"braccio {self.nome}: " + "; ".join(guai))
 
@@ -94,7 +100,15 @@ def _b(nome, fornitore, *, canonico=True, preparatorio=False, prefisso=False,
        addestra=True, popolazione="iniziale", corpus="originario",
        campionamento="uniforme_istanti", selezione="initial_network",
        costo_inserimento=False, attesa=False, variante=None,
-       pop_descr="nodi iniziali", corpus_descr="addestramento originario"):
+       pop_descr="nodi iniziali", corpus_descr="addestramento originario",
+       parete=None):
+    # TEMPO DI PARETE ATTESO per esecuzione, in minuti. Chi addestra: 2.290
+    # aggiornamenti, 40-50 min isolato, fino a ~90 in concorrenza a 8;
+    # chi adatta: secondi di adattamento piu' la valutazione. E' il controllo
+    # che avrebbe fermato i 216 adattamenti usciti col nome di un
+    # riaddestramento (un minuto l'uno).
+    if parete is None:
+        parete = (15.0, 180.0) if addestra else (0.1, 20.0)
     return Braccio(
         nome=nome, fornitore=fornitore,
         usa_descrittore=(fornitore == "descrittore"),
@@ -103,7 +117,8 @@ def _b(nome, fornitore, *, canonico=True, preparatorio=False, prefisso=False,
         corpus=corpus, campionamento=campionamento, selezione_ck=selezione,
         costo_all_inserimento=costo_inserimento, attende_acquisizione=attesa,
         richiede_rho=(fornitore == "embedding_token"), variante=variante,
-        descrizione_popolazione=pop_descr, descrizione_corpus=corpus_descr)
+        descrizione_popolazione=pop_descr, descrizione_corpus=corpus_descr,
+        parete_attesa_min=tuple(float(z) for z in parete))
 
 
 _AMPLIATA_A = "nodi iniziali + nodi che simulano le nuove installazioni"

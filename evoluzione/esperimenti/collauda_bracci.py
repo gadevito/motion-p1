@@ -209,6 +209,12 @@ def main() -> int:
           for b in CORPUS_COSTRUTTORE_PRIMA))
     v("1q", "rho richiesto da E1 soltanto",
       all(T[b].richiede_rho == (b == "E1") for b in CONGELATI))
+    v("1r", "tempo di parete atteso: chi addestra non sotto i 15 minuti, F "
+      "non oltre i 20; un adattamento spacciato per riaddestramento (1 min) "
+      "cade fuori",
+      all(T[b].parete_attesa_min[0] >= 15 for b in T if T[b].addestra)
+      and T["F"].parete_attesa_min[1] <= 20
+      and not (T["R-orig"].parete_attesa_min[0] <= 1.0))
 
     # ------------------------------------------------------------ [2] ----
     print("\n[2] le viste derivate")
