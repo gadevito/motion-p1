@@ -174,6 +174,15 @@ def _lavora(args):
     c, p, s, b = x["contesto"], x["partizione"], x["seme"], x["braccio"]
     t0, t1 = CALENDARIO[c]
     f_out = out / ETICHETTA / f"{b}_{c}_p{p}_s{s}.json"
+    # RIMISURA ISOLATA di una cella gia' eseguita in concorrenza: la wCE
+    # rieseguita deve coincidere con quella registrata (stesso seme, numerica
+    # deterministica). Se non coincide, NON si sovrascrive: e' un difetto.
+    precedente = None
+    if f_out.exists() and modalita == "isolata":
+        try:
+            precedente = json.loads(f_out.read_text())
+        except (OSError, ValueError):
+            precedente = None
     t_avvio = time.time()
     reg = Registro.avvia(f"{ETICHETTA}/{b}",
                          note=f"{c} p{p} seme {s} braccio {b} [{modalita}]",
@@ -232,7 +241,23 @@ def _lavora(args):
         costo_tot["inserimento_s"] = (costo_tot.get("inserimento_s", 0.0)
                                       + costo_tot.get(
                                           "costruzione_descrittore_s", 0.0))
+        if precedente is not None:
+            w_prec = precedente["valutazione"]["perimetro_primario"]["perdita"]
+            w_ora = r["metriche"]["perimetro_primario"]["perdita"]
+            scarto = abs(w_ora - w_prec) / max(abs(w_prec), 1e-12)
+            if scarto > 1e-6:
+                raise RuntimeError(
+                    f"rimisura isolata NON riproduce la concorrente: wCE "
+                    f"{w_ora:.9f} contro {w_prec:.9f} (scarto {scarto:.2e}); "
+                    f"il manifesto precedente resta intatto")
+            reg.evento(f"rimisura isolata: riproduce la concorrente, scarto "
+                       f"{scarto:.2e}")
         man = {**x, "modalita_misura": modalita, "fili_torch": fili,
+               **({"rimisura_di": {"modalita": precedente.get("modalita_misura"),
+                                   "istante": precedente.get("istante"),
+                                   "wce": precedente["valutazione"]
+                                   ["perimetro_primario"]["perdita"]}}
+                  if precedente is not None else {}),
                "costo": costo_tot,
                "tempo_disponibilita": tempo_disponibilita(b, costo_tot), "valutazione": r["metriche"],
                "corpus": (corp["manifesto"] if corp is not None else None),
@@ -264,6 +289,9 @@ def main() -> int:
                     choices=list(BRACCI) + ["R-orig", "R-mon"])
     ap.add_argument("--isolato", action="store_true",
                     help="solo il campione prefissato, UN processo alla volta")
+    ap.add_argument("--rimisura", action="store_true",
+                    help="con --isolato: riesegue le celle del campione anche "
+                         "se gia' fatte in concorrenza; la wCE deve coincidere")
     ap.add_argument("--lavoratori", type=int, default=1)
     ap.add_argument("--fili", type=int, default=1)
     ap.add_argument("--piano", action="store_true")
@@ -305,7 +333,14 @@ def main() -> int:
     fatte = [x for x in P if marcatore(
         dir_c / f"{x['braccio']}_{x['contesto']}_p{x['partizione']}"
                 f"_s{x['seme']}.json").exists()]
-    da_fare = [x for x in P if x not in fatte]
+    if a.rimisura and not a.isolato:
+        print("  --rimisura vale solo con --isolato")
+        return 1
+    da_fare = P if a.rimisura else [x for x in P if x not in fatte]
+    if a.rimisura:
+        print(f"  --rimisura: {len(da_fare)} celle del campione rieseguite in "
+              f"isolamento; i manifesti si sovrascrivono SOLO se la wCE "
+              f"coincide")
     print(f"\n  completate: {len(fatte)} | da eseguire: {len(da_fare)}")
     if a.piano:
         from collections import Counter

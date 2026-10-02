@@ -87,8 +87,10 @@ def wce_da_predizioni(prob, y, m, pesi):
 
 def main() -> int:
     ap = argparse.ArgumentParser()
+    # i bracci che hanno un punto di controllo o un adattamento in
+    # `inserimento_griglia`: i cinque della fase 3 piu' quelli di E3
     ap.add_argument("--braccio", default="P",
-                    choices=("C", "P", "A", "R", "F"))
+                    choices=("C", "P", "A", "R", "F", "R-orig", "R-mon"))
     ap.add_argument("--pems04", action="store_true",
                     help="verifica esterna. **Nessun aggregato storico da "
                          "riprodurre**: la campagna PEMS04 non ne salva")
