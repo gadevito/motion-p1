@@ -124,7 +124,7 @@ def _perdita_per_nodo(out, Y, M, pesi):
 
 def adatta(m, forn: AdaptedNodeEmbedding, lotti, pesi, passo: float,
            aggiornamenti: int, registro: list | None = None,
-           vettorizzato: bool = True):
+           vettorizzato: bool = True, gancio=None):
     """L'adattamento: Adam, nessun decadimento, nessun arresto anticipato.
 
     **Ciascun aggiornamento usa tutti gli esempi ammissibili del nodo.** Se non
@@ -145,6 +145,11 @@ def adatta(m, forn: AdaptedNodeEmbedding, lotti, pesi, passo: float,
 
     Con `vettorizzato=False` si esegue nodo per nodo: **e' 135 volte piu' lento**
     e serve solo a verificare l'equivalenza.
+
+    `gancio(fatti, perdita)`, se dato, e' chiamato DOPO ogni aggiornamento con
+    il numero di aggiornamenti eseguiti e la perdita totale di quel passo
+    (E4, traiettoria): puo' valutare il modello in `inference_mode`, **non
+    deve modificarlo**. Senza gancio il comportamento e' identico a prima.
     """
     if not lotti:
         if registro is not None:
@@ -188,6 +193,9 @@ def adatta(m, forn: AdaptedNodeEmbedding, lotti, pesi, passo: float,
             torch.stack(perdite).sum().backward()
         opt.step()
         fatti += 1
+        if gancio is not None:
+            gancio(fatti, float(tot.detach()) if vettorizzato
+                   else float(torch.stack(perdite).sum().detach()))
     if registro is not None:
         registro.append({"eseguito": True, "aggiornamenti": fatti,
                          "passo": passo, "richiesti": aggiornamenti,
