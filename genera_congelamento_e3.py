@@ -113,6 +113,13 @@ def f_contro_rorig(out: Path) -> dict:
                 d[(b, p, s)] = np.load(g, allow_pickle=True)
         parts = sorted({k[1] for k in d}); semi = sorted({k[2] for k in d})
         K = d[("F", parts[0], semi[0])]["A_per_nodo"].shape[0]
+        # IL MARGINE DI EQUIVALENZA del protocollo (§12): ±3 % relativo a C,
+        # con TOST. L'intervallo al 95 % interamente dentro il margine e' una
+        # lettura conservativa del TOST (che userebbe il 90 %).
+        wC = float(np.mean([wce(d[("C", p, s)]["A_per_nodo"], d[("C", p, s)]["B_per_nodo"])
+                            for p in parts for s in semi]))
+        fuori[f"{c}/wce_C"] = wC
+        fuori[f"{c}/margine"] = 0.03 * wC
         for n1, n2 in (("F", "C"), ("R-orig", "F")):
             m0 = float(np.mean([wce(d[(n1, p, s)]["A_per_nodo"], d[(n1, p, s)]["B_per_nodo"])
                                 - wce(d[(n2, p, s)]["A_per_nodo"], d[(n2, p, s)]["B_per_nodo"])
@@ -126,7 +133,9 @@ def f_contro_rorig(out: Path) -> dict:
                                   for p in ps for s in ss]))
             q = np.percentile(v, [2.5, 97.5])
             fuori[f"{c}/{n1}-{n2}"] = {"media": m0, "ic_con_nodi": q.tolist(),
-                                       "include_zero": bool(q[0] * q[1] <= 0)}
+                                       "include_zero": bool(q[0] * q[1] <= 0),
+                                       "equivalente_3pc": bool(
+                                           -0.03 * wC <= q[0] and q[1] <= 0.03 * wC)}
     return fuori
 
 
@@ -281,18 +290,29 @@ def documento(R: dict) -> str:
     a("")
     a("## 6. R-orig e F: stesso punto d'arrivo?")
     a("")
-    a("| | F − C | R-orig − F | stesso arrivo |")
-    a("|---|---|---|---|")
-    stessi = 0
+    a("Due letture, entrambe del protocollo (§12): una **differenza** si afferma con "
+      "l'intervallo che esclude lo zero; un'**equivalenza** con il margine convenzionale "
+      "±3 % relativo a C (TOST; qui, in modo conservativo, l'intervallo al 95 % "
+      "interamente dentro il margine).")
+    a("")
+    a("| | F − C | R-orig − F | esclude lo zero | margine ±3 % | equivalenti |")
+    a("|---|---|---|---|---|---|")
+    n_diff = n_eq = 0
     for c in CITTA:
         z1, z2 = FR[f"{c}/F-C"], FR[f"{c}/R-orig-F"]
-        s_ = z2["include_zero"]; stessi += s_
+        diff = not z2["include_zero"]; eq = z2["equivalente_3pc"]
+        n_diff += diff; n_eq += eq
         a(f"| {c} | {_f(z1['media'])} {_ic(z1['ic_con_nodi'])} | {_f(z2['media'])} "
-          f"{_ic(z2['ic_con_nodi'])} | {'si' if s_ else 'no'} |")
+          f"{_ic(z2['ic_con_nodi'])} | {'si' if diff else 'no'} | "
+          f"±{FR[f'{c}/margine']:.3f} | {'si' if eq else 'no'} |")
     a("")
-    a(f"Il riaddestramento leale arriva dove arriva l'adattamento locale in **{stessi} "
-      f"citta' su 3** (R-orig − F con intervallo che include lo zero), a {rapp:.0f} volte "
-      f"il tempo.")
+    a(f"R-orig differisce da F con intervallo che esclude lo zero in {n_diff} citta' su "
+      f"3 — di pochi millesimi, in favore di R-orig a Madrid e di F altrove — ed e' "
+      f"**equivalente a F entro il margine dichiarato in {n_eq} citta' su 3**"
+      + (" (" + ", ".join(c for c in CITTA if FR[f"{c}/R-orig-F"]["equivalente_3pc"]) + ")"
+         if n_eq else "")
+      + f". Il riaddestramento leale compra una differenza di quell'ordine a {rapp:.0f} "
+        f"volte il tempo dell'adattamento.")
     a("")
     a("## 7. Dichiarazioni")
     a("")
@@ -347,8 +367,10 @@ def main() -> int:
     Path("CONGELAMENTO_E3.md").write_text(documento(R))
     print("  generato CONGELAMENTO_E3.md; numeri in results/evoluzione/congelamento_e3.json")
     print("  criterio per citta': " + ", ".join(f"{c} {AN['principale'][c]}" for c in CITTA))
-    print("  stesso arrivo R-orig/F: " + ", ".join(
-        f"{c} {'si' if FR[f'{c}/R-orig-F']['include_zero'] else 'no'}" for c in CITTA))
+    print("  R-orig/F — esclude lo zero: " + ", ".join(
+        f"{c} {'si' if not FR[f'{c}/R-orig-F']['include_zero'] else 'no'}" for c in CITTA))
+    print("  R-orig/F — equivalenti entro ±3 %: " + ", ".join(
+        f"{c} {'si' if FR[f'{c}/R-orig-F']['equivalente_3pc'] else 'no'}" for c in CITTA))
     return 0
 
 
