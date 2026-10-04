@@ -157,18 +157,31 @@ def _carica(contesto, dir_masc: Path):
             "classe": np.asarray(B["congestion_emp"], "int64"), "rif": rif}
 
 
-def _partizioni(D, gen):
-    """Nodi 70/15/15 dal generatore di PARTIZIONE, periodi cronologici."""
+def _partizioni(D, gen, fine=None):
+    """Nodi 70/15/15 dal generatore di PARTIZIONE, periodi cronologici.
+
+    `fine` (E5): il t0 di un episodio precedente. I periodi si ricavano da
+    tutto cio' che precede `fine` con le STESSE QUOTE del principale
+    (70/85 addestramento, 15/85 selezione); la prova parte da `fine`. I nodi
+    non cambiano. Senza `fine` il risultato e' identico a prima.
+    """
     K = D["r"].shape[1]
     p = gen["partizione"].permutation(K)
     a, b = int(K * .70), int(K * .85)
     T = D["r"].shape[0]
     e = T - max(ORIZZONTI)
+    if fine is None:
+        a_tr, a_va = int(e * .70), int(e * .85)
+    else:
+        fine = int(fine)
+        if not FINESTRA <= fine < e:
+            raise ValueError(f"fine del periodo {fine} fuori da [{FINESTRA}, {e})")
+        a_tr, a_va = int(fine * .70 / .85), fine
     return ({"addestramento": np.sort(p[:a]), "validazione": np.sort(p[a:b]),
              "prova": np.sort(p[b:])},
-            {"addestramento": np.arange(FINESTRA - 1, int(e * .70)),
-             "validazione": np.arange(int(e * .70), int(e * .85)),
-             "prova": np.arange(int(e * .85), e)})
+            {"addestramento": np.arange(FINESTRA - 1, a_tr),
+             "validazione": np.arange(a_tr, a_va),
+             "prova": np.arange(a_va, e)})
 
 
 def _normalizzazione(D, nodi, ist):
@@ -567,7 +580,8 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
     dir_masc = radice / "maschere"
     _coerenza_pems04(E.contesto, E.partizione)
     D = _carica(E.contesto, dir_masc)
-    nodi, ist = _partizioni(D, gen)
+    # `fine_periodo` (E5): un episodio precedente; assente, i periodi di sempre
+    nodi, ist = _partizioni(D, gen, cfg.get("fine_periodo"))
     NORM, nr, nv = _normalizzazione(D, nodi, ist)
 
     # LA GRIGLIA TEMPORALE. `ist` resta l'insieme delle RIGHE del periodo — la
@@ -790,7 +804,10 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
     # origine ammissibile: filtrare le origini non deve spostarlo
     t_desc_va = int(ist["validazione"][0])
     t_desc_tr = int(ist["addestramento"][-1])
-    if ok_griglia is not None:
+    # la finestra del DESCRITTORE si verifica per chi lo usa: per gli altri
+    # bracci non esiste, e un salto della griglia a ridosso del confine di un
+    # periodo (E5, episodi precedenti) li fermerebbe senza motivo
+    if ok_griglia is not None and usa_desc:
         _verifica_finestra(ok_griglia, t_desc_tr)
         _verifica_finestra(ok_griglia, t_desc_va)
 
