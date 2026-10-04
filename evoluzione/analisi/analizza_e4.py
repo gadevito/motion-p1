@@ -54,6 +54,7 @@ def fig_curva(R, f: Path):
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
+    import matplotlib.ticker
     fig, axs = plt.subplots(1, 3, figsize=(12, 3.8), sharey=True)
     for ax, c in zip(axs, CITTA):
         for nome, et, col in (("F", "F (da E)", "C0"), ("Fp", "F' (da E')", "C1")):
@@ -68,6 +69,10 @@ def fig_curva(R, f: Path):
         ax.axhline(0, color="k", lw=0.8)
         ax.set_xscale("log"); ax.set_xticks(DURATE)
         ax.set_xticklabels([ETICHETTA_L[L] for L in DURATE])
+        # asse logaritmico: i tick minori automatici si sovrappongono alle
+        # etichette delle durate (rilievo del revisore, 4/10)
+        ax.xaxis.set_minor_locator(matplotlib.ticker.NullLocator())
+        ax.xaxis.set_minor_formatter(matplotlib.ticker.NullFormatter())
         ax.set_title(f"{c} — {R['curva'][f'{c}/origini_comuni']} origini comuni")
         ax.set_xlabel("durata d'adattamento")
     axs[0].set_ylabel("Δ wCE rispetto a C (età > 1 settimana)")
