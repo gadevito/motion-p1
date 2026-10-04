@@ -369,9 +369,17 @@ def documento(R: dict) -> str:
           "`copertura_e4.json` non e' presente in `results/evoluzione`, quindi qui non si "
           "ricopiano.")
     else:
-        a("- Analisi di copertura (punto 5): " + "; ".join(
-            f"{c} ρ = {R['copertura'][c].get('spearman', R['copertura'][c].get('rho', float('nan'))):+.2f}"
-            for c in CITTA if c in R["copertura"] and isinstance(R["copertura"][c], dict)) + ".")
+        righe = []
+        for c in CITTA:
+            z = R["copertura"].get(c, {})
+            if "spearman_celle_FC" not in z:
+                righe.append(f"{c} n.d."); continue
+            r1, r2 = z["spearman_celle_FC"], z["spearman_celle_FpC"]
+            righe.append(f"{c} ρ(celle valide, F − C) = {r1['rho']:+.2f} "
+                         f"[{r1['ic_nodi'][0]:+.2f}, {r1['ic_nodi'][1]:+.2f}], "
+                         f"F′ − C {r2['rho']:+.2f} [{r2['ic_nodi'][0]:+.2f}, {r2['ic_nodi'][1]:+.2f}]")
+        a("- Analisi di copertura (punto 5, descrittiva, `copertura_e4.json`): "
+          + "; ".join(righe) + ". Senza soglia di successo: ipotesi per E7.")
     a("")
     a("## 10. Impronte")
     a("")
