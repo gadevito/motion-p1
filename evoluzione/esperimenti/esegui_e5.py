@@ -181,15 +181,18 @@ def fase_prepara(out: Path, piano: bool):
                                "origini_escluse": len(v)} for i, v in per_salto.items()}}
         # pesi per episodio (2, 3), piu' la verifica che l'episodio 1 sia quello di sempre
         for p in (0, 1, 2):
-            gen = {"partizione": np.random.default_rng(SEME_PARTIZIONE[p])}
-            nodi, ist = _partizioni(D, gen)
+            # UN GENERATORE NUOVO PER OGNI CHIAMATA: `_partizioni` lo consuma,
+            # e riusarlo darebbe una permutazione diversa dei nodi
+            def gen():
+                return {"partizione": np.random.default_rng(SEME_PARTIZIONE[p])}
+            nodi, ist = _partizioni(D, gen())
             P1 = carica_pesi(out / "pesi_griglia", c, p)
             if P1.periodo_addestramento != [int(GR.filtra(ist["addestramento"], amm)[0]),
                                             int(GR.filtra(ist["addestramento"], amm)[-1])]:
                 raise RuntimeError(f"{c} p{p}: il periodo dei pesi del principale non e' "
                                    f"quello di _partizioni senza `fine`")
             for k in NUOVI:
-                nodi_k, ist_k = _partizioni(D, gen, _fine_periodo(k, ep[c]))
+                nodi_k, ist_k = _partizioni(D, gen(), _fine_periodo(k, ep[c]))
                 if not np.array_equal(nodi_k["prova"], nodi["prova"]):
                     raise RuntimeError("i nodi cambiano con `fine`: non devono")
                 orig = GR.filtra(ist_k["addestramento"], amm)
