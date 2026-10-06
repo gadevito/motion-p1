@@ -33,9 +33,9 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from evoluzione.esperimenti.esegui_e4 import (  # noqa: E402
-    CITTA, FASCE_ETA, _aggregati, _boot, _carica_celle, _wce)
+    B_BOOT, CITTA, FASCE_ETA, _aggregati, _boot, _carica_celle, _wce)
 
-B_BOOT, SEME = 4000, 20261005
+SEME = 20261005                     # le repliche sono esegui_e4.B_BOOT, usate da _boot
 TOLLERANZA = 1e-9
 
 

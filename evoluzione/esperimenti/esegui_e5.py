@@ -51,7 +51,7 @@ sys.path.insert(0, str(RADICE))
 
 from evoluzione.componente.bracci import proprieta as proprieta_braccio  # noqa: E402
 from evoluzione.esperimenti.esegui_e4 import (  # noqa: E402
-    CITTA, D_STAT, FASCE_ETA, PUNTI_TRAIETTORIA, _aggregati, _boot,
+    B_BOOT, CITTA, D_STAT, FASCE_ETA, PUNTI_TRAIETTORIA, _aggregati, _boot,
     _nome_e_token, _politica, _wce, calendario)
 
 EPISODI = (1, 2, 3)
@@ -61,7 +61,9 @@ DURATE = (96, 192, 672)                          # 24 h, 48 h (tau di Madrid e L
 MODELLI_BASE = ("C", "A", "F0p") + tuple(f"Fp_{L}" for L in DURATE) + ("Fp_96k",)
 DIR_PRED = "predizioni_e5"
 RHO = 0.15
-B_BOOT, SEME_BOOT = 4000, 20261007
+# le repliche sono quelle di `_boot` (esegui_e4.B_BOOT): una costante locale
+# omonima non comanderebbe nulla
+SEME_BOOT = 20261007
 L24 = 96
 
 
