@@ -203,6 +203,11 @@ def documento(R: dict) -> str:
     a(f"Segno dell'intervallo: − (sotto lo zero), + (sopra), 0 (lo zero dentro). **{n_conc} affermazioni su "
       f"{n_tot} hanno lo stesso segno in tutti e tre gli episodi**; le altre vanno riportate nel paper come "
       f"dipendenti dall'episodio, con la figura `figure/episodi_e5.png`.")
+    hi_b = max(RS["affermazioni"][f"{c}/ep{e}/b"]["ic_con_nodi"][1] for c in CITTA for e in EPISODI)
+    n_b_neg = sum(1 for c in CITTA for e in EPISODI if RS["affermazioni"][f"{c}/ep{e}/b"]["ic_con_nodi"][1] < 0)
+    a(f"- **Il criterio primario di E4, esteso ai nove episodi**: gated − F₀′ ha estremo superiore massimo "
+      f"{_f(hi_b)} ({'≤ +0,005: la politica non peggiora mai il modello che la ospita, su nessuna data' if hi_b <= 0.005 else 'OLTRE +0,005'}); "
+      f"lo migliora con intervallo sotto lo zero in {n_b_neg}/9.")
     for k_, et in AFF.items():
         cc_ = [c for c in CITTA if conc[(c, k_)]]
         a(f"- ({k_}) {et}: concorda in {len(cc_)}/3 citta'" + (f" ({', '.join(cc_)})" if cc_ else "")
@@ -218,7 +223,18 @@ def documento(R: dict) -> str:
             rr = [RS["altri"][f"{c}/ep{e}/{k_}"] for e in EPISODI]
             a(f"| {c} | {et} | " + " | ".join(f"{_f(r['media'])} {_ic(r['ic_con_nodi'])}" for r in rr) + " |")
     a("")
-    a("La secondaria non entra in nessuna affermazione principale (pre-registrata come tale).")
+    note = []
+    for c in CITTA:
+        d = [RS["altri"][f"{c}/ep{e}/Fp_96k-Fp_96"] for e in EPISODI]
+        if all(abs(r["media"]) < 1e-12 for r in d):
+            note.append(f"{c}: k = {KS['k'][c]} coincide con la configurazione congelata, quindi "
+                        f"F′(24 h, k) ≡ F′(24 h) per costruzione")
+        else:
+            note.append(f"{c}: k = {KS['k'][c]}; F′(24 h, k) − F′(24 h) = "
+                        + ", ".join(f"{_f(r['media'])}" for r in d) + " negli episodi 1-3; F′(24 h, k) − C = "
+                        + ", ".join(f"{_f(RS['altri'][f'{c}/ep{e}/Fp_96k-C']['media'])}" for e in EPISODI))
+    a("La secondaria non entra in nessuna affermazione principale (pre-registrata come tale). "
+      + "; ".join(note) + ".")
     a("")
     a("## 6. N al lavoro: nodi sotto soglia per episodio")
     a("")
@@ -228,9 +244,19 @@ def documento(R: dict) -> str:
         q = [RS["nodi_sotto_N"][f"{c}/ep{e}"] for e in EPISODI]
         a(f"| {c} | {q[0]['N']} | " + " | ".join(f"{z['media_per_cella']:.1f} (max {z['massimo']}) su {z['nodi']}" for z in q) + " |")
     a("")
-    inerte = all(RS["nodi_sotto_N"][f"{c}/ep{e}"]["massimo"] == 0 for c in CITTA for e in EPISODI)
-    a("N e' " + ("**rimasto inerte ovunque**: nessun nodo sotto soglia in alcun episodio."
-                 if inerte else "**entrato in gioco** dove la tabella mostra nodi sotto soglia."))
+    dove = [(c, e) for c in CITTA for e in EPISODI if RS["nodi_sotto_N"][f"{c}/ep{e}"]["massimo"] > 0]
+    if not dove:
+        a("N e' **rimasto inerte ovunque**: nessun nodo sotto soglia in alcun episodio.")
+    else:
+        a("N e' **entrato in gioco** in: " + ", ".join(
+            f"{c} ep. {e} ({RS['nodi_sotto_N'][f'{c}/ep{e}']['media_per_cella']:.0f} nodi su "
+            f"{RS['nodi_sotto_N'][f'{c}/ep{e}']['nodi']} tenuti su F₀′)" for c, e in dove)
+          + ". In validazione (E4) era inerte; sul test no. Dove molti nodi restano su F₀′, gated − F₀′ "
+            "si avvicina a zero per costruzione: " + "; ".join(
+            f"{c} ep. {e} gated − F₀′ {_f(RS['affermazioni'][f'{c}/ep{e}/b']['media'])} contro "
+            f"F′(1 sett.) − C {_f(RS['affermazioni'][f'{c}/ep{e}/c']['media'])}" for c, e in dove
+            if RS["nodi_sotto_N"][f"{c}/ep{e}"]["media_per_cella"] > 0.5 * RS["nodi_sotto_N"][f"{c}/ep{e}"]["nodi"])
+          + ". La soglia, scelta dallo spareggio, ha trattenuto adattamenti che avrebbero pagato: va detto nel paper.")
     a("")
     a("## 7. F′(1 settimana) − A sull'episodio principale (numero richiesto, calcolato prima di E5)")
     a("")
