@@ -137,11 +137,12 @@ def costo_addestramento(b: str, dt: float) -> dict:
     return {"addestramento_s": dt, "inserimento_s": 0.0}
 
 
-def tempo_disponibilita(b: str, costo: dict) -> dict:
+def tempo_disponibilita(b: str, costo: dict, attesa_s=None) -> dict:
     """Quando la configurazione e' pronta, dall'installazione: **attesa dei
-    dati** e **calcolo**, distinti."""
-    attesa = (ACQUISIZIONE_S if proprieta_braccio(b).attende_acquisizione
-              else 0.0)
+    dati** e **calcolo**, distinti. `attesa_s` (E3-bis): un'acquisizione
+    diversa dalle 24 ore, dichiarata dal lancio."""
+    attesa = ((ACQUISIZIONE_S if attesa_s is None else float(attesa_s))
+              if proprieta_braccio(b).attende_acquisizione else 0.0)
     calcolo = costo.get("inserimento_s", 0.0)
     return {"attesa_dati_s": attesa, "calcolo_inserimento_s": calcolo,
             "disponibilita_s": attesa + calcolo,
@@ -172,8 +173,11 @@ def _lavora(args):
     from evoluzione.esperimenti.semi import SEME_PARTIZIONE
     out = Path(out)
     c, p, s, b = x["contesto"], x["partizione"], x["seme"], x["braccio"]
-    t0, t1 = CALENDARIO[c]
-    f_out = out / ETICHETTA / f"{b}_{c}_p{p}_s{s}.json"
+    # E3-bis: il lancio puo' dichiarare un'acquisizione diversa dalle 24 ore
+    # (calendario ed etichetta propri); senza, tutto come prima
+    t0, t1 = tuple(x.get("calendario") or CALENDARIO[c])
+    et = x.get("etichetta", ETICHETTA)
+    f_out = out / et / f"{b}_{c}_p{p}_s{s}.json"
     # RIMISURA ISOLATA di una cella gia' eseguita in concorrenza: la wCE
     # rieseguita deve coincidere con quella registrata (stesso seme, numerica
     # deterministica). Se non coincide, NON si sovrascrive: e' un difetto.
@@ -184,7 +188,7 @@ def _lavora(args):
         except (OSError, ValueError):
             precedente = None
     t_avvio = time.time()
-    reg = Registro.avvia(f"{ETICHETTA}/{b}",
+    reg = Registro.avvia(f"{et}/{b}",
                          note=f"{c} p{p} seme {s} braccio {b} [{modalita}]",
                          radice=out / "registro")
     try:
@@ -213,6 +217,9 @@ def _lavora(args):
         if corp is not None:
             reg.artefatto("corpus", **verifica_corpus(corp, nodi["prova"], t0))
         cfg = cfg_braccio(b, c, p, s, out, nodi, o_acq, t1=t1)
+        if et != ETICHETTA:
+            cfg["etichetta"] = et
+            cfg["dir_stati_completi"] = str(out / f"stati_completi_{et}")
         reg.configurazione({**cfg, **x, "modalita_misura": modalita,
                             "fili_torch": fili})
         via = esecutore(b)                     # solleva se non lo conosce
@@ -259,7 +266,9 @@ def _lavora(args):
                                    ["perimetro_primario"]["perdita"]}}
                   if precedente is not None else {}),
                "costo": costo_tot,
-               "tempo_disponibilita": tempo_disponibilita(b, costo_tot), "valutazione": r["metriche"],
+               "tempo_disponibilita": tempo_disponibilita(
+                   b, costo_tot, attesa_s=x.get("attesa_dati_s")),
+               "valutazione": r["metriche"],
                "corpus": (corp["manifesto"] if corp is not None else None),
                "origini_acquisizione": len(o_acq),
                "istante": datetime.now(timezone.utc).isoformat()}
@@ -296,12 +305,23 @@ def main() -> int:
     ap.add_argument("--fili", type=int, default=1)
     ap.add_argument("--piano", action="store_true")
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
+    ap.add_argument("--acquisizione-passi", type=int, default=96,
+                    help="E3-bis: passi d'acquisizione (t0, t0 + L]; 672 = una "
+                         "settimana. Diverso da 96 scrive in una cartella propria")
     a = ap.parse_args()
     _, dich, semi_torch = configurazione(inserimento=True)
-    dir_c = a.out / ETICHETTA
+    et = (ETICHETTA if a.acquisizione_passi == 96
+          else f"{ETICHETTA}_{a.acquisizione_passi}")
+    dir_c = a.out / et
     P = [x for x in piano(list(a.contesto), dich, semi_torch, PARTIZIONI,
                           bracci=list(a.braccio))
          if x["contesto"] in a.contesto and x["braccio"] in a.braccio]
+    if et != ETICHETTA:
+        for x in P:
+            x["calendario"] = (CALENDARIO[x["contesto"]][0],
+                               CALENDARIO[x["contesto"]][0] + a.acquisizione_passi)
+            x["etichetta"] = et
+            x["attesa_dati_s"] = a.acquisizione_passi * 900
     if a.isolato:
         P = [x for x in P if nel_campione_isolato(x)]
         if a.lavoratori != 1:
@@ -313,6 +333,11 @@ def main() -> int:
     print(f"FASE 3 — {len(P)} esecuzioni, misura {modalita.upper()}")
     print("=" * 84)
     print(f"  bracci {list(a.braccio)} | {a.lavoratori} processi x {a.fili} filo")
+    if et != ETICHETTA:
+        print(f"  **acquisizione (t0, t0 + {a.acquisizione_passi}] (E3-bis)** -> "
+              f"{dir_c}; calendario "
+              + ", ".join(f"{c} {CALENDARIO[c][0]}-{CALENDARIO[c][0] + a.acquisizione_passi}"
+                          for c in a.contesto))
     if a.isolato:
         print(f"  campione prefissato: partizione {ISOLATO['partizione']}, "
               f"semi {list(ISOLATO['semi'])}, tutte le citta'")
