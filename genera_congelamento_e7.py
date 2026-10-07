@@ -25,7 +25,7 @@ sys.path.insert(0, str(RADICE))
 OUT = Path("results/evoluzione")
 CITTA = ("Madrid", "Londra", "Melbourne")
 EPISODI = (1, 2, 3)
-FILE = ["evoluzione/analisi/e7_stadio1.py", "protocol/E7.md"]
+FILE = ["evoluzione/analisi/e7_stadio1.py", "evoluzione/analisi/e7_posthoc.py", "protocol/E7.md"]
 ET = {"D1": "F′(1 sett.) − C (eta' > 1 sett.)", "D2": "F′(24 h) − C", "D3": "F′(24 h, k) − C"}
 
 
@@ -142,15 +142,44 @@ def documento(R: dict) -> str:
     a("## 5. Che cosa cambia nel paper")
     a("")
     if S["ipotesi"]["vale"] and not D["stadio_2a"]:
-        a("La soglia N sulla copertura delle prime 24 ore e' una condizione **dell'adattamento a 24 ore** "
-          "(dove la copertura correla col beneficio e sotto soglia l'adattamento puo' costare), **non "
-          "dell'adattamento a una settimana**, che paga sotto soglia quanto sopra. La raccomandazione "
-          "diventa: «dopo una settimana, adattare tutti i nodi; la soglia serve solo a chi adatta prima». "
-          "Londra non resta inspiegata: a 24 ore e' copertura e budget (E5, secondaria), a una settimana "
-          "non c'e' nulla da spiegare.")
+        sotto2 = [k for k in S["gruppi"] if k.endswith("/D2/sotto") and not S["gruppi"][k].get("nd")
+                  and S["gruppi"][k]["esclude_zero"] and S["gruppi"][k]["media"] > 0]
+        a(f"La copertura delle prime 24 ore e' una condizione dell'adattamento a 24 ore **in alcuni "
+          f"contesti** — per gradiente in {len(neg2)}/9 (ρ(v, Δ₂) sotto lo zero) e per gruppi in "
+          f"{len(sotto2)} (F′(24 h) − C sopra lo zero sotto soglia: "
+          + ", ".join(f"{k.split('/')[0]} ep. {k.split('/')[1][2:]} {_f(S['gruppi'][k]['media'])}" for k in sotto2)
+          + ") — e **in nessun contesto** dell'adattamento a una settimana, che paga sotto soglia quanto "
+            "sopra. La raccomandazione: «dopo una settimana, adattare tutti i nodi; la soglia serve solo a "
+            "chi adatta prima». Londra: a 24 ore copertura e budget (E5, secondaria); a una settimana "
+            "nulla da spiegare. Cambia quanto si promette, non la raccomandazione.")
     else:
         a("Vedi sezioni 2–4: la copertura resta una domanda aperta e lo stadio 2a e' richiesto.")
     a("")
+    PH = R.get("post_hoc")
+    if PH:
+        a("## 5b. Post hoc dichiarato (richiesto dal revisore dopo il congelamento, costo zero)")
+        a("")
+        a("Le anomalie dello stadio 1 (ρ(v, Δ₁) > 0) sono F′ che guadagna o C che perde sui nodi radi? "
+          "ρ(v, wCE per nodo) di C e di F′(1 sett.), stessi file, stesso ricampionamento:")
+        a("")
+        a("| citta' | ep. | v mediana | v₇ mediana | ρ(v, wCE C) | ρ(v, wCE F′(1 sett.)) | anomalia st. 1 | spiegata da C |")
+        a("|---|---|---|---|---|---|---|---|")
+        for c in CITTA:
+            for e in EPISODI:
+                k = f"{c}/ep{e}"; cp = PH["copertura_episodio"][k]
+                rc, rf = PH["rho"][f"{k}/wCE_C/v"], PH["rho"][f"{k}/wCE_Fp672/v"]
+                an = f"{k}/D1/v" in PH["anomalie_stadio1"]
+                sp = PH["spiegazione_anomalie"].get(f"{k}/D1/v", {}).get("spiegata_da_C")
+                a(f"| {c} | {e} | {cp['v_mediana']:.0f} | {cp['v7_mediana']:.0f} | {_f(rc['rho'], 2)} {_ic(rc['ic_nodi'], 2)}"
+                  f"{' *' if rc['esclude_zero'] else ''} | {_f(rf['rho'], 2)} {_ic(rf['ic_nodi'], 2)}{' *' if rf['esclude_zero'] else ''} | "
+                  f"{'si' if an else '—'} | {('si' if sp else 'no') if an else '—'} |")
+        a("")
+        n_sp = sum(1 for v in PH["spiegazione_anomalie"].values() if v["spiegata_da_C"])
+        a(f"Anomalie spiegate da C (ρ(v, wCE C) sotto lo zero dove compaiono): {n_sp} su "
+          f"{len(PH['spiegazione_anomalie'])}. **Copertura per episodio**: e' una proprieta' dell'episodio "
+          "oltre che della citta' (colonne v e v₇), e va nella riga del paper sulla struttura del calendario, "
+          "accanto ai salti settimanali.")
+        a("")
     a("## 6. Impronte")
     a("")
     a("| file | impronta |")
@@ -169,8 +198,10 @@ def main() -> int:
     if S["impronta_scelta_e4"] != SC["impronta"] or S["impronta_k"] != KS["impronta"]:
         raise IngressoMancante("impronte di N o k non coerenti")
     print("[2/2] documento")
+    f_ph = a.out / "e7_posthoc.json"
+    PH = json.loads(f_ph.read_text()) if f_ph.exists() else None
     R = {"data": datetime.now(timezone.utc).date().isoformat(), "commit": commit_git(),
-         "stadio1": S, "impronte": {f: h(f) for f in FILE}}
+         "stadio1": S, "post_hoc": PH, "impronte": {f: h(f) for f in FILE}}
     (a.out / "congelamento_e7.json").write_text(json.dumps(R, indent=2, ensure_ascii=False))
     Path("CONGELAMENTO_E7.md").write_text(documento(R))
     print("  generato CONGELAMENTO_E7.md; stadio 2a: "
