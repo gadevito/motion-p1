@@ -1,6 +1,6 @@
 # Congelamento — E7, copertura e adattamento (stadio 1)
 
-**Congelato il 2026-10-07**, commit `2a8cf6bea795`. Pre-registrazione `protocol/E7.md` (impronta `07db021e85236235`), firmata al commit `faf27f2e0c15a83f` prima di eseguire lo stadio 1. **Ogni numero e' calcolato da `genera_congelamento_e7.py`** da `e7_stadio1.json`; la decisione sullo stadio 2a e' quella della regola pre-registrata.
+**Congelato il 2026-10-07**, commit `5ddf4770e863`. Pre-registrazione `protocol/E7.md` (impronta `07db021e85236235`), firmata al commit `faf27f2e0c15a83f` prima di eseguire lo stadio 1. **Ogni numero e' calcolato da `genera_congelamento_e7.py`** da `e7_stadio1.json`; la decisione sullo stadio 2a e' quella della regola pre-registrata.
 
 ## 1. Che cosa e' stato eseguito
 
@@ -54,11 +54,36 @@
 
 ## 5. Che cosa cambia nel paper
 
-La soglia N sulla copertura delle prime 24 ore e' una condizione **dell'adattamento a 24 ore** (dove la copertura correla col beneficio e sotto soglia l'adattamento puo' costare), **non dell'adattamento a una settimana**, che paga sotto soglia quanto sopra. La raccomandazione diventa: «dopo una settimana, adattare tutti i nodi; la soglia serve solo a chi adatta prima». Londra non resta inspiegata: a 24 ore e' copertura e budget (E5, secondaria), a una settimana non c'e' nulla da spiegare.
+La copertura delle prime 24 ore e' una condizione dell'adattamento a 24 ore **in alcuni contesti** — per gradiente in 4/9 (ρ(v, Δ₂) sotto lo zero) e per gruppi in 3 (F′(24 h) − C sopra lo zero sotto soglia: Londra ep. 1 +0.045, Londra ep. 2 +0.017, Melbourne ep. 2 +0.025) — e **in nessun contesto** dell'adattamento a una settimana, che paga sotto soglia quanto sopra. La raccomandazione: «dopo una settimana, adattare tutti i nodi; la soglia serve solo a chi adatta prima». Londra: a 24 ore copertura e budget (E5, secondaria); a una settimana nulla da spiegare. Cambia quanto si promette, non la raccomandazione.
+
+## 5b. Post hoc dichiarato (richiesto dal revisore dopo il congelamento, costo zero)
+
+Le anomalie dello stadio 1 (ρ(v, Δ₁) > 0) sono F′ che guadagna o C che perde sui nodi radi? ρ(v, wCE per nodo) di C e di F′(1 sett.), stessi file, stesso ricampionamento:
+
+| citta' | ep. | v mediana | v₇ mediana | ρ(v, wCE C) | ρ(v, wCE F′(1 sett.)) | anomalia st. 1 |
+|---|---|---|---|---|---|---|
+| Madrid | 1 | 260 | 2297 | -0.53 [-0.60, -0.45] * | -0.50 [-0.57, -0.42] * | — |
+| Madrid | 2 | 284 | 2276 | -0.52 [-0.59, -0.44] * | -0.50 [-0.58, -0.42] * | — |
+| Madrid | 3 | 288 | 2253 | -0.50 [-0.58, -0.41] * | -0.48 [-0.56, -0.40] * | — |
+| Londra | 1 | 114 | 1355 | -0.33 [-0.42, -0.24] * | -0.28 [-0.37, -0.19] * | — |
+| Londra | 2 | 149 | 1582 | -0.25 [-0.34, -0.15] * | -0.17 [-0.26, -0.07] * | si |
+| Londra | 3 | 188 | 1529 | -0.34 [-0.42, -0.24] * | -0.29 [-0.37, -0.19] * | — |
+| Melbourne | 1 | 260 | 2098 | -0.44 [-0.52, -0.34] * | -0.43 [-0.52, -0.33] * | — |
+| Melbourne | 2 | 109 | 1598 | -0.44 [-0.54, -0.35] * | -0.40 [-0.49, -0.30] * | si |
+| Melbourne | 3 | 226 | 1666 | -0.62 [-0.68, -0.54] * | -0.58 [-0.64, -0.50] * | — |
+
+\* esclude lo zero.
+
+ρ(v, wCE C) negativa con intervallo sotto lo zero in **9/9** celle; celle con anomalia 2, di cui con ρ negativa 2; celle **senza** anomalia con ρ negativa 7.
+
+Il segno di ρ(v, wCE C) **non discrimina** le celle anomale: i nodi con ingressi radi hanno errore maggiore per C e per F′(1 sett.) in ogni citta' e in ogni episodio, dove l'anomalia compare e dove non compare. Il post hoc quindi **non spiega** l'anomalia: la registra come un guadagno relativo di F′ sui nodi radi in quegli episodi, senza una causa identificabile nei file di E5. Resta dichiarata come tale.
+
+**Copertura per episodio**: e' una proprieta' dell'episodio oltre che della citta' (colonne v e v₇), e va nella riga del paper sulla struttura del calendario, accanto ai salti settimanali.
 
 ## 6. Impronte
 
 | file | impronta |
 |---|---|
 | `evoluzione/analisi/e7_stadio1.py` | `fab3034c6cf470c9` |
+| `evoluzione/analisi/e7_posthoc.py` | `ab62ffb9a8b69a49` |
 | `protocol/E7.md` | `07db021e85236235` |
