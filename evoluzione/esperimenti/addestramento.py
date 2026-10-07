@@ -76,6 +76,12 @@ CTX = {"Madrid": (f"{T4}/MADRID_2022/gomo_fmt/targets_t4cmad_d8.npz", "Madrid"),
 PEMS = "data_collection/pems04"
 CTX.update({f"PEMS04_p{k}": (f"{PEMS}/bersagli_PEMS04_p{k}.npz",
                              f"PEMS04_p{k}") for k in (0, 1, 2)})
+# E6 parte B: PEMS08 ha lo STESSO schema di PEMS04 (tre grandezze, undici
+# ingressi) e la stessa regola «un contesto = una partizione».
+PEMS08 = "data_collection/pems08"
+CTX.update({f"PEMS08_p{k}": (f"{PEMS08}/bersagli_PEMS08_p{k}.npz",
+                             f"PEMS08_p{k}") for k in (0, 1, 2)})
+PREFISSI_PEMS = ("PEMS04_p", "PEMS08_p")
 
 
 def sorgente_di(contesto) -> str:
@@ -85,7 +91,8 @@ def sorgente_di(contesto) -> str:
     calendario — contro le due e due di Traffic4cast. **Punti di controllo e
     artefatti canonici non sono confrontabili fra le due sorgenti.**
     """
-    return "pems04" if str(contesto).startswith("PEMS04_p") else "traffic4cast"
+    # "pems04" e' il nome dello SCHEMA (condiviso da PEMS04 e PEMS08), non del dataset
+    return "pems04" if str(contesto).startswith(PREFISSI_PEMS) else "traffic4cast"
 
 
 def canali_di(sorgente: str) -> tuple:
@@ -103,7 +110,7 @@ def _coerenza_pems04(contesto, partizione: int) -> None:
     riferimento e le classi resterebbero quelli del file, e il confronto
     sarebbe silenziosamente sbagliato.
     """
-    if not str(contesto).startswith("PEMS04_p"):
+    if not str(contesto).startswith(PREFISSI_PEMS):
         return
     atteso = int(str(contesto).rsplit("_p", 1)[1])
     if int(partizione) != atteso:
