@@ -115,6 +115,12 @@ def documento(R: dict) -> str:
          "Dove e' migliore, lo e' di: " + ", ".join(f"{c} {_f(C[f'{c}/Rw-Fpw']['media'])}" for c in CITTA
                                                       if C[f"{c}/Rw-Fpw"]["ic_con_nodi"][1] < 0) + "."))
     a("")
+    n_fin = sum(C[f"{c}/Rw-R24"]["ic_con_nodi"][1] < 0 for c in CITTA)
+    a(f"**R-orig(1 sett.) − R-orig(24 h) e' sotto lo zero in {n_fin} citta' su 3** ("
+      + ", ".join(f"{c} {_f(C[f'{c}/Rw-R24']['media'])}" for c in CITTA)
+      + "): anche per il riaddestramento la finestra di 24 ore era il problema, non il metodo — "
+        "la stessa lezione di E4 letta sull'altro braccio.")
+    a("")
     a("Per riferimento, sulle stesse origini: " + "; ".join(
         f"{c} F′(1 sett.) − C {_f(C[f'{c}/Fpw-C']['media'])}, A − C {_f(C[f'{c}/A-C']['media'])}" for c in CITTA) + ".")
     a("")
@@ -135,9 +141,13 @@ def documento(R: dict) -> str:
     fp_w = [K4["tabella"]["gated"][c]["adattamento_s"] for c in CITTA if K4["tabella"]["gated"][c]["tau"] == 672]
     if fp_w:
         a("")
+        citta_w = [c for c in CITTA if K4["tabella"]["gated"][c]["tau"] == 672]
         a(f"Rapporto di calcolo a parita' di dati: R-orig(1 sett.) / F′(1 sett.) = "
-          f"**{r['inserimento_s'] / max(fp_w):.0f}×** (contro l'adattamento piu' costoso misurato, "
-          f"{max(fp_w):.0f} s). Il confronto dei costi del paper e' ora a dati simmetrici.")
+          f"**almeno {r['inserimento_s'] / max(fp_w):.0f}×**: il denominatore e' l'unico F′(1 sett.) "
+          f"misurato in isolamento ({', '.join(citta_w)}, {max(fp_w):.0f} s, con la configurazione F "
+          f"piu' costosa, 200 aggiornamenti); a Madrid e Londra F ha 50 aggiornamenti e il rapporto "
+          f"sarebbe maggiore. Il confronto dei costi del paper e' ora a dati simmetrici: il "
+          f"riaddestramento compra pochi millesimi a diverse volte il costo, non nulla a cento.")
     a("")
     a("## 4. Dichiarazioni")
     a("")
