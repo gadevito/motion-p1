@@ -15,7 +15,14 @@ partizione 0, 1, 2 rispettivamente.
 Uso (dalla radice OR3/):
 
     poetry run python evoluzione/esperimenti/prepara_pesi_pems04.py
+    poetry run python evoluzione/esperimenti/prepara_pesi_pems04.py \\
+        --nome PEMS08 --fine-periodo 3840         # E6 parte B: pesi_pems08
+
+Con `--fine-periodo t0` le origini di addestramento sono quelle di
+`_partizioni(fine=t0)`, cioe' [11, int(t0·0,70/0,85)): le stesse del
+riferimento stimato dall'estrattore.
 """
+import argparse
 import json
 import sys
 from pathlib import Path
@@ -31,24 +38,30 @@ from evoluzione.esperimenti.addestramento import (  # noqa: E402
 from evoluzione.esperimenti.semi import SEME_PARTIZIONE  # noqa: E402
 
 OUT = Path("results/evoluzione")
-NUOVA = OUT / "pesi_pems04"
 
 
 def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--nome", default="PEMS04", help="PEMS04 o PEMS08")
+    ap.add_argument("--fine-periodo", type=int, default=None)
+    a = ap.parse_args()
+    nome, pref = a.nome, a.nome.lower()
+    NUOVA = OUT / f"pesi_{pref}"
     NUOVA.mkdir(parents=True, exist_ok=True)
     print("=" * 78)
-    print("PESI DELLE CLASSI — PEMS04, nuovo bersaglio")
+    print(f"PESI DELLE CLASSI — {nome}, nuovo bersaglio"
+          + (f" (fine del periodo {a.fine_periodo})" if a.fine_periodo is not None else ""))
     print("=" * 78)
     rapp = {}
     for p in (0, 1, 2):
-        c = f"PEMS04_p{p}"
+        c = f"{nome}_p{p}"
         D = _carica(c, OUT / "maschere")
         amm = GR.maschera_origini(GR.passi_regolari(D["ts"]))
         nodi, ist = _partizioni(D, {"partizione": np.random.default_rng(
-            SEME_PARTIZIONE[p])})
+            SEME_PARTIZIONE[p])}, a.fine_periodo)
         orig = GR.filtra(ist["addestramento"], amm)
         P = calcola_pesi(c, p, D["classe"], nodi["addestramento"], orig,
-                         ORIZZONTI, versione_codice="pems04_riferimento_rete")
+                         ORIZZONTI, versione_codice=f"{pref}_riferimento_rete")
         salva_pesi(P, NUOVA)
         freq = [float(np.mean(D["classe"][np.ix_(orig + h, nodi["addestramento"])]
                               == k)) for h in (1,) for k in (1, 2, 3)]
@@ -59,7 +72,8 @@ def main() -> int:
               f"pesi {np.round(P.pesi, 4).tolist()}")
         print(f"     frequenze a 15 min: "
               + ", ".join(f"{x:.2%}" for x in freq))
-    (NUOVA / "rapporto_pesi_pems04.json").write_text(json.dumps(rapp, indent=2))
+    rapp["_scelte"] = {"nome": nome, "fine_periodo": a.fine_periodo}
+    (NUOVA / f"rapporto_pesi_{pref}.json").write_text(json.dumps(rapp, indent=2))
     print(f"\n  3 artefatti in {NUOVA}")
     print(f"  **le soglie delle classi non sono state toccate**: restano quelle")
     print(f"  dichiarate prima della ricognizione del dato")

@@ -13,6 +13,8 @@ Collaudo ridotto della verifica esterna su PEMS04.
 Uso (dalla radice OR3/):
 
     poetry run python evoluzione/esperimenti/collauda_pems04.py
+    poetry run python evoluzione/esperimenti/collauda_pems04.py \\
+        --contesto PEMS08_p0 --fine-periodo 3840      # E6 parte B
 """
 import sys
 from pathlib import Path
@@ -30,7 +32,7 @@ from evoluzione.esperimenti.addestramento import (  # noqa: E402
     sorgente_di)
 
 OUT = Path("results/evoluzione")
-CTX, PART = "PEMS04_p0", 0
+CTX, PART = "PEMS04_p0", 0      # predefiniti; --contesto e --fine-periodo (E6)
 ESITI = []
 
 
@@ -42,8 +44,18 @@ def v(n, titolo, cond, dett=""):
 
 
 def main() -> int:
+    import argparse
+    global CTX, PART
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--contesto", default=CTX, help="PEMS04_p<k> o PEMS08_p<k>")
+    ap.add_argument("--fine-periodo", type=int, default=None,
+                    help="t0 di prova pre-registrato (E6 parte B): i periodi "
+                         "seguono _partizioni(fine=t0)")
+    a = ap.parse_args()
+    CTX = a.contesto; PART = int(CTX.rsplit("_p", 1)[1])
     print("=" * 78)
-    print(f"COLLAUDO PEMS04 — {CTX}")
+    print(f"COLLAUDO {CTX.split('_p')[0]} — {CTX}"
+          + (f", fine del periodo {a.fine_periodo}" if a.fine_periodo is not None else ""))
     print("=" * 78)
     S = SCHEMI_PEMS04["BASE-CORRECTED"]
     d = len(S["statistiche"]) + len(S["disponibilita"])
@@ -56,7 +68,8 @@ def main() -> int:
       f"disponibilita'; sorgente '{S['sorgente']}'")
 
     D = _carica(CTX, OUT / "maschere")
-    nodi, ist = _partizioni(D, {"partizione": np.random.default_rng(1000)})
+    nodi, ist = _partizioni(D, {"partizione": np.random.default_rng(1000 + 37 * PART)},
+                            a.fine_periodo)
     NORM, nr, nv = _normalizzazione(D, nodi, ist)
     x = _canali(D, nr, nv)
     v(2, "undici canali, finiti, con statistiche reali",
@@ -122,7 +135,7 @@ def main() -> int:
       bool(np.isfinite(dd).all()), "nessuna divisione per zero")
 
     # ---- [5] cartelle proprie ------------------------------------------
-    v(5, "gli artefatti di PEMS04 non si mescolano con Traffic4cast",
+    v(5, "gli artefatti PEMS non si mescolano con Traffic4cast",
       sorgente_di(CTX) == "pems04" and sorgente_di("Madrid") == "traffic4cast",
       "canonico e punti di controllo seguono la configurazione, che cambia "
       "con c_in = 11")
