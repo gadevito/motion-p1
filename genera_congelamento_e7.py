@@ -162,23 +162,38 @@ def documento(R: dict) -> str:
         a("Le anomalie dello stadio 1 (ρ(v, Δ₁) > 0) sono F′ che guadagna o C che perde sui nodi radi? "
           "ρ(v, wCE per nodo) di C e di F′(1 sett.), stessi file, stesso ricampionamento:")
         a("")
-        a("| citta' | ep. | v mediana | v₇ mediana | ρ(v, wCE C) | ρ(v, wCE F′(1 sett.)) | anomalia st. 1 | spiegata da C |")
-        a("|---|---|---|---|---|---|---|---|")
+        a("| citta' | ep. | v mediana | v₇ mediana | ρ(v, wCE C) | ρ(v, wCE F′(1 sett.)) | anomalia st. 1 |")
+        a("|---|---|---|---|---|---|---|")
         for c in CITTA:
             for e in EPISODI:
                 k = f"{c}/ep{e}"; cp = PH["copertura_episodio"][k]
                 rc, rf = PH["rho"][f"{k}/wCE_C/v"], PH["rho"][f"{k}/wCE_Fp672/v"]
                 an = f"{k}/D1/v" in PH["anomalie_stadio1"]
-                sp = PH["spiegazione_anomalie"].get(f"{k}/D1/v", {}).get("spiegata_da_C")
                 a(f"| {c} | {e} | {cp['v_mediana']:.0f} | {cp['v7_mediana']:.0f} | {_f(rc['rho'], 2)} {_ic(rc['ic_nodi'], 2)}"
                   f"{' *' if rc['esclude_zero'] else ''} | {_f(rf['rho'], 2)} {_ic(rf['ic_nodi'], 2)}{' *' if rf['esclude_zero'] else ''} | "
-                  f"{'si' if an else '—'} | {('si' if sp else 'no') if an else '—'} |")
+                  f"{'si' if an else '—'} |")
         a("")
-        n_sp = sum(1 for v in PH["spiegazione_anomalie"].values() if v["spiegata_da_C"])
-        a(f"Anomalie spiegate da C (ρ(v, wCE C) sotto lo zero dove compaiono): {n_sp} su "
-          f"{len(PH['spiegazione_anomalie'])}. **Copertura per episodio**: e' una proprieta' dell'episodio "
-          "oltre che della citta' (colonne v e v₇), e va nella riga del paper sulla struttura del calendario, "
-          "accanto ai salti settimanali.")
+        a("\\* esclude lo zero.")
+        a("")
+        s = PH["segno_C"]
+        a(f"ρ(v, wCE C) negativa con intervallo sotto lo zero in **{s['negative']}/{s['celle']}** celle; "
+          f"celle con anomalia {s['anomale']}, di cui con ρ negativa {s['anomale_negative']}; "
+          f"celle **senza** anomalia con ρ negativa {s['non_anomale_negative']}.")
+        a("")
+        if s["discrimina"]:
+            a("Il segno di ρ(v, wCE C) coincide con le celle anomale: l'anomalia e' **spiegata da C**, "
+              "che perde sui nodi radi dove F′ guadagna.")
+        else:
+            dove = ("in ogni citta' e in ogni episodio" if s["negative"] == s["celle"]
+                    else f"in {s['negative']} celle su {s['celle']}")
+            a("Il segno di ρ(v, wCE C) **non discrimina** le celle anomale: i nodi con ingressi radi hanno "
+              f"errore maggiore per C e per F′(1 sett.) {dove}, dove l'anomalia "
+              "compare e dove non compare. Il post hoc quindi **non spiega** l'anomalia: la registra come un "
+              "guadagno relativo di F′ sui nodi radi in quegli episodi, senza una causa identificabile nei "
+              "file di E5. Resta dichiarata come tale.")
+        a("")
+        a("**Copertura per episodio**: e' una proprieta' dell'episodio oltre che della citta' (colonne v e v₇), "
+          "e va nella riga del paper sulla struttura del calendario, accanto ai salti settimanali.")
         a("")
     a("## 6. Impronte")
     a("")

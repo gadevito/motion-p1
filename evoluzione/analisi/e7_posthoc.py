@@ -7,7 +7,8 @@ Domanda: le anomalie (rho(v, D1) > 0 a Londra ep. 2 e Melbourne ep. 2) sono
 F' che guadagna o C che perde sui nodi con ingressi radi? Si verifica con
 rho(v, wCE di C per nodo) e rho(v, wCE di F'(1 sett.) per nodo), sugli stessi
 file di E5, con lo stesso ricampionamento dello stadio 1. Se rho(v, wCE_C) e'
-negativa dove l'anomalia compare, l'anomalia e' spiegata da C.
+negativa dove l'anomalia compare **e non altrove**, l'anomalia e' spiegata da C;
+se e' negativa ovunque, il segno non discrimina e non spiega nulla.
 
 Inoltre: la copertura per episodio (mediana di v e di v7 per citta' x
 episodio), perche' la figura dello stadio 1 mostra che e' una proprieta'
@@ -87,19 +88,24 @@ def main() -> int:
                   f"{'*' if rc['esclude_zero'] else ' '}; rho(v, wCE_F'(1 sett.)) {rf['rho']:+.2f} "
                   f"[{rf['ic_nodi'][0]:+.2f}, {rf['ic_nodi'][1]:+.2f}]{'*' if rf['esclude_zero'] else ' '}"
                   + ("   <- anomalia dello stadio 1" if an else ""))
-    # spiegazione: nelle celle con anomalia, rho(v, wCE_C) negativa che esclude lo zero?
-    spieg = {}
-    for k in sorted(anomalie):
-        c, e_ = k.split("/")[0], k.split("/")[1]
-        rc = R["rho"][f"{c}/{e_}/wCE_C/v"]
-        spieg[k] = {"rho_v_wceC": rc["rho"], "spiegata_da_C": bool(rc["esclude_zero"] and rc["ic_nodi"][1] < 0)}
-    R["spiegazione_anomalie"] = spieg
+    # Il segno di rho(v, wCE_C) spiega l'anomalia solo se DISCRIMINA: negativo
+    # dove l'anomalia compare e non altrove. Si contano le celle, non si assume.
+    celle = [f"{c}/ep{e}" for c in CITTA for e in EPISODI]
+    an_celle = {f"{c}/ep{e}" for c in CITTA for e in EPISODI if f"{c}/ep{e}/D1/v" in anomalie}
+    neg = {k for k in celle if R["rho"][f"{k}/wCE_C/v"]["esclude_zero"] and R["rho"][f"{k}/wCE_C/v"]["ic_nodi"][1] < 0}
+    R["segno_C"] = {"celle": len(celle), "negative": len(neg), "anomale": len(an_celle),
+                    "anomale_negative": len(neg & an_celle), "non_anomale_negative": len(neg - an_celle),
+                    "discrimina": bool(neg == an_celle)}
     R["istante"] = datetime.now(timezone.utc).isoformat()
     (a.out / "e7_posthoc.json").write_text(json.dumps(R, indent=2, ensure_ascii=False))
+    s = R["segno_C"]
     print("\n" + "=" * 84)
-    for k, s in spieg.items():
-        print(f"  {k}: rho(v, wCE_C) = {s['rho_v_wceC']:+.2f} -> "
-              f"{'spiegata (C perde sui nodi radi)' if s['spiegata_da_C'] else 'NON spiegata da C'}")
+    print(f"  rho(v, wCE_C) negativa che esclude lo zero in {s['negative']}/{s['celle']} celle; "
+          f"celle anomale {s['anomale']}, di cui negative {s['anomale_negative']}; "
+          f"celle non anomale negative {s['non_anomale_negative']}")
+    print("  -> il segno di rho(v, wCE_C) " + ("DISCRIMINA le celle anomale: anomalia spiegata da C"
+                                               if s["discrimina"] else
+                                               "NON discrimina le celle anomale: l'anomalia non e' spiegata da C"))
     print(f"  salvato in {a.out / 'e7_posthoc.json'}")
     return 0
 
