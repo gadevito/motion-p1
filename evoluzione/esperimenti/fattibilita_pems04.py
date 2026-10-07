@@ -106,8 +106,10 @@ def main() -> int:
     usab = cop >= 0.5
     K = int(usab.sum())
     print(f"\n  nodi utilizzabili (copertura >= 50%): {K} su {N}")
-    print(f"     70/15/15 -> iniziali {int(K * .70)}, validazione "
-          f"{int(K * .15)}, **nuovi {K - int(K * .70) - int(K * .15)}**")
+    # stessa formula di addestramento._partizioni: a = int(K*.70), b = int(K*.85)
+    ka, kb = int(K * .70), int(K * .85)
+    print(f"     70/15/15 -> iniziali {ka}, validazione {kb - ka}, **nuovi {K - kb}** "
+          f"(formula di `_partizioni`)")
     print(f"\n  costo di C e P: 3 partizioni x 12 semi x 2 bracci = 72 "
           f"addestramenti")
     print(f"\n  LIMITI DA DICHIARARE")
