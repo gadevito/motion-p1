@@ -63,7 +63,7 @@ AGG = 3
 PERC = 95
 SOGLIE = (0.8, 0.5)
 INIZIO = "2018-01-01"
-SEMI_PARTIZIONE = {0: 1000, 1: 1037, 2: 1074}
+SEMI_PARTIZIONE = {0: 1000, 1: 1037, 2: 1074}      # 1000 + 37 p (semi.SEME_PARTIZIONE)
 ORIZZ_MAX = 8
 
 
@@ -78,7 +78,11 @@ def main() -> int:
     ap.add_argument("--fine-periodo", type=int, default=None,
                     help="t0 di prova pre-registrato: addestramento = "
                          "[11, int(t0*.70/.85)) (E6 parte B)")
+    ap.add_argument("--partizioni", type=int, default=3,
+                    help="numero di partizioni (E6 parte B: 6); seme 1000 + 37 p")
     a = ap.parse_args()
+    semi_part = {p: 1000 + 37 * p for p in range(a.partizioni)}
+    assert all(semi_part[p] == SEMI_PARTIZIONE[p] for p in SEMI_PARTIZIONE if p in semi_part)
     nome, pref = a.nome, a.nome.lower()
     X = np.load(a.file)["data"]
     T, N, _ = X.shape
@@ -107,7 +111,7 @@ def main() -> int:
     print(f"  calendario {ts[0]} -> {ts[-1]}; addestramento [11, {a_va})"
           + (f" da --fine-periodo {a.fine_periodo}" if a.fine_periodo is not None else ""))
     print("=" * 76)
-    for p, seme in SEMI_PARTIZIONE.items():
+    for p, seme in semi_part.items():
         perm = np.random.default_rng(seme).permutation(N)
         iniziali = perm[:int(N * .70)]
         # IL RIFERIMENTO: soli nodi iniziali, solo addestramento, dopo

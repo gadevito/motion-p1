@@ -17,6 +17,10 @@ import numpy as np
 PARTIZIONI = (0, 1, 2)
 INIZIALIZZAZIONI = (0, 1, 2)
 SEME_PARTIZIONE = {p: 1000 + 37 * p for p in PARTIZIONI}
+# E6 parte B (PEMS08): sei partizioni da sei semi, STESSA formula; dizionario a
+# parte perche' le campagne delle citta' e di PEMS04 restano a tre partizioni.
+PARTIZIONI_E6 = (0, 1, 2, 3, 4, 5)
+SEME_PARTIZIONE_E6 = {p: 1000 + 37 * p for p in PARTIZIONI_E6}
 SEME_INIZIALIZZAZIONE = {s: 7 + 11 * s for s in INIZIALIZZAZIONI}
 
 SEMI_DICHIARATI = tuple(SEME_INIZIALIZZAZIONE[s]

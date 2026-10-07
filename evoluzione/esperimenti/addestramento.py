@@ -80,7 +80,7 @@ CTX.update({f"PEMS04_p{k}": (f"{PEMS}/bersagli_PEMS04_p{k}.npz",
 # ingressi) e la stessa regola «un contesto = una partizione».
 PEMS08 = "data_collection/pems08"
 CTX.update({f"PEMS08_p{k}": (f"{PEMS08}/bersagli_PEMS08_p{k}.npz",
-                             f"PEMS08_p{k}") for k in (0, 1, 2)})
+                             f"PEMS08_p{k}") for k in range(6)})   # 6 partizioni (E6)
 PREFISSI_PEMS = ("PEMS04_p", "PEMS08_p")
 
 

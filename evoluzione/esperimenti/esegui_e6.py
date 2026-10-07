@@ -29,7 +29,8 @@ sys.path.insert(0, str(RADICE))
 from evoluzione.esperimenti.esegui_pems04 import (  # noqa: E402
     Esec, cfg_pems, marcatore, scrivi_atomico)
 
-CONTESTI = ("PEMS08_p0", "PEMS08_p1", "PEMS08_p2")
+CONTESTI = tuple(f"PEMS08_p{k}" for k in range(6))   # 6 partizioni x 6 semi (E6.md)
+SEMI_E6 = (201, 202, 203, 204, 205, 206)
 T0_PROVA = 3840          # protocol/E6.md, parte B: pre-registrato
 T0_VALIDAZIONE = 3162
 ETICHETTA = "e6_pems08"

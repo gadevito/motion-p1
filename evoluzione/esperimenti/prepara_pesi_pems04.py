@@ -44,7 +44,12 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--nome", default="PEMS04", help="PEMS04 o PEMS08")
     ap.add_argument("--fine-periodo", type=int, default=None)
+    ap.add_argument("--partizioni", type=int, default=3, help="E6 parte B: 6")
     a = ap.parse_args()
+    from evoluzione.esperimenti.semi import SEME_PARTIZIONE_E6
+    semi_part = SEME_PARTIZIONE_E6 if a.partizioni == 6 else SEME_PARTIZIONE
+    if a.partizioni not in (3, 6):
+        raise SystemExit("--partizioni: 3 o 6")
     nome, pref = a.nome, a.nome.lower()
     NUOVA = OUT / f"pesi_{pref}"
     NUOVA.mkdir(parents=True, exist_ok=True)
@@ -53,12 +58,12 @@ def main() -> int:
           + (f" (fine del periodo {a.fine_periodo})" if a.fine_periodo is not None else ""))
     print("=" * 78)
     rapp = {}
-    for p in (0, 1, 2):
+    for p in range(a.partizioni):
         c = f"{nome}_p{p}"
         D = _carica(c, OUT / "maschere")
         amm = GR.maschera_origini(GR.passi_regolari(D["ts"]))
         nodi, ist = _partizioni(D, {"partizione": np.random.default_rng(
-            SEME_PARTIZIONE[p])}, a.fine_periodo)
+            semi_part[p])}, a.fine_periodo)
         orig = GR.filtra(ist["addestramento"], amm)
         P = calcola_pesi(c, p, D["classe"], nodi["addestramento"], orig,
                          ORIZZONTI, versione_codice=f"{pref}_riferimento_rete")
