@@ -95,15 +95,27 @@ def main() -> int:
                     help="verifica esterna. **Nessun aggregato storico da "
                          "riprodurre**: la campagna PEMS04 non ne salva")
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
-    ap.add_argument("--dir-pred", type=Path,
-                    default=Path("results/evoluzione/predizioni_fase3"))
+    ap.add_argument("--dir-pred", type=Path, default=None,
+                    help="predefinito: predizioni_fase3 (o predizioni_fase3_<passi>)")
+    ap.add_argument("--acquisizione-passi", type=int, default=96,
+                    help="E3-bis: la campagna con acquisizione (t0, t0 + L]; i "
+                         "punti stanno in inserimento_griglia_<L>")
     a = ap.parse_args()
+    # la cartella dei punti e dei manifesti segue l'acquisizione dichiarata
+    dir_c = (DIR_C if a.acquisizione_passi == 96
+             else DIR_C.with_name(f"{DIR_C.name}_{a.acquisizione_passi}"))
+    if a.dir_pred is None:
+        a.dir_pred = (Path("results/evoluzione/predizioni_fase3") if a.acquisizione_passi == 96
+                      else Path(f"results/evoluzione/predizioni_fase3_{a.acquisizione_passi}"))
     a.dir_pred.mkdir(parents=True, exist_ok=True)
     _, dich, _ = configurazione(inserimento=True)
     from evoluzione.analisi.pesi import carica as carica_pesi
     print("=" * 84)
     print(f"RICOSTRUZIONE DELLE PREDIZIONI — braccio {a.braccio}, "
           f"tolleranza {TOLLERANZA:g} relativa")
+    if a.acquisizione_passi != 96:
+        print(f"  acquisizione (t0, t0 + {a.acquisizione_passi}] (E3-bis): punti in {dir_c}, "
+              f"predizioni in {a.dir_pred}")
     print("=" * 84)
     guai, righe = [], []
     contesti = (("PEMS04_p0", "PEMS04_p1", "PEMS04_p2") if a.pems04
@@ -116,7 +128,7 @@ def main() -> int:
             t0 = GR.primo_t0(D["ts"], ok, int(fine * .85), fine, False)
             t1 = t0 + GR.L_DESCRITTORE
         else:
-            t0, t1 = CALENDARIO[c]
+            t0, t1 = CALENDARIO[c][0], CALENDARIO[c][0] + a.acquisizione_passi
         per = GR.origini_dopo(ok, t1, fine)
         for p in ([i_c] if a.pems04 else (0, 1, 2)):
             nodi, ist = _partizioni(D, {"partizione": np.random.default_rng(
@@ -131,7 +143,7 @@ def main() -> int:
                 if a.pems04:
                     d_man = None          # nessun aggregato da riprodurre
                 else:
-                    man = DIR_C / f"{a.braccio}_{c}_p{p}_s{int(s)}.json"
+                    man = dir_c / f"{a.braccio}_{c}_p{p}_s{int(s)}.json"
                     if not man.exists():
                         guai.append(f"manifesto {man.name}: assente"); continue
                     d_man = json.loads(man.read_text())
@@ -153,7 +165,7 @@ def main() -> int:
                 else:
                     ck = (Path("results/evoluzione/pems04")
                           / f"ck_{a.braccio}_{c}_s{int(s)}.pt" if a.pems04
-                          else DIR_C / f"ck_{a.braccio}_{c}_p{p}_s{int(s)}.pt")
+                          else dir_c / f"ck_{a.braccio}_{c}_p{p}_s{int(s)}.pt")
                     if not ck.exists():
                         guai.append(f"{ck.name}: assente"); continue
                     m, dck = _modello_da_ck(ck, D, nodi, None)
