@@ -62,6 +62,8 @@ RHO = 0.15
 SEME_BOOT = 20261010
 SEME_PILOTA = 201
 R_ORIG = "R-orig"
+PREFISSO_COSTI = "e6_costi_"                           # campione isolato: p0, semi 201-203
+SEMI_COSTI = (201, 202, 203)
 
 
 def _scrivi_atomico(f: Path, testo: str):
@@ -140,6 +142,9 @@ def cfg_lavoro(x: dict, out: Path, nodi, ok) -> dict:
         cfg["sorgente"] = "pems04"
         cfg["etichetta"] = ETICHETTA_672 if L == SETTIMANA else ETICHETTA
         cfg["acquisizione_passi"] = L
+    if x.get("isolato"):
+        # il campione dei costi: stessa configurazione, cartella propria, un processo
+        cfg["etichetta"] = f"{PREFISSO_COSTI}{cfg['etichetta']}"
     cfg.update({"dir_pesi": str(out / "pesi_pems08"), "dir_canonico": str(out / "canonico"),
                 "dir_stati_completi": str(out / f"stati_{cfg['etichetta']}"),
                 "fine_periodo": T0_PROVA})
@@ -149,10 +154,11 @@ def cfg_lavoro(x: dict, out: Path, nodi, ok) -> dict:
 def _ck_di(x: dict, out: Path) -> Path:
     from evoluzione.esperimenti.semi import seme_torch
     b, c, p, s = x["braccio"], x["contesto"], x["partizione"], x["seme"]
+    pre = PREFISSO_COSTI if x.get("isolato") else ""
     if proprieta_braccio(b).preparatorio:
-        return out / f"{b}_{ETICHETTA}" / f"ck_{b}_{c}_p{p}_s{seme_torch(s)}.pt"
+        return out / f"{pre}{b}_{ETICHETTA}" / f"ck_{b}_{c}_p{p}_s{seme_torch(s)}.pt"
     et = ETICHETTA_672 if x.get("acquisizione", L24) == SETTIMANA else ETICHETTA
-    return out / et / f"ck_{b}_{c}_p{p}_s{s}.pt"
+    return out / f"{pre}{et}" / f"ck_{b}_{c}_p{p}_s{s}.pt"
 
 
 def lavori(out: Path) -> list:
@@ -610,10 +616,79 @@ def fase_test(out: Path) -> dict:
     return R
 
 
+# -------------------------------------------------------------------- costi --
+def fase_costi(out: Path, piano: bool) -> int:
+    """Il campione isolato della tabella dei costi: partizione 0, semi 201-203,
+    cinque bracci riaddestrati in UN processo (macchina scarica), piu' il costo
+    dell'adattamento di F'(24 h) e F'(1 sett.) sull'episodio di prova. I tempi
+    della campagna concorrente non entrano."""
+    import torch
+    c = CONTESTI[0]
+    lav = []
+    for s in SEMI_COSTI:
+        for b, L in (("C", None), ("A", None), (_nome_e_token(), None), (R_ORIG, L24), (R_ORIG, SETTIMANA)):
+            x = {"contesto": c, "partizione": 0, "seme": int(s), "braccio": b, "isolato": True}
+            if L is not None:
+                x["acquisizione"] = L
+            x["ck"] = str(_ck_di(x, out)); lav.append(x)
+    fatti = [x for x in lav if marcatore(Path(x["ck"])).exists()]
+    print(f"  campione isolato: {len(lav)} addestramenti ({c}, semi {SEMI_COSTI}, 5 bracci), "
+          f"{len(fatti)} gia' misurati; UN processo, nessun'altra esecuzione in corso")
+    if piano:
+        return 0
+    if torch.get_num_threads() < 1:
+        raise RuntimeError("torch senza fili")
+    t_in = time.time()
+    for i, x in enumerate([x for x in lav if x not in fatti], 1):
+        r = _addestra((x, str(out), 1))
+        print(f"  [{i:2d}] {r['braccio']:4s}{(' acq ' + str(r['acquisizione'])) if 'acquisizione' in r else '':9s} "
+              f"s{r['seme']} {r['esito']:10s} {r['secondi']:7.0f} s"
+              + (f"\n        {r['errore']}" if r["esito"] == "fallita" else ""), flush=True)
+        if r["esito"] != "completata":
+            return 1
+    # adattamenti di F' dall'E' del campione, sull'episodio di prova
+    import numpy as np
+    from evoluzione.analisi.pesi import carica as carica_pesi
+    from evoluzione.componente import griglia as GR
+    from evoluzione.componente.adattamento import adatta, carica_E
+    from evoluzione.componente.episodio import lotti_episodio
+    from evoluzione.esperimenti.esegui_e2 import da_E1
+    E_TOK = _nome_e_token(); scF = _cfgF(out)["scelte"]["PEMS08"]
+    D, ok, nodi, ist, x_, stat = _dati(c, out)
+    t0, t1, fine, chiave = episodio("prova", D); nn = nodi[chiave]
+    w = torch.as_tensor(carica_pesi(out / "pesi_pems08", c, 0).vettore(), dtype=torch.float32)
+    ad = {}
+    for s in SEMI_COSTI:
+        fE = Path(_ck_di({"contesto": c, "partizione": 0, "seme": s, "braccio": E_TOK, "isolato": True}, out))
+        dEp, nodi_in, _ = carica_E(fE, D_STAT)
+        for L in (L24, SETTIMANA):
+            o_L = GR.origini_acquisizione(ok, t0, t0 + L)
+            t_ = time.time()
+            m, forn = da_E1(dEp, nodi_in, nn, "token")
+            adatta(m, forn, lotti_episodio(x_, D["classe"], stat, nn, o_L), w, scF["passo"], scF["aggiornamenti"])
+            ad.setdefault(f"Fp_{L}", []).append(time.time() - t_)
+            print(f"  F'({L}) s{s}: adattamento {ad[f'Fp_{L}'][-1]:.1f} s ({len(nn)} nodi, {len(o_L)} origini)")
+    add = {}
+    for x in lav:
+        d = json.loads(marcatore(Path(x["ck"])).read_text())
+        k = x["braccio"] + (f"_{x['acquisizione']}" if "acquisizione" in x else "")
+        add.setdefault(k, []).append(d["secondi"])
+    R = {"contesto": c, "partizione": 0, "semi": list(SEMI_COSTI), "modalita_misura": "isolata, un processo",
+         "addestramento_s": {k: {"valori": v, "mediana": float(np.median(v))} for k, v in add.items()},
+         "adattamento_s": {k: {"valori": v, "mediana": float(np.median(v))} for k, v in ad.items()},
+         "F0p_s": 0.0, "nota": "F0', F' e gated non riaddestrano: il loro costo e' quello di E' piu' l'adattamento",
+         "ore_calendario": (time.time() - t_in) / 3600, "istante": datetime.now(timezone.utc).isoformat()}
+    _scrivi_atomico(out / "e6_costi.json", json.dumps(R, indent=2, ensure_ascii=False))
+    print("\n  mediane (s): " + ", ".join(f"{k} {v['mediana']:.0f}" for k, v in R["addestramento_s"].items())
+          + "; adattamento " + ", ".join(f"{k} {v['mediana']:.1f}" for k, v in R["adattamento_s"].items()))
+    print(f"  salvato in {out / 'e6_costi.json'}")
+    return 0
+
+
 # --------------------------------------------------------------------- main --
 def main() -> int:
     ap = argparse.ArgumentParser(description="E6 parte B (PEMS08)")
-    ap.add_argument("--fase", choices=("pilota", "addestra", "seleziona-F", "valuta", "scegli", "test"),
+    ap.add_argument("--fase", choices=("pilota", "addestra", "seleziona-F", "valuta", "scegli", "test", "costi"),
                     required=True)
     ap.add_argument("--episodio", choices=("validazione", "prova"), default=None)
     ap.add_argument("--lavoratori", type=int, default=8)
@@ -646,6 +721,8 @@ def main() -> int:
         return fase_valuta(a.out, a.lavoratori, a.fili, a.piano, a.episodio)
     if a.fase == "scegli":
         return fase_scegli(a.out)
+    if a.fase == "costi":
+        return fase_costi(a.out, a.piano)
     fase_test(a.out); return 0
 
 
