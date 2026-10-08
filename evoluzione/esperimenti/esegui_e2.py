@@ -51,7 +51,11 @@ def da_E1(dE, nodi_in, nodi_nuovi, partenza: str):
     `copia_da_E` non trasferisce il token — non e' un modulo comune — quindi
     lo si legge dallo stato e lo si applica esplicitamente.
     """
-    m, forn = copia_da_E(dE, nodi_in, nodi_nuovi, D_STAT)
+    # LA SORGENTE VIENE DAL PUNTO DI CONTROLLO (come in `_modello_da_ck`): su
+    # PEMS il predittore ha undici canali, e il predefinito a nove non li accoglie
+    from evoluzione.esperimenti.addestramento import sorgente_di
+    m, forn = copia_da_E(dE, nodi_in, nodi_nuovi, D_STAT,
+                         sorgente=sorgente_di(dE.get("contesto", "")))
     sd = dE["state_dict"]
     if "identita.ignoto" not in sd:
         raise RuntimeError("il punto non ha il token ignoto: non e' un E1")
