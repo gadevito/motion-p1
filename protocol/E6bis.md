@@ -1,6 +1,6 @@
 # E6-bis — Il costo di trasferimento fuori da Traffic4cast (F₀ su PEMS08)
 
-**Pre-registrazione.** Data _______ · commit ________________ · chi lancia Gabriele De Vito.
+**Pre-registrazione.** Data 2026-10-08 · commit 168d6f5f57d721d5 · chi lancia Gabriele De Vito.
 
 Scritta l'8/10, dopo il congelamento di E6 parte B (`CONGELAMENTO_E6.md`,
 commit `83e9a85`), su richiesta del revisore, **prima di addestrare qualunque
