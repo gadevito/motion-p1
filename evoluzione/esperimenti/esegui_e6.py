@@ -64,6 +64,11 @@ SEME_PILOTA = 201
 R_ORIG = "R-orig"
 PREFISSO_COSTI = "e6_costi_"                           # campione isolato: p0, semi 201-203
 SEMI_COSTI = (201, 202, 203)
+# E6-bis (protocol/E6bis.md): E senza token su PEMS08, F0 all'embedding medio,
+# F(24 h) e F(1 sett.) con la configurazione di F' congelata in E6
+E_SENZA = "E"
+ETICHETTA_E = "E_e6_pems08"
+DIR_PRED_BIS = "predizioni_e6bis"
 
 
 def _scrivi_atomico(f: Path, testo: str):
@@ -125,7 +130,7 @@ def cfg_lavoro(x: dict, out: Path, nodi, ok) -> dict:
     from evoluzione.esperimenti.semi import seme_torch
     b, c, p, s = x["braccio"], x["contesto"], x["partizione"], x["seme"]
     pb = proprieta_braccio(b)
-    if pb.preparatorio:                                   # E'
+    if pb.preparatorio:                                   # E' (E6) oppure E (E6-bis)
         cfg = {"epoche": 35, "lotto": 32, "passo": 1e-3, "pazienza": 8,
                "storia_descrittore_passi": 96, "finestra_dinamica_passi": 12,
                "orizzonti": [1, 2, 4, 8], "sorgente": "pems04",
@@ -616,6 +621,183 @@ def fase_test(out: Path) -> dict:
     return R
 
 
+# ------------------------------------------------------------------- E6-bis --
+def lavori_E(out: Path) -> list:
+    lav = []
+    for s in SEMI_E6:
+        for c in CONTESTI:
+            x = {"contesto": c, "partizione": _part(c), "seme": int(s), "braccio": E_SENZA}
+            x["ck"] = str(_ck_di(x, out)); lav.append(x)
+    return lav
+
+
+def fase_addestra_E(out: Path, lavoratori: int, fili: int, piano: bool) -> int:
+    lav = lavori_E(out)
+    fatti = [x for x in lav if marcatore(Path(x["ck"])).exists()]
+    da_fare = [x for x in lav if x not in fatti]
+    print(f"  E6-bis: {len(lav)} addestramenti di {E_SENZA} (senza token), stessa configurazione di "
+          f"{_nome_e_token()} di E6; {len(fatti)} gia' fatti, {len(da_fare)} da eseguire; cartella {ETICHETTA_E}/")
+    if piano:
+        for x in da_fare[:3]:
+            print(f"     {x['contesto']} s{x['seme']} {x['braccio']}  -> {x['ck']}")
+        return 0
+    ctx = mp.get_context("spawn"); t0 = time.time(); esiti = []
+    with ctx.Pool(lavoratori) as pool:
+        for i, r in enumerate(pool.imap_unordered(_addestra, [(x, str(out), fili) for x in da_fare]), 1):
+            esiti.append(r)
+            print(f"  [{i:3d}/{len(da_fare)}] {r['contesto']} s{r['seme']} {r['braccio']:4s} {r['esito']:10s} "
+                  f"{r['secondi']/60:5.1f} min" + (f"\n        {r['errore']}" if r["esito"] == "fallita" else ""), flush=True)
+    fall = [r for r in esiti if r["esito"] != "completata"]
+    _scrivi_atomico(out / "esito_e6bis_addestra.json", json.dumps(
+        {"completate": len(esiti) - len(fall), "fallite": fall, "gia_fatte": len(fatti),
+         "ore_calendario": (time.time() - t0) / 3600, "lavoratori": lavoratori,
+         "istante": datetime.now(timezone.utc).isoformat()}, indent=2, ensure_ascii=False))
+    print(f"\n  {len(esiti) - len(fall)} completati, {len(fall)} falliti, {(time.time() - t0)/3600:.1f} h")
+    return 0 if not fall else 1
+
+
+def _cella_E(args):
+    c, s, out, fili = args
+    import numpy as np
+    import torch
+    torch.set_num_threads(fili)
+    from evoluzione.analisi.pesi import carica as carica_pesi
+    from evoluzione.componente import griglia as GR
+    from evoluzione.componente.adattamento import adatta, carica_E, copia_da_E
+    from evoluzione.componente.episodio import lotti_episodio
+    from evoluzione.esperimenti.addestramento import sorgente_di
+    from evoluzione.esperimenti.esegui_e2 import valuta
+    out = Path(out); p = _part(c)
+    g = out / DIR_PRED_BIS / f"prova_{c}_p{p}_s{s}.npz"
+    if g.exists():
+        return {"c": c, "s": s, "esito": "presente", "secondi": 0}
+    t_in = time.time()
+    try:
+        D, ok, nodi, ist, x, stat = _dati(c, out)
+        t0, t1, fine, chiave = episodio("prova", D)
+        nn = nodi[chiave]
+        per = np.asarray(GR.origini_dopo(ok, t1, fine), dtype="int64")
+        # CONTROLLO 2 (E6bis.md): stessi nodi e stesse origini della cella di E6
+        z6 = np.load(out / DIR_PRED / f"prova_{c}_p{p}_s{s}.npz", allow_pickle=True)
+        if not (np.array_equal(z6["nodi"].astype("int64"), np.asarray(nn, dtype="int64"))
+                and np.array_equal(z6["origini"].astype("int64"), per)):
+            raise RuntimeError("controllo 2: nodi od origini diversi dalla cella di E6")
+        P_ = carica_pesi(out / "pesi_pems08", c, p)
+        pesi = np.asarray(P_.vettore(), dtype="float64"); w_t = torch.as_tensor(pesi, dtype=torch.float32)
+        S = torch.as_tensor(stat[nn])
+        cfgF = _cfgF(out); scF = cfgF["scelte"]["PEMS08"]
+        if str(z6["impronta_configurazione_F"]) != cfgF["impronta"]:
+            raise RuntimeError("controllo 2: configurazione di F' diversa da quella congelata")
+        fE = Path(_ck_di({"contesto": c, "partizione": p, "seme": s, "braccio": E_SENZA}, out))
+        dE, nodi_in, imp_E = carica_E(fE, D_STAT)
+        nn_set = set(int(z) for z in nn)
+        for nome, ni in (("E", nodi_in), ("pesi.nodi_addestramento", P_.nodi_addestramento),
+                         ("normalizzazione", nodi["addestramento"])):
+            if set(int(z) for z in ni) & nn_set:
+                raise RuntimeError(f"controllo 7, {nome}: nodi dell'episodio presenti")
+        srg = sorgente_di(dE.get("contesto", ""))
+        eta = per - t0
+        idx = [eta <= FASCE_ETA[0], (eta > FASCE_ETA[0]) & (eta <= FASCE_ETA[1]), eta > FASCE_ETA[1]]
+        tagli = np.array_split(np.arange(len(per)), 3)
+        fasce = idx + [np.isin(np.arange(len(per)), q) for q in tagli]
+        ris = {}
+
+        def salva(nome, m):
+            PB, YY, MM, w, ph, dt = valuta(m, x, D["classe"], nn, per, S, pesi)
+            A, Bm = _aggregati(PB, YY, MM, pesi, fasce)
+            ris[f"A_{nome}"] = A; ris[f"B_{nome}"] = Bm; ris[f"wce_{nome}"] = w
+            return w
+
+        m0, _ = copia_da_E(dE, nodi_in, nn, D_STAT, sorgente=srg); salva("F0", m0)    # embedding medio
+        n_agg = {}
+        for L in (L24, SETTIMANA):
+            o_L = GR.origini_acquisizione(ok, t0, t0 + L)
+            m, forn = copia_da_E(dE, nodi_in, nn, D_STAT, sorgente=srg)
+            n_agg[f"F_{L}"] = adatta(m, forn, lotti_episodio(x, D["classe"], stat, nn, o_L), w_t,
+                                     scF["passo"], scF["aggiornamenti"])
+            salva(f"F_{L}", m)
+        g.parent.mkdir(parents=True, exist_ok=True)
+        np.savez_compressed(
+            g, nodi=np.asarray(nn, dtype="int32"), origini=per.astype("int32"), eta=eta.astype("int32"),
+            fasce=np.asarray([int(m.sum()) for m in fasce]), t0=t0, t1=t1, fine=fine, episodio="prova",
+            contesto=c, partizione=p, seme=s, impronta_E=imp_E, impronta_configurazione_F=cfgF["impronta"],
+            aggiornamenti=json.dumps(n_agg), controllo_2="ok", controllo_7="ok", **ris)
+        return {"c": c, "s": s, "esito": "ok", "secondi": time.time() - t_in,
+                "wce": {k: round(float(ris[f"wce_{k}"]), 5) for k in ("F0", "F_96", "F_672")}}
+    except Exception as e:                                   # noqa: BLE001
+        return {"c": c, "s": s, "esito": "fallita", "errore": f"{type(e).__name__}: {e}"[:300],
+                "secondi": time.time() - t_in}
+
+
+def fase_valuta_E(out: Path, lavoratori: int, fili: int, piano: bool) -> int:
+    mancanti = [x["ck"] for x in lavori_E(out) if not marcatore(Path(x["ck"])).exists()]
+    if mancanti:
+        raise RuntimeError(f"{len(mancanti)} punti E senza marcatore, per esempio {mancanti[:2]}")
+    celle = [(c, s, str(out), fili) for c in CONTESTI for s in SEMI_E6]
+    print(f"  E6-bis: {len(celle)} celle di prova: F0 (embedding medio), F(24 h), F(1 sett.) dalla "
+          f"configurazione di F' congelata; controllo 2 contro le celle di E6")
+    if piano:
+        return 0
+    ctx = mp.get_context("spawn"); t0 = time.time(); fall = 0
+    with ctx.Pool(lavoratori) as pool:
+        for i, r in enumerate(pool.imap_unordered(_cella_E, celle), 1):
+            if r["esito"] == "fallita":
+                fall += 1; print(f"  [{i:3d}/{len(celle)}] {r['c']} s{r['s']} FALLITA {r['errore']}", flush=True)
+            elif r["esito"] == "ok":
+                print(f"  [{i:3d}/{len(celle)}] {r['c']} s{r['s']} "
+                      + " ".join(f"{q} {v}" for q, v in r["wce"].items()) + f"  {r['secondi']:4.0f}s", flush=True)
+    print(f"\n  {len(celle) - fall} celle, {fall} fallite, {(time.time() - t0)/60:.1f} min")
+    return 0 if not fall else 1
+
+
+def fase_test_bis(out: Path) -> dict:
+    import numpy as np
+    cfgF = _cfgF(out)
+    c6 = _carica_celle(out, "prova")
+    cb = {}
+    for f in sorted((out / DIR_PRED_BIS).glob("prova_*_p*_s*.npz")):
+        with np.load(f, allow_pickle=True) as z:
+            d = {k: z[k] for k in z.files}
+        cb[("PEMS08", int(d["partizione"]), int(d["seme"]))] = d
+    if len(cb) != len(c6) or set(cb) != set(c6):
+        raise RuntimeError(f"celle E6-bis {len(cb)} contro E6 {len(c6)}")
+    celle = {}
+    for k, z in c6.items():
+        zb = cb[k]
+        if not (np.array_equal(z["nodi"], zb["nodi"]) and np.array_equal(z["origini"], zb["origini"])):
+            raise RuntimeError(f"{k}: nodi od origini diversi fra E6 ed E6-bis")
+        if str(zb["impronta_configurazione_F"]) != cfgF["impronta"]:
+            raise RuntimeError(f"{k}: configurazione di F' diversa")
+        celle[k] = {**z, **{q: v for q, v in zb.items() if q.startswith(("A_", "B_", "wce_", "impronta_E"))}}
+    rng = np.random.default_rng(SEME_BOOT + 1)
+    CONF = {"F0-C": ("F0", "C", None), "F0p-F0": ("F0p", "F0", None),
+            "F_672-Fp_672_eta>1sett": ("F_672", "Fp_672", 2), "F_96-Fp_96": ("F_96", "Fp_96", None),
+            "F_672-C_eta>1sett": ("F_672", "C", 2), "F_96-C": ("F_96", "C", None)}
+
+    def diff(n1, n2, fascia):
+        def AB(z, n, idx):
+            A, Bm = z[f"A_{n}"], z[f"B_{n}"]
+            A = A.sum(0) if fascia is None else A[fascia]; Bm = Bm.sum(0) if fascia is None else Bm[fascia]
+            return (A, Bm) if idx is None else (A[idx], Bm[idx])
+        return lambda z, idx: _wce(*AB(z, n1, idx)) - _wce(*AB(z, n2, idx))
+
+    def segno(r):
+        lo, hi = r["ic_con_nodi"]
+        return "-" if hi < 0 else ("+" if lo > 0 else "0")
+    R = {"impronta_configurazione_F": cfgF["impronta"], "celle": len(celle), "confronti": {}}
+    print(f"\nE6-bis, PEMS08: {len(celle)} celle")
+    for nome, (n1, n2, fascia) in CONF.items():
+        r = _boot(celle, diff(n1, n2, fascia), rng)
+        R["confronti"][nome] = {**r, "segno": segno(r)}
+        print(f"  {nome:24s} {r['media']:+.5f} [{r['ic_con_nodi'][0]:+.5f}, {r['ic_con_nodi'][1]:+.5f}]  segno {segno(r)}")
+    from evoluzione.esperimenti.esegui_e4 import B_BOOT
+    R["repliche"] = B_BOOT; R["seme_bootstrap"] = SEME_BOOT + 1
+    R["istante"] = datetime.now(timezone.utc).isoformat()
+    (out / "e6bis_risultati.json").write_text(json.dumps(R, indent=2, ensure_ascii=False))
+    print(f"  salvato in {out / 'e6bis_risultati.json'}")
+    return R
+
+
 # -------------------------------------------------------------------- costi --
 def fase_costi(out: Path, piano: bool) -> int:
     """Il campione isolato della tabella dei costi: partizione 0, semi 201-203,
@@ -688,8 +870,8 @@ def fase_costi(out: Path, piano: bool) -> int:
 # --------------------------------------------------------------------- main --
 def main() -> int:
     ap = argparse.ArgumentParser(description="E6 parte B (PEMS08)")
-    ap.add_argument("--fase", choices=("pilota", "addestra", "seleziona-F", "valuta", "scegli", "test", "costi"),
-                    required=True)
+    ap.add_argument("--fase", choices=("pilota", "addestra", "seleziona-F", "valuta", "scegli", "test", "costi",
+                                       "addestra-E", "valuta-E", "test-bis"), required=True)
     ap.add_argument("--episodio", choices=("validazione", "prova"), default=None)
     ap.add_argument("--lavoratori", type=int, default=8)
     ap.add_argument("--fili", type=int, default=1)
@@ -723,6 +905,12 @@ def main() -> int:
         return fase_scegli(a.out)
     if a.fase == "costi":
         return fase_costi(a.out, a.piano)
+    if a.fase == "addestra-E":
+        return fase_addestra_E(a.out, a.lavoratori, a.fili, a.piano)
+    if a.fase == "valuta-E":
+        return fase_valuta_E(a.out, a.lavoratori, a.fili, a.piano)
+    if a.fase == "test-bis":
+        fase_test_bis(a.out); return 0
     fase_test(a.out); return 0
 
 
