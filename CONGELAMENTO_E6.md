@@ -1,6 +1,6 @@
 # Congelamento — E6, replica esterna, parte B (PEMS08)
 
-**Congelato il 2026-10-08**, commit `bdc6d0a946e0`. Pre-registrazione `protocol/E6.md` (impronta `c7a6583897215545`), firmata al commit `546bd72f7aea520f` prima del lancio. **Ogni numero e' calcolato da `genera_congelamento_e6.py`** dai file di risultato. **La parte A (PEMS04, bracci definitivi) non e' stata eseguita** e non e' in questo documento.
+**Congelato il 2026-10-08**, commit `4aa4e211ca17`. Pre-registrazione `protocol/E6.md` (impronta `c7a6583897215545`), firmata al commit `546bd72f7aea520f` prima del lancio. **Ogni numero e' calcolato da `genera_congelamento_e6.py`** dai file di risultato. E6-bis (`protocol/E6bis.md`, firmata al commit `168d6f5f57d721d5`) e' nella sezione 3b. La parte A (PEMS04) e' nella sezione 3c.
 
 ## 1. Che cosa e' stato eseguito
 
@@ -44,6 +44,38 @@ Segni delle citta': `e5_risultati.json`, episodio 1 (la campagna principale). «
 
 Livelli medi di wCE sulle 36 celle di prova (tutte le origini dopo t₁ / eta' > 1 sett.): A 0.477 / 0.479; C 0.610 / 0.609; F0p 0.570 / 0.569; Fp_192 0.528 / 0.537; Fp_672 0.503 / 0.519; Fp_96 0.536 / 0.541; Rorig_672 0.482 / 0.528; Rorig_96 0.599 / 0.610.
 
+## 3b. E6-bis — il costo di trasferimento su PEMS08 (`protocol/E6bis.md`)
+
+E senza token: 36 addestramenti, 0 falliti; F₀ all'embedding medio; F(24 h) e F(1 sett.) con la configurazione di F′ congelata (impronta `7c289e6e5d3c73d4`); 36 celle sugli stessi nodi e origini di E6 (controllo 2); 4000 repliche, seme 20261011.
+
+| confronto | Δ | segno |
+|---|---|---|
+| F₀ − C (embedding medio) | +0.156 [+0.066, +0.242] | + |
+| F₀′ − F₀ (il token) | -0.196 [-0.272, -0.113] | − |
+| F(1 sett.) − F′(1 sett.), eta' > 1 sett. | +0.076 [+0.031, +0.120] | + |
+| F(24 h) − F′(24 h) | +0.101 [+0.058, +0.150] | + |
+| F(1 sett.) − C, eta' > 1 sett. | -0.015 [-0.073, +0.059] | 0 |
+| F(24 h) − C | +0.028 [-0.038, +0.106] | 0 |
+
+Il costo di trasferimento dell'embedding medio **esiste anche su PEMS08** (F₀ − C sopra lo zero; nelle citta' +0,050…+0,078 in E2); il token conta ancora dopo l'adattamento (F − F′ sopra lo zero a 24 h e a 1 settimana).
+
+## 3c. Parte A — PEMS04, bracci definitivi (completamento, 168 origini comuni)
+
+E′ su PEMS04: 36 addestramenti; F′ selezionata da E′ (50 aggiornamenti, passo 0.001, impronta `16a47787e7f89d5a`); gated τ = 192 passi, N = 231 (impronta `16ed7800df4b401b`); 36 celle (3 contesti × 12 semi, 47 nodi nuovi); nodi sotto N 0.0 per cella su 47 (celle valide min/mediana/max 308/308/308: N inerte anche qui, copertura 100 %). (e) non riportabile: A non esiste su PEMS04.
+
+| | confronto | PEMS04 | segno | PEMS08 | Madrid | Londra | Melbourne |
+|---|---|---|---|---|---|---|---|
+| (a) | F₀′ − C | +0.003 [-0.007, +0.013] | 0 | − | + | + | 0 |
+| (b) | gated − F₀′ | -0.022 [-0.031, -0.013] | − | 0 | − | − | − |
+| (c) | F′(1 sett.) − C, eta' > 1 sett. | -0.033 [-0.047, -0.019] | − | − | − | − | − |
+| (d) | F′(24 h) − C | -0.023 [-0.034, -0.010] | − | − | − | + | − |
+
+- gated − C: -0.019 [-0.030, -0.007] (−)
+- F′(1 sett.) − C, tutte le origini: -0.032 [-0.042, -0.022] (−)
+- F′(48 h) − C: -0.026 [-0.037, -0.013] (−)
+
+(c) su PEMS04: -0.033 [-0.047, -0.019], **segno concorde** con PEMS08 e con le tre citta'.
+
 ## 4. Nodi sotto soglia e copertura
 
 N = 231: nodi sotto soglia 0.0 per cella (massimo 0) su 26; celle valide per nodo min/mediana/max 308/308/308. **Non e' un risultato**: il rilascio e' completo per costruzione (protocollo, nota derivata); gated(τ, N) e gated(τ, 0) coincidono (Δ identiche nella tabella 3).
@@ -66,7 +98,6 @@ Pilota pre-firma: C 454 s; campione isolato: C 441 s. R-orig(1 sett.) costa **3.
 ## 6. Difetti emersi e dichiarati
 
 - `da_E1` (`esegui_e2.py`) costruiva il predittore a nove canali qualunque fosse la sorgente: su PEMS (undici canali) la copia da E′ falliva. Corretto leggendo la sorgente dal punto di controllo (commit `6629f40`); collaudi 8/8 a scarto 0, 37/37, 25/25. Nelle citta' il comportamento e' identico: nessun risultato precedente cambia.
-- Parte A (PEMS04, bracci definitivi): **non eseguita** in questa sessione; resta il completamento dichiarato nel protocollo, con il suo limite (168 origini comuni).
 
 ## 7. Che cosa dice al paper
 
@@ -76,10 +107,12 @@ Su PEMS08, con intervallo che esclude lo zero: (a), (c), (d). La tesi a una sett
 
 | file | impronta |
 |---|---|
-| `evoluzione/esperimenti/esegui_e6.py` | `5d69761488b246a9` |
+| `evoluzione/esperimenti/esegui_e6.py` | `00f7b0442c08f98c` |
+| `evoluzione/esperimenti/esegui_e6a.py` | `56f8ea3ad50ac238` |
 | `evoluzione/esperimenti/estrai_pems04.py` | `93d98cf3d58bbb95` |
 | `evoluzione/esperimenti/calendario_pems08.py` | `35bc7585e8732454` |
 | `evoluzione/esperimenti/esegui_e2.py` | `cc43cf3ac7128515` |
 | `protocol/E6.md` | `c7a6583897215545` |
+| `protocol/E6bis.md` | `1d74950bf0f0ba9a` |
 | configurazione F′ | `7c289e6e5d3c73d4` |
 | scelta gated | `1ce676da7a5168f8` |
