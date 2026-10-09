@@ -38,7 +38,7 @@ from pathlib import Path
 RADICE = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(RADICE))
 from evoluzione.esperimenti.esegui_e4 import (  # noqa: E402
-    B_BOOT, D_STAT, FASCE_ETA, _boot, _nome_e_token)
+    B_BOOT, D_STAT, FASCE_ETA, _boot, _nome_e_token, _wce)
 
 DIR_PRED = "predizioni_e8"
 TOLLERANZA = 1e-6
@@ -275,6 +275,9 @@ def _cella(args):
             wgt = pesi[YY.astype("int64")] * MM
             A = (ce * wgt).sum(0); B = wgt.sum(0)
             ris[f"A_{nome}"] = A.astype("float64"); ris[f"B_{nome}"] = B.astype("float64")
+            if ep_nome == "prova":
+                ris[f"AF_{nome}"] = np.stack([(ce * wgt)[fm].sum(0) for fm in fasce]).astype("float64")
+                ris[f"BF_{nome}"] = np.stack([wgt[fm].sum(0) for fm in fasce]).astype("float64")
             cong = ctx["congelato"](c, p, s, ep_nome, nome)
             if cong is not None:
                 f_c, kA, kB, somma = cong
@@ -459,6 +462,27 @@ def fase_test(out: Path, contesti) -> dict:
                 if idx is not None:
                     C = C[idx]
                 return C.sum((0, 1))                                      # (3,3)
+            def wce_di(z, n, fascia, idx):
+                if n == "gated":
+                    A0, B0 = z["AF_F0p"], z["BF_F0p"]
+                    if tau is None:
+                        A, Bm = A0.copy(), B0.copy()
+                    else:
+                        da = {96: 0, 192: 1, 672: 2}[tau]
+                        A, Bm = A0.copy(), B0.copy(); A[da:] = z[f"AF_Fp_{tau}"][da:]; Bm[da:] = z[f"BF_Fp_{tau}"][da:]
+                    sotto = z["celle_valide"] < N
+                    A[:, sotto] = A0[:, sotto]; Bm[:, sotto] = B0[:, sotto]
+                else:
+                    A, Bm = z[f"AF_{n}"], z[f"BF_{n}"]
+                A = A.sum(0) if fascia is None else A[fascia]; Bm = Bm.sum(0) if fascia is None else Bm[fascia]
+                return (A, Bm) if idx is None else (A[idx], Bm[idx])
+            for nome_c, (n1, n2, fascia) in CONF.items():
+                if (n1 not in modelli and n1 != "gated") or n2 not in modelli:
+                    continue
+                r = _boot(cc, lambda z, idx, _a=n1, _b=n2, _f=fascia: _wce(*wce_di(z, _a, _f, idx)) - _wce(*wce_di(z, _b, _f, idx)), rng)
+                lo, hi = r["ic_con_nodi"]; r["segno"] = "-" if hi < 0 else ("+" if lo > 0 else "0")
+                RG["confronti"].setdefault(nome_c, {})["wce"] = r
+                print(f"  [wce   ] {nome_c:28s} {r['media']:+.4f} [{lo:+.4f}, {hi:+.4f}]  segno {r['segno']}", flush=True)
             for regola in REGOLE:
                 for n in list(modelli) + ["gated"]:
                     if n == "gated" and "F0p" not in modelli:
