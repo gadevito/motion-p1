@@ -83,7 +83,9 @@ def contesto_citta(out: Path):
             if m in ("C", "F0", "F0p", "Fp_96", "Fp_192", "Fp_672") else
             (out / "predizioni_fase3" / f"A_{c}_p{p}_s{s}.npz", "A_per_nodo", "B_per_nodo", False)
             if m == "A" and ep == "prova" else
-            (out / "predizioni_fase3_672" / f"R-orig_{c}_p{p}_s{s}.npz", "A_per_nodo", "B_per_nodo", False)
+            # E3-bis valuta R-orig(1 sett.) sulle SOLE origini comuni (dopo t0 + 672): il
+            # controllo si fa sulla fascia eta' > 1 settimana, che e' quel perimetro
+            (out / "predizioni_fase3_672" / f"R-orig_{c}_p{p}_s{s}.npz", "A_per_nodo", "B_per_nodo", "fascia2")
             if m == "Rorig_672" and ep == "prova" else None),
         "seme_boot": 20261004}
 
@@ -284,13 +286,19 @@ def _cella(args):
                 if not f_c.exists():
                     raise RuntimeError(f"controllo 1: manca l'aggregato congelato {f_c}")
                 zc = np.load(f_c, allow_pickle=True)
+                if somma == "fascia2":
+                    # perimetro congelato = origini con eta' > 1 settimana
+                    sel = fasce[2]; per_c = per[sel]
+                    A_mio, B_mio = (ce * wgt)[sel].sum(0), wgt[sel].sum(0)
+                else:
+                    per_c, A_mio, B_mio = per, A, B
                 if not (np.array_equal(zc["nodi"].astype("int64"), np.asarray(nn, dtype="int64"))
-                        and np.array_equal(zc["origini"].astype("int64"), per)):
+                        and np.array_equal(zc["origini"].astype("int64"), per_c)):
                     raise RuntimeError(f"controllo 2, {nome}: nodi od origini diversi da {f_c.name}")
                 Ac, Bc = zc[kA], zc[kB]
-                if somma:
+                if somma is True:
                     Ac, Bc = Ac[:3].sum(0), Bc[:3].sum(0)
-                mio, loro = _wce_per_oriz(A, B), _wce_per_oriz(Ac, Bc)
+                mio, loro = _wce_per_oriz(A_mio, B_mio), _wce_per_oriz(Ac, Bc)
                 rel = float(np.nanmax(np.abs(mio - loro) / np.maximum(np.abs(loro), 1e-12)))
                 controllo[nome] = {"scarto_relativo_max": rel, "file": f_c.name}
                 if rel > TOLLERANZA:
