@@ -76,7 +76,7 @@ def contesto_citta(out: Path):
                "E1": lambda c, p, s, st: out / f"{E_TOK}_inserimento_griglia" / f"ck_{E_TOK}_{c}_p{p}_s{st}.pt",
                "Rorig_672": lambda c, p, s, st: out / "inserimento_griglia_672" / f"ck_R-orig_{c}_p{p}_s{s}.pt"},
         "modelli": {"prova": ("C", "A", "F0", "F0p", "Fp_96", "Fp_192", "Fp_672", "Rorig_672"),
-                    "validazione": ("C", "A", "F0", "F0p", "Fp_96", "Fp_192", "Fp_672")},
+                    "validazione": ("C", "F0", "F0p", "Fp_96", "Fp_192", "Fp_672")},
         # aggregati congelati: (file, chiave A, chiave B, somma delle fasce?)
         "congelato": lambda c, p, s, ep, m: (
             (out / "predizioni_e4" / f"{ep}_{c}_p{p}_s{s}.npz", f"A_{m}", f"B_{m}", True)
@@ -108,7 +108,7 @@ def contesto_pems08(out: Path):
                "E1": lambda c, p, s, st: out / f"{E_TOK}_{ETICHETTA}" / f"ck_{E_TOK}_{c}_p{p}_s{st}.pt",
                "Rorig_672": lambda c, p, s, st: out / ETICHETTA_672 / f"ck_R-orig_{c}_p{p}_s{s}.pt"},
         "modelli": {"prova": ("C", "A", "F0", "F0p", "Fp_96", "Fp_672", "Rorig_672"),
-                    "validazione": ("C", "A", "F0", "F0p", "Fp_96", "Fp_672")},
+                    "validazione": ("C", "F0", "F0p", "Fp_96", "Fp_672")},
         "congelato": lambda c, p, s, ep, m: (
             (out / "predizioni_e6" / f"{ep}_{c}_p{p}_s{s}.npz", f"A_{m}", f"B_{m}", True)
             if m in ("C", "F0p", "Fp_96", "Fp_672") or (ep == "prova" and m in ("A", "Rorig_672")) else
@@ -391,9 +391,12 @@ def fase_soglie(out: Path, contesti) -> int:
                 i_par = min(range(len(SOGLIE)), key=lambda i: (round(abs(far[i] - far_C), 12), -SOGLIE[i]))
                 sog[m]["par"] = SOGLIE[i_par]; sog[m]["far_val_par"] = far[i_par]
                 sog[m]["richiamo_val_par"] = metriche(G[i_par])["richiamo"]
-            # R-orig(1 sett.) eredita le soglie di F'(1 sett.) (protocollo)
+            # R-orig(1 sett.) eredita le soglie di F'(1 sett.); A quelle di C (protocollo,
+            # deviazione del 9/10: A non ha i nodi di validazione in tabella)
             if "Fp_672" in sog and "Rorig_672" not in sog:
                 sog["Rorig_672"] = {**sog["Fp_672"], "ereditata_da": "Fp_672"}
+            if "A" not in sog:
+                sog["A"] = {**sog["C"], "ereditata_da": "C"}
             S[gr] = sog
             print(f"  {gr:10s} " + "  ".join(f"{m}: prim {v['prim']:.2f} par {v['par']:.2f}" for m, v in sog.items()))
     doc = {"griglia": SOGLIE, "regola_primaria": "massimo F1 della classe congestionata su validazione, "
