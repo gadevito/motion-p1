@@ -61,7 +61,7 @@ def main() -> int:
         for fa in (0.5, 1, 2, 5, 10):
             ax.axvline(fa, color="#bbbbbb", lw=.6, ls=":")
     axs[0].set_ylabel("richiamo sulla classe congestionata (%)")
-    axs[0].legend(loc="lower right", fontsize=8)          # Madrid ha tutti e cinque i modelli
+    axs[0].legend(loc="upper left", fontsize=8)           # Madrid ha tutti e cinque i modelli; in alto a sinistra e' vuoto
     fig.suptitle("Curve richiamo–falsi allarmi sulle origini comuni (eta' > 1 settimana), soglie 0,05…0,95 (E8-bis)", fontsize=10)
     fig.tight_layout()
     a.figure.mkdir(parents=True, exist_ok=True)
