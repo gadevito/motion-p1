@@ -131,3 +131,24 @@ def verifica(radice: Path) -> list:
                 r["esito"] = "ok" if p is not None else "non verificabile"
             righe.append(r)
     return righe
+
+
+def storia_codice(radice: Path, rel: str, h: str) -> dict:
+    """Per un file di codice la cui impronta citata non coincide piu': il commit
+    (e la data) della versione citata e i commit successivi che lo cambiano, dalla
+    storia git (dal piu' vecchio al piu' recente). Deterministico a parita' di storia."""
+    import subprocess
+    git = lambda *a: subprocess.run(["git", *a], cwd=radice, capture_output=True, text=True).stdout
+    righe = [r.split("\t", 2) for r in git("log", "--format=%H\t%as\t%s", "--", rel).splitlines() if r]
+    righe.reverse()                                                    # dal piu' vecchio
+    citata, dopo = None, []
+    for c, data, ogg in righe:
+        r = subprocess.run(["git", "show", f"{c}:{rel}"], cwd=radice, capture_output=True)
+        imp = hashlib.sha256(r.stdout).hexdigest()[:16] if r.returncode == 0 else None
+        if imp == h[:16]:
+            citata, dopo = (c[:12], data), []
+        elif citata is not None or not dopo:
+            dopo.append((c[:12], data, ogg[:90]))
+    if citata is None:                                                 # mai committata in quella forma
+        return {"versione_citata": None, "commit": [(c[:12], d, o[:90]) for c, d, o in righe]}
+    return {"versione_citata": citata, "commit": dopo}

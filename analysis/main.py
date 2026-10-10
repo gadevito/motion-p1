@@ -128,6 +128,7 @@ FASI = [
     F("E6", [E + "esegui_e6.py", "--fase", "test-bis"], [R_ + "e6bis_risultati.json"]),
     F("E6", [E + "esegui_e6a.py", "--fase", "scegli"], [R_ + "e6a_scelta_gated.json"], scelta=True),
     F("E6", [E + "esegui_e6a.py", "--fase", "test"], [R_ + "e6a_risultati.json"]),
+    F("E6", [E + "esegui_e6.py", "--fase", "origini"], [R_ + "e6_origini_comuni.json"]),
     F("E6", ["genera_congelamento_e6.py"], ["CONGELAMENTO_E6.md"]),
     # E7
     F("E7", [A + "e7_stadio1.py"], [R_ + "e7_stadio1.json"], figure=["e7_stadio1.png"]),
@@ -437,19 +438,32 @@ def scrivi_confronto(f: Path, meta: dict, esiti: list, paper: list, ok: bool):
           "congelamento).", ""]
     tt = [f"- `{u}`: `{r}`" for e in esiti for u, x in e["uscite"].items() for r in x.get("righe_solo_testo", [])]
     L += tt or ["Nessuna."]
-    L += ["", "## 6. Impronte del codice diverse da quelle registrate nel congelamento", "",
+    L += ["", "## 6. File di codice cambiati dopo il congelamento che li cita (registro, Paper 2)", "",
+          "Informativo. Per ogni file di codice con impronta citata diversa da quella attuale: il commit della "
+          "versione citata (se la storia git la contiene) e i commit successivi che lo cambiano.", "",
+          "| file | congelamento | impronta citata | versione citata (commit, data) | cambiato in (commit, data, oggetto) |",
+          "|---|---|---|---|---|"]
+    for r in meta["impronte_citate"]:
+        if r["esito"] != "cambiato dopo il congelamento":
+            continue
+        st = r.get("storia") or {}
+        vc = st.get("versione_citata")
+        vc = f"`{vc[0]}` {vc[1]}" if vc else "non presente nella storia git (stato non committato al congelamento)"
+        cc = "<br>".join(f"`{c}` {d} {o}" for c, d, o in st.get("commit", [])) or "—"
+        L.append(f"| `{r['trovato']}` | `{r['documento']}` | `{r['impronta']}` | {vc} | {cc} |")
+    L += ["", "## 7. Impronte del codice diverse da quelle registrate nel congelamento (json)", "",
           "Informativo, non fa fallire: il file di codice e' cambiato dopo il congelamento, i numeri no "
           "(sezione 3). Date, commit e istanti non sono elencati.", ""]
     imp = sorted({(Path(u).name, m["dove"], fmt(m["atteso"]), fmt(m["ottenuto"]))
                   for e in esiti for u, r in e["uscite"].items() for m in r.get("metadati_diversi", [])
                   if re.search(r"impront", m["dove"], re.I) and not re.search(r"istante|data|commit", m["dove"])})
     L += [f"- `{f}` `{d}`: congelato {a}, attuale {b}" for f, d, a, b in imp] or ["Nessuna."]
-    L += ["", "## 7. Figure (script esistenti)", ""]
+    L += ["", "## 8. Figure (script esistenti)", ""]
     for e in esiti:
         for g, c in e["figure"].items():
             dove = g.replace("paper:", "<paper>/figures/") if g.startswith("paper:") else f"figure/{g}"
             L.append(f"- `{dove}` da `{e['cmd']}`: {'prodotta' if c else 'MANCANTE'}")
-    L += ["", "## 8. Impronte degli ingressi (`results/evoluzione`)", "",
+    L += ["", "## 9. Impronte degli ingressi (`results/evoluzione`)", "",
           "SHA-256 dei file di primo livello; per le cartelle, dell'elenco (nome, dimensione) dei file." , "", "```"]
     L += [f"{k}  {v}" for k, v in sorted(meta["impronte_ingressi"].items())] + ["```"]
     f.write_text("\n".join(L) + "\n")
@@ -539,6 +553,10 @@ def main() -> int:
         print(f"  {k}  {v}")
     from analysis.impronte import verifica as verifica_impronte
     meta["impronte_citate"] = verifica_impronte(RADICE)
+    from analysis.impronte import storia_codice
+    for r in meta["impronte_citate"]:
+        if r["esito"] == "cambiato dopo il congelamento":
+            r["storia"] = storia_codice(RADICE, r["trovato"], r["impronta"])
     n_div = sum(r["esito"] in ("DIVERSO", "file non trovato") for r in meta["impronte_citate"])
     print(f"impronte citate nei congelamenti: {len(meta['impronte_citate'])}, ingressi diversi: {n_div}")
     prima = istantanea(RADICE / RIS)
