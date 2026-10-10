@@ -25,7 +25,7 @@ RADICE = Path(__file__).resolve().parent
 sys.path.insert(0, str(RADICE))
 
 OUT = Path("results/evoluzione")
-FILE = ["evoluzione/esperimenti/esegui_e8.py", "protocol/E8.md", "protocol/E8bis.md"]
+FILE = ["evoluzione/esperimenti/esegui_e8.py", "evoluzione/analisi/figura_e8bis.py", "protocol/E8.md", "protocol/E8bis.md"]
 CURVE_ET = {"A-C": "A − C", "F0-C": "F₀ − C", "F0p-C": "F₀′ − C", "Fp_96-C": "F′(24 h) − C",
             "Fp_672-C_eta>1sett": "F′(1 sett.) − C, eta' > 1 sett.", "Rorig_672-Fp_672_eta>1sett": "R-orig(1 sett.) − F′(1 sett.), eta' > 1 sett.",
             "F0p-F0": "F₀′ − F₀"}
@@ -271,9 +271,10 @@ def documento(R: dict) -> str:
             if "Fp_672-C_eta>1sett" in BG["confronti"]:
                 sa, lett = verdetti[(g, "Fp_672-C_eta>1sett")]; cf = BG["confronti"]["Fp_672-C_eta>1sett"]
                 if sa == "+" and "mai sotto" in lett or "domina" in lett and "dominato" not in lett:
-                    testo = (f"la curva di F′(1 sett.) **domina** quella di C (ΔAUC sopra lo zero, richiamo mai sotto a nessun "
-                             f"livello di falsi allarmi; a FA 5 %: {_liv(cf, '0.05')} punti): il guadagno in wCE e' reale a ogni "
-                             f"punto operativo, e dove il richiamo a soglia fissa scendeva (E8) era una soglia spostata.")
+                    testo = (f"la curva di F′(1 sett.) **domina** quella di C — nel senso dichiarato: ΔAUC sopra lo zero e richiamo "
+                             f"mai sotto a nessuno dei cinque livelli di falsi allarmi esaminati (0,5–10 %), non sull'intera curva; "
+                             f"a FA 5 %: {_liv(cf, '0.05')} punti. Il guadagno in wCE e' reale a ogni punto operativo esaminato, "
+                             f"e dove il richiamo a soglia fissa scendeva (E8, §5) era una soglia spostata.")
                 elif "incrociano" in lett:
                     testo = "le curve **si incrociano**: compromesso vero fra richiamo e falsi allarmi, da riportare come tale."
                 elif sa == "-" or "dominato" in lett:
@@ -314,13 +315,24 @@ def documento(R: dict) -> str:
                     and "dominato" not in verdetti[(g, "Fp_672-C_eta>1sett")][1])
         n_tot = sum(1 for g in GRUPPI if (g, "Fp_672-C_eta>1sett") in verdetti)
         qq = [q for q in calib.values() if q is not None]
-        a(f"**Per la sezione 5.1**: la settimana di adattamento domina C a ogni punto operativo in **{n_dom} contesti su {n_tot}**"
+        a(f"**Per la sezione 5.1**: la settimana di adattamento domina C a ogni punto operativo esaminato (0,5–10 % di falsi allarmi) in **{n_dom} contesti su {n_tot}**"
           + (f"; del costo di trasferimento dell'embedding medio (argmax), una soglia ben posta recupera il "
              f"{100 * min(qq):.0f}–{100 * max(qq):.0f} % nei contesti con A/F₀ ({len(qq)}): "
              + ("in gran parte calibrazione" if min(qq) > 0.5 else "calibrazione e discriminazione insieme") if qq else "")
           + ".")
         a("")
-    a("## 6. Impronte")
+    a("## 8. Difetti emersi e dichiarati")
+    a("")
+    a("- Protocollo E8: A previsto in validazione, non valutabile (ha i nodi di prova): eredita le soglie di C — deviazione del 9/10.")
+    a("- Controllo di R-orig(1 sett.) nelle citta' confrontato sul perimetro sbagliato (tutte le origini dopo t₁ contro le sole "
+      "comuni di E3-bis): il controllo si e' fermato, corretto sul perimetro di E3-bis (commit `abca90d`); nessun numero cambiato.")
+    a("- Generatore, E8-bis: il ramo di lettura «sopra a qualche livello, mai sotto» scriveva «le curve non si distinguono» "
+      "(una regola di lettura che avrebbe detto la cosa sbagliata, dello stesso tipo del criterio non discriminante di E7); "
+      "corretto prima del commit del documento (commit `82360a6`).")
+    a("- `np.trapz` assente nel numpy della macchina: area con trapezi espliciti.")
+    a("- Gated escluso da E8-bis: e' una composizione di modelli con soglie diverse per fascia, non un modello con una probabilita'.")
+    a("")
+    a("## 9. Impronte")
     a("")
     a("| file | impronta |")
     a("|---|---|")
