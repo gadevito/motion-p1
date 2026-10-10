@@ -27,6 +27,9 @@ GRUPPI = ("Madrid", "Londra", "Melbourne", "PEMS08", "PEMS04")
 MODELLI = (("C", "C", "#444444", "-"), ("F0", "F₀ (embedding medio)", "#b86b00", ":"),
            ("F0p", "F₀′ (token)", "#1f77b4", "--"), ("Fp_672", "F′ (1 sett.)", "#1f77b4", "-"),
            ("A", "A (veterano)", "#2ca02c", "-."))
+MODELLI_EN = (("C", "$C$", "#444444", "-"), ("F0", "$F_0$ (mean)", "#b86b00", ":"),
+              ("F0p", "$F_0'$ (token)", "#1f77b4", "--"), ("Fp_672", "$F'$(1 wk)", "#1f77b4", "-"),
+              ("A", "$A$ (oracle)", "#2ca02c", "-."))
 FA_MAX = 0.12
 
 
@@ -37,7 +40,13 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
     ap.add_argument("--figure", type=Path, default=Path("figure"))
+    ap.add_argument("--lingua", choices=("it", "en"), default="it",
+                    help="en: figura C1 del supplementare (PDF, inglese); non scrive nulla in --out")
     a = ap.parse_args()
+    from evoluzione.analisi.stile_paper import PAGINA, applica, citta, nome as nome_file
+    en = a.lingua == "en"
+    if en:
+        applica(plt)
     somme = {}
     for nome, cost in CONTESTI_E8.items():
         ctx = cost(a.out)
@@ -48,25 +57,33 @@ def main() -> int:
                 for m in modelli:
                     G = z[f"griglia7_{m}"].sum(1)                 # (19, 3, 3) sui nodi della cella
                     somme.setdefault(gr, {}); somme[gr][m] = somme[gr].get(m, 0) + G
-    fig, axs = plt.subplots(1, 5, figsize=(17, 3.9), sharey=True)
+    fig, axs = plt.subplots(1, 5, figsize=(PAGINA, 1.9) if en else (17, 3.9), sharey=True)
     for ax, gr in zip(axs, GRUPPI):
-        for m, et, col, ls in MODELLI:
+        for m, et, col, ls in (MODELLI_EN if en else MODELLI):
             if m not in somme.get(gr, {}):
                 continue
             far, rich = curva(somme[gr][m])
             o = np.argsort(far)
-            ax.plot(100 * far[o], 100 * rich[o], ls, color=col, lw=1.6, label=et)
+            ax.plot(100 * far[o], 100 * rich[o], ls, color=col, lw=1.2 if en else 1.6, label=et)
         ax.set_xlim(0, 100 * FA_MAX); ax.set_ylim(0, 100)
-        ax.set_title(gr); ax.set_xlabel("falsi allarmi (%)"); ax.grid(alpha=.3)
-        for fa in (0.5, 1, 2, 5, 10):
-            ax.axvline(fa, color="#bbbbbb", lw=.6, ls=":")
-    axs[0].set_ylabel("richiamo sulla classe congestionata (%)")
-    axs[0].legend(loc="upper left", fontsize=8)           # Madrid ha tutti e cinque i modelli; in alto a sinistra e' vuoto
-    fig.suptitle("Curve richiamo–falsi allarmi sulle origini comuni (eta' > 1 settimana), soglie 0,05…0,95 (E8-bis)", fontsize=10)
-    fig.tight_layout()
+        ax.set_title(citta(a.lingua, gr)); ax.set_xlabel("false alarms (%)" if en else "falsi allarmi (%)")
+        ax.grid(alpha=.3)
+        if not en:
+            for fa in (0.5, 1, 2, 5, 10):
+                ax.axvline(fa, color="#bbbbbb", lw=.6, ls=":")
+    axs[0].set_ylabel("recall, congested (%)" if en else "richiamo sulla classe congestionata (%)")
+    axs[0].legend(loc="upper left", fontsize=5.5 if en else 8)   # Madrid ha tutti e cinque i modelli; in alto a sinistra e' vuoto
+    if en:
+        fig.tight_layout(pad=.3, w_pad=.3)
+    else:
+        fig.suptitle("Curve richiamo–falsi allarmi sulle origini comuni (eta' > 1 settimana), soglie 0,05…0,95 (E8-bis)", fontsize=10)
+        fig.tight_layout()
     a.figure.mkdir(parents=True, exist_ok=True)
-    f = a.figure / "curve_e8bis.png"
+    f = a.figure / nome_file(a.lingua, "curve_e8bis")
     fig.savefig(f, dpi=150)
+    if en:
+        print(f"  figura in {f}")
+        return 0
     (a.out / "curve_e8bis_punti.json").write_text(json.dumps(
         {gr: {m: {"falsi_allarmi": curva(G)[0].tolist(), "richiamo": curva(G)[1].tolist()} for m, G in d.items()}
          for gr, d in somme.items()}, indent=1))

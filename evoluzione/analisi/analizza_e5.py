@@ -47,15 +47,57 @@ def _punti(ax, righe, titolo):
     ax.set_xlabel("episodio", fontsize=8)
 
 
+def fig_replica_en(R, R04, R08, f: Path):
+    """Fig. 5 del Paper 1: (a)-(e) sui nove episodi delle citta' e su PEMS04/PEMS08
+    (affermazioni di e6a_risultati.json ed e6_risultati.json), in inglese."""
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    from evoluzione.analisi.stile_paper import PAGINA, applica, citta
+    applica(plt)
+    tit = {"a": "(a) $F_0'-C$", "b": "(b) gated$-F_0'$", "c": "(c) $F'$(1 wk)$-C$",
+           "d": "(d) $F'$(24 h)$-C$", "e": "(e) $F'$(1 wk)$-A$"}
+    col = {"-": "C2", "+": "C3", "0": "C7"}
+    fig, axs = plt.subplots(1, 5, figsize=(PAGINA, 2.05))
+    for ax, k in zip(axs, "abcde"):
+        pts, xt, xl, x0 = [], [], [], 0
+        for c in CITTA:
+            for e in EPISODI:
+                pts.append((x0 + e - 1, R["affermazioni"][f"{c}/ep{e}/{k}"]))
+            xt.append(x0 + 1); xl.append(citta("en", c)[:3]); x0 += 4
+        for nm, RR in (("P04", R04), ("P08", R08)):
+            if k in RR["affermazioni"]:
+                pts.append((x0, RR["affermazioni"][k]))
+            else:
+                ax.text(x0, .04, "n.r.", transform=ax.get_xaxis_transform(), ha="center", fontsize=5.5, color="C7")
+            xt.append(x0); xl.append(nm); x0 += 1.5
+        for x, r in pts:
+            m = r["media"]; lo, hi = r["ic_con_nodi"]
+            ax.errorbar(x, m, yerr=[[m - lo], [hi - m]], fmt="o", ms=3, capsize=2, lw=1, color=col[r["segno"]])
+        ax.axhline(0, color="k", lw=.7)
+        ax.set_xticks(xt); ax.set_xticklabels(xl, fontsize=6, rotation=90)
+        ax.set_title(tit[k]); ax.grid(axis="y", alpha=.3)
+    axs[0].set_ylabel(r"$\Delta$wCE")
+    fig.tight_layout(pad=.3, w_pad=.3); f.parent.mkdir(parents=True, exist_ok=True); fig.savefig(f)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
     ap.add_argument("--figure", type=Path, default=Path("figure"))
+    ap.add_argument("--lingua", choices=("it", "en"), default="it",
+                    help="en: figura 5 del Paper 1 (PDF, inglese), con PEMS04 e PEMS08")
     a = ap.parse_args()
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     R = json.loads((a.out / "e5_risultati.json").read_text())
+    if a.lingua == "en":
+        f = a.figure / "episodi_e5.pdf"
+        fig_replica_en(R, json.loads((a.out / "e6a_risultati.json").read_text()),
+                       json.loads((a.out / "e6_risultati.json").read_text()), f)
+        print(f"  salvata {f}")
+        return 0
     a.figure.mkdir(parents=True, exist_ok=True)
     print("=" * 84); print("E5 — figura a punti episodio × citta'"); print("=" * 84)
     fig, axs = plt.subplots(1, 5, figsize=(17, 3.8))

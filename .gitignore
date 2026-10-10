@@ -27,3 +27,7 @@ __pycache__/
 !evoluzione/**/*.md
 !README*.md
 evoluzione/Archivio.zip
+
+# --- rigenerazione del Paper 1 (analysis/main.py) ---------------------------
+analysis/rigenerazione/*
+!analysis/rigenerazione/CONFRONTO.md
