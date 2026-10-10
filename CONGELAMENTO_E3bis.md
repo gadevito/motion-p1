@@ -1,6 +1,6 @@
 # Congelamento — E3-bis, riaddestramento leale con una settimana di dati
 
-**Congelato il 2026-10-07**, commit `45caa7ac822d`. Pre-registrato in `protocol/E5.md` (sezione E3-bis; impronta `3dd706bcf3ddd899`), firmato al commit `cff0310c7c49fe36` prima del lancio. **Ogni numero e' calcolato da `genera_congelamento_e3bis.py`** dai file di risultato.
+**Congelato il 2026-10-10**, commit `2363908a38f0`. Pre-registrato in `protocol/E5.md` (sezione E3-bis; impronta `3dd706bcf3ddd899`), firmato al commit `cff0310c7c49fe36` prima del lancio. **Ogni numero e' calcolato da `genera_congelamento_e3bis.py`** dai file di risultato.
 
 ## 1. Che cosa e' stato eseguito
 
@@ -31,16 +31,20 @@ Per riferimento, sulle stesse origini: Madrid F′(1 sett.) − C -0.032, A − 
 
 | configurazione | calcolo all'inserimento | attesa dati | rimisure che riproducono la concorrente |
 |---|---|---|---|
-| R-orig(1 sett.) | **2268 s** | 168 h | 9/9 |
+| R-orig(1 sett.), mediana sulle 9 celle delle tre citta' | **2268 s** | 168 h | 9/9 |
+| R-orig(1 sett.) Madrid (mediana su 3 semi) | **2272 s** | 168 h | 3/3 |
+| R-orig(1 sett.) Londra (mediana su 3 semi) | **2270 s** | 168 h | 3/3 |
+| R-orig(1 sett.) Melbourne (mediana su 3 semi) | **1489 s** | 168 h | 3/3 |
 | F′(1 sett.) Melbourne (da costi_e4) | 406 s | 168 h | — |
 | F′(24 h) (da costi_e4) | 16 s | 24 h | — |
 
-Rapporto di calcolo a parita' di dati: R-orig(1 sett.) / F′(1 sett.) = **almeno 6×**: il denominatore e' l'unico F′(1 sett.) misurato in isolamento (Melbourne, 406 s, con la configurazione F piu' costosa, 200 aggiornamenti); a Madrid e Londra F ha 50 aggiornamenti e il rapporto sarebbe maggiore. Il confronto dei costi del paper e' ora a dati simmetrici: il riaddestramento compra pochi millesimi a diverse volte il costo, non nulla a cento.
+Rapporto di calcolo a parita' di dati, R-orig(1 sett.) / F′(1 sett.), **nella stessa citta'**: Melbourne **3.7×** (1489 s / 406 s). In E4 F′(1 sett.) e' misurato in isolamento solo dove tau = 672 (Melbourne); per Madrid, Londra il rapporto non si calcola qui (i tempi appaiati nelle tre citta' e su PEMS08 sono in `costi_appaiati.json`, misura successiva). Il confronto dei costi del paper e' a dati simmetrici: il riaddestramento compra pochi millesimi a diverse volte il costo, non nulla a cento.
 
 ## 4. Dichiarazioni
 
 - Un solo parametro aggiunto agli esecutori di E3 (`--acquisizione-passi`), con il valore predefinito identico al comportamento precedente; `prova_inserimento` 19/19 e `collauda_bracci` 37/37 dopo la modifica.
 - Le fasce d'eta' della valutazione restano quelle di E3; con t₁ = t₀ + 672 tutte le origini valutate cadono nella terza.
+- **Correzione del 2026-10-10 (difetto 17 del registro)**: la prima versione della sezione 3 scriveva «almeno 6×» dividendo la mediana di R-orig(1 sett.) sulle nove celle delle tre citta' per il solo F′(1 sett.) misurato in isolamento (Melbourne, la configurazione F piu' costosa nella citta' piu' piccola). Lo script ora riporta R-orig(1 sett.) per citta' dai manifesti isolati e il rapporto solo nella stessa citta'; il documento e' rigenerato, non modificato a mano.
 
 ## 5. Impronte
 
