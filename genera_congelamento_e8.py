@@ -177,10 +177,23 @@ def documento(R: dict) -> str:
               f"classe congestionata **non si distingue** ({_pt(par['richiamo']['media'])} punti "
               f"[{_pt(par['richiamo']['ic_con_nodi'][0])}, {_pt(par['richiamo']['ic_con_nodi'][1])}]): nessuna frase.")
         else:
+            fa = par["falsi_allarmi"]; tenuta = fa["segno"] == "0"
             a(f"- **{g}**: «ΔwCE = {_f(w['media'])} corrisponde a **{_pt(par['richiamo']['media'])} punti di richiamo** "
               f"sulla classe congestionata [{_pt(par['richiamo']['ic_con_nodi'][0])}, {_pt(par['richiamo']['ic_con_nodi'][1])}] "
-              f"a parita' di falsi allarmi (scarto residuo {_pt(par['falsi_allarmi']['media'])} punti)»; con la regola "
-              f"primaria {_pt(pr['richiamo']['media'])} punti di richiamo con {_pt(pr['falsi_allarmi']['media'])} punti di falsi allarmi.")
+              + (f"a parita' di falsi allarmi (scarto residuo {_pt(fa['media'])} punti, intervallo che include lo zero)»"
+                 if tenuta else
+                 f"con soglie a parita' di falsi allarmi **su validazione**; sul test la parita' **non ha retto**: "
+                 f"scarto residuo di falsi allarmi {_pt(fa['media'])} punti [{_pt(fa['ic_con_nodi'][0])}, {_pt(fa['ic_con_nodi'][1])}], "
+                 f"quindi il richiamo va letto insieme ai falsi allarmi, non da solo»")
+              + f"; con la regola primaria {_pt(pr['richiamo']['media'])} punti di richiamo con {_pt(pr['falsi_allarmi']['media'])} "
+              f"punti di falsi allarmi.")
+    a("")
+    n_ten = sum(1 for g in GRUPPI if g in RS["gruppi"] and PRINCIPALE in RS["gruppi"][g]["confronti"]
+                and RS["gruppi"][g]["confronti"][PRINCIPALE]["par"]["falsi_allarmi"]["segno"] == "0")
+    n_tot = sum(1 for g in GRUPPI if g in RS["gruppi"] and PRINCIPALE in RS["gruppi"][g]["confronti"])
+    a(f"La parita' di falsi allarmi imposta su validazione ha retto sul test (scarto residuo con intervallo che include "
+      f"lo zero) in **{n_ten} contesti su {n_tot}**: la soglia che eguaglia i falsi allarmi su validazione non li eguaglia "
+      f"sul test, e la frase «a parita'» vale solo dove lo scarto residuo e' indistinguibile da zero.")
     a("")
     a("## 5. Richiamo e wCE si muovono insieme?")
     a("")
