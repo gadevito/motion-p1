@@ -132,7 +132,8 @@ def documento(R: dict) -> str:
       f"(`estrazione_pems08.json`: riferimento = percentile {PE['scelte']['percentile']} sui 118 nodi iniziali in "
       f"[{PE['scelte']['addestramento'][0]}, {PE['scelte']['addestramento'][1]}), soglie {PE['scelte']['soglie']}) |")
     a(f"| calendario | t₀ di prova {R['t0']} (giorno 40), t₁ = {R['t0'] + 96}; t₀ di validazione {R['t0v']}; "
-      f"origini dopo t₁ nel test {R['origini_prova']}, comuni (eta' > 1 sett.) {R['origini_comuni']} |")
+      f"origini dopo t₁ nel test {R['origini_prova']}, comuni (eta' > 1 sett.) {R['origini_comuni']} "
+      f"(`e6_origini_comuni.json`, impronta `{R['origini']['impronta']}`, da {R['origini']['PEMS08']['celle']} celle) |")
     a(f"| disegno | **6 contesti-partizione × 6 semi (201–206)** = 36 celle per braccio; 26 nodi nuovi per partizione, "
       f"156 distinti (motivo nel protocollo) |")
     a(f"| addestramenti | {AD['completate']} completati, {len(AD['fallite'])} falliti, {AD['ore_calendario']:.1f} h di calendario "
@@ -216,7 +217,8 @@ def documento(R: dict) -> str:
         a("")
     PA = R.get("parte_a")
     if PA:
-        a("## 3c. Parte A — PEMS04, bracci definitivi (completamento, 168 origini comuni)")
+        a(f"## 3c. Parte A — PEMS04, bracci definitivi (completamento, {R['origini']['PEMS04']['origini_comuni']} "
+          f"origini comuni su {R['origini']['PEMS04']['origini_dopo_t1']} dopo t₁, `e6_origini_comuni.json`)")
         a("")
         sa = PA["scelta_gated"]; ca = PA["configurazione_F"]
         a(f"E′ su PEMS04: {R['a_addestra']['completate']} addestramenti; F′ selezionata da E′ ({ca['aggiornamenti']} aggiornamenti, "
@@ -243,7 +245,7 @@ def documento(R: dict) -> str:
           + ("**segno concorde** con PEMS08" + (" e con le tre citta'" if all(E5["affermazioni"][f"{c}/ep1/c"]["segno"] == "-" for c in CITTA) else "")
              if _segno(PA["affermazioni"]["c"]) == "−" == _segno(RS["affermazioni"]["c"])
              else "intervallo che " + ("include lo zero" if _segno(PA["affermazioni"]["c"]) == "0" else "sta sopra lo zero")
-             + " su 168 origini comuni: limite dichiarato prima")
+             + f" su {R['origini']['PEMS04']['origini_comuni']} origini comuni: limite dichiarato prima")
           + ".")
         a("")
     a("## 4. Nodi sotto soglia e copertura")
@@ -282,7 +284,7 @@ def documento(R: dict) -> str:
       "nessun risultato precedente cambia.")
     if not PA:
         a("- Parte A (PEMS04, bracci definitivi): **non eseguita**; resta il completamento "
-          "dichiarato nel protocollo, con il suo limite (168 origini comuni).")
+          f"dichiarato nel protocollo, con il suo limite ({R['origini']['PEMS04']['origini_comuni']} origini comuni).")
     a("")
     a("## 7. Che cosa dice al paper")
     a("")
@@ -327,11 +329,14 @@ def main() -> int:
     import numpy as np
     z = np.load(sorted(glob.glob(str(a.out / "predizioni_e6" / "prova_*_p0_s201.npz")))[0], allow_pickle=True)
     t0 = int(z["t0"]); per = z["origini"].astype("int64")
+    OR = leggi(a.out / "e6_origini_comuni.json")
+    if OR["PEMS08"]["origini_dopo_t1"] != int(len(per)) or OR["PEMS08"]["origini_comuni"] != int((per > t0 + 672).sum()):
+        raise IngressoMancante("e6_origini_comuni.json non coincide con la cella p0 s201")
     R = {"data": datetime.now(timezone.utc).date().isoformat(), "commit": commit_git(),
          "risultati": RS, "scelta": SC, "cfgF": CF, "addestra": AD, "pilota": PI, "costi": CO,
          "estrazione": PE, "pesi": PW, "e5": E5, "livelli": LV, "n_celle": n_celle,
          "t0": t0, "t0v": T0_VALIDAZIONE, "origini_prova": int(len(per)),
-         "origini_comuni": int((per > t0 + 672).sum()),
+         "origini_comuni": int((per > t0 + 672).sum()), "origini": OR,
          "bis": BI, "bis_addestra": BA, "parte_a": PA, "a_addestra": AA,
          "impronte": {f: h(f) for f in FILE}}
     print("[3/3] documento")
