@@ -188,7 +188,9 @@ def _lavora(args):
         except (OSError, ValueError):
             precedente = None
     t_avvio = time.time()
-    reg = Registro.avvia(f"{et}/{b}",
+    # una RIMISURA ha un'etichetta propria nel registro: non e' un'esecuzione del
+    # lancio e non entra nei conteggi (difetto 19)
+    reg = Registro.avvia(f"{et}/{b}" + ("/rimisura" if precedente is not None else ""),
                          note=f"{c} p{p} seme {s} braccio {b} [{modalita}]",
                          radice=out / "registro")
     try:

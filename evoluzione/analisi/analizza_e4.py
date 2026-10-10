@@ -128,15 +128,71 @@ def fig_griglia(G_val, G_test, scelta, f: Path):
     fig.tight_layout(); fig.savefig(f, dpi=150)
 
 
+def fig_curva_en(R, f: Path):
+    """Fig. 3 del Paper 1: come `fig_curva`, in inglese e a larghezza di pagina."""
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    import matplotlib.ticker
+    from evoluzione.analisi.stile_paper import PAGINA, applica, citta
+    applica(plt)
+    lab = {24: "6 h", 48: "12 h", 96: "24 h", 192: "48 h", 672: "1 wk"}
+    fig, axs = plt.subplots(1, 3, figsize=(PAGINA, 2.0), sharey=True)
+    for ax, c in zip(axs, CITTA):
+        for nome, et, col in (("F", "$F$ (from $E$)", "C0"), ("Fp", "$F'$ (from $E'$)", "C1")):
+            r = [R["curva"][f"{c}/{nome}_{L}-C"] for L in DURATE]
+            m = [x["media"] for x in r]
+            ax.errorbar(DURATE, m, yerr=[np.subtract(m, [x["ic_con_nodi"][0] for x in r]),
+                                         np.subtract([x["ic_con_nodi"][1] for x in r], m)],
+                        marker="o", ms=3.5, capsize=2.5, lw=1.1, label=et, color=col)
+        for nome, et, col in (("F0", "$F_0$ (mean)", "C0"), ("F0p", "$F_0'$ (token)", "C1")):
+            ax.axhline(R["curva"][f"{c}/{nome}-C"]["media"], ls=":", lw=1, color=col, label=et)
+        ax.axhline(0, color="k", lw=0.7)
+        ax.set_xscale("log"); ax.set_xticks(DURATE); ax.set_xticklabels([lab[L] for L in DURATE])
+        ax.xaxis.set_minor_locator(matplotlib.ticker.NullLocator())
+        ax.xaxis.set_minor_formatter(matplotlib.ticker.NullFormatter())
+        ax.set_title(f"{citta('en', c)} ({R['curva'][f'{c}/origini_comuni']} common origins)")
+        ax.set_xlabel("adaptation window $L$"); ax.grid(alpha=.3)
+    axs[0].set_ylabel(r"$\Delta$wCE vs. $C$")
+    axs[0].legend(loc="upper right")
+    fig.tight_layout(pad=.4, w_pad=.5); f.parent.mkdir(parents=True, exist_ok=True); fig.savefig(f)
+
+
+def fig_traiettoria_en(R, f: Path):
+    """Fig. 4 del Paper 1: la riga alta di `fig_traiettoria`, a larghezza di colonna."""
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    from evoluzione.analisi.stile_paper import COLONNA, applica, citta
+    applica(plt)
+    fig, axs = plt.subplots(1, 3, figsize=(COLONNA, 1.55))
+    for ax, c in zip(axs, CITTA):
+        for nome, et, col in (("F", "$F$ (from $E$)", "C0"), ("Fp", "$F'$ (from $E'$)", "C1")):
+            t = R["traiettoria"][f"{c}/{nome}"]
+            k = sorted(int(z) for z in t)
+            ax.plot(k, [t[str(z)] for z in k], marker="o", ms=2, lw=.9, color=col, label=et)
+        ax.set_title(citta("en", c), fontsize=7); ax.set_xlabel("updates", fontsize=6.5)
+        ax.grid(alpha=.3); ax.tick_params(labelsize=5.5)
+    axs[0].set_ylabel("test wCE", fontsize=6.5); axs[0].legend(fontsize=5, handlelength=1.2)
+    fig.tight_layout(pad=.3, w_pad=.3); f.parent.mkdir(parents=True, exist_ok=True); fig.savefig(f)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
     ap.add_argument("--figure", type=Path, default=Path("figure"))
+    ap.add_argument("--lingua", choices=("it", "en"), default="it",
+                    help="en: figure 3 e 4 del Paper 1 (PDF, inglese); non scrive nulla in --out")
     a = ap.parse_args()
     R = json.loads((a.out / "e4_risultati.json").read_text())
     SC = json.loads((a.out / "e4_scelta_gated.json").read_text())
     if R.get("impronta_scelta") != SC.get("impronta"):
         raise RuntimeError("i risultati del test non si riferiscono alla scelta registrata")
+    if a.lingua == "en":
+        fig_curva_en(R, a.figure / "curva_e4.pdf")
+        fig_traiettoria_en(R, a.figure / "traiettoria_e4.pdf")
+        print(f"  salvati: {a.figure}/curva_e4.pdf, traiettoria_e4.pdf")
+        return 0
     print("=" * 84); print("E4 — figure e griglia (tau, N) sul test"); print("=" * 84)
     G = griglia_test(a.out)
     for c in CITTA:

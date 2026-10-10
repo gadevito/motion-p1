@@ -1,6 +1,6 @@
 # Congelamento — E3, riaddestramento leale
 
-**Congelato il 2026-10-03**, commit `0b43ba8aa6c3`. Pre-registrazione `protocol/E3.md` (impronta `245085de8a909ca8`), firmata al commit `4bafa5ef0491a4b7` prima del primo run. **Ogni numero e' calcolato da `genera_congelamento_e3.py`** dai file di risultato; il verdetto e' derivato, non scritto.
+**Congelato il 2026-10-10**, commit `33cafd6e2914`. Pre-registrazione `protocol/E3.md` (impronta `245085de8a909ca8`), firmata al commit `4bafa5ef0491a4b7` prima del primo run. **Ogni numero e' calcolato da `genera_congelamento_e3.py`** dai file di risultato; il verdetto e' derivato, non scritto.
 
 ## 1. Che cosa e' stato eseguito
 
@@ -18,7 +18,7 @@
 
 | braccio | esecuzioni | riviste/origine iniziali | nuovi | rapporto | quota estrazioni ai nuovi |
 |---|---|---|---|---|---|
-| R | 117 | 9.38 | 807.79 | **92.762** | 17.648% |
+| R | 108 | 9.38 | 807.93 | **92.767** | 17.648% |
 | R-orig | 108 | 11.32 | 11.29 | **1.000** | 0.231% |
 | R-mon | 108 | 11.32 | 11.29 | **1.000** | 0.231% |
 
@@ -99,7 +99,7 @@ R-orig differisce da F con intervallo che esclude lo zero in 3 citta' su 3 — d
 - **Primo lancio non valido**, in quarantena con indice (`_quarantena_e3_falso_20260930`, 649 file): primo lancio di E3: R-orig e R-mon instradati nel ramo di F da `esegui_inserimento._lavora` (ADDESTRANO derivato dai soli cinque bracci della fase 3). Adattamenti di F con nome sbagliato, un minuto l'uno. Corretto: esegui_inserimento.esecutore(), dalla tabella unica.
 - **Perso**: esito_concorrente.json della fase 3, sovrascritto; numeri in CONGELAMENTO_E_F_GRIGLIA.md e nei manifesti.
 - Il tempo di parete atteso per braccio e' ora un assert dell'orchestratore (protocollo §13).
-- I 117 manifesti di R nel registro comprendono le 9 misure isolate della fase 3; il conteggio delle riviste le include (stessa numerica).
+- **Correzione del 2026-10-10 (difetto 19 del registro)**: il conteggio delle riviste prendeva dal registro ogni esecuzione completata di R, R-orig e R-mon, comprese le 9 rimisure isolate di R-orig e R-mon fatte per la tabella dei costi (117 invece di 108). Ora il lancio di E3 e' definito dai 108 manifesti per braccio di `inserimento_griglia/`, elencati per impronta in `analisi_e3.json` (`riviste/<braccio>/lancio`), e di ogni cella conta la sola esecuzione che ha prodotto la wCE registrata; le rimisure future hanno etichetta propria nel registro (`…/rimisura`). Documento rigenerato, non modificato a mano.
 
 ## 8. Impronte
 
@@ -107,13 +107,13 @@ R-orig differisce da F con intervallo che esclude lo zero in 3 citta' su 3 — d
 |---|---|
 | `evoluzione/componente/bracci.py` | `d803e43387c5c6a4` |
 | `evoluzione/componente/campionamento.py` | `d45b2980a89a570f` |
-| `evoluzione/esperimenti/addestramento.py` | `96188bb5c6f97f9e` |
+| `evoluzione/esperimenti/addestramento.py` | `f5d69a789aadd479` |
 | `evoluzione/esperimenti/inserimento.py` | `bc1d6ecd562b0888` |
-| `evoluzione/esperimenti/esegui_inserimento.py` | `3b961a2e89ccc799` |
-| `evoluzione/esperimenti/ricostruisci_predizioni.py` | `571b80094ebbdefb` |
+| `evoluzione/esperimenti/esegui_inserimento.py` | `95349fe3b6f6356f` |
+| `evoluzione/esperimenti/ricostruisci_predizioni.py` | `12f5a31f2521a5fa` |
 | `evoluzione/esperimenti/veterani_e3.py` | `5fee87edbc851cde` |
 | `evoluzione/esperimenti/riselezione_rmon_test.py` | `a8b19db9c3d2fc07` |
-| `evoluzione/analisi/analizza_e3.py` | `000d0845a1f1d3b7` |
+| `evoluzione/analisi/analizza_e3.py` | `a591fde2f22d251f` |
 | `evoluzione/analisi/analizza_veterani_e3.py` | `d51ff7c1953d9fc2` |
 | `evoluzione/analisi/costi_e3.py` | `c71f3f1ca388a3cb` |
 | `evoluzione/analisi/riselezione_rmon.py` | `d0552d186bccad66` |
