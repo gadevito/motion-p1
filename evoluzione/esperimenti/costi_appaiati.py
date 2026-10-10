@@ -69,6 +69,8 @@ def main() -> int:
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
     ap.add_argument("--fili", type=int, default=1)
     ap.add_argument("--piano", action="store_true")
+    ap.add_argument("--da-json", action="store_true",
+                    help="non rimisura: rilegge costi_appaiati.json (intatto) e riscrive la sola tabella")
     a = ap.parse_args()
     med = lambda v: float(np.median(v))  # noqa: E731
     ingressi = {k: a.out / k for k in ("costi_e3bis.json", "costi_e4.json", "e6_costi.json")}
@@ -95,6 +97,12 @@ def main() -> int:
           f"Fp_672 {K6['adattamento_s']['Fp_672']['mediana']:.1f} s")
     if a.piano:
         return 0
+    fj = a.out / "costi_appaiati.json"
+    if a.da_json:
+        doc = json.loads(fj.read_text()); tab, righe = doc["tabella"], doc["celle_F"]
+        if abs(doc["R-orig_672_mediana_9_celle_s"] - glob) > 1e-9:
+            raise RuntimeError("costi_appaiati.json non coerente con i manifesti di R-orig")
+        return _scrivi_tabella(a, doc, tab, righe, glob, tutte, h(fj))
     righe = [_misura(c, p, s, a.out, SETTIMANA, a.fili) for c, p, s in celle]
     tab = {}
     for c in CITTA:
@@ -118,9 +126,26 @@ def main() -> int:
            "impronte_ingressi": {k: h(f) for k, f in ingressi.items()},
            "impronte_manifesti_R-orig": {m["file"]: h(a.out / m["file"]) for c in CITTA for m in RO[c]},
            "istante": datetime.now(timezone.utc).isoformat()}
-    fj = a.out / "costi_appaiati.json"
     fj.write_text(json.dumps(doc, indent=2, ensure_ascii=False))
-    imp = h(fj)
+    return _scrivi_tabella(a, doc, tab, righe, glob, tutte, h(fj))
+
+
+def _nodi_prova(c: str, out: Path) -> int:
+    """I nodi di prova della partizione 0: su di essi si adatta F′ (da `_partizioni`, non a memoria)."""
+    import numpy as np
+    from evoluzione.esperimenti.addestramento import _carica, _partizioni
+    from evoluzione.esperimenti.semi import SEME_PARTIZIONE
+    D = _carica(c, out / "maschere")
+    nodi, _ = _partizioni(D, {"partizione": np.random.default_rng(SEME_PARTIZIONE[ISOLATO["partizione"]])})
+    return int(len(nodi["prova"]))
+
+
+def _scrivi_tabella(a, doc, tab, righe, glob, tutte, imp) -> int:
+    nodi = {c: _nodi_prova(c, a.out) for c in CITTA}
+    agg = {c: next(r for r in righe if r["contesto"] == c)["misure"][f"Fp_{SETTIMANA}"]["aggiornamenti"] for c in CITTA}
+    orig = {L: next(iter(righe))["misure"][f"Fp_{L}"]["origini"] for L in (96, SETTIMANA)}
+    rif = CITTA[0]
+    rapp = {c: (tab[c]["Fp_96_s"] / tab[rif]["Fp_96_s"], tab[c]["Fp_672_s"] / tab[rif]["Fp_672_s"]) for c in CITTA}
     A = ["# Costi appaiati per contesto — F′(1 sett.) contro R-orig(1 sett.), stessa macchina", "",
          f"Generato da `evoluzione/esperimenti/costi_appaiati.py` il {doc['istante'][:10]}; "
          f"numeri in `results/evoluzione/costi_appaiati.json` (impronta `{imp}`). "
@@ -140,7 +165,21 @@ def main() -> int:
           f"- F′(1 sett.) a Melbourne in `costi_e4.json`: {doc['Fp_672_Melbourne_costi_e4_s']:.0f} s "
           f"(rimisura di oggi: {tab['Melbourne']['Fp_672_s']:.0f} s).",
           "- Il «almeno 6×» di E3-bis §3 divideva la mediana sulle tre citta' per il solo F′(1 sett.) di "
-          "Melbourne: i rapporti per citta' sono nella colonna a destra.", "",
+          "Melbourne: i rapporti per citta' sono nella colonna a destra.",
+          "- **Che cosa misura il tempo di F′, e perche' Melbourne costa di piu'.** E' il tempo per cella, "
+          "un processo, un filo di torch: copia del punto di controllo di E′, costruzione dei lotti su tutte "
+          f"le origini in (t₀, t₀+L] ({orig[96]} a 24 h, {orig[SETTIMANA]} a 1 sett.) e `aggiornamenti` passi di "
+          "Adam sulla tabella dei nodi di prova della partizione ("
+          + ", ".join(f"{c} {nodi[c]}" for c in CITTA) + " nodi), con (passo, aggiornamenti) scelti su "
+          "validazione per citta' in E4 (`selezione_F_griglia/configurazione_F.json`): aggiornamenti "
+          + ", ".join(f"{c} {agg[c]}" for c in CITTA) + ". Il rapporto con "
+          + f"{rif} e' " + "; ".join(f"{c} {rapp[c][0]:.1f}× a 24 h e {rapp[c][1]:.1f}× a 1 sett." for c in CITTA[1:])
+          + " Ogni aggiornamento e' un passaggio completo (gradiente a lotto pieno, `adatta`) su tutte le "
+          "origini della finestra e tutti i nodi di prova, quindi il tempo e' ∝ aggiornamenti × origini × nodi: "
+          "il rapporto fra citta' e' lo stesso alle due finestre (le origini si semplificano) e vale il "
+          "rapporto dei prodotti aggiornamenti × nodi, "
+          + "; ".join(f"{c} {agg[c] * nodi[c] / (agg[rif] * nodi[rif]):.2f}× atteso" for c in CITTA[1:])
+          + ".", "",
           "| ingresso | impronta |", "|---|---|"]
     A += [f"| `{k}` | `{v}` |" for k, v in doc["impronte_ingressi"].items()]
     A += [f"| `{k}` | `{v}` |" for k, v in doc["impronte_manifesti_R-orig"].items()]
@@ -151,7 +190,7 @@ def main() -> int:
     for c, t in tab.items():
         print(f"  {c:10s} {t['n']:2d} {t['Fp_96_s']:7.1f}s {t['Fp_672_s']:10.0f}s {t['R-orig_672_s']:15.0f}s "
               f"{t['rapporto_Rorig_su_Fp_672']:8.1f}x")
-    print(f"\n  salvato in {fj} (impronta {imp}) e {fm.relative_to(RADICE)}")
+    print(f"\n  json {a.out / 'costi_appaiati.json'} (impronta {imp}); tabella {fm.relative_to(RADICE)}")
     return 0
 
 

@@ -12,6 +12,7 @@ Generato da `evoluzione/esperimenti/costi_appaiati.py` il 2026-10-10; numeri in 
 - Il **2268 s** di R-orig(1 sett.) in `costi_e3bis.json` e' la mediana sulle 9 celle delle tre citta' (Madrid 2272 s, Londra 2270 s, Melbourne 1489 s): non appartiene a una citta'.
 - F′(1 sett.) a Melbourne in `costi_e4.json`: 406 s (rimisura di oggi: 404 s).
 - Il «almeno 6×» di E3-bis §3 divideva la mediana sulle tre citta' per il solo F′(1 sett.) di Melbourne: i rapporti per citta' sono nella colonna a destra.
+- **Che cosa misura il tempo di F′, e perche' Melbourne costa di piu'.** E' il tempo per cella, un processo, un filo di torch: copia del punto di controllo di E′, costruzione dei lotti su tutte le origini in (t₀, t₀+L] (77 a 24 h, 634 a 1 sett.) e `aggiornamenti` passi di Adam sulla tabella dei nodi di prova della partizione (Madrid 135, Londra 135, Melbourne 90 nodi), con (passo, aggiornamenti) scelti su validazione per citta' in E4 (`selezione_F_griglia/configurazione_F.json`): aggiornamenti Madrid 50, Londra 50, Melbourne 200. Il rapporto con Madrid e' Londra 1.0× a 24 h e 0.9× a 1 sett.; Melbourne 2.7× a 24 h e 2.7× a 1 sett. Ogni aggiornamento e' un passaggio completo (gradiente a lotto pieno, `adatta`) su tutte le origini della finestra e tutti i nodi di prova, quindi il tempo e' ∝ aggiornamenti × origini × nodi: il rapporto fra citta' e' lo stesso alle due finestre (le origini si semplificano) e vale il rapporto dei prodotti aggiornamenti × nodi, Londra 1.00× atteso; Melbourne 2.67× atteso.
 
 | ingresso | impronta |
 |---|---|
