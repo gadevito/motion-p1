@@ -326,8 +326,13 @@ def documento(R: dict) -> str:
           "scritta a mano.")
     a("- Il tempo di parete atteso per braccio e' ora un assert dell'orchestratore "
       "(protocollo §13).")
-    a("- I 117 manifesti di R nel registro comprendono le 9 misure isolate della fase 3; "
-      "il conteggio delle riviste le include (stessa numerica).")
+    a("- **Correzione del 2026-10-10 (difetto 19 del registro)**: il conteggio delle riviste "
+      "prendeva dal registro ogni esecuzione completata di R, R-orig e R-mon, comprese le 9 "
+      "rimisure isolate di R-orig e R-mon fatte per la tabella dei costi (117 invece di 108). "
+      "Ora il lancio di E3 e' definito dai 108 manifesti per braccio di `inserimento_griglia/`, "
+      "elencati per impronta in `analisi_e3.json` (`riviste/<braccio>/lancio`), e di ogni cella "
+      "conta la sola esecuzione che ha prodotto la wCE registrata; le rimisure future hanno "
+      "etichetta propria nel registro (`…/rimisura`). Documento rigenerato, non modificato a mano.")
     a("")
     a("## 8. Impronte")
     a("")
