@@ -260,26 +260,65 @@ def documento(R: dict) -> str:
             a("")
         a("### Lettura derivata (regole scritte in `protocol/E8bis.md`)")
         a("")
+        calib = {}
+        def _liv(cf, fa):
+            v = cf["richiamo_a_fa"].get(fa)
+            return None if v is None else f"{_pt(v['media'])} [{_pt(v['ic_con_nodi'][0])}, {_pt(v['ic_con_nodi'][1])}]"
         for g in GRUPPI:
-            if (g, "Fp_672-C_eta>1sett") in verdetti:
-                sa, lett = verdetti[(g, "Fp_672-C_eta>1sett")]
-                a(f"- **{g}, F′(1 sett.) − C**: ΔAUC {sa.replace('-', '−')}; {lett}. "
-                  + ("Il guadagno in wCE e' reale a ogni punto operativo." if "domina" in lett and "dominato" not in lett
-                     else "Compromesso vero fra richiamo e falsi allarmi: si riporta come tale." if "incrociano" in lett
-                     else "Le curve non si distinguono: la differenza di wCE non si traduce in discriminazione misurabile."))
-            if (g, "F0-C") in verdetti:
-                sa, lett = verdetti[(g, "F0-C")]
-                a(f"- **{g}, F₀ − C**: ΔAUC {sa.replace('-', '−')}; {lett}. "
-                  + ("Il costo di trasferimento e' **calibrazione pura**: le curve coincidono e solo la wCE differisce."
-                     if sa == "0" and "indistinguibile" in lett else
-                     "Il costo di trasferimento e' **anche discriminazione**, nella misura dell'intervallo di ΔAUC." if sa == "-"
-                     else "Vedi tabella."))
-            if (g, "A-C") in verdetti:
-                cf = BI["gruppi"][g]["confronti"]["A-C"]
-                v = cf["richiamo_a_fa"].get("0.02") or cf["richiamo_a_fa"].get("0.05")
-                if v:
-                    a(f"- **{g}, A − C**: l'identita' vale {_pt(v['media'])} punti di richiamo [{_pt(v['ic_con_nodi'][0])}, {_pt(v['ic_con_nodi'][1])}] "
-                      f"a falsi allarmi fissati (2 % o 5 %): la traduzione del 3–5 % di wCE.")
+            if g not in BI["gruppi"]:
+                continue
+            BG = BI["gruppi"][g]; RG = RS["gruppi"].get(g, {})
+            if "Fp_672-C_eta>1sett" in BG["confronti"]:
+                sa, lett = verdetti[(g, "Fp_672-C_eta>1sett")]; cf = BG["confronti"]["Fp_672-C_eta>1sett"]
+                if sa == "+" and "mai sotto" in lett or "domina" in lett and "dominato" not in lett:
+                    testo = (f"la curva di F′(1 sett.) **domina** quella di C (ΔAUC sopra lo zero, richiamo mai sotto a nessun "
+                             f"livello di falsi allarmi; a FA 5 %: {_liv(cf, '0.05')} punti): il guadagno in wCE e' reale a ogni "
+                             f"punto operativo, e dove il richiamo a soglia fissa scendeva (E8) era una soglia spostata.")
+                elif "incrociano" in lett:
+                    testo = "le curve **si incrociano**: compromesso vero fra richiamo e falsi allarmi, da riportare come tale."
+                elif sa == "-" or "dominato" in lett:
+                    testo = "la curva di F′(1 sett.) e' **sotto** quella di C: la wCE migliore non e' discriminazione."
+                else:
+                    testo = "le curve **non si distinguono** (ΔAUC include lo zero, nessun livello esclude lo zero)."
+                a(f"- **{g}, F′(1 sett.) − C**: {testo}")
+            if "F0-C" in BG["confronti"]:
+                sa, lett = verdetti[(g, "F0-C")]; cf = BG["confronti"]["F0-C"]
+                arg = RG.get("confronti", {}).get("F0-C", {}).get("argmax", {}).get("richiamo")
+                prim = RG.get("confronti", {}).get("F0-C", {}).get("prim", {}).get("richiamo")
+                e8 = (f" In E8 lo stesso confronto valeva {_pt(arg['media'])} punti di richiamo con l'argmax e "
+                      f"{_pt(prim['media'])} con la soglia su validazione." if arg and prim else "")
+                v5 = cf["richiamo_a_fa"].get("0.05")
+                quota = (max(0.0, 1 - abs(v5["media"]) / abs(arg["media"]))
+                         if (v5 and arg and abs(arg["media"]) > 1e-9 and arg["media"] < 0) else None)
+                calib[g] = quota
+                if sa == "-":
+                    testo = (f"ΔAUC sotto lo zero: il costo di trasferimento e' **anche discriminazione** (a FA 5 %: {_liv(cf, '0.05')} punti)."
+                             f"{e8}" + (f" Rispetto all'argmax, la quota recuperata da una soglia ben posta e' il {100 * quota:.0f} %: "
+                                        + ("in gran parte **calibrazione**." if quota > 0.5 else "in gran parte **discriminazione**.")
+                                        if quota is not None else ""))
+                elif sa == "0":
+                    testo = (f"ΔAUC include lo zero: a falsi allarmi fissati F₀ non discrimina peggio di C (a FA 5 %: {_liv(cf, '0.05')} punti); "
+                             f"il costo di trasferimento in wCE e' **calibrazione**.{e8}")
+                else:
+                    testo = f"ΔAUC sopra lo zero (a FA 5 %: {_liv(cf, '0.05')} punti).{e8}"
+                a(f"- **{g}, F₀ − C**: {testo}")
+            if "A-C" in BG["confronti"]:
+                cf = BG["confronti"]["A-C"]
+                prim = RG.get("confronti", {}).get("A-C", {}).get("prim", {}).get("richiamo")
+                a(f"- **{g}, A − C**: a falsi allarmi fissati l'identita' vale {_liv(cf, '0.02') or 'n.d.'} punti di richiamo a FA 2 % "
+                  f"e {_liv(cf, '0.05') or 'n.d.'} a FA 5 %"
+                  + (f"; con le soglie per braccio di E8 valeva {_pt(prim['media'])} punti" if prim else "") + ".")
+        a("")
+        n_dom = sum(1 for g in GRUPPI if (g, "Fp_672-C_eta>1sett") in verdetti
+                    and verdetti[(g, "Fp_672-C_eta>1sett")][0] == "+" and "incrociano" not in verdetti[(g, "Fp_672-C_eta>1sett")][1]
+                    and "dominato" not in verdetti[(g, "Fp_672-C_eta>1sett")][1])
+        n_tot = sum(1 for g in GRUPPI if (g, "Fp_672-C_eta>1sett") in verdetti)
+        qq = [q for q in calib.values() if q is not None]
+        a(f"**Per la sezione 5.1**: la settimana di adattamento domina C a ogni punto operativo in **{n_dom} contesti su {n_tot}**"
+          + (f"; del costo di trasferimento dell'embedding medio (argmax), una soglia ben posta recupera il "
+             f"{100 * min(qq):.0f}–{100 * max(qq):.0f} % nei contesti con A/F₀ ({len(qq)}): "
+             + ("in gran parte calibrazione" if min(qq) > 0.5 else "calibrazione e discriminazione insieme") if qq else "")
+          + ".")
         a("")
     a("## 6. Impronte")
     a("")
