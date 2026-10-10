@@ -25,7 +25,10 @@ RADICE = Path(__file__).resolve().parent
 sys.path.insert(0, str(RADICE))
 
 OUT = Path("results/evoluzione")
-FILE = ["evoluzione/esperimenti/esegui_e8.py", "protocol/E8.md"]
+FILE = ["evoluzione/esperimenti/esegui_e8.py", "protocol/E8.md", "protocol/E8bis.md"]
+CURVE_ET = {"A-C": "A − C", "F0-C": "F₀ − C", "F0p-C": "F₀′ − C", "Fp_96-C": "F′(24 h) − C",
+            "Fp_672-C_eta>1sett": "F′(1 sett.) − C, eta' > 1 sett.", "Rorig_672-Fp_672_eta>1sett": "R-orig(1 sett.) − F′(1 sett.), eta' > 1 sett.",
+            "F0p-F0": "F₀′ − F₀"}
 GRUPPI = ("Madrid", "Londra", "Melbourne", "PEMS08", "PEMS04")
 CONF_ET = {"A-C": "A − C", "F0-C": "F₀ − C", "F0p-C": "F₀′ − C", "Fp_96-C": "F′(24 h) − C",
            "Fp_672-C_eta>1sett": "F′(1 sett.) − C, eta' > 1 sett.", "gated-F0p": "gated − F₀′",
@@ -82,7 +85,7 @@ def controlli(out: Path) -> dict:
     n, sc_max, n_ctrl = 0, 0.0, 0
     for f in glob.glob(str(out / "predizioni_e8" / "*_*_p*_s*.npz")):
         with np.load(f, allow_pickle=True) as z:
-            c = json.loads(str(z["controllo"]))
+            c = json.loads(str(z["controllo"])) if "controllo" in z.files else {}
         n += 1; n_ctrl += len(c)
         if c:
             sc_max = max(sc_max, max(v["scarto_relativo_max"] for v in c.values()))
@@ -207,6 +210,77 @@ def documento(R: dict) -> str:
         a("In nessun confronto la wCE e il richiamo si muovono in direzioni opposte con intervalli che escludono lo zero: "
           "dove la wCE migliora, il richiamo non peggiora, e viceversa.")
     a("")
+    BI = R.get("bis")
+    if BI:
+        a("## 7. E8-bis — discriminazione e calibrazione (`protocol/E8bis.md`)")
+        a("")
+        a(f"Curve richiamo–falsi allarmi sulla griglia completa di soglie ({len(SG['_regole']['griglia'])} punti), per nodo, "
+          f"sul test; AUC della classe congestionata (trapezi) e richiamo interpolato ai livelli di falsi allarmi "
+          f"{', '.join(f'{100 * x:g} %' for x in BI['livelli_fa'])}; {BI['repliche']} repliche congiunte; gated escluso.")
+        a("")
+        verdetti = {}
+        for g in GRUPPI:
+            if g not in BI["gruppi"]:
+                continue
+            BG = BI["gruppi"][g]
+            a(f"### {g}")
+            a("")
+            a("AUC (intero / eta' > 1 sett.): " + "; ".join(
+                f"{n} {BG['auc'][n + '/intero']:.3f} / {BG['auc'][n + '/eta7']:.3f}"
+                for n in sorted({k.split('/')[0] for k in BG['auc']})) + ".")
+            a("")
+            a("| confronto | ΔAUC | " + " | ".join(f"Δrichiamo a FA {100 * x:g} %" for x in BI["livelli_fa"]) + " | lettura |")
+            a("|---|---|" + "---|" * len(BI["livelli_fa"]) + "---|")
+            for k, et in CURVE_ET.items():
+                if k not in BG["confronti"]:
+                    continue
+                cf = BG["confronti"][k]; r = cf["auc"]
+                segni = [v["segno"] if v else None for v in (cf["richiamo_a_fa"][str(x)] for x in BI["livelli_fa"])]
+                presenti = [z for z in segni if z is not None]
+                if not presenti:
+                    lett = "n.d."
+                elif all(z == "+" for z in presenti):
+                    lett = "**domina** C a ogni livello" if k.endswith("-C") else "**domina** a ogni livello"
+                elif all(z == "-" for z in presenti):
+                    lett = "**dominato** a ogni livello"
+                elif "+" in presenti and "-" in presenti:
+                    lett = "**le curve si incrociano**"
+                elif "-" in presenti:
+                    lett = "sotto a qualche livello, mai sopra"
+                elif "+" in presenti:
+                    lett = "sopra a qualche livello, mai sotto"
+                else:
+                    lett = "indistinguibile a ogni livello"
+                verdetti[(g, k)] = (r["segno"], lett)
+                celle = []
+                for x in BI["livelli_fa"]:
+                    v = cf["richiamo_a_fa"][str(x)]
+                    celle.append("n.d." if v is None else f"{_pt(v['media'])} [{_pt(v['ic_con_nodi'][0])}, {_pt(v['ic_con_nodi'][1])}] {v['segno'].replace('-', '−')}")
+                a(f"| {et} | {_f(r['media'], 4)} {_ic(r['ic_con_nodi'], 4)} {r['segno'].replace('-', '−')} | " + " | ".join(celle) + f" | {lett} |")
+            a("")
+        a("### Lettura derivata (regole scritte in `protocol/E8bis.md`)")
+        a("")
+        for g in GRUPPI:
+            if (g, "Fp_672-C_eta>1sett") in verdetti:
+                sa, lett = verdetti[(g, "Fp_672-C_eta>1sett")]
+                a(f"- **{g}, F′(1 sett.) − C**: ΔAUC {sa.replace('-', '−')}; {lett}. "
+                  + ("Il guadagno in wCE e' reale a ogni punto operativo." if "domina" in lett and "dominato" not in lett
+                     else "Compromesso vero fra richiamo e falsi allarmi: si riporta come tale." if "incrociano" in lett
+                     else "Le curve non si distinguono: la differenza di wCE non si traduce in discriminazione misurabile."))
+            if (g, "F0-C") in verdetti:
+                sa, lett = verdetti[(g, "F0-C")]
+                a(f"- **{g}, F₀ − C**: ΔAUC {sa.replace('-', '−')}; {lett}. "
+                  + ("Il costo di trasferimento e' **calibrazione pura**: le curve coincidono e solo la wCE differisce."
+                     if sa == "0" and "indistinguibile" in lett else
+                     "Il costo di trasferimento e' **anche discriminazione**, nella misura dell'intervallo di ΔAUC." if sa == "-"
+                     else "Vedi tabella."))
+            if (g, "A-C") in verdetti:
+                cf = BI["gruppi"][g]["confronti"]["A-C"]
+                v = cf["richiamo_a_fa"].get("0.02") or cf["richiamo_a_fa"].get("0.05")
+                if v:
+                    a(f"- **{g}, A − C**: l'identita' vale {_pt(v['media'])} punti di richiamo [{_pt(v['ic_con_nodi'][0])}, {_pt(v['ic_con_nodi'][1])}] "
+                      f"a falsi allarmi fissati (2 % o 5 %): la traduzione del 3–5 % di wCE.")
+        a("")
     a("## 6. Impronte")
     a("")
     a("| file | impronta |")
@@ -225,8 +299,10 @@ def main() -> int:
     if RS["impronta_soglie"] != SG["_impronta"]:
         raise IngressoMancante("impronta delle soglie non coerente")
     print("[2/3] controlli dalle celle"); CT = controlli(a.out)
+    f_bis = a.out / "e8bis_risultati.json"
+    BI = json.loads(f_bis.read_text()) if f_bis.exists() else None
     R = {"data": datetime.now(timezone.utc).date().isoformat(), "commit": commit_git(), "risultati": RS,
-         "soglie": SG, "controlli": CT, "impronte": {f: h(f) for f in FILE}}
+         "soglie": SG, "controlli": CT, "bis": BI, "impronte": {f: h(f) for f in FILE}}
     print("[3/3] documento")
     Path("CONGELAMENTO_E8.md").write_text(documento(R))
     print("  generato CONGELAMENTO_E8.md")

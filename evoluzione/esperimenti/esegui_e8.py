@@ -253,9 +253,10 @@ def _cella(args):
     t_in = time.time()
     try:
         ctx = CONTESTI_E8[nome_ctx](out)
+        ep_cal = "prova" if ep_nome == "curva" else ep_nome      # E8-bis: le curve sono sul test
         D = _carica(c, out / "maschere"); ok = GR.passi_regolari(D["ts"])
         e = D["r"].shape[0] - GR.MAX_ORIZZ
-        t0, t1, fine, chiave = ctx["calendario"](c, ep_nome)
+        t0, t1, fine, chiave = ctx["calendario"](c, ep_cal)
         fine = e if fine is None else (int(e * .85) if fine == "quota85" else fine)
         nodi, ist = _partizioni(D, {"partizione": np.random.default_rng(ctx["seme_partizione"](p))}, ctx["fine_periodo"])
         nn = nodi[chiave]; K = len(nn)
@@ -266,7 +267,7 @@ def _cella(args):
         eta = per - t0
         fasce = [eta <= FASCE_ETA[0], (eta > FASCE_ETA[0]) & (eta <= FASCE_ETA[1]), eta > FASCE_ETA[1]]
         cv, _ = celle_valide(D, nn, GR.origini_acquisizione(ok, t0, t1), t0, t1)
-        M, imp = _modelli(ctx, c, p, s, out, D, nodi, nn, ok, x, stat, w_t, t0, ep_nome)
+        M, imp = _modelli(ctx, c, p, s, out, D, nodi, nn, ok, x, stat, w_t, t0, ep_cal)
         H = None; ris = {}; controllo = {}
         for nome, m in M.items():
             PB, YY, MM, w, ph, dt = valuta(m, x, D["classe"], nn, per, S, pesi)
@@ -277,10 +278,10 @@ def _cella(args):
             wgt = pesi[YY.astype("int64")] * MM
             A = (ce * wgt).sum(0); B = wgt.sum(0)
             ris[f"A_{nome}"] = A.astype("float64"); ris[f"B_{nome}"] = B.astype("float64")
-            if ep_nome == "prova":
+            if ep_nome in ("prova", "curva"):
                 ris[f"AF_{nome}"] = np.stack([(ce * wgt)[fm].sum(0) for fm in fasce]).astype("float64")
                 ris[f"BF_{nome}"] = np.stack([wgt[fm].sum(0) for fm in fasce]).astype("float64")
-            cong = ctx["congelato"](c, p, s, ep_nome, nome)
+            cong = ctx["congelato"](c, p, s, ep_cal, nome)
             if cong is not None:
                 f_c, kA, kB, somma = cong
                 if not f_c.exists():
@@ -311,6 +312,13 @@ def _cella(args):
                     grid[i] = confusione(predizione(PB, "prim", t), YY, MM, tutte, K, H)[0].sum((0, 1))
                 ris[f"griglia_{nome}"] = grid
                 ris[f"argmax_{nome}"] = confusione(predizione(PB, "argmax", None), YY, MM, tutte, K, H)[0].sum((0, 1))
+            elif ep_nome == "curva":
+                # E8-bis: confusione PER NODO a ogni soglia, tutte le origini e eta' > 1 sett.
+                due = [np.ones(len(per), dtype=bool), fasce[2]]
+                G = np.zeros((len(SOGLIE), 2, K, 3, 3), dtype="int64")
+                for i, t in enumerate(SOGLIE):
+                    G[i] = confusione(predizione(PB, "prim", t), YY, MM, due, K, H).sum(2)
+                ris[f"griglia_{nome}"] = G[:, 0]; ris[f"griglia7_{nome}"] = G[:, 1]
             else:
                 sg = soglie[ctx["gruppo"](c)][nome]
                 for regola in REGOLE:
@@ -519,9 +527,122 @@ def fase_test(out: Path, contesti) -> dict:
     return R
 
 
+# ------------------------------------------------------------------ E8-bis --
+LIVELLI_FA = (0.005, 0.01, 0.02, 0.05, 0.10)
+
+
+def curva(G):
+    """G (19, 3, 3) sommata sui nodi -> (far, richiamo) a ogni soglia, vettoriale."""
+    import numpy as np
+    G = np.asarray(G, dtype="float64")
+    tp = G[:, CONG, CONG]; fn = G[:, CONG, :].sum(1) - tp; fp = G[:, :, CONG].sum(1) - tp
+    tn = G.sum((1, 2)) - tp - fn - fp
+    rich = tp / np.maximum(tp + fn, 1e-12); far = fp / np.maximum(fp + tn, 1e-12)
+    return far, rich
+
+
+def auc_e_richiami(G):
+    """Area sotto la curva richiamo-falsi allarmi (trapezi, con gli estremi (0,0) e (1,1))
+    e il richiamo interpolato ai livelli LIVELLI_FA (nan se il livello non e' raggiunto)."""
+    import numpy as np
+    far, rich = curva(G)
+    o = np.argsort(far, kind="stable"); x = np.concatenate([[0.0], far[o], [1.0]]); y = np.concatenate([[0.0], rich[o], [1.0]])
+    a = float(np.sum((x[1:] - x[:-1]) * (y[1:] + y[:-1]) / 2.0))
+    xs, ys = far[o], rich[o]
+    r = np.array([np.interp(fa, xs, ys) if xs.min() <= fa <= xs.max() else np.nan for fa in LIVELLI_FA])
+    return a, r
+
+
+def _boot_curve(cc, modelli, rng):
+    """Ricampionamento congiunto (partizioni x semi x nodi) di AUC e richiami a FA fissati,
+    per modello e per perimetro (intero, eta' > 1 sett.), in UN passaggio per replica."""
+    import numpy as np
+    kk = sorted(cc); parts = sorted({k[1] for k in kk}); semi = sorted({k[2] for k in kk})
+    K = cc[kk[0]]["celle_valide"].shape[0]
+    chiavi = [(n, sett) for n in modelli for sett in ("intero", "eta7")]
+    def somma(sel_cells, nd):
+        out = {}
+        for n, sett in chiavi:
+            key = f"griglia7_{n}" if sett == "eta7" else f"griglia_{n}"
+            tot = None
+            for k in sel_cells:
+                G = cc[k][key] if nd is None else cc[k][key][:, nd]
+                tot = G.sum(1) if tot is None else tot + G.sum(1)
+            out[(n, sett)] = tot
+        return out
+    def stime(S):
+        return {q: auc_e_richiami(G) for q, G in S.items()}
+    punto = stime(somma(kk, None))
+    rep = {q: ([], []) for q in chiavi}
+    for _ in range(B_BOOT):
+        ps = rng.choice(parts, len(parts), True); ss = rng.choice(semi, len(semi), True)
+        nd = rng.integers(0, K, K)
+        sel = [(kk[0][0], p, s) for p in ps for s in ss]
+        for q, (a, r) in stime(somma(sel, nd)).items():
+            rep[q][0].append(a); rep[q][1].append(r)
+    return punto, {q: (np.asarray(v[0]), np.asarray(v[1])) for q, v in rep.items()}
+
+
+def _ic_segno(v):
+    import numpy as np
+    v = np.asarray(v, dtype="float64"); v = v[np.isfinite(v)]
+    if len(v) == 0:
+        return None
+    q = np.percentile(v, [2.5, 97.5])
+    return {"ic_con_nodi": q.tolist(), "segno": "-" if q[1] < 0 else ("+" if q[0] > 0 else "0"), "repliche_valide": int(len(v))}
+
+
+def fase_test_curve(out: Path, contesti) -> dict:
+    import numpy as np
+    CONF = {"A-C": ("A", "C", "intero"), "F0-C": ("F0", "C", "intero"), "F0p-C": ("F0p", "C", "intero"),
+            "Fp_96-C": ("Fp_96", "C", "intero"), "Fp_672-C_eta>1sett": ("Fp_672", "C", "eta7"),
+            "Rorig_672-Fp_672_eta>1sett": ("Rorig_672", "Fp_672", "eta7"), "F0p-F0": ("F0p", "F0", "intero")}
+    R = {"repliche": B_BOOT, "livelli_fa": list(LIVELLI_FA), "gruppi": {}}
+    for nome in contesti:
+        ctx = CONTESTI_E8[nome](out)
+        celle = {}
+        for (c, p, s) in ctx["unita"]:
+            g = out / DIR_PRED / f"curva_{c}_p{p}_s{s}.npz"
+            with np.load(g, allow_pickle=True) as z:
+                d = {k: z[k] for k in z.files}
+            celle[(ctx["gruppo"](c), p, s)] = d
+        for gr in sorted({k[0] for k in celle}):
+            cc = {k: z for k, z in celle.items() if k[0] == gr}
+            modelli = json.loads(str(next(iter(cc.values()))["modelli"]))
+            rng = np.random.default_rng(ctx["seme_boot"] + 7)
+            print(f"\n{gr}: {len(cc)} celle (curve, {B_BOOT} repliche)", flush=True)
+            punto, rep = _boot_curve(cc, modelli, rng)
+            RG = {"celle": len(cc), "auc": {f"{n}/{sett}": punto[(n, sett)][0] for (n, sett) in punto},
+                  "richiamo_a_fa": {f"{n}/{sett}": {str(fa): (None if not np.isfinite(v) else float(v))
+                                                    for fa, v in zip(LIVELLI_FA, punto[(n, sett)][1])} for (n, sett) in punto},
+                  "confronti": {}}
+            for nome_c, (n1, n2, sett) in CONF.items():
+                if n1 not in modelli or n2 not in modelli:
+                    continue
+                d_auc = rep[(n1, sett)][0] - rep[(n2, sett)][0]
+                r = {"media": punto[(n1, sett)][0] - punto[(n2, sett)][0], **_ic_segno(d_auc)}
+                rf = {}
+                for j, fa in enumerate(LIVELLI_FA):
+                    m1, m2 = punto[(n1, sett)][1][j], punto[(n2, sett)][1][j]
+                    if not (np.isfinite(m1) and np.isfinite(m2)):
+                        rf[str(fa)] = None; continue
+                    ic = _ic_segno(rep[(n1, sett)][1][:, j] - rep[(n2, sett)][1][:, j])
+                    rf[str(fa)] = None if ic is None else {"media": float(m1 - m2), **ic}
+                RG["confronti"][nome_c] = {"auc": r, "richiamo_a_fa": rf}
+                def _fmt(v):
+                    return "n.d." if v is None else "%+.1f%s" % (100 * v["media"], v["segno"])
+                print(f"  {nome_c:28s} ΔAUC {r['media']:+.4f} [{r['ic_con_nodi'][0]:+.4f}, {r['ic_con_nodi'][1]:+.4f}] {r['segno']}"
+                      f"  Δrichiamo a FA: " + " ".join(f"{fa}:{_fmt(v)}" for fa, v in rf.items()), flush=True)
+            R["gruppi"][gr] = RG
+    R["istante"] = datetime.now(timezone.utc).isoformat()
+    (out / "e8bis_risultati.json").write_text(json.dumps(R, indent=2, ensure_ascii=False))
+    print(f"\n  salvato in {out / 'e8bis_risultati.json'}")
+    return R
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="E8 metriche operative")
-    ap.add_argument("--fase", choices=("validazione", "soglie", "prova", "test"), required=True)
+    ap.add_argument("--fase", choices=("validazione", "soglie", "prova", "test", "curve", "test-curve"), required=True)
     ap.add_argument("--contesto", nargs="*", choices=list(CONTESTI_E8), default=list(CONTESTI_E8))
     ap.add_argument("--lavoratori", type=int, default=8)
     ap.add_argument("--fili", type=int, default=1)
@@ -530,8 +651,11 @@ def main() -> int:
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
     a = ap.parse_args()
     print("=" * 84); print(f"E8 — metriche operative, fase {a.fase} ({', '.join(a.contesto)})"); print("=" * 84)
-    if a.fase in ("validazione", "prova"):
-        return fase_celle(a.out, a.contesto, a.fase, a.lavoratori, a.fili, a.piano, a.pilota)
+    if a.fase in ("validazione", "prova", "curve"):
+        return fase_celle(a.out, a.contesto, "curva" if a.fase == "curve" else a.fase,
+                          a.lavoratori, a.fili, a.piano, a.pilota)
+    if a.fase == "test-curve":
+        fase_test_curve(a.out, a.contesto); return 0
     if a.fase == "soglie":
         return fase_soglie(a.out, a.contesto)
     fase_test(a.out, a.contesto); return 0
