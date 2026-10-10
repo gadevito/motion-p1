@@ -378,6 +378,7 @@ def esito_fase(e) -> str:
 
 # --------------------------------------------------------------- CONFRONTO --
 def scrivi_confronto(f: Path, meta: dict, esiti: list, paper: list, ok: bool):
+    from analysis.impronte import natura
     """Il rapporto tracciato in git. Deterministico: nessun istante, macchina,
     durata o percorso assoluto, cosi' che due esecuzioni su macchine diverse si
     confrontino con `diff` e le sole differenze siano nei numeri."""
@@ -438,9 +439,16 @@ def scrivi_confronto(f: Path, meta: dict, esiti: list, paper: list, ok: bool):
           "congelamento).", ""]
     tt = [f"- `{u}`: `{r}`" for e in esiti for u, x in e["uscite"].items() for r in x.get("righe_solo_testo", [])]
     L += tt or ["Nessuna."]
-    L += ["", "## 6. File di codice cambiati dopo il congelamento che li cita (registro, Paper 2)", "",
+    L += ["", "## 6. Coerenza per contenuto fra risultati e congelamenti", "",
+          "Dove il generatore incorpora il json di analisi nel proprio, i due devono coincidere per contenuto "
+          "(non per impronta del file). Una divergenza fa fallire.", "",
+          "| copia | controllo | esito |", "|---|---|---|"]
+    for dove, rr in (("congelata", meta.get("coerenza_congelata", [])), ("rigenerata", meta.get("coerenza_rigenerata", []))):
+        L += [f"| {dove} | {r['controllo']} | {r['esito']} |" for r in rr]
+    L += ["", "## 7. File di codice cambiati dopo il congelamento che li cita (registro, Paper 2)", "",
           "Informativo. Per ogni file di codice con impronta citata diversa da quella attuale: il commit della "
-          "versione citata (se la storia git la contiene) e i commit successivi che lo cambiano.", "",
+          "versione citata (se la storia git la contiene) e i commit successivi che lo cambiano; "
+          "**etichette** = cambio di sole etichette e impaginazione delle figure (`--lingua en`), nessun calcolo.", "",
           "| file | congelamento | impronta citata | versione citata (commit, data) | cambiato in (commit, data, oggetto) |",
           "|---|---|---|---|---|"]
     for r in meta["impronte_citate"]:
@@ -449,21 +457,22 @@ def scrivi_confronto(f: Path, meta: dict, esiti: list, paper: list, ok: bool):
         st = r.get("storia") or {}
         vc = st.get("versione_citata")
         vc = f"`{vc[0]}` {vc[1]}" if vc else "non presente nella storia git (stato non committato al congelamento)"
-        cc = "<br>".join(f"`{c}` {d} {o}" for c, d, o in st.get("commit", [])) or "—"
+        cc = "<br>".join(f"`{c}` {d} {o}" + (f" — **{natura(c)}**" if natura(c) else "")
+                         for c, d, o in st.get("commit", [])) or "—"
         L.append(f"| `{r['trovato']}` | `{r['documento']}` | `{r['impronta']}` | {vc} | {cc} |")
-    L += ["", "## 7. Impronte del codice diverse da quelle registrate nel congelamento (json)", "",
+    L += ["", "## 8. Impronte del codice diverse da quelle registrate nel congelamento (json)", "",
           "Informativo, non fa fallire: il file di codice e' cambiato dopo il congelamento, i numeri no "
           "(sezione 3). Date, commit e istanti non sono elencati.", ""]
     imp = sorted({(Path(u).name, m["dove"], fmt(m["atteso"]), fmt(m["ottenuto"]))
                   for e in esiti for u, r in e["uscite"].items() for m in r.get("metadati_diversi", [])
                   if re.search(r"impront", m["dove"], re.I) and not re.search(r"istante|data|commit", m["dove"])})
     L += [f"- `{f}` `{d}`: congelato {a}, attuale {b}" for f, d, a, b in imp] or ["Nessuna."]
-    L += ["", "## 8. Figure (script esistenti)", ""]
+    L += ["", "## 9. Figure (script esistenti)", ""]
     for e in esiti:
         for g, c in e["figure"].items():
             dove = g.replace("paper:", "<paper>/figures/") if g.startswith("paper:") else f"figure/{g}"
             L.append(f"- `{dove}` da `{e['cmd']}`: {'prodotta' if c else 'MANCANTE'}")
-    L += ["", "## 9. Impronte degli ingressi (`results/evoluzione`)", "",
+    L += ["", "## 10. Impronte degli ingressi (`results/evoluzione`)", "",
           "SHA-256 dei file di primo livello; per le cartelle, dell'elenco (nome, dimensione) dei file." , "", "```"]
     L += [f"{k}  {v}" for k, v in sorted(meta["impronte_ingressi"].items())] + ["```"]
     f.write_text("\n".join(L) + "\n")
@@ -473,7 +482,8 @@ def scrivi_confronto(f: Path, meta: dict, esiti: list, paper: list, ok: bool):
 def rapporto(lavoro: Path, meta: dict, esiti: list, paper: list) -> bool:
     ok = all(esito_fase(e) == "ok" for e in esiti) and all(p["esito"].startswith(("ok", "non rigenerato")) for p in paper) \
         and meta["integrita_risultati"] == "invariati" \
-        and not any(r["esito"] in ("DIVERSO", "file non trovato") for r in meta["impronte_citate"])
+        and not any(r["esito"] in ("DIVERSO", "file non trovato") for r in meta["impronte_citate"]) \
+        and all(r["esito"] == "ok" for r in meta.get("coerenza_congelata", []) + meta.get("coerenza_rigenerata", []))
     L = [f"# Rigenerazione Paper 1 — {meta['istante']}", "",
          f"Esito complessivo: **{'TUTTO COINCIDE' if ok else 'DIFFERENZE O ERRORI'}**", "",
          f"- commit {meta['commit']} ({'pulito' if not meta['git_status'] else 'con modifiche locali'}); "
@@ -553,7 +563,8 @@ def main() -> int:
         print(f"  {k}  {v}")
     from analysis.impronte import verifica as verifica_impronte
     meta["impronte_citate"] = verifica_impronte(RADICE)
-    from analysis.impronte import storia_codice
+    from analysis.impronte import coerenza, storia_codice
+    meta["coerenza_congelata"] = coerenza(RADICE / RIS)
     for r in meta["impronte_citate"]:
         if r["esito"] == "cambiato dopo il congelamento":
             r["storia"] = storia_codice(RADICE, r["trovato"], r["impronta"])
@@ -570,6 +581,8 @@ def main() -> int:
             e = esegui(f, radice, lavoro, i, (a.tol_rel, a.tol_abs))
             esiti.append(e)
             print(f"    {esito_fase(e)}  ({e['secondi']} s)", flush=True)
+        if "E3" in a.solo:
+            meta["coerenza_rigenerata"] = coerenza(radice / RIS)
         from analysis.tabelle_paper1 import scrivi_tabella_C1, verifica
         paper = verifica(radice / RIS, RADICE / RIS, a.tex, a.solo)
         if a.paper is not None:
