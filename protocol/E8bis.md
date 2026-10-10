@@ -1,6 +1,6 @@
 # E8-bis — Discriminazione e calibrazione (post hoc, dichiarato)
 
-**Pre-registrazione.** Data _______ · commit ________________ · chi lancia Gabriele De Vito.
+**Pre-registrazione.** Data 2026-10-10 · commit 6112a864f7974341 · chi lancia Gabriele De Vito.
 
 Scritta il 10/10 su richiesta del revisore, dopo `CONGELAMENTO_E8.md`
 (commit `d8106f0`). **Descrittivo e post hoc**, nessun criterio; nessun
