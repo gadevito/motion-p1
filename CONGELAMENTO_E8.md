@@ -1,6 +1,6 @@
 # Congelamento — E8, metriche operative (post hoc, dichiarato)
 
-**Congelato il 2026-10-10**, commit `82360a6ead81`. Protocollo `protocol/E8.md` (impronta `611d3541a6086e19`), firmato al commit `1185d9ecceb39bdf` prima di ricostruire; deviazione del 9/10 dichiarata nel file (A eredita le soglie di C). **Nessun criterio**: è descrittivo. **Ogni numero e' calcolato da `genera_congelamento_e8.py`** da `e8_risultati.json` e `e8_soglie.json`. Va in appendice C; la frase derivata (§4) nel testo della sezione 5.1.
+**Congelato il 2026-10-10**, commit `853c8474b7ce`. Protocollo `protocol/E8.md` (impronta `611d3541a6086e19`), firmato al commit `1185d9ecceb39bdf` prima di ricostruire; deviazione del 9/10 dichiarata nel file (A eredita le soglie di C). **Nessun criterio**: è descrittivo. **Ogni numero e' calcolato da `genera_congelamento_e8.py`** da `e8_risultati.json` e `e8_soglie.json`. Va in appendice C; la frase derivata (§4) nel testo della sezione 5.1.
 
 ## 1. Che cosa e' stato eseguito
 
@@ -253,27 +253,36 @@ AUC (intero / eta' > 1 sett.): C 0.967 / 0.965; F0p 0.969 / 0.967; Fp_192 0.974 
 
 ### Lettura derivata (regole scritte in `protocol/E8bis.md`)
 
-- **Madrid, F′(1 sett.) − C**: la curva di F′(1 sett.) **domina** quella di C (ΔAUC sopra lo zero, richiamo mai sotto a nessun livello di falsi allarmi; a FA 5 %: +2.9 [+1.8, +4.0] punti): il guadagno in wCE e' reale a ogni punto operativo, e dove il richiamo a soglia fissa scendeva (E8) era una soglia spostata.
+- **Madrid, F′(1 sett.) − C**: la curva di F′(1 sett.) **domina** quella di C — nel senso dichiarato: ΔAUC sopra lo zero e richiamo mai sotto a nessuno dei cinque livelli di falsi allarmi esaminati (0,5–10 %), non sull'intera curva; a FA 5 %: +2.9 [+1.8, +4.0] punti. Il guadagno in wCE e' reale a ogni punto operativo esaminato, e dove il richiamo a soglia fissa scendeva (E8, §5) era una soglia spostata.
 - **Madrid, F₀ − C**: ΔAUC sotto lo zero: il costo di trasferimento e' **anche discriminazione** (a FA 5 %: -3.9 [-5.5, -2.5] punti). In E8 lo stesso confronto valeva -47.6 punti di richiamo con l'argmax e -7.9 con la soglia su validazione. Rispetto all'argmax, la quota recuperata da una soglia ben posta e' il 92 %: in gran parte **calibrazione**.
 - **Madrid, A − C**: a falsi allarmi fissati l'identita' vale +1.5 [+0.5, +2.3] punti di richiamo a FA 2 % e +2.7 [+1.6, +3.8] a FA 5 %; con le soglie per braccio di E8 valeva +6.9 punti.
-- **Londra, F′(1 sett.) − C**: la curva di F′(1 sett.) **domina** quella di C (ΔAUC sopra lo zero, richiamo mai sotto a nessun livello di falsi allarmi; a FA 5 %: +1.1 [+0.4, +1.8] punti): il guadagno in wCE e' reale a ogni punto operativo, e dove il richiamo a soglia fissa scendeva (E8) era una soglia spostata.
+- **Londra, F′(1 sett.) − C**: la curva di F′(1 sett.) **domina** quella di C — nel senso dichiarato: ΔAUC sopra lo zero e richiamo mai sotto a nessuno dei cinque livelli di falsi allarmi esaminati (0,5–10 %), non sull'intera curva; a FA 5 %: +1.1 [+0.4, +1.8] punti. Il guadagno in wCE e' reale a ogni punto operativo esaminato, e dove il richiamo a soglia fissa scendeva (E8, §5) era una soglia spostata.
 - **Londra, F₀ − C**: ΔAUC sotto lo zero: il costo di trasferimento e' **anche discriminazione** (a FA 5 %: -1.6 [-2.2, -0.8] punti). In E8 lo stesso confronto valeva -8.2 punti di richiamo con l'argmax e -0.8 con la soglia su validazione. Rispetto all'argmax, la quota recuperata da una soglia ben posta e' il 81 %: in gran parte **calibrazione**.
 - **Londra, A − C**: a falsi allarmi fissati l'identita' vale +1.2 [+0.4, +2.2] punti di richiamo a FA 2 % e +1.9 [+1.1, +2.7] a FA 5 %; con le soglie per braccio di E8 valeva +7.1 punti.
-- **Melbourne, F′(1 sett.) − C**: la curva di F′(1 sett.) **domina** quella di C (ΔAUC sopra lo zero, richiamo mai sotto a nessun livello di falsi allarmi; a FA 5 %: +2.8 [+1.7, +4.0] punti): il guadagno in wCE e' reale a ogni punto operativo, e dove il richiamo a soglia fissa scendeva (E8) era una soglia spostata.
+- **Melbourne, F′(1 sett.) − C**: la curva di F′(1 sett.) **domina** quella di C — nel senso dichiarato: ΔAUC sopra lo zero e richiamo mai sotto a nessuno dei cinque livelli di falsi allarmi esaminati (0,5–10 %), non sull'intera curva; a FA 5 %: +2.8 [+1.7, +4.0] punti. Il guadagno in wCE e' reale a ogni punto operativo esaminato, e dove il richiamo a soglia fissa scendeva (E8, §5) era una soglia spostata.
 - **Melbourne, F₀ − C**: ΔAUC sotto lo zero: il costo di trasferimento e' **anche discriminazione** (a FA 5 %: -4.5 [-6.6, -2.3] punti). In E8 lo stesso confronto valeva -22.9 punti di richiamo con l'argmax e -0.7 con la soglia su validazione. Rispetto all'argmax, la quota recuperata da una soglia ben posta e' il 80 %: in gran parte **calibrazione**.
 - **Melbourne, A − C**: a falsi allarmi fissati l'identita' vale +1.9 [-0.5, +3.6] punti di richiamo a FA 2 % e +2.5 [+0.9, +4.2] a FA 5 %; con le soglie per braccio di E8 valeva +8.0 punti.
-- **PEMS08, F′(1 sett.) − C**: la curva di F′(1 sett.) **domina** quella di C (ΔAUC sopra lo zero, richiamo mai sotto a nessun livello di falsi allarmi; a FA 5 %: +5.1 [+0.5, +9.3] punti): il guadagno in wCE e' reale a ogni punto operativo, e dove il richiamo a soglia fissa scendeva (E8) era una soglia spostata.
+- **PEMS08, F′(1 sett.) − C**: la curva di F′(1 sett.) **domina** quella di C — nel senso dichiarato: ΔAUC sopra lo zero e richiamo mai sotto a nessuno dei cinque livelli di falsi allarmi esaminati (0,5–10 %), non sull'intera curva; a FA 5 %: +5.1 [+0.5, +9.3] punti. Il guadagno in wCE e' reale a ogni punto operativo esaminato, e dove il richiamo a soglia fissa scendeva (E8, §5) era una soglia spostata.
 - **PEMS08, F₀ − C**: ΔAUC include lo zero: a falsi allarmi fissati F₀ non discrimina peggio di C (a FA 5 %: +4.3 [+0.7, +9.7] punti); il costo di trasferimento in wCE e' **calibrazione**. In E8 lo stesso confronto valeva -18.8 punti di richiamo con l'argmax e +6.2 con la soglia su validazione.
 - **PEMS08, A − C**: a falsi allarmi fissati l'identita' vale +11.6 [+5.6, +17.3] punti di richiamo a FA 2 % e +7.7 [+1.6, +13.5] a FA 5 %; con le soglie per braccio di E8 valeva +7.9 punti.
-- **PEMS04, F′(1 sett.) − C**: la curva di F′(1 sett.) **domina** quella di C (ΔAUC sopra lo zero, richiamo mai sotto a nessun livello di falsi allarmi; a FA 5 %: +5.3 [+3.1, +7.8] punti): il guadagno in wCE e' reale a ogni punto operativo, e dove il richiamo a soglia fissa scendeva (E8) era una soglia spostata.
+- **PEMS04, F′(1 sett.) − C**: la curva di F′(1 sett.) **domina** quella di C — nel senso dichiarato: ΔAUC sopra lo zero e richiamo mai sotto a nessuno dei cinque livelli di falsi allarmi esaminati (0,5–10 %), non sull'intera curva; a FA 5 %: +5.3 [+3.1, +7.8] punti. Il guadagno in wCE e' reale a ogni punto operativo esaminato, e dove il richiamo a soglia fissa scendeva (E8, §5) era una soglia spostata.
 
-**Per la sezione 5.1**: la settimana di adattamento domina C a ogni punto operativo in **5 contesti su 5**; del costo di trasferimento dell'embedding medio (argmax), una soglia ben posta recupera il 77–92 % nei contesti con A/F₀ (4): in gran parte calibrazione.
+**Per la sezione 5.1**: la settimana di adattamento domina C a ogni punto operativo esaminato (0,5–10 % di falsi allarmi) in **5 contesti su 5**; del costo di trasferimento dell'embedding medio (argmax), una soglia ben posta recupera il 77–92 % nei contesti con A/F₀ (4): in gran parte calibrazione.
 
-## 6. Impronte
+## 8. Difetti emersi e dichiarati
+
+- Protocollo E8: A previsto in validazione, non valutabile (ha i nodi di prova): eredita le soglie di C — deviazione del 9/10.
+- Controllo di R-orig(1 sett.) nelle citta' confrontato sul perimetro sbagliato (tutte le origini dopo t₁ contro le sole comuni di E3-bis): il controllo si e' fermato, corretto sul perimetro di E3-bis (commit `abca90d`); nessun numero cambiato.
+- Generatore, E8-bis: il ramo di lettura «sopra a qualche livello, mai sotto» scriveva «le curve non si distinguono» (una regola di lettura che avrebbe detto la cosa sbagliata, dello stesso tipo del criterio non discriminante di E7); corretto prima del commit del documento (commit `82360a6`).
+- `np.trapz` assente nel numpy della macchina: area con trapezi espliciti.
+- Gated escluso da E8-bis: e' una composizione di modelli con soglie diverse per fascia, non un modello con una probabilita'.
+
+## 9. Impronte
 
 | file | impronta |
 |---|---|
 | `evoluzione/esperimenti/esegui_e8.py` | `f9db7b5830a5b325` |
+| `evoluzione/analisi/figura_e8bis.py` | `756828a7025fa32c` |
 | `protocol/E8.md` | `611d3541a6086e19` |
 | `protocol/E8bis.md` | `0323686ceb957117` |
 | soglie | `dcb93389339a6657` |
