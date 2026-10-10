@@ -867,11 +867,42 @@ def fase_costi(out: Path, piano: bool) -> int:
     return 0
 
 
+def fase_origini(out: Path) -> int:
+    """Le origini dell'episodio di prova, per contesto, da TUTTE le celle di prova di
+    E6 (PEMS08, `predizioni_e6`) ed E6 parte A (PEMS04, `predizioni_e6a`): dopo t₁ e
+    comuni (eta' > 1 settimana). Costanti per contesto per costruzione del calendario:
+    se una cella differisce, si ferma. Scrive `e6_origini_comuni.json`."""
+    import hashlib
+    import numpy as np
+    fuori = {}
+    for cart, nome in (("predizioni_e6", "PEMS08"), ("predizioni_e6a", "PEMS04")):
+        file = sorted((out / cart).glob("prova_*_p*_s*.npz"))
+        if not file:
+            raise RuntimeError(f"{cart}: nessuna cella di prova")
+        conte = set()
+        for f in file:
+            with np.load(f, allow_pickle=True) as z:
+                per = z["origini"].astype("int64")
+                com = int((z["eta"] > SETTIMANA).sum()) if "eta" in z.files else int((per > int(z["t0"]) + SETTIMANA).sum())
+                conte.add((int(z["t0"]), int(len(per)), com))
+        if len(conte) != 1:
+            raise RuntimeError(f"{nome}: origini non costanti fra le celle: {sorted(conte)}")
+        t0, dopo, com = next(iter(conte))
+        fuori[nome] = {"t0": t0, "t1": t0 + L24, "origini_dopo_t1": dopo, "origini_comuni": com,
+                       "celle": len(file), "cartella": cart}
+        print(f"  {nome}: t0 {t0}, origini dopo t1 {dopo}, comuni (eta' > {SETTIMANA}) {com}, su {len(file)} celle")
+    testo = json.dumps(fuori, indent=2, ensure_ascii=False, sort_keys=True)
+    fuori["impronta"] = hashlib.sha256(testo.encode()).hexdigest()[:16]
+    _scrivi_atomico(out / "e6_origini_comuni.json", json.dumps(fuori, indent=2, ensure_ascii=False, sort_keys=True))
+    print(f"  salvato in {out / 'e6_origini_comuni.json'} (impronta {fuori['impronta']})")
+    return 0
+
+
 # --------------------------------------------------------------------- main --
 def main() -> int:
     ap = argparse.ArgumentParser(description="E6 parte B (PEMS08)")
     ap.add_argument("--fase", choices=("pilota", "addestra", "seleziona-F", "valuta", "scegli", "test", "costi",
-                                       "addestra-E", "valuta-E", "test-bis"), required=True)
+                                       "addestra-E", "valuta-E", "test-bis", "origini"), required=True)
     ap.add_argument("--episodio", choices=("validazione", "prova"), default=None)
     ap.add_argument("--lavoratori", type=int, default=8)
     ap.add_argument("--fili", type=int, default=1)
@@ -911,6 +942,8 @@ def main() -> int:
         return fase_valuta_E(a.out, a.lavoratori, a.fili, a.piano)
     if a.fase == "test-bis":
         fase_test_bis(a.out); return 0
+    if a.fase == "origini":
+        return fase_origini(a.out)
     fase_test(a.out); return 0
 
 

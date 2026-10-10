@@ -1,13 +1,13 @@
 # Congelamento — E6, replica esterna, parte B (PEMS08)
 
-**Congelato il 2026-10-08**, commit `4aa4e211ca17`. Pre-registrazione `protocol/E6.md` (impronta `c7a6583897215545`), firmata al commit `546bd72f7aea520f` prima del lancio. **Ogni numero e' calcolato da `genera_congelamento_e6.py`** dai file di risultato. E6-bis (`protocol/E6bis.md`, firmata al commit `168d6f5f57d721d5`) e' nella sezione 3b. La parte A (PEMS04) e' nella sezione 3c.
+**Congelato il 2026-10-10**, commit `e824dbee4dc2`. Pre-registrazione `protocol/E6.md` (impronta `c7a6583897215545`), firmata al commit `546bd72f7aea520f` prima del lancio. **Ogni numero e' calcolato da `genera_congelamento_e6.py`** dai file di risultato. E6-bis (`protocol/E6bis.md`, firmata al commit `168d6f5f57d721d5`) e' nella sezione 3b. La parte A (PEMS04) e' nella sezione 3c.
 
 ## 1. Che cosa e' stato eseguito
 
 | | |
 |---|---|
 | dati | PEMS08, 170 sensori, 62 giorni a 15 min; estrazione con le scelte di PEMS04 (`estrazione_pems08.json`: riferimento = percentile 95 sui 118 nodi iniziali in [11, 3162), soglie [0.8, 0.5]) |
-| calendario | t₀ di prova 3840 (giorno 40), t₁ = 3936; t₀ di validazione 3162; origini dopo t₁ nel test 1999, comuni (eta' > 1 sett.) 1423 |
+| calendario | t₀ di prova 3840 (giorno 40), t₁ = 3936; t₀ di validazione 3162; origini dopo t₁ nel test 1999, comuni (eta' > 1 sett.) 1423 (`e6_origini_comuni.json`, impronta `604cac98cf78ce31`, da 36 celle) |
 | disegno | **6 contesti-partizione × 6 semi (201–206)** = 36 celle per braccio; 26 nodi nuovi per partizione, 156 distinti (motivo nel protocollo) |
 | addestramenti | 180 completati, 0 falliti, 5.9 h di calendario con 8 lavoratori (C, A, E′, R-orig 24 h, R-orig 1 sett.); canonico a 11 canali riusato; pesi su [11, 3162) |
 | F′ | configurazione selezionata su PEMS08 da E′: **200 aggiornamenti, passo 0.001** (wCE di validazione 0.4671, 36 gruppi × 6 candidati), impronta `7c289e6e5d3c73d4`, congelata prima della prova |
@@ -59,7 +59,7 @@ E senza token: 36 addestramenti, 0 falliti; F₀ all'embedding medio; F(24 h) e 
 
 Il costo di trasferimento dell'embedding medio **esiste anche su PEMS08** (F₀ − C sopra lo zero; nelle citta' +0,050…+0,078 in E2); il token conta ancora dopo l'adattamento (F − F′ sopra lo zero a 24 h e a 1 settimana).
 
-## 3c. Parte A — PEMS04, bracci definitivi (completamento, 168 origini comuni)
+## 3c. Parte A — PEMS04, bracci definitivi (completamento, 168 origini comuni su 744 dopo t₁, `e6_origini_comuni.json`)
 
 E′ su PEMS04: 36 addestramenti; F′ selezionata da E′ (50 aggiornamenti, passo 0.001, impronta `16a47787e7f89d5a`); gated τ = 192 passi, N = 231 (impronta `16ed7800df4b401b`); 36 celle (3 contesti × 12 semi, 47 nodi nuovi); nodi sotto N 0.0 per cella su 47 (celle valide min/mediana/max 308/308/308: N inerte anche qui, copertura 100 %). (e) non riportabile: A non esiste su PEMS04.
 
@@ -107,7 +107,7 @@ Su PEMS08, con intervallo che esclude lo zero: (a), (c), (d). La tesi a una sett
 
 | file | impronta |
 |---|---|
-| `evoluzione/esperimenti/esegui_e6.py` | `00f7b0442c08f98c` |
+| `evoluzione/esperimenti/esegui_e6.py` | `8776e85d4006317a` |
 | `evoluzione/esperimenti/esegui_e6a.py` | `56f8ea3ad50ac238` |
 | `evoluzione/esperimenti/estrai_pems04.py` | `93d98cf3d58bbb95` |
 | `evoluzione/esperimenti/calendario_pems08.py` | `35bc7585e8732454` |
