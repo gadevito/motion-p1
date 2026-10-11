@@ -1,30 +1,20 @@
-# Costi appaiati per contesto — F′(1 sett.) contro R-orig(1 sett.), stessa macchina
+# Costi per contesto — una macchina, una sessione, macchina ferma
 
-Generato da `evoluzione/esperimenti/costi_appaiati.py` il 2026-10-10; numeri in `results/evoluzione/costi_appaiati.json` (impronta `7eec120643b41283`). Campione isolato, un processo: partizione 0, semi 201-203 (citta'); PEMS08 da E6 §5. F′ rimisurato qui in tutte le citta' (ogni wCE riproduce la fase valuta di E4 entro 1e-6); R-orig(1 sett.) dai manifesti isolati di E3-bis. Mediane sui semi.
+Generato da `evoluzione/esperimenti/costi_appaiati.py --sessione` il 2026-10-11; numeri in `results/evoluzione/costi_sessione.json` (impronta `3fabd92bb2bf9f0c`), scritto da `costi_sessione.py`. Macchina: Apple M3 Max, torch 2.12.1, un processo, un filo; sessione dal 2026-10-10 16:31 UTC al 2026-10-11 16:23 UTC (23.9 h), load average prima 2.58 / dopo 2.25. Campione isolato: partizione 0, semi 201-203 (citta'), semi 201-203 (PEMS08); mediane sui semi. Controlli: wCE di C, R-orig e F′ riprodotte entro 1e-6 (scarto massimo 0.0e+00 su 45); pesi di E′ riprodotti 9/9; PEMS08 15/15 checkpoint sui pesi di E6.
 
-| contesto | n | F′(24 h) | F′(1 sett.) | aggiornamenti di F | R-orig(1 sett.) | R-orig / F′(1 sett.) |
-|---|---|---|---|---|---|---|
-| Madrid | 3 | 14.0 s | **151 s** | 50 | **2272 s** | 15.0× |
-| Londra | 3 | 14.0 s | **144 s** | 50 | **2270 s** | 15.8× |
-| Melbourne | 3 | 38.0 s | **404 s** | 200 | **1489 s** | 3.7× |
-| PEMS08 | 3 | 13.8 s | **124 s** | cfg E6 | **413 s** | 3.3× |
+| contesto | n | C | E′ | F′(24 h) | F′(1 sett.) | R-orig(24 h) | R-orig(1 sett.) | R-orig/F′ (24 h) | R-orig/F′ (1 sett.) |
+|---|---|---|---|---|---|---|---|---|---|
+| Madrid | 3 | 41.1 min | 41.2 min | 14 s | 138 s | 2225 s | 2229 s | 154.3× | 16.1× |
+| Londra | 3 | 41.0 min | 41.1 min | 15 s | 139 s | 2228 s | 2228 s | 153.4× | 16.1× |
+| Melbourne | 3 | 29.1 min | 29.2 min | 39 s | 401 s | 1556 s | 1557 s | 40.1× | 3.9× |
+| PEMS08 | 3 | 7.1 min | 7.1 min | 13 s | 127 s | 377 s | 379 s | 28.7× | 3.0× |
 
-- Il **2268 s** di R-orig(1 sett.) in `costi_e3bis.json` e' la mediana sulle 9 celle delle tre citta' (Madrid 2272 s, Londra 2270 s, Melbourne 1489 s): non appartiene a una citta'.
-- F′(1 sett.) a Melbourne in `costi_e4.json`: 406 s (rimisura di oggi: 404 s).
-- Il «almeno 6×» di E3-bis §3 divideva la mediana sulle tre citta' per il solo F′(1 sett.) di Melbourne: i rapporti per citta' sono nella colonna a destra.
-- **Che cosa misura il tempo di F′, e perche' Melbourne costa di piu'.** E' il tempo per cella, un processo, un filo di torch: copia del punto di controllo di E′, costruzione dei lotti su tutte le origini in (t₀, t₀+L] (77 a 24 h, 634 a 1 sett.) e `aggiornamenti` passi di Adam sulla tabella dei nodi di prova della partizione (Madrid 135, Londra 135, Melbourne 90 nodi), con (passo, aggiornamenti) scelti su validazione per citta' in E4 (`selezione_F_griglia/configurazione_F.json`): aggiornamenti Madrid 50, Londra 50, Melbourne 200. Il rapporto con Madrid e' Londra 1.0× a 24 h e 0.9× a 1 sett.; Melbourne 2.7× a 24 h e 2.7× a 1 sett. Ogni aggiornamento e' un passaggio completo (gradiente a lotto pieno, `adatta`) su tutte le origini della finestra e tutti i nodi di prova, quindi il tempo e' ∝ aggiornamenti × origini × nodi: il rapporto fra citta' e' lo stesso alle due finestre (le origini si semplificano) e vale il rapporto dei prodotti aggiornamenti × nodi, Londra 1.00× atteso; Melbourne 2.67× atteso.
+- A (veterano, non operativo) su PEMS08: 8.4 min di addestramento.
+- F′ e' per cella: copia di E′, lotti su tutte le origini della finestra e `aggiornamenti` passi di Adam a gradiente pieno sui nodi di prova (Madrid 135 nodi, 50 aggiornamenti, Londra 135 nodi, 50 aggiornamenti, Melbourne 90 nodi, 200 aggiornamenti): il tempo e' ∝ aggiornamenti × origini × nodi, da cui le differenze fra citta'.
+- R-orig riaddestra l'intera rete ampliata dopo i dati: il suo tempo cresce col numero di nodi della rete (900 Madrid/Londra, 594 Melbourne, 170 PEMS08).
 
 | ingresso | impronta |
 |---|---|
-| `costi_e3bis.json` | `32df030ae8fc6bd2` |
-| `costi_e4.json` | `057d5c122b2cb0b1` |
-| `e6_costi.json` | `e824b7be795577ca` |
-| `inserimento_griglia_672/R-orig_Madrid_p0_s201.json` | `ec2508b0f34ec327` |
-| `inserimento_griglia_672/R-orig_Madrid_p0_s202.json` | `211f986ceafb4997` |
-| `inserimento_griglia_672/R-orig_Madrid_p0_s203.json` | `ceab6c72299326c0` |
-| `inserimento_griglia_672/R-orig_Londra_p0_s201.json` | `d73996e4e49fa056` |
-| `inserimento_griglia_672/R-orig_Londra_p0_s202.json` | `14d0862f732b5597` |
-| `inserimento_griglia_672/R-orig_Londra_p0_s203.json` | `202bbf3e7171b8ce` |
-| `inserimento_griglia_672/R-orig_Melbourne_p0_s201.json` | `d459a6dd106a1f57` |
-| `inserimento_griglia_672/R-orig_Melbourne_p0_s202.json` | `bdf34f8760ddd10d` |
-| `inserimento_griglia_672/R-orig_Melbourne_p0_s203.json` | `26d40ad92ed7fe33` |
+| `results/evoluzione/costi_sessione.json` | `3fabd92bb2bf9f0c` |
+| `results/evoluzione/costi_sessione_pems08.json` | `de392bca1b944791` |
+| `results/evoluzione/costi_tabella_sessione.json` | `93d346501f9bc777` |

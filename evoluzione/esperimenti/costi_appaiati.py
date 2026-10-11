@@ -71,7 +71,11 @@ def main() -> int:
     ap.add_argument("--piano", action="store_true")
     ap.add_argument("--da-json", action="store_true",
                     help="non rimisura: rilegge costi_appaiati.json (intatto) e riscrive la sola tabella")
+    ap.add_argument("--sessione", action="store_true",
+                    help="la tabella dai tempi della sessione unica (costi_sessione.json), senza rimisurare")
     a = ap.parse_args()
+    if a.sessione:
+        return _scrivi_tabella_sessione(a)
     med = lambda v: float(np.median(v))  # noqa: E731
     ingressi = {k: a.out / k for k in ("costi_e3bis.json", "costi_e4.json", "e6_costi.json")}
     K3 = json.loads(ingressi["costi_e3bis.json"].read_text())
@@ -174,7 +178,7 @@ def _scrivi_tabella(a, doc, tab, righe, glob, tutte, imp) -> int:
           "validazione per citta' in E4 (`selezione_F_griglia/configurazione_F.json`): aggiornamenti "
           + ", ".join(f"{c} {agg[c]}" for c in CITTA) + ". Il rapporto con "
           + f"{rif} e' " + "; ".join(f"{c} {rapp[c][0]:.1f}× a 24 h e {rapp[c][1]:.1f}× a 1 sett." for c in CITTA[1:])
-          + " Ogni aggiornamento e' un passaggio completo (gradiente a lotto pieno, `adatta`) su tutte le "
+          + ". Ogni aggiornamento e' un passaggio completo (gradiente a lotto pieno, `adatta`) su tutte le "
           "origini della finestra e tutti i nodi di prova, quindi il tempo e' ∝ aggiornamenti × origini × nodi: "
           "il rapporto fra citta' e' lo stesso alle due finestre (le origini si semplificano) e vale il "
           "rapporto dei prodotti aggiornamenti × nodi, "
@@ -191,6 +195,86 @@ def _scrivi_tabella(a, doc, tab, righe, glob, tutte, imp) -> int:
         print(f"  {c:10s} {t['n']:2d} {t['Fp_96_s']:7.1f}s {t['Fp_672_s']:10.0f}s {t['R-orig_672_s']:15.0f}s "
               f"{t['rapporto_Rorig_su_Fp_672']:8.1f}x")
     print(f"\n  json {a.out / 'costi_appaiati.json'} (impronta {imp}); tabella {fm.relative_to(RADICE)}")
+    return 0
+
+
+def _scrivi_tabella_sessione(a) -> int:
+    """La tabella dei costi dalla SESSIONE UNICA (`costi_sessione.json`): stessa macchina, stesso
+    momento, macchina ferma; tutte le voci del paper per contesto. Mediane sui tre semi."""
+    import numpy as np
+    med = lambda v: float(np.median(v))  # noqa: E731
+    fj = a.out / "costi_sessione.json"
+    D = json.loads(fj.read_text()); imp = h(fj)
+    if "istante_fine" not in D:
+        raise RuntimeError("costi_sessione.json: sessione non chiusa")
+    VOCI = (("C", "C"), ("E1", "E′"), ("Fp_96", "F′(24 h)"), ("Fp_672", "F′(1 sett.)"),
+            ("R-orig_96", "R-orig(24 h)"), ("R-orig_672", "R-orig(1 sett.)"))
+    tab, agg, scarti = {}, {}, []
+    for c in CITTA:
+        celle = [v for v in D["celle"].values() if v["contesto"] == c]
+        if len(celle) != len(ISOLATO["semi"]):
+            raise RuntimeError(f"{c}: {len(celle)} celle nella sessione")
+        tab[c] = {"n": len(celle),
+                  "C": med([v["C"]["addestramento_s"] for v in celle]),
+                  "E1": med([v["E1"]["addestramento_s"] for v in celle]),
+                  "Fp_96": med([v["Fp"]["Fp_96"]["inserimento_s"] for v in celle]),
+                  "Fp_672": med([v["Fp"]["Fp_672"]["inserimento_s"] for v in celle]),
+                  "R-orig_96": med([v["R-orig_96"]["inserimento_s"] for v in celle]),
+                  "R-orig_672": med([v["R-orig_672"]["inserimento_s"] for v in celle])}
+        agg[c] = celle[0]["Fp"]["Fp_672"]["aggiornamenti"]
+        scarti += [v[k]["scarto_relativo"] for v in celle for k in ("C", "R-orig_96", "R-orig_672")]
+        scarti += [v["Fp"][k]["scarto_relativo"] for v in celle for k in ("Fp_96", "Fp_672")]
+    P = D["PEMS08"]; E_TOK = [k for k in P["addestramento_s"] if k not in ("C", "A", "R-orig_96", "R-orig_672")]
+    if len(E_TOK) != 1:
+        raise RuntimeError(f"PEMS08: braccio E′ non identificato fra {list(P['addestramento_s'])}")
+    tab["PEMS08"] = {"n": len(P["semi"]), "C": P["addestramento_s"]["C"]["mediana"],
+                     "E1": P["addestramento_s"][E_TOK[0]]["mediana"],
+                     "Fp_96": P["adattamento_s"]["Fp_96"]["mediana"], "Fp_672": P["adattamento_s"]["Fp_672"]["mediana"],
+                     "R-orig_96": P["addestramento_s"]["R-orig_96"]["mediana"],
+                     "R-orig_672": P["addestramento_s"]["R-orig_672"]["mediana"], "A": P["addestramento_s"]["A"]["mediana"]}
+    nodi = {c: _nodi_prova(c, a.out) for c in CITTA}
+    mp, md = D["macchina_prima"], D["macchina_dopo"]
+    A = ["# Costi per contesto — una macchina, una sessione, macchina ferma", "",
+         f"Generato da `evoluzione/esperimenti/costi_appaiati.py --sessione` il {D['istante_fine'][:10]}; numeri in "
+         f"`results/evoluzione/costi_sessione.json` (impronta `{imp}`), scritto da `costi_sessione.py`. "
+         f"Macchina: {mp['cpu'] or mp['arch']}, torch {mp['torch']}, un processo, un filo; sessione dal "
+         f"{D['istante_inizio'][:16].replace('T', ' ')} UTC al {D['istante_fine'][:16].replace('T', ' ')} UTC "
+         f"({D['ore_sessione']:.1f} h), load average prima {mp['load_average'][0]:.2f} / dopo {md['load_average'][0]:.2f}"
+         + (f", **{D['riprese']} ripresa/e**" if D.get("riprese") else "") + ". "
+         "Campione isolato: partizione 0, semi 201-203 (citta'), semi 201-203 (PEMS08); mediane sui semi. "
+         f"Controlli: wCE di C, R-orig e F′ riprodotte entro 1e-6 (scarto massimo {max(scarti):.1e} su {len(scarti)}); "
+         f"pesi di E′ riprodotti 9/9; PEMS08 {P['checkpoint_che_riproducono_i_pesi_di_e6']} checkpoint sui pesi di E6.", "",
+         "| contesto | n | " + " | ".join(et for _, et in VOCI) + " | R-orig/F′ (24 h) | R-orig/F′ (1 sett.) |",
+         "|---|---|" + "---|" * (len(VOCI) + 2)]
+    for c, t in tab.items():
+        A.append(f"| {c} | {t['n']} | " + " | ".join(
+            (f"{t[k]/60:.1f} min" if k in ("C", "E1") else f"{t[k]:.0f} s") for k, _ in VOCI)
+            + f" | {t['R-orig_96'] / t['Fp_96']:.1f}× | {t['R-orig_672'] / t['Fp_672']:.1f}× |")
+    A += ["", f"- A (veterano, non operativo) su PEMS08: {tab['PEMS08']['A']/60:.1f} min di addestramento.",
+          "- F′ e' per cella: copia di E′, lotti su tutte le origini della finestra e `aggiornamenti` passi di Adam a "
+          "gradiente pieno sui nodi di prova (" + ", ".join(f"{c} {nodi[c]} nodi, {agg[c]} aggiornamenti" for c in CITTA)
+          + "): il tempo e' ∝ aggiornamenti × origini × nodi, da cui le differenze fra citta'.",
+          "- R-orig riaddestra l'intera rete ampliata dopo i dati: il suo tempo cresce col numero di nodi della rete "
+          "(900 Madrid/Londra, 594 Melbourne, 170 PEMS08).", "",
+          "| ingresso | impronta |", "|---|---|", f"| `results/evoluzione/costi_sessione.json` | `{imp}` |",
+          f"| `results/evoluzione/costi_sessione_pems08.json` | `{h(a.out / 'costi_sessione_pems08.json')}` |"]
+    fm = RADICE / "paper" / "tabella_costi_appaiati.md"
+    fm.write_text("\n".join(A) + "\n")
+    ft = a.out / "costi_tabella_sessione.json"
+    ft.write_text(json.dumps({"macchina": mp, "load_average_prima": mp["load_average"], "load_average_dopo": md["load_average"],
+                              "carico_max_ammesso": D.get("carico_max_ammesso"), "riprese": D.get("riprese", 0),
+                              "istante_inizio": D["istante_inizio"], "istante_fine": D["istante_fine"],
+                              "ore_sessione": D["ore_sessione"], "unita": "secondi, mediana sui semi",
+                              "voci": {k: et for k, et in VOCI}, "tabella": tab, "nodi_prova": nodi, "aggiornamenti_F": agg,
+                              "controlli": {"scarto_relativo_massimo_wce": max(scarti), "n_wce": len(scarti),
+                                            "pesi_E1_riprodotti": "9/9",
+                                            "checkpoint_pems08_riprodotti": P["checkpoint_che_riproducono_i_pesi_di_e6"]},
+                              "sorgente": {"file": "results/evoluzione/costi_sessione.json", "impronta": imp}},
+                             indent=2, ensure_ascii=False))
+    A.append(f"| `results/evoluzione/costi_tabella_sessione.json` | `{h(ft)}` |")
+    fm.write_text("\n".join(A) + "\n")
+    print("\n".join(A[4:4 + len(tab) + 2]))
+    print(f"\n  tabella {fm.relative_to(RADICE)} (json impronta {imp})")
     return 0
 
 
