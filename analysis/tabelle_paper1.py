@@ -9,8 +9,7 @@ Esperimento "ingresso": il file non e' rigenerato da main.py (tempi misurati),
 si confronta il valore stampato con il file congelato.
 Non sono qui (lo dice il rapporto): dati di disegno (sensori, partizioni, semi,
 giorni), R - C del resoconto, R-orig(24 h) e l'addestramento iniziale (in
-attesa dei tempi per citta'), le origini comuni di PEMS04/PEMS08 (in
-CONGELAMENTO_E6 §1, non in un json).
+attesa dei tempi per citta').
 """
 import json
 from pathlib import Path
@@ -28,6 +27,9 @@ def _righe():
     for c, et in CITTA:
         R.append(("I", f"origini > 1 sett., {et}", "E4", "e4_risultati.json",
                   ["curva", f"{c}/origini_comuni"], {"Madrid": "869", "Londra": "883", "Melbourne": "854"}[c], str))
+    for g, st in (("PEMS04", "168"), ("PEMS08", "1423")):
+        R.append(("I", f"origini > 1 sett., {g}", "E6", "e6_origini_comuni.json",
+                  [g, "origini_comuni"], st, str))
     for g, st in (("Madrid", "-0.039"), ("Londra", "-0.035"), ("Melbourne", "-0.038"), ("PEMS08", "-0.133")):
         R.append(("I, II", f"A - C, {g}", "E8", "e8_risultati.json",
                   ["gruppi", g, "confronti", "A-C", "wce", "media"], st, _f3))

@@ -15,6 +15,9 @@ si riferisce e la si ricalcola:
 Un'impronta citata senza nome di file si cerca fra i json dei risultati e i
 file del codice; se non si trova e' "non verificabile" (elencata).
 I commit (`commit abc…`) non sono impronte di file e si saltano.
+
+Coerenza per contenuto (non per impronta) delle coppie risultato/congelamento in
+cui il generatore incorpora il json di analisi: `coerenza(ris)`.
 """
 import hashlib
 import json
@@ -131,3 +134,56 @@ def verifica(radice: Path) -> list:
                 r["esito"] = "ok" if p is not None else "non verificabile"
             righe.append(r)
     return righe
+
+
+def storia_codice(radice: Path, rel: str, h: str) -> dict:
+    """Per un file di codice la cui impronta citata non coincide piu': il commit
+    (e la data) della versione citata e i commit successivi che lo cambiano, dalla
+    storia git (dal piu' vecchio al piu' recente). Deterministico a parita' di storia."""
+    import subprocess
+    git = lambda *a: subprocess.run(["git", *a], cwd=radice, capture_output=True, text=True).stdout
+    righe = [r.split("\t", 2) for r in git("log", "--format=%H\t%as\t%s", "--", rel).splitlines() if r]
+    righe.reverse()                                                    # dal piu' vecchio
+    citata, dopo = None, []
+    for c, data, ogg in righe:
+        r = subprocess.run(["git", "show", f"{c}:{rel}"], cwd=radice, capture_output=True)
+        imp = hashlib.sha256(r.stdout).hexdigest()[:16] if r.returncode == 0 else None
+        if imp == h[:16]:
+            citata, dopo = (c[:12], data), []
+        elif citata is not None or not dopo:
+            dopo.append((c[:12], data, ogg[:90]))
+    if citata is None:                                                 # mai committata in quella forma
+        return {"versione_citata": None, "commit": [(c[:12], d, o[:90]) for c, d, o in righe]}
+    return {"versione_citata": citata, "commit": dopo}
+
+
+# commit che cambiano solo testo e impaginazione delle figure, dichiarati: il registro
+# li distingue da un cambio di calcolo
+CAMBI_DICHIARATI = {"d8ef81299651": "etichette"}
+
+
+def natura(commit: str) -> str:
+    return next((v for k, v in CAMBI_DICHIARATI.items() if commit.startswith(k) or k.startswith(commit)), "")
+
+
+def coerenza(ris: Path) -> list:
+    """congelamento_e3.json["analisi"] == analisi_e3.json, e per ogni braccio la
+    lista riviste/<braccio>/lancio (cella -> impronta del manifesto) identica nei
+    due file e di 108 voci. Una riga per controllo, esito "ok" o "DIFFERENZE"."""
+    out = []
+    try:
+        a = json.loads((ris / "analisi_e3.json").read_text())
+        c = json.loads((ris / "congelamento_e3.json").read_text())
+    except (OSError, ValueError) as e:
+        return [{"controllo": "analisi_e3.json / congelamento_e3.json", "esito": f"DIFFERENZE ({e.__class__.__name__})"}]
+    out.append({"controllo": 'congelamento_e3.json["analisi"] == analisi_e3.json',
+                "esito": "ok" if c.get("analisi") == a else "DIFFERENZE"})
+    for b in sorted(a.get("riviste", {})):
+        la = (a["riviste"][b] or {}).get("lancio") or {}
+        lc = ((c.get("analisi", {}).get("riviste", {}).get(b)) or {}).get("lancio") or {}
+        ia = {k: v.get("impronta") for k, v in la.items()}
+        ic = {k: v.get("impronta") for k, v in lc.items()}
+        ok = ia == ic and len(ia) == 108
+        out.append({"controllo": f"riviste/{b}/lancio: {len(ia)} impronte in analisi_e3.json, {len(ic)} nel congelamento",
+                    "esito": "ok" if ok else "DIFFERENZE"})
+    return out
