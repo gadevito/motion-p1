@@ -2,11 +2,11 @@
 
 Generato da `analysis/main.py` (non modificare a mano). Ogni numero e' rigenerato dalle predizioni per cella con il codice del repository e confrontato con il file congelato omonimo. Valori a 12 cifre significative; scarto = rigenerato − congelato.
 
-- esito: **DIFFERENZE O ERRORI**
+- esito: **TUTTO COINCIDE**
 - esperimenti: ARCH, E2, E3, E4, E3bis, E5, E6, E7, E8
 - tolleranza: relativa 1e-09, assoluta 1e-12
 - risultati reali dopo l'esecuzione: invariati
-- non coperto (ingressi, non rigenerati): addestramenti e valutazioni dei modelli sulle celle, adattamenti di E2, k della secondaria di E5, sensibilita' a rho, costi misurati (manifesti isolati), numeri del resoconto della campagna principale, dati di disegno (sensori, partizioni, semi)
+- non coperto (ingressi, non rigenerati): addestramenti e valutazioni dei modelli sulle celle, adattamenti di E2, k della secondaria di E5, sensibilita' a rho, costi misurati (sessione unica, costi_tabella_sessione.json: letti e confrontati con il testo, non rimisurati), numeri del resoconto della campagna principale, dati di disegno (sensori, partizioni, semi)
 
 ## 1. Tabelle del Paper 1
 
@@ -37,24 +37,34 @@ Generato da `analysis/main.py` (non modificare a mano). Ogni numero e' rigenerat
 | II | F'(1 wk) - C, Melbourne | -0.036 | -0.0364075559391 | -0.0364075559391 | 0 | ok |
 | II, III | F'(1 wk) - C, PEMS08 | -0.091 | -0.0908492906919 | -0.0908492906919 | 0 | ok |
 | II | gated - F0', massimo sui nove episodi | <= +0.004 | 0.000531946038111 | 0.000531946038111 | 0 | ok |
-| II tempi | Fp_96_s, Mad. | 14.0 | 14.0453300476 | 14.0453300476 | 0 | ok (ingresso) |
-| II tempi | Fp_672_s, Mad. | 151 | 151.386086941 | 151.386086941 | 0 | ok (ingresso) |
-| II tempi | R-orig_672_s, Mad. | 2272 | 2272.27956581 | 2272.27956581 | 0 | ok (ingresso) |
-| II tempi | rapporto_Rorig_su_Fp_672, Mad. | 15.0 | 15.0098309014 | 15.0098309014 | 0 | ok (ingresso) |
-| II tempi | Fp_96_s, Lon. | 14.0 | 13.9728770256 | 13.9728770256 | 0 | ok (ingresso) |
-| II tempi | Fp_672_s, Lon. | 144 | 143.675832033 | 143.675832033 | 0 | ok (ingresso) |
-| II tempi | R-orig_672_s, Lon. | 2270 | 2270.17524815 | 2270.17524815 | 0 | ok (ingresso) |
-| II tempi | rapporto_Rorig_su_Fp_672, Lon. | 15.8 | 15.800675841 | 15.800675841 | 0 | ok (ingresso) |
-| II tempi | Fp_96_s, Mel. | 38.0 | 37.9512679577 | 37.9512679577 | 0 | ok (ingresso) |
-| II tempi | Fp_672_s, Mel. | 404 | 404.375754833 | 404.375754833 | 0 | ok (ingresso) |
-| II tempi | R-orig_672_s, Mel. | 1489 | 1488.96792912 | 1488.96792912 | 0 | ok (ingresso) |
-| II tempi | rapporto_Rorig_su_Fp_672, Mel. | 3.7 | 3.68213947381 | 3.68213947381 | 0 | ok (ingresso) |
-| II tempi | Fp_96_s, PEMS08 | 13.8 | 13.8225059509 | 13.8225059509 | 0 | ok (ingresso) |
-| II tempi | Fp_672_s, PEMS08 | 124 | 124.487620115 | 124.487620115 | 0 | ok (ingresso) |
-| II tempi | R-orig_672_s, PEMS08 | 413 | 413.33783412 | 413.33783412 | 0 | ok (ingresso) |
-| II tempi | rapporto_Rorig_su_Fp_672, PEMS08 | 3.3 | 3.32031276473 | 3.32031276473 | 0 | ok (ingresso) |
-| II tempi | F'(48 h) = gated(48 h), Madrid | 36.8 | 36.7518091202 | 36.7518091202 | 0 | ok (ingresso) |
-| II tempi | F'(48 h) = gated(48 h), Londra | 35.7 | 35.7145662308 | 35.7145662308 | 0 | ok (ingresso) |
+| II tempi | Fp_96, Madrid | 14 | 14.4177479744 | 14.4177479744 | 0 | ok (ingresso) |
+| II tempi | Fp_672, Madrid | 138 | 138.350170851 | 138.350170851 | 0 | ok (ingresso) |
+| II tempi | R-orig_96, Madrid | 2225 | 2225.2480011 | 2225.2480011 | 0 | ok (ingresso) |
+| II tempi | R-orig_672, Madrid | 2229 | 2228.89215088 | 2228.89215088 | 0 | ok (ingresso) |
+| II tempi | R-orig(1 wk) / F'(1 wk), Madrid | 16.1 | 16.1105124567 | 16.1105124567 | 0 | ok (ingresso) |
+| II tempi | addestramento C (min), Madrid | 41.1 | 41.1158252637 | 41.1158252637 | 0 | ok (ingresso) |
+| II tempi | addestramento E1 (min), Madrid | 41.2 | 41.1905310869 | 41.1905310869 | 0 | ok (ingresso) |
+| II tempi | Fp_96, Londra | 15 | 14.5284748077 | 14.5284748077 | 0 | ok (ingresso) |
+| II tempi | Fp_672, Londra | 139 | 138.817257881 | 138.817257881 | 0 | ok (ingresso) |
+| II tempi | R-orig_96, Londra | 2228 | 2228.43431497 | 2228.43431497 | 0 | ok (ingresso) |
+| II tempi | R-orig_672, Londra | 2228 | 2228.44759321 | 2228.44759321 | 0 | ok (ingresso) |
+| II tempi | R-orig(1 wk) / F'(1 wk), Londra | 16.1 | 16.0531019502 | 16.0531019502 | 0 | ok (ingresso) |
+| II tempi | addestramento C (min), Londra | 41.0 | 41.0430243651 | 41.0430243651 | 0 | ok (ingresso) |
+| II tempi | addestramento E1 (min), Londra | 41.1 | 41.0922940652 | 41.0922940652 | 0 | ok (ingresso) |
+| II tempi | Fp_96, Melbourne | 39 | 38.7914543152 | 38.7914543152 | 0 | ok (ingresso) |
+| II tempi | Fp_672, Melbourne | 401 | 401.33042407 | 401.33042407 | 0 | ok (ingresso) |
+| II tempi | R-orig_96, Melbourne | 1556 | 1555.96331716 | 1555.96331716 | 0 | ok (ingresso) |
+| II tempi | R-orig_672, Melbourne | 1557 | 1557.45345378 | 1557.45345378 | 0 | ok (ingresso) |
+| II tempi | R-orig(1 wk) / F'(1 wk), Melbourne | 3.9 | 3.88072610589 | 3.88072610589 | 0 | ok (ingresso) |
+| II tempi | addestramento C (min), Melbourne | 29.1 | 29.1001541654 | 29.1001541654 | 0 | ok (ingresso) |
+| II tempi | addestramento E1 (min), Melbourne | 29.2 | 29.2365280469 | 29.2365280469 | 0 | ok (ingresso) |
+| II tempi | Fp_96, PEMS08 | 13 | 13.1187236309 | 13.1187236309 | 0 | ok (ingresso) |
+| II tempi | Fp_672, PEMS08 | 127 | 127.005913973 | 127.005913973 | 0 | ok (ingresso) |
+| II tempi | R-orig_96, PEMS08 | 377 | 376.789088011 | 376.789088011 | 0 | ok (ingresso) |
+| II tempi | R-orig_672, PEMS08 | 379 | 378.730353117 | 378.730353117 | 0 | ok (ingresso) |
+| II tempi | R-orig(1 wk) / F'(1 wk), PEMS08 | 3.0 | 2.98198990323 | 2.98198990323 | 0 | ok (ingresso) |
+| II tempi | addestramento C (min), PEMS08 | 7.1 | 7.09993986686 | 7.09993986686 | 0 | ok (ingresso) |
+| II tempi | addestramento E1 (min), PEMS08 | 7.1 | 7.07598810196 | 7.07598810196 | 0 | ok (ingresso) |
 | §III | dimensione dell'embedding | 8 | 8 | 8 | 0 | ok |
 | §III | canali Traffic4cast | 9 | 9 | 9 | 0 | ok |
 | §III | canali PEMS | 11 | 11 | 11 | 0 | ok |
@@ -148,8 +158,8 @@ Impronta = SHA-256 (16 cifre) dell'elenco ordinato (punto, valore a 12 cifre) di
 | `evoluzione/analisi/settimana_vs_A_e5.py` | `e5_settimana_vs_A.json` | ok | 58 | 0 | 0 | 2ba3e8250e3e646a | 2ba3e8250e3e646a |
 | `evoluzione/esperimenti/esegui_e5.py --fase test` | `e5_risultati.json` | ok | 338 | 0 | 0 | bc9bcd92ea290f6c | bc9bcd92ea290f6c |
 | `evoluzione/analisi/analizza_e5.py` | (solo figure) | ok | — | — | — | — | — |
-| `genera_congelamento_e5.py` | `congelamento_e5.json` | DIVERSO | 828 | 0 | 0 | 52cdd962ff9888f6 | 52cdd962ff9888f6 |
-| `genera_congelamento_e5.py` | `CONGELAMENTO_E5.md` | DIVERSO | — | 2 righe | — | — | — |
+| `genera_congelamento_e5.py` | `congelamento_e5.json` | ok | 828 | 0 | 0 | 52cdd962ff9888f6 | 52cdd962ff9888f6 |
+| `genera_congelamento_e5.py` | `CONGELAMENTO_E5.md` | ok | — | 0 righe | — | — | — |
 | `evoluzione/esperimenti/esegui_e6.py --fase scegli` | `e6_scelta_gated.json` | ok | 27 | 0 | 0 | a2b292f6a2e4cfcf | a2b292f6a2e4cfcf |
 | `evoluzione/esperimenti/esegui_e6.py --fase test` | `e6_risultati.json` | ok | 61 | 0 | 0 | 301ef97098ef8def | 301ef97098ef8def |
 | `evoluzione/esperimenti/esegui_e6.py --fase test-bis` | `e6bis_risultati.json` | ok | 21 | 0 | 0 | 65bd37791575acfa | 65bd37791575acfa |
@@ -174,12 +184,11 @@ Impronta = SHA-256 (16 cifre) dell'elenco ordinato (punto, valore a 12 cifre) di
 
 ## 3. Ogni numero diverso oltre la tolleranza
 
-- `CONGELAMENTO_E5.md` (date e impronte mascherate): `-- **E3-bis**: **non eseguito** prima di questo congelamento: nel paper il confronto dei costi fra R-orig (24 h di dati) e F′ (1 settimana) e' dichiarato **a dati asimmetrici**.`
-- `CONGELAMENTO_E5.md` (date e impronte mascherate): `+- **E3-bis**: eseguito, vedi il suo congelamento.`
+Nessuno.
 
 ## 4. Impronte degli ingressi citate nei congelamenti
 
-Ogni impronta di file citata in un congelamento (e nella tabella dei costi), ricalcolata sul file del repository: SHA-256 dei byte (16 cifre) o campo interno `impronta`. Un dato diverso fa fallire; un file di codice cambiato dopo il congelamento e' informativo.
+Ogni impronta di file citata in un congelamento, ricalcolata sul file del repository: SHA-256 dei byte (16 cifre) o campo interno `impronta`. Un dato diverso fa fallire; un file di codice cambiato dopo il congelamento e' informativo.
 
 | congelamento | file | tipo | impronta citata | esito |
 |---|---|---|---|---|
@@ -222,11 +231,12 @@ Ogni impronta di file citata in un congelamento (e nella tabella dei costi), ric
 | `CONGELAMENTO_E5.md` | `protocol/E5.md` | codice | `3dd706bcf3ddd899` | ok |
 | `CONGELAMENTO_E5.md` | `e4_scelta_gated.json` | dato | `81e47f64f3d63b3b` | ok |
 | `CONGELAMENTO_E5.md` | `e5_k_secondaria.json` | dato | `395d17a4f05462ea` | ok |
-| `CONGELAMENTO_E5.md` | `evoluzione/esperimenti/addestramento.py` | codice | `b549d8a90bdeffe8` | cambiato dopo il congelamento |
+| `CONGELAMENTO_E5.md` | `analysis/main.py` | codice | `52cdd962ff9888f6` | cambiato dopo il congelamento |
+| `CONGELAMENTO_E5.md` | `evoluzione/esperimenti/addestramento.py` | codice | `f5d69a789aadd479` | ok |
 | `CONGELAMENTO_E5.md` | `evoluzione/esperimenti/esegui_e5.py` | codice | `f08dd758210319e2` | ok |
 | `CONGELAMENTO_E5.md` | `evoluzione/esperimenti/preparazione_e5.py` | codice | `324044aefb327bab` | ok |
 | `CONGELAMENTO_E5.md` | `evoluzione/analisi/settimana_vs_A_e5.py` | codice | `ef2ceb4812f93353` | ok |
-| `CONGELAMENTO_E5.md` | `evoluzione/analisi/analizza_e5.py` | codice | `2206c2dff622bef0` | cambiato dopo il congelamento |
+| `CONGELAMENTO_E5.md` | `evoluzione/analisi/analizza_e5.py` | codice | `b85d5af32a602af6` | ok |
 | `CONGELAMENTO_E6.md` | `protocol/E6.md` | codice | `c7a6583897215545` | ok |
 | `CONGELAMENTO_E6.md` | `e6_origini_comuni.json` | dato | `604cac98cf78ce31` | ok |
 | `CONGELAMENTO_E6.md` | `results/evoluzione/e6bis_risultati.json` | dato | `7c289e6e5d3c73d4` | ok |
@@ -250,9 +260,6 @@ Ogni impronta di file citata in un congelamento (e nella tabella dei costi), ric
 | `CONGELAMENTO_E8.md` | `evoluzione/analisi/figura_e8bis.py` | codice | `756828a7025fa32c` | cambiato dopo il congelamento |
 | `CONGELAMENTO_E8.md` | `protocol/E8bis.md` | codice | `0323686ceb957117` | ok |
 | `CONGELAMENTO_E8.md` | `results/evoluzione/e8_risultati.json` | dato | `dcb93389339a6657` | ok |
-| `paper/tabella_costi_appaiati.md` | `results/evoluzione/costi_sessione.json` | dato | `3fabd92bb2bf9f0c` | ok |
-| `paper/tabella_costi_appaiati.md` | `results/evoluzione/costi_sessione_pems08.json` | dato | `de392bca1b944791` | ok |
-| `paper/tabella_costi_appaiati.md` | `results/evoluzione/costi_tabella_sessione.json` | dato | `93d346501f9bc777` | ok |
 
 ## 5. Documenti: differenze di sola prosa (stessi numeri)
 
@@ -288,8 +295,7 @@ Informativo. Per ogni file di codice con impronta citata diversa da quella attua
 | `evoluzione/esperimenti/ricostruisci_predizioni.py` | `CONGELAMENTO_E2.md` | `5b37aeb8d51ea15f` | `ffac660209ee` 2026-09-29 | `821295f19a06` 2026-10-02 E3: analisi, veterani, rimisura isolata dei costi<br>`dc35e91fb1fc` 2026-10-07 E3-bis: ricostruzione delle predizioni con acquisizione dichiarata |
 | `evoluzione/esperimenti/esegui_inserimento.py` | `CONGELAMENTO_E3bis.md` | `3df759803c95fe49` | `d8e828664d96` 2026-10-06 | `db9f8f3b1c24` 2026-10-10 Esecutore: difetto 19 — riviste di E3 dal solo lancio (108 manifesti per braccio, per impr |
 | `evoluzione/analisi/analizza_e4.py` | `CONGELAMENTO_E4.md` | `1fb316ed0a0ae223` | `5af016944005` 2026-10-04 | `680b35ef7a1c` 2026-10-04 E5: F'(1 sett.) - A, calendario e potenza derivati; protocol/E5.md con le quattro righe de<br>`d8ef81299651` 2026-10-10 paper1: analysis/main.py, prima versione — **etichette** |
-| `evoluzione/esperimenti/addestramento.py` | `CONGELAMENTO_E5.md` | `b549d8a90bdeffe8` | `c6526af55607` 2026-10-04 | `eb7f852afec6` 2026-10-07 E6: contesti PEMS08_p<k> (stesso schema di PEMS04); estrattore parametrizzato su nome, ini<br>`fda754ec150f` 2026-10-07 E6 parte B: 6 partizioni x 6 semi (SEME_PARTIZIONE_E6, contesti PEMS08_p0..p5, --partizion |
-| `evoluzione/analisi/analizza_e5.py` | `CONGELAMENTO_E5.md` | `2206c2dff622bef0` | `820d419c9649` 2026-10-06 | `d8ef81299651` 2026-10-10 paper1: analysis/main.py, prima versione — **etichette** |
+| `analysis/main.py` | `CONGELAMENTO_E5.md` | `52cdd962ff9888f6` | non presente nella storia git (stato non committato al congelamento) | `d8ef81299651` 2026-10-10 paper1: analysis/main.py, prima versione — **etichette**<br>`acfc69dc0067` 2026-10-10 paper1: main.py — origini comuni di E6, storia del codice cambiato dopo i congelamenti<br>`b7fd4a96a09f` 2026-10-10 paper1: main.py — coerenza per contenuto di E3, cambi di sole etichette<br>`c8e60b99eebd` 2026-10-11 paper1: main.py — tempi di Tab. II dalla sessione unica<br>`109db629195b` 2026-10-11 paper1: main.py — figure PDF deterministiche (SOURCE_DATE_EPOCH) |
 | `evoluzione/analisi/figura_e8bis.py` | `CONGELAMENTO_E8.md` | `756828a7025fa32c` | `853c8474b7ce` 2026-10-10 | `d80043c971e8` 2026-10-10 paper1: figura 2 (§5.1) e legenda figura E8-bis<br>`d8ef81299651` 2026-10-10 paper1: analysis/main.py, prima versione — **etichette** |
 
 ## 8. Impronte del codice diverse da quelle registrate nel congelamento (json)
@@ -303,12 +309,10 @@ Informativo, non fa fallire: il file di codice e' cambiato dopo il congelamento,
 - `congelamento_e2.json` `/impronte/evoluzione/esperimenti/ricostruisci_predizioni.py`: congelato 5b37aeb8d51ea15f, attuale 12f5a31f2521a5fa
 - `congelamento_e3bis.json` `/impronte/evoluzione/esperimenti/esegui_inserimento.py`: congelato 3df759803c95fe49, attuale 95349fe3b6f6356f
 - `congelamento_e4.json` `/impronte/evoluzione/analisi/analizza_e4.py`: congelato 1fb316ed0a0ae223, attuale a0357827b0afe9d4
-- `congelamento_e5.json` `/impronte/evoluzione/analisi/analizza_e5.py`: congelato 2206c2dff622bef0, attuale b85d5af32a602af6
-- `congelamento_e5.json` `/impronte/evoluzione/esperimenti/addestramento.py`: congelato b549d8a90bdeffe8, attuale f5d69a789aadd479
-- `e4_scelta_gated.json` `/impronta`: congelato 81e47f64f3d63b3b, attuale 76adea6278cf72be
-- `e6_scelta_gated.json` `/impronta`: congelato 1ce676da7a5168f8, attuale 27e9e15e24026a88
-- `e6a_scelta_gated.json` `/impronta`: congelato 16ed7800df4b401b, attuale 4a66e2d93eecc12d
-- `e8_soglie.json` `/_impronta`: congelato dcb93389339a6657, attuale f415a8f0bc2bdb02
+- `e4_scelta_gated.json` `/impronta`: congelato 81e47f64f3d63b3b, attuale 3d7e7625437e2490
+- `e6_scelta_gated.json` `/impronta`: congelato 1ce676da7a5168f8, attuale 04232d27b01e2ef7
+- `e6a_scelta_gated.json` `/impronta`: congelato 16ed7800df4b401b, attuale 0df21abf200e373d
+- `e8_soglie.json` `/_impronta`: congelato dcb93389339a6657, attuale 02ae739b1032b955
 
 ## 9. Figure (script esistenti)
 
@@ -368,7 +372,7 @@ congelamento_e2.json  356cec99f3af05e74c112f5067ccd6e2c76d73620c011a6a34efa17544
 congelamento_e3.json  b594eb185369bbd87f45a02660deee3372101b98858495e1f4c1c3c117db434b
 congelamento_e3bis.json  0797a1b655cf7be72632df8dbe14a5c5ffd7aecd57a1e39a0864b81f54739260
 congelamento_e4.json  a59ce714521181faa1d28e3ef53d70b438ad40bc3b206768e31dc7bf7d6527f7
-congelamento_e5.json  8fabf2e04b96e40d2ed85b66d3298bd97e54b83402c370fbdf89e3054a40c3ac
+congelamento_e5.json  05ad58482925c5945ebd40769ce0225ac1a01994c464ee80cf5c82357d9c3d02
 congelamento_e7.json  ba9c946b4e024894f47a6e81280881e61c4f6feab8f691e6da666ed24f019ac5
 copertura_e4.json  f0332c8b7e4031bdf56022d685613d21411fe2b93eff16f519b470ed15da22ee
 costi_appaiati.json  7eec120643b41283e7235283907e650a8c5380c349b4bd93ebe4f27d026484b5
