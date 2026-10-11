@@ -279,10 +279,13 @@ def documento(R: dict) -> str:
       "collaudi 8/8 (scarto 0), 25/25, 24/24, 19/19 dopo la modifica.")
     a("- Il numero di repliche del ricampionamento e' `esegui_e4.B_BOOT`, usato da `_boot`; una costante "
       "locale omonima nei moduli di E5 e' stata rimossa perche' non comandava nulla (stesso valore).")
-    e3bis = (OUT / "e3bis_risultati.json").exists()
-    a("- **E3-bis**: " + ("eseguito, vedi il suo congelamento." if e3bis else
-                        "**non eseguito** prima di questo congelamento: nel paper il confronto dei costi "
-                        "fra R-orig (24 h di dati) e F′ (1 settimana) e' dichiarato **a dati asimmetrici**."))
+    a("- **E3-bis**: non eseguito al momento del primo congelamento di E5 (2026-10-06); eseguito e "
+      "congelato il 2026-10-07 (`CONGELAMENTO_E3bis.md`), che porta il confronto dei costi fra R-orig e F′ "
+      "a dati simmetrici.")
+    a("- **Correzione del 2026-10-11 (voce 20 del registro, documentazione)**: la frase precedente su E3-bis "
+      "dipendeva da quali esperimenti esistevano al momento della generazione; `analysis/main.py` l'ha "
+      "trovata diversa rigenerando (numeri identici, impronta dei numeri `52cdd962ff9888f6` da entrambe le "
+      "parti). Resa stabile nel tempo; documento rigenerato, non modificato a mano.")
     a("")
     a("## 9. Impronte")
     a("")
