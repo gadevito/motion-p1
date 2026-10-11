@@ -324,7 +324,8 @@ def esegui(fase, radice: Path, lavoro: Path, i: int, tol) -> dict:
         re.sub(r"[^A-Za-z0-9]+", "", Path(c).stem) for c in fase["cmd"][:1] + fase["cmd"][2:3])
     for u in fase["uscite"]:
         (radice / u).unlink(missing_ok=True)
-    env = {**os.environ, "MPLBACKEND": "Agg", "PYTHONHASHSEED": "0"}
+    # SOURCE_DATE_EPOCH: matplotlib non scrive la data nei PDF, figure identiche byte per byte fra giri
+    env = {**os.environ, "MPLBACKEND": "Agg", "PYTHONHASHSEED": "0", "SOURCE_DATE_EPOCH": "0"}
     t = time.time()
     with open(lavoro / "log" / f"{nome}.log", "w") as log:
         log.write("$ " + " ".join([sys.executable, *fase["cmd"]]) + f"\n  (cwd {radice})\n\n")
