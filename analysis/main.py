@@ -427,7 +427,7 @@ def scrivi_confronto(f: Path, meta: dict, esiti: list, paper: list, ok: bool):
                 righe.append(f"- `{u}` (date e impronte mascherate): `{d}`")
     L += righe or ["Nessuno."]
     L += ["", "## 4. Impronte degli ingressi citate nei congelamenti", "",
-          "Ogni impronta di file citata in un congelamento (e nella tabella dei costi), ricalcolata sul file del "
+          "Ogni impronta di file citata in un congelamento, ricalcolata sul file del "
           "repository: SHA-256 dei byte (16 cifre) o campo interno `impronta`. Un dato diverso fa fallire; un "
           "file di codice cambiato dopo il congelamento e' informativo.", "",
           "| congelamento | file | tipo | impronta citata | esito |", "|---|---|---|---|---|"]
@@ -556,7 +556,8 @@ def main() -> int:
             "numpy": numpy.__version__, "tol_rel": a.tol_rel, "tol_abs": a.tol_abs, "esperimenti": a.solo,
             "impronte_ingressi": impronte_ingressi(RADICE / RIS, a.impronte_complete),
             "non_coperto": ("addestramenti e valutazioni dei modelli sulle celle, adattamenti di E2, k della "
-                            "secondaria di E5, sensibilita' a rho, costi misurati (manifesti isolati), "
+                            "secondaria di E5, sensibilita' a rho, costi misurati (sessione unica, costi_tabella_sessione.json: "
+                            "letti e confrontati con il testo, non rimisurati), "
                             "numeri del resoconto della campagna principale, dati di disegno (sensori, "
                             "partizioni, semi)")}
     for k, v in sorted(meta["impronte_ingressi"].items()):

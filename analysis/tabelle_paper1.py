@@ -50,17 +50,23 @@ def _righe():
     R.append(("II", "gated - F0', massimo sui nove episodi", "E5", "e5_risultati.json",
               ("max", [f"{c}/ep{e}/b" for c, _ in CITTA for e in (1, 2, 3)]), "<= +0.004",
               lambda v: "<= +0.004" if v <= 0.004 else _f3(v)))
-    # ---- Tabella II (tempi): tempi appaiati per citta', stessa macchina ---------
-    for ctx, et in (("Madrid", "Mad."), ("Londra", "Lon."), ("Melbourne", "Mel."), ("PEMS08", "PEMS08")):
-        for k, st, f in (("Fp_96_s", {"Madrid": "14.0", "Londra": "14.0", "Melbourne": "38.0", "PEMS08": "13.8"}, "{:.1f}"),
-                         ("Fp_672_s", {"Madrid": "151", "Londra": "144", "Melbourne": "404", "PEMS08": "124"}, "{:.0f}"),
-                         ("R-orig_672_s", {"Madrid": "2272", "Londra": "2270", "Melbourne": "1489", "PEMS08": "413"}, "{:.0f}"),
-                         ("rapporto_Rorig_su_Fp_672", {"Madrid": "15.0", "Londra": "15.8", "Melbourne": "3.7", "PEMS08": "3.3"}, "{:.1f}")):
-            R.append(("II tempi", f"{k}, {et}", "ingresso", "costi_appaiati.json",
-                      ["tabella", ctx, k], st[ctx], f.format))
-    for c, st in (("Madrid", "36.8"), ("Londra", "35.7")):
-        R.append(("II tempi", f"F'(48 h) = gated(48 h), {c}", "ingresso", "costi_e4.json",
-                  ["tabella", "gated", c, "adattamento_s"], st, "{:.1f}".format))
+    # ---- Tabella II (tempi), abstract, §III-§V: sessione unica sul Mac fermo -----
+    # costi_tabella_sessione.json: secondi, mediana sui semi; addestramento in minuti
+    T = {"Madrid": ("14", "138", "2225", "2229", "16.1", "41.1", "41.2"),
+         "Londra": ("15", "139", "2228", "2228", "16.1", "41.0", "41.1"),
+         "Melbourne": ("39", "401", "1556", "1557", "3.9", "29.1", "29.2"),
+         "PEMS08": ("13", "127", "377", "379", "3.0", "7.1", "7.1")}
+    for ctx, st in T.items():
+        via = ["tabella", ctx]
+        for i, (k, f) in enumerate((("Fp_96", "{:.0f}"), ("Fp_672", "{:.0f}"), ("R-orig_96", "{:.0f}"),
+                                    ("R-orig_672", "{:.0f}"))):
+            R.append(("II tempi", f"{k}, {ctx}", "ingresso", "costi_tabella_sessione.json", via + [k], st[i],
+                      f.format))
+        R.append(("II tempi", f"R-orig(1 wk) / F'(1 wk), {ctx}", "ingresso", "costi_tabella_sessione.json",
+                  ("rapporto", via + ["R-orig_672"], via + ["Fp_672"]), st[4], "{:.1f}".format))
+        for k, j in (("C", 5), ("E1", 6)):
+            R.append(("II tempi", f"addestramento {k} (min), {ctx}", "ingresso", "costi_tabella_sessione.json",
+                      ("minuti", via + [k]), st[j], "{:.1f}".format))
     # ---- §III: architettura dai checkpoint ------------------------------------
     A, A1 = ["sintesi", "E_inserimento_griglia"], ["sintesi", "E1_inserimento_griglia"]
     for voce, via, st in (("dimensione dell'embedding", A + ["d_emb"], "8"),
@@ -108,6 +114,10 @@ def _leggi(d, via):
         return max(d["affermazioni"][k]["media"] for k in via[1])
     if isinstance(via, tuple) and via[0] == "diff":
         return _leggi(d, via[1]) - _leggi(d, via[2])
+    if isinstance(via, tuple) and via[0] == "rapporto":
+        return _leggi(d, via[1]) / _leggi(d, via[2])
+    if isinstance(via, tuple) and via[0] == "minuti":
+        return _leggi(d, via[1]) / 60
     for k in via:
         d = d[k]
     return d

@@ -1,7 +1,7 @@
 """
 Impronte citate nei congelamenti, verificate sui file del repository.
 =====================================================================
-Ogni `CONGELAMENTO_E*.md` (e la tabella dei costi appaiati) cita impronte di
+Ogni `CONGELAMENTO_E*.md` cita impronte di
 file: codice e protocolli (SHA-256 dei byte, 16 cifre) e file d'ingresso
 (SHA-256 dei byte, oppure il campo interno `impronta` che le fasi di scelta
 scrivono nel proprio json). Qui si estrae ogni impronta citata con il file a cui
@@ -26,8 +26,7 @@ from pathlib import Path
 
 RIS = Path("results/evoluzione")
 DOCUMENTI = ["CONGELAMENTO_E2.md", "CONGELAMENTO_E3.md", "CONGELAMENTO_E3bis.md", "CONGELAMENTO_E4.md",
-             "CONGELAMENTO_E5.md", "CONGELAMENTO_E6.md", "CONGELAMENTO_E7.md", "CONGELAMENTO_E8.md",
-             "paper/tabella_costi_appaiati.md"]
+             "CONGELAMENTO_E5.md", "CONGELAMENTO_E6.md", "CONGELAMENTO_E7.md", "CONGELAMENTO_E8.md"]
 HEX = re.compile(r"`([0-9a-f]{12,64})`")
 NOME = re.compile(r"`([A-Za-z0-9_./-]+\.(?:json|npz|csv|py|md|log|pt))`")
 COMMIT = re.compile(r"(commit|firmat[oa] al commit|al commit)\s*`?$", re.I)
