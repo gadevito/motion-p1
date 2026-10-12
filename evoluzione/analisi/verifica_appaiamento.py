@@ -28,6 +28,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from evoluzione.esperimenti.ricostruisci_predizioni import (  # noqa: E402
     aggregati_per_nodo, wce_da_predizioni)
 
+RTOL_APPAIAMENTO = 1e-7      # fra architetture: vedi il commento al controllo [4]
+
 CITTA = ("Madrid", "Londra", "Melbourne")
 BRACCI = {"F0p": "predizioni_e2", "F0meanp": "predizioni_e2",
           "Fp": "predizioni_e2", "F0": "predizioni_f0",
@@ -76,7 +78,13 @@ def verifica(radice: Path) -> dict:
                     guai.append(f"{c} p{p} s{s}: aggregati contro celle "
                                 f"{w1:.12f} vs {w2:.12f}")
                 # e gli aggregati salvati coincidono con quelli ricalcolati?
-                if not np.allclose(A, z["A_per_nodo"], atol=0, rtol=1e-12):
+                # Tolleranza 1e-7, non 1e-12 (voce 22 del registro): le probabilita'
+                # sono float32 e il ricalcolo su un'altra architettura (NVIDIA Spark,
+                # aarch64/glibc, 12/10/2026) differisce per elemento fino a 4,9e-9
+                # relativo (wCE di cella 3,8e-11; coerenza interna 1,2e-14). A 1e-7 il
+                # controllo resta un controllo di identita' dei dati — nodi o origini
+                # scambiati danno scarti di ordine 1 — e non di numerica.
+                if not np.allclose(A, z["A_per_nodo"], atol=0, rtol=RTOL_APPAIAMENTO):
                     guai.append(f"{c} p{p} s{s}: A_per_nodo salvato diverso")
     return {"celle": celle, "ricalcoli": ric, "anomalie": guai}
 
