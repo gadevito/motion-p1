@@ -6,6 +6,7 @@ Generato da `analysis/main.py` (non modificare a mano). Ogni numero e' rigenerat
 - esperimenti: ARCH, E2, E3, E4, E3bis, E5, E6, E7, E8
 - tolleranza: relativa 1e-09, assoluta 1e-12
 - risultati reali dopo l'esecuzione: invariati
+- manoscritto (fuori dal repository): commit `ebacbdce9afb1841881540340ff298d72070076e` (pulito); SHA-256 `main.tex` ba20b86e540f68e103802450a67aab76c72b06e18022e3207770907494ff9c39, `supplementary.tex` d1eb0d71bd01de385de99d6401aed43e03b03d41a75de39f8c56215a9ecea285
 - non coperto (ingressi, non rigenerati): addestramenti e valutazioni dei modelli sulle celle, adattamenti di E2, k della secondaria di E5, sensibilita' a rho, costi misurati (sessione unica, costi_tabella_sessione.json: letti e confrontati con il testo, non rimisurati), numeri del resoconto della campagna principale, dati di disegno (sensori, partizioni, semi)
 
 ## 1. Tabelle del Paper 1
@@ -182,6 +183,16 @@ Impronta = SHA-256 (16 cifre) dell'elenco ordinato (punto, valore a 12 cifre) di
 | `evoluzione/analisi/figura2_51.py --lingua en` | (solo figure) | ok | — | — | — | — | — |
 | `evoluzione/analisi/figura_e8bis.py --lingua en` | (solo figure) | ok | — | — | — | — | — |
 
+Impronte canoniche dei file di scelta (istante di generazione e campo impronta mascherati; una differenza fa fallire):
+
+| file | impronta canonica congelato | impronta canonica rigenerato | esito |
+|---|---|---|---|
+| `e4_scelta_gated.json` | b9da978d72cf8113 | b9da978d72cf8113 | ok |
+| `e5_prepara.json` | 0785296c51b304db | 0785296c51b304db | ok |
+| `e6_scelta_gated.json` | 452a197331e90742 | 452a197331e90742 | ok |
+| `e6a_scelta_gated.json` | a93800337a98df15 | a93800337a98df15 | ok |
+| `e8_soglie.json` | ceda4e4d82d9ac64 | ceda4e4d82d9ac64 | ok |
+
 ## 3. Ogni numero diverso oltre la tolleranza
 
 Nessuno.
@@ -295,7 +306,7 @@ Informativo. Per ogni file di codice con impronta citata diversa da quella attua
 | `evoluzione/esperimenti/ricostruisci_predizioni.py` | `CONGELAMENTO_E2.md` | `5b37aeb8d51ea15f` | `ffac660209ee` 2026-09-29 | `821295f19a06` 2026-10-02 E3: analisi, veterani, rimisura isolata dei costi<br>`dc35e91fb1fc` 2026-10-07 E3-bis: ricostruzione delle predizioni con acquisizione dichiarata |
 | `evoluzione/esperimenti/esegui_inserimento.py` | `CONGELAMENTO_E3bis.md` | `3df759803c95fe49` | `d8e828664d96` 2026-10-06 | `db9f8f3b1c24` 2026-10-10 Esecutore: difetto 19 — riviste di E3 dal solo lancio (108 manifesti per braccio, per impr |
 | `evoluzione/analisi/analizza_e4.py` | `CONGELAMENTO_E4.md` | `1fb316ed0a0ae223` | `5af016944005` 2026-10-04 | `680b35ef7a1c` 2026-10-04 E5: F'(1 sett.) - A, calendario e potenza derivati; protocol/E5.md con le quattro righe de<br>`d8ef81299651` 2026-10-10 paper1: analysis/main.py, prima versione — **etichette** |
-| `analysis/main.py` | `CONGELAMENTO_E5.md` | `52cdd962ff9888f6` | non presente nella storia git (stato non committato al congelamento) | `d8ef81299651` 2026-10-10 paper1: analysis/main.py, prima versione — **etichette**<br>`acfc69dc0067` 2026-10-10 paper1: main.py — origini comuni di E6, storia del codice cambiato dopo i congelamenti<br>`b7fd4a96a09f` 2026-10-10 paper1: main.py — coerenza per contenuto di E3, cambi di sole etichette<br>`c8e60b99eebd` 2026-10-11 paper1: main.py — tempi di Tab. II dalla sessione unica<br>`109db629195b` 2026-10-11 paper1: main.py — figure PDF deterministiche (SOURCE_DATE_EPOCH) |
+| `analysis/main.py` | `CONGELAMENTO_E5.md` | `52cdd962ff9888f6` | non presente nella storia git (stato non committato al congelamento) | `d8ef81299651` 2026-10-10 paper1: analysis/main.py, prima versione — **etichette**<br>`acfc69dc0067` 2026-10-10 paper1: main.py — origini comuni di E6, storia del codice cambiato dopo i congelamenti<br>`b7fd4a96a09f` 2026-10-10 paper1: main.py — coerenza per contenuto di E3, cambi di sole etichette<br>`c8e60b99eebd` 2026-10-11 paper1: main.py — tempi di Tab. II dalla sessione unica<br>`109db629195b` 2026-10-11 paper1: main.py — figure PDF deterministiche (SOURCE_DATE_EPOCH)<br>`ea02d713e44f` 2026-10-12 paper1: impronta canonica dei file di scelta<br>`74c8cbf7d185` 2026-10-12 paper1: main.py — manoscritto fuori dal repo |
 | `evoluzione/analisi/figura_e8bis.py` | `CONGELAMENTO_E8.md` | `756828a7025fa32c` | `853c8474b7ce` 2026-10-10 | `d80043c971e8` 2026-10-10 paper1: figura 2 (§5.1) e legenda figura E8-bis<br>`d8ef81299651` 2026-10-10 paper1: analysis/main.py, prima versione — **etichette** |
 
 ## 8. Impronte del codice diverse da quelle registrate nel congelamento (json)
@@ -309,10 +320,6 @@ Informativo, non fa fallire: il file di codice e' cambiato dopo il congelamento,
 - `congelamento_e2.json` `/impronte/evoluzione/esperimenti/ricostruisci_predizioni.py`: congelato 5b37aeb8d51ea15f, attuale 12f5a31f2521a5fa
 - `congelamento_e3bis.json` `/impronte/evoluzione/esperimenti/esegui_inserimento.py`: congelato 3df759803c95fe49, attuale 95349fe3b6f6356f
 - `congelamento_e4.json` `/impronte/evoluzione/analisi/analizza_e4.py`: congelato 1fb316ed0a0ae223, attuale a0357827b0afe9d4
-- `e4_scelta_gated.json` `/impronta`: congelato 81e47f64f3d63b3b, attuale 3d7e7625437e2490
-- `e6_scelta_gated.json` `/impronta`: congelato 1ce676da7a5168f8, attuale 04232d27b01e2ef7
-- `e6a_scelta_gated.json` `/impronta`: congelato 16ed7800df4b401b, attuale 0df21abf200e373d
-- `e8_soglie.json` `/_impronta`: congelato dcb93389339a6657, attuale 02ae739b1032b955
 
 ## 9. Figure (script esistenti)
 
