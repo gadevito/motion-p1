@@ -659,6 +659,12 @@ def main() -> int:
                 print(f"    {esito_fase(e)}", flush=True)
             if "E5" in a.solo:
                 scrivi_tabella_C1(radice / RIS, dfig / "tableC1_episodes.tex")
+            if "E8" in a.solo:                      # supplementare C: dai risultati rigenerati
+                from analysis.tabelle_suppl import scrivi_C3, scrivi_C8, scrivi_C9
+                print("[paper] tabelle C.3, C.8, C.9 del supplementare", flush=True)
+                scrivi_C3(radice / RIS, dfig / "tableC3_operative.tex")
+                scrivi_C8(radice / RIS, dfig / "tableC8_classi.tex")
+                scrivi_C9(radice / RIS, dfig / "tableC9_orizzonti.tex")
     finally:
         dopo = istantanea(RADICE / RIS)
         meta["integrita_risultati"] = "invariati" if dopo == prima else \
