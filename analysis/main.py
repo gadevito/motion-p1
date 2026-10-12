@@ -42,10 +42,12 @@ misurati. Il confronto copre cio' che da quei file si ricava.
 
 Uso (dalla radice OR3/):
 
-    poetry run python analysis/main.py                  # tutto
+    poetry run python analysis/main.py                  # tutto; manoscritto in ../paper1
+                                                        # (deliverables/paper1, repository proprio,
+                                                        # fuori da OR3: OR3 diventera' pubblico)
     poetry run python analysis/main.py --solo E4 E5     # solo alcuni esperimenti
     poetry run python analysis/main.py --elenco         # fasi, senza eseguire
-    poetry run python analysis/main.py --tex ../paper1/main.tex
+    poetry run python analysis/main.py --senza-paper    # solo il confronto con i congelamenti
 
 Uscita: `analysis/rigenerazione/<istante>/rapporto.md` e `rapporto.json`, un
 log per fase in `log/`, le figure in `radice/figure/`. Codice d'uscita 0 solo
@@ -397,6 +399,16 @@ def esito_fase(e) -> str:
     return "ok"
 
 
+def manoscritto(d: Path) -> dict:
+    """Identita' del manoscritto (repository proprio, fuori da OR3): SHA-256 di main.tex e
+    supplementary.tex e commit del suo repository, letti prima del giro."""
+    g = lambda *c: subprocess.run(["git", "-C", str(d), *c], capture_output=True, text=True).stdout.strip()
+    out = {f: (sha256(d / f) if (d / f).exists() else "assente") for f in ("main.tex", "supplementary.tex")}
+    out["commit"] = g("rev-parse", "HEAD") or "nessun repository git"
+    out["stato"] = "pulito" if not g("status", "--porcelain") else "con modifiche non committate"
+    return out
+
+
 # --------------------------------------------------------------- CONFRONTO --
 def scrivi_confronto(f: Path, meta: dict, esiti: list, paper: list, ok: bool):
     from analysis.impronte import natura
@@ -411,6 +423,10 @@ def scrivi_confronto(f: Path, meta: dict, esiti: list, paper: list, ok: bool):
          f"- esperimenti: {', '.join(meta['esperimenti'])}",
          f"- tolleranza: relativa {meta['tol_rel']:g}, assoluta {meta['tol_abs']:g}",
          f"- risultati reali dopo l'esecuzione: {meta['integrita_risultati']}",
+         *( [f"- manoscritto (fuori dal repository): commit `{meta['manoscritto']['commit']}` "
+             f"({meta['manoscritto']['stato']}); SHA-256 `main.tex` {meta['manoscritto']['main.tex']}, "
+             f"`supplementary.tex` {meta['manoscritto']['supplementary.tex']}"]
+            if meta.get("manoscritto") else ["- manoscritto: non letto (--senza-paper)"] ),
          f"- non coperto (ingressi, non rigenerati): {meta['non_coperto']}", "",
          "## 1. Tabelle del Paper 1", "",
          "| tabella | voce | stampato | congelato | rigenerato | scarto | esito |",
@@ -557,12 +573,16 @@ def main() -> int:
     ap.add_argument("--tol-rel", type=float, default=1e-9)
     ap.add_argument("--tol-abs", type=float, default=1e-12)
     ap.add_argument("--tex", type=Path, default=None,
-                    help="manoscritto: verifica anche che ogni valore stampato compaia nel .tex")
+                    help="manoscritto (predefinito <paper>/main.tex): verifica anche che ogni valore stampato "
+                         "compaia nel .tex")
     ap.add_argument("--impronte-complete", action="store_true",
                     help="SHA-256 di ogni file d'ingresso (lento)")
-    ap.add_argument("--paper", type=Path, default=None,
-                    help="cartella del manoscritto (es. ../paper1): figure in inglese in <paper>/figures/ e "
-                         "tabella C1 del supplementare, dai risultati rigenerati")
+    ap.add_argument("--paper", type=Path, default=Path("../paper1"),
+                    help="cartella del manoscritto, FUORI da questo repository (predefinito ../paper1, cioe' "
+                         "deliverables/paper1 accanto a OR3): figure in inglese in <paper>/figures/ e tabella C1 "
+                         "del supplementare, dai risultati rigenerati")
+    ap.add_argument("--senza-paper", action="store_true",
+                    help="non leggere ne' scrivere il manoscritto (solo il confronto con i congelamenti)")
     ap.add_argument("--elenco", action="store_true")
     ap.add_argument("--tieni", action="store_true", help="non cancellare il clone dei risultati alla fine")
     a = ap.parse_args()
@@ -573,6 +593,15 @@ def main() -> int:
                   + ("   [scelta: ripristinata]" if f["scelta"] else ""))
         return 0
     os.chdir(RADICE)
+    if a.senza_paper:
+        a.paper = a.tex = None
+    elif not (RADICE / a.paper).is_dir():
+        print(f"manoscritto non trovato in {a.paper}: figure e tabelle del paper saltate")
+        a.paper = None
+    if a.paper is not None and a.tex is None:
+        a.tex = a.paper / "main.tex"
+    if a.paper is not None and (RADICE / a.paper).resolve().is_relative_to(RADICE):
+        raise SystemExit("il manoscritto deve stare fuori dal repository (OR3 diventera' pubblico)")
     ist = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     lavoro = (a.lavoro or RADICE / "analysis" / "rigenerazione" / ist).resolve()
     (lavoro / "log").mkdir(parents=True, exist_ok=False)
@@ -591,6 +620,7 @@ def main() -> int:
                             "partizioni, semi)")}
     for k, v in sorted(meta["impronte_ingressi"].items()):
         print(f"  {k}  {v}")
+    meta["manoscritto"] = manoscritto(RADICE / a.paper) if a.paper is not None else None
     from analysis.impronte import verifica as verifica_impronte
     meta["impronte_citate"] = verifica_impronte(RADICE)
     from analysis.impronte import coerenza, storia_codice
