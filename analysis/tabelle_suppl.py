@@ -29,9 +29,10 @@ def _ic(r, scala=100.0, cifre=1):
     return f"${m:+.{cifre}f}$ \\scriptsize$[{lo * scala:+.{cifre}f}, {hi * scala:+.{cifre}f}]$"
 
 
-def _longtable(colonne: str, didascalia: str, intestazione: str, righe: list) -> str:
+def _longtable(colonne: str, didascalia: str, intestazione: str, righe: list, etichetta: str = "") -> str:
+    lab = f"\\label{{{etichetta}}}" if etichetta else ""
     return (TESTA + "{\\footnotesize\\setlength{\\tabcolsep}{3pt}\n"
-            f"\\begin{{longtable}}{{{colonne}}}\n\\caption{{{didascalia}}}\\\\\n\\toprule\n{intestazione}\\\\\n"
+            f"\\begin{{longtable}}{{{colonne}}}\n\\caption{{{didascalia}}}{lab}\\\\\n\\toprule\n{intestazione}\\\\\n"
             "\\midrule\n\\endfirsthead\n\\toprule\n" f"{intestazione}\\\\\n\\midrule\n\\endhead\n"
             + "\n".join(righe) + "\n\\bottomrule\n\\end{longtable}}\n")
 
@@ -61,7 +62,7 @@ def scrivi_C3(ris: Path, f: Path) -> None:
         "F1-optimal threshold per arm chosen on validation; threshold giving each arm the false-alarm rate of $C$ "
         "on validation; argmax. $^\\dagger$ origins older than one week.",
         "Context & Comparison & Rule & $\\Delta$ recall & $\\Delta$ false alarms & $\\Delta$ precision & "
-        "$\\Delta$ macro-F1", righe[:-1]))
+        "$\\Delta$ macro-F1", righe[:-1], "tab:suppC3"))
 
 
 def scrivi_C8(ris: Path, f: Path) -> None:
@@ -86,7 +87,7 @@ def scrivi_C8(ris: Path, f: Path) -> None:
         "context and node partition, from the weight artefacts used by the experiments (cities: installation "
         "episode 1). Classes: free-flowing, moderate, congested.",
         "Context & Part. & Training targets & \\multicolumn{3}{c}{Frequency (\\%)} & "
-        "\\multicolumn{3}{c}{Weight} & Artefact", righe))
+        "\\multicolumn{3}{c}{Weight} & Artefact", righe, "tab:suppC8"))
 
 
 def scrivi_C9(ris: Path, f: Path) -> None:
@@ -129,4 +130,4 @@ def scrivi_C9(ris: Path, f: Path) -> None:
         "Difference in weighted cross-entropy against $C$ per forecasting horizon (mean over cells and 95\\% "
         "interval from 4{,}000 joint resamples of partitions, seeds and sensors). $^\\dagger$ origins older than "
         "one week; otherwise all origins after $t_1$.",
-        "Context & Comparison & " + " & ".join(ORIZ), righe[:-1]))
+        "Context & Comparison & " + " & ".join(ORIZ), righe[:-1], "tab:suppC9"))

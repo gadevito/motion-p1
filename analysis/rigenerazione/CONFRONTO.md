@@ -6,7 +6,7 @@ Generato da `analysis/main.py` (non modificare a mano). Ogni numero e' rigenerat
 - esperimenti: ARCH, E2, E3, E4, E3bis, E5, E6, E7, E8
 - tolleranza: relativa 1e-09, assoluta 1e-12
 - risultati reali dopo l'esecuzione: invariati
-- manoscritto (fuori dal repository): commit `ebacbdce9afb1841881540340ff298d72070076e` (pulito); SHA-256 `main.tex` ba20b86e540f68e103802450a67aab76c72b06e18022e3207770907494ff9c39, `supplementary.tex` d1eb0d71bd01de385de99d6401aed43e03b03d41a75de39f8c56215a9ecea285
+- manoscritto (fuori dal repository): commit `2c6e4e0fe089251f2bec4413fa137bd6547c0689` (pulito); SHA-256 `main.tex` bb136d7385ba56d40a20c8555abd1d7320c5b00f04913d3b9ddb86c451ff5d1f, `supplementary.tex` 388f4b3bc0ae76aae9e59c65563b306a7101ffdf0eb7aaf2d1e7bde313d98eb1
 - non coperto (ingressi, non rigenerati): addestramenti e valutazioni dei modelli sulle celle, adattamenti di E2, k della secondaria di E5, sensibilita' a rho, costi misurati (sessione unica, costi_tabella_sessione.json: letti e confrontati con il testo, non rimisurati), numeri del resoconto della campagna principale, dati di disegno (sensori, partizioni, semi)
 
 ## 1. Tabelle del Paper 1
@@ -78,6 +78,14 @@ Generato da `analysis/main.py` (non modificare a mano). Ogni numero e' rigenerat
 | §III | finestra (passi) | 12 | 12 | 12 | 0 | ok |
 | §III | nucleo | 2 | 2 | 2 | 0 | ok |
 | §III | campo ricettivo (passi) | 16 | 16 | 16 | 0 | ok |
+| §III | K PEMS04 | 214 | 214 | 214 | 0 | ok |
+| §III | K PEMS08 | 118 | 118 | 118 | 0 | ok |
+| §III | parametri Madrid e Londra | 28752 | 28752 | 28752 | 0 | ok |
+| §III | parametri Melbourne | 27032 | 27032 | 27032 | 0 | ok |
+| §III | parametri PEMS08 | 24720 | 24720 | 24720 | 0 | ok |
+| §III | parametri PEMS04 (E') | 25496 | 25496 | 25496 | 0 | ok |
+| §III | corpo condiviso, 9 canali | 23712 | 23712 | 23712 | 0 | ok |
+| §III | corpo condiviso, 11 canali | 23776 | 23776 | 23776 | 0 | ok |
 | §III | dilatazioni | 1, 2, 4, 8 | [1, 2, 4, 8] | [1, 2, 4, 8] | = | ok |
 | III | (a) Mad. | ++0 | ['+', '+', '0'] | ['+', '+', '0'] | = | ok |
 | III | (a) Lon. | +++ | ['+', '+', '+'] | ['+', '+', '+'] | = | ok |
@@ -212,7 +220,7 @@ Ogni impronta di file citata in un congelamento, ricalcolata sul file del reposi
 | `CONGELAMENTO_E2.md` | `evoluzione/esperimenti/esegui_e2.py` | codice | `d84a78e61e239dc4` | cambiato dopo il congelamento |
 | `CONGELAMENTO_E2.md` | `evoluzione/esperimenti/ricostruisci_predizioni.py` | codice | `5b37aeb8d51ea15f` | cambiato dopo il congelamento |
 | `CONGELAMENTO_E2.md` | `evoluzione/analisi/analizza_e2.py` | codice | `d50afaf7aad4534c` | ok |
-| `CONGELAMENTO_E2.md` | `evoluzione/analisi/verifica_appaiamento.py` | codice | `ab1857cde149e44c` | ok |
+| `CONGELAMENTO_E2.md` | `evoluzione/analisi/verifica_appaiamento.py` | codice | `ab1857cde149e44c` | cambiato dopo il congelamento |
 | `CONGELAMENTO_E2.md` | `evoluzione/esperimenti/adeguatezza_E1.py` | codice | `d006022ce5529bd7` | ok |
 | `CONGELAMENTO_E2.md` | `evoluzione/esperimenti/sensibilita_rho_e2.py` | codice | `cf347e585b8f6c6f` | ok |
 | `CONGELAMENTO_E3.md` | `protocol/E3.md` | codice | `245085de8a909ca8` | ok |
@@ -304,15 +312,17 @@ Informativo. Per ogni file di codice con impronta citata diversa da quella attua
 | `evoluzione/componente/adattamento.py` | `CONGELAMENTO_E2.md` | `80e810978be4fff6` | `b064cfc5c93b` 2026-09-19 | `dadd2dc2dcb5` 2026-10-03 E4: esecutore (valuta/scegli/test), gancio di traiettoria in adatta; controlli 3,4,6,7 per |
 | `evoluzione/esperimenti/esegui_e2.py` | `CONGELAMENTO_E2.md` | `d84a78e61e239dc4` | `f9290bbaa468` 2026-09-30 | `6629f40fd549` 2026-10-08 da_E1: sorgente del predittore dal punto di controllo (undici canali su PEMS); difetto eme |
 | `evoluzione/esperimenti/ricostruisci_predizioni.py` | `CONGELAMENTO_E2.md` | `5b37aeb8d51ea15f` | `ffac660209ee` 2026-09-29 | `821295f19a06` 2026-10-02 E3: analisi, veterani, rimisura isolata dei costi<br>`dc35e91fb1fc` 2026-10-07 E3-bis: ricostruzione delle predizioni con acquisizione dichiarata |
+| `evoluzione/analisi/verifica_appaiamento.py` | `CONGELAMENTO_E2.md` | `ab1857cde149e44c` | `c7b42da179e9` 2026-09-30 | `b52522bdd112` 2026-10-12 Esecutore: voce 22 — tolleranza del controllo di appaiamento 1e-12 -> 1e-7 (float32 fra ar |
 | `evoluzione/esperimenti/esegui_inserimento.py` | `CONGELAMENTO_E3bis.md` | `3df759803c95fe49` | `d8e828664d96` 2026-10-06 | `db9f8f3b1c24` 2026-10-10 Esecutore: difetto 19 — riviste di E3 dal solo lancio (108 manifesti per braccio, per impr |
 | `evoluzione/analisi/analizza_e4.py` | `CONGELAMENTO_E4.md` | `1fb316ed0a0ae223` | `5af016944005` 2026-10-04 | `680b35ef7a1c` 2026-10-04 E5: F'(1 sett.) - A, calendario e potenza derivati; protocol/E5.md con le quattro righe de<br>`d8ef81299651` 2026-10-10 paper1: analysis/main.py, prima versione — **etichette** |
-| `analysis/main.py` | `CONGELAMENTO_E5.md` | `52cdd962ff9888f6` | non presente nella storia git (stato non committato al congelamento) | `d8ef81299651` 2026-10-10 paper1: analysis/main.py, prima versione — **etichette**<br>`acfc69dc0067` 2026-10-10 paper1: main.py — origini comuni di E6, storia del codice cambiato dopo i congelamenti<br>`b7fd4a96a09f` 2026-10-10 paper1: main.py — coerenza per contenuto di E3, cambi di sole etichette<br>`c8e60b99eebd` 2026-10-11 paper1: main.py — tempi di Tab. II dalla sessione unica<br>`109db629195b` 2026-10-11 paper1: main.py — figure PDF deterministiche (SOURCE_DATE_EPOCH)<br>`ea02d713e44f` 2026-10-12 paper1: impronta canonica dei file di scelta<br>`74c8cbf7d185` 2026-10-12 paper1: main.py — manoscritto fuori dal repo |
+| `analysis/main.py` | `CONGELAMENTO_E5.md` | `52cdd962ff9888f6` | non presente nella storia git (stato non committato al congelamento) | `d8ef81299651` 2026-10-10 paper1: analysis/main.py, prima versione — **etichette**<br>`acfc69dc0067` 2026-10-10 paper1: main.py — origini comuni di E6, storia del codice cambiato dopo i congelamenti<br>`b7fd4a96a09f` 2026-10-10 paper1: main.py — coerenza per contenuto di E3, cambi di sole etichette<br>`c8e60b99eebd` 2026-10-11 paper1: main.py — tempi di Tab. II dalla sessione unica<br>`109db629195b` 2026-10-11 paper1: main.py — figure PDF deterministiche (SOURCE_DATE_EPOCH)<br>`ea02d713e44f` 2026-10-12 paper1: impronta canonica dei file di scelta<br>`74c8cbf7d185` 2026-10-12 paper1: main.py — manoscritto fuori dal repo<br>`aef38eefb46a` 2026-10-12 paper1: main.py — tabelle C.3, C.8, C.9 del supplementare |
 | `evoluzione/analisi/figura_e8bis.py` | `CONGELAMENTO_E8.md` | `756828a7025fa32c` | `853c8474b7ce` 2026-10-10 | `d80043c971e8` 2026-10-10 paper1: figura 2 (§5.1) e legenda figura E8-bis<br>`d8ef81299651` 2026-10-10 paper1: analysis/main.py, prima versione — **etichette** |
 
 ## 8. Impronte del codice diverse da quelle registrate nel congelamento (json)
 
 Informativo, non fa fallire: il file di codice e' cambiato dopo il congelamento, i numeri no (sezione 3). Date, commit e istanti non sono elencati.
 
+- `congelamento_e2.json` `/impronte/evoluzione/analisi/verifica_appaiamento.py`: congelato ab1857cde149e44c, attuale e8869fa4589e09f9
 - `congelamento_e2.json` `/impronte/evoluzione/componente/adattamento.py`: congelato 80e810978be4fff6, attuale ce88e086bcbdddba
 - `congelamento_e2.json` `/impronte/evoluzione/esperimenti/addestramento.py`: congelato d2d68544fc153371, attuale f5d69a789aadd479
 - `congelamento_e2.json` `/impronte/evoluzione/esperimenti/esegui_E.py`: congelato ccd37ca7a9f4012e, attuale 87abfd761022c868
@@ -392,6 +402,7 @@ costi_sessione_pems08.json  de392bca1b944791f001f71ff72fb5d2abc1ec28ad833b1ae1c5
 costi_tabella_sessione.json  93d346501f9bc77789df30c51d90182f05e8cf1c11b50d97c67460a588e8afad
 curve_e8bis_punti.json  2d82913a44059d7b435f63a96d2679f68a81b4b6e13148be9495443076c7e94b
 diagnostica_griglia.json  3e8e23ae9b6cc58539880c068094c31a090163a674917a68dfa4d9cbe5133502
+e14_stadio0.json  15212e5285d25fc8533217bb7c249c2eb6e2dfe14319d93bb0992ee323f10a4a
 e3bis_addestra.log  b3aa5305a662cb55642e535cb7965166afc0002313b540335221e5dd704689c4
 e3bis_analisi.log  21698cd47e20842715cfe093936cae1afce11b3ff8ba56aab0818498ea6f165a
 e3bis_isolato.log  6642bc75a38504a4049fc2200a3fd87a022320005ca7bdae9ed7bdc099207c49
@@ -543,6 +554,7 @@ ricostruzione_P.log  254ed463e62951121a599496eddbfee7fcf886408b5b3840f727509189c
 ricostruzione_e3bis.log  698e2c0fd76318f2778e2f1bd5ac5b1c83f56765e2b578f1ca155f5e01c1f426
 ricostruzione_pems04_C.log  31b18e334d55d4aa9ce293345f7b9fbd544cb1186732741d7056a37861097e7b
 ricostruzione_pems04_P.log  974047bd95156026159f9a2367b1105e7fd2dd4007a2b851cc9019d8c6e942fc
+riproducibilita_spark.json  0f628bcbb05a6cf692e76b0bf05b8b34ad978b975fb72889d101d427bb944530
 riselezione_rmon.json  3ecde8a95dabc8afe60393b38d198b40b3ad16c779baf6825eabfea69dea16b4
 riselezione_rmon_test.json  b0a3838da268c076976c81f94375c177d2fa92ae94319b6c9f897ebbc973f64d
 rmon_punti/  elenco:77376b1d65e3d50a3e8341180ef29bbef00815516fbe9f49ca33cc0d4b2f24e3 (442 file)
