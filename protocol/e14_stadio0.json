@@ -1,0 +1,2218 @@
+{
+ "istante": "2026-10-12T18:10:29.867542+00:00",
+ "soglia_p90": 0.01,
+ "classe_rossa": 2,
+ "definizioni": {
+  "non_causale": "media di m_r su tutta la serie (inserimento.statiche)",
+  "iniziali": "media di m_r su [0, t0)",
+  "nuovi_a": "media di m_r su (t0, t0+96]",
+  "nuovi_b": "media delle coperture causali degli iniziali",
+  "test": "(t1, fine]"
+ },
+ "per_cella": {
+  "Madrid/ep1/p0": {
+   "contesto": "Madrid",
+   "episodio": 1,
+   "partizione": 0,
+   "t0": 8887,
+   "t1": 8983,
+   "fine": 10456,
+   "nodi": {
+    "iniziali": 630,
+    "nuovi": 135,
+    "selezione": 135
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.8270341852337265,
+    "nuovi_media": 0.8294236323479444
+   },
+   "copertura_causale_iniziali_media": 0.8214572382345534,
+   "copertura_b_nuovi": 0.8214572382345534,
+   "delta_iniziali": {
+    "n": 630,
+    "mediana": 0.004909533098031049,
+    "p90": 0.011830151521877287,
+    "massimo": 0.02718182616673015
+   },
+   "delta_selezione": {
+    "n": 135,
+    "mediana": 0.0048816602025637534,
+    "p90": 0.01272866742783756,
+    "massimo": 0.021330582777509988
+   },
+   "delta_nuovi_a": {
+    "n": 135,
+    "mediana": 0.018922018348623837,
+    "p90": 0.08623853211009176,
+    "massimo": 0.18549311926605505
+   },
+   "delta_nuovi_b": {
+    "n": 135,
+    "mediana": 0.13869184433425397,
+    "p90": 0.22392283456482873,
+    "massimo": 0.30282191713363593
+   },
+   "p90_abs_delta_tutti_a": 0.017775229357798173,
+   "p90_abs_delta_tutti_b": 0.12662980617571923,
+   "rho_delta_rosso": {
+    "iniziali": -0.2467257173139526,
+    "nuovi_a": 0.23188957174909766,
+    "nuovi_b": 0.4113549897570969
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.39940839879740087,
+    "nuovi": 0.3860451082447009
+   }
+  },
+  "Madrid/ep2/p0": {
+   "contesto": "Madrid",
+   "episodio": 2,
+   "partizione": 0,
+   "t0": 7295,
+   "t1": 7391,
+   "fine": 8887,
+   "nodi": {
+    "iniziali": 630,
+    "nuovi": 135,
+    "selezione": 135
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.8270341852337265,
+    "nuovi_media": 0.8294236323479444
+   },
+   "copertura_causale_iniziali_media": 0.8174450863278826,
+   "copertura_b_nuovi": 0.8174450863278826,
+   "delta_iniziali": {
+    "n": 630,
+    "mediana": 0.008730818729262402,
+    "p90": 0.022278180040369466,
+    "massimo": 0.04314203415267037
+   },
+   "delta_selezione": {
+    "n": 135,
+    "mediana": 0.008801153548679164,
+    "p90": 0.024589545434537934,
+    "massimo": 0.03531637175561164
+   },
+   "delta_nuovi_a": {
+    "n": 135,
+    "mediana": 0.019017584097859364,
+    "p90": 0.0679281345565749,
+    "massimo": 0.1183103975535168
+   },
+   "delta_nuovi_b": {
+    "n": 135,
+    "mediana": 0.13897693202074124,
+    "p90": 0.2199106826581579,
+    "massimo": 0.2988097652269651
+   },
+   "p90_abs_delta_tutti_a": 0.028145382556440838,
+   "p90_abs_delta_tutti_b": 0.12791944540013317,
+   "rho_delta_rosso": {
+    "iniziali": -0.30468744657240976,
+    "nuovi_a": 0.12764120573602575,
+    "nuovi_b": 0.4454638571846649
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.40096023257787966,
+    "nuovi": 0.3867151911269558
+   }
+  },
+  "Madrid/ep3/p0": {
+   "contesto": "Madrid",
+   "episodio": 3,
+   "partizione": 0,
+   "t0": 5726,
+   "t1": 5822,
+   "fine": 7295,
+   "nodi": {
+    "iniziali": 630,
+    "nuovi": 135,
+    "selezione": 135
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.8270341852337265,
+    "nuovi_media": 0.8294236323479444
+   },
+   "copertura_causale_iniziali_media": 0.8088044508757049,
+   "copertura_b_nuovi": 0.8088044508757049,
+   "delta_iniziali": {
+    "n": 630,
+    "mediana": 0.016671683618154687,
+    "p90": 0.03995287537078038,
+    "massimo": 0.07038322299378019
+   },
+   "delta_selezione": {
+    "n": 135,
+    "mediana": 0.016792801439007188,
+    "p90": 0.042624387017317834,
+    "massimo": 0.058412135855441305
+   },
+   "delta_nuovi_a": {
+    "n": 135,
+    "mediana": 0.04883409785932724,
+    "p90": 0.12157874617737001,
+    "massimo": 0.21836773700305812
+   },
+   "delta_nuovi_b": {
+    "n": 135,
+    "mediana": 0.1448136251876314,
+    "p90": 0.21127004720598017,
+    "massimo": 0.29016912977478737
+   },
+   "p90_abs_delta_tutti_a": 0.053602972278388956,
+   "p90_abs_delta_tutti_b": 0.12591071998885472,
+   "rho_delta_rosso": {
+    "iniziali": -0.32885873928103815,
+    "nuovi_a": 0.11610574578089942,
+    "nuovi_b": 0.41035508730855524
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.39307535641547864,
+    "nuovi": 0.37613336350607224
+   }
+  },
+  "Madrid/ep1/p1": {
+   "contesto": "Madrid",
+   "episodio": 1,
+   "partizione": 1,
+   "t0": 8887,
+   "t1": 8983,
+   "fine": 10456,
+   "nodi": {
+    "iniziali": 630,
+    "nuovi": 135,
+    "selezione": 135
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.8286091997961264,
+    "nuovi_media": 0.8211660437195606
+   },
+   "copertura_causale_iniziali_media": 0.8230320371650405,
+   "copertura_b_nuovi": 0.8230320371650405,
+   "delta_iniziali": {
+    "n": 630,
+    "mediana": 0.00485488953386537,
+    "p90": 0.011873678188151715,
+    "massimo": 0.02718182616673015
+   },
+   "delta_selezione": {
+    "n": 135,
+    "mediana": 0.0061330908391427075,
+    "p90": 0.01161531085676808,
+    "massimo": 0.019135463218273308
+   },
+   "delta_nuovi_a": {
+    "n": 135,
+    "mediana": 0.022935779816513735,
+    "p90": 0.08006498470948016,
+    "massimo": 0.18549311926605505
+   },
+   "delta_nuovi_b": {
+    "n": 135,
+    "mediana": 0.1267399882353769,
+    "p90": 0.23803585979501002,
+    "massimo": 0.332206349091646
+   },
+   "p90_abs_delta_tutti_a": 0.021120030581039728,
+   "p90_abs_delta_tutti_b": 0.11751160620976649,
+   "rho_delta_rosso": {
+    "iniziali": -0.18502188214130044,
+    "nuovi_a": 0.36538386498878156,
+    "nuovi_b": 0.671695444346893
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.3925182383430856,
+    "nuovi": 0.40815669709084507
+   }
+  },
+  "Madrid/ep2/p1": {
+   "contesto": "Madrid",
+   "episodio": 2,
+   "partizione": 1,
+   "t0": 7295,
+   "t1": 7391,
+   "fine": 8887,
+   "nodi": {
+    "iniziali": 630,
+    "nuovi": 135,
+    "selezione": 135
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.8286091997961264,
+    "nuovi_media": 0.8211660437195606
+   },
+   "copertura_causale_iniziali_media": 0.8189233765244732,
+   "copertura_b_nuovi": 0.8189233765244732,
+   "delta_iniziali": {
+    "n": 630,
+    "mediana": 0.00878144434104039,
+    "p90": 0.022630042779919205,
+    "massimo": 0.03929169732106741
+   },
+   "delta_selezione": {
+    "n": 135,
+    "mediana": 0.009429424661439145,
+    "p90": 0.02197345695702935,
+    "massimo": 0.032987501912625006
+   },
+   "delta_nuovi_a": {
+    "n": 135,
+    "mediana": 0.020928899082568786,
+    "p90": 0.05963302752293578,
+    "massimo": 0.12643348623853212
+   },
+   "delta_nuovi_b": {
+    "n": 135,
+    "mediana": 0.12497952867430351,
+    "p90": 0.23392719915444277,
+    "massimo": 0.32809768845107873
+   },
+   "p90_abs_delta_tutti_a": 0.029252001182159457,
+   "p90_abs_delta_tutti_b": 0.1170257222486222,
+   "rho_delta_rosso": {
+    "iniziali": -0.2360475538997027,
+    "nuovi_a": 0.3695785776997366,
+    "nuovi_b": 0.6915179006926153
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.39409112129700363,
+    "nuovi": 0.4110417904535551
+   }
+  },
+  "Madrid/ep3/p1": {
+   "contesto": "Madrid",
+   "episodio": 3,
+   "partizione": 1,
+   "t0": 5726,
+   "t1": 5822,
+   "fine": 7295,
+   "nodi": {
+    "iniziali": 630,
+    "nuovi": 135,
+    "selezione": 135
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.8286091997961264,
+    "nuovi_media": 0.8211660437195606
+   },
+   "copertura_causale_iniziali_media": 0.8103546063902334,
+   "copertura_b_nuovi": 0.8103546063902334,
+   "delta_iniziali": {
+    "n": 630,
+    "mediana": 0.016492869186211068,
+    "p90": 0.040631148519388496,
+    "massimo": 0.06703835501137045
+   },
+   "delta_selezione": {
+    "n": 135,
+    "mediana": 0.017779902499570066,
+    "p90": 0.03874505848637209,
+    "massimo": 0.05686442468017017
+   },
+   "delta_nuovi_a": {
+    "n": 135,
+    "mediana": 0.05456804281345562,
+    "p90": 0.12691131498470945,
+    "massimo": 0.18874235474006118
+   },
+   "delta_nuovi_b": {
+    "n": 135,
+    "mediana": 0.13259264131618864,
+    "p90": 0.22535842902020292,
+    "massimo": 0.3195289183168389
+   },
+   "p90_abs_delta_tutti_a": 0.0575609364335223,
+   "p90_abs_delta_tutti_b": 0.1215261275547208,
+   "rho_delta_rosso": {
+    "iniziali": -0.2570108816216768,
+    "nuovi_a": 0.19673690371671057,
+    "nuovi_b": 0.6741195980879914
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.3856798025840795,
+    "nuovi": 0.40317819516733294
+   }
+  },
+  "Madrid/ep1/p2": {
+   "contesto": "Madrid",
+   "episodio": 1,
+   "partizione": 2,
+   "t0": 8887,
+   "t1": 8983,
+   "fine": 10456,
+   "nodi": {
+    "iniziali": 630,
+    "nuovi": 135,
+    "selezione": 135
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.823611414494442,
+    "nuovi_media": 0.8255769339676067
+   },
+   "copertura_causale_iniziali_media": 0.8179598879047512,
+   "copertura_b_nuovi": 0.8179598879047512,
+   "delta_iniziali": {
+    "n": 630,
+    "mediana": 0.004843775862003741,
+    "p90": 0.011859483658052538,
+    "massimo": 0.02718182616673015
+   },
+   "delta_selezione": {
+    "n": 135,
+    "mediana": 0.004511107692953598,
+    "p90": 0.012113222712349358,
+    "massimo": 0.02464165048490241
+   },
+   "delta_nuovi_a": {
+    "n": 135,
+    "mediana": 0.0210244648318042,
+    "p90": 0.08266437308868511,
+    "massimo": 0.17335626911314983
+   },
+   "delta_nuovi_b": {
+    "n": 135,
+    "mediana": 0.12498735980167086,
+    "p90": 0.19752793071820685,
+    "massimo": 0.32579627934206
+   },
+   "p90_abs_delta_tutti_a": 0.01985771747138465,
+   "p90_abs_delta_tutti_b": 0.10820601423592159,
+   "rho_delta_rosso": {
+    "iniziali": -0.25572836750239564,
+    "nuovi_a": 0.1719295678470393,
+    "nuovi_b": 0.4531460345332163
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.397156219355812,
+    "nuovi": 0.3929999245681527
+   }
+  },
+  "Madrid/ep2/p2": {
+   "contesto": "Madrid",
+   "episodio": 2,
+   "partizione": 2,
+   "t0": 7295,
+   "t1": 7391,
+   "fine": 8887,
+   "nodi": {
+    "iniziali": 630,
+    "nuovi": 135,
+    "selezione": 135
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.823611414494442,
+    "nuovi_media": 0.8255769339676067
+   },
+   "copertura_causale_iniziali_media": 0.8138244285605493,
+   "copertura_b_nuovi": 0.8138244285605493,
+   "delta_iniziali": {
+    "n": 630,
+    "mediana": 0.008700983089250935,
+    "p90": 0.022465673621285598,
+    "massimo": 0.04314203415267037
+   },
+   "delta_selezione": {
+    "n": 135,
+    "mediana": 0.006867358670112567,
+    "p90": 0.022510210273468667,
+    "massimo": 0.037728270483951776
+   },
+   "delta_nuovi_a": {
+    "n": 135,
+    "mediana": 0.020928899082568786,
+    "p90": 0.06735474006116215,
+    "massimo": 0.09078746177370034
+   },
+   "delta_nuovi_b": {
+    "n": 135,
+    "mediana": 0.12912281914587276,
+    "p90": 0.19339247137400495,
+    "massimo": 0.3216608199978581
+   },
+   "p90_abs_delta_tutti_a": 0.02957080432955417,
+   "p90_abs_delta_tutti_b": 0.11234147358012349,
+   "rho_delta_rosso": {
+    "iniziali": -0.31013971528560885,
+    "nuovi_a": 0.3104038630377524,
+    "nuovi_b": 0.46019412740220467
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.3990906968848145,
+    "nuovi": 0.3971132897603486
+   }
+  },
+  "Madrid/ep3/p2": {
+   "contesto": "Madrid",
+   "episodio": 3,
+   "partizione": 2,
+   "t0": 5726,
+   "t1": 5822,
+   "fine": 7295,
+   "nodi": {
+    "iniziali": 630,
+    "nuovi": 135,
+    "selezione": 135
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.823611414494442,
+    "nuovi_media": 0.8255769339676067
+   },
+   "copertura_causale_iniziali_media": 0.805175778542876,
+   "copertura_b_nuovi": 0.805175778542876,
+   "delta_iniziali": {
+    "n": 630,
+    "mediana": 0.01701160461268464,
+    "p90": 0.04020939747447396,
+    "massimo": 0.07038322299378019
+   },
+   "delta_selezione": {
+    "n": 135,
+    "mediana": 0.01429887919367745,
+    "p90": 0.039794859757680205,
+    "massimo": 0.058299947073331415
+   },
+   "delta_nuovi_a": {
+    "n": 135,
+    "mediana": 0.05705275229357798,
+    "p90": 0.12817278287461775,
+    "massimo": 0.22954892966360863
+   },
+   "delta_nuovi_b": {
+    "n": 135,
+    "mediana": 0.12716367099840842,
+    "p90": 0.19404058231339308,
+    "massimo": 0.3130121699801849
+   },
+   "p90_abs_delta_tutti_a": 0.057290755404021114,
+   "p90_abs_delta_tutti_b": 0.12005357925528913,
+   "rho_delta_rosso": {
+    "iniziali": -0.327637173856993,
+    "nuovi_a": 0.08564530289727831,
+    "nuovi_b": 0.4658472344161545
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.3908705912779233,
+    "nuovi": 0.38993739156671947
+   }
+  },
+  "Londra/ep1/p0": {
+   "contesto": "Londra",
+   "episodio": 1,
+   "partizione": 0,
+   "t0": 8966,
+   "t1": 9062,
+   "fine": 10549,
+   "nodi": {
+    "iniziali": 630,
+    "nuovi": 135,
+    "selezione": 135
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.6044121781831359,
+    "nuovi_media": 0.6112363571300767
+   },
+   "copertura_causale_iniziali_media": 0.6047491581955111,
+   "copertura_b_nuovi": 0.6047491581955111,
+   "delta_iniziali": {
+    "n": 630,
+    "mediana": 0.0016910420600861342,
+    "p90": 0.004462010304428343,
+    "massimo": 0.012983943573388335
+   },
+   "delta_selezione": {
+    "n": 135,
+    "mediana": 0.001687016876254166,
+    "p90": 0.00436071724000602,
+    "massimo": 0.008686906643266934
+   },
+   "delta_nuovi_a": {
+    "n": 135,
+    "mediana": 0.19364521170787152,
+    "p90": 0.2598252344416027,
+    "massimo": 0.3328182722364308
+   },
+   "delta_nuovi_b": {
+    "n": 135,
+    "mediana": 0.12203626627545805,
+    "p90": 0.20614408799185271,
+    "massimo": 0.3563193271696494
+   },
+   "p90_abs_delta_tutti_a": 0.18330136402387046,
+   "p90_abs_delta_tutti_b": 0.10338802430747393,
+   "rho_delta_rosso": {
+    "iniziali": -0.005357654262287431,
+    "nuovi_a": -0.17207101746171105,
+    "nuovi_b": 0.5450199980489708
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.244704902808467,
+    "nuovi": 0.24943087000921565
+   }
+  },
+  "Londra/ep2/p0": {
+   "contesto": "Londra",
+   "episodio": 2,
+   "partizione": 0,
+   "t0": 7292,
+   "t1": 7388,
+   "fine": 8966,
+   "nodi": {
+    "iniziali": 630,
+    "nuovi": 135,
+    "selezione": 135
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.6044121781831359,
+    "nuovi_media": 0.6112363571300767
+   },
+   "copertura_causale_iniziali_media": 0.6072129491767452,
+   "copertura_b_nuovi": 0.6072129491767452,
+   "delta_iniziali": {
+    "n": 630,
+    "mediana": 0.0034395667102146976,
+    "p90": 0.010133693689368372,
+    "massimo": 0.05688739253217301
+   },
+   "delta_selezione": {
+    "n": 135,
+    "mediana": 0.0035493915926243513,
+    "p90": 0.010951150900336697,
+    "massimo": 0.045279105756691806
+   },
+   "delta_nuovi_a": {
+    "n": 135,
+    "mediana": 0.1036516055697641,
+    "p90": 0.19246412333049165,
+    "massimo": 0.2971428909728142
+   },
+   "delta_nuovi_b": {
+    "n": 135,
+    "mediana": 0.12450005725669211,
+    "p90": 0.20491327279452307,
+    "massimo": 0.35385553618841536
+   },
+   "p90_abs_delta_tutti_a": 0.09137953490574983,
+   "p90_abs_delta_tutti_b": 0.10344505265622625,
+   "rho_delta_rosso": {
+    "iniziali": 0.06525577635860101,
+    "nuovi_a": -0.01940786264754658,
+    "nuovi_b": 0.6031314018144571
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.23358178928521134,
+    "nuovi": 0.23515936722527342
+   }
+  },
+  "Londra/ep3/p0": {
+   "contesto": "Londra",
+   "episodio": 3,
+   "partizione": 0,
+   "t0": 5709,
+   "t1": 5805,
+   "fine": 7292,
+   "nodi": {
+    "iniziali": 630,
+    "nuovi": 135,
+    "selezione": 135
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.6044121781831359,
+    "nuovi_media": 0.6112363571300767
+   },
+   "copertura_causale_iniziali_media": 0.6060797904728541,
+   "copertura_b_nuovi": 0.6060797904728541,
+   "delta_iniziali": {
+    "n": 630,
+    "mediana": 0.004611206258087669,
+    "p90": 0.01382990050110077,
+    "massimo": 0.05949077776170009
+   },
+   "delta_selezione": {
+    "n": 135,
+    "mediana": 0.004409911791311172,
+    "p90": 0.013956595557056826,
+    "massimo": 0.05211859190837054
+   },
+   "delta_nuovi_a": {
+    "n": 135,
+    "mediana": 0.062064862176754776,
+    "p90": 0.11852147863976512,
+    "massimo": 0.17228201667140286
+   },
+   "delta_nuovi_b": {
+    "n": 135,
+    "mediana": 0.12336689855280103,
+    "p90": 0.2049941394710255,
+    "massimo": 0.35498869489230644
+   },
+   "p90_abs_delta_tutti_a": 0.056477337311736285,
+   "p90_abs_delta_tutti_b": 0.10321842091544797,
+   "rho_delta_rosso": {
+    "iniziali": 0.07445667777540622,
+    "nuovi_a": -0.12430006828602087,
+    "nuovi_b": 0.5966832504145937
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.24701166725376547,
+    "nuovi": 0.24961518344167974
+   }
+  },
+  "Londra/ep1/p1": {
+   "contesto": "Londra",
+   "episodio": 1,
+   "partizione": 1,
+   "t0": 8966,
+   "t1": 9062,
+   "fine": 10549,
+   "nodi": {
+    "iniziali": 630,
+    "nuovi": 135,
+    "selezione": 135
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.5979762167883793,
+    "nuovi_media": 0.6020846270159522
+   },
+   "copertura_causale_iniziali_media": 0.598134044308481,
+   "copertura_b_nuovi": 0.598134044308481,
+   "delta_iniziali": {
+    "n": 630,
+    "mediana": 0.0017245113051778116,
+    "p90": 0.004414028211488697,
+    "massimo": 0.015277780683094155
+   },
+   "delta_selezione": {
+    "n": 135,
+    "mediana": 0.0018087760459767344,
+    "p90": 0.005001966001205527,
+    "massimo": 0.011687770990747304
+   },
+   "delta_nuovi_a": {
+    "n": 135,
+    "mediana": 0.20182994695462728,
+    "p90": 0.25999100123141045,
+    "massimo": 0.31149355877616747
+   },
+   "delta_nuovi_b": {
+    "n": 135,
+    "mediana": 0.11570511454346555,
+    "p90": 0.23240493456809375,
+    "massimo": 0.34474745611777646
+   },
+   "p90_abs_delta_tutti_a": 0.1956675665435256,
+   "p90_abs_delta_tutti_b": 0.10413006590552565,
+   "rho_delta_rosso": {
+    "iniziali": -0.022811632898330016,
+    "nuovi_a": -0.24303482587064676,
+    "nuovi_b": 0.6579309335674568
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.23944983507861786,
+    "nuovi": 0.2564447433310917
+   }
+  },
+  "Londra/ep2/p1": {
+   "contesto": "Londra",
+   "episodio": 2,
+   "partizione": 1,
+   "t0": 7292,
+   "t1": 7388,
+   "fine": 8966,
+   "nodi": {
+    "iniziali": 630,
+    "nuovi": 135,
+    "selezione": 135
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.5979762167883793,
+    "nuovi_media": 0.6020846270159522
+   },
+   "copertura_causale_iniziali_media": 0.6006219035429129,
+   "copertura_b_nuovi": 0.6006219035429129,
+   "delta_iniziali": {
+    "n": 630,
+    "mediana": 0.0034265895906301913,
+    "p90": 0.009481035505035474,
+    "massimo": 0.07573987378081976
+   },
+   "delta_selezione": {
+    "n": 135,
+    "mediana": 0.0035233204424680586,
+    "p90": 0.010857583140209374,
+    "massimo": 0.03186023151181344
+   },
+   "delta_nuovi_a": {
+    "n": 135,
+    "mediana": 0.11659917590224489,
+    "p90": 0.21103237188595242,
+    "massimo": 0.2563080183764327
+   },
+   "delta_nuovi_b": {
+    "n": 135,
+    "mediana": 0.1167723250641784,
+    "p90": 0.2299170753336619,
+    "massimo": 0.3422595968833446
+   },
+   "p90_abs_delta_tutti_a": 0.09807769726247992,
+   "p90_abs_delta_tutti_b": 0.10635152857255907,
+   "rho_delta_rosso": {
+    "iniziali": 0.030274104759049292,
+    "nuovi_a": -0.26721783240659447,
+    "nuovi_b": 0.6627889961954931
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.2277978956686181,
+    "nuovi": 0.24239309017509272
+   }
+  },
+  "Londra/ep3/p1": {
+   "contesto": "Londra",
+   "episodio": 3,
+   "partizione": 1,
+   "t0": 5709,
+   "t1": 5805,
+   "fine": 7292,
+   "nodi": {
+    "iniziali": 630,
+    "nuovi": 135,
+    "selezione": 135
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.5979762167883793,
+    "nuovi_media": 0.6020846270159522
+   },
+   "copertura_causale_iniziali_media": 0.5994578318277741,
+   "copertura_b_nuovi": 0.5994578318277741,
+   "delta_iniziali": {
+    "n": 630,
+    "mediana": 0.004666457706683613,
+    "p90": 0.014159871111809979,
+    "massimo": 0.07768164523482884
+   },
+   "delta_selezione": {
+    "n": 135,
+    "mediana": 0.004416930218565263,
+    "p90": 0.015827797859937178,
+    "massimo": 0.03857750715518704
+   },
+   "delta_nuovi_a": {
+    "n": 135,
+    "mediana": 0.06474969214739035,
+    "p90": 0.12385443307757887,
+    "massimo": 0.20743345647437728
+   },
+   "delta_nuovi_b": {
+    "n": 135,
+    "mediana": 0.11560825334903962,
+    "p90": 0.23108114704880067,
+    "massimo": 0.3434236685984834
+   },
+   "p90_abs_delta_tutti_a": 0.05874538221085533,
+   "p90_abs_delta_tutti_b": 0.10545385342481872,
+   "rho_delta_rosso": {
+    "iniziali": 0.042792966760525256,
+    "nuovi_a": 0.035303872792898254,
+    "nuovi_b": 0.7127109550287777
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.24172350850225766,
+    "nuovi": 0.25721188572567183
+   }
+  },
+  "Londra/ep1/p2": {
+   "contesto": "Londra",
+   "episodio": 1,
+   "partizione": 2,
+   "t0": 8966,
+   "t1": 9062,
+   "fine": 10549,
+   "nodi": {
+    "iniziali": 630,
+    "nuovi": 135,
+    "selezione": 135
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.5984755469552286,
+    "nuovi_media": 0.6060525050957939
+   },
+   "copertura_causale_iniziali_media": 0.5988127989689445,
+   "copertura_b_nuovi": 0.5988127989689445,
+   "delta_iniziali": {
+    "n": 630,
+    "mediana": 0.0017131013352602031,
+    "p90": 0.004681908949665549,
+    "massimo": 0.015277780683094155
+   },
+   "delta_selezione": {
+    "n": 135,
+    "mediana": 0.0018844410501897002,
+    "p90": 0.0042395708279270305,
+    "massimo": 0.00892538557933209
+   },
+   "delta_nuovi_a": {
+    "n": 135,
+    "mediana": 0.20147177228379276,
+    "p90": 0.25324133276499,
+    "massimo": 0.35633643554039973
+   },
+   "delta_nuovi_b": {
+    "n": 135,
+    "mediana": 0.1309399717045423,
+    "p90": 0.2142022621279581,
+    "massimo": 0.3622556863962161
+   },
+   "p90_abs_delta_tutti_a": 0.19056490953869473,
+   "p90_abs_delta_tutti_b": 0.1096018429721484,
+   "rho_delta_rosso": {
+    "iniziali": -0.024802591615307193,
+    "nuovi_a": -0.2100429226416935,
+    "nuovi_b": 0.41931518876207197
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.2463423746544123,
+    "nuovi": 0.24505716207128447
+   }
+  },
+  "Londra/ep2/p2": {
+   "contesto": "Londra",
+   "episodio": 2,
+   "partizione": 2,
+   "t0": 7292,
+   "t1": 7388,
+   "fine": 8966,
+   "nodi": {
+    "iniziali": 630,
+    "nuovi": 135,
+    "selezione": 135
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.5984755469552286,
+    "nuovi_media": 0.6060525050957939
+   },
+   "copertura_causale_iniziali_media": 0.601502625186114,
+   "copertura_b_nuovi": 0.601502625186114,
+   "delta_iniziali": {
+    "n": 630,
+    "mediana": 0.0036615222195046926,
+    "p90": 0.010136172202298016,
+    "massimo": 0.07573987378081976
+   },
+   "delta_selezione": {
+    "n": 135,
+    "mediana": 0.0032127658900088507,
+    "p90": 0.010399193345364257,
+    "massimo": 0.03346870586447859
+   },
+   "delta_nuovi_a": {
+    "n": 135,
+    "mediana": 0.10796746234725774,
+    "p90": 0.20149367718101735,
+    "massimo": 0.3161912711944681
+   },
+   "delta_nuovi_b": {
+    "n": 135,
+    "mediana": 0.1282501454873728,
+    "p90": 0.21151722621786864,
+    "massimo": 0.35956586017904657
+   },
+   "p90_abs_delta_tutti_a": 0.09500864355404005,
+   "p90_abs_delta_tutti_b": 0.11115498854691726,
+   "rho_delta_rosso": {
+    "iniziali": 0.054641057176714865,
+    "nuovi_a": -0.17853867915325333,
+    "nuovi_b": 0.5095502877768022
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.23289979278572437,
+    "nuovi": 0.23353048866356851
+   }
+  },
+  "Londra/ep3/p2": {
+   "contesto": "Londra",
+   "episodio": 3,
+   "partizione": 2,
+   "t0": 5709,
+   "t1": 5805,
+   "fine": 7292,
+   "nodi": {
+    "iniziali": 630,
+    "nuovi": 135,
+    "selezione": 135
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.5984755469552286,
+    "nuovi_media": 0.6060525050957939
+   },
+   "copertura_causale_iniziali_media": 0.600544670486867,
+   "copertura_b_nuovi": 0.600544670486867,
+   "delta_iniziali": {
+    "n": 630,
+    "mediana": 0.00478303328561297,
+    "p90": 0.014474635130135407,
+    "massimo": 0.07768164523482884
+   },
+   "delta_selezione": {
+    "n": 135,
+    "mediana": 0.004603540741795975,
+    "p90": 0.013799751129556153,
+    "massimo": 0.04125904412704229
+   },
+   "delta_nuovi_a": {
+    "n": 135,
+    "mediana": 0.06456320450885666,
+    "p90": 0.12167459979160743,
+    "massimo": 0.161702543336175
+   },
+   "delta_nuovi_b": {
+    "n": 135,
+    "mediana": 0.12920810018661977,
+    "p90": 0.21247039061003556,
+    "massimo": 0.36052381487829355
+   },
+   "p90_abs_delta_tutti_a": 0.055245926873164784,
+   "p90_abs_delta_tutti_b": 0.11074643235103297,
+   "rho_delta_rosso": {
+    "iniziali": 0.09684601300150848,
+    "nuovi_a": 0.157277338796215,
+    "nuovi_b": 0.5212613403570383
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.24780478432126046,
+    "nuovi": 0.24964507210640363
+   }
+  },
+  "Melbourne/ep1/p0": {
+   "contesto": "Melbourne",
+   "episodio": 1,
+   "partizione": 0,
+   "t0": 8806,
+   "t1": 8902,
+   "fine": 10360,
+   "nodi": {
+    "iniziali": 415,
+    "nuovi": 90,
+    "selezione": 89
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.6995753848728247,
+    "nuovi_media": 0.7003011402606311
+   },
+   "copertura_causale_iniziali_media": 0.6812570290245697,
+   "copertura_b_nuovi": 0.6812570290245697,
+   "delta_iniziali": {
+    "n": 415,
+    "mediana": 0.0184346855609111,
+    "p90": 0.026831873890697456,
+    "massimo": 0.04412930086949696
+   },
+   "delta_selezione": {
+    "n": 89,
+    "mediana": 0.017980143133329407,
+    "p90": 0.028258843577470997,
+    "massimo": 0.04412930086949696
+   },
+   "delta_nuovi_a": {
+    "n": 90,
+    "mediana": 0.1338252314814815,
+    "p90": 0.189621913580247,
+    "massimo": 0.25559413580246915
+   },
+   "delta_nuovi_b": {
+    "n": 90,
+    "mediana": 0.099633487654321,
+    "p90": 0.19562375801246729,
+    "massimo": 0.2714821685062945
+   },
+   "p90_abs_delta_tutti_a": 0.12885802469135807,
+   "p90_abs_delta_tutti_b": 0.08603921444688922,
+   "rho_delta_rosso": {
+    "iniziali": 0.4032230930410606,
+    "nuovi_a": -0.4202247191011236,
+    "nuovi_b": -0.5286167016504095
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.1809790602740179,
+    "nuovi": 0.1741426611796982
+   }
+  },
+  "Melbourne/ep2/p0": {
+   "contesto": "Melbourne",
+   "episodio": 2,
+   "partizione": 0,
+   "t0": 7233,
+   "t1": 7329,
+   "fine": 8806,
+   "nodi": {
+    "iniziali": 415,
+    "nuovi": 90,
+    "selezione": 89
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.6995753848728247,
+    "nuovi_media": 0.7003011402606311
+   },
+   "copertura_causale_iniziali_media": 0.6809615900349635,
+   "copertura_b_nuovi": 0.6809615900349635,
+   "delta_iniziali": {
+    "n": 415,
+    "mediana": 0.01855528256550476,
+    "p90": 0.03003074578449592,
+    "massimo": 0.06784314817375098
+   },
+   "delta_selezione": {
+    "n": 89,
+    "mediana": 0.01824376827401164,
+    "p90": 0.029636022333338397,
+    "massimo": 0.06784314817375098
+   },
+   "delta_nuovi_a": {
+    "n": 90,
+    "mediana": 0.2511091820987654,
+    "p90": 0.315162037037037,
+    "massimo": 0.370949074074074
+   },
+   "delta_nuovi_b": {
+    "n": 90,
+    "mediana": 0.099633487654321,
+    "p90": 0.19591919700207355,
+    "massimo": 0.27177760749590074
+   },
+   "p90_abs_delta_tutti_a": 0.2442708333333333,
+   "p90_abs_delta_tutti_b": 0.08608777458559988,
+   "rho_delta_rosso": {
+    "iniziali": 0.3318447703858914,
+    "nuovi_a": 0.37401325266493807,
+    "nuovi_b": -0.5289459604066346
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.14777104355132106,
+    "nuovi": 0.14501617392612653
+   }
+  },
+  "Melbourne/ep3/p0": {
+   "contesto": "Melbourne",
+   "episodio": 3,
+   "partizione": 0,
+   "t0": 5679,
+   "t1": 5775,
+   "fine": 7233,
+   "nodi": {
+    "iniziali": 415,
+    "nuovi": 90,
+    "selezione": 89
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.6995753848728247,
+    "nuovi_media": 0.7003011402606311
+   },
+   "copertura_causale_iniziali_media": 0.683761565013355,
+   "copertura_b_nuovi": 0.683761565013355,
+   "delta_iniziali": {
+    "n": 415,
+    "mediana": 0.016268055066424036,
+    "p90": 0.026834518254387475,
+    "massimo": 0.09919158791649552
+   },
+   "delta_selezione": {
+    "n": 89,
+    "mediana": 0.014615860577957829,
+    "p90": 0.02763235286924536,
+    "massimo": 0.09919158791649552
+   },
+   "delta_nuovi_a": {
+    "n": 90,
+    "mediana": 0.05049189814814814,
+    "p90": 0.09310378086419759,
+    "massimo": 0.15142746913580252
+   },
+   "delta_nuovi_b": {
+    "n": 90,
+    "mediana": 0.099633487654321,
+    "p90": 0.19311922202368198,
+    "massimo": 0.26897763251750917
+   },
+   "p90_abs_delta_tutti_a": 0.04853395061728395,
+   "p90_abs_delta_tutti_b": 0.09111110205039215,
+   "rho_delta_rosso": {
+    "iniziali": 0.26327131267545095,
+    "nuovi_a": 0.11129769107297197,
+    "nuovi_b": -0.5379017985759559
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.134073743533806,
+    "nuovi": 0.13177107148300565
+   }
+  },
+  "Melbourne/ep1/p1": {
+   "contesto": "Melbourne",
+   "episodio": 1,
+   "partizione": 1,
+   "t0": 8806,
+   "t1": 8902,
+   "fine": 10360,
+   "nodi": {
+    "iniziali": 415,
+    "nuovi": 90,
+    "selezione": 89
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.6996316283653131,
+    "nuovi_media": 0.711068244170096
+   },
+   "copertura_causale_iniziali_media": 0.681596884927856,
+   "copertura_b_nuovi": 0.681596884927856,
+   "delta_iniziali": {
+    "n": 415,
+    "mediana": 0.01823289062872402,
+    "p90": 0.02687424819777755,
+    "massimo": 0.04412930086949696
+   },
+   "delta_selezione": {
+    "n": 89,
+    "mediana": 0.01915178921919125,
+    "p90": 0.02792521162619206,
+    "massimo": 0.03235397950471486
+   },
+   "delta_nuovi_a": {
+    "n": 90,
+    "mediana": 0.13724922839506176,
+    "p90": 0.200925925925926,
+    "massimo": 0.3128858024691358
+   },
+   "delta_nuovi_b": {
+    "n": 90,
+    "mediana": 0.1121524404834115,
+    "p90": 0.19314269840547738,
+    "massimo": 0.22243475087461317
+   },
+   "p90_abs_delta_tutti_a": 0.129224537037037,
+   "p90_abs_delta_tutti_b": 0.09550147575100337,
+   "rho_delta_rosso": {
+    "iniziali": 0.3467013539106258,
+    "nuovi_a": -0.41480841256122153,
+    "nuovi_b": -0.547038729061201
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.1809807129753582,
+    "nuovi": 0.16200274348422494
+   }
+  },
+  "Melbourne/ep2/p1": {
+   "contesto": "Melbourne",
+   "episodio": 2,
+   "partizione": 1,
+   "t0": 7233,
+   "t1": 7329,
+   "fine": 8806,
+   "nodi": {
+    "iniziali": 415,
+    "nuovi": 90,
+    "selezione": 89
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.6996316283653131,
+    "nuovi_media": 0.711068244170096
+   },
+   "copertura_causale_iniziali_media": 0.681342708036626,
+   "copertura_b_nuovi": 0.681342708036626,
+   "delta_iniziali": {
+    "n": 415,
+    "mediana": 0.01855528256550476,
+    "p90": 0.02972131972287509,
+    "massimo": 0.06784314817375098
+   },
+   "delta_selezione": {
+    "n": 89,
+    "mediana": 0.02125201942229793,
+    "p90": 0.030768466992846567,
+    "massimo": 0.03548106575571841
+   },
+   "delta_nuovi_a": {
+    "n": 90,
+    "mediana": 0.2584394290123456,
+    "p90": 0.31081211419753085,
+    "massimo": 0.3611111111111111
+   },
+   "delta_nuovi_b": {
+    "n": 90,
+    "mediana": 0.11189826359218152,
+    "p90": 0.19339687529670735,
+    "massimo": 0.22268892776584315
+   },
+   "p90_abs_delta_tutti_a": 0.2495177469135803,
+   "p90_abs_delta_tutti_b": 0.09545064037275737,
+   "rho_delta_rosso": {
+    "iniziali": 0.2763297336503203,
+    "nuovi_a": 0.2586574474214924,
+    "nuovi_b": -0.5204346215582171
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.14873848814350155,
+    "nuovi": 0.13526668171217934
+   }
+  },
+  "Melbourne/ep3/p1": {
+   "contesto": "Melbourne",
+   "episodio": 3,
+   "partizione": 1,
+   "t0": 5679,
+   "t1": 5775,
+   "fine": 7233,
+   "nodi": {
+    "iniziali": 415,
+    "nuovi": 90,
+    "selezione": 89
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.6996316283653131,
+    "nuovi_media": 0.711068244170096
+   },
+   "copertura_causale_iniziali_media": 0.6842927971792081,
+   "copertura_b_nuovi": 0.6842927971792081,
+   "delta_iniziali": {
+    "n": 415,
+    "mediana": 0.015530077918647689,
+    "p90": 0.026834518254387475,
+    "massimo": 0.09919158791649552
+   },
+   "delta_selezione": {
+    "n": 89,
+    "mediana": 0.018578895687816677,
+    "p90": 0.0280406553872943,
+    "massimo": 0.03720685737903773
+   },
+   "delta_nuovi_a": {
+    "n": 90,
+    "mediana": 0.05333719135802467,
+    "p90": 0.0978780864197531,
+    "massimo": 0.1807484567901234
+   },
+   "delta_nuovi_b": {
+    "n": 90,
+    "mediana": 0.11330514285822046,
+    "p90": 0.19044678615412525,
+    "massimo": 0.21973883862326105
+   },
+   "p90_abs_delta_tutti_a": 0.04506172839506171,
+   "p90_abs_delta_tutti_b": 0.09944212828893789,
+   "rho_delta_rosso": {
+    "iniziali": 0.1989271467139461,
+    "nuovi_a": 0.10943737910030045,
+    "nuovi_b": -0.5138165205580936
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.13505710083130876,
+    "nuovi": 0.12174211248285324
+   }
+  },
+  "Melbourne/ep1/p2": {
+   "contesto": "Melbourne",
+   "episodio": 1,
+   "partizione": 2,
+   "t0": 8806,
+   "t1": 8902,
+   "fine": 10360,
+   "nodi": {
+    "iniziali": 415,
+    "nuovi": 90,
+    "selezione": 89
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.7035426427933957,
+    "nuovi_media": 0.6907750342935528
+   },
+   "copertura_causale_iniziali_media": 0.6855900549734709,
+   "copertura_b_nuovi": 0.6855900549734709,
+   "delta_iniziali": {
+    "n": 415,
+    "mediana": 0.018200207385256406,
+    "p90": 0.026721206500618246,
+    "massimo": 0.03996867140249494
+   },
+   "delta_selezione": {
+    "n": 89,
+    "mediana": 0.018679043188847055,
+    "p90": 0.027089975129190782,
+    "massimo": 0.04412930086949696
+   },
+   "delta_nuovi_a": {
+    "n": 90,
+    "mediana": 0.14269868827160498,
+    "p90": 0.21273148148148155,
+    "massimo": 0.3128858024691358
+   },
+   "delta_nuovi_b": {
+    "n": 90,
+    "mediana": 0.0917918296648289,
+    "p90": 0.18610707484297426,
+    "massimo": 0.24342229070554144
+   },
+   "p90_abs_delta_tutti_a": 0.1306905864197532,
+   "p90_abs_delta_tutti_b": 0.08549360435618696,
+   "rho_delta_rosso": {
+    "iniziali": 0.41045620609528416,
+    "nuovi_a": -0.349549327077417,
+    "nuovi_b": -0.36168251224431
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.17630852628621482,
+    "nuovi": 0.1845297972869989
+   }
+  },
+  "Melbourne/ep2/p2": {
+   "contesto": "Melbourne",
+   "episodio": 2,
+   "partizione": 2,
+   "t0": 7233,
+   "t1": 7329,
+   "fine": 8806,
+   "nodi": {
+    "iniziali": 415,
+    "nuovi": 90,
+    "selezione": 89
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.7035426427933957,
+    "nuovi_media": 0.6907750342935528
+   },
+   "copertura_causale_iniziali_media": 0.6854020811574794,
+   "copertura_b_nuovi": 0.6854020811574794,
+   "delta_iniziali": {
+    "n": 415,
+    "mediana": 0.01814247712388173,
+    "p90": 0.029874208552877483,
+    "massimo": 0.06598062314699604
+   },
+   "delta_selezione": {
+    "n": 89,
+    "mediana": 0.019223476120251326,
+    "p90": 0.02836249814379567,
+    "massimo": 0.06784314817375098
+   },
+   "delta_nuovi_a": {
+    "n": 90,
+    "mediana": 0.2676986882716049,
+    "p90": 0.3219135802469136,
+    "massimo": 0.41261574074074076
+   },
+   "delta_nuovi_b": {
+    "n": 90,
+    "mediana": 0.09160385584883735,
+    "p90": 0.185956695790181,
+    "massimo": 0.243610264521533
+   },
+   "p90_abs_delta_tutti_a": 0.2538194444444446,
+   "p90_abs_delta_tutti_b": 0.0853056305401954,
+   "rho_delta_rosso": {
+    "iniziali": 0.35454191347329117,
+    "nuovi_a": 0.4522286702061983,
+    "nuovi_b": -0.3314894842984731
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.14397794291587473,
+    "nuovi": 0.15446475588655684
+   }
+  },
+  "Melbourne/ep3/p2": {
+   "contesto": "Melbourne",
+   "episodio": 3,
+   "partizione": 2,
+   "t0": 5679,
+   "t1": 5775,
+   "fine": 7233,
+   "nodi": {
+    "iniziali": 415,
+    "nuovi": 90,
+    "selezione": 89
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 0.7035426427933957,
+    "nuovi_media": 0.6907750342935528
+   },
+   "copertura_causale_iniziali_media": 0.6883750533035471,
+   "copertura_b_nuovi": 0.6883750533035471,
+   "delta_iniziali": {
+    "n": 415,
+    "mediana": 0.015462210923284592,
+    "p90": 0.026817979495607557,
+    "massimo": 0.09509908581323001
+   },
+   "delta_selezione": {
+    "n": 89,
+    "mediana": 0.01873495920643309,
+    "p90": 0.0263934439259651,
+    "massimo": 0.09919158791649552
+   },
+   "delta_nuovi_a": {
+    "n": 90,
+    "mediana": 0.04118441358024688,
+    "p90": 0.09731867283950613,
+    "massimo": 0.17515432098765438
+   },
+   "delta_nuovi_b": {
+    "n": 90,
+    "mediana": 0.09457682799490508,
+    "p90": 0.1849288153818537,
+    "massimo": 0.24063729237546527
+   },
+   "p90_abs_delta_tutti_a": 0.03954475308641977,
+   "p90_abs_delta_tutti_b": 0.08879943601959643,
+   "rho_delta_rosso": {
+    "iniziali": 0.26918745214973605,
+    "nuovi_a": 0.16980697205416306,
+    "nuovi_b": -0.3653208215005968
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.13020972780008924,
+    "nuovi": 0.13846974546563023
+   }
+  },
+  "PEMS08/ep1/p0": {
+   "contesto": "PEMS08_p0",
+   "episodio": 1,
+   "partizione": 0,
+   "t0": 3840,
+   "t1": 3936,
+   "fine": 5944,
+   "nodi": {
+    "iniziali": 118,
+    "nuovi": 26,
+    "selezione": 26
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 1.0,
+    "nuovi_media": 1.0
+   },
+   "copertura_causale_iniziali_media": 1.0,
+   "copertura_b_nuovi": 1.0,
+   "delta_iniziali": {
+    "n": 118,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_selezione": {
+    "n": 26,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_nuovi_a": {
+    "n": 26,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_nuovi_b": {
+    "n": 26,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "p90_abs_delta_tutti_a": 0.0,
+   "p90_abs_delta_tutti_b": 0.0,
+   "rho_delta_rosso": {
+    "iniziali": 0.0889894419306184,
+    "nuovi_a": 0.09538461538461539,
+    "nuovi_b": 0.09538461538461539
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.04782564656627726,
+    "nuovi": 0.06414725712534478
+   }
+  },
+  "PEMS08/ep1/p1": {
+   "contesto": "PEMS08_p1",
+   "episodio": 1,
+   "partizione": 1,
+   "t0": 3840,
+   "t1": 3936,
+   "fine": 5944,
+   "nodi": {
+    "iniziali": 118,
+    "nuovi": 26,
+    "selezione": 26
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 1.0,
+    "nuovi_media": 1.0
+   },
+   "copertura_causale_iniziali_media": 1.0,
+   "copertura_b_nuovi": 1.0,
+   "delta_iniziali": {
+    "n": 118,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_selezione": {
+    "n": 26,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_nuovi_a": {
+    "n": 26,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_nuovi_b": {
+    "n": 26,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "p90_abs_delta_tutti_a": 0.0,
+   "p90_abs_delta_tutti_b": 0.0,
+   "rho_delta_rosso": {
+    "iniziali": 0.03980366592530102,
+    "nuovi_a": 0.1541880341880342,
+    "nuovi_b": 0.1541880341880342
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.04542423526234047,
+    "nuovi": 0.04669782408826233
+   }
+  },
+  "PEMS08/ep1/p2": {
+   "contesto": "PEMS08_p2",
+   "episodio": 1,
+   "partizione": 2,
+   "t0": 3840,
+   "t1": 3936,
+   "fine": 5944,
+   "nodi": {
+    "iniziali": 118,
+    "nuovi": 26,
+    "selezione": 26
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 1.0,
+    "nuovi_media": 1.0
+   },
+   "copertura_causale_iniziali_media": 1.0,
+   "copertura_b_nuovi": 1.0,
+   "delta_iniziali": {
+    "n": 118,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_selezione": {
+    "n": 26,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_nuovi_a": {
+    "n": 26,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_nuovi_b": {
+    "n": 26,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "p90_abs_delta_tutti_a": 0.0,
+   "p90_abs_delta_tutti_b": 0.0,
+   "rho_delta_rosso": {
+    "iniziali": 0.1473199449271234,
+    "nuovi_a": -0.21025641025641026,
+    "nuovi_b": -0.21025641025641026
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.05417735836315754,
+    "nuovi": 0.04183266932270917
+   }
+  },
+  "PEMS08/ep1/p3": {
+   "contesto": "PEMS08_p3",
+   "episodio": 1,
+   "partizione": 3,
+   "t0": 3840,
+   "t1": 3936,
+   "fine": 5944,
+   "nodi": {
+    "iniziali": 118,
+    "nuovi": 26,
+    "selezione": 26
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 1.0,
+    "nuovi_media": 1.0
+   },
+   "copertura_causale_iniziali_media": 1.0,
+   "copertura_b_nuovi": 1.0,
+   "delta_iniziali": {
+    "n": 118,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_selezione": {
+    "n": 26,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_nuovi_a": {
+    "n": 26,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_nuovi_b": {
+    "n": 26,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "p90_abs_delta_tutti_a": 0.0,
+   "p90_abs_delta_tutti_b": 0.0,
+   "rho_delta_rosso": {
+    "iniziali": 0.046961679065368,
+    "nuovi_a": 0.14393162393162393,
+    "nuovi_b": 0.14393162393162393
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.0491170909582011,
+    "nuovi": 0.06604351823475328
+   }
+  },
+  "PEMS08/ep1/p4": {
+   "contesto": "PEMS08_p4",
+   "episodio": 1,
+   "partizione": 4,
+   "t0": 3840,
+   "t1": 3936,
+   "fine": 5944,
+   "nodi": {
+    "iniziali": 118,
+    "nuovi": 26,
+    "selezione": 26
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 1.0,
+    "nuovi_media": 1.0
+   },
+   "copertura_causale_iniziali_media": 1.0,
+   "copertura_b_nuovi": 1.0,
+   "delta_iniziali": {
+    "n": 118,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_selezione": {
+    "n": 26,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_nuovi_a": {
+    "n": 26,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_nuovi_b": {
+    "n": 26,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "p90_abs_delta_tutti_a": 0.0,
+   "p90_abs_delta_tutti_b": 0.0,
+   "rho_delta_rosso": {
+    "iniziali": 0.07205124553080684,
+    "nuovi_a": 0.2382905982905983,
+    "nuovi_b": 0.2382905982905983
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.05021861705719495,
+    "nuovi": 0.05117989580140974
+   }
+  },
+  "PEMS08/ep1/p5": {
+   "contesto": "PEMS08_p5",
+   "episodio": 1,
+   "partizione": 5,
+   "t0": 3840,
+   "t1": 3936,
+   "fine": 5944,
+   "nodi": {
+    "iniziali": 118,
+    "nuovi": 26,
+    "selezione": 26
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 1.0,
+    "nuovi_media": 1.0
+   },
+   "copertura_causale_iniziali_media": 1.0,
+   "copertura_b_nuovi": 1.0,
+   "delta_iniziali": {
+    "n": 118,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_selezione": {
+    "n": 26,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_nuovi_a": {
+    "n": 26,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_nuovi_b": {
+    "n": 26,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "p90_abs_delta_tutti_a": 0.0,
+   "p90_abs_delta_tutti_b": 0.0,
+   "rho_delta_rosso": {
+    "iniziali": 0.1186294596065284,
+    "nuovi_a": 0.20683760683760682,
+    "nuovi_b": 0.20683760683760682
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.05085589844013774,
+    "nuovi": 0.058956481765246704
+   }
+  },
+  "PEMS04/ep1/p0": {
+   "contesto": "PEMS04_p0",
+   "episodio": 1,
+   "partizione": 0,
+   "t0": 4807,
+   "t1": 4903,
+   "fine": 5656,
+   "nodi": {
+    "iniziali": 214,
+    "nuovi": 47,
+    "selezione": 46
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 1.0,
+    "nuovi_media": 1.0
+   },
+   "copertura_causale_iniziali_media": 1.0,
+   "copertura_b_nuovi": 1.0,
+   "delta_iniziali": {
+    "n": 214,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_selezione": {
+    "n": 46,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_nuovi_a": {
+    "n": 47,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_nuovi_b": {
+    "n": 47,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "p90_abs_delta_tutti_a": 0.0,
+   "p90_abs_delta_tutti_b": 0.0,
+   "rho_delta_rosso": {
+    "iniziali": 0.18458632691607152,
+    "nuovi_a": -0.0190795559666975,
+    "nuovi_b": -0.0190795559666975
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.06439661913095282,
+    "nuovi": 0.057528750247237984
+   }
+  },
+  "PEMS04/ep1/p1": {
+   "contesto": "PEMS04_p1",
+   "episodio": 1,
+   "partizione": 1,
+   "t0": 4807,
+   "t1": 4903,
+   "fine": 5656,
+   "nodi": {
+    "iniziali": 214,
+    "nuovi": 47,
+    "selezione": 46
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 1.0,
+    "nuovi_media": 1.0
+   },
+   "copertura_causale_iniziali_media": 1.0,
+   "copertura_b_nuovi": 1.0,
+   "delta_iniziali": {
+    "n": 214,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_selezione": {
+    "n": 46,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_nuovi_a": {
+    "n": 47,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_nuovi_b": {
+    "n": 47,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "p90_abs_delta_tutti_a": 0.0,
+   "p90_abs_delta_tutti_b": 0.0,
+   "rho_delta_rosso": {
+    "iniziali": 0.14701335594527828,
+    "nuovi_a": -0.16154024051803886,
+    "nuovi_b": -0.16154024051803886
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.05643469734768092,
+    "nuovi": 0.06705094515554802
+   }
+  },
+  "PEMS04/ep1/p2": {
+   "contesto": "PEMS04_p2",
+   "episodio": 1,
+   "partizione": 2,
+   "t0": 4807,
+   "t1": 4903,
+   "fine": 5656,
+   "nodi": {
+    "iniziali": 214,
+    "nuovi": 47,
+    "selezione": 46
+   },
+   "copertura_non_causale": {
+    "iniziali_media": 1.0,
+    "nuovi_media": 1.0
+   },
+   "copertura_causale_iniziali_media": 1.0,
+   "copertura_b_nuovi": 1.0,
+   "delta_iniziali": {
+    "n": 214,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_selezione": {
+    "n": 46,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_nuovi_a": {
+    "n": 47,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_nuovi_b": {
+    "n": 47,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "p90_abs_delta_tutti_a": 0.0,
+   "p90_abs_delta_tutti_b": 0.0,
+   "rho_delta_rosso": {
+    "iniziali": 0.0694270382127584,
+    "nuovi_a": -0.1026827012025902,
+    "nuovi_b": -0.1026827012025902
+   },
+   "frequenza_rosso_test": {
+    "iniziali": 0.06708369016147248,
+    "nuovi": 0.05249922296629086
+   }
+  }
+ },
+ "per_contesto_episodio": {
+  "Madrid/ep1": {
+   "delta_iniziali": {
+    "n": 1890,
+    "mediana": 0.004862207244268724,
+    "p90": 0.011863519421042135,
+    "massimo": 0.02718182616673015
+   },
+   "delta_nuovi_a": {
+    "n": 405,
+    "mediana": 0.0210244648318042,
+    "p90": 0.08415519877675842,
+    "massimo": 0.18549311926605505
+   },
+   "delta_nuovi_b": {
+    "n": 405,
+    "mediana": 0.13109640320193205,
+    "p90": 0.22550841162937832,
+    "massimo": 0.332206349091646
+   },
+   "p90_abs_delta_tutti_a": 0.02006880733944949,
+   "p90_abs_delta_tutti_b": 0.11865804138195879
+  },
+  "Madrid/ep2": {
+   "delta_iniziali": {
+    "n": 1890,
+    "mediana": 0.008761735133401616,
+    "p90": 0.02242477357664015,
+    "massimo": 0.04314203415267037
+   },
+   "delta_nuovi_a": {
+    "n": 405,
+    "mediana": 0.020737767584097844,
+    "p90": 0.0658830275229358,
+    "massimo": 0.12643348623853212
+   },
+   "delta_nuovi_b": {
+    "n": 405,
+    "mediana": 0.13310959675626788,
+    "p90": 0.22145765622914892,
+    "massimo": 0.32809768845107873
+   },
+   "p90_abs_delta_tutti_a": 0.02897862680860963,
+   "p90_abs_delta_tutti_b": 0.11964143201889438
+  },
+  "Madrid/ep3": {
+   "delta_iniziali": {
+    "n": 1890,
+    "mediana": 0.01671966677027692,
+    "p90": 0.0402701783591344,
+    "massimo": 0.07038322299378019
+   },
+   "delta_nuovi_a": {
+    "n": 405,
+    "mediana": 0.054185779816513735,
+    "p90": 0.12605122324159024,
+    "massimo": 0.22954892966360863
+   },
+   "delta_nuovi_b": {
+    "n": 405,
+    "mediana": 0.13414279683071717,
+    "p90": 0.21284576690414633,
+    "massimo": 0.3195289183168389
+   },
+   "p90_abs_delta_tutti_a": 0.05692008179867353,
+   "p90_abs_delta_tutti_b": 0.12156091149738343
+  },
+  "Londra/ep1": {
+   "delta_iniziali": {
+    "n": 1890,
+    "mediana": 0.0017131013352602031,
+    "p90": 0.004474165091826739,
+    "massimo": 0.015277780683094155
+   },
+   "delta_nuovi_a": {
+    "n": 405,
+    "mediana": 0.19747560860092828,
+    "p90": 0.2587530785260964,
+    "massimo": 0.35633643554039973
+   },
+   "delta_nuovi_b": {
+    "n": 405,
+    "mediana": 0.12203626627545805,
+    "p90": 0.21973736392392162,
+    "massimo": 0.3622556863962161
+   },
+   "p90_abs_delta_tutti_a": 0.19056490953869473,
+   "p90_abs_delta_tutti_b": 0.1084651623297477
+  },
+  "Londra/ep2": {
+   "delta_iniziali": {
+    "n": 1890,
+    "mediana": 0.003512999800315997,
+    "p90": 0.009983405914272214,
+    "massimo": 0.07573987378081976
+   },
+   "delta_nuovi_a": {
+    "n": 405,
+    "mediana": 0.10646964099649525,
+    "p90": 0.20624111963626032,
+    "massimo": 0.3161912711944681
+   },
+   "delta_nuovi_b": {
+    "n": 405,
+    "mediana": 0.12399954666001756,
+    "p90": 0.2197119528910035,
+    "massimo": 0.35956586017904657
+   },
+   "p90_abs_delta_tutti_a": 0.09392701525054459,
+   "p90_abs_delta_tutti_b": 0.10716741988147568
+  },
+  "Londra/ep3": {
+   "delta_iniziali": {
+    "n": 1890,
+    "mediana": 0.004666457706683613,
+    "p90": 0.014321772789020026,
+    "massimo": 0.07768164523482884
+   },
+   "delta_nuovi_a": {
+    "n": 405,
+    "mediana": 0.06416358814057022,
+    "p90": 0.12191851378232443,
+    "massimo": 0.20743345647437728
+   },
+   "delta_nuovi_b": {
+    "n": 405,
+    "mediana": 0.12336689855280103,
+    "p90": 0.21998194806467655,
+    "massimo": 0.36052381487829355
+   },
+   "p90_abs_delta_tutti_a": 0.057344652836980245,
+   "p90_abs_delta_tutti_b": 0.10768016667193214
+  },
+  "Melbourne/ep1": {
+   "delta_iniziali": {
+    "n": 1245,
+    "mediana": 0.018236570779462946,
+    "p90": 0.026870664431938973,
+    "massimo": 0.04412930086949696
+   },
+   "delta_nuovi_a": {
+    "n": 270,
+    "mediana": 0.13753858024691362,
+    "p90": 0.20694444444444446,
+    "massimo": 0.3128858024691358
+   },
+   "delta_nuovi_b": {
+    "n": 270,
+    "mediana": 0.099633487654321,
+    "p90": 0.193080233378522,
+    "massimo": 0.2714821685062945
+   },
+   "p90_abs_delta_tutti_a": 0.12957175925925932,
+   "p90_abs_delta_tutti_b": 0.08860656606160694
+  },
+  "Melbourne/ep2": {
+   "delta_iniziali": {
+    "n": 1245,
+    "mediana": 0.01837774302195183,
+    "p90": 0.02989357068426089,
+    "massimo": 0.06784314817375098
+   },
+   "delta_nuovi_a": {
+    "n": 270,
+    "mediana": 0.25829475308641975,
+    "p90": 0.31601080246913577,
+    "massimo": 0.41261574074074076
+   },
+   "delta_nuovi_b": {
+    "n": 270,
+    "mediana": 0.099633487654321,
+    "p90": 0.1933385364795896,
+    "massimo": 0.27177760749590074
+   },
+   "p90_abs_delta_tutti_a": 0.24789737654321,
+   "p90_abs_delta_tutti_b": 0.08831112707200067
+  },
+  "Melbourne/ep3": {
+   "delta_iniziali": {
+    "n": 1245,
+    "mediana": 0.015616898759562514,
+    "p90": 0.026834518254387475,
+    "massimo": 0.09919158791649552
+   },
+   "delta_nuovi_a": {
+    "n": 270,
+    "mediana": 0.0483699845679012,
+    "p90": 0.09731867283950613,
+    "massimo": 0.1807484567901234
+   },
+   "delta_nuovi_b": {
+    "n": 270,
+    "mediana": 0.10059739714566429,
+    "p90": 0.19040345875342654,
+    "massimo": 0.26897763251750917
+   },
+   "p90_abs_delta_tutti_a": 0.04282407407407416,
+   "p90_abs_delta_tutti_b": 0.09310838359896118
+  },
+  "PEMS08/ep1": {
+   "delta_iniziali": {
+    "n": 708,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_nuovi_a": {
+    "n": 156,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_nuovi_b": {
+    "n": 156,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "p90_abs_delta_tutti_a": 0.0,
+   "p90_abs_delta_tutti_b": 0.0
+  },
+  "PEMS04/ep1": {
+   "delta_iniziali": {
+    "n": 642,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_nuovi_a": {
+    "n": 141,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "delta_nuovi_b": {
+    "n": 141,
+    "mediana": 0.0,
+    "p90": 0.0,
+    "massimo": 0.0
+   },
+   "p90_abs_delta_tutti_a": 0.0,
+   "p90_abs_delta_tutti_b": 0.0
+  }
+ },
+ "criterio": {
+  "sotto_soglia": {
+   "Madrid/ep1": false,
+   "Madrid/ep2": false,
+   "Madrid/ep3": false,
+   "Londra/ep1": false,
+   "Londra/ep2": false,
+   "Londra/ep3": false,
+   "Melbourne/ep1": false,
+   "Melbourne/ep2": false,
+   "Melbourne/ep3": false,
+   "PEMS08/ep1": true,
+   "PEMS04/ep1": true
+  },
+  "verdetto": "stadio A con entrambe le varianti (a) e (b)"
+ }
+}
