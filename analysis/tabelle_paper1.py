@@ -82,6 +82,15 @@ def _righe():
                           ("nucleo", ["codice", "nucleo"], "2"),
                           ("campo ricettivo (passi)", ["codice", "campo_ricettivo"], "16")):
         R.append(("§III", voce, "ARCH", "architettura_ck.json", via, st, str))
+    P08, P04 = ["sintesi", "E_e6_pems08"], ["sintesi", "E1_e6_pems04"]
+    for voce, via, st in (("K PEMS04", P04 + ["K", 0], "214"), ("K PEMS08", P08 + ["K", 0], "118"),
+                          ("parametri Madrid e Londra", A + ["parametri", 1], "28752"),
+                          ("parametri Melbourne", A + ["parametri", 0], "27032"),
+                          ("parametri PEMS08", P08 + ["parametri", 0], "24720"),
+                          ("parametri PEMS04 (E')", P04 + ["parametri", 0], "25496"),
+                          ("corpo condiviso, 9 canali", ("corpo", A, 1), "23712"),
+                          ("corpo condiviso, 11 canali", ("corpo", P08, 0), "23776")):
+        R.append(("§III", voce, "ARCH", "architettura_ck.json", via, st, lambda v: str(int(v))))
     R.append(("§III", "dilatazioni", "ARCH", "architettura_ck.json", ["codice", "dilatazioni"],
               "1, 2, 4, 8", lambda v: ", ".join(map(str, v))))
     # ---- Tabella III (segni per episodio) e nota ------------------------------
@@ -114,6 +123,9 @@ def _leggi(d, via):
         return max(d["affermazioni"][k]["media"] for k in via[1])
     if isinstance(via, tuple) and via[0] == "diff":
         return _leggi(d, via[1]) - _leggi(d, via[2])
+    if isinstance(via, tuple) and via[0] == "corpo":            # parametri - K x d_emb
+        x = _leggi(d, via[1])
+        return x["parametri"][via[2]] - x["K"][via[2]] * x["d_emb"]
     if isinstance(via, tuple) and via[0] == "rapporto":
         return _leggi(d, via[1]) / _leggi(d, via[2])
     if isinstance(via, tuple) and via[0] == "minuti":
