@@ -272,6 +272,18 @@ def confronta(a, b, tol_rel: float, tol_abs: float, via="") -> tuple:
     return diff, meta, tutti
 
 
+# file di scelta: l'impronta interna include l'istante di generazione, quindi cambia a ogni
+# giro; si confronta l'impronta canonica (istante e impronta stessa mascherati)
+CAMPI_VOLATILI = {"istante", "_istante", "impronta", "_impronta"}
+
+
+def impronta_canonica(doc: dict) -> str:
+    """SHA-256 (16 cifre) del json con chiavi ordinate, senza istante di generazione e
+    senza il campo impronta: uguale fra due generazioni della stessa scelta."""
+    pulito = {k: v for k, v in doc.items() if k not in CAMPI_VOLATILI}
+    return hashlib.sha256(json.dumps(pulito, sort_keys=True, ensure_ascii=False).encode()).hexdigest()[:16]
+
+
 def fmt(v) -> str:
     """Rappresentazione stabile fra macchine: 12 cifre significative."""
     if isinstance(v, bool) or not isinstance(v, (int, float)):
@@ -346,6 +358,14 @@ def esegui(fase, radice: Path, lavoro: Path, i: int, tol) -> dict:
                            max_scarto=max(sc, default=0.0),
                            impronta_congelato=impronta_numeri(tutti, 1),
                            impronta_rigenerato=impronta_numeri(tutti, 2))
+                if fase["scelta"]:
+                    cn = impronta_canonica(json.loads(nuovo.read_text()))
+                    cc = impronta_canonica(json.loads(congelato.read_text()))
+                    rec.update(impronta_canonica_congelato=cc, impronta_canonica_rigenerato=cn)
+                    if cn != cc:
+                        d.append({"dove": "(impronta canonica)", "atteso": cc, "ottenuto": cn})
+                    # l'impronta interna e l'istante sono sostituiti dall'impronta canonica
+                    rec["metadati_diversi"] = [x for x in m if x["dove"].strip("/").split("/")[0] not in CAMPI_VOLATILI]
                 with open(lavoro / "NUMERI.tsv", "a") as fh:
                     for t in tutti:
                         fh.write(f"{u}\t{t[0]}\t{fmt(t[1])}\t{fmt(t[2])}\t{fmt_scarto(t[2] - t[1])}\n")
@@ -414,6 +434,14 @@ def scrivi_confronto(f: Path, meta: dict, esiti: list, paper: list, ok: bool):
                          f"{r.get('impronta_congelato', '—')} | {r.get('impronta_rigenerato', '—')} |")
         if not e["uscite"]:
             L.append(f"| `{e['cmd']}` | (solo figure) | {esito_fase(e)} | — | — | — | — | — |")
+    sc = [(Path(u).name, r) for e in esiti for u, r in e["uscite"].items() if "impronta_canonica_congelato" in r]
+    if sc:
+        L += ["", "Impronte canoniche dei file di scelta (istante di generazione e campo impronta mascherati; "
+              "una differenza fa fallire):", "",
+              "| file | impronta canonica congelato | impronta canonica rigenerato | esito |", "|---|---|---|---|"]
+        L += [f"| `{f}` | {r['impronta_canonica_congelato']} | {r['impronta_canonica_rigenerato']} | "
+              f"{'ok' if r['impronta_canonica_congelato'] == r['impronta_canonica_rigenerato'] else 'DIVERSO'} |"
+              for f, r in sc]
     L += ["", "## 3. Ogni numero diverso oltre la tolleranza", ""]
     righe = []
     for e in esiti:
