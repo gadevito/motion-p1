@@ -419,6 +419,8 @@ def _cella(args):
         P_ = carica_pesi(out / "pesi_pems08", c, p)
         pesi = np.asarray(P_.vettore(), dtype="float64")
         w_t = torch.as_tensor(pesi, dtype=torch.float32)
+        from evoluzione.esperimenti.inserimento import statica_cella
+        stat = statica_cella(stat, D, nodi, nn, t0, s)                             # E14
         S = torch.as_tensor(stat[nn])
         cfgF = _cfgF(out); scF = cfgF["scelte"]["PEMS08"]
         fE = Path(_ck_di({"contesto": c, "partizione": p, "seme": s, "braccio": E_TOK}, out))
@@ -684,6 +686,8 @@ def _cella_E(args):
             raise RuntimeError("controllo 2: nodi od origini diversi dalla cella di E6")
         P_ = carica_pesi(out / "pesi_pems08", c, p)
         pesi = np.asarray(P_.vettore(), dtype="float64"); w_t = torch.as_tensor(pesi, dtype=torch.float32)
+        from evoluzione.esperimenti.inserimento import statica_cella
+        stat = statica_cella(stat, D, nodi, nn, t0, s)                             # E14
         S = torch.as_tensor(stat[nn])
         cfgF = _cfgF(out); scF = cfgF["scelte"]["PEMS08"]
         if str(z6["impronta_configurazione_F"]) != cfgF["impronta"]:

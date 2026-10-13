@@ -35,7 +35,7 @@ from evoluzione.esperimenti.addestramento import (  # noqa: E402
     _canali, _carica, _lotto, _normalizzazione, _partizioni)
 from evoluzione.esperimenti.esegui_inserimento import CALENDARIO  # noqa
 from evoluzione.esperimenti.fasi import percorso_E  # noqa: E402
-from evoluzione.esperimenti.inserimento import statiche  # noqa: E402
+from evoluzione.esperimenti.inserimento import statica_cella, statiche  # noqa: E402
 from evoluzione.esperimenti.ricostruisci_predizioni import (  # noqa: E402
     aggregati_per_nodo, wce_da_predizioni)
 from evoluzione.esperimenti.semi import SEME_PARTIZIONE, configurazione  # noqa
@@ -70,8 +70,10 @@ def main() -> int:
             stat = statiche(D)
             pesi = np.asarray(carica_pesi(a.out / "pesi_griglia", c, p)
                               .vettore(), dtype="float64")
-            S = torch.as_tensor(stat[nodi["prova"]])
+            stat0 = stat
             for i_s, s in enumerate(semi_t):
+                stat = statica_cella(stat0, D, nodi, nodi["prova"], t0, int(dich[i_s]))   # E14
+                S = torch.as_tensor(stat[nodi["prova"]])
                 fE = percorso_E(a.out / "E_inserimento_griglia", c, p, int(s))
                 dE, nodi_in, imp_E = carica_E(fE, D_STAT)
                 m, forn = copia_da_E(dE, nodi_in, nodi["prova"], D_STAT)

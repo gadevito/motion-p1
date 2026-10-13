@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import time
 from pathlib import Path
 
@@ -33,6 +34,51 @@ def statiche(D):
     K = D["r"].shape[1]
     return np.stack([D["m_r"].mean(0), np.zeros(K), np.ones(K), np.zeros(K),
                      np.ones(K)], 1).astype("float32")
+
+
+VARIANTI_STATICA = ("congelata", "a", "b", "c")
+L24_STATICA = 96
+
+
+def variante_statica() -> str:
+    """La variante della statica, da `OR3_STATICA` (E14); assente = congelata."""
+    v = os.environ.get("OR3_STATICA", "") or "congelata"
+    if v not in VARIANTI_STATICA:
+        raise ValueError(f"OR3_STATICA={v!r}: ammessi {VARIANTI_STATICA}")
+    return v
+
+
+def statica_cella(stat, D, nodi, nn, t0, seme):
+    """E14: la statica della cella secondo la variante (`protocol/E14.md`).
+
+    `stat` e' `statiche(D)`; `nn` sono i nodi inseriti nell'episodio (prova, o
+    validazione in un episodio di validazione), `nodi["addestramento"]` gli
+    iniziali; `t0` l'installazione; `seme` quello DICHIARATO della cella.
+        congelata   `stat` com'e' (bit per bit; la campagna del Paper 1)
+        a           iniziali: media di m_r su [0, t0); nn: media su (t0, t0 + 24 h]
+        b           iniziali: idem; nn: media delle coperture causali degli iniziali
+        c           iniziali: non causale; nn: coperture non causali permutate fra
+                    i nn, una permutazione per seme
+    """
+    v = variante_statica()
+    if v == "congelata":
+        return stat
+    stat = np.array(stat, copy=True)
+    m = D["m_r"].astype("float64"); t0 = int(t0)
+    nn = np.asarray(nn, dtype="int64")
+    ini = np.asarray(nodi["addestramento"], dtype="int64")
+    cov_nc = stat[:, 0].astype("float64")
+    if v in ("a", "b"):
+        cov_c = m[:t0].mean(0)
+        stat[:, 0] = cov_c.astype("float32")
+        if v == "a":
+            stat[nn, 0] = m[t0 + 1:t0 + L24_STATICA + 1, :].mean(0)[nn].astype("float32")
+        else:
+            stat[nn, 0] = np.float32(cov_c[ini].mean())
+    else:
+        rng = np.random.default_rng(int(seme))
+        stat[nn, 0] = cov_nc[nn][rng.permutation(len(nn))].astype("float32")
+    return stat
 
 
 def impronta_nodi(ids) -> str:

@@ -110,7 +110,7 @@ def valuta(out: Path, diverse, righe):
         _canali, _carica, _normalizzazione, _partizioni)
     from evoluzione.esperimenti.esegui_e2 import valuta as valuta_e2
     from evoluzione.esperimenti.esegui_inserimento import CALENDARIO
-    from evoluzione.esperimenti.inserimento import _modello_da_ck, statiche
+    from evoluzione.esperimenti.inserimento import _modello_da_ck, statica_cella, statiche
     from evoluzione.esperimenti.ricostruisci_predizioni import aggregati_per_nodo
     from evoluzione.esperimenti.semi import SEME_PARTIZIONE
     dir_pred = out / "predizioni_fase3"
@@ -136,7 +136,7 @@ def valuta(out: Path, diverse, righe):
             SEME_PARTIZIONE[p])})
         NORM, nr, nv = _normalizzazione(D, nodi, ist)
         x = _canali(D, nr, nv)
-        stat = statiche(D)
+        stat = statica_cella(statiche(D), D, nodi, nodi["prova"], t0, s)          # E14
         pesi = np.asarray(carica_pesi(out / "pesi_griglia", c, p).vettore(),
                           dtype="float64")
         ck = out / ETICHETTA / f"ck_{BRACCIO}_{c}_p{p}_s{s}_u{u_eq}.pt"

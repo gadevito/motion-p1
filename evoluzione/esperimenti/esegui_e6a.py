@@ -286,6 +286,8 @@ def _cella(args):
             raise RuntimeError("perimetro vuoto")
         P_ = carica_pesi(out / DIR_PESI, c, p)
         pesi = np.asarray(P_.vettore(), dtype="float64"); w_t = torch.as_tensor(pesi, dtype=torch.float32)
+        from evoluzione.esperimenti.inserimento import statica_cella
+        stat = statica_cella(stat, D, nodi, nn, t0, s)                             # E14
         S = torch.as_tensor(stat[nn])
         cfgF = _cfgF(out); scF = cfgF["scelte"]["PEMS04"]
         fE = _ck_E(c, p, s, out); dEp, nodi_in, imp_Ep = carica_E(fE, D_STAT)

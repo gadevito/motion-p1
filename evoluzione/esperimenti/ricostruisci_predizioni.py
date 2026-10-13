@@ -37,7 +37,7 @@ from evoluzione.componente.predittore import ORIZZONTI  # noqa: E402
 from evoluzione.esperimenti.addestramento import (  # noqa: E402
     _canali, _carica, _descrittori, _lotto, _normalizzazione, _partizioni)
 from evoluzione.esperimenti.esegui_inserimento import CALENDARIO  # noqa: E402
-from evoluzione.esperimenti.inserimento import _modello_da_ck, statiche  # noqa
+from evoluzione.esperimenti.inserimento import _modello_da_ck, statica_cella, statiche  # noqa
 from evoluzione.esperimenti.semi import SEME_PARTIZIONE, configurazione  # noqa
 
 TOLLERANZA = 1e-6
@@ -135,11 +135,12 @@ def main() -> int:
                 SEME_PARTIZIONE[p])})
             NORM, nr, nv = _normalizzazione(D, nodi, ist)
             x = _canali(D, nr, nv)
-            stat = statiche(D)
+            stat0 = statiche(D)
             pesi = np.asarray(carica_pesi(
                 a.out / ("pesi_pems04" if a.pems04 else "pesi_griglia"),
                 c, p).vettore(), dtype="float64")
             for s in dich:
+                stat = statica_cella(stat0, D, nodi, nodi["prova"], t0, int(s))        # E14
                 if a.pems04:
                     d_man = None          # nessun aggregato da riprodurre
                 else:
