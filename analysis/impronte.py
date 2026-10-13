@@ -84,22 +84,35 @@ def _trova(radice: Path, nome: str) -> list:
 
 
 def _indice(radice: Path) -> dict:
-    """impronta (16) -> file, per i json dei risultati (< 20 MB) e il codice tracciato."""
-    idx = {}
-    candidati = [p for p in (radice / RIS).rglob("*.json") if p.stat().st_size < 20e6]
-    candidati += [p for p in radice.glob("**/*.py") if "rigenerazione" not in p.parts and "_archivio" not in p.parts]
-    candidati += list((radice / "protocol").glob("*.md"))
+    """impronta (16) -> file, per i json dei risultati (< 20 MB) e il codice tracciato.
+
+    Deterministico fra sistemi: un'impronta puo' comparire in piu' file (il file d'origine
+    e i risultati che la incorporano). Vince il file d'origine, cioe' quello di cui e' lo
+    SHA-256 dei byte o il campo `impronta`/`_impronta` di primo livello; a parita',
+    l'ordine alfabetico del percorso. Mai l'ordine di attraversamento del filesystem."""
+    cand = {}
+
+    def metti(h, p, priorita):
+        cand.setdefault(h[:16], []).append((priorita, str(p.relative_to(radice)), p))
+    candidati = sorted(p for p in (radice / RIS).rglob("*.json") if p.stat().st_size < 20e6)
+    candidati += sorted(p for p in radice.glob("**/*.py") if "rigenerazione" not in p.parts and "_archivio" not in p.parts)
+    candidati += sorted((radice / "protocol").glob("*.md"))
     for p in candidati:
-        idx.setdefault(_sha(p)[:16], p)
+        metti(_sha(p), p, 0)
         if p.suffix == ".json":
             try:
-                s = set()
-                _impronte_interne(json.loads(p.read_text()), s)
-                for v in s:
-                    idx.setdefault(v[:16], p)
+                d = json.loads(p.read_text())
             except ValueError:
-                pass
-    return idx
+                continue
+            if isinstance(d, dict):
+                for k in ("impronta", "_impronta"):
+                    if isinstance(d.get(k), str):
+                        metti(d[k], p, 0)
+            s = set()
+            _impronte_interne(d, s)
+            for v in s:
+                metti(v, p, 1)
+    return {h: min(v)[2] for h, v in cand.items()}
 
 
 def verifica(radice: Path) -> list:

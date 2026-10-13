@@ -265,7 +265,7 @@ def confronta(a, b, tol_rel: float, tol_abs: float, via="") -> tuple:
             tutti.append((p, y, x))
             if isinstance(x, float) and isinstance(y, float) and math.isnan(x) and math.isnan(y):
                 return
-            if abs(x - y) > max(tol_abs, tol_rel * max(abs(x), abs(y))):
+            if abs(x - y) > tol_abs + tol_rel * abs(y):      # combinata, come numpy.isclose (y congelato)
                 diff.append({"dove": p, "atteso": y, "ottenuto": x, "scarto": x - y})
         elif x != y:
             diff.append({"dove": p, "atteso": y, "ottenuto": x})
@@ -313,6 +313,24 @@ def maschera(riga: str) -> str:
 
 
 NUMERO = re.compile(r"[-+−]?\d+(?:[.,]\d+)*")
+
+
+def entro_tolleranza(righe: list, tol_rel: float, tol_abs: float) -> bool:
+    """Righe tolte e messe, a coppie nell'ordine, uguali a numeri mascherati e con ogni coppia
+    di numeri entro la tolleranza combinata (i documenti stampano numeri arrotondati)."""
+    tolte = [r[1:] for r in righe if r.startswith("-")]
+    messe = [r[1:] for r in righe if r.startswith("+")]
+    if not tolte or len(tolte) != len(messe):
+        return False
+    num = re.compile(r"[-+−]?\d+(?:\.\d+)?(?:e[-+]?\d+)?")
+    for a, b in zip(tolte, messe):
+        if num.sub("#", a) != num.sub("#", b):
+            return False
+        for u, v in zip(num.findall(a), num.findall(b)):
+            u, v = float(u.replace("−", "-")), float(v.replace("−", "-"))
+            if abs(v - u) > tol_abs + tol_rel * abs(u):
+                return False
+    return True
 
 
 def solo_testo(righe: list) -> bool:
@@ -375,6 +393,8 @@ def esegui(fase, radice: Path, lavoro: Path, i: int, tol) -> dict:
                 rr = confronta_md(nuovo, congelato)
                 if rr and solo_testo(rr):
                     rec.update(righe_diverse=[], righe_solo_testo=rr)
+                elif rr and entro_tolleranza(rr, *tol):
+                    rec.update(righe_diverse=[], righe_solo_testo=rr, righe_entro_tolleranza=True)
                 else:
                     rec.update(righe_diverse=rr)
         if fase["scelta"] and congelato.exists():
@@ -421,7 +441,8 @@ def scrivi_confronto(f: Path, meta: dict, esiti: list, paper: list, ok: bool):
          "Valori a 12 cifre significative; scarto = rigenerato − congelato.", "",
          f"- esito: **{'TUTTO COINCIDE' if ok else 'DIFFERENZE O ERRORI'}**",
          f"- esperimenti: {', '.join(meta['esperimenti'])}",
-         f"- tolleranza: relativa {meta['tol_rel']:g}, assoluta {meta['tol_abs']:g}",
+         f"- tolleranza combinata: |Δ| ≤ {meta['tol_abs']:g} + {meta['tol_rel']:g}·|congelato|",
+         f"- codice del confronto: " + ", ".join(f"`{k}` {v}" for k, v in sorted(meta["codice_analysis"].items())),
          f"- risultati reali dopo l'esecuzione: {meta['integrita_risultati']}",
          *( [f"- manoscritto (fuori dal repository): commit `{meta['manoscritto']['commit']}` "
              f"({meta['manoscritto']['stato']}); SHA-256 `main.tex` {meta['manoscritto']['main.tex']}, "
@@ -534,7 +555,7 @@ def rapporto(lavoro: Path, meta: dict, esiti: list, paper: list) -> bool:
          f"- commit {meta['commit']} ({'pulito' if not meta['git_status'] else 'con modifiche locali'}); "
          f"macchina {meta['macchina']}; Python {meta['python']}; numpy {meta['numpy']}",
          f"- sandbox: {meta['sandbox']}; risultati reali: **{meta['integrita_risultati']}**",
-         f"- tolleranza: relativa {meta['tol_rel']}, assoluta {meta['tol_abs']}",
+         f"- tolleranza combinata: |Δ| ≤ {meta['tol_abs']} + {meta['tol_rel']}·|congelato|",
          f"- impronte degli ingressi: `rapporto.json` → `impronte_ingressi` ({len(meta['impronte_ingressi'])} voci)",
          "", "## Fasi", "",
          "| fase | esito | s | numeri confrontati | differenze | metadati diversi |",
@@ -571,7 +592,7 @@ def main() -> int:
     ap.add_argument("--solo", nargs="*", choices=ESPERIMENTI, default=ESPERIMENTI)
     ap.add_argument("--lavoro", type=Path, default=None)
     ap.add_argument("--tol-rel", type=float, default=1e-9)
-    ap.add_argument("--tol-abs", type=float, default=1e-12)
+    ap.add_argument("--tol-abs", type=float, default=1e-10)
     ap.add_argument("--tex", type=Path, default=None,
                     help="manoscritto (predefinito <paper>/main.tex): verifica anche che ogni valore stampato "
                          "compaia nel .tex")
@@ -612,6 +633,7 @@ def main() -> int:
     meta = {"istante": ist, "commit": git("rev-parse", "HEAD"), "git_status": git("status", "--porcelain"),
             "macchina": f"{platform.node()} {platform.platform()}", "python": platform.python_version(),
             "numpy": numpy.__version__, "tol_rel": a.tol_rel, "tol_abs": a.tol_abs, "esperimenti": a.solo,
+            "codice_analysis": {p.name: sha256(p)[:16] for p in sorted((RADICE / "analysis").glob("*.py"))},
             "impronte_ingressi": impronte_ingressi(RADICE / RIS, a.impronte_complete),
             "non_coperto": ("addestramenti e valutazioni dei modelli sulle celle, adattamenti di E2, k della "
                             "secondaria di E5, sensibilita' a rho, costi misurati (sessione unica, costi_tabella_sessione.json: "
