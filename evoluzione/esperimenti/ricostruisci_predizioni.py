@@ -37,7 +37,8 @@ from evoluzione.componente.predittore import ORIZZONTI  # noqa: E402
 from evoluzione.esperimenti.addestramento import (  # noqa: E402
     _canali, _carica, _descrittori, _lotto, _normalizzazione, _partizioni)
 from evoluzione.esperimenti.esegui_inserimento import CALENDARIO  # noqa: E402
-from evoluzione.esperimenti.inserimento import _modello_da_ck, statica_cella, statiche  # noqa
+from evoluzione.esperimenti.inserimento import (  # noqa
+    _modello_da_ck, statica_cella, statiche, variante_statica)
 from evoluzione.esperimenti.semi import SEME_PARTIZIONE, configurazione  # noqa
 
 TOLLERANZA = 1e-6
@@ -239,7 +240,7 @@ def main() -> int:
                               "scarto_relativo_max_orizzonte": rel_h,
                               "origini": len(per), "nodi": len(nodi["prova"]),
                               "secondi_inferenza": dt})
-                if rel > TOLLERANZA or rel_h > TOLLERANZA:
+                if (rel > TOLLERANZA or rel_h > TOLLERANZA) and variante_statica() == "congelata":
                     guai.append(f"{ck.name}: scarto {rel:.2e} (orizzonti "
                                 f"{rel_h:.2e}) oltre la tolleranza")
                 np.savez_compressed(
@@ -255,6 +256,10 @@ def main() -> int:
                       f"{w_old:.6f}  scarto {rel:.1e}  {dt:5.1f}s", flush=True)
     (a.dir_pred / f"controllo_{a.braccio}.json").write_text(json.dumps(
         {"tolleranza": TOLLERANZA, "esecuzioni": righe, "anomalie": guai,
+         "statica": variante_statica(),
+         "nota_statica": ("con una variante della statica (E14, stadio B) lo scarto "
+                          "dall'aggregato conservato e' l'effetto della variante, "
+                          "non un'anomalia della pipeline"),
          "deviazione_protocollo": (
              "gli intervalli della fase 3 sono stati ottenuti ricampionando "
              "partizioni e inizializzazioni sulle metriche aggregate per "
