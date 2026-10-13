@@ -42,7 +42,7 @@ from evoluzione.esperimenti.fasi import PARTIZIONI  # noqa: E402
 from evoluzione.esperimenti.semi import SEME_PARTIZIONE, SEME_PARTIZIONE_E6  # noqa: E402
 
 L24 = 96
-CLASSE_ROSSA = 2
+CLASSE_ROSSA = 3                 # D["classe"]: 0 non assegnato, 1 verde, 2 intermedia, 3 critica (pesi.CLASSI)
 SOGLIA_P90 = 0.01
 
 
@@ -75,7 +75,8 @@ def _cella(D, nodi, t0, t1, fine):
     d_a = cov_nc[nuo] - cov_a[nuo]
     d_b = cov_nc[nuo] - cov_b_nuovi
     cl = D["classe"][t1 + 1:fine + 1]
-    rosso = (cl == CLASSE_ROSSA).mean(0)
+    ass = (cl > 0).sum(0)
+    rosso = np.where(ass > 0, (cl == CLASSE_ROSSA).sum(0) / np.maximum(ass, 1), np.nan)   # sui bersagli assegnati
     return {"nodi": {"iniziali": int(len(ini)), "nuovi": int(len(nuo)), "selezione": int(len(sel))},
             "copertura_non_causale": {"iniziali_media": float(cov_nc[ini].mean()), "nuovi_media": float(cov_nc[nuo].mean())},
             "copertura_causale_iniziali_media": float(cov_c_ini[ini].mean()), "copertura_b_nuovi": cov_b_nuovi,
@@ -107,6 +108,8 @@ def main() -> int:
     for k in range(3):
         piani.append(("PEMS04", f"PEMS04_p{k}", 1, k, SEME_PARTIZIONE_E6[k], 4807, 4807 + L24, None, 4807))
     R, cache, pool = {}, {}, {}
+    if int(np.max([np.max(_carica(c, a.out / "maschere")["classe"]) for c in ("Madrid",)])) != CLASSE_ROSSA:
+        raise SystemExit("codifica delle classi inattesa: il massimo di D['classe'] non e' la classe critica")
     print("=" * 96)
     print("E14 — STADIO 0: Δ copertura = non causale − causale, per sensore")
     print("=" * 96)
