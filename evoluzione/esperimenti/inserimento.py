@@ -166,9 +166,10 @@ def _modello_da_ck(ck: Path, D, nodi, cfg):
     return m, d
 
 
-def adatta_F(c, p, seme_torch, out: Path, D, nodi, ist, o_acq, reg):
+def adatta_F(c, p, seme_torch, out: Path, D, nodi, ist, o_acq, reg, stat=None):
     """F: parte dal punto E della pipeline corretta, muove SOLO i nuovi
-    embedding, con la configurazione appena congelata."""
+    embedding, con la configurazione appena congelata. `stat`: la statica della
+    cella (E14, `statica_cella`); assente = `statiche(D)`, come nella fase 3."""
     cfgF = json.loads((out / "selezione_F_griglia" / "configurazione_F.json")
                       .read_text())
     if not cfgF.get("congelata"):
@@ -182,7 +183,7 @@ def adatta_F(c, p, seme_torch, out: Path, D, nodi, ist, o_acq, reg):
     from evoluzione.esperimenti.addestramento import _canali, _normalizzazione
     NORM, nr, nv = _normalizzazione(D, nodi, ist)
     x = _canali(D, nr, nv)
-    stat = statiche(D)
+    stat = statiche(D) if stat is None else stat
     m, forn = copia_da_E(dE, nodi_in, nodi["prova"], D_STAT)
     # UN SOLO LOTTO, non uno per nodo: l'adattamento e' vettorizzato e la
     # perdita totale e' la somma di quelle per nodo, sicche' il gradiente di

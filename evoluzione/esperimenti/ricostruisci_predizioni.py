@@ -160,7 +160,7 @@ def main() -> int:
                     o_acq = GR.origini_acquisizione(ok, t0, t1)
                     rg = Registro.avvia("ricostruzione/F", note=f"{c} p{p} {s}",
                                         radice=a.out / "registro_ricostruzione")
-                    m, _ = adatta_F(c, p, st_, a.out, D, nodi, ist, o_acq, rg)
+                    m, _ = adatta_F(c, p, st_, a.out, D, nodi, ist, o_acq, rg, stat=stat)   # E14
                     rg.completa()
                     ck = Path(f"(riadattato da ck_E_{c}_p{p}_s{st_}.pt)")
                     imp_ck = f"E:{st_}"
