@@ -34,7 +34,7 @@ ATTESI = [
     "e7_stadio1.json", "e7_posthoc.json",
     "e8_soglie.json", "e8_risultati.json", "e8bis_risultati.json", "curve_e8bis_punti.json",
     "congelamento_e2.json", "congelamento_e3.json", "congelamento_e3bis.json", "congelamento_e4.json",
-    "congelamento_e5.json", "congelamento_e6.json", "congelamento_e7.json", "congelamento_e8.json",
+    "congelamento_e5.json", "congelamento_e7.json",      # E6 ed E8 non scrivono json: solo il .md
 ]
 CONTROLLI = [("predizioni_f0", "controllo_f0.json"), ("predizioni_e2", "controllo_e2.json"),
              ("predizioni_fase3_672", "controllo_R-orig.json")] + \
