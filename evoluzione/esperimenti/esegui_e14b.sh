@@ -98,11 +98,11 @@ passo e6_prova      "$PY" $E/esegui_e6.py --fase valuta --episodio prova --lavor
 passo e6_test       "$PY" $E/esegui_e6.py --fase test
 passo e6_valuta_E   "$PY" $E/esegui_e6.py --fase valuta-E --lavoratori "$LAV"
 passo e6_test_bis   "$PY" $E/esegui_e6.py --fase test-bis
-passo e6_origini    "$PY" $E/esegui_e6.py --fase origini
 passo e6a_val       "$PY" $E/esegui_e6a.py --fase valuta --episodio validazione --lavoratori "$LAV"
 passo e6a_scegli    "$PY" $E/esegui_e6a.py --fase scegli
 passo e6a_prova     "$PY" $E/esegui_e6a.py --fase valuta --episodio prova --lavoratori "$LAV"
 passo e6a_test      "$PY" $E/esegui_e6a.py --fase test
+passo e6_origini    "$PY" $E/esegui_e6.py --fase origini      # legge anche predizioni_e6a: dopo E6a
 # ---- E7 (a costo zero, dai file di E5 rigenerati) -------------------------------------------
 passo e7_stadio1    "$PY" $A/e7_stadio1.py
 passo e7_posthoc    "$PY" $A/e7_posthoc.py
