@@ -687,6 +687,10 @@ def main() -> int:
                 scrivi_C3(radice / RIS, dfig / "tableC3_operative.tex")
                 scrivi_C8(radice / RIS, dfig / "tableC8_classi.tex")
                 scrivi_C9(radice / RIS, dfig / "tableC9_orizzonti.tex")
+            if (radice / RIS / "congelamento_e14b.json").exists():   # supplementare D (E14, difetto 21)
+                from analysis.tabelle_suppl import scrivi_D
+                print("[paper] tabelle D del supplementare (E14)", flush=True)
+                scrivi_D(radice / RIS, dfig / "tableD_e14.tex")
     finally:
         dopo = istantanea(RADICE / RIS)
         meta["integrita_risultati"] = "invariati" if dopo == prima else \
