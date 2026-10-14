@@ -1,0 +1,170 @@
+{
+  "impronta_scelta_gated": "a264755139ae10d1",
+  "impronta_configurazione_F": "7c289e6e5d3c73d4",
+  "scelta_gated": {
+    "tau": 96,
+    "N": 231,
+    "wce_validazione": 0.4633393243235002,
+    "celle": 36
+  },
+  "configurazione_F": {
+    "aggiornamenti": 200,
+    "passo": 0.001,
+    "wce_validazione": 0.4671443932586246
+  },
+  "celle": 36,
+  "affermazioni": {
+    "a": {
+      "media": -0.039431195931425154,
+      "ic_con_nodi": [
+        -0.07598181702404148,
+        -0.003674267539890443
+      ],
+      "include_zero": false,
+      "confronto": "F0p-C",
+      "fascia": null,
+      "segno": "-"
+    },
+    "b": {
+      "media": -0.034392393479952016,
+      "ic_con_nodi": [
+        -0.07120114355867742,
+        0.009063308666290447
+      ],
+      "include_zero": true,
+      "confronto": "gated-F0p",
+      "fascia": null,
+      "segno": "0"
+    },
+    "c": {
+      "media": -0.09084929865480666,
+      "ic_con_nodi": [
+        -0.1314793557906093,
+        -0.04198108565987969
+      ],
+      "include_zero": false,
+      "confronto": "Fp_672-C",
+      "fascia": 2,
+      "segno": "-"
+    },
+    "d": {
+      "media": -0.07382358941137675,
+      "ic_con_nodi": [
+        -0.11807050911489322,
+        -0.022543330929969012
+      ],
+      "include_zero": false,
+      "confronto": "Fp_96-C",
+      "fascia": null,
+      "segno": "-"
+    },
+    "e": {
+      "media": 0.039588619906215615,
+      "ic_con_nodi": [
+        -0.019312273696166036,
+        0.08901124754172844
+      ],
+      "include_zero": true,
+      "confronto": "Fp_672-A",
+      "fascia": 2,
+      "segno": "0"
+    }
+  },
+  "altri": {
+    "gated-C": {
+      "media": -0.07382358941137718,
+      "ic_con_nodi": [
+        -0.11867276133227248,
+        -0.023361452158731293
+      ],
+      "include_zero": false,
+      "segno": "-"
+    },
+    "gated0-F0p": {
+      "media": -0.034392393479952016,
+      "ic_con_nodi": [
+        -0.07097680714557947,
+        0.010568480185516394
+      ],
+      "include_zero": true,
+      "segno": "0"
+    },
+    "gated0-C": {
+      "media": -0.07382358941137718,
+      "ic_con_nodi": [
+        -0.11675805241636175,
+        -0.02212676017451636
+      ],
+      "include_zero": false,
+      "segno": "-"
+    },
+    "A-C": {
+      "media": -0.13252559202081893,
+      "ic_con_nodi": [
+        -0.18934909410351453,
+        -0.06604532266868669
+      ],
+      "include_zero": false,
+      "segno": "-"
+    },
+    "Rorig_672-Fp_672_eta>1sett": {
+      "media": 0.009812877485939087,
+      "ic_con_nodi": [
+        -0.039620711245130724,
+        0.0792267380000606
+      ],
+      "include_zero": true,
+      "segno": "0"
+    },
+    "Rorig_96-C": {
+      "media": -0.010797376043618736,
+      "ic_con_nodi": [
+        -0.09531163988687887,
+        0.10223519968805649
+      ],
+      "include_zero": true,
+      "segno": "0"
+    },
+    "Rorig_672-Rorig_96_eta>1sett": {
+      "media": -0.08153984984907302,
+      "ic_con_nodi": [
+        -0.16157109903927755,
+        -0.016294767110257527
+      ],
+      "include_zero": false,
+      "segno": "-"
+    },
+    "Fp_672-C_intero": {
+      "media": -0.10614492818083883,
+      "ic_con_nodi": [
+        -0.14525274216627956,
+        -0.0633793124067793
+      ],
+      "include_zero": false,
+      "segno": "-"
+    },
+    "Fp_192-C": {
+      "media": -0.08123710973433476,
+      "ic_con_nodi": [
+        -0.12662824457909566,
+        -0.02867855321377836
+      ],
+      "include_zero": false,
+      "segno": "-"
+    }
+  },
+  "nodi_sotto_N": {
+    "N": 231,
+    "media_per_cella": 0.0,
+    "massimo": 0,
+    "nodi": 26,
+    "celle_valide_min_mediana_max": [
+      308,
+      308.0,
+      308
+    ]
+  },
+  "repliche": 4000,
+  "seme_bootstrap": 20261010,
+  "istante": "2026-10-14T09:25:36.669832+00:00"
+}

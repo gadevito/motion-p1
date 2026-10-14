@@ -343,13 +343,15 @@ def main() -> int:
                 zv = V[v]["e8_risultati"]["gruppi"].get(gr, {}).get("confronti", {}).get(nome)
                 if zv and "wce" in z and "wce" in zv:
                     mx = max(mx, abs(zv["wce"]["media"] - z["wce"]["media"])); n += 1
-        imp = {n_: (impronta(a.out / f"{n_}.json"), impronta(PROT / v / f"{n_}.json"))
-               for n_ in ("e6_scelta_gated", "e6a_scelta_gated")}
-        R["pems_controllo"][v] = {"confronti": n, "scarto_massimo_medie": mx, "impronte_scelte": imp}
+        sc_ug = {n_: C[n_]["scelta"] == V[v][n_]["scelta"] for n_ in ("e6_scelta_gated", "e6a_scelta_gated")}
+        R["pems_controllo"][v] = {"confronti": n, "scarto_massimo_medie": mx, "scelte_uguali": sc_ug}
         L.append(f"- ({v}): {n} confronti PEMS (E6, E6-bis, E6a, E8 PEMS08/PEMS04), scarto massimo sulle medie "
-                 f"**{mx:.1e}** ({'zero' if mx == 0 else 'NON zero'}); scelte (τ, N) PEMS08/PEMS04: impronte "
-                 + ", ".join(f"{k} {'uguali' if q[0] == q[1] else 'DIVERSE'}" for k, q in imp.items()) + ".")
+                 f"**{mx:.1e}**; scelte (τ, N) PEMS08/PEMS04 "
+                 + ", ".join(f"{k.split('_')[0]} {'uguale' if q else 'DIVERSA'}" for k, q in sc_ug.items()) + ".")
     L.append("")
+    L.append("I congelati vengono dal Mac, le varianti dalla Spark: uno scarto dell'ordine di 1e-8 sulle medie e' la "
+             "riproducibilita' fra le due macchine (registro, voce 22; controllo 1 dello stadio A eseguito sulla Spark), "
+             "non un effetto della variante, che su PEMS e' l'identita' per costruzione.\n")
 
     # ---- 8. sintesi -------------------------------------------------------------------------------
     L.append("## 8. Sintesi\n")
