@@ -178,11 +178,12 @@ def scrivi_D(ris: Path, f: Path) -> None:
     rapporto costo/beneficio; D3 le selezioni su validazione, E7 e le letture 3/3; D4 le altre
     dichiarazioni (E3, E3-bis, E4, E8, E8-bis) con Δ e segni. Una variante = una colonna di lettura."""
     R = json.loads((ris / "congelamento_e14b.json").read_text())
+    # numeri dal file rigenerato (ris); impronte citate: quelle dei file congelati nel repository
     imp = lambda x: hashlib.sha256(x.read_bytes()).hexdigest()[:16]
-    md = Path(__file__).resolve().parents[1] / "CONGELAMENTO_E14B.md"   # radice del repository, non la sandbox
-    fonte = (" Source: record \\texttt{CONGELAMENTO\\_E14B.md}, fingerprint \\texttt{" + imp(md) + "}; "
-             if md.exists() else " Source: ") + \
-        "\\texttt{congelamento\\_e14b.json}, fingerprint \\texttt{" + imp(ris / "congelamento_e14b.json") + "}."
+    rep = Path(__file__).resolve().parents[1]
+    md, js = rep / "CONGELAMENTO_E14B.md", rep / "results" / "evoluzione" / "congelamento_e14b.json"
+    fonte = " Source: record \\texttt{CONGELAMENTO\\_E14B.md}, fingerprint \\texttt{" + imp(md) + "}; " \
+        "\\texttt{congelamento\\_e14b.json}, fingerprint \\texttt{" + imp(js) + "}."
     V, soglia = R["varianti"], R["soglia_delta"]
     crit = (f"$\\Delta$ = re-evaluated $-$ frozen (means); insensitive if $|\\Delta|<{soglia:g}$ wCE with the same "
             "interval sign; the verdict changes if the interval sign changes ($-$: below zero; $+$: above; 0: "
@@ -249,13 +250,16 @@ def scrivi_D(ris: Path, f: Path) -> None:
         righe.append("E7 stage 1: hypothesis holds; stage 2a run & all & "
                      f"{'yes' if e7c['ipotesi_vale'] else 'no'}; {'yes' if e7c['stadio_2a'] else 'no'} & ({v}) "
                      f"{'yes' if e7v['ipotesi_vale'] else 'no'}; {'yes' if e7v['stadio_2a'] else 'no'} & "
-                     + ("unchanged" if e7c == e7v else "\\textbf{changes}") + " \\\\")
+                     + ("\\textbf{changes}" if R["sintesi"][v]["e7_cambia"] else "unchanged") + " \\\\")
+        si = lambda x: "holds" if x["concorda"] else "does not hold"
         for k, z in R["dichiarazioni"]["stesso_segno"].items():
             c, s, vv = k.split("/")
             if vv == v:
-                righe.append(f"3/3 reading, {DICH_EN[s]} & {CTX_EN[c]} & {''.join(z['congelato']['segni'])} & "
-                             f"({v}) {''.join(z['variante']['segni'])} & "
-                             + ("\\textbf{changes}" if z["cambia"] else "unchanged") + " \\\\")
+                righe.append(f"3/3 reading, {DICH_EN[s]} & {CTX_EN[c]} & "
+                             f"{''.join(z['congelato']['segni'])} ({si(z['congelato'])}) & "
+                             f"({v}) {''.join(z['variante']['segni'])} ({si(z['variante'])}) & "
+                             + ("\\textbf{reading changes}" if z["congelato"]["concorda"] != z["variante"]["concorda"]
+                                else "signs change, reading unchanged" if z["cambia"] else "unchanged") + " \\\\")
     out.append(_longtable(
         "@{}l l l l l@{}",
         "E14: validation selections redone under each variant ($(\\tau,N)$ of the gating policy, update budget $k$ "

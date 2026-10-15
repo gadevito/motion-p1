@@ -143,13 +143,15 @@ FASI = [
     F("E8", [A + "figura_e8bis.py"], [R_ + "curve_e8bis_punti.json"], figure=["curve_e8bis.png"]),
     F("E8", [A + "figura2_51.py"], [], figure=["figura2_51.png"]),
     F("E8", ["genera_congelamento_e8.py"], ["CONGELAMENTO_E8.md"]),
+    # E14 (difetto 21), stadio B: congelati rigenerati sopra contro i fasci delle varianti in protocol/e14b/
+    F("E14", ["genera_congelamento_e14b.py"], [R_ + "congelamento_e14b.json", "CONGELAMENTO_E14B.md"]),
 ]
 # figure del manoscritto: gli stessi script, con --lingua en, verso <paper>/figures/
 FIGURE_PAPER = [("E4", A + "analizza_e4.py", ["curva_e4.pdf", "traiettoria_e4.pdf"]),
                 ("E5", A + "analizza_e5.py", ["episodi_e5.pdf"]),
                 ("E8", A + "figura2_51.py", ["figura2_51.pdf"]),
                 ("E8", A + "figura_e8bis.py", ["curve_e8bis.pdf"])]
-ESPERIMENTI = ["ARCH", "E2", "E3", "E4", "E3bis", "E5", "E6", "E7", "E8"]
+ESPERIMENTI = ["ARCH", "E2", "E3", "E4", "E3bis", "E5", "E6", "E7", "E8", "E14"]
 
 
 # ---------------------------------------------------------------- impronte --
@@ -687,7 +689,7 @@ def main() -> int:
                 scrivi_C3(radice / RIS, dfig / "tableC3_operative.tex")
                 scrivi_C8(radice / RIS, dfig / "tableC8_classi.tex")
                 scrivi_C9(radice / RIS, dfig / "tableC9_orizzonti.tex")
-            if (radice / RIS / "congelamento_e14b.json").exists():   # supplementare D (E14, difetto 21)
+            if "E14" in a.solo:                     # supplementare D (E14, difetto 21)
                 from analysis.tabelle_suppl import scrivi_D
                 print("[paper] tabelle D del supplementare (E14)", flush=True)
                 scrivi_D(radice / RIS, dfig / "tableD_e14.tex")
