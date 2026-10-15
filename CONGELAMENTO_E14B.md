@@ -1,6 +1,6 @@
 # CONGELAMENTO E14 — stadio B: statica in variante su tutte le fasi (E2–E8-bis)
 
-Generato da `genera_congelamento_e14b.py` al commit `bbabdd6`, 2026-10-15 06:04 UTC. Protocollo: `protocol/E14.md` (stadio B, mandato del revisore 13/10). Nessun riaddestramento: punti di controllo della campagna; rifatte le sole fasi di valutazione, le selezioni su validazione e le analisi, con `OR3_STATICA=<variante>` (`inserimento.statica_cella`). Varianti nel fascio: **(c)** commit `5f63919`, fascio preparato 2026-10-13T18:24:03Z, 40 file, **(a)** commit `5f63919`, fascio preparato 2026-10-14T13:27:22Z, 40 file.
+Generato da `genera_congelamento_e14b.py` al commit `7860c36`, 2026-10-15 06:06 UTC. Protocollo: `protocol/E14.md` (stadio B, mandato del revisore 13/10). Nessun riaddestramento: punti di controllo della campagna; rifatte le sole fasi di valutazione, le selezioni su validazione e le analisi, con `OR3_STATICA=<variante>` (`inserimento.statica_cella`). Varianti nel fascio: **(c)** commit `5f63919`, fascio preparato 2026-10-13T18:24:03Z, 40 file, **(a)** commit `5f63919`, fascio preparato 2026-10-14T13:27:22Z, 40 file.
 
 Letture dichiarate. (1) La configurazione di F′ (`selezione_F_*`, fase 2 della campagna, fuori da E2–E8-bis) resta quella congelata. (2) Le selezioni su validazione — (τ, N) di E4, E6, E6a; k di E5; soglie di E8 — sono rifatte con la variante. (3) Su PEMS04/08 ogni variante e' l'identita' (copertura 1 per ogni sensore, stadio 0): quelle fasi sono il controllo a scarto zero della pipeline. (4) Il controllo di `ricostruisci_predizioni` contro gli aggregati conservati non e' bloccante sotto una variante (lo scarto e' l'effetto della variante, registrato in `controllo_*.json`).
 
@@ -334,8 +334,10 @@ E3-bis, equivalenza ±3 % di R-orig(1 sett.) e F′(1 sett.) per citta' (Madrid,
 
 ## 7. Controllo: PEMS08 e PEMS04 a scarto zero (variante = identita' per costruzione)
 
-- (c): 26 confronti PEMS (E6, E6-bis, E6a, E8 PEMS08/PEMS04), scarto massimo sulle medie **6.0e-08**; scelte (τ, N) PEMS08/PEMS04 e6 DIVERSA, e6a DIVERSA.
-- (a): 26 confronti PEMS (E6, E6-bis, E6a, E8 PEMS08/PEMS04), scarto massimo sulle medie **6.0e-08**; scelte (τ, N) PEMS08/PEMS04 e6 DIVERSA, e6a DIVERSA.
+- (c): 26 confronti PEMS (E6, E6-bis, E6a, E8 PEMS08/PEMS04), scarto massimo sulle medie **6.0e-08**; scelte (τ, N): PEMS08 uguale (Δ wCE di validazione -2.8e-09), PEMS04 uguale (Δ wCE di validazione +3.3e-09).
+- (a): 26 confronti PEMS (E6, E6-bis, E6a, E8 PEMS08/PEMS04), scarto massimo sulle medie **6.0e-08**; scelte (τ, N): PEMS08 uguale (Δ wCE di validazione -2.8e-09), PEMS04 uguale (Δ wCE di validazione +3.3e-09).
+
+Correzione 2026-10-15 (registro, voce 26, trovata durante la stesura del manoscritto): la prima versione di questa sezione confrontava l'intero record della scelta, compresa la wCE di validazione (che fra Mac e Spark differisce di ~1e-9), e marcava «DIVERSA» scelte con (τ, N) identici; ora si confrontano (τ, N) e la Δ della wCE si riporta a parte.
 
 I congelati vengono dal Mac, le varianti dalla Spark: uno scarto dell'ordine di 1e-8 sulle medie e' la riproducibilita' fra le due macchine (registro, voce 22; controllo 1 dello stadio A eseguito sulla Spark), non un effetto della variante, che su PEMS e' l'identita' per costruzione.
 
@@ -349,4 +351,4 @@ I congelati vengono dal Mac, le varianti dalla Spark: uno scarto dell'ordine di 
 - fascio (c): manifesto `60fdade8a5ce2f1a`, commit `5f63919`; `e5_risultati.json` de53ccb695733d3e, `e6_risultati.json` db1db414af2d4fd2, `e8_risultati.json` 2771580aeb81b221, `e4_scelta_gated.json` 4baf1c546477ed9d, `e8_soglie.json` c7e0e10aca863793
 - fascio (a): manifesto `5b0afee45e8520da`, commit `5f63919`; `e5_risultati.json` 5957c57531749586, `e6_risultati.json` f0a1e9edc124c9bb, `e8_risultati.json` 8f5f3add330b9119, `e4_scelta_gated.json` 13d9a1f9fc6faa6f, `e8_soglie.json` a7b61b22a267cd97
 - congelati: `e5_risultati` 04609880cbede25f, `e6_risultati` 7d8bdb9c51e24993, `e6a_risultati` 74c6c95bacfeffd1, `e4_risultati` bfd2b52b3d7440fe, `e8_risultati` bf1d1f68d6bb9292, `e8bis_risultati` a91dfbfbcb6a7fb1, `e4_scelta_gated` 5ec1d3a3df09a712, `e8_soglie` c863a6e2f0aa489b, `e7_stadio1` a5d0bbc9efe3478b, `e14b_livelli_congelata.json` 916c2e5883c81b9c.
-- `results/evoluzione/congelamento_e14b.json`: a3b2616d6ce2b01f.
+- `results/evoluzione/congelamento_e14b.json`: c4ba544cef2ea35f.

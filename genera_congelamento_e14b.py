@@ -343,12 +343,21 @@ def main() -> int:
                 zv = V[v]["e8_risultati"]["gruppi"].get(gr, {}).get("confronti", {}).get(nome)
                 if zv and "wce" in z and "wce" in zv:
                     mx = max(mx, abs(zv["wce"]["media"] - z["wce"]["media"])); n += 1
-        sc_ug = {n_: C[n_]["scelta"] == V[v][n_]["scelta"] for n_ in ("e6_scelta_gated", "e6a_scelta_gated")}
-        R["pems_controllo"][v] = {"confronti": n, "scarto_massimo_medie": mx, "scelte_uguali": sc_ug}
+        sc = {}
+        for n_, ctx in (("e6_scelta_gated", "PEMS08"), ("e6a_scelta_gated", "PEMS04")):
+            zc, zv = C[n_]["scelta"][ctx], V[v][n_]["scelta"][ctx]
+            sc[ctx] = {"tau_N_uguali": (zc["tau"], zc["N"]) == (zv["tau"], zv["N"]),
+                       "delta_wce_validazione": zv["wce_validazione"] - zc["wce_validazione"]}
+        R["pems_controllo"][v] = {"confronti": n, "scarto_massimo_medie": mx, "scelte": sc}
         L.append(f"- ({v}): {n} confronti PEMS (E6, E6-bis, E6a, E8 PEMS08/PEMS04), scarto massimo sulle medie "
-                 f"**{mx:.1e}**; scelte (τ, N) PEMS08/PEMS04 "
-                 + ", ".join(f"{k.split('_')[0]} {'uguale' if q else 'DIVERSA'}" for k, q in sc_ug.items()) + ".")
+                 f"**{mx:.1e}**; scelte (τ, N): "
+                 + ", ".join(f"{ctx} {'uguale' if q['tau_N_uguali'] else 'DIVERSA'} (Δ wCE di validazione "
+                             f"{q['delta_wce_validazione']:+.1e})" for ctx, q in sc.items()) + ".")
     L.append("")
+    L.append("Correzione 2026-10-15 (registro, voce 26, trovata durante la stesura del manoscritto): la prima versione di questa sezione "
+             "confrontava l'intero record della scelta, compresa la wCE di validazione (che fra Mac e Spark differisce "
+             "di ~1e-9), e marcava «DIVERSA» scelte con (τ, N) identici; ora si confrontano (τ, N) e la Δ della wCE "
+             "si riporta a parte.\n")
     L.append("I congelati vengono dal Mac, le varianti dalla Spark: uno scarto dell'ordine di 1e-8 sulle medie e' la "
              "riproducibilita' fra le due macchine (registro, voce 22; controllo 1 dello stadio A eseguito sulla Spark), "
              "non un effetto della variante, che su PEMS e' l'identita' per costruzione.\n")
