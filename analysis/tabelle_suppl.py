@@ -144,6 +144,10 @@ DICH_EN = {"a": r"(a) $F_0'-C$", "b": r"(b) gated$-F_0'$", "c": r"(c) $F'(1\,\ma
            "d": r"(d) $F'(24\,\mathrm{h})-C$", "e": r"(e) $F'(1\,\mathrm{wk})-A$"}
 FASE_EN = {"E3": "E3", "E3 veterani": "E3, veterans", "E3-bis": "E3-bis", "E4": "E4"}
 TAU_EN = {96: "24 h", 192: "48 h", 672: "1 wk"}
+# varianti di E14 per nome: (a)-(e) restano alle dichiarazioni
+VAR_EN = {"c": "permuted", "a": "causal", "b": "causal-b"}
+VAR_DEF = ("permuted variant: the scalar permuted across sensors; causal variant: the scalar computed from data "
+           "available at installation.")
 
 
 def _nome_e14(k: str) -> str:
@@ -202,26 +206,26 @@ def scrivi_D(ris: Path, f: Path) -> None:
             r = d["varianti"][v]
             righe.append(" & ".join([
                 CTX_EN[ctx] if ctx != prec and i == 0 else "", ep if i == 0 else "", DICH_EN[s] if i == 0 else "",
-                _ic(d["congelato"], scala=1.0, cifre=4) if i == 0 else "", f"({v})",
+                _ic(d["congelato"], scala=1.0, cifre=4) if i == 0 else "", VAR_EN[v],
                 _ic(r["valore"], scala=1.0, cifre=4), f"${r['delta']:+.4f}$",
                 _segni(r["segno_congelato"], r["segno_variante"]), _lettura(r)]) + " \\\\")
             prec = ctx
     out.append(_longtable(
         "@{}l c l c c c r c l@{}",
         "E14: the five pre-registered statements of the replication table of the paper, per context and installation episode, "
-        "frozen (non-causal coverage scalar) against each re-evaluation variant. Mean over cells and 95\\% interval "
+        "frozen (non-causal coverage scalar) against each re-evaluation variant (" + VAR_DEF[:-1] + "). Mean over cells and 95\\% interval "
         "from 4{,}000 joint resamples. " + crit,
         "Context & Ep. & Statement & Frozen & Var. & Re-evaluated & $\\Delta$ & Sign & Reading", righe, "tab:suppD1"))
     # D2 -------------------------------------------------------------------------------------------
     righe = []
     for c in ("Madrid", "Londra", "Melbourne"):
-        for i, ins in enumerate(["congelato"] + [f"({v})" for v in V]):
+        for i, (ins, nome) in enumerate([("congelato", "frozen")] + [(f"({v})", VAR_EN[v]) for v in V]):
             x = R["livelli"].get(f"{c}/{ins}")
             if x is None:
                 continue
             lv, df, rp = x["livelli"], x["differenze"], x["rapporto_F0C_su_AC"]
             q = {"media": -rp["media"], "ic": [-rp["ic"][1], -rp["ic"][0]]}
-            righe.append(" & ".join([CTX_EN[c] if i == 0 else "", "frozen" if i == 0 else ins]
+            righe.append(" & ".join([CTX_EN[c] if i == 0 else "", nome]
                                     + [f"{lv[a]['media']:.4f}" for a in ("C", "A", "F0", "F0p")]
                                     + [_ic({"media": df[a]["media"], "ic_con_nodi": df[a]["ic"]}, scala=1.0, cifre=4) for a in ("A-C", "F0-C")]
                                     + [f"${q['media']:.2f}$ \\scriptsize$[{q['ic'][0]:.2f}, {q['ic'][1]:.2f}]$"])
@@ -245,10 +249,10 @@ def scrivi_D(ris: Path, f: Path) -> None:
             righe.append(f"{fase} & {ctx} & {a} & {b} & " + ("\\textbf{changes}" if z["cambia"] else "unchanged") + " \\\\")
     for v in V:
         n, t = R["sintesi"][v]["soglie_e8_cambiate"]
-        righe.append(f"E8 thresholds (F1-opt., FA parity) & all & -- & ({v}) & {n} of {t} change \\\\")
+        righe.append(f"E8 thresholds (F1-opt., FA parity) & all & -- & {VAR_EN[v]} & {n} of {t} change \\\\")
         e7c, e7v = R["e7"]["congelato"]["decisione"], R["e7"][f"({v})"]["decisione"]
         righe.append("E7 stage 1: hypothesis holds; stage 2a run & all & "
-                     f"{'yes' if e7c['ipotesi_vale'] else 'no'}; {'yes' if e7c['stadio_2a'] else 'no'} & ({v}) "
+                     f"{'yes' if e7c['ipotesi_vale'] else 'no'}; {'yes' if e7c['stadio_2a'] else 'no'} & {VAR_EN[v]} "
                      f"{'yes' if e7v['ipotesi_vale'] else 'no'}; {'yes' if e7v['stadio_2a'] else 'no'} & "
                      + ("\\textbf{changes}" if R["sintesi"][v]["e7_cambia"] else "unchanged") + " \\\\")
         si = lambda x: "holds" if x["concorda"] else "does not hold"
@@ -257,7 +261,7 @@ def scrivi_D(ris: Path, f: Path) -> None:
             if vv == v:
                 righe.append(f"3/3 reading, {DICH_EN[s]} & {CTX_EN[c]} & "
                              f"{''.join(z['congelato']['segni'])} ({si(z['congelato'])}) & "
-                             f"({v}) {''.join(z['variante']['segni'])} ({si(z['variante'])}) & "
+                             f"{VAR_EN[v]} {''.join(z['variante']['segni'])} ({si(z['variante'])}) & "
                              + ("\\textbf{reading changes}" if z["congelato"]["concorda"] != z["variante"]["concorda"]
                                 else "signs change, reading unchanged" if z["cambia"] else "unchanged") + " \\\\")
     out.append(_longtable(
@@ -276,7 +280,7 @@ def scrivi_D(ris: Path, f: Path) -> None:
     for fase, ctx, conf, v, r in voci:
         if prec is not None and fase != prec:
             righe.append("\\addlinespace")
-        righe.append(" & ".join([fase if fase != prec else "", CTX_EN[ctx], _nome_e14(conf), f"({v})",
+        righe.append(" & ".join([fase if fase != prec else "", CTX_EN[ctx], _nome_e14(conf), VAR_EN[v],
                                  f"${r['delta']:+.4f}$", _segni(r["segno_congelato"], r["segno_variante"]),
                                  _lettura(r)]) + " \\\\")
         prec = fase
@@ -284,7 +288,7 @@ def scrivi_D(ris: Path, f: Path) -> None:
         eq = R["altre"]["e3bis_equivalenza"]
         sn = lambda l: "/".join("yes" if x else "no" for x in l)
         righe += ["\\addlinespace", f"E3-bis & cities & R-orig$(1\\,\\mathrm{{wk}})\\equiv F'(1\\,\\mathrm{{wk}})$ "
-                  f"$\\pm3\\%$ & ({v}) & -- & {sn(eq['congelato'])} $\\to$ {sn(eq[f'({v})'])} & "
+                  f"$\\pm3\\%$ & {VAR_EN[v]} & -- & {sn(eq['congelato'])} $\\to$ {sn(eq[f'({v})'])} & "
                   + ("unchanged" if eq["congelato"] == eq[f"({v})"] else "\\textbf{changes}") + " \\\\"]
     out.append(_longtable(
         "@{}l l l c r c l@{}",
