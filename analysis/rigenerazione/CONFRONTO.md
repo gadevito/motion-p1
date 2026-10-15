@@ -5,9 +5,9 @@ Generato da `analysis/main.py` (non modificare a mano). Ogni numero e' rigenerat
 - esito: **TUTTO COINCIDE**
 - esperimenti: ARCH, E2, E3, E4, E3bis, E5, E6, E7, E8, E14
 - tolleranza combinata: |Δ| ≤ 1e-10 + 1e-09·|congelato|
-- codice del confronto: `impronte.py` cafa4e13066b141f, `main.py` d50a06be5cac31b9, `tabelle_paper1.py` 123d7e9e52e3aabe, `tabelle_suppl.py` 0f33b54bb539adaf
+- codice del confronto: `impronte.py` cafa4e13066b141f, `main.py` b72abbd7aa243166, `tabelle_paper1.py` 123d7e9e52e3aabe, `tabelle_suppl.py` 0f33b54bb539adaf
 - risultati reali dopo l'esecuzione: invariati
-- manoscritto (fuori dal repository): commit `019905b199e356760366fee608263390376b22f3` (pulito); SHA-256 `main.tex` 3faeacc3e7f57ecd8c5b86481c884b79a512cf19b18d0b6dfa55832981b25ed6, `supplementary.tex` 6fdbd481e8ed97f917e78412af9f352ddf4bbaffd42c0a03d34cc80391141c0b
+- manoscritto (fuori dal repository): commit `b14cc6b1b066ac93f4a7b60f5c462e03081d3bf4` (pulito); SHA-256 `main.tex` 4e881c4786df3b2613834006c383377d959886c926db2207566e4032d9cb1ad9, `supplementary.tex` c9e500354a14576c7bd0669c8963f4bb090c283d389e9167acf41729ad8047ce
 - non coperto (ingressi, non rigenerati): addestramenti e valutazioni dei modelli sulle celle, adattamenti di E2, k della secondaria di E5, sensibilita' a rho, costi misurati (sessione unica, costi_tabella_sessione.json: letti e confrontati con il testo, non rimisurati), numeri del resoconto della campagna principale, dati di disegno (sensori, partizioni, semi)
 
 ## 1. Tabelle del Paper 1
@@ -147,6 +147,7 @@ Impronta = SHA-256 (16 cifre) dell'elenco ordinato (punto, valore a 12 cifre) di
 | fase | file | esito | numeri | diversi | scarto massimo | impronta congelato | impronta rigenerato |
 |---|---|---|---:|---:|---:|---|---|
 | `evoluzione/analisi/architettura_ck.py` | `architettura_ck.json` | ok | 2828 | 0 | 0 | 9a6024410ca9af1c | 9a6024410ca9af1c |
+| `evoluzione/analisi/figura_rete.py` | (solo figure) | ok | — | — | — | — | — |
 | `genera_congelamento_e2.py` | `congelamento_e2.json` | ok | 408 | 0 | 0 | b98132278a8d338f | b98132278a8d338f |
 | `genera_congelamento_e2.py` | `CONGELAMENTO_E2.md` | ok | — | 0 righe | — | — | — |
 | `evoluzione/analisi/analizza_e3.py --out results/evoluzione/analisi_e3.json` | `analisi_e3.json` | ok | 104 | 0 | 0 | e91b1ef89b13fef8 | e91b1ef89b13fef8 |
@@ -189,6 +190,7 @@ Impronta = SHA-256 (16 cifre) dell'elenco ordinato (punto, valore a 12 cifre) di
 | `genera_congelamento_e8.py` | `CONGELAMENTO_E8.md` | ok | — | 0 righe | — | — | — |
 | `genera_congelamento_e14b.py` | `congelamento_e14b.json` | ok | 1770 | 0 | 0 | c5c5712745c0fa59 | c5c5712745c0fa59 |
 | `genera_congelamento_e14b.py` | `CONGELAMENTO_E14B.md` | ok | — | 0 righe | — | — | — |
+| `evoluzione/analisi/figura_rete.py --lingua en` | (solo figure) | ok | — | — | — | — | — |
 | `evoluzione/analisi/analizza_e4.py --lingua en` | (solo figure) | ok | — | — | — | — | — |
 | `evoluzione/analisi/analizza_e5.py --lingua en` | (solo figure) | ok | — | — | — | — | — |
 | `evoluzione/analisi/figura2_51.py --lingua en` | (solo figure) | ok | — | — | — | — | — |
@@ -328,7 +330,7 @@ Informativo. Per ogni file di codice con impronta citata diversa da quella attua
 | `evoluzione/esperimenti/esegui_e4.py` | `CONGELAMENTO_E4.md` | `b8fbdf050a27f487` | `dadd2dc2dcb5` 2026-10-03 | `4025ad91c480` 2026-10-13 E14 stadio B: statica_cella in inserimento.py (variante da OR3_STATICA, assente = bit per <br>`c3e6cb303823` 2026-10-15 Statica causale predefinita (correzione del difetto 21, dopo E14): OR3_STATICA assente = c |
 | `evoluzione/esperimenti/costi_e4.py` | `CONGELAMENTO_E4.md` | `c56d0883d7ca775c` | `5af016944005` 2026-10-04 | `c3e6cb303823` 2026-10-15 Statica causale predefinita (correzione del difetto 21, dopo E14): OR3_STATICA assente = c |
 | `evoluzione/analisi/analizza_e4.py` | `CONGELAMENTO_E4.md` | `1fb316ed0a0ae223` | `5af016944005` 2026-10-04 | `680b35ef7a1c` 2026-10-04 E5: F'(1 sett.) - A, calendario e potenza derivati; protocol/E5.md con le quattro righe de<br>`d8ef81299651` 2026-10-10 paper1: analysis/main.py, prima versione — **etichette** |
-| `analysis/main.py` | `CONGELAMENTO_E5.md` | `52cdd962ff9888f6` | non presente nella storia git (stato non committato al congelamento) | `d8ef81299651` 2026-10-10 paper1: analysis/main.py, prima versione — **etichette**<br>`acfc69dc0067` 2026-10-10 paper1: main.py — origini comuni di E6, storia del codice cambiato dopo i congelamenti<br>`b7fd4a96a09f` 2026-10-10 paper1: main.py — coerenza per contenuto di E3, cambi di sole etichette<br>`c8e60b99eebd` 2026-10-11 paper1: main.py — tempi di Tab. II dalla sessione unica<br>`109db629195b` 2026-10-11 paper1: main.py — figure PDF deterministiche (SOURCE_DATE_EPOCH)<br>`ea02d713e44f` 2026-10-12 paper1: impronta canonica dei file di scelta<br>`74c8cbf7d185` 2026-10-12 paper1: main.py — manoscritto fuori dal repo<br>`aef38eefb46a` 2026-10-12 paper1: main.py — tabelle C.3, C.8, C.9 del supplementare<br>`f79e61e6f178` 2026-10-13 paper1: main.py — tolleranza combinata; indice delle impronte deterministico<br>`f182f7e278a7` 2026-10-14 paper1: supplementare D (E14) da congelamento_e14b.json — scrivi_D in tabelle_suppl, chiam<br>`720e3b44fb49` 2026-10-15 paper1: main.py rigenera congelamento_e14b.json (fase E14) e scrive le tabelle D; D cita l |
+| `analysis/main.py` | `CONGELAMENTO_E5.md` | `52cdd962ff9888f6` | non presente nella storia git (stato non committato al congelamento) | `d8ef81299651` 2026-10-10 paper1: analysis/main.py, prima versione — **etichette**<br>`acfc69dc0067` 2026-10-10 paper1: main.py — origini comuni di E6, storia del codice cambiato dopo i congelamenti<br>`b7fd4a96a09f` 2026-10-10 paper1: main.py — coerenza per contenuto di E3, cambi di sole etichette<br>`c8e60b99eebd` 2026-10-11 paper1: main.py — tempi di Tab. II dalla sessione unica<br>`109db629195b` 2026-10-11 paper1: main.py — figure PDF deterministiche (SOURCE_DATE_EPOCH)<br>`ea02d713e44f` 2026-10-12 paper1: impronta canonica dei file di scelta<br>`74c8cbf7d185` 2026-10-12 paper1: main.py — manoscritto fuori dal repo<br>`aef38eefb46a` 2026-10-12 paper1: main.py — tabelle C.3, C.8, C.9 del supplementare<br>`f79e61e6f178` 2026-10-13 paper1: main.py — tolleranza combinata; indice delle impronte deterministico<br>`f182f7e278a7` 2026-10-14 paper1: supplementare D (E14) da congelamento_e14b.json — scrivi_D in tabelle_suppl, chiam<br>`720e3b44fb49` 2026-10-15 paper1: main.py rigenera congelamento_e14b.json (fase E14) e scrive le tabelle D; D cita l<br>`ce247e0a1fd8` 2026-10-15 paper1: figura della rete (figura_rete.py) a colori dalle dimensioni di architettura_ck.js |
 | `evoluzione/esperimenti/addestramento.py` | `CONGELAMENTO_E5.md` | `f5d69a789aadd479` | `fda754ec150f` 2026-10-07 | `c3e6cb303823` 2026-10-15 Statica causale predefinita (correzione del difetto 21, dopo E14): OR3_STATICA assente = c |
 | `evoluzione/esperimenti/esegui_e5.py` | `CONGELAMENTO_E5.md` | `f08dd758210319e2` | `820d419c9649` 2026-10-06 | `4025ad91c480` 2026-10-13 E14 stadio B: statica_cella in inserimento.py (variante da OR3_STATICA, assente = bit per <br>`c3e6cb303823` 2026-10-15 Statica causale predefinita (correzione del difetto 21, dopo E14): OR3_STATICA assente = c |
 | `protocol/E6.md` | `CONGELAMENTO_E6.md` | `c7a6583897215545` | `f5d7a8d394dd` 2026-10-07 | `13413a8fa71a` 2026-10-13 Difetto 23: frequenze_classi.py legge gli artefatti usati (pesi_griglia, pesi_pems04, pesi |
@@ -365,6 +367,7 @@ Informativo, non fa fallire: il file di codice e' cambiato dopo il congelamento,
 
 ## 9. Figure (script esistenti)
 
+- `figure/rete.png` da `evoluzione/analisi/figura_rete.py`: prodotta
 - `figure/curva_e4.png` da `evoluzione/analisi/analizza_e4.py`: prodotta
 - `figure/traiettoria_e4.png` da `evoluzione/analisi/analizza_e4.py`: prodotta
 - `figure/griglia_e4.png` da `evoluzione/analisi/analizza_e4.py`: prodotta
@@ -373,6 +376,7 @@ Informativo, non fa fallire: il file di codice e' cambiato dopo il congelamento,
 - `figure/e7_stadio1.png` da `evoluzione/analisi/e7_stadio1.py`: prodotta
 - `figure/curve_e8bis.png` da `evoluzione/analisi/figura_e8bis.py`: prodotta
 - `figure/figura2_51.png` da `evoluzione/analisi/figura2_51.py`: prodotta
+- `<paper>/figures/rete.pdf` da `evoluzione/analisi/figura_rete.py --lingua en`: prodotta
 - `<paper>/figures/curva_e4.pdf` da `evoluzione/analisi/analizza_e4.py --lingua en`: prodotta
 - `<paper>/figures/traiettoria_e4.pdf` da `evoluzione/analisi/analizza_e4.py --lingua en`: prodotta
 - `<paper>/figures/episodi_e5.pdf` da `evoluzione/analisi/analizza_e5.py --lingua en`: prodotta
