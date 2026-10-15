@@ -1,0 +1,777 @@
+{
+  "data": "2026-10-15",
+  "percorsi": {
+    "sensibilita": "results/evoluzione/sensibilita_rho_e2.json",
+    "adeguatezza": "results/evoluzione/adeguatezza_E1.json"
+  },
+  "sensibilita": {
+    "contesto": "Madrid",
+    "partizione": 0,
+    "semi": [
+      201,
+      202,
+      203,
+      204
+    ],
+    "rho": [
+      0.05,
+      0.15,
+      0.3
+    ],
+    "rho_campagna": 0.15,
+    "confronti": {
+      "0.05": {
+        "F0p-C": {
+          "media": 0.032878742945402606,
+          "per_seme": [
+            0.027920512261656927,
+            0.028588129609508295,
+            0.037302033864190176,
+            0.037704296046255026
+          ],
+          "ic_semi_nodi": [
+            0.02466844103947926,
+            0.042000213480277764
+          ]
+        },
+        "Fp-C": {
+          "media": -0.021919578966197284,
+          "per_seme": [
+            -0.02141134038208692,
+            -0.020131415555357357,
+            -0.02275303722862332,
+            -0.023382522698721542
+          ],
+          "ic_semi_nodi": [
+            -0.028069407909166157,
+            -0.015810146344775802
+          ]
+        }
+      },
+      "0.15": {
+        "F0p-C": {
+          "media": 0.00973517332562801,
+          "per_seme": [
+            0.013387021217766804,
+            0.009511944204305123,
+            0.006695069558311784,
+            0.009346658322128332
+          ],
+          "ic_semi_nodi": [
+            0.0062142172163834105,
+            0.013601832639951768
+          ]
+        },
+        "Fp-C": {
+          "media": -0.020986554754886144,
+          "per_seme": [
+            -0.018840463767550886,
+            -0.018161657841939793,
+            -0.022395394050832018,
+            -0.02454870335922188
+          ],
+          "ic_semi_nodi": [
+            -0.027580656958359973,
+            -0.014499270294922562
+          ]
+        }
+      },
+      "0.30": {
+        "F0p-C": {
+          "media": 0.002632329876988637,
+          "per_seme": [
+            0.0044004091712940285,
+            0.0027622963411644275,
+            0.000725894045878972,
+            0.0026407199496171208
+          ],
+          "ic_semi_nodi": [
+            0.0002728440835797586,
+            0.004812382110342448
+          ]
+        },
+        "Fp-C": {
+          "media": -0.020610280705040535,
+          "per_seme": [
+            -0.01745014147809043,
+            -0.021031987715206868,
+            -0.0228385911255905,
+            -0.021120402501274338
+          ],
+          "ic_semi_nodi": [
+            -0.02663358199166908,
+            -0.01454399616739855
+          ]
+        }
+      }
+    },
+    "per_seme": {
+      "0.05": [
+        {
+          "rho": 0.05,
+          "seme": 201,
+          "impronta_ck": "636d7a8e0d4a314d",
+          "rapporto_norma_token": 1.1293533626090164,
+          "distanza_dalla_media": 0.40995001001709463,
+          "veterani_rel": -0.0015944766509409522
+        },
+        {
+          "rho": 0.05,
+          "seme": 202,
+          "impronta_ck": "bde29b962b26fcc5",
+          "rapporto_norma_token": 1.0771961315596053,
+          "distanza_dalla_media": 0.44157841566443845,
+          "veterani_rel": -0.00014331359691785903
+        },
+        {
+          "rho": 0.05,
+          "seme": 203,
+          "impronta_ck": "9f51c97af25d3d68",
+          "rapporto_norma_token": 0.37968788723817365,
+          "distanza_dalla_media": 0.1946484091295113,
+          "veterani_rel": -0.0009197038255984721
+        },
+        {
+          "rho": 0.05,
+          "seme": 204,
+          "impronta_ck": "47b1a9738e07ff93",
+          "rapporto_norma_token": 0.48007958476005624,
+          "distanza_dalla_media": 0.2129445187516092,
+          "veterani_rel": -0.002040528457573507
+        }
+      ],
+      "0.15": [
+        {
+          "rho": 0.15,
+          "seme": 201,
+          "impronta_ck": "d4cff9528e82f432",
+          "rapporto_norma_token": 1.4757028339245601,
+          "distanza_dalla_media": 0.4952237702485756,
+          "veterani_rel": -0.0003735423146793975
+        },
+        {
+          "rho": 0.15,
+          "seme": 202,
+          "impronta_ck": "6504f58c4dfcb21f",
+          "rapporto_norma_token": 1.5473129190049224,
+          "distanza_dalla_media": 0.6667945397905318,
+          "veterani_rel": -0.00021137081569782925
+        },
+        {
+          "rho": 0.15,
+          "seme": 203,
+          "impronta_ck": "36c20c1ad2ea9867",
+          "rapporto_norma_token": 1.322259697480313,
+          "distanza_dalla_media": 0.5576710077401389,
+          "veterani_rel": 8.015344650389515e-06
+        },
+        {
+          "rho": 0.15,
+          "seme": 204,
+          "impronta_ck": "be5d724dfd90b70d",
+          "rapporto_norma_token": 1.177918986146449,
+          "distanza_dalla_media": 0.515581395781719,
+          "veterani_rel": -0.0022486304525263707
+        }
+      ],
+      "0.30": [
+        {
+          "rho": 0.3,
+          "seme": 201,
+          "impronta_ck": "a3b6885930c21d5b",
+          "rapporto_norma_token": 1.7301753480365287,
+          "distanza_dalla_media": 0.6365723703660545,
+          "veterani_rel": -0.0007546202549528775
+        },
+        {
+          "rho": 0.3,
+          "seme": 202,
+          "impronta_ck": "c752c80261ce6514",
+          "rapporto_norma_token": 1.4286600538992067,
+          "distanza_dalla_media": 0.6570632342570835,
+          "veterani_rel": 0.0003034694046719524
+        },
+        {
+          "rho": 0.3,
+          "seme": 203,
+          "impronta_ck": "9f5c1d11cdae9c12",
+          "rapporto_norma_token": 1.3615551554034169,
+          "distanza_dalla_media": 0.6142954200477185,
+          "veterani_rel": 0.0003972158914473926
+        },
+        {
+          "rho": 0.3,
+          "seme": 204,
+          "impronta_ck": "a39241de3b398351",
+          "rapporto_norma_token": 1.070500590553879,
+          "distanza_dalla_media": 0.5161467436872944,
+          "veterani_rel": -6.101595640031721e-05
+        }
+      ]
+    },
+    "repliche": 4000,
+    "seme_bootstrap": 20260930,
+    "nota": "figura, non criterio: intervallo su semi (4) e nodi, una sola partizione; non confrontabile con gli intervalli a tre livelli della campagna",
+    "figura": "figure/sensibilita_rho_e2.png",
+    "ore_calendario_addestramento": 1.387366357445717,
+    "istante": "2026-09-30T13:33:04.316580+00:00"
+  },
+  "adeguatezza": {
+    "contesto": "Madrid",
+    "partizione": 0,
+    "seme": 201,
+    "rho": 0.15,
+    "tetto": 4580,
+    "punti": [
+      35,
+      229,
+      458,
+      687,
+      916,
+      1145,
+      1374,
+      1603,
+      1832,
+      2061,
+      2290,
+      2519,
+      2748,
+      2977,
+      3206,
+      3435,
+      3664,
+      3893,
+      4122,
+      4351,
+      4580
+    ],
+    "bracci": [
+      "E",
+      "E1"
+    ],
+    "curve": {
+      "E": [
+        {
+          "aggiornamento": 35,
+          "training": 1.0476806163787842,
+          "V-full": 1.0258847553538981,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 229,
+          "training": 0.9340225458145142,
+          "V-full": 0.937609393732998,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 458,
+          "training": 0.9215384721755981,
+          "V-full": 0.9291405042630745,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 687,
+          "training": 0.9319930672645569,
+          "V-full": 0.924552982925527,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 916,
+          "training": 0.9332293272018433,
+          "V-full": 0.9245406009704858,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 1145,
+          "training": 0.9230684041976929,
+          "V-full": 0.9233595455585112,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 1374,
+          "training": 0.9288276433944702,
+          "V-full": 0.9201019555003944,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 1603,
+          "training": 0.9250505566596985,
+          "V-full": 0.9198886518378566,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 1832,
+          "training": 0.9202063083648682,
+          "V-full": 0.918322113146312,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 2061,
+          "training": 0.923001229763031,
+          "V-full": 0.9182742596432476,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 2290,
+          "training": 0.91890949010849,
+          "V-full": 0.9193076196140221,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 2519,
+          "training": 0.9176273941993713,
+          "V-full": 0.9175879817459591,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 2748,
+          "training": 0.9360618591308594,
+          "V-full": 0.9153086558637573,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 2977,
+          "training": 0.9275597929954529,
+          "V-full": 0.9137341560166525,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 3206,
+          "training": 0.9181017875671387,
+          "V-full": 0.9104374781396625,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 3435,
+          "training": 0.9297232031822205,
+          "V-full": 0.9104191164116229,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 3664,
+          "training": 0.9156031608581543,
+          "V-full": 0.9083775715159843,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 3893,
+          "training": 0.912077784538269,
+          "V-full": 0.9082274417297511,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 4122,
+          "training": 0.9179930686950684,
+          "V-full": 0.9109889941851158,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 4351,
+          "training": 0.9148563146591187,
+          "V-full": 0.9070659317513114,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 4580,
+          "training": 0.9105480909347534,
+          "V-full": 0.9045520874064985,
+          "celle": 3251081
+        }
+      ],
+      "E1": [
+        {
+          "aggiornamento": 35,
+          "training": 1.048014760017395,
+          "V-full": 1.0260451595862503,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 229,
+          "training": 0.9419382214546204,
+          "V-full": 0.9394162385894131,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 458,
+          "training": 0.9328147768974304,
+          "V-full": 0.9317312907955413,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 687,
+          "training": 0.9415123462677002,
+          "V-full": 0.9265981681196165,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 916,
+          "training": 0.9418067932128906,
+          "V-full": 0.9268223377964445,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 1145,
+          "training": 0.9293662309646606,
+          "V-full": 0.9244252515394662,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 1374,
+          "training": 0.9348922371864319,
+          "V-full": 0.9215229917463449,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 1603,
+          "training": 0.9324145317077637,
+          "V-full": 0.9212279620207454,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 1832,
+          "training": 0.9298257827758789,
+          "V-full": 0.918831234441857,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 2061,
+          "training": 0.9308863878250122,
+          "V-full": 0.9196470771514466,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 2290,
+          "training": 0.9249401688575745,
+          "V-full": 0.9193635589197786,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 2519,
+          "training": 0.9272212386131287,
+          "V-full": 0.9188450903463983,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 2748,
+          "training": 0.9439107179641724,
+          "V-full": 0.9168657679909262,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 2977,
+          "training": 0.9351935982704163,
+          "V-full": 0.9137809884133242,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 3206,
+          "training": 0.9271519184112549,
+          "V-full": 0.9121401730841814,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 3435,
+          "training": 0.9373721480369568,
+          "V-full": 0.9127038950405313,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 3664,
+          "training": 0.9241515398025513,
+          "V-full": 0.9106305242409666,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 3893,
+          "training": 0.9194435477256775,
+          "V-full": 0.9094972496826239,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 4122,
+          "training": 0.9270167350769043,
+          "V-full": 0.9136907288042797,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 4351,
+          "training": 0.9269611239433289,
+          "V-full": 0.9087441663250578,
+          "celle": 3251081
+        },
+        {
+          "aggiornamento": 4580,
+          "training": 0.9209170937538147,
+          "V-full": 0.9061952866224887,
+          "celle": 3251081
+        }
+      ]
+    },
+    "riproduce_campagna": {
+      "E": {
+        "scarto_massimo": 0.0,
+        "punti": 11
+      },
+      "E1": {
+        "scarto_massimo": 0.0,
+        "punti": 11
+      }
+    },
+    "selezione": {
+      "E": {
+        "2290": {
+          "aggiornamento": 2061,
+          "V-full": 0.9182742596432476
+        },
+        "4580": {
+          "aggiornamento": 4580,
+          "V-full": 0.9045520874064985
+        }
+      },
+      "E1": {
+        "2290": {
+          "aggiornamento": 1832,
+          "V-full": 0.918831234441857
+        },
+        "4580": {
+          "aggiornamento": 4580,
+          "V-full": 0.9061952866224887
+        }
+      }
+    },
+    "ordine": {
+      "2290": "E < E1",
+      "4580": "E < E1"
+    },
+    "ordine_invariato": true,
+    "miglioramento_relativo_oltre_2290": {
+      "E": 0.014943435572374862,
+      "E1": 0.013752196644734186
+    },
+    "secondi": {
+      "E": 5454.526612997055,
+      "E1": 5454.635279893875
+    },
+    "nota_tempi": "in concorrenza: non entrano nella tabella dei costi",
+    "manifesti": {
+      "E": "results/evoluzione/registro/20260930T102408-0ed10438.json",
+      "E1": "results/evoluzione/registro/20260930T102408-94ca92ff.json"
+    },
+    "ore_calendario": 1.5159232058789995,
+    "istante": "2026-09-30T11:55:05.273266+00:00"
+  },
+  "commit": "5f63919958bb",
+  "rho": {
+    "rho": 0.15,
+    "manifesti": 108
+  },
+  "esecuzioni": {
+    "attesi": 108,
+    "completati": 108,
+    "ore_calendario": 16.40131404750877,
+    "fallite_ultimo_lancio": 0,
+    "gia_fatte_ultimo_lancio": 0,
+    "somma_parete_ore": 127.17045627892017,
+    "protocollo": "griglia_E1",
+    "lavoratori": 8,
+    "fili": 1
+  },
+  "token": {
+    "n": 108,
+    "norma_token_mediana": 0.5520609224342861,
+    "rapporto_mediano": 1.204432890632157,
+    "rapporto_min": 0.49593301786855476,
+    "rapporto_max": 1.8887814512158758,
+    "distanza_dalla_media_mediana": 0.5625558949873701,
+    "distanza_dalla_media_min": 0.2410203867895045
+  },
+  "veterani": {
+    "celle": 108,
+    "soglia": 0.01,
+    "oltre_soglia": 0,
+    "mediana_rel": 0.00024160340937106847,
+    "max_rel": 0.008652545497313115,
+    "min_rel": -0.004683133149015896,
+    "valutazioni_bracci": 324
+  },
+  "appaiamento": {
+    "celle": 108,
+    "ricalcoli": 6,
+    "anomalie": []
+  },
+  "confronti": {
+    "Madrid/F0p-C": {
+      "media": 0.00820216393476533,
+      "ic_con_nodi": [
+        0.00576703024319879,
+        0.010944811685651522
+      ],
+      "include_zero": false,
+      "etichetta": "1. F0' - C      trasferimento"
+    },
+    "Madrid/F0p-F0": {
+      "media": -0.0655089457829987,
+      "ic_con_nodi": [
+        -0.07992337339760358,
+        -0.05184588900859627
+      ],
+      "include_zero": false,
+      "etichetta": "2. F0' - F0     embedding medio"
+    },
+    "Madrid/Fp-C": {
+      "media": -0.011500761066209737,
+      "ic_con_nodi": [
+        -0.020571499390652337,
+        -0.0022428829549162614
+      ],
+      "include_zero": false,
+      "etichetta": "3. F' - C       adattamento"
+    },
+    "Madrid/F0p-F0meanp": {
+      "media": -0.036293998020114286,
+      "ic_con_nodi": [
+        -0.04593925964124446,
+        -0.02758196861498296
+      ],
+      "include_zero": false,
+      "etichetta": "F0' - F0mean' token"
+    },
+    "Madrid/Fp-F": {
+      "media": -0.0005599227053955133,
+      "ic_con_nodi": [
+        -0.0028283766013547256,
+        0.0017340208319449855
+      ],
+      "include_zero": true,
+      "etichetta": "F' - F       supporto"
+    },
+    "Londra/F0p-C": {
+      "media": 0.012665050536355535,
+      "ic_con_nodi": [
+        0.009496668999610266,
+        0.016535254859266605
+      ],
+      "include_zero": false,
+      "etichetta": "1. F0' - C      trasferimento"
+    },
+    "Londra/F0p-F0": {
+      "media": -0.037121060893345686,
+      "ic_con_nodi": [
+        -0.049165631948561266,
+        -0.02630035986068282
+      ],
+      "include_zero": false,
+      "etichetta": "2. F0' - F0     embedding medio"
+    },
+    "Londra/Fp-C": {
+      "media": 0.03339325203660199,
+      "ic_con_nodi": [
+        0.02368097083533042,
+        0.044929152200501775
+      ],
+      "include_zero": false,
+      "etichetta": "3. F' - C       adattamento"
+    },
+    "Londra/F0p-F0meanp": {
+      "media": -0.021193033027563025,
+      "ic_con_nodi": [
+        -0.0306426294173888,
+        -0.012527675794871159
+      ],
+      "include_zero": false,
+      "etichetta": "F0' - F0mean' token"
+    },
+    "Londra/Fp-F": {
+      "media": -0.0061933280850920425,
+      "ic_con_nodi": [
+        -0.011403434404188416,
+        -0.0010967580070781306
+      ],
+      "include_zero": false,
+      "etichetta": "F' - F       supporto"
+    },
+    "Melbourne/F0p-C": {
+      "media": 0.0009942549037875602,
+      "ic_con_nodi": [
+        -0.005569582619816783,
+        0.006891801672229877
+      ],
+      "include_zero": true,
+      "etichetta": "1. F0' - C      trasferimento"
+    },
+    "Melbourne/F0p-F0": {
+      "media": -0.0731981477977904,
+      "ic_con_nodi": [
+        -0.0946079987132538,
+        -0.050893677296114596
+      ],
+      "include_zero": false,
+      "etichetta": "2. F0' - F0     embedding medio"
+    },
+    "Melbourne/Fp-C": {
+      "media": -0.02439107266221322,
+      "ic_con_nodi": [
+        -0.034421465442834816,
+        -0.013894243098571606
+      ],
+      "include_zero": false,
+      "etichetta": "3. F' - C       adattamento"
+    },
+    "Melbourne/F0p-F0meanp": {
+      "media": -0.0403854361741418,
+      "ic_con_nodi": [
+        -0.054691264932783534,
+        -0.026415876818899002
+      ],
+      "include_zero": false,
+      "etichetta": "F0' - F0mean' token"
+    },
+    "Melbourne/Fp-F": {
+      "media": -0.006873661520316999,
+      "ic_con_nodi": [
+        -0.015062900243054948,
+        0.0007549074778324573
+      ],
+      "include_zero": true,
+      "etichetta": "F' - F       supporto"
+    }
+  },
+  "celle": {
+    "Madrid": {
+      "semi": 12,
+      "partizioni": 3,
+      "nodi": 135
+    },
+    "Londra": {
+      "semi": 12,
+      "partizioni": 3,
+      "nodi": 135
+    },
+    "Melbourne": {
+      "semi": 12,
+      "partizioni": 3,
+      "nodi": 90
+    }
+  },
+  "criterio": {
+    "condizione_1_citta": 1,
+    "condizione_3_citta": 2,
+    "soddisfatto": false
+  },
+  "repliche": 4000,
+  "seme_bootstrap": 20260930,
+  "impronte": {
+    "evoluzione/esperimenti/esegui_E.py": "87abfd761022c868",
+    "evoluzione/esperimenti/addestramento.py": "f5d69a789aadd479",
+    "evoluzione/componente/identita.py": "e13498ad4f3aea18",
+    "evoluzione/componente/adattamento.py": "ce88e086bcbdddba",
+    "evoluzione/componente/canonico.py": "13159f040bde67f1",
+    "evoluzione/esperimenti/esegui_e2.py": "08f09ba3577ef412",
+    "evoluzione/esperimenti/ricostruisci_predizioni.py": "3d50c8754921abc3",
+    "evoluzione/analisi/analizza_e2.py": "d50afaf7aad4534c",
+    "evoluzione/analisi/verifica_appaiamento.py": "e8869fa4589e09f9",
+    "evoluzione/esperimenti/adeguatezza_E1.py": "d006022ce5529bd7",
+    "evoluzione/esperimenti/sensibilita_rho_e2.py": "cf347e585b8f6c6f",
+    "protocol/E2.md": "14a94b8a2bebc7e5"
+  }
+}

@@ -1,0 +1,2165 @@
+{
+  "data": "2026-10-15",
+  "commit": "5f63919958bb",
+  "stadio1": {
+    "impronta_scelta_e4": "48a65c89715ad991",
+    "impronta_k": "4dfa7a399ce23a0e",
+    "N": {
+      "Madrid": 77,
+      "Londra": 154,
+      "Melbourne": 154
+    },
+    "gruppi": {
+      "Madrid/ep1/D1/sotto": {
+        "nd": true,
+        "nodi_per_cella": 0.0
+      },
+      "Madrid/ep1/D1/sopra": {
+        "media": -0.030759067679684966,
+        "ic": [
+          -0.03617529455740731,
+          -0.025838714539417707
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 135.0
+      },
+      "Madrid/ep1/D2/sotto": {
+        "nd": true,
+        "nodi_per_cella": 0.0
+      },
+      "Madrid/ep1/D2/sopra": {
+        "media": -0.011331773168159741,
+        "ic": [
+          -0.020336760798524194,
+          -0.0022669004784588525
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 135.0
+      },
+      "Madrid/ep1/D3/sotto": {
+        "nd": true,
+        "nodi_per_cella": 0.0
+      },
+      "Madrid/ep1/D3/sopra": {
+        "media": -0.011331773168159741,
+        "ic": [
+          -0.020930168984376663,
+          -0.0024353717966360457
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 135.0
+      },
+      "Madrid/ep2/D1/sotto": {
+        "nd": true,
+        "nodi_per_cella": 0.0
+      },
+      "Madrid/ep2/D1/sopra": {
+        "media": -0.035354225262000744,
+        "ic": [
+          -0.04210295534602165,
+          -0.02961761631198178
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 135.0
+      },
+      "Madrid/ep2/D2/sotto": {
+        "nd": true,
+        "nodi_per_cella": 0.0
+      },
+      "Madrid/ep2/D2/sopra": {
+        "media": -0.011973603665730328,
+        "ic": [
+          -0.020109878474046765,
+          -0.004262220938372839
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 135.0
+      },
+      "Madrid/ep2/D3/sotto": {
+        "nd": true,
+        "nodi_per_cella": 0.0
+      },
+      "Madrid/ep2/D3/sopra": {
+        "media": -0.011973603665730328,
+        "ic": [
+          -0.020087653769991956,
+          -0.0042237663827622415
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 135.0
+      },
+      "Madrid/ep3/D1/sotto": {
+        "nd": true,
+        "nodi_per_cella": 0.0
+      },
+      "Madrid/ep3/D1/sopra": {
+        "media": -0.036046198754773245,
+        "ic": [
+          -0.044063551768969304,
+          -0.029602456822278092
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 135.0
+      },
+      "Madrid/ep3/D2/sotto": {
+        "nd": true,
+        "nodi_per_cella": 0.0
+      },
+      "Madrid/ep3/D2/sopra": {
+        "media": 0.01015460388737026,
+        "ic": [
+          -0.005212591125118091,
+          0.02574030243739072
+        ],
+        "esclude_zero": false,
+        "nodi_per_cella": 135.0
+      },
+      "Madrid/ep3/D3/sotto": {
+        "nd": true,
+        "nodi_per_cella": 0.0
+      },
+      "Madrid/ep3/D3/sopra": {
+        "media": 0.01015460388737026,
+        "ic": [
+          -0.00425234793250951,
+          0.025924083399029314
+        ],
+        "esclude_zero": false,
+        "nodi_per_cella": 135.0
+      },
+      "Londra/ep1/D1/sotto": {
+        "media": -0.030194107302018547,
+        "ic": [
+          -0.03703927612304682,
+          -0.023609765654368307
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 99.0
+      },
+      "Londra/ep1/D1/sopra": {
+        "media": -0.03230140924000429,
+        "ic": [
+          -0.04144362779094046,
+          -0.023952911214044463
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 36.0
+      },
+      "Londra/ep1/D2/sotto": {
+        "media": 0.04512194255671995,
+        "ic": [
+          0.031239971886854057,
+          0.060622293687476105
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 99.0
+      },
+      "Londra/ep1/D2/sopra": {
+        "media": 0.006480250087105461,
+        "ic": [
+          -0.006289075083532986,
+          0.019024859302907933
+        ],
+        "esclude_zero": false,
+        "nodi_per_cella": 36.0
+      },
+      "Londra/ep1/D3/sotto": {
+        "media": -0.0035275431574827956,
+        "ic": [
+          -0.008543132584380844,
+          0.001709691830683365
+        ],
+        "esclude_zero": false,
+        "nodi_per_cella": 99.0
+      },
+      "Londra/ep1/D3/sopra": {
+        "media": 0.0013034892462271716,
+        "ic": [
+          -0.0066377159494856106,
+          0.011005905674287822
+        ],
+        "esclude_zero": false,
+        "nodi_per_cella": 36.0
+      },
+      "Londra/ep2/D1/sotto": {
+        "media": -0.029545898179644346,
+        "ic": [
+          -0.03685077127872089,
+          -0.0223579692739205
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 69.66666666666667
+      },
+      "Londra/ep2/D1/sopra": {
+        "media": -0.020603045034152796,
+        "ic": [
+          -0.027537144487148637,
+          -0.014449136364214365
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 65.33333333333333
+      },
+      "Londra/ep2/D2/sotto": {
+        "media": 0.016500588670088683,
+        "ic": [
+          0.0002645100064540604,
+          0.03362351031816207
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 69.66666666666667
+      },
+      "Londra/ep2/D2/sopra": {
+        "media": -0.0015669017674757898,
+        "ic": [
+          -0.011682130138252755,
+          0.009434513681022919
+        ],
+        "esclude_zero": false,
+        "nodi_per_cella": 65.33333333333333
+      },
+      "Londra/ep2/D3/sotto": {
+        "media": -0.01162823257914413,
+        "ic": [
+          -0.01796513271940004,
+          -0.005310735252757457
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 69.66666666666667
+      },
+      "Londra/ep2/D3/sopra": {
+        "media": -0.0077463175891609205,
+        "ic": [
+          -0.012480869256386806,
+          -0.002654277422678585
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 65.33333333333333
+      },
+      "Londra/ep3/D1/sotto": {
+        "media": -0.03134018777846307,
+        "ic": [
+          -0.04322532522693655,
+          -0.020812964793852067
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 36.333333333333336
+      },
+      "Londra/ep3/D1/sopra": {
+        "media": -0.030013522802346135,
+        "ic": [
+          -0.03535571879833179,
+          -0.024656639548059182
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 98.66666666666667
+      },
+      "Londra/ep3/D2/sotto": {
+        "media": 0.004328178331151067,
+        "ic": [
+          -0.010851899804285994,
+          0.019743363307562108
+        ],
+        "esclude_zero": false,
+        "nodi_per_cella": 36.333333333333336
+      },
+      "Londra/ep3/D2/sopra": {
+        "media": -0.0094152501280215,
+        "ic": [
+          -0.01798904518320518,
+          -0.0006028186143788681
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 98.66666666666667
+      },
+      "Londra/ep3/D3/sotto": {
+        "media": -0.010709754669832768,
+        "ic": [
+          -0.01835496082951537,
+          -0.00320082034528076
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 36.333333333333336
+      },
+      "Londra/ep3/D3/sopra": {
+        "media": -0.00973496642317991,
+        "ic": [
+          -0.01465339354330046,
+          -0.003598761656739577
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 98.66666666666667
+      },
+      "Melbourne/ep1/D1/sotto": {
+        "nd": true,
+        "nodi_per_cella": 0.0
+      },
+      "Melbourne/ep1/D1/sopra": {
+        "media": -0.040005136740984534,
+        "ic": [
+          -0.048391906495498634,
+          -0.032540099253811364
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 90.0
+      },
+      "Melbourne/ep1/D2/sotto": {
+        "nd": true,
+        "nodi_per_cella": 0.0
+      },
+      "Melbourne/ep1/D2/sopra": {
+        "media": -0.024001986699456482,
+        "ic": [
+          -0.0336387172859612,
+          -0.014049016281906059
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 90.0
+      },
+      "Melbourne/ep1/D3/sotto": {
+        "nd": true,
+        "nodi_per_cella": 0.0
+      },
+      "Melbourne/ep1/D3/sopra": {
+        "media": -0.02402405111313593,
+        "ic": [
+          -0.03155973308161463,
+          -0.016510605843534264
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 90.0
+      },
+      "Melbourne/ep2/D1/sotto": {
+        "media": -0.027504948671002567,
+        "ic": [
+          -0.03526854225110807,
+          -0.020625583371257396
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 68.0
+      },
+      "Melbourne/ep2/D1/sopra": {
+        "media": -0.012355806060732777,
+        "ic": [
+          -0.02783048503246942,
+          0.0016752677957438625
+        ],
+        "esclude_zero": false,
+        "nodi_per_cella": 22.0
+      },
+      "Melbourne/ep2/D2/sotto": {
+        "media": 0.01979343735377853,
+        "ic": [
+          0.004567791368241305,
+          0.03694240033647762
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 68.0
+      },
+      "Melbourne/ep2/D2/sopra": {
+        "media": 0.007160864875671382,
+        "ic": [
+          -0.009442981088052289,
+          0.02553920552191912
+        ],
+        "esclude_zero": false,
+        "nodi_per_cella": 22.0
+      },
+      "Melbourne/ep2/D3/sotto": {
+        "media": -7.674910779889886e-05,
+        "ic": [
+          -0.009000924986071314,
+          0.00970550053692062
+        ],
+        "esclude_zero": false,
+        "nodi_per_cella": 68.0
+      },
+      "Melbourne/ep2/D3/sopra": {
+        "media": -0.01054587135965841,
+        "ic": [
+          -0.02185093473526907,
+          0.0006212368288882233
+        ],
+        "esclude_zero": false,
+        "nodi_per_cella": 22.0
+      },
+      "Melbourne/ep3/D1/sotto": {
+        "nd": true,
+        "nodi_per_cella": 0.6666666666666666
+      },
+      "Melbourne/ep3/D1/sopra": {
+        "media": -0.038496790248492965,
+        "ic": [
+          -0.04544382050218641,
+          -0.032862816794793234
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 89.33333333333333
+      },
+      "Melbourne/ep3/D2/sotto": {
+        "nd": true,
+        "nodi_per_cella": 0.6666666666666666
+      },
+      "Melbourne/ep3/D2/sopra": {
+        "media": -0.021502533742027374,
+        "ic": [
+          -0.029460029407148598,
+          -0.013250043825341225
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 89.33333333333333
+      },
+      "Melbourne/ep3/D3/sotto": {
+        "nd": true,
+        "nodi_per_cella": 0.6666666666666666
+      },
+      "Melbourne/ep3/D3/sopra": {
+        "media": -0.015534453128371947,
+        "ic": [
+          -0.020728819361636425,
+          -0.010440341560615459
+        ],
+        "esclude_zero": true,
+        "nodi_per_cella": 89.33333333333333
+      }
+    },
+    "rho": {
+      "Madrid/ep1/D1/v": {
+        "rho": -0.07113096390072787,
+        "ic_nodi": [
+          -0.17248129393542783,
+          0.043138847024459734
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Madrid/ep1/D1/v7": {
+        "rho": -0.08252098096282717,
+        "ic_nodi": [
+          -0.18815301325987252,
+          0.025532446599976583
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Madrid/ep1/D2/v": {
+        "rho": -0.05114016077543778,
+        "ic_nodi": [
+          -0.15556016118539145,
+          0.0528128089863187
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Madrid/ep1/D2/v7": {
+        "rho": -0.053904993155037655,
+        "ic_nodi": [
+          -0.16106615125434576,
+          0.050975609391978594
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Madrid/ep1/D3/v": {
+        "rho": -0.05114016077543778,
+        "ic_nodi": [
+          -0.1519354982945707,
+          0.04901797390399392
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Madrid/ep1/D3/v7": {
+        "rho": -0.053904993155037655,
+        "ic_nodi": [
+          -0.1515100311823355,
+          0.04834392090030718
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Madrid/ep2/D1/v": {
+        "rho": -0.3046424095357707,
+        "ic_nodi": [
+          -0.3955125593862438,
+          -0.20561541482329826
+        ],
+        "esclude_zero": true,
+        "negativa_esclude_zero": true,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Madrid/ep2/D1/v7": {
+        "rho": -0.34881327454185,
+        "ic_nodi": [
+          -0.44019173273093626,
+          -0.2571677724787723
+        ],
+        "esclude_zero": true,
+        "negativa_esclude_zero": true,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Madrid/ep2/D2/v": {
+        "rho": -0.12887002887655272,
+        "ic_nodi": [
+          -0.2333989881155593,
+          -0.0283239795121409
+        ],
+        "esclude_zero": true,
+        "negativa_esclude_zero": true,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Madrid/ep2/D2/v7": {
+        "rho": -0.14446587925417403,
+        "ic_nodi": [
+          -0.2423572634275056,
+          -0.039464623189067474
+        ],
+        "esclude_zero": true,
+        "negativa_esclude_zero": true,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Madrid/ep2/D3/v": {
+        "rho": -0.12887002887655272,
+        "ic_nodi": [
+          -0.2360669051218233,
+          -0.026272720152066227
+        ],
+        "esclude_zero": true,
+        "negativa_esclude_zero": true,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Madrid/ep2/D3/v7": {
+        "rho": -0.14446587925417403,
+        "ic_nodi": [
+          -0.24755627768119365,
+          -0.03712231991433327
+        ],
+        "esclude_zero": true,
+        "negativa_esclude_zero": true,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Madrid/ep3/D1/v": {
+        "rho": -0.1745284753077713,
+        "ic_nodi": [
+          -0.27387895642147564,
+          -0.07640603513229506
+        ],
+        "esclude_zero": true,
+        "negativa_esclude_zero": true,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Madrid/ep3/D1/v7": {
+        "rho": -0.21367595721339125,
+        "ic_nodi": [
+          -0.3139434206654109,
+          -0.10991134878062635
+        ],
+        "esclude_zero": true,
+        "negativa_esclude_zero": true,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Madrid/ep3/D2/v": {
+        "rho": 0.006989685835063468,
+        "ic_nodi": [
+          -0.09204935645624182,
+          0.10699453962855651
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Madrid/ep3/D2/v7": {
+        "rho": 0.03441827672906702,
+        "ic_nodi": [
+          -0.06652647052639189,
+          0.1347694027571824
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Madrid/ep3/D3/v": {
+        "rho": 0.006989685835063468,
+        "ic_nodi": [
+          -0.09225231735429708,
+          0.10496615793671904
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Madrid/ep3/D3/v7": {
+        "rho": 0.03441827672906702,
+        "ic_nodi": [
+          -0.06753511012931115,
+          0.1354847683449443
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Londra/ep1/D1/v": {
+        "rho": 0.02106540568718169,
+        "ic_nodi": [
+          -0.07272351712040123,
+          0.11360028431372438
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Londra/ep1/D1/v7": {
+        "rho": 0.031568159629704474,
+        "ic_nodi": [
+          -0.06866345042243571,
+          0.12985010423695809
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Londra/ep1/D2/v": {
+        "rho": -0.2750390610741382,
+        "ic_nodi": [
+          -0.36472944655407685,
+          -0.1831282169013789
+        ],
+        "esclude_zero": true,
+        "negativa_esclude_zero": true,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Londra/ep1/D2/v7": {
+        "rho": -0.23288513143216033,
+        "ic_nodi": [
+          -0.32399494572603177,
+          -0.13916297751243167
+        ],
+        "esclude_zero": true,
+        "negativa_esclude_zero": true,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Londra/ep1/D3/v": {
+        "rho": 0.029561426481519177,
+        "ic_nodi": [
+          -0.07503729451367738,
+          0.12701672491941496
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Londra/ep1/D3/v7": {
+        "rho": 0.037728913032151666,
+        "ic_nodi": [
+          -0.059917281162123574,
+          0.13743500370274545
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Londra/ep2/D1/v": {
+        "rho": 0.1953722799507914,
+        "ic_nodi": [
+          0.09443214624226844,
+          0.2941104053200782
+        ],
+        "esclude_zero": true,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": true,
+        "unita": 405
+      },
+      "Londra/ep2/D1/v7": {
+        "rho": 0.2147010874735227,
+        "ic_nodi": [
+          0.11703246832482965,
+          0.3112398229245101
+        ],
+        "esclude_zero": true,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": true,
+        "unita": 405
+      },
+      "Londra/ep2/D2/v": {
+        "rho": -0.1564358950304369,
+        "ic_nodi": [
+          -0.25713686536761887,
+          -0.05448059922561926
+        ],
+        "esclude_zero": true,
+        "negativa_esclude_zero": true,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Londra/ep2/D2/v7": {
+        "rho": -0.12915121169306296,
+        "ic_nodi": [
+          -0.2319290188961189,
+          -0.02853813035639612
+        ],
+        "esclude_zero": true,
+        "negativa_esclude_zero": true,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Londra/ep2/D3/v": {
+        "rho": 0.11405071409592002,
+        "ic_nodi": [
+          0.020609013582450993,
+          0.20946672609534742
+        ],
+        "esclude_zero": true,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": true,
+        "unita": 405
+      },
+      "Londra/ep2/D3/v7": {
+        "rho": 0.08622629468745509,
+        "ic_nodi": [
+          -0.013399706296342417,
+          0.18723813550563698
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Londra/ep3/D1/v": {
+        "rho": 0.06678038377782701,
+        "ic_nodi": [
+          -0.0352901208710657,
+          0.16430878580266717
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Londra/ep3/D1/v7": {
+        "rho": 0.07881103593987221,
+        "ic_nodi": [
+          -0.024275814371131407,
+          0.18299785261978851
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Londra/ep3/D2/v": {
+        "rho": -0.1626565863053357,
+        "ic_nodi": [
+          -0.2552629515838245,
+          -0.06945500428412747
+        ],
+        "esclude_zero": true,
+        "negativa_esclude_zero": true,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Londra/ep3/D2/v7": {
+        "rho": -0.13732449847879252,
+        "ic_nodi": [
+          -0.2332419382464944,
+          -0.04385418996315781
+        ],
+        "esclude_zero": true,
+        "negativa_esclude_zero": true,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Londra/ep3/D3/v": {
+        "rho": -0.0011292804885506666,
+        "ic_nodi": [
+          -0.09506827323962919,
+          0.08891846474225286
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Londra/ep3/D3/v7": {
+        "rho": 0.030386341244936874,
+        "ic_nodi": [
+          -0.06189309809792898,
+          0.1222366971084285
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 405
+      },
+      "Melbourne/ep1/D1/v": {
+        "rho": 0.0004265362949667021,
+        "ic_nodi": [
+          -0.1227875690572746,
+          0.12910935049552466
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 270
+      },
+      "Melbourne/ep1/D1/v7": {
+        "rho": -0.03139401339109725,
+        "ic_nodi": [
+          -0.15425042659579452,
+          0.0969312582164851
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 270
+      },
+      "Melbourne/ep1/D2/v": {
+        "rho": 0.11609013034524397,
+        "ic_nodi": [
+          0.002229478972516902,
+          0.23345850146752
+        ],
+        "esclude_zero": true,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": true,
+        "unita": 270
+      },
+      "Melbourne/ep1/D2/v7": {
+        "rho": 0.09415368999369886,
+        "ic_nodi": [
+          -0.029766186854591297,
+          0.20921282269456387
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 270
+      },
+      "Melbourne/ep1/D3/v": {
+        "rho": 0.03436254443210659,
+        "ic_nodi": [
+          -0.08541830230346018,
+          0.1490811641950553
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 270
+      },
+      "Melbourne/ep1/D3/v7": {
+        "rho": -0.003674853924646087,
+        "ic_nodi": [
+          -0.1270029891472079,
+          0.12140253106203973
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 270
+      },
+      "Melbourne/ep2/D1/v": {
+        "rho": 0.1389023622221144,
+        "ic_nodi": [
+          0.016766627149711635,
+          0.24893276084026825
+        ],
+        "esclude_zero": true,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": true,
+        "unita": 270
+      },
+      "Melbourne/ep2/D1/v7": {
+        "rho": 0.16110185665461355,
+        "ic_nodi": [
+          0.04219052114659986,
+          0.27141890582996764
+        ],
+        "esclude_zero": true,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": true,
+        "unita": 270
+      },
+      "Melbourne/ep2/D2/v": {
+        "rho": -0.09634156217236543,
+        "ic_nodi": [
+          -0.2109691938804792,
+          0.013974455765775886
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 270
+      },
+      "Melbourne/ep2/D2/v7": {
+        "rho": -0.047966850297370446,
+        "ic_nodi": [
+          -0.16808345006959938,
+          0.06561400660327012
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 270
+      },
+      "Melbourne/ep2/D3/v": {
+        "rho": -0.12286321852638281,
+        "ic_nodi": [
+          -0.23362547077840884,
+          -0.012402886583276448
+        ],
+        "esclude_zero": true,
+        "negativa_esclude_zero": true,
+        "anomalia_positiva": false,
+        "unita": 270
+      },
+      "Melbourne/ep2/D3/v7": {
+        "rho": -0.075976320516773,
+        "ic_nodi": [
+          -0.1908049267263365,
+          0.04274020698629291
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 270
+      },
+      "Melbourne/ep3/D1/v": {
+        "rho": 0.1268851537191162,
+        "ic_nodi": [
+          0.012591945296942474,
+          0.2410507456721038
+        ],
+        "esclude_zero": true,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": true,
+        "unita": 270
+      },
+      "Melbourne/ep3/D1/v7": {
+        "rho": 0.1185561989988094,
+        "ic_nodi": [
+          6.622456334089872e-06,
+          0.23234572463821215
+        ],
+        "esclude_zero": true,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": true,
+        "unita": 270
+      },
+      "Melbourne/ep3/D2/v": {
+        "rho": 0.051976558733988196,
+        "ic_nodi": [
+          -0.06340721332542215,
+          0.16714822304416108
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 270
+      },
+      "Melbourne/ep3/D2/v7": {
+        "rho": 0.06697576416738554,
+        "ic_nodi": [
+          -0.05776475300384025,
+          0.18079311889637797
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 270
+      },
+      "Melbourne/ep3/D3/v": {
+        "rho": 0.08130643219503507,
+        "ic_nodi": [
+          -0.036935107188714046,
+          0.19714041087242856
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 270
+      },
+      "Melbourne/ep3/D3/v7": {
+        "rho": 0.09410468599231821,
+        "ic_nodi": [
+          -0.02482149793675962,
+          0.20896437438059845
+        ],
+        "esclude_zero": false,
+        "negativa_esclude_zero": false,
+        "anomalia_positiva": false,
+        "unita": 270
+      }
+    },
+    "quartili": {
+      "Madrid/ep1/D1": [
+        {
+          "quartile": 1,
+          "v_max": 222.0,
+          "media": -0.032335092929671204,
+          "n": 100
+        },
+        {
+          "quartile": 2,
+          "v_max": 259.0,
+          "media": -0.02841142834771718,
+          "n": 91
+        },
+        {
+          "quartile": 3,
+          "v_max": 288.0,
+          "media": -0.034212048320272255,
+          "n": 105
+        },
+        {
+          "quartile": 4,
+          "v_max": 308.0,
+          "media": -0.029813810974038537,
+          "n": 109
+        }
+      ],
+      "Madrid/ep1/D2": [
+        {
+          "quartile": 1,
+          "v_max": 222.0,
+          "media": -0.011668533492549345,
+          "n": 100
+        },
+        {
+          "quartile": 2,
+          "v_max": 259.0,
+          "media": -0.008208753799619621,
+          "n": 91
+        },
+        {
+          "quartile": 3,
+          "v_max": 288.0,
+          "media": -0.013483892751944669,
+          "n": 105
+        },
+        {
+          "quartile": 4,
+          "v_max": 308.0,
+          "media": -0.00816817940239617,
+          "n": 109
+        }
+      ],
+      "Madrid/ep1/D3": [
+        {
+          "quartile": 1,
+          "v_max": 222.0,
+          "media": -0.011668533492549345,
+          "n": 100
+        },
+        {
+          "quartile": 2,
+          "v_max": 259.0,
+          "media": -0.008208753799619621,
+          "n": 91
+        },
+        {
+          "quartile": 3,
+          "v_max": 288.0,
+          "media": -0.013483892751944669,
+          "n": 105
+        },
+        {
+          "quartile": 4,
+          "v_max": 308.0,
+          "media": -0.00816817940239617,
+          "n": 109
+        }
+      ],
+      "Madrid/ep2/D1": [
+        {
+          "quartile": 1,
+          "v_max": 246.0,
+          "media": -0.03182454886397991,
+          "n": 99
+        },
+        {
+          "quartile": 2,
+          "v_max": 283.0,
+          "media": -0.025425646984075706,
+          "n": 102
+        },
+        {
+          "quartile": 3,
+          "v_max": 303.0,
+          "media": -0.038725264623923554,
+          "n": 100
+        },
+        {
+          "quartile": 4,
+          "v_max": 308.0,
+          "media": -0.04550421703436731,
+          "n": 104
+        }
+      ],
+      "Madrid/ep2/D2": [
+        {
+          "quartile": 1,
+          "v_max": 246.0,
+          "media": -0.010505510386202834,
+          "n": 99
+        },
+        {
+          "quartile": 2,
+          "v_max": 283.0,
+          "media": -0.0015732035363752034,
+          "n": 102
+        },
+        {
+          "quartile": 3,
+          "v_max": 303.0,
+          "media": -0.01552801026799279,
+          "n": 100
+        },
+        {
+          "quartile": 4,
+          "v_max": 308.0,
+          "media": -0.018012144875724154,
+          "n": 104
+        }
+      ],
+      "Madrid/ep2/D3": [
+        {
+          "quartile": 1,
+          "v_max": 246.0,
+          "media": -0.010505510386202834,
+          "n": 99
+        },
+        {
+          "quartile": 2,
+          "v_max": 283.0,
+          "media": -0.0015732035363752034,
+          "n": 102
+        },
+        {
+          "quartile": 3,
+          "v_max": 303.0,
+          "media": -0.01552801026799279,
+          "n": 100
+        },
+        {
+          "quartile": 4,
+          "v_max": 308.0,
+          "media": -0.018012144875724154,
+          "n": 104
+        }
+      ],
+      "Madrid/ep3/D1": [
+        {
+          "quartile": 1,
+          "v_max": 236.0,
+          "media": -0.03177651272597146,
+          "n": 100
+        },
+        {
+          "quartile": 2,
+          "v_max": 287.0,
+          "media": -0.028768156738420297,
+          "n": 98
+        },
+        {
+          "quartile": 3,
+          "v_max": 304.0,
+          "media": -0.03965959910587362,
+          "n": 74
+        },
+        {
+          "quartile": 4,
+          "v_max": 308.0,
+          "media": -0.0409444608215281,
+          "n": 133
+        }
+      ],
+      "Madrid/ep3/D2": [
+        {
+          "quartile": 1,
+          "v_max": 236.0,
+          "media": 0.011291771784128601,
+          "n": 100
+        },
+        {
+          "quartile": 2,
+          "v_max": 287.0,
+          "media": -0.0028139176547517693,
+          "n": 98
+        },
+        {
+          "quartile": 3,
+          "v_max": 304.0,
+          "media": 0.011204345223037045,
+          "n": 74
+        },
+        {
+          "quartile": 4,
+          "v_max": 308.0,
+          "media": 0.02128523702055309,
+          "n": 133
+        }
+      ],
+      "Madrid/ep3/D3": [
+        {
+          "quartile": 1,
+          "v_max": 236.0,
+          "media": 0.011291771784128601,
+          "n": 100
+        },
+        {
+          "quartile": 2,
+          "v_max": 287.0,
+          "media": -0.0028139176547517693,
+          "n": 98
+        },
+        {
+          "quartile": 3,
+          "v_max": 304.0,
+          "media": 0.011204345223037045,
+          "n": 74
+        },
+        {
+          "quartile": 4,
+          "v_max": 308.0,
+          "media": 0.02128523702055309,
+          "n": 133
+        }
+      ],
+      "Londra/ep1/D1": [
+        {
+          "quartile": 1,
+          "v_max": 80.0,
+          "media": -0.03252686552950901,
+          "n": 97
+        },
+        {
+          "quartile": 2,
+          "v_max": 113.0,
+          "media": -0.034947311589662515,
+          "n": 105
+        },
+        {
+          "quartile": 3,
+          "v_max": 157.0,
+          "media": -0.025355250917865443,
+          "n": 100
+        },
+        {
+          "quartile": 4,
+          "v_max": 280.0,
+          "media": -0.03425896920754871,
+          "n": 103
+        }
+      ],
+      "Londra/ep1/D2": [
+        {
+          "quartile": 1,
+          "v_max": 80.0,
+          "media": 0.08264587049477458,
+          "n": 97
+        },
+        {
+          "quartile": 2,
+          "v_max": 113.0,
+          "media": 0.026422237091898112,
+          "n": 105
+        },
+        {
+          "quartile": 3,
+          "v_max": 157.0,
+          "media": 0.03808657807788449,
+          "n": 100
+        },
+        {
+          "quartile": 4,
+          "v_max": 280.0,
+          "media": 0.005484483102517609,
+          "n": 103
+        }
+      ],
+      "Londra/ep1/D3": [
+        {
+          "quartile": 1,
+          "v_max": 80.0,
+          "media": -0.0014125545524892413,
+          "n": 97
+        },
+        {
+          "quartile": 2,
+          "v_max": 113.0,
+          "media": -0.00717588379359001,
+          "n": 105
+        },
+        {
+          "quartile": 3,
+          "v_max": 157.0,
+          "media": -0.004946228505202741,
+          "n": 100
+        },
+        {
+          "quartile": 4,
+          "v_max": 280.0,
+          "media": 0.0009598264329197822,
+          "n": 103
+        }
+      ],
+      "Londra/ep2/D1": [
+        {
+          "quartile": 1,
+          "v_max": 112.0,
+          "media": -0.03370793820090102,
+          "n": 97
+        },
+        {
+          "quartile": 2,
+          "v_max": 147.0,
+          "media": -0.026783169610241988,
+          "n": 101
+        },
+        {
+          "quartile": 3,
+          "v_max": 208.0,
+          "media": -0.027093244400722985,
+          "n": 104
+        },
+        {
+          "quartile": 4,
+          "v_max": 295.0,
+          "media": -0.01892917587555441,
+          "n": 103
+        }
+      ],
+      "Londra/ep2/D2": [
+        {
+          "quartile": 1,
+          "v_max": 112.0,
+          "media": 0.02605324720763782,
+          "n": 97
+        },
+        {
+          "quartile": 2,
+          "v_max": 147.0,
+          "media": 0.01360437993467761,
+          "n": 101
+        },
+        {
+          "quartile": 3,
+          "v_max": 208.0,
+          "media": -0.0008741567779839928,
+          "n": 104
+        },
+        {
+          "quartile": 4,
+          "v_max": 295.0,
+          "media": -0.0014202750216752737,
+          "n": 103
+        }
+      ],
+      "Londra/ep2/D3": [
+        {
+          "quartile": 1,
+          "v_max": 112.0,
+          "media": -0.01351311442540148,
+          "n": 97
+        },
+        {
+          "quartile": 2,
+          "v_max": 147.0,
+          "media": -0.00805314634554172,
+          "n": 101
+        },
+        {
+          "quartile": 3,
+          "v_max": 208.0,
+          "media": -0.010897640122451672,
+          "n": 104
+        },
+        {
+          "quartile": 4,
+          "v_max": 295.0,
+          "media": -0.006061451183025942,
+          "n": 103
+        }
+      ],
+      "Londra/ep3/D1": [
+        {
+          "quartile": 1,
+          "v_max": 150.0,
+          "media": -0.029775421518114176,
+          "n": 101
+        },
+        {
+          "quartile": 2,
+          "v_max": 187.0,
+          "media": -0.03611299719058296,
+          "n": 97
+        },
+        {
+          "quartile": 3,
+          "v_max": 231.0,
+          "media": -0.032219196419579224,
+          "n": 104
+        },
+        {
+          "quartile": 4,
+          "v_max": 300.0,
+          "media": -0.026082005457297032,
+          "n": 103
+        }
+      ],
+      "Londra/ep3/D2": [
+        {
+          "quartile": 1,
+          "v_max": 150.0,
+          "media": 0.007461080020213793,
+          "n": 101
+        },
+        {
+          "quartile": 2,
+          "v_max": 187.0,
+          "media": -0.006532751839785271,
+          "n": 97
+        },
+        {
+          "quartile": 3,
+          "v_max": 231.0,
+          "media": -0.005905790707929314,
+          "n": 104
+        },
+        {
+          "quartile": 4,
+          "v_max": 300.0,
+          "media": -0.014591921964868637,
+          "n": 103
+        }
+      ],
+      "Londra/ep3/D3": [
+        {
+          "quartile": 1,
+          "v_max": 150.0,
+          "media": -0.009531603453727227,
+          "n": 101
+        },
+        {
+          "quartile": 2,
+          "v_max": 187.0,
+          "media": -0.011017487654023918,
+          "n": 97
+        },
+        {
+          "quartile": 3,
+          "v_max": 231.0,
+          "media": -0.008884751119335555,
+          "n": 104
+        },
+        {
+          "quartile": 4,
+          "v_max": 300.0,
+          "media": -0.01181300621568893,
+          "n": 103
+        }
+      ],
+      "Melbourne/ep1/D1": [
+        {
+          "quartile": 1,
+          "v_max": 240.0,
+          "media": -0.0412657795148273,
+          "n": 65
+        },
+        {
+          "quartile": 2,
+          "v_max": 259.0,
+          "media": -0.03425298619240882,
+          "n": 67
+        },
+        {
+          "quartile": 3,
+          "v_max": 283.0,
+          "media": -0.03947154759508212,
+          "n": 67
+        },
+        {
+          "quartile": 4,
+          "v_max": 308.0,
+          "media": -0.03881047472377947,
+          "n": 71
+        }
+      ],
+      "Melbourne/ep1/D2": [
+        {
+          "quartile": 1,
+          "v_max": 240.0,
+          "media": -0.018247327019981715,
+          "n": 65
+        },
+        {
+          "quartile": 2,
+          "v_max": 259.0,
+          "media": -0.02986662069421994,
+          "n": 67
+        },
+        {
+          "quartile": 3,
+          "v_max": 283.0,
+          "media": -0.02598881294035098,
+          "n": 67
+        },
+        {
+          "quartile": 4,
+          "v_max": 308.0,
+          "media": -0.009697703584697537,
+          "n": 71
+        }
+      ],
+      "Melbourne/ep1/D3": [
+        {
+          "quartile": 1,
+          "v_max": 240.0,
+          "media": -0.01613758899749438,
+          "n": 65
+        },
+        {
+          "quartile": 2,
+          "v_max": 259.0,
+          "media": -0.02475551629078812,
+          "n": 67
+        },
+        {
+          "quartile": 3,
+          "v_max": 283.0,
+          "media": -0.024019218021531327,
+          "n": 67
+        },
+        {
+          "quartile": 4,
+          "v_max": 308.0,
+          "media": -0.020602794630444107,
+          "n": 71
+        }
+      ],
+      "Melbourne/ep2/D1": [
+        {
+          "quartile": 1,
+          "v_max": 83.0,
+          "media": -0.03275889198851972,
+          "n": 62
+        },
+        {
+          "quartile": 2,
+          "v_max": 108.0,
+          "media": -0.036154996093777064,
+          "n": 71
+        },
+        {
+          "quartile": 3,
+          "v_max": 148.0,
+          "media": -0.03044980587242303,
+          "n": 69
+        },
+        {
+          "quartile": 4,
+          "v_max": 256.0,
+          "media": -0.016347310482048325,
+          "n": 68
+        }
+      ],
+      "Melbourne/ep2/D2": [
+        {
+          "quartile": 1,
+          "v_max": 83.0,
+          "media": 0.024114534001751602,
+          "n": 62
+        },
+        {
+          "quartile": 2,
+          "v_max": 108.0,
+          "media": 0.004306925791572398,
+          "n": 71
+        },
+        {
+          "quartile": 3,
+          "v_max": 148.0,
+          "media": 0.00416395679651003,
+          "n": 69
+        },
+        {
+          "quartile": 4,
+          "v_max": 256.0,
+          "media": -0.00026333304470295356,
+          "n": 68
+        }
+      ],
+      "Melbourne/ep2/D3": [
+        {
+          "quartile": 1,
+          "v_max": 83.0,
+          "media": -0.0016300312722424477,
+          "n": 62
+        },
+        {
+          "quartile": 2,
+          "v_max": 108.0,
+          "media": -0.012679140998834207,
+          "n": 71
+        },
+        {
+          "quartile": 3,
+          "v_max": 148.0,
+          "media": -0.010933627534710149,
+          "n": 69
+        },
+        {
+          "quartile": 4,
+          "v_max": 256.0,
+          "media": -0.014697606732025107,
+          "n": 68
+        }
+      ],
+      "Melbourne/ep3/D1": [
+        {
+          "quartile": 1,
+          "v_max": 196.0,
+          "media": -0.04613011267551637,
+          "n": 66
+        },
+        {
+          "quartile": 2,
+          "v_max": 225.0,
+          "media": -0.042283249961451816,
+          "n": 64
+        },
+        {
+          "quartile": 3,
+          "v_max": 262.0,
+          "media": -0.044880224207820785,
+          "n": 70
+        },
+        {
+          "quartile": 4,
+          "v_max": 303.0,
+          "media": -0.025951724697803234,
+          "n": 70
+        }
+      ],
+      "Melbourne/ep3/D2": [
+        {
+          "quartile": 1,
+          "v_max": 196.0,
+          "media": -0.02959584988925039,
+          "n": 66
+        },
+        {
+          "quartile": 2,
+          "v_max": 225.0,
+          "media": -0.022163433866927745,
+          "n": 64
+        },
+        {
+          "quartile": 3,
+          "v_max": 262.0,
+          "media": -0.03049231984610918,
+          "n": 70
+        },
+        {
+          "quartile": 4,
+          "v_max": 303.0,
+          "media": -0.00985839772163833,
+          "n": 70
+        }
+      ],
+      "Melbourne/ep3/D3": [
+        {
+          "quartile": 1,
+          "v_max": 196.0,
+          "media": -0.022653964532078873,
+          "n": 66
+        },
+        {
+          "quartile": 2,
+          "v_max": 225.0,
+          "media": -0.01607301301474566,
+          "n": 64
+        },
+        {
+          "quartile": 3,
+          "v_max": 262.0,
+          "media": -0.022514955719142294,
+          "n": 70
+        },
+        {
+          "quartile": 4,
+          "v_max": 303.0,
+          "media": -0.00867499203081712,
+          "n": 70
+        }
+      ]
+    },
+    "ipotesi": {
+      "gruppi_esistenti": [
+        "Londra/ep1/D1/sotto",
+        "Londra/ep2/D1/sotto",
+        "Londra/ep3/D1/sotto",
+        "Melbourne/ep2/D1/sotto"
+      ],
+      "vale": true,
+      "testo": "l'adattamento su una settimana paga anche per i nodi sotto soglia"
+    },
+    "decisione": {
+      "ipotesi_fallita_in_almeno_un_gruppo": false,
+      "ipotesi_vale": true,
+      "rho_negativa": {
+        "v": {
+          "ep1": false,
+          "due_episodi": false,
+          "vale": false,
+          "per_cella": {
+            "Madrid/ep1": false,
+            "Madrid/ep2": true,
+            "Madrid/ep3": true,
+            "Londra/ep1": false,
+            "Londra/ep2": false,
+            "Londra/ep3": false,
+            "Melbourne/ep1": false,
+            "Melbourne/ep2": false,
+            "Melbourne/ep3": false
+          }
+        },
+        "v7": {
+          "ep1": false,
+          "due_episodi": false,
+          "vale": false,
+          "per_cella": {
+            "Madrid/ep1": false,
+            "Madrid/ep2": true,
+            "Madrid/ep3": true,
+            "Londra/ep1": false,
+            "Londra/ep2": false,
+            "Londra/ep3": false,
+            "Melbourne/ep1": false,
+            "Melbourne/ep2": false,
+            "Melbourne/ep3": false
+          }
+        }
+      },
+      "anomalie_rho_positiva": [
+        "Londra/ep2/D1/v",
+        "Londra/ep2/D1/v7",
+        "Londra/ep2/D3/v",
+        "Melbourne/ep1/D2/v",
+        "Melbourne/ep2/D1/v",
+        "Melbourne/ep2/D1/v7",
+        "Melbourne/ep3/D1/v",
+        "Melbourne/ep3/D1/v7"
+      ],
+      "stadio_2a": false
+    },
+    "repliche": {
+      "gruppi": 4000,
+      "rho": 2000
+    },
+    "seme": 20261008,
+    "min_nodi": 10,
+    "istante": "2026-10-14T22:21:31.118575+00:00"
+  },
+  "post_hoc": {
+    "post_hoc": true,
+    "rho": {
+      "Madrid/ep1/wCE_C/v": {
+        "rho": -0.5263641769980011,
+        "ic_nodi": [
+          -0.5987736650530752,
+          -0.4510131538782514
+        ],
+        "esclude_zero": true
+      },
+      "Madrid/ep1/wCE_C/v7": {
+        "rho": -0.5525781253773476,
+        "ic_nodi": [
+          -0.6231241372598753,
+          -0.4738667141506332
+        ],
+        "esclude_zero": true
+      },
+      "Madrid/ep1/wCE_Fp672/v": {
+        "rho": -0.4998501145001669,
+        "ic_nodi": [
+          -0.5720119410278576,
+          -0.42012847807467657
+        ],
+        "esclude_zero": true
+      },
+      "Madrid/ep1/wCE_Fp672/v7": {
+        "rho": -0.527642850629841,
+        "ic_nodi": [
+          -0.5957824263028343,
+          -0.4461992107085118
+        ],
+        "esclude_zero": true
+      },
+      "Madrid/ep2/wCE_C/v": {
+        "rho": -0.5143820549285524,
+        "ic_nodi": [
+          -0.5875922080317028,
+          -0.4334842322593607
+        ],
+        "esclude_zero": true
+      },
+      "Madrid/ep2/wCE_C/v7": {
+        "rho": -0.5798198055034164,
+        "ic_nodi": [
+          -0.6466322588482754,
+          -0.5031370341188474
+        ],
+        "esclude_zero": true
+      },
+      "Madrid/ep2/wCE_Fp672/v": {
+        "rho": -0.5016327579537521,
+        "ic_nodi": [
+          -0.5756719146266678,
+          -0.4183024326932371
+        ],
+        "esclude_zero": true
+      },
+      "Madrid/ep2/wCE_Fp672/v7": {
+        "rho": -0.5708960148728216,
+        "ic_nodi": [
+          -0.6396897772861548,
+          -0.49641500992321963
+        ],
+        "esclude_zero": true
+      },
+      "Madrid/ep3/wCE_C/v": {
+        "rho": -0.49091822588205036,
+        "ic_nodi": [
+          -0.5689660236120938,
+          -0.4063628998103094
+        ],
+        "esclude_zero": true
+      },
+      "Madrid/ep3/wCE_C/v7": {
+        "rho": -0.5193292893914894,
+        "ic_nodi": [
+          -0.5905770654363635,
+          -0.4310592366707532
+        ],
+        "esclude_zero": true
+      },
+      "Madrid/ep3/wCE_Fp672/v": {
+        "rho": -0.48410447646408894,
+        "ic_nodi": [
+          -0.5622912133706586,
+          -0.402447046842481
+        ],
+        "esclude_zero": true
+      },
+      "Madrid/ep3/wCE_Fp672/v7": {
+        "rho": -0.5161547427633162,
+        "ic_nodi": [
+          -0.590336190154359,
+          -0.438135647427309
+        ],
+        "esclude_zero": true
+      },
+      "Londra/ep1/wCE_C/v": {
+        "rho": -0.32445941675971085,
+        "ic_nodi": [
+          -0.41444971418204835,
+          -0.23686520019196097
+        ],
+        "esclude_zero": true
+      },
+      "Londra/ep1/wCE_C/v7": {
+        "rho": -0.3509300201019261,
+        "ic_nodi": [
+          -0.43811505298235476,
+          -0.26242334080699703
+        ],
+        "esclude_zero": true
+      },
+      "Londra/ep1/wCE_Fp672/v": {
+        "rho": -0.2828521231593039,
+        "ic_nodi": [
+          -0.3689721393331876,
+          -0.18989255150381074
+        ],
+        "esclude_zero": true
+      },
+      "Londra/ep1/wCE_Fp672/v7": {
+        "rho": -0.29570514406905074,
+        "ic_nodi": [
+          -0.38317556475009856,
+          -0.20520006104986424
+        ],
+        "esclude_zero": true
+      },
+      "Londra/ep2/wCE_C/v": {
+        "rho": -0.25027952283578375,
+        "ic_nodi": [
+          -0.3422897957040312,
+          -0.15239670086568735
+        ],
+        "esclude_zero": true
+      },
+      "Londra/ep2/wCE_C/v7": {
+        "rho": -0.2801427552022803,
+        "ic_nodi": [
+          -0.36401454974714204,
+          -0.19376620967165017
+        ],
+        "esclude_zero": true
+      },
+      "Londra/ep2/wCE_Fp672/v": {
+        "rho": -0.1722167878392563,
+        "ic_nodi": [
+          -0.2611065318931739,
+          -0.07410368929950961
+        ],
+        "esclude_zero": true
+      },
+      "Londra/ep2/wCE_Fp672/v7": {
+        "rho": -0.20434724469536864,
+        "ic_nodi": [
+          -0.29346384156299693,
+          -0.11558720820234122
+        ],
+        "esclude_zero": true
+      },
+      "Londra/ep3/wCE_C/v": {
+        "rho": -0.3347709795667029,
+        "ic_nodi": [
+          -0.4189418637431056,
+          -0.24449170855520824
+        ],
+        "esclude_zero": true
+      },
+      "Londra/ep3/wCE_C/v7": {
+        "rho": -0.31565304494205915,
+        "ic_nodi": [
+          -0.39735303363169944,
+          -0.2203098382395887
+        ],
+        "esclude_zero": true
+      },
+      "Londra/ep3/wCE_Fp672/v": {
+        "rho": -0.286319845384589,
+        "ic_nodi": [
+          -0.3708700104399528,
+          -0.191725845709423
+        ],
+        "esclude_zero": true
+      },
+      "Londra/ep3/wCE_Fp672/v7": {
+        "rho": -0.2646879441821903,
+        "ic_nodi": [
+          -0.3517208083661163,
+          -0.17584490232175912
+        ],
+        "esclude_zero": true
+      },
+      "Melbourne/ep1/wCE_C/v": {
+        "rho": -0.42466002308734174,
+        "ic_nodi": [
+          -0.5123861180513838,
+          -0.3220849472832602
+        ],
+        "esclude_zero": true
+      },
+      "Melbourne/ep1/wCE_C/v7": {
+        "rho": -0.4269122463415234,
+        "ic_nodi": [
+          -0.5101401724152586,
+          -0.32547623203111437
+        ],
+        "esclude_zero": true
+      },
+      "Melbourne/ep1/wCE_Fp672/v": {
+        "rho": -0.4276040076936308,
+        "ic_nodi": [
+          -0.521132295415616,
+          -0.33080179808097354
+        ],
+        "esclude_zero": true
+      },
+      "Melbourne/ep1/wCE_Fp672/v7": {
+        "rho": -0.43267373445233315,
+        "ic_nodi": [
+          -0.5221613785848731,
+          -0.33097972753315313
+        ],
+        "esclude_zero": true
+      },
+      "Melbourne/ep2/wCE_C/v": {
+        "rho": -0.4655924528818271,
+        "ic_nodi": [
+          -0.5603678528465419,
+          -0.3741740390340381
+        ],
+        "esclude_zero": true
+      },
+      "Melbourne/ep2/wCE_C/v7": {
+        "rho": -0.494269508558027,
+        "ic_nodi": [
+          -0.5784682305318852,
+          -0.4005010141706756
+        ],
+        "esclude_zero": true
+      },
+      "Melbourne/ep2/wCE_Fp672/v": {
+        "rho": -0.41158914504914673,
+        "ic_nodi": [
+          -0.5032753268432764,
+          -0.3087397528410358
+        ],
+        "esclude_zero": true
+      },
+      "Melbourne/ep2/wCE_Fp672/v7": {
+        "rho": -0.4318729737431731,
+        "ic_nodi": [
+          -0.5222193468123176,
+          -0.33330694849095416
+        ],
+        "esclude_zero": true
+      },
+      "Melbourne/ep3/wCE_C/v": {
+        "rho": -0.6158047880951939,
+        "ic_nodi": [
+          -0.6759499137514229,
+          -0.5389053975691601
+        ],
+        "esclude_zero": true
+      },
+      "Melbourne/ep3/wCE_C/v7": {
+        "rho": -0.6562584164994223,
+        "ic_nodi": [
+          -0.7162628290774382,
+          -0.5837056402172128
+        ],
+        "esclude_zero": true
+      },
+      "Melbourne/ep3/wCE_Fp672/v": {
+        "rho": -0.5763940377152489,
+        "ic_nodi": [
+          -0.6436295080974045,
+          -0.5009955065695656
+        ],
+        "esclude_zero": true
+      },
+      "Melbourne/ep3/wCE_Fp672/v7": {
+        "rho": -0.615911331885415,
+        "ic_nodi": [
+          -0.6819469952156104,
+          -0.5398344962265259
+        ],
+        "esclude_zero": true
+      }
+    },
+    "copertura_episodio": {
+      "Madrid/ep1": {
+        "v_mediana": 260.0,
+        "v7_mediana": 2297.0,
+        "v_quota": 0.8441558441558441,
+        "v7_quota": 0.9057570977917981
+      },
+      "Madrid/ep2": {
+        "v_mediana": 284.0,
+        "v7_mediana": 2276.0,
+        "v_quota": 0.922077922077922,
+        "v7_quota": 0.8974763406940063
+      },
+      "Madrid/ep3": {
+        "v_mediana": 288.0,
+        "v7_mediana": 2253.0,
+        "v_quota": 0.935064935064935,
+        "v7_quota": 0.8884069400630915
+      },
+      "Londra/ep1": {
+        "v_mediana": 114.0,
+        "v7_mediana": 1355.0,
+        "v_quota": 0.37012987012987014,
+        "v7_quota": 0.5343059936908517
+      },
+      "Londra/ep2": {
+        "v_mediana": 149.0,
+        "v7_mediana": 1582.0,
+        "v_quota": 0.4837662337662338,
+        "v7_quota": 0.6238170347003155
+      },
+      "Londra/ep3": {
+        "v_mediana": 188.0,
+        "v7_mediana": 1529.0,
+        "v_quota": 0.6103896103896104,
+        "v7_quota": 0.6029179810725552
+      },
+      "Melbourne/ep1": {
+        "v_mediana": 260.0,
+        "v7_mediana": 2098.5,
+        "v_quota": 0.8441558441558441,
+        "v7_quota": 0.8274842271293376
+      },
+      "Melbourne/ep2": {
+        "v_mediana": 109.0,
+        "v7_mediana": 1598.5,
+        "v_quota": 0.3538961038961039,
+        "v7_quota": 0.6303233438485805
+      },
+      "Melbourne/ep3": {
+        "v_mediana": 226.0,
+        "v7_mediana": 1666.5,
+        "v_quota": 0.7337662337662337,
+        "v7_quota": 0.6571372239747634
+      }
+    },
+    "anomalie_stadio1": [
+      "Londra/ep2/D1/v",
+      "Londra/ep2/D1/v7",
+      "Londra/ep2/D3/v",
+      "Melbourne/ep1/D2/v",
+      "Melbourne/ep2/D1/v",
+      "Melbourne/ep2/D1/v7",
+      "Melbourne/ep3/D1/v",
+      "Melbourne/ep3/D1/v7"
+    ],
+    "segno_C": {
+      "celle": 9,
+      "negative": 9,
+      "anomale": 3,
+      "anomale_negative": 3,
+      "non_anomale_negative": 6,
+      "discrimina": false
+    },
+    "istante": "2026-10-14T22:21:42.670244+00:00"
+  },
+  "impronte": {
+    "evoluzione/analisi/e7_stadio1.py": "fab3034c6cf470c9",
+    "evoluzione/analisi/e7_posthoc.py": "ab62ffb9a8b69a49",
+    "protocol/E7.md": "07db021e85236235"
+  }
+}

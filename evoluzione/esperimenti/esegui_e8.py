@@ -245,7 +245,7 @@ def _cella(args):
     from evoluzione.componente import griglia as GR
     from evoluzione.esperimenti.addestramento import _canali, _carica, _normalizzazione, _partizioni
     from evoluzione.esperimenti.esegui_e2 import valuta
-    from evoluzione.esperimenti.inserimento import statiche
+    from evoluzione.esperimenti.inserimento import statica_cella, statiche
     out = Path(out)
     g = out / DIR_PRED / f"{ep_nome}_{c}_p{p}_s{s}.npz"
     if g.exists():
@@ -261,7 +261,8 @@ def _cella(args):
         nodi, ist = _partizioni(D, {"partizione": np.random.default_rng(ctx["seme_partizione"](p))}, ctx["fine_periodo"])
         nn = nodi[chiave]; K = len(nn)
         per = np.asarray(GR.origini_dopo(ok, t1, fine), dtype="int64")
-        NORM, nr, nv = _normalizzazione(D, nodi, ist); x = _canali(D, nr, nv); stat = statiche(D)
+        NORM, nr, nv = _normalizzazione(D, nodi, ist); x = _canali(D, nr, nv)
+        stat = statica_cella(statiche(D), D, nodi, nn, t0, s)                      # E14
         pesi = np.asarray(carica_pesi(out / ctx["dir_pesi"], c, p).vettore(), dtype="float64")
         w_t = torch.as_tensor(pesi, dtype=torch.float32); S = torch.as_tensor(stat[nn])
         eta = per - t0

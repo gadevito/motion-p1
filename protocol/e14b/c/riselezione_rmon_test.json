@@ -1,0 +1,79 @@
+{
+  "confronti": {
+    "Madrid/Rmoneq-R-mon": {
+      "media": -0.0002436797049021734,
+      "ic_con_nodi": [
+        -0.0008966542318583191,
+        0.00023347676877641317
+      ],
+      "include_zero": true
+    },
+    "Madrid/Rmoneq-R-orig": {
+      "media": -0.00021967863685454534,
+      "ic_con_nodi": [
+        -0.000892292087003822,
+        0.0002463969420398756
+      ],
+      "include_zero": true
+    },
+    "Madrid/Rmoneq-C": {
+      "media": -0.017153878840276103,
+      "ic_con_nodi": [
+        -0.02667460147258977,
+        -0.006974049747865069
+      ],
+      "include_zero": false
+    },
+    "Londra/Rmoneq-R-mon": {
+      "media": 0.0011797421041450467,
+      "ic_con_nodi": [
+        0.0,
+        0.0028948315756178304
+      ],
+      "include_zero": true
+    },
+    "Londra/Rmoneq-R-orig": {
+      "media": 0.0011797421041450467,
+      "ic_con_nodi": [
+        0.0,
+        0.0028362653420530284
+      ],
+      "include_zero": true
+    },
+    "Londra/Rmoneq-C": {
+      "media": 0.05031372333945364,
+      "ic_con_nodi": [
+        0.035182680971696204,
+        0.06765093363143775
+      ],
+      "include_zero": false
+    },
+    "Melbourne/Rmoneq-R-mon": {
+      "media": 0.0044532702639271515,
+      "ic_con_nodi": [
+        0.0008436964270253347,
+        0.0093367677184605
+      ],
+      "include_zero": false
+    },
+    "Melbourne/Rmoneq-R-orig": {
+      "media": 0.0044532702639271515,
+      "ic_con_nodi": [
+        0.0009607308027311105,
+        0.00927938734561011
+      ],
+      "include_zero": false
+    },
+    "Melbourne/Rmoneq-C": {
+      "media": 0.010888016747149336,
+      "ic_con_nodi": [
+        -0.011218789015160973,
+        0.03613277102415664
+      ],
+      "include_zero": true
+    }
+  },
+  "nota": "analisi aggiunta il 2/10, non pre-registrata; secondaria",
+  "repliche": 4000,
+  "seme_bootstrap": 20261003
+}

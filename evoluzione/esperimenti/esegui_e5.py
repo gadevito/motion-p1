@@ -240,7 +240,7 @@ def _k_cella(args):
     from evoluzione.esperimenti.esegui_e2 import da_E1, valuta
     from evoluzione.esperimenti.esegui_inserimento import CALENDARIO
     from evoluzione.esperimenti.fasi import percorso_E
-    from evoluzione.esperimenti.inserimento import statiche
+    from evoluzione.esperimenti.inserimento import statica_cella, statiche
     from evoluzione.esperimenti.semi import SEME_PARTIZIONE, seme_torch
     out = Path(out)
     t_in = time.time()
@@ -255,7 +255,7 @@ def _k_cella(args):
         nn = nodi["validazione"]
         NORM, nr, nv = _normalizzazione(D, nodi, ist)
         x = _canali(D, nr, nv)
-        stat = statiche(D)
+        stat = statica_cella(statiche(D), D, nodi, nn, t0, s)                      # E14
         pesi = np.asarray(carica_pesi(out / "pesi_griglia", c, p).vettore(), dtype="float64")
         w_t = torch.as_tensor(pesi, dtype=torch.float32)
         S = torch.as_tensor(stat[nn])
@@ -475,7 +475,7 @@ def _cella(args):
     from evoluzione.esperimenti.addestramento import _canali, _carica, _normalizzazione, _partizioni
     from evoluzione.esperimenti.esegui_e2 import da_E1, valuta
     from evoluzione.esperimenti.fasi import percorso_E
-    from evoluzione.esperimenti.inserimento import _modello_da_ck, statiche
+    from evoluzione.esperimenti.inserimento import _modello_da_ck, statica_cella, statiche
     from evoluzione.esperimenti.semi import SEME_PARTIZIONE, seme_torch
     out = Path(out)
     g = out / DIR_PRED / f"ep{k}_{c}_p{p}_s{s}.npz"
@@ -497,7 +497,7 @@ def _cella(args):
         nn = nodi["prova"]
         NORM, nr, nv = _normalizzazione(D, nodi, ist)
         x = _canali(D, nr, nv)
-        stat = statiche(D)
+        stat = statica_cella(statiche(D), D, nodi, nn, t0, s)                      # E14
         P_ = carica_pesi(out / et["pesi"], c, p)
         pesi = np.asarray(P_.vettore(), dtype="float64")
         w_t = torch.as_tensor(pesi, dtype=torch.float32)

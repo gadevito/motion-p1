@@ -52,7 +52,7 @@ def _cella(args):
     from evoluzione.esperimenti.esegui_e2 import D_STAT, valuta
     from evoluzione.esperimenti.esegui_inserimento import CALENDARIO
     from evoluzione.esperimenti.fasi import percorso_E
-    from evoluzione.esperimenti.inserimento import _modello_da_ck, statiche
+    from evoluzione.esperimenti.inserimento import _modello_da_ck, statica_cella, statiche
     from evoluzione.esperimenti.ricostruisci_predizioni import aggregati_per_nodo
     from evoluzione.esperimenti.semi import SEME_PARTIZIONE, seme_torch
     out = Path(out)
@@ -67,7 +67,7 @@ def _cella(args):
             SEME_PARTIZIONE[p])})
         NORM, nr, nv = _normalizzazione(D, nodi, ist)
         x = _canali(D, nr, nv)
-        stat = statiche(D)
+        stat = statica_cella(statiche(D), D, nodi, nodi["prova"], t0, s)          # E14
         pesi = np.asarray(carica_pesi(out / "pesi_griglia", c, p).vettore(),
                           dtype="float64")
         ini = nodi["addestramento"]

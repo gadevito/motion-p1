@@ -1,0 +1,676 @@
+{
+  "data": "2026-10-15",
+  "commit": "5f63919958bb",
+  "esecuzioni": {
+    "completate": 108,
+    "fallite": [],
+    "ore_calendario": 15.519298335313797,
+    "lavoratori": 8,
+    "marcatori": 108
+  },
+  "risultati": {
+    "confronti": {
+      "Madrid/Rw-Fpw": {
+        "media": -0.003458104025164166,
+        "ic_con_nodi": [
+          -0.006008618914606479,
+          -0.001035583742802137
+        ],
+        "include_zero": false,
+        "equivalente_3pc": true,
+        "etichetta": "R-orig(1 sett.) - F'(1 sett.)"
+      },
+      "Madrid/Rw-C": {
+        "media": -0.0351239843795865,
+        "ic_con_nodi": [
+          -0.0401334265832594,
+          -0.030008134783117237
+        ],
+        "include_zero": false,
+        "equivalente_3pc": false,
+        "etichetta": "R-orig(1 sett.) - C"
+      },
+      "Madrid/Rw-A": {
+        "media": 0.0035334351132202033,
+        "ic_con_nodi": [
+          0.0009225284426578388,
+          0.005982739333727429
+        ],
+        "include_zero": false,
+        "equivalente_3pc": true,
+        "etichetta": "R-orig(1 sett.) - A"
+      },
+      "Madrid/Rw-R24": {
+        "media": -0.02547667642351833,
+        "ic_con_nodi": [
+          -0.03321543471807588,
+          -0.018817069906444852
+        ],
+        "include_zero": false,
+        "equivalente_3pc": false,
+        "etichetta": "R-orig(1 sett.) - R-orig(24 h)"
+      },
+      "Madrid/Fpw-C": {
+        "media": -0.03166588035442233,
+        "ic_con_nodi": [
+          -0.036947677113784834,
+          -0.026717246669278775
+        ],
+        "include_zero": false,
+        "equivalente_3pc": false,
+        "etichetta": "F'(1 sett.) - C"
+      },
+      "Madrid/A-C": {
+        "media": -0.03865741949280669,
+        "ic_con_nodi": [
+          -0.04349276529242085,
+          -0.03400704622256438
+        ],
+        "include_zero": false,
+        "equivalente_3pc": false,
+        "etichetta": "A - C"
+      },
+      "Londra/Rw-Fpw": {
+        "media": -0.0015210430033046525,
+        "ic_con_nodi": [
+          -0.004099458096992545,
+          0.0014509724558664137
+        ],
+        "include_zero": true,
+        "equivalente_3pc": true,
+        "etichetta": "R-orig(1 sett.) - F'(1 sett.)"
+      },
+      "Londra/Rw-C": {
+        "media": -0.03206648254376749,
+        "ic_con_nodi": [
+          -0.03719748588158528,
+          -0.027258708891830248
+        ],
+        "include_zero": false,
+        "equivalente_3pc": false,
+        "etichetta": "R-orig(1 sett.) - C"
+      },
+      "Londra/Rw-A": {
+        "media": 0.007661584296228735,
+        "ic_con_nodi": [
+          0.004400293147265847,
+          0.010764071424630161
+        ],
+        "include_zero": false,
+        "equivalente_3pc": true,
+        "etichetta": "R-orig(1 sett.) - A"
+      },
+      "Londra/Rw-R24": {
+        "media": -0.09375281173312842,
+        "ic_con_nodi": [
+          -0.11251995763388328,
+          -0.07783416732262984
+        ],
+        "include_zero": false,
+        "equivalente_3pc": false,
+        "etichetta": "R-orig(1 sett.) - R-orig(24 h)"
+      },
+      "Londra/Fpw-C": {
+        "media": -0.030545439540462835,
+        "ic_con_nodi": [
+          -0.03479762804304043,
+          -0.026248885392650696
+        ],
+        "include_zero": false,
+        "equivalente_3pc": false,
+        "etichetta": "F'(1 sett.) - C"
+      },
+      "Londra/A-C": {
+        "media": -0.03972806683999622,
+        "ic_con_nodi": [
+          -0.04420725646707564,
+          -0.03505113186046935
+        ],
+        "include_zero": false,
+        "equivalente_3pc": false,
+        "etichetta": "A - C"
+      },
+      "Melbourne/Rw-Fpw": {
+        "media": -0.01444181728937797,
+        "ic_con_nodi": [
+          -0.02122747961889423,
+          -0.007635536731507465
+        ],
+        "include_zero": false,
+        "equivalente_3pc": true,
+        "etichetta": "R-orig(1 sett.) - F'(1 sett.)"
+      },
+      "Melbourne/Rw-C": {
+        "media": -0.055923883499418445,
+        "ic_con_nodi": [
+          -0.06926442629494732,
+          -0.04270576352380196
+        ],
+        "include_zero": false,
+        "equivalente_3pc": false,
+        "etichetta": "R-orig(1 sett.) - C"
+      },
+      "Melbourne/Rw-A": {
+        "media": -0.016716436212973043,
+        "ic_con_nodi": [
+          -0.026959971521427276,
+          -0.005769988059736454
+        ],
+        "include_zero": false,
+        "equivalente_3pc": false,
+        "etichetta": "R-orig(1 sett.) - A"
+      },
+      "Melbourne/Rw-R24": {
+        "media": -0.07004937684033236,
+        "ic_con_nodi": [
+          -0.09664756081526331,
+          -0.04822481719752754
+        ],
+        "include_zero": false,
+        "equivalente_3pc": false,
+        "etichetta": "R-orig(1 sett.) - R-orig(24 h)"
+      },
+      "Melbourne/Fpw-C": {
+        "media": -0.04148206621004047,
+        "ic_con_nodi": [
+          -0.04960919132868313,
+          -0.03389540280262074
+        ],
+        "include_zero": false,
+        "equivalente_3pc": false,
+        "etichetta": "F'(1 sett.) - C"
+      },
+      "Melbourne/A-C": {
+        "media": -0.0392074472864454,
+        "ic_con_nodi": [
+          -0.052025912854456825,
+          -0.02573998252540315
+        ],
+        "include_zero": false,
+        "equivalente_3pc": false,
+        "etichetta": "A - C"
+      }
+    },
+    "verifica_C": {
+      "Madrid": 0.0,
+      "Londra": 0.0,
+      "Melbourne": 0.0
+    },
+    "origini_comuni": {
+      "Madrid": 869,
+      "Londra": 883,
+      "Melbourne": 854
+    },
+    "margine": {
+      "Madrid": 0.02887854517045022,
+      "Londra": 0.026655674621139085,
+      "Melbourne": 0.02457936743817571
+    },
+    "ricostruzione": {
+      "esecuzioni": 108,
+      "anomalie": 0,
+      "scarto_max": 0.004354410840233559
+    },
+    "repliche": 4000,
+    "seme_bootstrap": 20261009,
+    "istante": "2026-10-14T20:16:59.333424+00:00"
+  },
+  "costi": {
+    "C": {
+      "esecuzioni_isolate": 0
+    },
+    "P": {
+      "esecuzioni_isolate": 0
+    },
+    "A": {
+      "esecuzioni_isolate": 0
+    },
+    "R": {
+      "esecuzioni_isolate": 0
+    },
+    "R-orig": {
+      "esecuzioni_isolate": 9,
+      "addestramento_s": 0.0,
+      "inserimento_s": 2268.0010080337524,
+      "attesa_dati_s": 604800.0,
+      "disponibilita_s": 607068.0010080338,
+      "rimisure_che_riproducono_la_concorrente": 9,
+      "celle": [
+        [
+          "Londra",
+          0,
+          201
+        ],
+        [
+          "Londra",
+          0,
+          202
+        ],
+        [
+          "Londra",
+          0,
+          203
+        ],
+        [
+          "Madrid",
+          0,
+          201
+        ],
+        [
+          "Madrid",
+          0,
+          202
+        ],
+        [
+          "Madrid",
+          0,
+          203
+        ],
+        [
+          "Melbourne",
+          0,
+          201
+        ],
+        [
+          "Melbourne",
+          0,
+          202
+        ],
+        [
+          "Melbourne",
+          0,
+          203
+        ]
+      ]
+    },
+    "R-mon": {
+      "esecuzioni_isolate": 0
+    },
+    "F": {
+      "esecuzioni_isolate": 0
+    }
+  },
+  "costi_e4": {
+    "tabella": {
+      "F0p": {
+        "esecuzioni_isolate": 9,
+        "inserimento_s": 0.0,
+        "attesa_dati_s": 0.0,
+        "disponibilita_s": 0.0,
+        "nota": "il modello unico al token: pronto all'installazione"
+      },
+      "Fp": {
+        "esecuzioni_isolate": 9,
+        "inserimento_s": 16.143330097198486,
+        "attesa_dati_s": 86400,
+        "disponibilita_s": 86416.1433300972
+      },
+      "gated": {
+        "Madrid": {
+          "tau": 192,
+          "N": 77,
+          "esecuzioni_isolate": 3,
+          "primo_modello_s": 0.0,
+          "adattamento_s": 36.75180912017822,
+          "attesa_dati_s": 172800,
+          "disponibilita_adattamento_s": 172836.75180912018
+        },
+        "Londra": {
+          "tau": 192,
+          "N": 154,
+          "esecuzioni_isolate": 3,
+          "primo_modello_s": 0.0,
+          "adattamento_s": 35.714566230773926,
+          "attesa_dati_s": 172800,
+          "disponibilita_adattamento_s": 172835.71456623077
+        },
+        "Melbourne": {
+          "tau": 672,
+          "N": 154,
+          "esecuzioni_isolate": 3,
+          "primo_modello_s": 0.0,
+          "adattamento_s": 406.0371677875519,
+          "attesa_dati_s": 604800,
+          "disponibilita_adattamento_s": 605206.0371677876
+        }
+      }
+    },
+    "celle": [
+      {
+        "contesto": "Madrid",
+        "partizione": 0,
+        "seme": 201,
+        "tau": 192,
+        "fili_torch": 1,
+        "modalita_misura": "isolata",
+        "impronta_Ep": "d4cff9528e82f432",
+        "misure": {
+          "Fp_96": {
+            "L": 96,
+            "origini": 77,
+            "aggiornamenti": 50,
+            "inserimento_s": 14.619968175888062,
+            "attesa_dati_s": 86400,
+            "disponibilita_s": 86414.61996817589,
+            "wce": 0.9225688390676741,
+            "wce_concorrente": 0.9225688390676741,
+            "scarto_relativo": 0.0
+          },
+          "Fp_192": {
+            "L": 192,
+            "origini": 173,
+            "aggiornamenti": 50,
+            "inserimento_s": 36.959813833236694,
+            "attesa_dati_s": 172800,
+            "disponibilita_s": 172836.95981383324,
+            "wce": 0.9119916741517627,
+            "wce_concorrente": 0.9119916741517627,
+            "scarto_relativo": 0.0
+          }
+        }
+      },
+      {
+        "contesto": "Madrid",
+        "partizione": 0,
+        "seme": 202,
+        "tau": 192,
+        "fili_torch": 1,
+        "modalita_misura": "isolata",
+        "impronta_Ep": "6504f58c4dfcb21f",
+        "misure": {
+          "Fp_96": {
+            "L": 96,
+            "origini": 77,
+            "aggiornamenti": 50,
+            "inserimento_s": 14.19863224029541,
+            "attesa_dati_s": 86400,
+            "disponibilita_s": 86414.1986322403,
+            "wce": 0.9242851728125548,
+            "wce_concorrente": 0.9242851728125548,
+            "scarto_relativo": 0.0
+          },
+          "Fp_192": {
+            "L": 192,
+            "origini": 173,
+            "aggiornamenti": 50,
+            "inserimento_s": 36.21977710723877,
+            "attesa_dati_s": 172800,
+            "disponibilita_s": 172836.21977710724,
+            "wce": 0.9123166329237764,
+            "wce_concorrente": 0.9123166329237764,
+            "scarto_relativo": 0.0
+          }
+        }
+      },
+      {
+        "contesto": "Madrid",
+        "partizione": 0,
+        "seme": 203,
+        "tau": 192,
+        "fili_torch": 1,
+        "modalita_misura": "isolata",
+        "impronta_Ep": "36c20c1ad2ea9867",
+        "misure": {
+          "Fp_96": {
+            "L": 96,
+            "origini": 77,
+            "aggiornamenti": 50,
+            "inserimento_s": 14.82688570022583,
+            "attesa_dati_s": 86400,
+            "disponibilita_s": 86414.82688570023,
+            "wce": 0.9218807229051373,
+            "wce_concorrente": 0.9218807229051373,
+            "scarto_relativo": 0.0
+          },
+          "Fp_192": {
+            "L": 192,
+            "origini": 173,
+            "aggiornamenti": 50,
+            "inserimento_s": 36.75180912017822,
+            "attesa_dati_s": 172800,
+            "disponibilita_s": 172836.75180912018,
+            "wce": 0.9089784083156704,
+            "wce_concorrente": 0.9089784083156704,
+            "scarto_relativo": 0.0
+          }
+        }
+      },
+      {
+        "contesto": "Londra",
+        "partizione": 0,
+        "seme": 201,
+        "tau": 192,
+        "fili_torch": 1,
+        "modalita_misura": "isolata",
+        "impronta_Ep": "516464cc5bfa68fc",
+        "misure": {
+          "Fp_96": {
+            "L": 96,
+            "origini": 77,
+            "aggiornamenti": 50,
+            "inserimento_s": 14.884464263916016,
+            "attesa_dati_s": 86400,
+            "disponibilita_s": 86414.88446426392,
+            "wce": 0.8985109038217854,
+            "wce_concorrente": 0.8985109038217854,
+            "scarto_relativo": 0.0
+          },
+          "Fp_192": {
+            "L": 192,
+            "origini": 173,
+            "aggiornamenti": 50,
+            "inserimento_s": 37.081231117248535,
+            "attesa_dati_s": 172800,
+            "disponibilita_s": 172837.08123111725,
+            "wce": 0.8710800492364429,
+            "wce_concorrente": 0.8710800492364429,
+            "scarto_relativo": 0.0
+          }
+        }
+      },
+      {
+        "contesto": "Londra",
+        "partizione": 0,
+        "seme": 202,
+        "tau": 192,
+        "fili_torch": 1,
+        "modalita_misura": "isolata",
+        "impronta_Ep": "bef2ad0343738029",
+        "misure": {
+          "Fp_96": {
+            "L": 96,
+            "origini": 77,
+            "aggiornamenti": 50,
+            "inserimento_s": 16.143330097198486,
+            "attesa_dati_s": 86400,
+            "disponibilita_s": 86416.1433300972,
+            "wce": 0.9094995530549648,
+            "wce_concorrente": 0.9094995530549648,
+            "scarto_relativo": 0.0
+          },
+          "Fp_192": {
+            "L": 192,
+            "origini": 173,
+            "aggiornamenti": 50,
+            "inserimento_s": 35.714566230773926,
+            "attesa_dati_s": 172800,
+            "disponibilita_s": 172835.71456623077,
+            "wce": 0.8724783082281675,
+            "wce_concorrente": 0.8724783082281675,
+            "scarto_relativo": 0.0
+          }
+        }
+      },
+      {
+        "contesto": "Londra",
+        "partizione": 0,
+        "seme": 203,
+        "tau": 192,
+        "fili_torch": 1,
+        "modalita_misura": "isolata",
+        "impronta_Ep": "b4146b1bf99390c5",
+        "misure": {
+          "Fp_96": {
+            "L": 96,
+            "origini": 77,
+            "aggiornamenti": 50,
+            "inserimento_s": 16.18528389930725,
+            "attesa_dati_s": 86400,
+            "disponibilita_s": 86416.1852838993,
+            "wce": 0.9048098300592772,
+            "wce_concorrente": 0.9048098300592772,
+            "scarto_relativo": 0.0
+          },
+          "Fp_192": {
+            "L": 192,
+            "origini": 173,
+            "aggiornamenti": 50,
+            "inserimento_s": 35.68742799758911,
+            "attesa_dati_s": 172800,
+            "disponibilita_s": 172835.6874279976,
+            "wce": 0.8690468083991241,
+            "wce_concorrente": 0.8690468083991241,
+            "scarto_relativo": 0.0
+          }
+        }
+      },
+      {
+        "contesto": "Melbourne",
+        "partizione": 0,
+        "seme": 201,
+        "tau": 672,
+        "fili_torch": 1,
+        "modalita_misura": "isolata",
+        "impronta_Ep": "84cc80b71b2a1618",
+        "misure": {
+          "Fp_96": {
+            "L": 96,
+            "origini": 77,
+            "aggiornamenti": 200,
+            "inserimento_s": 42.57404589653015,
+            "attesa_dati_s": 86400,
+            "disponibilita_s": 86442.57404589653,
+            "wce": 0.7897620284868607,
+            "wce_concorrente": 0.7897620284868607,
+            "scarto_relativo": 0.0
+          },
+          "Fp_672": {
+            "L": 672,
+            "origini": 634,
+            "aggiornamenti": 200,
+            "inserimento_s": 455.97015404701233,
+            "attesa_dati_s": 604800,
+            "disponibilita_s": 605255.970154047,
+            "wce": 0.7634064427548504,
+            "wce_concorrente": 0.7634064427548504,
+            "scarto_relativo": 0.0
+          }
+        }
+      },
+      {
+        "contesto": "Melbourne",
+        "partizione": 0,
+        "seme": 202,
+        "tau": 672,
+        "fili_torch": 1,
+        "modalita_misura": "isolata",
+        "impronta_Ep": "e3f89b20528fe172",
+        "misure": {
+          "Fp_96": {
+            "L": 96,
+            "origini": 77,
+            "aggiornamenti": 200,
+            "inserimento_s": 38.400336027145386,
+            "attesa_dati_s": 86400,
+            "disponibilita_s": 86438.40033602715,
+            "wce": 0.7907663016063055,
+            "wce_concorrente": 0.7907663016063055,
+            "scarto_relativo": 0.0
+          },
+          "Fp_672": {
+            "L": 672,
+            "origini": 634,
+            "aggiornamenti": 200,
+            "inserimento_s": 406.0371677875519,
+            "attesa_dati_s": 604800,
+            "disponibilita_s": 605206.0371677876,
+            "wce": 0.7634289192441291,
+            "wce_concorrente": 0.7634289192441291,
+            "scarto_relativo": 0.0
+          }
+        }
+      },
+      {
+        "contesto": "Melbourne",
+        "partizione": 0,
+        "seme": 203,
+        "tau": 672,
+        "fili_torch": 1,
+        "modalita_misura": "isolata",
+        "impronta_Ep": "136e583078568d63",
+        "misure": {
+          "Fp_96": {
+            "L": 96,
+            "origini": 77,
+            "aggiornamenti": 200,
+            "inserimento_s": 39.20631694793701,
+            "attesa_dati_s": 86400,
+            "disponibilita_s": 86439.20631694794,
+            "wce": 0.7859536234575604,
+            "wce_concorrente": 0.7859536234575604,
+            "scarto_relativo": 0.0
+          },
+          "Fp_672": {
+            "L": 672,
+            "origini": 634,
+            "aggiornamenti": 200,
+            "inserimento_s": 397.0506911277771,
+            "attesa_dati_s": 604800,
+            "disponibilita_s": 605197.0506911278,
+            "wce": 0.7593344089282568,
+            "wce_concorrente": 0.7593344089282568,
+            "scarto_relativo": 0.0
+          }
+        }
+      }
+    ],
+    "tolleranza": 1e-06,
+    "rimisure_che_riproducono_la_concorrente": 18,
+    "istante": "2026-10-03T23:58:54.177745+00:00"
+  },
+  "R-orig_per_citta": {
+    "Madrid": {
+      "n": 3,
+      "inserimento_s": 2272.279565811157,
+      "valori": [
+        2266.1212487220764,
+        2272.279565811157,
+        2370.998281955719
+      ]
+    },
+    "Londra": {
+      "n": 3,
+      "inserimento_s": 2270.175248146057,
+      "valori": [
+        2268.0010080337524,
+        2270.175248146057,
+        2283.731491088867
+      ]
+    },
+    "Melbourne": {
+      "n": 3,
+      "inserimento_s": 1488.9679291248322,
+      "valori": [
+        1488.5583441257477,
+        1488.9679291248322,
+        1497.8144490718842
+      ]
+    }
+  },
+  "impronte": {
+    "evoluzione/esperimenti/esegui_inserimento.py": "95349fe3b6f6356f",
+    "evoluzione/esperimenti/ricostruisci_predizioni.py": "3d50c8754921abc3",
+    "evoluzione/analisi/analizza_e3bis.py": "c4d791c24eedded9",
+    "protocol/E5.md": "3dd706bcf3ddd899"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "PEMS04": {
+    "cartella": "predizioni_e6a",
+    "celle": 36,
+    "origini_comuni": 168,
+    "origini_dopo_t1": 744,
+    "t0": 4807,
+    "t1": 4903
+  },
+  "PEMS08": {
+    "cartella": "predizioni_e6",
+    "celle": 36,
+    "origini_comuni": 1423,
+    "origini_dopo_t1": 1999,
+    "t0": 3840,
+    "t1": 3936
+  },
+  "impronta": "604cac98cf78ce31"
+}

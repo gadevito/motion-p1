@@ -37,7 +37,8 @@ from evoluzione.componente.predittore import ORIZZONTI  # noqa: E402
 from evoluzione.esperimenti.addestramento import (  # noqa: E402
     _canali, _carica, _descrittori, _lotto, _normalizzazione, _partizioni)
 from evoluzione.esperimenti.esegui_inserimento import CALENDARIO  # noqa: E402
-from evoluzione.esperimenti.inserimento import _modello_da_ck, statiche  # noqa
+from evoluzione.esperimenti.inserimento import (  # noqa
+    _modello_da_ck, statica_cella, statiche, variante_statica)
 from evoluzione.esperimenti.semi import SEME_PARTIZIONE, configurazione  # noqa
 
 TOLLERANZA = 1e-6
@@ -135,11 +136,12 @@ def main() -> int:
                 SEME_PARTIZIONE[p])})
             NORM, nr, nv = _normalizzazione(D, nodi, ist)
             x = _canali(D, nr, nv)
-            stat = statiche(D)
+            stat0 = statiche(D)
             pesi = np.asarray(carica_pesi(
                 a.out / ("pesi_pems04" if a.pems04 else "pesi_griglia"),
                 c, p).vettore(), dtype="float64")
             for s in dich:
+                stat = statica_cella(stat0, D, nodi, nodi["prova"], t0, int(s))        # E14
                 if a.pems04:
                     d_man = None          # nessun aggregato da riprodurre
                 else:
@@ -158,7 +160,7 @@ def main() -> int:
                     o_acq = GR.origini_acquisizione(ok, t0, t1)
                     rg = Registro.avvia("ricostruzione/F", note=f"{c} p{p} {s}",
                                         radice=a.out / "registro_ricostruzione")
-                    m, _ = adatta_F(c, p, st_, a.out, D, nodi, ist, o_acq, rg)
+                    m, _ = adatta_F(c, p, st_, a.out, D, nodi, ist, o_acq, rg, stat=stat)   # E14
                     rg.completa()
                     ck = Path(f"(riadattato da ck_E_{c}_p{p}_s{st_}.pt)")
                     imp_ck = f"E:{st_}"
@@ -238,7 +240,7 @@ def main() -> int:
                               "scarto_relativo_max_orizzonte": rel_h,
                               "origini": len(per), "nodi": len(nodi["prova"]),
                               "secondi_inferenza": dt})
-                if rel > TOLLERANZA or rel_h > TOLLERANZA:
+                if (rel > TOLLERANZA or rel_h > TOLLERANZA) and variante_statica() == "congelata":
                     guai.append(f"{ck.name}: scarto {rel:.2e} (orizzonti "
                                 f"{rel_h:.2e}) oltre la tolleranza")
                 np.savez_compressed(
@@ -254,6 +256,10 @@ def main() -> int:
                       f"{w_old:.6f}  scarto {rel:.1e}  {dt:5.1f}s", flush=True)
     (a.dir_pred / f"controllo_{a.braccio}.json").write_text(json.dumps(
         {"tolleranza": TOLLERANZA, "esecuzioni": righe, "anomalie": guai,
+         "statica": variante_statica(),
+         "nota_statica": ("con una variante della statica (E14, stadio B) lo scarto "
+                          "dall'aggregato conservato e' l'effetto della variante, "
+                          "non un'anomalia della pipeline"),
          "deviazione_protocollo": (
              "gli intervalli della fase 3 sono stati ottenuti ricampionando "
              "partizioni e inizializzazioni sulle metriche aggregate per "

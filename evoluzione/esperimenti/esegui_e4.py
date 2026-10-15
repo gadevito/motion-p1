@@ -100,7 +100,7 @@ def _cella(args):
     from evoluzione.esperimenti.esegui_e2 import da_E1, valuta
     from evoluzione.esperimenti.esegui_inserimento import CALENDARIO
     from evoluzione.esperimenti.fasi import percorso_E
-    from evoluzione.esperimenti.inserimento import _modello_da_ck, statiche
+    from evoluzione.esperimenti.inserimento import _modello_da_ck, statica_cella, statiche
     from evoluzione.esperimenti.semi import SEME_PARTIZIONE, seme_torch
     out = Path(out)
     g = out / DIR_PRED / f"{episodio}_{c}_p{p}_s{s}.npz"
@@ -122,7 +122,7 @@ def _cella(args):
         nn = nodi["prova"] if episodio == "prova" else nodi["validazione"]
         NORM, nr, nv = _normalizzazione(D, nodi, ist)
         x = _canali(D, nr, nv)
-        stat = statiche(D)
+        stat = statica_cella(statiche(D), D, nodi, nn, t0, s)                      # E14
         pesi = np.asarray(carica_pesi(out / "pesi_griglia", c, p).vettore(), dtype="float64")
         w_t = torch.as_tensor(pesi, dtype=torch.float32)
         S = torch.as_tensor(stat[nn])
