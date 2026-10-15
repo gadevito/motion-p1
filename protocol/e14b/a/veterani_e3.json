@@ -1,0 +1,140 @@
+{
+  "confronti": {
+    "Madrid/R-orig-C": {
+      "media": -0.03969061386793993,
+      "ic_con_nodi": [
+        -0.04181298352969066,
+        -0.03758555423650728
+      ],
+      "include_zero": false
+    },
+    "Madrid/R-orig-E": {
+      "media": -0.0029498705028429984,
+      "ic_con_nodi": [
+        -0.00378629152447132,
+        -0.0022439610261624403
+      ],
+      "include_zero": false
+    },
+    "Madrid/R-C": {
+      "media": -0.02862181729297432,
+      "ic_con_nodi": [
+        -0.030968099422081948,
+        -0.026143147167133174
+      ],
+      "include_zero": false
+    },
+    "Madrid/R-mon-R-orig": {
+      "media": 7.147780054910112e-06,
+      "ic_con_nodi": [
+        0.0,
+        4.2000048694590655e-05
+      ],
+      "include_zero": true
+    },
+    "Londra/R-orig-C": {
+      "media": -0.037167162080881604,
+      "ic_con_nodi": [
+        -0.03926122682452529,
+        -0.03520586801948572
+      ],
+      "include_zero": false
+    },
+    "Londra/R-orig-E": {
+      "media": -0.00382035681685117,
+      "ic_con_nodi": [
+        -0.004961677324665025,
+        -0.0026442541825893603
+      ],
+      "include_zero": false
+    },
+    "Londra/R-C": {
+      "media": -0.03014069519405116,
+      "ic_con_nodi": [
+        -0.03226809028292967,
+        -0.02800380510311475
+      ],
+      "include_zero": false
+    },
+    "Londra/R-mon-R-orig": {
+      "media": 0.0,
+      "ic_con_nodi": [
+        0.0,
+        0.0
+      ],
+      "include_zero": true
+    },
+    "Melbourne/R-orig-C": {
+      "media": -0.03229765506188351,
+      "ic_con_nodi": [
+        -0.036965175814137115,
+        -0.027550288152281218
+      ],
+      "include_zero": false
+    },
+    "Melbourne/R-orig-E": {
+      "media": -0.0014077860911186377,
+      "ic_con_nodi": [
+        -0.0029098292695950334,
+        3.8508718235364925e-05
+      ],
+      "include_zero": true
+    },
+    "Melbourne/R-C": {
+      "media": -0.016140582334540642,
+      "ic_con_nodi": [
+        -0.02115720055689349,
+        -0.01104841700579651
+      ],
+      "include_zero": false
+    },
+    "Melbourne/R-mon-R-orig": {
+      "media": 0.0,
+      "ic_con_nodi": [
+        0.0,
+        0.0
+      ],
+      "include_zero": true
+    }
+  },
+  "celle": {
+    "Madrid": {
+      "semi": 12,
+      "partizioni": 3,
+      "nodi_per_partizione": {
+        "0": 630,
+        "1": 630,
+        "2": 630
+      }
+    },
+    "Londra": {
+      "semi": 12,
+      "partizioni": 3,
+      "nodi_per_partizione": {
+        "0": 630,
+        "1": 630,
+        "2": 630
+      }
+    },
+    "Melbourne": {
+      "semi": 12,
+      "partizioni": 3,
+      "nodi_per_partizione": {
+        "0": 415,
+        "1": 415,
+        "2": 415
+      }
+    }
+  },
+  "mancanti": {},
+  "costo_della_politica": {
+    "Madrid/R-orig-C": false,
+    "Madrid/R-orig-E": false,
+    "Londra/R-orig-C": false,
+    "Londra/R-orig-E": false,
+    "Melbourne/R-orig-C": false,
+    "Melbourne/R-orig-E": false
+  },
+  "repliche": 4000,
+  "seme_bootstrap": 20261002
+}
