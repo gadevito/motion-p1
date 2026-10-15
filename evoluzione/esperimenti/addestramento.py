@@ -798,9 +798,8 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
         reg.evento(f"stato iniziale originario di LEGACY, impronta "
                    f"{impronta_iniziale}: invariato")
     opt = torch.optim.Adam(m.parameters(), lr=cfg["passo"])
-    stat = torch.as_tensor(np.stack([
-        D["m_r"].mean(0), np.zeros(K), np.ones(K), np.zeros(K), np.ones(K)],
-        1).astype("float32"))
+    from evoluzione.esperimenti.inserimento import statica_addestramento
+    stat = torch.as_tensor(statica_addestramento(D, nodi, cfg, E.contesto))   # causale; congelata = campagna
     # i descrittori si calcolano SOLO per P: per gli altri bracci sarebbero
     # un costo inutile, e passarli farebbe sollevare il fornitore
     # I NODI DELLA METRICA DI SELEZIONE, secondo la politica dichiarata

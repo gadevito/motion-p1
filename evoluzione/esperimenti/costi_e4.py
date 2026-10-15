@@ -64,7 +64,8 @@ def _misura(c, p, s, out: Path, tau, fili):
     nn = nodi["prova"]
     NORM, nr, nv = _normalizzazione(D, nodi, ist)
     x = _canali(D, nr, nv)
-    stat = statiche(D)
+    from evoluzione.esperimenti.inserimento import statica_cella
+    stat = statica_cella(statiche(D), D, nodi, nn, t0, int(s))
     pesi = np.asarray(carica_pesi(out / "pesi_griglia", c, p).vettore(), dtype="float64")
     w_t = torch.as_tensor(pesi, dtype=torch.float32)
     S = torch.as_tensor(stat[nn])
@@ -111,7 +112,10 @@ def main() -> int:
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
     ap.add_argument("--fili", type=int, default=1)
     ap.add_argument("--piano", action="store_true")
+    from evoluzione.esperimenti.inserimento import applica_statica, argomento_statica
+    argomento_statica(ap)
     a = ap.parse_args()
+    applica_statica(a.statica)
     SC = json.loads((a.out / "e4_scelta_gated.json").read_text())["scelta"]
     celle = [(c, ISOLATO["partizione"], s) for c in CITTA for s in ISOLATO["semi"]]
     print("=" * 84)

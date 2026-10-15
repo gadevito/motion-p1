@@ -98,7 +98,10 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
     ap.add_argument("--etichetta", required=True, help="congelata | a | b | c")
+    from evoluzione.esperimenti.inserimento import applica_statica, argomento_statica
+    argomento_statica(ap)
     a = ap.parse_args()
+    applica_statica(a.statica)
     v = variante_statica()
     if (a.etichetta == "congelata") != (v == "congelata"):
         raise SystemExit(f"etichetta {a.etichetta!r} ma OR3_STATICA da' {v!r}")

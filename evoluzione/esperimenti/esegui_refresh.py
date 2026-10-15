@@ -63,7 +63,10 @@ def main() -> int:
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
     ap.add_argument("--dir-pred", type=Path,
                     default=Path("results/evoluzione/predizioni_refresh"))
+    from evoluzione.esperimenti.inserimento import applica_statica, argomento_statica
+    argomento_statica(ap)
     a = ap.parse_args()
+    applica_statica(a.statica)
     a.dir_pred.mkdir(parents=True, exist_ok=True)
     _, dich, _ = configurazione(inserimento=True)
     from evoluzione.analisi.pesi import carica as carica_pesi
@@ -102,7 +105,8 @@ def main() -> int:
                 SEME_PARTIZIONE[p])})
             NORM, nr, nv = _normalizzazione(D, nodi, ist)
             x = _canali(D, nr, nv)
-            stat = statiche(D)
+            from evoluzione.esperimenti.inserimento import statica_cella
+            stat = statica_cella(statiche(D), D, nodi, nodi["prova"], t0, 0)
             pesi = np.asarray(carica_pesi(
                 a.out / (PEMS["dir_pesi"] if a.pems04 else "pesi_griglia"),
                 c, p)

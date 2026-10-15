@@ -310,7 +310,10 @@ def main() -> int:
     ap.add_argument("--acquisizione-passi", type=int, default=96,
                     help="E3-bis: passi d'acquisizione (t0, t0 + L]; 672 = una "
                          "settimana. Diverso da 96 scrive in una cartella propria")
+    from evoluzione.esperimenti.inserimento import applica_statica, argomento_statica
+    argomento_statica(ap)
     a = ap.parse_args()
+    applica_statica(a.statica)
     _, dich, semi_torch = configurazione(inserimento=True)
     et = (ETICHETTA if a.acquisizione_passi == 96
           else f"{ETICHETTA}_{a.acquisizione_passi}")

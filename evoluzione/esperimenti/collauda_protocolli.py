@@ -25,6 +25,11 @@ import torch
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from evoluzione.componente.registro import Registro  # noqa: E402
 from evoluzione.esperimenti.addestramento import addestra_una  # noqa: E402
+
+# Il protocollo STORICO deve RIPRODURRE un punto E della campagna: statica congelata
+# (non causale, difetto 21), come allora. Fissata qui, non dall'ambiente.
+import os  # noqa: E402
+os.environ["OR3_STATICA"] = "congelata"
 from evoluzione.esperimenti.fasi import percorso_E  # noqa: E402
 from evoluzione.esperimenti.semi import SEME_PARTIZIONE  # noqa: E402
 

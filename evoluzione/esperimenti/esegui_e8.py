@@ -650,7 +650,10 @@ def main() -> int:
     ap.add_argument("--piano", action="store_true")
     ap.add_argument("--pilota", action="store_true")
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
+    from evoluzione.esperimenti.inserimento import applica_statica, argomento_statica
+    argomento_statica(ap)
     a = ap.parse_args()
+    applica_statica(a.statica)
     print("=" * 84); print(f"E8 — metriche operative, fase {a.fase} ({', '.join(a.contesto)})"); print("=" * 84)
     if a.fase in ("validazione", "prova", "curve"):
         return fase_celle(a.out, a.contesto, "curva" if a.fase == "curve" else a.fase,

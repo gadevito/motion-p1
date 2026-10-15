@@ -48,7 +48,10 @@ def main() -> int:
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
     ap.add_argument("--dir-pred", type=Path,
                     default=Path("results/evoluzione/predizioni_f0"))
+    from evoluzione.esperimenti.inserimento import applica_statica, argomento_statica
+    argomento_statica(ap)
     a = ap.parse_args()
+    applica_statica(a.statica)
     a.dir_pred.mkdir(parents=True, exist_ok=True)
     _, dich, semi_t = configurazione(inserimento=True)
     from evoluzione.analisi.pesi import carica as carica_pesi

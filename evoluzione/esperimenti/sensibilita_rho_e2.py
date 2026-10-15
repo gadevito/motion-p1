@@ -120,7 +120,8 @@ def valuta_rho(out: Path, rho: float, dir_pred: Path) -> list:
         SEME_PARTIZIONE[PARTIZIONE])})
     NORM, nr, nv = _normalizzazione(D, nodi, ist)
     x = _canali(D, nr, nv)
-    stat = statiche(D)
+    from evoluzione.esperimenti.inserimento import statica_cella
+    stat = statica_cella(statiche(D), D, nodi, nodi["prova"], t0, 0)
     pesi = np.asarray(carica_pesi(out / "pesi_griglia", CONTESTO, PARTIZIONE)
                       .vettore(), dtype="float64")
     S_nuovi = torch.as_tensor(stat[nodi["prova"]])
@@ -249,7 +250,10 @@ def main() -> int:
     ap.add_argument("--fili", type=int, default=1)
     ap.add_argument("--piano", action="store_true")
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
+    from evoluzione.esperimenti.inserimento import applica_statica, argomento_statica
+    argomento_statica(ap)
     a = ap.parse_args()
+    applica_statica(a.statica)
     tutti, da_fare = piano_addestramenti(a.out)
     print("=" * 84)
     print("SENSIBILITA' A RHO — E2, figura")

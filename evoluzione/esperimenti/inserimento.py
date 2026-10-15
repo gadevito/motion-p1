@@ -36,16 +36,56 @@ def statiche(D):
                      np.ones(K)], 1).astype("float32")
 
 
-VARIANTI_STATICA = ("congelata", "a", "b", "c")
+VARIANTI_STATICA = ("congelata", "causale", "a", "b", "c")
+STATICA_PREDEFINITA = "causale"      # dopo E14 (difetto 21): causale; `congelata` riproduce la campagna
 L24_STATICA = 96
 
 
 def variante_statica() -> str:
-    """La variante della statica, da `OR3_STATICA` (E14); assente = congelata."""
-    v = os.environ.get("OR3_STATICA", "") or "congelata"
+    """La variante della statica, da `OR3_STATICA`; assente = `causale` (variante (a) di E14).
+    `congelata` e' la statica non causale della campagna del Paper 1 (difetto 21)."""
+    v = os.environ.get("OR3_STATICA", "") or STATICA_PREDEFINITA
     if v not in VARIANTI_STATICA:
         raise ValueError(f"OR3_STATICA={v!r}: ammessi {VARIANTI_STATICA}")
     return v
+
+
+def argomento_statica(ap):
+    """`--statica`: l'interruttore degli esecutori; assente, vale l'ambiente e poi la predefinita."""
+    ap.add_argument("--statica", choices=VARIANTI_STATICA, default=None,
+                    help=f"statica per nodo: congelata (campagna Paper 1, non causale) oppure causale "
+                         f"(predefinita); a, b, c = varianti di E14 (OR3_STATICA)")
+    return ap
+
+
+def applica_statica(valore):
+    """Scrive `OR3_STATICA` per il processo e per i figli (`spawn` eredita l'ambiente)."""
+    if valore:
+        os.environ["OR3_STATICA"] = valore
+    return variante_statica()
+
+
+def t0_installazione(contesto: str, fine_periodo=None) -> int:
+    """Il t0 dell'episodio: `fine_periodo` se dato (E5 episodi 2 e 3, E6: il periodo finisce a t0),
+    altrimenti il calendario di prova del contesto."""
+    if fine_periodo is not None:
+        return int(fine_periodo)
+    if contesto.startswith("PEMS08"):
+        from evoluzione.esperimenti.esegui_e6 import T0_PROVA
+        return int(T0_PROVA)
+    if contesto.startswith("PEMS04"):
+        from evoluzione.esperimenti.esegui_e6a import T0_PROVA
+        return int(T0_PROVA)
+    from evoluzione.esperimenti.esegui_inserimento import CALENDARIO
+    return int(CALENDARIO[contesto][0])
+
+
+def statica_addestramento(D, nodi, cfg, contesto):
+    """La statica dell'ADDESTRAMENTO (addestramento.py): `statiche(D)` passata da `statica_cella`
+    con i nodi nuovi dichiarati dalla configurazione (vuoti per E, E') e il t0 dell'episodio."""
+    nn = np.asarray(cfg.get("nodi_nuovi", []), dtype="int64")
+    t0 = t0_installazione(contesto, cfg.get("fine_periodo"))
+    return statica_cella(statiche(D), D, nodi, nn, t0, int(cfg.get("seme_dichiarato", 0)))
 
 
 def statica_cella(stat, D, nodi, nn, t0, seme):
@@ -54,8 +94,8 @@ def statica_cella(stat, D, nodi, nn, t0, seme):
     `stat` e' `statiche(D)`; `nn` sono i nodi inseriti nell'episodio (prova, o
     validazione in un episodio di validazione), `nodi["addestramento"]` gli
     iniziali; `t0` l'installazione; `seme` quello DICHIARATO della cella.
-        congelata   `stat` com'e' (bit per bit; la campagna del Paper 1)
-        a           iniziali: media di m_r su [0, t0); nn: media su (t0, t0 + 24 h]
+        congelata   `stat` com'e' (bit per bit; la campagna del Paper 1, non causale)
+        causale, a  iniziali: media di m_r su [0, t0); nn: media su (t0, t0 + 24 h]
         b           iniziali: idem; nn: media delle coperture causali degli iniziali
         c           iniziali: non causale; nn: coperture non causali permutate fra
                     i nn, una permutazione per seme
@@ -68,10 +108,10 @@ def statica_cella(stat, D, nodi, nn, t0, seme):
     nn = np.asarray(nn, dtype="int64")
     ini = np.asarray(nodi["addestramento"], dtype="int64")
     cov_nc = stat[:, 0].astype("float64")
-    if v in ("a", "b"):
+    if v in ("causale", "a", "b"):
         cov_c = m[:t0].mean(0)
         stat[:, 0] = cov_c.astype("float32")
-        if v == "a":
+        if v in ("causale", "a"):
             stat[nn, 0] = m[t0 + 1:t0 + L24_STATICA + 1, :].mean(0)[nn].astype("float32")
         else:
             stat[nn, 0] = np.float32(cov_c[ini].mean())
@@ -183,7 +223,8 @@ def adatta_F(c, p, seme_torch, out: Path, D, nodi, ist, o_acq, reg, stat=None):
     from evoluzione.esperimenti.addestramento import _canali, _normalizzazione
     NORM, nr, nv = _normalizzazione(D, nodi, ist)
     x = _canali(D, nr, nv)
-    stat = statiche(D) if stat is None else stat
+    if stat is None:
+        stat = statica_cella(statiche(D), D, nodi, nodi["prova"], t0_installazione(c), int(seme_torch))
     m, forn = copia_da_E(dE, nodi_in, nodi["prova"], D_STAT)
     # UN SOLO LOTTO, non uno per nodo: l'adattamento e' vettorizzato e la
     # perdita totale e' la somma di quelle per nodo, sicche' il gradiente di
@@ -219,7 +260,7 @@ def valuta_prova(b, c, p, s, out: Path, D, nodi, ist, t1, ok, reg, ck, mod,
                                                       _normalizzazione)
     NORM, nr, nv = _normalizzazione(D, nodi, ist)
     x = _canali(D, nr, nv)
-    stat = statiche(D)
+    stat = statica_cella(statiche(D), D, nodi, nodi["prova"], t0_installazione(c), int(s))
     w = torch.as_tensor(carica_pesi(out / "pesi_griglia", c, p).vettore(),
                         dtype=torch.float32)
     fine = D["r"].shape[0] - max(ORIZZONTI)

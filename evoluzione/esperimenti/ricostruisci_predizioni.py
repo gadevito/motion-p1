@@ -101,7 +101,10 @@ def main() -> int:
     ap.add_argument("--acquisizione-passi", type=int, default=96,
                     help="E3-bis: la campagna con acquisizione (t0, t0 + L]; i "
                          "punti stanno in inserimento_griglia_<L>")
+    from evoluzione.esperimenti.inserimento import applica_statica, argomento_statica
+    argomento_statica(ap)
     a = ap.parse_args()
+    applica_statica(a.statica)
     # la cartella dei punti e dei manifesti segue l'acquisizione dichiarata
     dir_c = (DIR_C if a.acquisizione_passi == 96
              else DIR_C.with_name(f"{DIR_C.name}_{a.acquisizione_passi}"))

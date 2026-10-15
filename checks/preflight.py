@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Preflight — i tredici controlli della sezione 13, prima di ogni campagna.
+Preflight — i controlli della sezione 13 (piu' il 14 e il 15), prima di ogni campagna.
 =========================================================================
 Ogni voce nasce da un difetto gia' incontrato. **Un test che fallisce non si
 commenta: si corregge.** Se la correzione tocca un modulo comune, il preflight
@@ -53,7 +53,10 @@ def main() -> int:
     ap.add_argument("--dir-ck", type=Path, default=None,
                     help="cartella dei punti di controllo, per i test 4 e 13")
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
+    from evoluzione.esperimenti.inserimento import applica_statica, argomento_statica
+    argomento_statica(ap)
     a = ap.parse_args()
+    applica_statica(a.statica)
     c, p = a.contesto, a.partizione
     srg = sorgente_di(c)
     print("=" * 84)
@@ -190,6 +193,25 @@ def main() -> int:
     v("14", "canali e costanti coerenti con la sorgente",
       x.shape[1] == len(canali_di(srg)),
       f"{x.shape[1]} canali; costanti dichiarate {sorted(costanti_di(srg))}")
+
+    # 15. causalita' della STATICA per nodo (E14, controllo n. 8): con m_r perturbata dopo
+    #     t0 + 24 h la statica della cella non cambia di un bit; la statica congelata
+    #     (difetto 21) cambia, e qui BLOCCA.
+    import os
+    from evoluzione.esperimenti.inserimento import (L24_STATICA, statica_cella, statiche,
+                                                     t0_installazione, variante_statica)
+    v_st = variante_statica(); t0i = t0_installazione(c)
+    D3 = {k: (val.copy() if isinstance(val, np.ndarray) else val) for k, val in D.items()}
+    D3["m_r"] = D3["m_r"].copy()
+    D3["m_r"][t0i + L24_STATICA + 1:] = rng.random(D3["m_r"][t0i + L24_STATICA + 1:].shape) < 0.5
+    s1 = statica_cella(statiche(D), D, nodi, nodi["prova"], t0i, a.seme)
+    s2 = statica_cella(statiche(D3), D3, nodi, nodi["prova"], t0i, a.seme)
+    cong_cambia = not np.array_equal(statiche(D), statiche(D3))
+    v("15", "statica per nodo IDENTICA AL BIT con m_r perturbata dopo t0 + 24 h (E14, n. 8)",
+      v_st != "congelata" and np.array_equal(s1, s2),
+      f"statica «{v_st}», t0 {t0i}, scarto massimo {float(np.abs(s1 - s2).max()):.3e}; "
+      f"la statica congelata {'cambia' if cong_cambia else 'non cambia'} con la stessa perturbazione"
+      + ("" if v_st != "congelata" else " — congelata = non causale (difetto 21): solo per riprodurre la campagna"))
 
     n_ok = sum(1 for _, o, _ in ESITI if o)
     print("\n" + "=" * 84)

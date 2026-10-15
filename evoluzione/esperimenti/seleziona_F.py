@@ -125,7 +125,10 @@ def main() -> int:
                     choices=("griglia", "principale", "storico"),
                     help="quali punti E usare; la selezione storica non si "
                          "sovrascrive")
+    from evoluzione.esperimenti.inserimento import applica_statica, argomento_statica
+    argomento_statica(ap)
     a = ap.parse_args()
+    applica_statica(a.statica)
 
     _, dich, semi_torch = configurazione(inserimento=True)
     # LE DUE SERIE IN CARTELLE DISTINTE: la selezione storica, fatta sui punti
@@ -204,9 +207,8 @@ def main() -> int:
             x = _canali(D, nr, nv)
             # le STATICHE, costruite come nell'addestramento: la copertura
             # media della sorgente piu' quattro colonne fisse
-            K = D["r"].shape[1]
-            stat = np.stack([D["m_r"].mean(0), np.zeros(K), np.ones(K),
-                             np.zeros(K), np.ones(K)], 1).astype("float32")
+            from evoluzione.esperimenti.inserimento import statica_cella, statiche
+            stat = statica_cella(statiche(D), D, nodi, nodi["validazione"], t0v, 0)
             # la firma e' (dir_pesi, contesto, partizione)
             w = torch.as_tensor(
                 # I PESI DELLA STESSA PIPELINE dei punti E: con la griglia sono

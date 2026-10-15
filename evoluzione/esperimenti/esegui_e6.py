@@ -316,6 +316,8 @@ def fase_seleziona_F(out: Path, piano: bool) -> int:
         D, ok, nodi, ist, x, stat = _dati(c, out)
         t0v, t1v, fine_v, _ = episodio("validazione", D)
         nodi_ep = nodi["validazione"]
+        from evoluzione.esperimenti.inserimento import statica_cella
+        stat = statica_cella(stat, D, nodi, nodi_ep, t0v, 0)
         w = torch.as_tensor(carica_pesi(out / "pesi_pems08", c, p).vettore(), dtype=torch.float32)
         o_ad = GR.origini_acquisizione(ok, t0v, t1v)
         fine_g = giornata_valutazione(D["ts"], t1v, fine_v)
@@ -912,7 +914,10 @@ def main() -> int:
     ap.add_argument("--fili", type=int, default=1)
     ap.add_argument("--piano", action="store_true")
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
+    from evoluzione.esperimenti.inserimento import applica_statica, argomento_statica
+    argomento_statica(ap)
     a = ap.parse_args()
+    applica_statica(a.statica)
     print("=" * 84); print(f"E6 — PEMS08, fase {a.fase}"); print("=" * 84)
     for f in ("pesi_pems08/pesi_PEMS08_p5_p5.json", "maschere/maschere_PEMS08_p5.npz", "canonico"):
         if not (a.out / f).exists():

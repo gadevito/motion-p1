@@ -691,7 +691,10 @@ def main() -> int:
     ap.add_argument("--fili", type=int, default=1)
     ap.add_argument("--piano", action="store_true")
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
+    from evoluzione.esperimenti.inserimento import applica_statica, argomento_statica
+    argomento_statica(ap)
     a = ap.parse_args()
+    applica_statica(a.statica)
     print("=" * 84); print(f"E5 — fase {a.fase}"); print("=" * 84)
     if a.fase == "prepara":
         fase_prepara(a.out, a.piano); return 0

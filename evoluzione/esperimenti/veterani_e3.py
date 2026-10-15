@@ -118,7 +118,10 @@ def main() -> int:
     ap.add_argument("--fili", type=int, default=1)
     ap.add_argument("--piano", action="store_true")
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
+    from evoluzione.esperimenti.inserimento import applica_statica, argomento_statica
+    argomento_statica(ap)
     a = ap.parse_args()
+    applica_statica(a.statica)
     from evoluzione.esperimenti.semi import configurazione
     _, dich, _ = configurazione(inserimento=True)
     celle = [(c, p, int(s), str(a.out), a.fili)
