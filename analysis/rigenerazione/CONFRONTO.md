@@ -7,7 +7,7 @@ Generato da `analysis/main.py` (non modificare a mano). Ogni numero e' rigenerat
 - tolleranza combinata: |Δ| ≤ 1e-10 + 1e-09·|congelato|
 - codice del confronto: `impronte.py` cafa4e13066b141f, `main.py` d50a06be5cac31b9, `tabelle_paper1.py` 123d7e9e52e3aabe, `tabelle_suppl.py` 0f33b54bb539adaf
 - risultati reali dopo l'esecuzione: invariati
-- manoscritto (fuori dal repository): commit `3f062899a32282c1a024c7ef45a2a4d92b8a6880` (pulito); SHA-256 `main.tex` d5fed0a571e51642c5c4399d48abed4f20eb5b6b0446977af44e4c36e49baab6, `supplementary.tex` 9837a47ba3d5f40abeb39ee40a3f6dd1504bae37ce2323c37aefb636effd4cf3
+- manoscritto (fuori dal repository): commit `019905b199e356760366fee608263390376b22f3` (pulito); SHA-256 `main.tex` 3faeacc3e7f57ecd8c5b86481c884b79a512cf19b18d0b6dfa55832981b25ed6, `supplementary.tex` 6fdbd481e8ed97f917e78412af9f352ddf4bbaffd42c0a03d34cc80391141c0b
 - non coperto (ingressi, non rigenerati): addestramenti e valutazioni dei modelli sulle celle, adattamenti di E2, k della secondaria di E5, sensibilita' a rho, costi misurati (sessione unica, costi_tabella_sessione.json: letti e confrontati con il testo, non rimisurati), numeri del resoconto della campagna principale, dati di disegno (sensori, partizioni, semi)
 
 ## 1. Tabelle del Paper 1
