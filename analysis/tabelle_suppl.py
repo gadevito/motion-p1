@@ -14,6 +14,7 @@ rigenerati e con il codice statistico del repository (nessuna copia):
 
 Ogni funzione scrive un file LaTeX (longtable) che supplementary.tex include.
 """
+import hashlib
 import json
 from pathlib import Path
 
@@ -177,6 +178,11 @@ def scrivi_D(ris: Path, f: Path) -> None:
     rapporto costo/beneficio; D3 le selezioni su validazione, E7 e le letture 3/3; D4 le altre
     dichiarazioni (E3, E3-bis, E4, E8, E8-bis) con Δ e segni. Una variante = una colonna di lettura."""
     R = json.loads((ris / "congelamento_e14b.json").read_text())
+    imp = lambda x: hashlib.sha256(x.read_bytes()).hexdigest()[:16]
+    md = Path(__file__).resolve().parents[1] / "CONGELAMENTO_E14B.md"   # radice del repository, non la sandbox
+    fonte = (" Source: record \\texttt{CONGELAMENTO\\_E14B.md}, fingerprint \\texttt{" + imp(md) + "}; "
+             if md.exists() else " Source: ") + \
+        "\\texttt{congelamento\\_e14b.json}, fingerprint \\texttt{" + imp(ris / "congelamento_e14b.json") + "}."
     V, soglia = R["varianti"], R["soglia_delta"]
     crit = (f"$\\Delta$ = re-evaluated $-$ frozen (means); insensitive if $|\\Delta|<{soglia:g}$ wCE with the same "
             "interval sign; the verdict changes if the interval sign changes ($-$: below zero; $+$: above; 0: "
@@ -282,4 +288,4 @@ def scrivi_D(ris: Path, f: Path) -> None:
         "E4 policy and adaptation arms, E8 wCE and E8-bis $\\Delta$AUC of the principal comparisons). " + crit
         + " $^\\dagger$ origins older than one week. Intervals of both sets are in the E14 record.",
         "Phase & Context & Comparison & Var. & $\\Delta$ & Sign & Reading", righe, "tab:suppD4"))
-    f.write_text("\n".join(out))
+    f.write_text("\n".join(out).replace("}\\label{tab:suppD", fonte + "}\\label{tab:suppD"))
