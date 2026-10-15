@@ -9,11 +9,12 @@ e uscita del ramo statico: `architettura_ck.D_STAT` e il valore predefinito di
 `PredittorePerNodo`). La fusione e' la somma delle tre parti e si verifica, non si scrive.
 Nessun numero nuovo.
 
-Una tinta per famiglia di blocco, dalla palette delle altre figure del paper: ingresso
-(grigio), backbone temporale (blu C0), identita' (arancio di F₀, evidenziata), ramo
-statico (verde chiaro, bordo tratteggiato), fusione e uscita (grigio chiaro). Le famiglie restano
-distinguibili in scala di grigi per luminanza e stile del bordo. Sotto, cosa riceve la riga
-dell'identita' per un sensore nuovo in ciascun braccio.
+Una tinta per famiglia di blocco, dalla palette delle altre figure del paper: backbone temporale
+(blu C0; nodi pieni = campo ricettivo dell'ultimo passo), identita' (arancio, riquadro evidenziato:
+la tabella E, la riga del sensore, la riga del token e le quattro righe che riceve un sensore nuovo,
+una per braccio; per C la riga di zeri di `NoIdentity`), ramo statico (verde chiaro), fusione e
+uscita (grigio). La concatenazione e' una barra 32 | 8 | 8 con un segmento per ramo. Le tinte piene
+hanno luminanze distinte, sicche' la figura resta leggibile stampata in grigio.
 
 Uso (dalla radice OR3/):
 
@@ -27,26 +28,26 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-GRIGIO, BLU, ARANCIO, VERDE = "#444444", "#1f77b4", "#b86b00", "#2ca02c"
-# (riempimento, bordo, stile del bordo, testo): luminanze 1.0 / 0.64 / 0.48 / 0.95 tratteggiato / 0.85
-TINTE = {"ingresso": ("white", GRIGIO, "-", "k"),
-         "backbone": ("#6baed6", BLU, "-", "k"),
-         "identita": (ARANCIO, "#6b3e00", "-", "white"),
-         "statica": ("#e5f5e0", VERDE, "--", "k"),
-         "fusione": ("#d9d9d9", GRIGIO, "-", "k")}
+GRIGIO, BLU, ARANCIO, VERDE = "#444444", "#1f77b4", "#e08214", "#2ca02c"
+VERDE_PIENO = "#a6dba0"
+# blu C0 di Fig. 4-5, arancio e verde delle stesse famiglie di Fig. 3; luminanze in scala di grigi
+# 0.42 / 0.58 / 0.80, piu' il grigio scuro di fusione e uscita: le quattro famiglie restano distinte
+# tinte chiare e scure per famiglia (palette di Fig. 3-5); luminanze distinte in scala di grigi
+CHIARO = {"blu": "#c6dbef", "arancio": "#fbe3c4", "verde": "#dff2dc", "grigio": "#e6e6e6"}
+SCURO = {"blu": "#0b4f86", "arancio": "#7a3f00", "verde": "#1b5e1b", "grigio": "#333333"}
 TESTI = {
-    "it": {"ingresso": "finestra\n12 passi", "conv": "conv\n1×1", "blocco": "blocco\na cancello", "dil": "d = {}",
-           "somma": "Σ skip\n(ultimo\npasso)", "tabella": "embedding $K\\times{}$", "token": "+ token (solo $E'$)",
-           "statica": "ramo statico", "statica_in": "copertura\n+ 4 costanti", "concat": "concat", "fusione": "fusione\n1×1",
-           "uscita_box": "uscita\n1×1", "uscita": "{} orizzonti × {} classi", "titolo_b": "riga dell'identità per un sensore nuovo",
-           "bracci": (("$C$", "zeri: nessuna identità"), ("$F_0$", "media delle $K$ righe di $E$"),
-                      ("$F_0'$", "token appreso di $E'$"), ("$F'$", "token adattato sui primi dati"))},
-    "en": {"ingresso": "input\nwindow", "conv": "conv\n1×1", "blocco": "gated\nblock", "dil": "d = {}",
-           "somma": "Σ skips\n(last\nstep)", "tabella": "embedding $K\\times{}$", "token": "+ token row ($E'$ only)",
-           "statica": "static branch", "statica_in": "coverage\n+ 4 consts", "concat": "concat", "fusione": "fusion\n1×1",
-           "uscita_box": "output\n1×1", "uscita": "{} horizons × {} classes", "titolo_b": "identity row given to a new sensor",
-           "bracci": (("$C$", "zeros: no identity"), ("$F_0$", "mean of the $K$ rows of $E$"),
-                      ("$F_0'$", "learned token of $E'$"), ("$F'$", "token adapted on first data"))},
+    "it": {"titolo_b": "backbone temporale: {} blocchi a cancello, nucleo {},\ndilatazioni {}, campo ricettivo {} passi",
+           "ingresso": "{} passi × $C$", "canali": "$C$ = {}", "conv": "conv\n1×1", "somma": "Σ skip,\nultimo passo",
+           "tabella": "$E$: $K\\times{}$", "token": "+ token ($E'$)", "veterano": "sensore iniziale: la sua riga",
+           "nuovo": "sensore nuovo: una delle quattro righe sotto", "statica_in": "copertura\n+ 4 costanti", "statica": "ramo statico",
+           "concat": "concat", "fusione": "fusione\n1×1", "uscita": "{} orizzonti × {} classi",
+           "bracci": (("$C$", "riga di zeri"), ("$F_0$", "media di $E$"), ("$F_0'$", "token"), ("$F'$", "token adattato"))},
+    "en": {"titolo_b": "temporal backbone: {} gated blocks, kernel {},\ndilations {}, receptive field {} steps",
+           "ingresso": "{} steps × $C$", "canali": "$C$ = {}", "conv": "conv\n1×1", "somma": "Σ skips,\nlast step",
+           "tabella": "$E$: $K\\times{}$", "token": "+ token ($E'$)", "veterano": "initial sensor: its own row",
+           "nuovo": "new sensor: one of the four rows below", "statica_in": "coverage\n+ 4 consts", "statica": "static branch",
+           "concat": "concat", "fusione": "fusion\n1×1", "uscita": "{} horizons × {} classes",
+           "bracci": (("$C$", "zero row"), ("$F_0$", "mean of $E$"), ("$F_0'$", "token"), ("$F'$", "adapted token"))},
 }
 
 
@@ -65,6 +66,7 @@ def dimensioni(ris: Path) -> dict:
          "stat_out": inspect.signature(PredittorePerNodo.__init__).parameters["d_statiche_uscita"].default,
          "K": sorted({k for v in S.values() for k in v["K"]}),
          "token": sorted({v["token"] for v in S.values()})}
+    d["nucleo"], d["campo"] = cod.get("nucleo", 2), cod["campo_ricettivo"]
     assert d["n_blocchi"] == len(d["dil"]) and d["uscita"] == d["orizzonti"] * d["classi"]
     d["fuso"] = d["nascosti"] + d["d_emb"] + d["stat_out"]
     return d
@@ -74,100 +76,147 @@ def disegna(D: dict, lingua: str, f: Path) -> None:
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
-    from matplotlib.patches import FancyBboxPatch, Rectangle
+    from matplotlib.patches import Circle, FancyBboxPatch, Rectangle
     from evoluzione.analisi.stile_paper import COLONNA, applica
     applica(plt)
     T = TESTI[lingua]
-    fig = plt.figure(figsize=(COLONNA, 3.55))
+    fig = plt.figure(figsize=(COLONNA, 2.75))
     ax = fig.add_axes([0, 0, 1, 1])
-    ax.set_xlim(0, 100), ax.set_ylim(0, 106), ax.axis("off")
-    FS, FSD, FSP = 6.3, 6.6, 5.8
-    MARRONE = "#6b3e00"
+    ax.set_xlim(0, 100), ax.set_ylim(0, 78.6), ax.set_aspect("equal"), ax.axis("off")
+    FS, FSS = 6.2, 5.4
 
-    def box(x, y, w, h, fam, testo, lw=0.8, fs=FS):
-        fc, ec, ls, tc = TINTE[fam]
-        ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0,rounding_size=1.2", fc=fc, ec=ec,
-                                    lw=lw * (1.25 if ls == "--" else 1), ls=ls, zorder=2))
+    def box(x, y, w, h, fam, testo="", forte=True, fs=FS):
+        fc = {"blu": BLU, "arancio": ARANCIO, "verde": VERDE_PIENO, "grigio": "#5a5a5a"}[fam] if forte else CHIARO[fam]
+        ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0,rounding_size=1.0", fc=fc,
+                                    ec=SCURO[fam], lw=0.6, zorder=3))
         if testo:
-            ax.text(x + w / 2, y + h / 2, testo, ha="center", va="center", fontsize=fs, color=tc, zorder=3,
-                    linespacing=1.05)
+            ax.text(x + w / 2, y + h / 2, testo, ha="center", va="center", fontsize=fs, zorder=4, linespacing=1.0,
+                    color="white" if forte and fam != "verde" else SCURO[fam])
 
-    def freccia(p, q, dim="", lato="sopra", col=GRIGIO):
-        ax.annotate("", q, p, arrowprops=dict(arrowstyle="-|>", lw=0.8, color=col, mutation_scale=6,
-                                              shrinkA=0, shrinkB=0), zorder=1)
+    def freccia(p, q, col=GRIGIO, dim="", dxy=(0, 0.8), ha="center", va="bottom", lw=0.8):
+        ax.annotate("", q, p, arrowprops=dict(arrowstyle="-|>", lw=lw, color=col, mutation_scale=5.5,
+                                              shrinkA=0, shrinkB=0), zorder=2)
         if dim:
-            mx, my = (p[0] + q[0]) / 2, (p[1] + q[1]) / 2
-            dx, dy, ha, va = {"sopra": (0, 1.0, "center", "bottom"), "destra": (1.2, 0, "left", "center"),
-                              "sinistra": (-1.2, 0, "right", "center")}[lato]
-            ax.text(mx + dx, my + dy, dim, ha=ha, va=va, fontsize=FSD, color="k", zorder=4)
+            ax.text((p[0] + q[0]) / 2 + dxy[0], (p[1] + q[1]) / 2 + dxy[1], dim, ha=ha, va=va, fontsize=FS,
+                    color=col, weight="bold", zorder=5)
 
-    canali = "/".join(str(c) for c in D["canali"])
-    # --- backbone temporale (in alto) ---
-    yb, hb = 92, 12
-    box(0.5, yb, 9, hb, "ingresso", T["ingresso"], fs=FSP)
-    freccia((9.5, yb + hb / 2), (18, yb + hb / 2), f"{D['finestra']}$\\times C$")
-    ax.text(5, yb - 1.2, f"$C$ = {canali}", ha="center", va="top", fontsize=5.4, color=GRIGIO)
-    box(18, yb, 7, hb, "backbone", T["conv"], fs=FSP)
-    x = 25
-    for i, dl in enumerate(D["dil"]):
-        freccia((x, yb + hb / 2), (x + 3.5, yb + hb / 2), str(D["nascosti"]) if i == 0 else "")
-        box(x + 3.5, yb, 9, hb, "backbone", T["blocco"], fs=FSP)
-        ax.text(x + 8, yb - 1.2, T["dil"].format(dl), ha="center", va="top", fontsize=FSP, color=BLU)
-        x += 12.5
-    freccia((x, yb + hb / 2), (x + 3, yb + hb / 2))
-    box(x + 3, yb - 1, 11, hb + 2, "backbone", T["somma"], fs=FSP)
-    xs = x + 8.5
-    # --- concatenazione (colonna di destra) ---
-    xc, wc, yc = 80, 18, 64.75
-    box(xc, yc, wc, 8, "fusione", T["concat"])
-    freccia((xs, yb - 1), (xs, yc + 8), str(D["nascosti"]), "sinistra")
-    # --- identita' (riga evidenziata) ---
-    ax.add_patch(Rectangle((0.5, 53), 73, 28, fc="#fbe9d4", ec=ARANCIO, lw=1.2, zorder=0))
-    xt, ct, rt, y0 = 6, 3.0, 2.5, 64
-    for r in range(4):
+    # ---------------- backbone temporale: ingresso, conv, blocchi dilatati, somma degli skip ----------------
+    n, dil = D["finestra"], D["dil"]
+    x0, dx, y0, dy = 25, 3.15, 49, 4.6
+    ax.text(x0 - 1, 74.5, T["titolo_b"].format(D["n_blocchi"], D["nucleo"], ", ".join(map(str, dil)),
+                                               D["campo"]), ha="left", va="center", fontsize=FSS, color=SCURO["blu"],
+            linespacing=1.1)
+    for r in range(4):                                          # tensore d'ingresso n x C
+        for t in range(n):
+            ax.add_patch(Rectangle((1 + t * 0.95, 44 + r * 2.1), 0.95, 2.1, fc=CHIARO["grigio"] if (r + t) % 2 else "white",
+                                   ec="#9a9a9a", lw=0.25, zorder=2))
+    ax.text(1, 53.6, T["ingresso"].format(n), ha="left", va="bottom", fontsize=FSS)
+    ax.text(6.7, 43.2, T["canali"].format("/".join(map(str, D["canali"]))), ha="center", va="top", fontsize=FSS,
+            color=GRIGIO)
+    freccia((12.6, 48.2), (15.2, 48.2))
+    box(15.2, 44.2, 5.8, 8, "blu", T["conv"], fs=5.2)
+    freccia((21, 48.2), (x0 - 1.2, y0), BLU)
+    ax.text(23.4, 46.4, str(D["nascosti"]), ha="center", va="top", fontsize=FS, color=BLU, weight="bold")
+    # nodi e collegamenti; evidenziato il campo ricettivo dell'ultimo passo
+    attivi = {(len(dil), n - 1)}
+    for l in range(len(dil), 0, -1):
+        attivi |= {(l - 1, t - s) for (ll, t) in attivi if ll == l for s in (0, dil[l - 1]) if t - s >= 0}
+    for l in range(1, len(dil) + 1):
+        for t in range(n):
+            for s_ in (0, dil[l - 1]):
+                if t - s_ < 0:
+                    continue
+                on = (l, t) in attivi and (l - 1, t - s_) in attivi
+                ax.plot([x0 + (t - s_) * dx, x0 + t * dx], [y0 + (l - 1) * dy, y0 + l * dy],
+                        color=BLU if on else CHIARO["blu"], lw=0.75 if on else 0.35, zorder=2 if on else 1)
+        ax.text(x0 - 1.4, y0 + l * dy, f"d={dil[l - 1]}", ha="right", va="center", fontsize=FSS,
+                color=SCURO["blu"])
+    for l in range(len(dil) + 1):
+        for t in range(n):
+            on = (l, t) in attivi
+            ax.add_patch(Circle((x0 + t * dx, y0 + l * dy), 0.62, fc=BLU if on else "white",
+                                ec=BLU if on else "#8fb3d6", lw=0.4, zorder=3))
+    # skip dell'ultimo passo di ogni blocco verso la somma
+    xS, yS = 83, y0 + 2.5 * dy
+    for l in range(1, len(dil) + 1):
+        ax.plot([x0 + (n - 1) * dx + 0.6, xS - 2.6], [y0 + l * dy, yS], color=BLU, lw=0.45, ls=(0, (2, 1.2)),
+                zorder=1)
+    ax.add_patch(Circle((xS, yS), 2.6, fc=BLU, ec=SCURO["blu"], lw=0.6, zorder=3))
+    ax.text(xS, yS, "Σ", ha="center", va="center", fontsize=7.5, color="white", zorder=4)
+    ax.text(xS + 3.4, yS, T["somma"], ha="left", va="center", fontsize=FSS, color=SCURO["blu"])
+    # ---------------- concatenazione come barra 32 | 8 | 8 ----------------
+    xb, wb, u = 81.2, 3.6, 0.62
+    yv = 23.2 + 3.5 * 1.55                                       # riga del sensore nella tabella (sotto)
+    yb0 = yv - D["d_emb"] * u / 2 - D["stat_out"] * u
+    seg = [("verde", D["stat_out"]), ("arancio", D["d_emb"]), ("blu", D["nascosti"])]
+    y = yb0
+    centro = {}
+    for fam, k in seg:
+        ax.add_patch(Rectangle((xb, y), wb, k * u, fc={"blu": BLU, "arancio": ARANCIO, "verde": VERDE_PIENO}[fam],
+                               ec="white", lw=0.6, zorder=3))
+        centro[fam] = y + k * u / 2
+        y += k * u
+    ytop = y
+    freccia((xS, yS - 2.6), (xS, ytop), BLU, str(D["nascosti"]), (1.0, 0), "left", "center")
+    ax.text(xb + wb / 2, yb0 - 0.8, f"{T['concat']}\n{D['fuso']}", ha="center", va="top", fontsize=FSS)
+    # ---------------- identita': tabella, riga del sensore, token, bracci ----------------
+    ax.add_patch(FancyBboxPatch((0.6, 14.4), 73.5, 25.8, boxstyle="round,pad=0,rounding_size=1.5",
+                                fc="#fef5ea", ec=ARANCIO, lw=0.9, zorder=0))
+    cx, cw, ch, ty = 3.2, 1.75, 1.55, 23.2
+    righe = 6
+    for r in range(righe):
         for j in range(D["d_emb"]):
-            ax.add_patch(Rectangle((xt + j * ct, y0 + 6 - r * rt), ct, rt, fc=ARANCIO, ec="white", lw=0.4,
-                                   zorder=2))
-    ax.text(xt + 4 * ct, y0 + 6 + rt + 1.2, T["tabella"].format(D["d_emb"]), ha="center", va="bottom",
-            fontsize=FS, color=MARRONE)
-    ax.text(xt - 1, y0 + 3.5, "$K$", ha="right", va="center", fontsize=FS, color=MARRONE)
-    ax.add_patch(Rectangle((xt, y0 + 6 - rt), D["d_emb"] * ct, rt, fc="none", ec=MARRONE, lw=1.4, zorder=3))
+            ax.add_patch(Rectangle((cx + j * cw, ty + r * ch), cw, ch, fc=ARANCIO if r != 3 else "#a85a00",
+                                   ec="#fef5ea", lw=0.35, zorder=2))
+    ax.add_patch(Rectangle((cx, ty + 3 * ch), D["d_emb"] * cw, ch, fc="none", ec=SCURO["arancio"], lw=1.1,
+                           zorder=3))
+    ax.text(cx + 4 * cw, ty + righe * ch + 0.7, T["tabella"].format(D["d_emb"]), ha="center", va="bottom",
+            fontsize=FS, color=SCURO["arancio"])
     for j in range(D["d_emb"]):
-        ax.add_patch(Rectangle((xt + j * ct, y0 - 6), ct, rt, fc="white", ec=ARANCIO, lw=0.7, hatch="////",
+        ax.add_patch(Rectangle((cx + j * cw, ty - 2.5), cw, ch, fc="white", ec=ARANCIO, lw=0.5, hatch="//////",
                                zorder=2))
-    ax.text(xt + D["d_emb"] * ct + 1.2, y0 - 4.75, T["token"], ha="left", va="center", fontsize=FSP,
-            color=MARRONE)
-    xr = xt + D["d_emb"] * ct
-    freccia((xr + 0.3, yc + 4), (xc, yc + 4), str(D["d_emb"]), col=ARANCIO)
-    ax.text((xr + xc) / 2 + 2, yc + 2.6, "row of the sensor" if lingua == "en" else "riga del sensore",
-            ha="center", va="top", fontsize=5.4, color=MARRONE, style="italic")
-    # --- ramo statico ---
-    ys = 40
-    box(0.5, ys, 15, 9, "statica", T["statica_in"], fs=FSP)
-    freccia((15.5, ys + 4.5), (24, ys + 4.5), str(D["stat_in"]), col=VERDE)
-    box(24, ys, 20, 9, "statica", f"{T['statica']}\n{D['stat_in']}$\\to${D['stat_out']}", fs=FSP)
-    freccia((44, ys + 4.5), (xc + 3, ys + 4.5), col=VERDE)
-    ax.plot([xc + 3, xc + 3], [ys + 4.5, ys + 4.6], color=VERDE, lw=0.8)
-    freccia((xc + 3, ys + 4.5), (xc + 3, yc), str(D["stat_out"]), "sinistra", col=VERDE)
-    # --- fusione e uscita ---
-    xf = xc + 12
-    freccia((xf, yc), (xf, 44), str(D["fuso"]), "destra")
-    box(xc + 6, 35, 12, 9, "fusione", T["fusione"], fs=FSP)
-    freccia((xf, 35), (xf, 28), str(D["nascosti"]), "destra")
-    box(xc + 6, 19, 12, 9, "fusione", T["uscita_box"], fs=FSP)
-    freccia((xc + 6, 23.5), (62, 23.5), str(D["uscita"]))
-    ax.text(61, 23.5, T["uscita"].format(D["orizzonti"], D["classi"]), ha="right", va="center", fontsize=FSP)
-    # --- bracci: cosa riceve la riga dell'identita' ---
-    ax.plot([0.5, 99.5], [15.5, 15.5], color="#bbbbbb", lw=0.5)
-    ax.text(0.5, 12.6, T["titolo_b"] + ":", ha="left", va="center", fontsize=FS, color=MARRONE, weight="bold")
-    stili = (dict(fc="white", ec=GRIGIO, hatch=""), dict(fc="#e8b77a", ec=ARANCIO, hatch=""),
-             dict(fc="white", ec=ARANCIO, hatch="////"), dict(fc=ARANCIO, ec=MARRONE, hatch="////"))
+    ax.text(cx + 4 * cw, ty - 3.2, T["token"], ha="center", va="top", fontsize=FSS, color=SCURO["arancio"])
+    xr = cx + D["d_emb"] * cw
+    xm = 64                                                     # punto in cui la riga entra nel ramo
+    ax.plot([xr + 0.3, xm], [yv, yv], color=ARANCIO, lw=0.8, zorder=2)
+    ax.text(xr + 1.2, yv + 0.7, T["veterano"], ha="left", va="bottom", fontsize=FSS, color=SCURO["arancio"])
+    # sensore nuovo: quattro righe possibili, una per braccio
+    ax.text(xr + 1.2, 23.3, T["nuovo"], ha="left", va="center", fontsize=FSS, color=SCURO["arancio"],
+            style="italic")
+    stili = (dict(fc="white", ec=GRIGIO, hatch=""), dict(fc="#f3b768", ec=ARANCIO, hatch=""),
+             dict(fc="white", ec=ARANCIO, hatch="//////"), dict(fc=ARANCIO, ec=SCURO["arancio"], hatch="//////"))
     for i, ((sig, des), st) in enumerate(zip(T["bracci"], stili)):
-        x0, y0 = 0.5 + (i % 2) * 50, 6.4 - (i // 2) * 5.4
-        ax.text(x0, y0 + 1.2, sig, ha="left", va="center", fontsize=FS)
+        bx = xr + 2 + (i % 2) * 23.5
+        by = 19.6 if i < 2 else 16.2
+        ax.text(bx, by + 0.8, sig, ha="left", va="center", fontsize=FS)
         for j in range(D["d_emb"]):
-            ax.add_patch(Rectangle((x0 + 5 + j * 1.6, y0 + 0.2), 1.6, 2.0, lw=0.4, zorder=2, **st))
-        ax.text(x0 + 5 + D["d_emb"] * 1.6 + 1, y0 + 1.2, des, ha="left", va="center", fontsize=5.4)
+            ax.add_patch(Rectangle((bx + 3.6 + j * 0.95, by), 0.95, 1.6, lw=0.35, zorder=2, **st))
+        ax.text(bx + 3.6 + D["d_emb"] * 0.95 + 0.8, by + 0.8, des, ha="left", va="center", fontsize=FSS)
+    freccia((xm, yv), (xb, yv), ARANCIO, str(D["d_emb"]), (2.5, 0.6))
+    # ---------------- ramo statico ----------------
+    box(1.2, 3, 13, 7.6, "verde", T["statica_in"], forte=False, fs=FSS)
+    freccia((14.2, 6.8), (20, 6.8), VERDE, str(D["stat_in"]), (0, 0.6))
+    box(20, 3, 16, 7.6, "verde", f"{T['statica']}\n{D['stat_in']}→{D['stat_out']}", fs=FSS)
+    xg = 77.6
+    ax.plot([36, xg, xg], [6.8, 6.8, centro["verde"]], color=VERDE, lw=0.8, zorder=2)
+    freccia((xg, centro["verde"]), (xb, centro["verde"]), VERDE)
+    ax.text(57, 7.4, str(D["stat_out"]), ha="center", va="bottom", fontsize=FS, color=VERDE, weight="bold")
+    # ---------------- fusione e uscita ----------------
+    xf, yf = 88.6, 36
+    freccia((xb + wb, yf + 4), (xf, yf + 4), GRIGIO, str(D["fuso"]), (0, 0.9))
+    box(xf, yf, 10.4, 8, "grigio", T["fusione"], fs=5.2)
+    gx, gw = xf + 1.7, 2.35
+    gy = yf - 5 - D["orizzonti"] * gw
+    freccia((xf + 5.2, yf), (xf + 5.2, gy + D["orizzonti"] * gw), GRIGIO, str(D["nascosti"]), (0.9, 0), "left",
+            "center")
+    for h in range(D["orizzonti"]):
+        for c in range(D["classi"]):
+            ax.add_patch(Rectangle((gx + c * gw, gy + (D["orizzonti"] - 1 - h) * gw), gw, gw,
+                                   fc=("#bdbdbd", "#8c8c8c", "#4d4d4d")[c], ec="white", lw=0.5, zorder=3))
+    ax.text(gx + 1.5 * gw, gy - 0.6, f"{D['uscita']}", ha="center", va="top", fontsize=FS, weight="bold",
+            color=GRIGIO)
+    ax.text(gx + 1.5 * gw, gy - 3.6, T["uscita"].format(D["orizzonti"], D["classi"]).replace(" × ", "\n× "),
+            ha="center", va="top", fontsize=FSS, color=GRIGIO)
     fig.savefig(f, dpi=300)
     plt.close(fig)
 
