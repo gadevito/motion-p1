@@ -100,6 +100,7 @@ FASI = [
     # §III: architettura letta dai pesi dei checkpoint di E ed E' (nessun addestramento)
     F("ARCH", [A + "architettura_ck.py"], [R_ + "architettura_ck.json"]),
     F("ARCH", [A + "figura_rete.py"], [], figure=["rete.png"]),
+    F("ARCH", [A + "figura_cronologia.py"], [], figure=["cronologia.png"]),
     # E2: il generatore esegue `analizza_e2.calcola` sulle predizioni per cella
     F("E2", ["genera_congelamento_e2.py"], [R_ + "congelamento_e2.json", "CONGELAMENTO_E2.md"]),
     # E3
@@ -149,6 +150,7 @@ FASI = [
 ]
 # figure del manoscritto: gli stessi script, con --lingua en, verso <paper>/figures/
 FIGURE_PAPER = [("ARCH", A + "figura_rete.py", ["rete.pdf"]),
+                ("ARCH", A + "figura_cronologia.py", ["cronologia.pdf"]),
                 ("E4", A + "analizza_e4.py", ["curva_e4.pdf", "traiettoria_e4.pdf"]),
                 ("E5", A + "analizza_e5.py", ["episodi_e5.pdf"]),
                 ("E8", A + "figura2_51.py", ["figura2_51.pdf"]),
