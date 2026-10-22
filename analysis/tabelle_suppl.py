@@ -233,8 +233,8 @@ def scrivi_D(ris: Path, f: Path) -> None:
         righe.append("\\addlinespace")
     out.append(_longtable(
         "@{}l l r r r r c c c@{}",
-        "E14: absolute wCE of $C$, $A$, $F_0$, $F_0'$ (episode 1, 36 cells per city), and the ratio of the transfer "
-        "cost to the identity benefit, $(F_0-C)/(C-A)$, frozen and re-evaluated; intervals from 4{,}000 joint "
+        "E14: absolute wCE of $C$, $A$, $F_0$, $F_0'$ (episode 1, 36 runs per city), and the ratio of the transfer "
+        "cost to the advantage of the oracle with full history, $(F_0-C)/(C-A)$, frozen and re-evaluated; intervals from 4{,}000 joint "
         "resamples with the same seed in both sets.",
         "City & Set & $C$ & $A$ & $F_0$ & $F_0'$ & $A-C$ & $F_0-C$ & $(F_0-C)/(C-A)$", righe[:-1], "tab:suppD2"))
     # D3 -------------------------------------------------------------------------------------------
