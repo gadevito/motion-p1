@@ -131,6 +131,20 @@ def main() -> int:
           f"Intersezioni a coppie (sensori in comune): " + ", ".join(f"p{i}∩p{j}={n}" for i, j, n in coppie) + ". "
           "Quindi NON sono disgiunti: le 156 sono occorrenze, e il ricampionamento (§1) le tratta come unita' "
           "(partizione, posizione).", ""]
+    L.append("Lo stesso nelle citta' (3 partizioni, semi `SEME_PARTIZIONE`, 15 % nuovi ciascuna):")
+    L.append("")
+    L.append("| citta' | sensori | nuovi per partizione | occorrenze | distinti | in 1 | in 2 | in 3 partizioni | intersezioni p0∩p1, p0∩p2, p1∩p2 |")
+    L.append("|---|---|---|---|---|---|---|---|---|")
+    for c in CITTA:
+        Dc = _carica(c, a.out / "maschere"); ins_c = {}
+        for p in (0, 1, 2):
+            nodi_c, _ = _partizioni(Dc, {"partizione": np.random.default_rng(SEME_PARTIZIONE[p])})
+            ins_c[p] = set(int(z) for z in nodi_c["prova"])
+        un = set().union(*ins_c.values()); cnt = {s: sum(s in v for v in ins_c.values()) for s in un}
+        mm = {m: sum(1 for v in cnt.values() if v == m) for m in (1, 2, 3)}
+        L.append(f"| {c} | {Dc['r'].shape[1]} | {len(ins_c[0])} | {sum(len(v) for v in ins_c.values())} | **{len(un)}** | "
+                 f"{mm[1]} | {mm[2]} | {mm[3]} | {len(ins_c[0] & ins_c[1])}, {len(ins_c[0] & ins_c[2])}, {len(ins_c[1] & ins_c[2])} |")
+    L.append("")
 
     # ---- 4. k secondario di E5 --------------------------------------------------------------------
     fk = a.out / "e5_k_secondaria.json"

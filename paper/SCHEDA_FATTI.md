@@ -1,6 +1,6 @@
 # Scheda dei fatti — revisione interna (richiesta del revisore, 20/10/2026)
 
-Generata da `evoluzione/analisi/scheda_fatti.py` al commit `e10c579`, 2026-10-22 07:00 UTC. Sola lettura: nessun numero del paper cambia. I fatti di codice citano il frammento che li stabilisce (ritrovato nel file dallo script); i fatti di dati sono calcolati dai file di `results/evoluzione/`.
+Generata da `evoluzione/analisi/scheda_fatti.py` al commit `b5d08a0`, 2026-10-22 09:52 UTC. Sola lettura: nessun numero del paper cambia. I fatti di codice citano il frammento che li stabilisce (ritrovato nel file dallo script); i fatti di dati sono calcolati dai file di `results/evoluzione/`.
 
 ## 1. Il ricampionamento congiunto partizioni × semi × sensori
 
@@ -18,14 +18,23 @@ Procedura (`_boot`, evoluzione/esperimenti/esegui_e4.py:350; identica in E2 `ana
 
 Partizioni p0–p5 = permutazioni indipendenti dei 170 sensori (`_partizioni`, semi `SEME_PARTIZIONE_E6`), 15 % nuovi ciascuna: 156 occorrenze, **117 sensori distinti**. Molteplicita' (quante partizioni includono lo stesso sensore fra i nuovi): 83 sensori in 1 partizione, 30 sensori in 2 partizioni, 3 sensori in 3 partizioni, 1 sensori in 4 partizioni. Intersezioni a coppie (sensori in comune): p0∩p1=3, p0∩p2=2, p0∩p3=3, p0∩p4=3, p0∩p5=4, p1∩p2=3, p1∩p3=4, p1∩p4=3, p1∩p5=3, p2∩p3=3, p2∩p4=5, p2∩p5=1, p3∩p4=4, p3∩p5=2, p4∩p5=2. Quindi NON sono disgiunti: le 156 sono occorrenze, e il ricampionamento (§1) le tratta come unita' (partizione, posizione).
 
+Lo stesso nelle citta' (3 partizioni, semi `SEME_PARTIZIONE`, 15 % nuovi ciascuna):
+
+| citta' | sensori | nuovi per partizione | occorrenze | distinti | in 1 | in 2 | in 3 partizioni | intersezioni p0∩p1, p0∩p2, p1∩p2 |
+|---|---|---|---|---|---|---|---|---|
+| Madrid | 900 | 135 | 405 | **348** | 294 | 51 | 3 | 14, 21, 25 |
+| Londra | 900 | 135 | 405 | **348** | 294 | 51 | 3 | 14, 21, 25 |
+| Melbourne | 594 | 90 | 270 | **232** | 194 | 38 | 0 | 11, 11, 16 |
+
 ## 3. `adatta`: la rete e' in `eval()` durante l'adattamento
 
 Si' (evoluzione/componente/adattamento.py:160): `m.eval()` prima del ciclo di aggiornamenti — BatchNorm usa le statistiche correnti e i buffer non si muovono; tutti i parametri sono congelati (`requires_grad_(False)`) tranne gli embedding adattabili del fornitore d'identita'; ottimizzatore Adam nuovo, solo su quei parametri, nessun decadimento, nessun arresto anticipato. `verifica_vincoli` (inserimento.py) controlla a valle che il punto E sia immutato. Vale per F, F′ (24 h, 48 h, 1 sett., k) in tutte le fasi.
 
 ## 4. Budget secondario k di E5
 
-`../OR3/results/evoluzione/e5_k_secondaria.json` (impronta `0781e1d65ff764f2`, registrata `395d17a4f05462ea`): Madrid k = **50**, Londra k = **10**, Melbourne k = **100**. Il valore usato da E5 (`esegui_e5.py`, fase valuta, controllo dell'impronta per cella) e' quello del file: **la tabella D9 (100) e' giusta**. Il «200» e' un altro numero: il budget di adattamento di F′ scelto in validazione (`../OR3/results/evoluzione/selezione_F_griglia/configurazione_F.json`, impronta `18062d5ba9596a6f`): Madrid 50 aggiornamenti, passo 0.01, Londra 50 aggiornamenti, passo 0.01, Melbourne 200 aggiornamenti, passo 0.001. Dove il testo dice 200 per k va corretto in 100; dove parla del budget di F′ (p.es. il costo di 401 s di Melbourne) 200 e' giusto. Nel manoscritto (`../paper1/main.tex`) le occorrenze di «200» vicine a «k», «secondar» o «Melbourne»: 2
+`../OR3/results/evoluzione/e5_k_secondaria.json` (impronta `0781e1d65ff764f2`, registrata `395d17a4f05462ea`): Madrid k = **50**, Londra k = **10**, Melbourne k = **100**. Il valore usato da E5 (`esegui_e5.py`, fase valuta, controllo dell'impronta per cella) e' quello del file: **la tabella D9 (100) e' giusta**. Il «200» e' un altro numero: il budget di adattamento di F′ scelto in validazione (`../OR3/results/evoluzione/selezione_F_griglia/configurazione_F.json`, impronta `18062d5ba9596a6f`): Madrid 50 aggiornamenti, passo 0.01, Londra 50 aggiornamenti, passo 0.01, Melbourne 200 aggiornamenti, passo 0.001. Dove il testo dice 200 per k va corretto in 100; dove parla del budget di F′ (p.es. il costo di 401 s di Melbourne) 200 e' giusto. Nel manoscritto (`../paper1/main.tex`) le occorrenze di «200» vicine a «k», «secondar» o «Melbourne»: 3
   - `…validation episode and frozen: Madrid (50, 0.01), London (50, 0.01), Melbourne (200, 0.001). Every origin needs the 12 preceding steps as in…`
+  - `…0/10/100$, selected on the extended validation episode against the frozen 50/50/200): $F'(24\,\text{h};k)-\C$ becomes $-0.002$ / $-0.009$ / …`
   - `…--401\,s; the Melbourne figure of 401\,s reflects a validation-chosen budget of 200 updates against 50, on 90 new sensors against 135): we t…`
 
 ## 5. Londra, episodio 1: F₀′ − C vale +0,013 (E2) e +0,015 (E5/C3)
