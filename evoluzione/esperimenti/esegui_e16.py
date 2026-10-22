@@ -117,7 +117,7 @@ def _cella(args):
             y=YY0, m=MM0, pesi=pesi.astype("float64"), fasce=np.asarray([int(f.sum()) for f in fasce]),
             contesto=c, partizione=p, seme=s, episodio=ep_nome, gruppo=ctx["gruppo"](c), t0=t0, t1=t1, fine=fine,
             modelli=json.dumps(list(M)), impronte_ck=json.dumps(imp), controllo=json.dumps(controllo),
-            statica=variante_statica(), **ris)
+            statica=variante_statica(), macchina=__import__("platform").platform(), **ris)
         return {"c": c, "p": p, "s": s, "ep": ep_nome, "esito": "ok", "secondi": time.time() - t_in,
                 "controlli": len(controllo), "scarto_max": max([v["scarto_relativo_max"] for v in controllo.values()] or [0.0])}
     except Exception as ex:                                  # noqa: BLE001
@@ -125,7 +125,7 @@ def _cella(args):
                 "secondi": time.time() - t_in}
 
 
-def fase_predizioni(out: Path, contesti, lavoratori, fili, piano, pilota) -> int:
+def fase_predizioni(out: Path, contesti, lavoratori, fili, piano, pilota, solo=None) -> int:
     from evoluzione.esperimenti.esegui_e8 import CONTESTI_E8
     celle = []
     for nome in contesti:
@@ -133,6 +133,12 @@ def fase_predizioni(out: Path, contesti, lavoratori, fili, piano, pilota) -> int
         unita = ctx["unita"][:1] if pilota else ctx["unita"]
         for ep in ("validazione", "prova"):
             celle += [(nome, c, p, s, ep, str(out), fili) for (c, p, s) in unita]
+    if solo:
+        # `--solo episodio:contesto:partizione:seme ...`: le sole celle indicate (p.es. rifatte sulla
+        # macchina degli aggregati congelati quando il controllo fra macchine supera la tolleranza)
+        chiavi = {tuple(z.split(":")) for z in solo}
+        celle = [x for x in celle if (x[4], x[1], str(x[2]), str(x[3])) in chiavi]
+        print(f"  --solo: {len(celle)} celle su richiesta {sorted(chiavi)}")
     fatte = sum((out / DIR_PRED / f"{ep}_{c}_p{p}_s{s}.npz").exists() for _, c, p, s, ep, _, _ in celle)
     print(f"  {len(celle)} celle (contesti {contesti}, validazione + prova), {fatte} gia' fatte; modelli {MODELLI}; "
           f"controllo bloccante sugli aggregati congelati (<= {TOLLERANZA:g}); probabilita' float32")
@@ -347,6 +353,7 @@ def main() -> int:
     ap.add_argument("--fili", type=int, default=1)
     ap.add_argument("--piano", action="store_true")
     ap.add_argument("--pilota", action="store_true")
+    ap.add_argument("--solo", nargs="*", default=None, help="episodio:contesto:partizione:seme ...")
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
     from evoluzione.esperimenti.inserimento import applica_statica, argomento_statica
     argomento_statica(ap)
@@ -354,7 +361,7 @@ def main() -> int:
     applica_statica(a.statica)
     print("=" * 84); print(f"E16 — fase {a.fase}"); print("=" * 84)
     if a.fase == "predizioni":
-        return fase_predizioni(a.out, a.contesto, a.lavoratori, a.fili, a.piano, a.pilota)
+        return fase_predizioni(a.out, a.contesto, a.lavoratori, a.fili, a.piano, a.pilota, a.solo)
     return fase_analizza(a.out)
 
 
