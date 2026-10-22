@@ -246,30 +246,31 @@ def scrivi_D(ris: Path, f: Path) -> None:
             fase = {"E4": "E4 $(\\tau,N)$", "E5k": "E5 $k$ (secondary)"}.get(p[0], p[0].replace("(τ, N)", "$(\\tau,N)$"))
             ctx = CTX_EN.get(p[1], "") if len(p) == 3 else {"E6": "PEMS08", "E6a": "PEMS04"}[p[0].split()[0]]
             a, b = (tn(z["congelato"]), tn(z["variante"])) if isinstance(z["congelato"], dict) else (z["congelato"], z["variante"])
-            righe.append(f"{fase} & {ctx} & {a} & {b} & " + ("\\textbf{changes}" if z["cambia"] else "unchanged") + " \\\\")
+            righe.append(f"{fase} & {ctx} & {VAR_EN[p[-1]]} & {a} & {b} & "
+                         + ("\\textbf{changes}" if z["cambia"] else "unchanged") + " \\\\")
     for v in V:
         n, t = R["sintesi"][v]["soglie_e8_cambiate"]
-        righe.append(f"E8 thresholds (F1-opt., FA parity) & all & -- & {VAR_EN[v]} & {n} of {t} change \\\\")
+        righe.append(f"E8 thresholds (F1-opt., FA parity) & all & {VAR_EN[v]} & -- & -- & {n} of {t} change \\\\")
         e7c, e7v = R["e7"]["congelato"]["decisione"], R["e7"][f"({v})"]["decisione"]
-        righe.append("E7 stage 1: hypothesis holds; stage 2a run & all & "
-                     f"{'yes' if e7c['ipotesi_vale'] else 'no'}; {'yes' if e7c['stadio_2a'] else 'no'} & {VAR_EN[v]} "
+        righe.append(f"E7 stage 1: hypothesis holds; stage 2a run & all & {VAR_EN[v]} & "
+                     f"{'yes' if e7c['ipotesi_vale'] else 'no'}; {'yes' if e7c['stadio_2a'] else 'no'} & "
                      f"{'yes' if e7v['ipotesi_vale'] else 'no'}; {'yes' if e7v['stadio_2a'] else 'no'} & "
                      + ("\\textbf{changes}" if R["sintesi"][v]["e7_cambia"] else "unchanged") + " \\\\")
         si = lambda x: "holds" if x["concorda"] else "does not hold"
         for k, z in R["dichiarazioni"]["stesso_segno"].items():
             c, s, vv = k.split("/")
             if vv == v:
-                righe.append(f"3/3 reading, {DICH_EN[s]} & {CTX_EN[c]} & "
+                righe.append(f"3/3 reading, {DICH_EN[s]} & {CTX_EN[c]} & {VAR_EN[v]} & "
                              f"{''.join(z['congelato']['segni'])} ({si(z['congelato'])}) & "
-                             f"{VAR_EN[v]} {''.join(z['variante']['segni'])} ({si(z['variante'])}) & "
+                             f"{''.join(z['variante']['segni'])} ({si(z['variante'])}) & "
                              + ("\\textbf{reading changes}" if z["congelato"]["concorda"] != z["variante"]["concorda"]
                                 else "signs change, reading unchanged" if z["cambia"] else "unchanged") + " \\\\")
     out.append(_longtable(
-        "@{}l l l l l@{}",
+        "@{}l l l l l l@{}",
         "E14: validation selections redone under each variant ($(\\tau,N)$ of the gating policy, update budget $k$ "
         "of the secondary variant of E5, decision thresholds of E8), the decision rule of E7, and the reading "
         "``same sign in 3/3 episodes'' of each statement per city (signs of episodes 1/2/3).",
-        "Selection or reading & Context & Frozen & Re-evaluated & Outcome", righe, "tab:suppD3"))
+        "Selection or reading & Context & Variant & Frozen & Re-evaluated & Outcome", righe, "tab:suppD3"))
     # D4 -------------------------------------------------------------------------------------------
     righe, prec = [], None
     voci = [(FASE_EN[k.split("/")[0]], k.split("/")[1], k.split("/")[2], k.split("/")[3], r)
