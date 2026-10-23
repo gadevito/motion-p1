@@ -147,6 +147,8 @@ FASI = [
     F("E8", ["genera_congelamento_e8.py"], ["CONGELAMENTO_E8.md"]),
     # E14 (difetto 21), stadio B: congelati rigenerati sopra contro i fasci delle varianti in protocol/e14b/
     F("E14", ["genera_congelamento_e14b.py"], [R_ + "congelamento_e14b.json", "CONGELAMENTO_E14B.md"]),
+    # E16 (calibrazione): il congelamento da e16_risultati.json (le probabilita' per cella non si ricostruiscono qui)
+    F("E16", ["genera_congelamento_e16.py"], [R_ + "congelamento_e16.json", "CONGELAMENTO_E16.md"]),
 ]
 # figure del manoscritto: gli stessi script, con --lingua en, verso <paper>/figures/
 FIGURE_PAPER = [("ARCH", A + "figura_rete.py", ["rete.pdf"]),
@@ -155,7 +157,7 @@ FIGURE_PAPER = [("ARCH", A + "figura_rete.py", ["rete.pdf"]),
                 ("E5", A + "analizza_e5.py", ["episodi_e5.pdf"]),
                 ("E8", A + "figura2_51.py", ["figura2_51.pdf"]),
                 ("E8", A + "figura_e8bis.py", ["curve_e8bis.pdf"])]
-ESPERIMENTI = ["ARCH", "E2", "E3", "E4", "E3bis", "E5", "E6", "E7", "E8", "E14"]
+ESPERIMENTI = ["ARCH", "E2", "E3", "E4", "E3bis", "E5", "E6", "E7", "E8", "E14", "E16"]
 
 
 # ---------------------------------------------------------------- impronte --
@@ -697,6 +699,10 @@ def main() -> int:
                 from analysis.tabelle_suppl import scrivi_D
                 print("[paper] tabelle D del supplementare (E14)", flush=True)
                 scrivi_D(radice / RIS, dfig / "tableD_e14.tex")
+            if "E16" in a.solo:                     # supplementare E (E16, calibrazione)
+                from analysis.tabelle_suppl import scrivi_E
+                print("[paper] tabelle E del supplementare (E16)", flush=True)
+                scrivi_E(radice / RIS, dfig / "tableE_e16.tex")
     finally:
         dopo = istantanea(RADICE / RIS)
         meta["integrita_risultati"] = "invariati" if dopo == prima else \

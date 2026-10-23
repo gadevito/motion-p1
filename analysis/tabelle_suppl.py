@@ -298,3 +298,77 @@ def scrivi_D(ris: Path, f: Path) -> None:
         + " $^\\dagger$ origins older than one week. Intervals of both sets are in the E14 record.",
         "Phase & Context & Comparison & Var. & $\\Delta$ & Sign & Reading", righe, "tab:suppD4"))
     f.write_text("\n".join(out).replace("}\\label{tab:suppD", fonte + "}\\label{tab:suppD"))
+
+
+# --- E: calibrazione (E16), da congelamento_e16.json -------------------------------------------------
+CAL_EN = {"grezzo": "raw", "T_nll": "temperature, log-loss", "T_wce": "temperature, wCE",
+          "V_nll": "vector, log-loss", "V_wce": "vector, wCE"}
+BRACCI_E16 = (("C", "$C$"), ("A", "$A$"), ("F0", "$F_0$"), ("F0p", "$F_0'$"), ("Fp_672", r"$F'(1\,\mathrm{wk})$"))
+DIFF_E16 = (("F0-C", r"$F_0-C$"), ("F0p-C", r"$F_0'-C$"), ("Fp_672-C", r"$F'(1\,\mathrm{wk})-C$"), ("A-C", r"$A-C$"))
+GRUPPI_E16 = ("Madrid", "Londra", "Melbourne", "PEMS08")
+
+
+def scrivi_E(ris: Path, f: Path) -> None:
+    """Supplementare E (E16, calibrazione), da congelamento_e16.json: E1 la quota di calibrazione s per
+    contesto e calibrazione; E2 le differenze fra bracci prima e dopo; E3 ECE per classe, log-loss non
+    pesata, Brier e wCE per braccio e calibrazione. A senza calibrazione post-hoc (deviazione dichiarata)."""
+    R = json.loads((ris / "congelamento_e16.json").read_text())
+    G = R["gruppi"]
+    imp = lambda x: hashlib.sha256(x.read_bytes()).hexdigest()[:16]
+    rep = Path(__file__).resolve().parents[1]
+    md, js = rep / "CONGELAMENTO_E16.md", rep / "results" / "evoluzione" / "congelamento_e16.json"
+    fonte = " Source: record \\texttt{CONGELAMENTO\\_E16.md}, fingerprint \\texttt{" + imp(md) + "}; " \
+        "\\texttt{congelamento\\_e16.json}, fingerprint \\texttt{" + imp(js) + "}."
+    cal = [c for c in CAL_EN if c != "grezzo"]
+    out = []
+    righe = [CTX_EN[g] + " & " + " & ".join(_ic(G[g]["quota_calibrazione"][c], scala=1.0, cifre=2) for c in cal)
+             + " \\\\" for g in GRUPPI_E16]
+    righe.append("\\addlinespace")
+    righe.append("lower limit $>0.5$ in all three cities & " + " & ".join(
+        "yes" if R["criterio_s"][c] else "no" for c in cal) + " \\\\")
+    out.append(_longtable(
+        "@{}l c c c c@{}",
+        "E16: calibration share $s=1-(F_0^{\\mathrm{cal}}-C^{\\mathrm{cal}})/(F_0-C)$ of the transfer cost, per context "
+        "and post-hoc calibration (temperature or vector scaling, fitted per arm and cell on the validation episode "
+        "alone, against the unweighted log-loss or against the campaign loss, wCE), mean over cells and 95\\% interval "
+        "from 4{,}000 joint resamples; cities: episode 1. The pre-registered criterion for ``calibration first'' "
+        "is a lower limit above 0.5 in all three cities." + fonte,
+        "Context & " + " & ".join(CAL_EN[c] for c in cal), righe, "tab:suppE1"))
+    righe, prima = [], True
+    for g in GRUPPI_E16:
+        if not prima:
+            righe.append("\\addlinespace")
+        for i, (k, et) in enumerate(DIFF_E16):
+            righe.append((CTX_EN[g] if i == 0 else "") + f" & {et} & "
+                         + " & ".join(_ic(G[g]["differenze"][f"{k}/{c}"], scala=1.0, cifre=4) for c in CAL_EN) + " \\\\")
+        prima = False
+    out.append(_longtable(
+        "@{}l l c c c c c@{}",
+        "E16: differences in test wCE between arms before (raw) and after post-hoc calibration; $A$ has no "
+        "embeddings for the validation sensors and is not calibrated, so $A-C$ after calibration uses the raw $A$ "
+        "and the calibrated $C$ (declared deviation)." + fonte,
+        "Context & Difference & " + " & ".join(CAL_EN[c] for c in CAL_EN), righe, "tab:suppE2"))
+    righe, prima = [], True
+    for g in GRUPPI_E16:
+        if not prima:
+            righe.append("\\addlinespace")
+        primo = True
+        for b, et in BRACCI_E16:
+            for c in CAL_EN:
+                m = G[g]["medie_test"].get(f"{b}/{c}")
+                if m is None:
+                    continue
+                e = m["ece"]
+                righe.append((CTX_EN[g] if primo else "") + f" & {et} & {CAL_EN[c]} & "
+                             + " & ".join(f"{e[k]:.4f}" for k in ("0", "1", "2"))
+                             + f" & {m['logloss']:.4f} & {m['brier']:.4f} & {m['wce']:.4f} \\\\")
+                primo = False
+        prima = False
+    out.append(_longtable(
+        "@{}l l l c c c c c c@{}",
+        "E16: expected calibration error per class (10 reliability bins), unweighted log-loss, multiclass Brier score "
+        "and wCE on the test, per arm and calibration, means over cells. Calibrating against the unweighted log-loss "
+        "targets the natural class distribution, while the campaign loss is minimised by the class-reweighted "
+        "posterior: vector scaling against log-loss brings every class's ECE below 0.04 but raises the wCE." + fonte,
+        "Context & Arm & Calibration & ECE free & ECE mod. & ECE cong. & log-loss & Brier & wCE", righe, "tab:suppE3"))
+    f.write_text("\n".join(out))
