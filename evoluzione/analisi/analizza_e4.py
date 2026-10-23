@@ -129,33 +129,38 @@ def fig_griglia(G_val, G_test, scelta, f: Path):
 
 
 def fig_curva_en(R, f: Path):
-    """Fig. 3 del Paper 1: come `fig_curva`, in inglese e a larghezza di pagina."""
+    """Fig. 4 del Paper 1: come `fig_curva`, in inglese e a larghezza di colonna (tre pannelli affiancati,
+    legenda comune sopra)."""
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     import matplotlib.ticker
-    from evoluzione.analisi.stile_paper import PAGINA, applica, citta
+    from evoluzione.analisi.stile_paper import COLONNA, applica, citta
     applica(plt)
-    lab = {24: "6 h", 48: "12 h", 96: "24 h", 192: "48 h", 672: "1 wk"}
-    fig, axs = plt.subplots(1, 3, figsize=(PAGINA, 2.0), sharey=True)
+    lab = {24: "6h", 48: "12h", 96: "24h", 192: "48h", 672: "1wk"}
+    fig, axs = plt.subplots(1, 3, figsize=(COLONNA, 1.95), sharey=True)
     for ax, c in zip(axs, CITTA):
         for nome, et, col in (("F", "$F$ (from $E$)", "C0"), ("Fp", "$F'$ (from $E'$)", "C1")):
             r = [R["curva"][f"{c}/{nome}_{L}-C"] for L in DURATE]
             m = [x["media"] for x in r]
             ax.errorbar(DURATE, m, yerr=[np.subtract(m, [x["ic_con_nodi"][0] for x in r]),
                                          np.subtract([x["ic_con_nodi"][1] for x in r], m)],
-                        marker="o", ms=3.5, capsize=2.5, lw=1.1, label=et, color=col)
+                        marker="o", ms=2.4, capsize=1.6, lw=0.9, label=et, color=col)
         for nome, et, col in (("F0", "$F_0$ (mean)", "C0"), ("F0p", "$F_0'$ (token)", "C1")):
-            ax.axhline(R["curva"][f"{c}/{nome}-C"]["media"], ls=":", lw=1, color=col, label=et)
-        ax.axhline(0, color="k", lw=0.7)
-        ax.set_xscale("log"); ax.set_xticks(DURATE); ax.set_xticklabels([lab[L] for L in DURATE])
+            ax.axhline(R["curva"][f"{c}/{nome}-C"]["media"], ls=":", lw=0.9, color=col, label=et)
+        ax.axhline(0, color="k", lw=0.6)
+        ax.set_xscale("log"); ax.set_xticks(DURATE); ax.set_xticklabels([lab[L] for L in DURATE], fontsize=5.4,
+                                                                         rotation=90)
         ax.xaxis.set_minor_locator(matplotlib.ticker.NullLocator())
         ax.xaxis.set_minor_formatter(matplotlib.ticker.NullFormatter())
-        ax.set_title(f"{citta('en', c)} ({R['curva'][f'{c}/origini_comuni']} common origins)")
-        ax.set_xlabel("adaptation window $L$"); ax.grid(alpha=.3)
-    axs[0].set_ylabel(r"$\Delta$wCE vs. $C$")
-    axs[0].legend(loc="upper right")
-    fig.tight_layout(pad=.4, w_pad=.5); f.parent.mkdir(parents=True, exist_ok=True); fig.savefig(f)
+        ax.set_title(f"{citta('en', c)} ({R['curva'][f'{c}/origini_comuni']})", fontsize=6.5)
+        ax.tick_params(axis="y", labelsize=5.8)
+        ax.grid(alpha=.3)
+    axs[1].set_xlabel("adaptation window $L$", fontsize=6.5)
+    axs[0].set_ylabel(r"$\Delta$wCE vs. $C$", fontsize=6.5)
+    h, l = axs[0].get_legend_handles_labels()
+    fig.legend(h, l, loc="upper center", ncol=4, fontsize=5.6, frameon=False, handlelength=1.6, columnspacing=0.8)
+    fig.tight_layout(pad=.3, w_pad=.3, rect=(0, 0, 1, 0.9)); f.parent.mkdir(parents=True, exist_ok=True); fig.savefig(f)
 
 
 def fig_traiettoria_en(R, f: Path):
