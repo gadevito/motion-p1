@@ -301,8 +301,7 @@ def scrivi_D(ris: Path, f: Path) -> None:
 
 
 # --- E: calibrazione (E16), da congelamento_e16.json -------------------------------------------------
-CAL_EN = {"grezzo": "raw", "T_nll": "temperature, log-loss", "T_wce": "temperature, wCE",
-          "V_nll": "vector, log-loss", "V_wce": "vector, wCE"}
+CAL_EN = {"grezzo": "raw", "T_nll": "T: log-loss", "T_wce": "T: wCE", "V_nll": "V: log-loss", "V_wce": "V: wCE"}
 BRACCI_E16 = (("C", "$C$"), ("A", "$A$"), ("F0", "$F_0$"), ("F0p", "$F_0'$"), ("Fp_672", r"$F'(1\,\mathrm{wk})$"))
 DIFF_E16 = (("F0-C", r"$F_0-C$"), ("F0p-C", r"$F_0'-C$"), ("Fp_672-C", r"$F'(1\,\mathrm{wk})-C$"), ("A-C", r"$A-C$"))
 GRUPPI_E16 = ("Madrid", "Londra", "Melbourne", "PEMS08")
@@ -330,7 +329,7 @@ def scrivi_E(ris: Path, f: Path) -> None:
         "@{}l c c c c@{}",
         "E16: calibration share $s=1-(F_0^{\\mathrm{cal}}-C^{\\mathrm{cal}})/(F_0-C)$ of the transfer cost, per context "
         "and post-hoc calibration (temperature or vector scaling, fitted per arm and cell on the validation episode "
-        "alone, against the unweighted log-loss or against the campaign loss, wCE), mean over cells and 95\\% interval "
+        "alone, against the unweighted log-loss or against the campaign loss, wCE; T = temperature, V = vector), mean over cells and 95\\% interval "
         "from 4{,}000 joint resamples; cities: episode 1. The pre-registered criterion for ``calibration first'' "
         "is a lower limit above 0.5 in all three cities." + fonte,
         "Context & " + " & ".join(CAL_EN[c] for c in cal), righe, "tab:suppE1"))
@@ -340,14 +339,15 @@ def scrivi_E(ris: Path, f: Path) -> None:
             righe.append("\\addlinespace")
         for i, (k, et) in enumerate(DIFF_E16):
             righe.append((CTX_EN[g] if i == 0 else "") + f" & {et} & "
-                         + " & ".join(_ic(G[g]["differenze"][f"{k}/{c}"], scala=1.0, cifre=4) for c in CAL_EN) + " \\\\")
+                         + " & ".join(_ic(G[g]["differenze"][f"{k}/{c}"], scala=1.0, cifre=3) for c in CAL_EN) + " \\\\")
         prima = False
     out.append(_longtable(
         "@{}l l c c c c c@{}",
         "E16: differences in test wCE between arms before (raw) and after post-hoc calibration; $A$ has no "
         "embeddings for the validation sensors and is not calibrated, so $A-C$ after calibration uses the raw $A$ "
         "and the calibrated $C$ (declared deviation)." + fonte,
-        "Context & Difference & " + " & ".join(CAL_EN[c] for c in CAL_EN), righe, "tab:suppE2"))
+        "Context & Difference & " + " & ".join(CAL_EN[c] for c in CAL_EN), righe, "tab:suppE2")
+               .replace("{\\footnotesize\\setlength{\\tabcolsep}{3pt}", "{\\scriptsize\\setlength{\\tabcolsep}{2pt}", 1))
     righe, prima = [], True
     for g in GRUPPI_E16:
         if not prima:
@@ -370,5 +370,5 @@ def scrivi_E(ris: Path, f: Path) -> None:
         "and wCE on the test, per arm and calibration, means over cells. Calibrating against the unweighted log-loss "
         "targets the natural class distribution, while the campaign loss is minimised by the class-reweighted "
         "posterior: vector scaling against log-loss brings every class's ECE below 0.04 but raises the wCE." + fonte,
-        "Context & Arm & Calibration & ECE free & ECE mod. & ECE cong. & log-loss & Brier & wCE", righe, "tab:suppE3"))
+        "Context & Arm & Calibration & \\multicolumn{3}{c}{ECE (free / mod. / cong.)} & log-loss & Brier & wCE", righe, "tab:suppE3"))
     f.write_text("\n".join(out))
