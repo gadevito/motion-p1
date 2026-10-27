@@ -75,13 +75,18 @@ def valuta(m, x, classe, statiche, nodi, istanti, pesi, descrittore=None,
     B = np.zeros(len(ORIZZONTI))
     n_celle = np.zeros(len(ORIZZONTI), dtype="int64")
     m.eval()
-    S = torch.as_tensor(statiche[nodi].astype("float32"))
+    # E15: con la statica ESPANSIVA la statica dei nodi nuovi dipende dall'origine,
+    # (B, n, 5) per lotto; con un vettore fisso tutto e' come prima, bit per bit
+    from evoluzione.esperimenti.inserimento import statica_alle_origini
+    S = torch.as_tensor(np.asarray(statiche)[nodi].astype("float32"))
     with torch.inference_mode():
         for i in range(0, len(ist), lotto):
             blocco = ist[i:i + lotto]
             X, Y, M = _lotto(x, classe, blocco, nodi)
+            S_o = statica_alle_origini(statiche, nodi, blocco)
             out = m(X, node_ids=[int(v) for v in nodi],
-                    descriptor=descrittore, static_inputs=S)
+                    descriptor=descrittore,
+                    static_inputs=(S if S_o is None else torch.as_tensor(S_o)))
             for h in range(len(ORIZZONTI)):
                 mm = M[..., h].reshape(-1)
                 if not bool(mm.any()):

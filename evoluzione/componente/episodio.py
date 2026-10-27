@@ -90,7 +90,11 @@ def lotti_episodio(x, classe, statiche, nodi, origini, per_nodo=False):
         raise EpisodioVuoto("nessuna origine ammissibile")
     nodi = np.asarray(nodi, dtype="int64")
     X, Y, M = _lotto(x, classe, origini, nodi)
-    S = torch.as_tensor(statiche[nodi].astype("float32"))
+    # E15: statica ESPANSIVA -> (B, n, 5), per origine; vettore fisso -> (n, 5) come prima
+    from evoluzione.esperimenti.inserimento import statica_alle_origini
+    S_o = statica_alle_origini(statiche, nodi, origini)
+    S = (torch.as_tensor(np.asarray(statiche)[nodi].astype("float32")) if S_o is None
+         else torch.as_tensor(S_o))
     if not per_nodo:
         return [(X, [int(v) for v in nodi], Y, M, S)]
     fuori = []
@@ -98,7 +102,7 @@ def lotti_episodio(x, classe, statiche, nodi, origini, per_nodo=False):
         if not bool(M[:, i].any()):
             continue
         fuori.append((X[:, :, i:i + 1], [int(n)], Y[:, i:i + 1],
-                      M[:, i:i + 1], S[i:i + 1]))
+                      M[:, i:i + 1], S[..., i:i + 1, :]))
     return fuori
 
 

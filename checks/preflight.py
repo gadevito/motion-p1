@@ -194,24 +194,48 @@ def main() -> int:
       x.shape[1] == len(canali_di(srg)),
       f"{x.shape[1]} canali; costanti dichiarate {sorted(costanti_di(srg))}")
 
-    # 15. causalita' della STATICA per nodo (E14, controllo n. 8): con m_r perturbata dopo
-    #     t0 + 24 h la statica della cella non cambia di un bit; la statica congelata
-    #     (difetto 21) cambia, e qui BLOCCA.
-    import os
-    from evoluzione.esperimenti.inserimento import (L24_STATICA, statica_cella, statiche,
-                                                     t0_installazione, variante_statica)
+    # 15. causalita' della STATICA per nodo (E14, controllo n. 8; E15, finestra espansiva):
+    #     (i) il vettore fisso (finestra minima) non cambia di un bit con m_r perturbata dopo
+    #     t0 + 24 h; (ii) con la statica ESPANSIVA, a ogni origine t di prova la statica per
+    #     origine non cambia con m_r perturbata DOPO t, e cambia con m_r perturbata su (t0, t]
+    #     (la finestra si espande davvero). La statica congelata (difetto 21) cambia, e BLOCCA.
+    from evoluzione.esperimenti.inserimento import (L24_STATICA, statica_alle_origini,
+                                                     statica_cella, statiche, t0_installazione,
+                                                     variante_statica)
     v_st = variante_statica(); t0i = t0_installazione(c)
-    D3 = {k: (val.copy() if isinstance(val, np.ndarray) else val) for k, val in D.items()}
-    D3["m_r"] = D3["m_r"].copy()
-    D3["m_r"][t0i + L24_STATICA + 1:] = rng.random(D3["m_r"][t0i + L24_STATICA + 1:].shape) < 0.5
+
+    def perturba(da, a_=None):
+        D_ = {k: (val.copy() if isinstance(val, np.ndarray) else val) for k, val in D.items()}
+        D_["m_r"] = D_["m_r"].copy()
+        D_["m_r"][da:a_] = rng.random(D_["m_r"][da:a_].shape) < 0.5
+        return D_
+    D3 = perturba(t0i + L24_STATICA + 1)
     s1 = statica_cella(statiche(D), D, nodi, nodi["prova"], t0i, a.seme)
     s2 = statica_cella(statiche(D3), D3, nodi, nodi["prova"], t0i, a.seme)
     cong_cambia = not np.array_equal(statiche(D), statiche(D3))
-    v("15", "statica per nodo IDENTICA AL BIT con m_r perturbata dopo t0 + 24 h (E14, n. 8)",
-      v_st != "congelata" and np.array_equal(s1, s2),
-      f"statica «{v_st}», t0 {t0i}, scarto massimo {float(np.abs(s1 - s2).max()):.3e}; "
-      f"la statica congelata {'cambia' if cong_cambia else 'non cambia'} con la stessa perturbazione"
-      + ("" if v_st != "congelata" else " — congelata = non causale (difetto 21): solo per riprodurre la campagna"))
+    fisso_ok = v_st != "congelata" and np.array_equal(np.asarray(s1), np.asarray(s2))
+    dett = (f"statica «{v_st}», t0 {t0i}, scarto massimo {float(np.abs(np.asarray(s1) - np.asarray(s2)).max()):.3e}; "
+            f"la statica congelata {'cambia' if cong_cambia else 'non cambia'} con la stessa perturbazione")
+    esp_ok = True
+    if statica_alle_origini(s1, nodi["prova"][:1], [t0i + L24_STATICA]) is not None:
+        fine_ = D["r"].shape[0] - GR.MAX_ORIZZ
+        prove = sorted({t0i + L24_STATICA, t0i + L24_STATICA + 1, t0i + 672, (t0i + L24_STATICA + fine_ - 1) // 2, fine_ - 1})
+        prove = [t for t in prove if t0i + L24_STATICA <= t <= fine_ - 1]
+        uguali, diversi = [], []
+        for t in prove:
+            Dd = perturba(t + 1)                       # dopo l'origine: nulla cambia
+            Dp = perturba(t0i + 1, t + 1)              # dentro (t0, t]: la finestra lo vede
+            sd = statica_cella(statiche(Dd), Dd, nodi, nodi["prova"], t0i, a.seme)
+            sp = statica_cella(statiche(Dp), Dp, nodi, nodi["prova"], t0i, a.seme)
+            o1 = statica_alle_origini(s1, nodi["prova"], [t])
+            uguali.append(np.array_equal(o1, statica_alle_origini(sd, nodi["prova"], [t])))
+            diversi.append(not np.array_equal(o1, statica_alle_origini(sp, nodi["prova"], [t])))
+        esp_ok = all(uguali) and all(diversi)
+        dett += (f"; finestra espansiva su {len(prove)} origini {prove}: identica con m_r perturbata dopo t "
+                 f"in {sum(uguali)}/{len(prove)}, diversa con m_r perturbata su (t0, t] in {sum(diversi)}/{len(prove)}")
+    v("15", "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)",
+      fisso_ok and esp_ok,
+      dett + ("" if v_st != "congelata" else " — congelata = non causale (difetto 21): solo per riprodurre la campagna"))
 
     n_ok = sum(1 for _, o, _ in ESITI if o)
     print("\n" + "=" * 84)

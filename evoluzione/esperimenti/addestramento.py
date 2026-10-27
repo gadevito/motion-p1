@@ -799,7 +799,9 @@ def addestra_una(E, reg, cfg, gen, radice: Path) -> Path:
                    f"{impronta_iniziale}: invariato")
     opt = torch.optim.Adam(m.parameters(), lr=cfg["passo"])
     from evoluzione.esperimenti.inserimento import statica_addestramento
-    stat = torch.as_tensor(statica_addestramento(D, nodi, cfg, E.contesto))   # causale; congelata = campagna
+    # E15: l'addestramento usa il VETTORE FISSO della statica (finestra minima: `espansiva` == `causale`
+    # qui), perche' le origini di addestramento e di selezione del punto precedono t0; `congelata` = campagna
+    stat = torch.as_tensor(np.asarray(statica_addestramento(D, nodi, cfg, E.contesto)))
     # i descrittori si calcolano SOLO per P: per gli altri bracci sarebbero
     # un costo inutile, e passarli farebbe sollevare il fornitore
     # I NODI DELLA METRICA DI SELEZIONE, secondo la politica dichiarata

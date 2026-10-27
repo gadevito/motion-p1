@@ -22,6 +22,7 @@ Questo modulo non importa torch: i collaudi della tabella girano ovunque.
     E        embedding appreso, preparatorio      LearnedNodeEmbedding
     E1       E con token ignoto e dropout rho     LearnedNodeEmbedding(token)
     A        E sulla rete ampliata, privilegiato  LearnedNodeEmbedding
+    C_A      C sulla rete ampliata, privilegiato  NoIdentity (E15)
     R        riaddestramento, uniforme per NODO   LearnedNodeEmbedding
     R-orig   riaddestramento, uniforme per ORIGINE (E3)
     R-mon    R-orig con selezione che sorveglia i nodi nuovi (E3)
@@ -134,6 +135,11 @@ TABELLA = {b.nome: b for b in (
     _b("E", "embedding", preparatorio=True, prefisso=True),
     _b("E1", "embedding_token", preparatorio=True, prefisso=True),
     _b("A", "embedding", popolazione="ampliata", corpus="privilegiato",
+       pop_descr=_AMPLIATA_A, corpus_descr=_CORPUS_A),
+    # E15: C_A isola l'identita' dal dato in piu' — nessuna identita', ma lo
+    # stesso corpus privilegiato di A (iniziali + nuovi, con la storia
+    # anteriore a t0). A − C_A e' il valore dell'identita'; C_A − C quello del dato.
+    _b("C_A", "nessuna", popolazione="ampliata", corpus="privilegiato",
        pop_descr=_AMPLIATA_A, corpus_descr=_CORPUS_A),
     _b("R", "embedding", popolazione="ampliata", corpus="post_installazione",
        campionamento="uniforme_nodo", costo_inserimento=True, attesa=True,

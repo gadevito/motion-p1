@@ -36,14 +36,17 @@ def statiche(D):
                      np.ones(K)], 1).astype("float32")
 
 
-VARIANTI_STATICA = ("congelata", "causale", "a", "b", "c")
-STATICA_PREDEFINITA = "causale"      # dopo E14 (difetto 21): causale; `congelata` riproduce la campagna
+VARIANTI_STATICA = ("congelata", "causale", "espansiva", "a", "b", "c")
+# dopo E15: `espansiva` (causale, finestra da t0 all'origine corrente, minimo 24 h);
+# `causale` e' la finestra fissa di 24 h (variante (a) di E14); `congelata` riproduce la campagna
+STATICA_PREDEFINITA = "espansiva"
 L24_STATICA = 96
 
 
 def variante_statica() -> str:
-    """La variante della statica, da `OR3_STATICA`; assente = `causale` (variante (a) di E14).
-    `congelata` e' la statica non causale della campagna del Paper 1 (difetto 21)."""
+    """La variante della statica, da `OR3_STATICA`; assente = `espansiva` (E15: causale a finestra
+    espansiva). `causale` e' la finestra fissa di 24 h (variante (a) di E14); `congelata` e' la
+    statica non causale della campagna del Paper 1 (difetto 21)."""
     v = os.environ.get("OR3_STATICA", "") or STATICA_PREDEFINITA
     if v not in VARIANTI_STATICA:
         raise ValueError(f"OR3_STATICA={v!r}: ammessi {VARIANTI_STATICA}")
@@ -53,8 +56,9 @@ def variante_statica() -> str:
 def argomento_statica(ap):
     """`--statica`: l'interruttore degli esecutori; assente, vale l'ambiente e poi la predefinita."""
     ap.add_argument("--statica", choices=VARIANTI_STATICA, default=None,
-                    help=f"statica per nodo: congelata (campagna Paper 1, non causale) oppure causale "
-                         f"(predefinita); a, b, c = varianti di E14 (OR3_STATICA)")
+                    help=f"statica per nodo: congelata (campagna Paper 1, non causale); espansiva "
+                         f"(predefinita, E15: finestra da t0 all'origine, minimo 24 h); causale "
+                         f"(finestra fissa di 24 h, E14); a, b, c = varianti di E14 (OR3_STATICA)")
     return ap
 
 
@@ -80,10 +84,21 @@ def t0_installazione(contesto: str, fine_periodo=None) -> int:
     return int(CALENDARIO[contesto][0])
 
 
+def nodi_davvero_nuovi(braccio: str, nn):
+    """E15 (lettura 1 del revisore, 27/10): per i bracci a corpus PRIVILEGIATO (A, C_A) i nodi
+    "nuovi" sono iniziali a tutti gli effetti — hanno la storia su [0, t0) — e la loro copertura
+    si calcola su [0, t0) come per gli altri: nessun nodo nuovo per la statica. Per gli altri
+    bracci la finestra (minima 24 h, poi espansiva) vale dove il sensore e' davvero nuovo."""
+    if proprieta_braccio(braccio).corpus == "privilegiato":
+        return np.zeros(0, dtype="int64")
+    return np.asarray(nn, dtype="int64")
+
+
 def statica_addestramento(D, nodi, cfg, contesto):
     """La statica dell'ADDESTRAMENTO (addestramento.py): `statiche(D)` passata da `statica_cella`
-    con i nodi nuovi dichiarati dalla configurazione (vuoti per E, E') e il t0 dell'episodio."""
-    nn = np.asarray(cfg.get("nodi_nuovi", []), dtype="int64")
+    con i nodi nuovi dichiarati dalla configurazione (vuoti per E, E') e il t0 dell'episodio.
+    Per A e C_A (corpus privilegiato) i nodi nuovi non sono nuovi: copertura su [0, t0)."""
+    nn = nodi_davvero_nuovi(cfg.get("braccio", "P"), cfg.get("nodi_nuovi", []))
     t0 = t0_installazione(contesto, cfg.get("fine_periodo"))
     return statica_cella(statiche(D), D, nodi, nn, t0, int(cfg.get("seme_dichiarato", 0)))
 
@@ -95,6 +110,12 @@ def statica_cella(stat, D, nodi, nn, t0, seme):
     validazione in un episodio di validazione), `nodi["addestramento"]` gli
     iniziali; `t0` l'installazione; `seme` quello DICHIARATO della cella.
         congelata   `stat` com'e' (bit per bit; la campagna del Paper 1, non causale)
+        espansiva   iniziali: media di m_r su [0, t0); nn: FINESTRA ESPANSIVA (E15),
+                    all'origine t la media su (t0, max(t, t0 + 24 h)]. L'oggetto
+                    restituito e' un vettore (K, 5) alla finestra MINIMA, identico a
+                    `causale` (chi non valuta per origine — addestramento, selezione
+                    del punto — vede quello), e porta `alle_origini(nodi, istanti)`
+                    per chi valuta per origine (`valuta`, `lotti_episodio`)
         causale, a  iniziali: media di m_r su [0, t0); nn: media su (t0, t0 + 24 h]
         b           iniziali: idem; nn: media delle coperture causali degli iniziali
         c           iniziali: non causale; nn: coperture non causali permutate fra
@@ -108,9 +129,11 @@ def statica_cella(stat, D, nodi, nn, t0, seme):
     nn = np.asarray(nn, dtype="int64")
     ini = np.asarray(nodi["addestramento"], dtype="int64")
     cov_nc = stat[:, 0].astype("float64")
-    if v in ("causale", "a", "b"):
+    if v in ("causale", "espansiva", "a", "b"):
         cov_c = m[:t0].mean(0)
         stat[:, 0] = cov_c.astype("float32")
+        if v == "espansiva":
+            return StaticaEspansiva.costruisci(stat, m, nn, t0)
         if v in ("causale", "a"):
             stat[nn, 0] = m[t0 + 1:t0 + L24_STATICA + 1, :].mean(0)[nn].astype("float32")
         else:
@@ -119,6 +142,62 @@ def statica_cella(stat, D, nodi, nn, t0, seme):
         rng = np.random.default_rng(int(seme))
         stat[nn, 0] = cov_nc[nn][rng.permutation(len(nn))].astype("float32")
     return stat
+
+
+class StaticaEspansiva(np.ndarray):
+    """La statica per nodo a FINESTRA ESPANSIVA (E15, `protocol/E15.md`).
+
+    Come array e' la statica alla finestra minima: nodi nuovi con la copertura
+    media su (t0, t0 + 24 h], iniziali su [0, t0). `alle_origini(nodi, istanti)`
+    da' la statica per origine, (B, n, 5): per i nodi nuovi la copertura media su
+    (t0, max(t, t0 + 24 h)], per gli altri il vettore fisso. **Solo l'oggetto
+    costruito da `costruisci` porta la finestra**: una vista o una copia
+    (`stat[nodi]`, `np.array(stat)`) e' un array e basta, e chiederle le origini
+    solleva, anziche' rispondere con la finestra minima in silenzio.
+    """
+
+    def __array_finalize__(self, obj):
+        self._esp = None
+
+    @classmethod
+    def costruisci(cls, stat, m, nn, t0):
+        m = np.asarray(m, dtype="float64"); t0 = int(t0); t1 = t0 + L24_STATICA
+        nn = np.asarray(nn, dtype="int64")
+        if t1 + 1 > m.shape[0]:
+            raise ValueError(f"finestra minima oltre la serie: t0 {t0}, T {m.shape[0]}")
+        # somme cumulate (una riga di zeri in testa): cs[t + 1] - cs[t0 + 1] = somma su (t0, t]
+        cs = np.concatenate([np.zeros((1, len(nn))), np.cumsum(m[:, nn], 0)], 0)
+        stat = np.array(stat, dtype="float32", copy=True)
+        stat[nn, 0] = ((cs[t1 + 1] - cs[t0 + 1]) / (t1 - t0)).astype("float32")
+        s = stat.view(cls)
+        s._esp = {"cs": cs, "t0": t0, "t1": t1, "nn": nn,
+                  "posizione": {int(n): j for j, n in enumerate(nn)}}
+        return s
+
+    def alle_origini(self, nodi, istanti):
+        if self._esp is None:
+            raise RuntimeError("statica espansiva senza finestra: l'oggetto e' una vista o una "
+                               "copia; passare quello restituito da `statica_cella`")
+        e = self._esp
+        nodi = np.asarray(nodi, dtype="int64"); ist = np.asarray(istanti, dtype="int64")
+        S = np.repeat(np.asarray(self)[nodi][None], len(ist), 0)           # (B, n, 5)
+        col = [i for i, n in enumerate(nodi) if int(n) in e["posizione"]]
+        if col and len(ist):
+            j = [e["posizione"][int(nodi[i])] for i in col]
+            tt = np.maximum(ist, e["t1"])
+            if int(tt.max()) + 1 >= e["cs"].shape[0]:
+                raise ValueError(f"origine {int(tt.max())} oltre la serie")
+            cov = (e["cs"][tt + 1][:, j] - e["cs"][e["t0"] + 1][j]) / (tt - e["t0"])[:, None]
+            S[:, col, 0] = cov.astype("float32")
+        return S
+
+
+def statica_alle_origini(stat, nodi, istanti):
+    """(B, n, 5) se `stat` e' la statica espansiva di `statica_cella`, altrimenti None: chi
+    valuta per origine la chiama e, con None, usa `stat[nodi]` come prima (bit per bit)."""
+    if isinstance(stat, StaticaEspansiva):
+        return stat.alle_origini(nodi, istanti)
+    return None
 
 
 def impronta_nodi(ids) -> str:
@@ -260,7 +339,9 @@ def valuta_prova(b, c, p, s, out: Path, D, nodi, ist, t1, ok, reg, ck, mod,
                                                       _normalizzazione)
     NORM, nr, nv = _normalizzazione(D, nodi, ist)
     x = _canali(D, nr, nv)
-    stat = statica_cella(statiche(D), D, nodi, nodi["prova"], t0_installazione(c), int(s))
+    # E15: per A e C_A i nodi di prova sono iniziali (copertura su [0, t0)); per gli altri sono nuovi
+    stat = statica_cella(statiche(D), D, nodi, nodi_davvero_nuovi(b, nodi["prova"]),
+                         t0_installazione(c), int(s))
     w = torch.as_tensor(carica_pesi(out / "pesi_griglia", c, p).vettore(),
                         dtype=torch.float32)
     fine = D["r"].shape[0] - max(ORIZZONTI)

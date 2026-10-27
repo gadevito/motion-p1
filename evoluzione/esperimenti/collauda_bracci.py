@@ -207,6 +207,14 @@ def main() -> int:
     v("1p", "corpus per braccio come i costruttori di `esegui_inserimento`",
       all(T[b].corpus == CORPUS_COSTRUTTORE_PRIMA[b]
           for b in CORPUS_COSTRUTTORE_PRIMA))
+    v("1s", "C_A (E15): fornitore di C, popolazione e corpus di A",
+      T["C_A"].fornitore == T["C"].fornitore
+      and T["C_A"].popolazione == T["A"].popolazione == "ampliata"
+      and T["C_A"].corpus == T["A"].corpus == "privilegiato"
+      and T["C_A"].descrizione_popolazione == T["A"].descrizione_popolazione
+      and T["C_A"].descrizione_corpus == T["A"].descrizione_corpus
+      and T["C_A"].addestra and T["C_A"].carica_canonico
+      and not T["C_A"].usa_descrittore and not T["C_A"].richiede_rho)
     v("1q", "rho richiesto da E1 soltanto",
       all(T[b].richiede_rho == (b == "E1") for b in CONGELATI))
     v("1r", "tempo di parete atteso: chi addestra non sotto i 15 minuti, F "
@@ -267,6 +275,11 @@ def main() -> int:
     v("3g", "A senza storia anteriore a t0 e' rifiutato",
       _solleva(lambda: fasi.controlli_A_R("A", ini + nuo, nuo, ist, t0=5),
                fasi.PrerequisitoMancante))
+    v("3i", "C_A senza storia anteriore a t0 e' rifiutato come A",
+      _solleva(lambda: fasi.controlli_A_R("C_A", ini + nuo, nuo, ist, t0=5),
+               fasi.PrerequisitoMancante)
+      and _solleva(lambda: fasi.controlli_A_R("C_A", ini, nuo, ist, t0=12),
+                   fasi.PrerequisitoMancante))
     v("3h", "C con nodi nuovi in addestramento e' rifiutato",
       _solleva(lambda: fasi.controlli_A_R("C", ini + nuo, nuo, ist, t0=12),
                fasi.PrerequisitoMancante))
