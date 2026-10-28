@@ -13,7 +13,6 @@ Uso (dalla radice OR3/):
 import argparse
 import hashlib
 import json
-import shutil
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
@@ -58,7 +57,8 @@ def main() -> int:
          f"differenze causali e per quelle congelate. Letture del protocollo del 27/10 (in `protocol/E15.md`): per A e "
          f"C_A i sensori di prova sono iniziali a tutti gli effetti, copertura su [0, t₀) in addestramento, selezione e "
          f"valutazione; la finestra minima di 24 h e l'espansione valgono per C, F₀, F₀′, F′ e per la selezione di k sui "
-         f"nodi di validazione.", "",
+         f"nodi di validazione. **Rigenerato il 28/10/2026** con l'addendum di sola analisi del revisore (sezione 7-bis): "
+         f"nuove impronte, numeri precedenti invariati.", "",
          f"Perimetro: {R['perimetro']['principale']}; per i confronti a una settimana, {R['perimetro']['settimana']}. "
          f"Congelate: {R['perimetro']['congelate']}.", "",
          f"**Verdetto** = segno dell'intervallo al 95 % (sotto zero / include lo zero / sopra zero); una dichiarazione e' "
@@ -203,15 +203,34 @@ def main() -> int:
                  f"{pz['stima_campagna']['addestramenti']} addestramenti, piattaforma `{pz['ambiente']['piattaforma']}`.")
     L.append("")
 
-    # 8. impronte
-    Path("protocol/e15").mkdir(parents=True, exist_ok=True)
-    shutil.copy(fj, Path("protocol/e15/e15_risultati.json"))
+    # 7-bis. addendum del 28/10
+    L += ["## 7-bis. Addendum del 28/10/2026 (revisore, sola analisi; correzione datata)", "",
+          "Stesso congelamento rigenerato con due misure in piu', dalle stesse repliche; i numeri delle altre sezioni non "
+          "cambiano. **Recupero causale** (E17): (L_C − L_F′(1 sett.))/(L_C − L_A) sulle origini con eta' > 1 settimana, "
+          "rapporto delle medie nella stessa replica; anche con A − C_A al denominatore, (L_C − L_F′(1 sett.))/(L_C_A − L_A). "
+          "**Riduzione del costo da parte del token**: 1 − (F₀′ − C)/(F₀ − C), tutte le origini dopo t₁.", "",
+          "| citta' | recupero causale, (L_C − L_A) | recupero causale, (L_C_A − L_A) | recupero congelato, 54 celle | "
+          "riduzione del token, causale | riduzione del token, congelata 54 celle | repliche con denominatore ≤ 0 (rec. c. / rec. c._A / rec. cong. / rid. c. / rid. cong.) |",
+          "|---|---|---|---|---|---|---|"]
+    for c in CITTA:
+        ad = R["citta"][c].get("addendum")
+        if not ad:
+            L.append(f"| {c} | assente | | | | | |"); continue
+        rc, rt = ad["recupero"], ad["riduzione_token"]
+        L.append(f"| {c} | {rap(rc['causale (L_C-L_A)'])} | {rap(rc['causale (L_C_A-L_A)'])} | {rap(rc['congelata 54 celle (L_C-L_A)'])} | "
+                 f"{rap(rt['causale'])} | {rap(rt['congelata 54 celle'])} | "
+                 f"{rc['causale (L_C-L_A)']['repliche_den_non_positivo']} / {rc['causale (L_C_A-L_A)']['repliche_den_non_positivo']} / "
+                 f"{rc['congelata 54 celle (L_C-L_A)']['repliche_den_non_positivo']} / {rt['causale']['repliche_den_non_positivo']} / "
+                 f"{rt['congelata 54 celle']['repliche_den_non_positivo']} |")
+    L.append("")
+
+    # 8. impronte (la copia in protocol/e15/ si fa a mano, al commit del congelamento: il generatore non scrive nel repo)
     J = {"commit": commit, "istante": datetime.now(timezone.utc).isoformat(), "risultati": R,
          "impronte": {"e15_risultati.json": imp(fj), "protocol/E15.md": imp(Path("protocol/E15.md"))}}
     (a.out / "congelamento_e15.json").write_text(json.dumps(J, indent=1, ensure_ascii=False))
     L += ["## 8. Impronte", "",
           "- Fonti delle pubblicate: " + (", ".join(f"`{k}` `{v['impronta']}`" for k, v in R["pubblicate_fonti"].items()) if R["pubblicate_fonti"] else "nessuna") + ".",
-          f"- `results/evoluzione/e15_risultati.json` `{imp(fj)}` (copia in `protocol/e15/`); `protocol/E15.md` "
+          f"- `results/evoluzione/e15_risultati.json` `{imp(fj)}` (copia committata in `protocol/e15/`); `protocol/E15.md` "
           f"`{imp(Path('protocol/E15.md'))}`; `results/evoluzione/congelamento_e15.json` `{imp(a.out / 'congelamento_e15.json')}`.",
           f"- Punti di controllo per cella (sha256, 16 esadecimali) in `e15_risultati.json` → `impronte_celle` "
           f"({len(R['impronte_celle'])} celle × {len([k for k in next(iter(R['impronte_celle'].values())) if not k.startswith('impronta_')])} "

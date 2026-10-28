@@ -789,6 +789,35 @@ def fase_analizza(out: Path) -> int:
         rapporto((IDX[("F0", None, "c")], IDX[("C", None, "c")]), (IDX[("A", None, "c")], IDX[("C_A", None, "c")]), "(F0-C)/(A-C_A)")
         rapporto((IDX[("F0", None, "f")], IDX[("C", None, "f")]), (IDX[("A", None, "f")], IDX[("C", None, "f")]), "congelata (F0-C)/(A-C)")
         rapporto((IDX[("C_A", None, "c")], IDX[("C", None, "c")]), (IDX[("A", None, "c")], IDX[("C", None, "c")]), "(C_A-C)/(A-C)")
+        # ADDENDUM del revisore (28/10, sola analisi): recupero causale e riduzione del costo da parte del token
+        Rc["addendum"] = {"data": "2026-10-28", "recupero": {}, "riduzione_token": {}}
+
+        def quoziente(num, den):
+            """(media del rapporto puntuale, IC del rapporto nella stessa replica, repliche con denominatore <= 0)."""
+            n0 = m0[num[0]] - m0[num[1]]; d0 = m0[den[0]] - m0[den[1]]
+            rn = rep[:, num[0]] - rep[:, num[1]]; rd = rep[:, den[0]] - rep[:, den[1]]
+            return {"media": float(n0 / d0) if d0 != 0 else None, "ic_con_nodi": _ic(rn / rd),
+                    "numeratore": float(n0), "denominatore": float(d0), "repliche_den_non_positivo": int(np.sum(rd <= 0))}
+        C2, A2, CA2, F2 = IDX[("C", 2, "c")], IDX[("A", 2, "c")], IDX[("C_A", 2, "c")], IDX[("Fp_672", 2, "c")]
+        fC2, fA2, fF2 = IDX[("C", 2, "f")], IDX[("A", 2, "f")], IDX[("Fp_672", 2, "f")]
+        Rc["addendum"]["recupero"] = {
+            "definizione": "(L_C - L_F'(1 sett.)) / (L_C - L_A) sulle origini con eta' > 1 settimana (E17); "
+                           "variante con A - C_A al denominatore: (L_C - L_F'(1 sett.)) / (L_C_A - L_A)",
+            "causale (L_C-L_A)": quoziente((C2, F2), (C2, A2)),
+            "causale (L_C_A-L_A)": quoziente((C2, F2), (CA2, A2)),
+            "congelata 54 celle (L_C-L_A)": quoziente((fC2, fF2), (fC2, fA2))}
+        C0, F00, F0p0 = IDX[("C", None, "c")], IDX[("F0", None, "c")], IDX[("F0p", None, "c")]
+        fC0, fF00, fF0p0 = IDX[("C", None, "f")], IDX[("F0", None, "f")], IDX[("F0p", None, "f")]
+
+        def riduzione(c, f0, f0p):
+            q = quoziente((f0p, c), (f0, c))
+            rn = rep[:, f0p] - rep[:, c]; rd = rep[:, f0] - rep[:, c]
+            return {"media": None if q["media"] is None else float(1 - q["media"]), "ic_con_nodi": _ic(1 - rn / rd),
+                    "F0p-C": q["numeratore"], "F0-C": q["denominatore"], "repliche_den_non_positivo": q["repliche_den_non_positivo"]}
+        Rc["addendum"]["riduzione_token"] = {
+            "definizione": "1 - (F0' - C) / (F0 - C), tutte le origini dopo t1: la quota del costo di F0 rispetto a C "
+                           "che il token toglie",
+            "causale": riduzione(C0, F00, F0p0), "congelata 54 celle": riduzione(fC0, fF00, fF0p0)}
         R["citta"][c] = Rc
         print(f"\n{c}: {len(cc)} celle, {Rc['nodi']} nodi; k secondario {k_sel}")
         for nome, d in Rc["dichiarazioni"].items():

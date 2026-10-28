@@ -149,6 +149,10 @@ FASI = [
     F("E14", ["genera_congelamento_e14b.py"], [R_ + "congelamento_e14b.json", "CONGELAMENTO_E14B.md"]),
     # E16 (calibrazione): il congelamento da e16_risultati.json (le probabilita' per cella non si ricostruiscono qui)
     F("E16", ["genera_congelamento_e16.py"], [R_ + "congelamento_e16.json", "CONGELAMENTO_E16.md"]),
+    # E15 (campagna causale): l'analisi dagli aggregati per cella di predizioni_e15/ (addestramenti e adattamenti
+    # non si rifanno qui; e15_k_secondaria.json e' un ingresso congelato), poi il congelamento
+    F("E15", [E + "esegui_e15.py", "--fase", "analizza"], [R_ + "e15_risultati.json"]),
+    F("E15", ["genera_congelamento_e15.py"], [R_ + "congelamento_e15.json", "CONGELAMENTO_E15.md"]),
 ]
 # figure del manoscritto: gli stessi script, con --lingua en, verso <paper>/figures/
 FIGURE_PAPER = [("ARCH", A + "figura_rete.py", ["rete.pdf"]),
@@ -157,7 +161,7 @@ FIGURE_PAPER = [("ARCH", A + "figura_rete.py", ["rete.pdf"]),
                 ("E5", A + "analizza_e5.py", ["episodi_e5.pdf"]),
                 ("E8", A + "figura2_51.py", ["figura2_51.pdf"]),
                 ("E8", A + "figura_e8bis.py", ["curve_e8bis.pdf"])]
-ESPERIMENTI = ["ARCH", "E2", "E3", "E4", "E3bis", "E5", "E6", "E7", "E8", "E14", "E16"]
+ESPERIMENTI = ["ARCH", "E2", "E3", "E4", "E3bis", "E5", "E6", "E7", "E8", "E14", "E16", "E15"]
 
 
 # ---------------------------------------------------------------- impronte --
