@@ -60,7 +60,7 @@ def main() -> int:
                 gr = str(z["gruppo"])
                 for m, *_ in CURVE:
                     somme.setdefault(gr, {}); somme[gr][m] = somme[gr].get(m, 0) + z[f"griglia_{m}"].sum(1)
-    fig, axs = plt.subplots(2, 4, figsize=(PAGINA, 3.6) if en else (15, 7.2))
+    fig, axs = plt.subplots(2, 4, figsize=(PAGINA, 3.1) if en else (15, 7.2))
     for j, gr in enumerate(GRUPPI):
         ax = axs[0, j]; cf = RS["gruppi"][gr]["confronti"]
         if gr in E15:
