@@ -1,0 +1,22 @@
+{
+  "completate": 270,
+  "fallite": [],
+  "gia_fatte": 0,
+  "ore_calendario": 22.90218819134765,
+  "ore_macchina": 358.8445319965813,
+  "statica": "espansiva",
+  "ambiente": {
+    "piattaforma": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+    "processore": "aarch64",
+    "nuclei_logici": 20,
+    "python": "3.12.3",
+    "torch": "2.12.1+cu130",
+    "numpy": "2.5.1",
+    "backend": "cpu",
+    "fili_torch": 1,
+    "nota": "numero di fili verificato ininfluente sulla numerica: impronte identiche con 1, 2, 4 e 14 fili"
+  },
+  "lavoratori": 16,
+  "fili": 1,
+  "istante": "2026-10-28T08:58:52.899316+00:00"
+}

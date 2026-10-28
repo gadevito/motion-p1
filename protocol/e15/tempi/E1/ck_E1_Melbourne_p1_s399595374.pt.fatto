@@ -1,0 +1,20 @@
+{
+  "contesto": "Melbourne",
+  "partizione": 1,
+  "seme": 202,
+  "seme_torch": 399595374,
+  "braccio": "E1",
+  "secondi": 3425.105272769928,
+  "ambiente": {
+    "piattaforma": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+    "processore": "aarch64",
+    "nuclei_logici": 20,
+    "python": "3.12.3",
+    "torch": "2.12.1+cu130",
+    "numpy": "2.5.1",
+    "backend": "cpu",
+    "fili_torch": 1,
+    "nota": "numero di fili verificato ininfluente sulla numerica: impronte identiche con 1, 2, 4 e 14 fili"
+  },
+  "istante": "2026-10-27T16:10:00.122361+00:00"
+}

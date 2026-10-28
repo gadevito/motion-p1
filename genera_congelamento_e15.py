@@ -57,7 +57,8 @@ def main() -> int:
          f"differenze causali e per quelle congelate. Letture del protocollo del 27/10 (in `protocol/E15.md`): per A e "
          f"C_A i sensori di prova sono iniziali a tutti gli effetti, copertura su [0, t₀) in addestramento, selezione e "
          f"valutazione; la finestra minima di 24 h e l'espansione valgono per C, F₀, F₀′, F′ e per la selezione di k sui "
-         f"nodi di validazione. **Rigenerato il 28/10/2026** con l'addendum di sola analisi del revisore (sezione 7-bis): "
+         f"nodi di validazione. **Rigenerato il 28/10/2026** con l'addendum di sola analisi del revisore (sezione 7-bis) e, "
+         f"nello stesso giorno, con i registri dei tempi come ingresso congelato in `protocol/e15/tempi/` (sezione 7-ter): "
          f"nuove impronte, numeri precedenti invariati.", "",
          f"Perimetro: {R['perimetro']['principale']}; per i confronti a una settimana, {R['perimetro']['settimana']}. "
          f"Congelate: {R['perimetro']['congelate']}.", "",
@@ -224,8 +225,50 @@ def main() -> int:
                  f"{rt['congelata 54 celle']['repliche_den_non_positivo']} |")
     L.append("")
 
+    # 7-ter. registri dei tempi come ingresso congelato (revisore, 28/10)
+    TEMPI = Path("protocol/e15/tempi")
+    L += ["## 7-ter. Registri dei tempi (ingresso congelato, `protocol/e15/tempi/`)", "",
+          "I marcatori `.fatto` dei 270 addestramenti (secondi, ambiente, istante), l'esito del lancio e il pilota dichiarato, "
+          "copiati dai risultati nel repo: la fase E15 di `main.py` li tratta come ingresso, non li rigenera. Per ogni file "
+          "l'impronta (sha256, 16 esadecimali); dove il file originale e' ancora nei risultati, l'impronta e' verificata uguale.", ""]
+    reg_tempi, n_ver, n_diff = {}, 0, 0
+    ORIG = {"E": a.out / "e15_E_inserimento_griglia", "E1": a.out / "e15_E1_inserimento_griglia",
+            "C": a.out / "e15_inserimento_griglia", "A": a.out / "e15_inserimento_griglia", "C_A": a.out / "e15_inserimento_griglia"}
+    if TEMPI.exists():
+        for b in ("E", "E1", "C", "A", "C_A"):
+            ff = sorted((TEMPI / b).glob("*.fatto")) if (TEMPI / b).exists() else []
+            sec = []
+            for f in ff:
+                d = json.loads(f.read_text()); i_ = imp(f); sec.append(float(d["secondi"]))
+                o = ORIG[b] / f.name
+                stato = "—"
+                if o.exists():
+                    stato = "uguale" if imp(o) == i_ else "**DIVERSA**"; n_ver += 1; n_diff += stato != "uguale"
+                reg_tempi[f"{b}/{f.name}"] = {"impronta": i_, "secondi": float(d["secondi"]), "verifica": stato}
+            L.append(f"- **{b}**: {len(ff)} marcatori, {sum(sec)/3600:.1f} ore-macchina"
+                     + (f", mediana {sorted(sec)[len(sec)//2]/60:.1f} min" if sec else "") + ".")
+        for nome in ("esito_e15.json", "pilota_tempi_16.json"):
+            f = TEMPI / nome
+            if f.exists():
+                o = (a.out / "e15_inserimento_griglia" / nome) if nome.startswith("esito") else (a.out / "E_pilota_e15" / nome)
+                stato = ("uguale" if imp(o) == imp(f) else "**DIVERSA**") if o.exists() else "—"
+                if o.exists():
+                    n_ver += 1; n_diff += stato != "uguale"
+                reg_tempi[nome] = {"impronta": imp(f), "verifica": stato}
+                L.append(f"- `{nome}` `{imp(f)}` (verifica con i risultati: {stato}).")
+            else:
+                L.append(f"- `{nome}`: **assente** in `protocol/e15/tempi/`.")
+        L += ["", f"Verifiche contro i risultati: {n_ver} file confrontati, {n_diff} diversi.", "",
+              "| file | secondi | impronta | verifica |", "|---|---|---|---|"]
+        for k, z in reg_tempi.items():
+            if "secondi" in z:
+                L.append(f"| `{k}` | {z['secondi']:.0f} | `{z['impronta']}` | {z['verifica']} |")
+    else:
+        L.append("**`protocol/e15/tempi/` assente**: i registri dei tempi non sono ancora stati copiati nel repo.")
+    L.append("")
+
     # 8. impronte (la copia in protocol/e15/ si fa a mano, al commit del congelamento: il generatore non scrive nel repo)
-    J = {"commit": commit, "istante": datetime.now(timezone.utc).isoformat(), "risultati": R,
+    J = {"commit": commit, "istante": datetime.now(timezone.utc).isoformat(), "risultati": R, "registri_tempi": reg_tempi,
          "impronte": {"e15_risultati.json": imp(fj), "protocol/E15.md": imp(Path("protocol/E15.md"))}}
     (a.out / "congelamento_e15.json").write_text(json.dumps(J, indent=1, ensure_ascii=False))
     L += ["## 8. Impronte", "",
