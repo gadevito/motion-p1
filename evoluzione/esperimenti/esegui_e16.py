@@ -45,7 +45,7 @@ CALIBRAZIONI = ("T_nll", "T_wce", "V_nll", "V_wce")
 
 # ------------------------------------------------------------------ predizioni --
 def _cella(args):
-    nome_ctx, c, p, s, ep_nome, out, fili = args
+    nome_ctx, c, p, s, ep_nome, out, fili, dir_pred = args
     import numpy as np
     import torch
     torch.set_num_threads(fili)
@@ -56,7 +56,7 @@ def _cella(args):
     from evoluzione.esperimenti.esegui_e8 import CONTESTI_E8, FASCE_ETA, _modelli, _wce_per_oriz
     from evoluzione.esperimenti.inserimento import statica_cella, statiche, variante_statica
     out = Path(out)
-    g = out / DIR_PRED / f"{ep_nome}_{c}_p{p}_s{s}.npz"
+    g = out / dir_pred / f"{ep_nome}_{c}_p{p}_s{s}.npz"
     if g.exists():
         return {"c": c, "p": p, "s": s, "ep": ep_nome, "esito": "presente", "secondi": 0}
     t_in = time.time()
@@ -125,21 +125,21 @@ def _cella(args):
                 "secondi": time.time() - t_in}
 
 
-def fase_predizioni(out: Path, contesti, lavoratori, fili, piano, pilota, solo=None) -> int:
+def fase_predizioni(out: Path, contesti, lavoratori, fili, piano, pilota, solo=None, dir_pred=DIR_PRED) -> int:
     from evoluzione.esperimenti.esegui_e8 import CONTESTI_E8
     celle = []
     for nome in contesti:
         ctx = CONTESTI_E8[nome](out)
         unita = ctx["unita"][:1] if pilota else ctx["unita"]
         for ep in ("validazione", "prova"):
-            celle += [(nome, c, p, s, ep, str(out), fili) for (c, p, s) in unita]
+            celle += [(nome, c, p, s, ep, str(out), fili, dir_pred) for (c, p, s) in unita]
     if solo:
         # `--solo episodio:contesto:partizione:seme ...`: le sole celle indicate (p.es. rifatte sulla
         # macchina degli aggregati congelati quando il controllo fra macchine supera la tolleranza)
         chiavi = {tuple(z.split(":")) for z in solo}
         celle = [x for x in celle if (x[4], x[1], str(x[2]), str(x[3])) in chiavi]
         print(f"  --solo: {len(celle)} celle su richiesta {sorted(chiavi)}")
-    fatte = sum((out / DIR_PRED / f"{ep}_{c}_p{p}_s{s}.npz").exists() for _, c, p, s, ep, _, _ in celle)
+    fatte = sum((out / dir_pred / f"{ep}_{c}_p{p}_s{s}.npz").exists() for _, c, p, s, ep, _, _, _ in celle)
     print(f"  {len(celle)} celle (contesti {contesti}, validazione + prova), {fatte} gia' fatte; modelli {MODELLI}; "
           f"controllo bloccante sugli aggregati congelati (<= {TOLLERANZA:g}); probabilita' float32")
     if piano:
@@ -348,7 +348,9 @@ def fase_analizza(out: Path) -> int:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--fase", choices=("predizioni", "analizza"), required=True)
-    ap.add_argument("--contesto", nargs="*", choices=CONTESTI, default=list(CONTESTI))
+    # E18 (A.6): `pems04` ammesso ma NON predefinito, con `--dir-pred` propria: E16 resta com'e'
+    ap.add_argument("--contesto", nargs="*", choices=CONTESTI + ("pems04",), default=list(CONTESTI))
+    ap.add_argument("--dir-pred", default=DIR_PRED, help="cartella d'uscita della fase predizioni (E18: predizioni_e18_pems04)")
     ap.add_argument("--lavoratori", type=int, default=8)
     ap.add_argument("--fili", type=int, default=1)
     ap.add_argument("--piano", action="store_true")
@@ -361,7 +363,7 @@ def main() -> int:
     applica_statica(a.statica)
     print("=" * 84); print(f"E16 — fase {a.fase}"); print("=" * 84)
     if a.fase == "predizioni":
-        return fase_predizioni(a.out, a.contesto, a.lavoratori, a.fili, a.piano, a.pilota, a.solo)
+        return fase_predizioni(a.out, a.contesto, a.lavoratori, a.fili, a.piano, a.pilota, a.solo, a.dir_pred)
     return fase_analizza(a.out)
 
 

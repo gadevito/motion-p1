@@ -173,8 +173,187 @@ def parte_C(out: Path) -> dict:
 
 
 # ------------------------------------------------------------------- parte A --
-def parte_A(out: Path, pilota=None, repliche=None) -> dict:
-    raise NotImplementedError("parte A: dopo la stima dei tempi (pilota su una citta')")
+CONG = 2                                   # classe congestionata (indice), come esegui_e8.CONG
+LIVELLI_FA = (0.005, 0.01, 0.02, 0.05, 0.10)
+PAUC_MAX = 0.10
+BRACCI_INTERO = ("C", "A", "F0", "F0p")
+BRACCI_SETT = ("C", "Fp_672")
+CONFRONTI_A = (("F0-C", "F0", "C", "intero"), ("F0p-F0", "F0p", "F0", "intero"), ("F0p-C", "F0p", "C", "intero"),
+               ("A-C", "A", "C", "intero"), ("Fp_672-C", "Fp_672", "C", "sett"))
+METRICHE = ("auc", "pauc") + tuple(f"richiamo_fa_{fa}" for fa in LIVELLI_FA)
+
+
+def _prepara_roc(score, lab, sens):
+    """Ordina una volta per cella e braccio: punteggi decrescenti; `idx` = ultimo indice di ogni
+    punteggio DISTINTO (la ROC empirica su tutti i punteggi distinti)."""
+    o = np.argsort(-score, kind="stable")
+    sc = score[o]
+    idx = np.flatnonzero(np.diff(sc) != 0)
+    idx = np.append(idx, len(sc) - 1)
+    return lab[o].astype("int64"), sens[o].astype("int64"), idx
+
+
+def _metriche_roc(pos, sens, idx, w):
+    """AUC trapezoidale completa, pAUC su FPR in [0, PAUC_MAX] (area / PAUC_MAX), richiamo ai livelli
+    di FA per interpolazione lineare sulla ROC empirica, con pesi di molteplicita' `w` sui sensori."""
+    wp = w[sens]
+    cp = np.cumsum(wp * pos)[idx]; cn = np.cumsum(wp * (1 - pos))[idx]
+    P, N = cp[-1], cn[-1]
+    if P <= 0 or N <= 0:
+        return np.full(len(METRICHE), np.nan)
+    tpr = np.concatenate([[0.0], cp / P]); fpr = np.concatenate([[0.0], cn / N])
+    auc = float(np.sum((fpr[1:] - fpr[:-1]) * (tpr[1:] + tpr[:-1]) / 2.0))
+    # pAUC: integrale fino a PAUC_MAX, con il segmento che attraversa il limite interpolato
+    j = int(np.searchsorted(fpr, PAUC_MAX, side="right"))        # fpr[:j] <= PAUC_MAX
+    area = float(np.sum((fpr[1:j] - fpr[:j - 1]) * (tpr[1:j] + tpr[:j - 1]) / 2.0)) if j > 1 else 0.0
+    if j < len(fpr) and fpr[j] > fpr[j - 1]:
+        t_lim = tpr[j - 1] + (tpr[j] - tpr[j - 1]) * (PAUC_MAX - fpr[j - 1]) / (fpr[j] - fpr[j - 1])
+        area += (PAUC_MAX - fpr[j - 1]) * (tpr[j - 1] + t_lim) / 2.0
+    pauc = area / PAUC_MAX
+    # richiamo a FA fisso: per ogni FPR distinta il richiamo massimo raggiunto (ultimo punto), poi interpolazione
+    ult = np.append(np.flatnonzero(np.diff(fpr) > 0), len(fpr) - 1)
+    ric = np.interp(np.asarray(LIVELLI_FA), fpr[ult], tpr[ult])
+    return np.concatenate([[auc, pauc], ric])
+
+
+def _cella_A(args):
+    """Una cella: metriche puntuali e per replica (pesi di molteplicita' sui sensori) per ogni coppia
+    braccio-finestra, piu' il richiamo sotto argmax; verifica contro sklearn sulla prima cella."""
+    fp, nd_file, verifica = args
+    import time
+    t_in = time.time()
+    z = np.load(fp, allow_pickle=True)
+    nd = np.load(nd_file)                                           # (B, K) posizioni estratte
+    B, K = nd.shape
+    pesi_rep = np.stack([np.bincount(r, minlength=K) for r in nd]).astype("float64")   # (B, K) molteplicita'
+    uno = np.ones(K)
+    m = z["m"].astype(bool); y = z["y"].astype("int64"); eta = z["eta"]
+    modelli = json.loads(str(z["modelli"]))
+    sens_all = np.broadcast_to(np.arange(K)[None, :, None], m.shape)
+    R = {"cella": f"{z['gruppo']}/{z['contesto']}/p{int(z['partizione'])}/s{int(z['seme'])}", "K": int(K),
+         "punto": {}, "rep": {}, "argmax_punto": {}, "argmax_rep": {}, "verifica_sklearn": None}
+    for fin, bracci, sel in (("intero", BRACCI_INTERO, np.ones(len(eta), dtype=bool)),
+                             ("sett", BRACCI_SETT, eta > ETA_SETT)):
+        msel = m & sel[:, None, None]
+        lab = (y[msel] == CONG).astype("int64"); sens = sens_all[msel]
+        for nome in bracci:
+            if nome not in modelli:
+                continue
+            P = z[f"prob_{nome}"]
+            score = P[..., CONG][msel].astype("float64")
+            pos, se, idx = _prepara_roc(score, lab, sens)
+            R["punto"][f"{nome}/{fin}"] = _metriche_roc(pos, se, idx, uno)
+            R["rep"][f"{nome}/{fin}"] = np.stack([_metriche_roc(pos, se, idx, pesi_rep[b]) for b in range(B)])
+            if verifica and fin == "intero" and nome == "C":
+                from sklearn.metrics import roc_curve
+                fpr_s, tpr_s, _ = roc_curve(lab, score, drop_intermediate=False)
+                auc_s = float(np.sum((fpr_s[1:] - fpr_s[:-1]) * (tpr_s[1:] + tpr_s[:-1]) / 2.0))
+                ult = np.append(np.flatnonzero(np.diff(fpr_s) > 0), len(fpr_s) - 1)
+                ric_s = np.interp(np.asarray(LIVELLI_FA), fpr_s[ult], tpr_s[ult])
+                mio = R["punto"]["C/intero"]
+                R["verifica_sklearn"] = {"cella": R["cella"], "scarto_auc": float(abs(mio[0] - auc_s)),
+                                         "scarto_richiami_max": float(np.max(np.abs(mio[2:] - ric_s))),
+                                         "punti": int(len(score)), "soglie_distinte": int(len(idx))}
+            # richiamo sotto argmax: TP e FN per sensore (intero periodo), pesati nelle repliche
+            if fin == "intero":
+                pred_c = (P.argmax(-1) == CONG)
+                tp_k = ((pred_c & (y == CONG)) & msel).sum((0, 2)).astype("float64")
+                fn_k = ((~pred_c & (y == CONG)) & msel).sum((0, 2)).astype("float64")
+                R["argmax_punto"][nome] = float(tp_k.sum() / max(tp_k.sum() + fn_k.sum(), 1e-12))
+                tp = pesi_rep @ tp_k; fn = pesi_rep @ fn_k
+                R["argmax_rep"][nome] = tp / np.maximum(tp + fn, 1e-12)
+    R["secondi"] = time.time() - t_in
+    return R
+
+
+def parte_A(out: Path, pilota=None, repliche=None, lavoratori=1) -> dict:
+    """ROC empirica, AUC, pAUC(0-10 %), richiamo a FA fissi; bootstrap congiunto con pesi di molteplicita'."""
+    import multiprocessing as mp
+    import tempfile
+    import time
+    B = int(repliche or 4000)
+    gruppi = (pilota,) if pilota else GRUPPI
+    file_p = sorted((out / "predizioni_e16").glob("prova_*_p*_s*.npz"))
+    per_gruppo = {}
+    for fp in file_p:
+        with np.load(fp, allow_pickle=True) as z:
+            per_gruppo.setdefault(str(z["gruppo"]), []).append((fp, int(z["partizione"]), int(z["seme"]), int(len(z["nodi"]))))
+    R = {"definizione": "punteggio = p(congestionata) per (origine, sensore, orizzonte) sui bersagli validi; ROC empirica su tutti i "
+                        "punteggi distinti per cella, orizzonti e sensori riuniti; AUC trapezoidale; pAUC su FPR in [0, 0.10] "
+                        "(area / 0.10); richiamo a FA 0.5/1/2/5/10 % per interpolazione lineare; unita' = cella, media sulle celle",
+         "finestre": {"intero": "tutte le origini dopo t1 (C, A, F0, F0')", "sett": "origini con eta' > 1 settimana (F'(1 sett.) e C)"},
+         "repliche": B, "seme_bootstrap": SEME_BOOT, "pilota": pilota, "gruppi": {}, "tempi": {}, "verifica_sklearn": {},
+         "impronte_ingressi": {fp.name: imp(fp) for g in gruppi for fp, _, _, _ in per_gruppo.get(g, [])}}
+    for gr in gruppi:
+        celle = per_gruppo.get(gr)
+        if not celle:
+            print(f"  {gr}: nessuna cella in predizioni_e16"); continue
+        K = celle[0][3]
+        if any(k != K for _, _, _, k in celle):
+            raise RuntimeError(f"{gr}: numero di sensori diverso fra celle")
+        parts = sorted({p for _, p, _, _ in celle}); semi = sorted({s for _, _, s, _ in celle})
+        rng = np.random.default_rng(SEME_BOOT + GRUPPI.index(gr))
+        ps = rng.choice(parts, (B, len(parts)), True); ss = rng.choice(semi, (B, len(semi)), True)
+        nd = rng.integers(0, K, (B, K))
+        t0 = time.time()
+        with tempfile.TemporaryDirectory() as td:
+            nd_file = Path(td) / f"nd_{gr}.npy"; np.save(nd_file, nd)
+            lavori = [(fp, str(nd_file), i == 0) for i, (fp, _, _, _) in enumerate(celle)]
+            print(f"  {gr}: {len(celle)} celle, {K} sensori, {B} repliche, {lavoratori} lavoratori", flush=True)
+            if lavoratori > 1:
+                with mp.get_context("spawn").Pool(lavoratori) as pool:
+                    ris = list(pool.imap(_cella_A, lavori))
+            else:
+                ris = [_cella_A(x) for x in lavori]
+        per_cella = {(p, s): r for (fp, p, s, _), r in zip(celle, ris)}
+        sec = [r["secondi"] for r in ris]
+        R["tempi"][gr] = {"parete_s": time.time() - t0, "macchina_s": float(sum(sec)), "per_cella_s": {"min": min(sec), "mediana": float(np.median(sec)), "max": max(sec)}}
+        for r in ris:
+            if r["verifica_sklearn"]:
+                R["verifica_sklearn"][gr] = r["verifica_sklearn"]
+        print(f"    parete {R['tempi'][gr]['parete_s']/60:.1f} min, macchina {R['tempi'][gr]['macchina_s']/3600:.2f} h, "
+              f"per cella {np.median(sec):.0f} s; verifica sklearn: {R['verifica_sklearn'].get(gr)}", flush=True)
+        # media sulle celle: puntuale su tutte, per replica sulle celle estratte (partizioni x semi)
+        chiavi = sorted(ris[0]["rep"])
+        G = {"celle": len(celle), "sensori": K, "metriche": {}, "argmax": {}, "confronti": {}, "recupero_argmax": {}}
+        punto = {k: np.mean([r["punto"][k] for r in ris], axis=0) for k in chiavi}
+        rep = {}
+        for k in chiavi:
+            M = np.empty((B, len(METRICHE)))
+            for b in range(B):
+                M[b] = np.mean([per_cella[(p, s)]["rep"][k][b] for p in ps[b] for s in ss[b]], axis=0)
+            rep[k] = M
+        for k in chiavi:
+            G["metriche"][k] = {met: {"media": float(punto[k][i]), "ic_con_nodi": _ic(rep[k][:, i])} for i, met in enumerate(METRICHE)}
+        am_punto = {n: float(np.mean([r["argmax_punto"][n] for r in ris])) for n in ris[0]["argmax_punto"]}
+        am_rep = {n: np.array([np.mean([per_cella[(p, s)]["argmax_rep"][n][b] for p in ps[b] for s in ss[b]]) for b in range(B)])
+                  for n in ris[0]["argmax_punto"]}
+        G["argmax"] = {n: {"richiamo": am_punto[n], "ic_con_nodi": _ic(am_rep[n])} for n in am_punto}
+        for nome, n1, n2, fin in CONFRONTI_A:
+            k1, k2 = f"{n1}/{fin}", f"{n2}/{fin}"
+            if k1 not in punto or k2 not in punto:
+                continue
+            d = {}
+            for i, met in enumerate(METRICHE):
+                v = rep[k1][:, i] - rep[k2][:, i]; ic = _ic(v)
+                d[met] = {"media": float(punto[k1][i] - punto[k2][i]), "ic_con_nodi": ic, "segno": segno(ic)}
+            G["confronti"][nome] = {"finestra": fin, **d}
+        # A4: recall persa da F0 sotto argmax contro C e quota recuperata a FA 5 %: 1 - perdita_FA5 / perdita_argmax
+        if "F0" in am_punto and "C" in am_punto:
+            i5 = METRICHE.index("richiamo_fa_0.05")
+            pa0 = am_punto["C"] - am_punto["F0"]; pf0 = punto["C/intero"][i5] - punto["F0/intero"][i5]
+            pa = am_rep["C"] - am_rep["F0"]; pf = rep["C/intero"][:, i5] - rep["F0/intero"][:, i5]
+            G["recupero_argmax"] = {"perdita_argmax_punti": {"media": float(100 * pa0), "ic_con_nodi": _ic(100 * pa)},
+                                    "perdita_fa5_punti": {"media": float(100 * pf0), "ic_con_nodi": _ic(100 * pf)},
+                                    "quota_recuperata": {"media": float(1 - pf0 / pa0) if pa0 != 0 else None, "ic_con_nodi": _ic(1 - pf / pa),
+                                                         "repliche_perdita_argmax_non_positiva": int(np.sum(pa <= 0))},
+                                    "definizione": "1 - (richiamo_C - richiamo_F0 a FA 5 %) / (richiamo_C - richiamo_F0 sotto argmax)"}
+        R["gruppi"][gr] = G
+        c_ = G["confronti"]
+        print(f"    AUC F0-C {c_['F0-C']['auc']['media']:+.4f} {c_['F0-C']['auc']['ic_con_nodi']} | F0'-F0 {c_['F0p-F0']['auc']['media']:+.4f}"
+              + (f" | recupero a FA 5 %: {G['recupero_argmax']['quota_recuperata']['media']:.3f}" if G["recupero_argmax"] else ""), flush=True)
+    R["istante"] = datetime.now(timezone.utc).isoformat()
+    return R
 
 
 def parte_B(out: Path) -> dict:
@@ -206,6 +385,7 @@ def main() -> int:
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
     ap.add_argument("--pilota", default=None, help="parte A: una sola citta', per la stima dei tempi")
     ap.add_argument("--repliche", type=int, default=None, help="parte A: 4000 (predefinito) o 1000, dichiarato")
+    ap.add_argument("--lavoratori", type=int, default=1, help="parte A: celle in parallelo")
     a = ap.parse_args()
     if a.parte == "forma":
         forma(a.out); return 0
@@ -216,7 +396,7 @@ def main() -> int:
         if parte == "C":
             R["C"] = parte_C(a.out)
         elif parte == "A":
-            R["A"] = parte_A(a.out, a.pilota, a.repliche)
+            R["A"] = parte_A(a.out, a.pilota, a.repliche, a.lavoratori)
         elif parte == "B":
             R["B"] = parte_B(a.out)
         else:
