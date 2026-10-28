@@ -58,8 +58,9 @@ def main() -> int:
          f"C_A i sensori di prova sono iniziali a tutti gli effetti, copertura su [0, t₀) in addestramento, selezione e "
          f"valutazione; la finestra minima di 24 h e l'espansione valgono per C, F₀, F₀′, F′ e per la selezione di k sui "
          f"nodi di validazione. **Rigenerato il 28/10/2026** con l'addendum di sola analisi del revisore (sezione 7-bis) e, "
-         f"nello stesso giorno, con i registri dei tempi come ingresso congelato in `protocol/e15/tempi/` (sezione 7-ter): "
-         f"nuove impronte, numeri precedenti invariati.", "",
+         f"nello stesso giorno, con i registri dei tempi come ingresso congelato in `protocol/e15/tempi/` (sezione 7-ter) e con "
+         f"il pilota letto da `protocol/e15/tempi/pilota_tempi_16.json` (terza rigenerazione): nuove impronte, numeri precedenti "
+         f"invariati.", "",
          f"Perimetro: {R['perimetro']['principale']}; per i confronti a una settimana, {R['perimetro']['settimana']}. "
          f"Congelate: {R['perimetro']['congelate']}.", "",
          f"**Verdetto** = segno dell'intervallo al 95 % (sotto zero / include lo zero / sopra zero); una dichiarazione e' "
@@ -199,7 +200,7 @@ def main() -> int:
                  f"{amb.get('nuclei_logici')} nuclei, torch {amb.get('torch')}, numpy {amb.get('numpy')}. Adattamenti: "
                  f"{co['adattamenti']} celle × 2 sulla prova (F′(1 sett.), F′(1 sett.; k)) + 3 k sulla validazione.")
     for nome, pz in sorted(co.get("pilota", {}).items()):
-        L.append(f"Pilota dichiarato (`E_pilota_e15/{nome}`): {pz['n']} addestramenti E su {pz['contesto']} a {pz['lavoratori']} "
+        L.append(f"Pilota dichiarato (`{co.get('pilota_fonte', nome)}`, ingresso congelato): {pz['n']} addestramenti E su {pz['contesto']} a {pz['lavoratori']} "
                  f"lavoratori, mediana {pz['minuti']['mediana']:.1f} min, stima {pz['stima_campagna']['ore']:.1f} h per "
                  f"{pz['stima_campagna']['addestramenti']} addestramenti, piattaforma `{pz['ambiente']['piattaforma']}`.")
     L.append("")

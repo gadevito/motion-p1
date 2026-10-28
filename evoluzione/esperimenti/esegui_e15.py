@@ -845,8 +845,10 @@ def fase_analizza(out: Path) -> int:
         sec[b] = {"n": len(v), "minuti_mediana": float(np.median(v)) / 60 if v else None, "ore_macchina": sum(v) / 3600}
     R["costi"] = {"addestramenti": sec, "adattamenti": len(celle()),
                   "esito_e15": json.loads((out / ET["ins"] / "esito_e15.json").read_text()) if (out / ET["ins"] / "esito_e15.json").exists() else None,
-                  "pilota": {f.name: json.loads(f.read_text()) for f in sorted((out / "E_pilota_e15").glob("pilota_tempi_*.json"))}
-                  if (out / "E_pilota_e15").exists() else {}}
+                  # il pilota dichiarato e' un INGRESSO CONGELATO (revisore, 28/10): si legge dal repo, non dai
+                  # risultati; pilota_tempi_8.json (Mac) resta fuori dal congelamento
+                  "pilota": ({fp.name: json.loads(fp.read_text())} if (fp := RADICE / "protocol" / "e15" / "tempi" / "pilota_tempi_16.json").exists() else {}),
+                  "pilota_fonte": "protocol/e15/tempi/pilota_tempi_16.json"}
     R["controllo_scarto_zero"] = (json.loads((out / ET["controllo"] / "controllo_e15.json").read_text())
                                   if (out / ET["controllo"] / "controllo_e15.json").exists() else None)
     R["preflight"] = (json.loads((out / "e15_preflight.json").read_text()) if (out / "e15_preflight.json").exists() else None)
