@@ -104,7 +104,7 @@ def main() -> int:
                 pb = Rc["pubblicate"].get(n)
                 L.append(f"| {NOMI[n]} | {d['perimetro']} | {ic(d)} | {SEGNO[d['segno']]} | {d['categoria']} | {ic(g)} | "
                          f"{SEGNO[g['segno']]} | {'confermata' if d['confermata'] else '**cambia**'} | "
-                         f"{(ic(pb) + ' (' + str(pb.get('celle')) + ' celle)') if pb else 'non trovata'} |")
+                         f"{(ic(pb) + (' (' + str(pb['celle']) + ' celle)' if pb.get('celle') else '')) if pb else 'non pubblicata a 12 semi'} |")
             else:
                 L.append(f"| {NOMI[n]} | {d['perimetro']} | {ic(d)} | {SEGNO[d['segno']]} | {d['categoria']} | — | — | nuova | — |")
         sc = [f"{NOMI[n]} {Rc['pubblicate'][n]['scarto_da_congelata_54']:+.4f}" for n in ("F0-C", "F0p-C", "Fp_672-C", "Fp_672-A", "A-C")
@@ -136,7 +136,7 @@ def main() -> int:
     for c in CITTA:
         q = R["citta"][c]["rapporti"]; pb = R["citta"][c]["pubblicate"].get("(F0-C)/(A-C)")
         L.append(f"| {c} | {rap(q['(F0-C)/(A-C)'])} | {rap(q['(F0-C)/(A-C_A)'])} | {rap(q['congelata (F0-C)/(A-C)'])} | "
-                 f"{rap(pb) if pb else 'non trovata'} | "
+                 f"{rap(pb) if pb else 'non pubblicata'} | "
                  f"{q['(F0-C)/(A-C)']['repliche_den_senza_divario']} / {q['(F0-C)/(A-C_A)']['repliche_den_senza_divario']} / "
                  f"{q['congelata (F0-C)/(A-C)']['repliche_den_senza_divario']} |")
     L.append("")
