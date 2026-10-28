@@ -631,7 +631,15 @@ def segno(ic):
 
 
 def categoria(ic):
-    return "superiorita'" if ic[1] < 0 else ("non inferiorita'" if ic[1] < DELTA_NI else "inconclusivo")
+    """Le categorie di E17 (superiorita', non inferiorita', inconclusivo) piu' la simmetrica
+    «inferiorita'» (limite inferiore > 0): un intervallo tutto sopra zero non e' inconclusivo."""
+    if ic[1] < 0:
+        return "superiorita'"
+    if ic[1] < DELTA_NI:
+        return "non inferiorita'"
+    if ic[0] > 0:
+        return "inferiorita'"
+    return "inconclusivo"
 
 
 # le statistiche per cella, in un solo vettore: stesse estrazioni per causale e congelata

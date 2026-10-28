@@ -52,8 +52,7 @@ def main() -> int:
          f"Generato da `genera_congelamento_e15.py` al commit `{commit}`, {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}. "
          f"Protocollo `protocol/E15.md` (impronta `{imp(Path('protocol/E15.md'))}`), firmato prima di ogni numero; "
          f"`e15_risultati.json` impronta `{imp(fj)}`. Statica «{R['statica']}»: iniziali con copertura media su [0, t₀); "
-         f"nuovo sensore con finestra espansiva da t₀ all'origine corrente, minimo 24 h (nell'addestramento di A e C_A, le cui "
-         f"origini precedono t₀, e nella selezione del punto vale la finestra minima). Tre citta', episodio 1, partizioni "
+         f"nuovo sensore con finestra espansiva da t₀ all'origine corrente, minimo 24 h. Tre citta', episodio 1, partizioni "
          f"{R['partizioni']}, semi {R['semi']}: {n_celle} celle; {R['repliche']} ricampionamenti congiunti "
          f"(partizioni × semi × sensori, schema di E4), seme {R['seme_bootstrap']}, le STESSE estrazioni per le "
          f"differenze causali e per quelle congelate. Letture del protocollo del 27/10 (in `protocol/E15.md`): per A e "
@@ -64,7 +63,8 @@ def main() -> int:
          f"Congelate: {R['perimetro']['congelate']}.", "",
          f"**Verdetto** = segno dell'intervallo al 95 % (sotto zero / include lo zero / sopra zero); una dichiarazione e' "
          f"*confermata* se il segno causale coincide con quello congelato. Accanto, la categoria di E17 (superiorita' = "
-         f"limite superiore < 0; non inferiorita' = limite superiore < δ = {R['delta_non_inferiorita']}; inconclusivo).", ""]
+         f"limite superiore < 0; non inferiorita' = limite superiore < δ = {R['delta_non_inferiorita']}; inconclusivo) piu' la "
+         f"simmetrica inferiorita' (limite inferiore > 0).", ""]
 
     # 1. controlli
     L += ["## 1. Controlli", ""]
@@ -214,7 +214,8 @@ def main() -> int:
           f"- `results/evoluzione/e15_risultati.json` `{imp(fj)}` (copia in `protocol/e15/`); `protocol/E15.md` "
           f"`{imp(Path('protocol/E15.md'))}`; `results/evoluzione/congelamento_e15.json` `{imp(a.out / 'congelamento_e15.json')}`.",
           f"- Punti di controllo per cella (sha256, 16 esadecimali) in `e15_risultati.json` → `impronte_celle` "
-          f"({len(R['impronte_celle'])} celle × {len(next(iter(R['impronte_celle'].values())))} bracci)."]
+          f"({len(R['impronte_celle'])} celle × {len([k for k in next(iter(R['impronte_celle'].values())) if not k.startswith('impronta_')])} "
+          f"bracci, piu' l'impronta del punto E)."]
     Path("CONGELAMENTO_E15.md").write_text("\n".join(L) + "\n")
     print(f"  CONGELAMENTO_E15.md (impronta {imp(Path('CONGELAMENTO_E15.md'))}); json {imp(a.out / 'congelamento_e15.json')}")
     return 0
