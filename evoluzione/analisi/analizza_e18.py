@@ -176,6 +176,8 @@ def parte_C(out: Path) -> dict:
 CONG = 2                                   # classe congestionata (indice), come esegui_e8.CONG
 LIVELLI_FA = (0.005, 0.01, 0.02, 0.05, 0.10)
 PAUC_MAX = 0.10
+GRUPPI_A = GRUPPI + ("PEMS04",)                 # PEMS04 da predizioni_e18_pems04/ (A.6): C, F0', F'(1 sett.)
+DIR_PEMS04 = "predizioni_e18_pems04"
 BRACCI_INTERO = ("C", "A", "F0", "F0p")
 BRACCI_SETT = ("C", "Fp_672")
 CONFRONTI_A = (("F0-C", "F0", "C", "intero"), ("F0p-F0", "F0p", "F0", "intero"), ("F0p-C", "F0p", "C", "intero"),
@@ -272,8 +274,8 @@ def parte_A(out: Path, pilota=None, repliche=None, lavoratori=1) -> dict:
     import tempfile
     import time
     B = int(repliche or 4000)
-    gruppi = (pilota,) if pilota else GRUPPI
-    file_p = sorted((out / "predizioni_e16").glob("prova_*_p*_s*.npz"))
+    gruppi = (pilota,) if pilota else GRUPPI_A
+    file_p = sorted((out / "predizioni_e16").glob("prova_*_p*_s*.npz")) + sorted((out / DIR_PEMS04).glob("prova_*_p*_s*.npz"))
     per_gruppo = {}
     for fp in file_p:
         with np.load(fp, allow_pickle=True) as z:
@@ -283,7 +285,9 @@ def parte_A(out: Path, pilota=None, repliche=None, lavoratori=1) -> dict:
                         "(area / 0.10); richiamo a FA 0.5/1/2/5/10 % per interpolazione lineare; unita' = cella, media sulle celle",
          "finestre": {"intero": "tutte le origini dopo t1 (C, A, F0, F0')", "sett": "origini con eta' > 1 settimana (F'(1 sett.) e C)"},
          "repliche": B, "seme_bootstrap": SEME_BOOT, "pilota": pilota, "gruppi": {}, "tempi": {}, "verifica_sklearn": {},
-         "impronte_ingressi": {fp.name: imp(fp) for g in gruppi for fp, _, _, _ in per_gruppo.get(g, [])}}
+         "impronte_ingressi": {f"{fp.parent.name}/{fp.name}": imp(fp) for g in gruppi for fp, _, _, _ in per_gruppo.get(g, [])},
+         "pems04": {"cartella": DIR_PEMS04, "bracci": "C, F0', F'(1 sett.) (nessun E ne' A per PEMS04: A1, A2, A4 non definibili)",
+                    "ricostruzione": "esegui_e16.py --fase predizioni --contesto pems04 --dir-pred predizioni_e18_pems04 --statica congelata (sole celle di prova)"}}
     for gr in gruppi:
         celle = per_gruppo.get(gr)
         if not celle:
@@ -292,7 +296,7 @@ def parte_A(out: Path, pilota=None, repliche=None, lavoratori=1) -> dict:
         if any(k != K for _, _, _, k in celle):
             raise RuntimeError(f"{gr}: numero di sensori diverso fra celle")
         parts = sorted({p for _, p, _, _ in celle}); semi = sorted({s for _, _, s, _ in celle})
-        rng = np.random.default_rng(SEME_BOOT + GRUPPI.index(gr))
+        rng = np.random.default_rng(SEME_BOOT + GRUPPI_A.index(gr))
         ps = rng.choice(parts, (B, len(parts)), True); ss = rng.choice(semi, (B, len(semi)), True)
         nd = rng.integers(0, K, (B, K))
         t0 = time.time()
@@ -350,7 +354,7 @@ def parte_A(out: Path, pilota=None, repliche=None, lavoratori=1) -> dict:
                                     "definizione": "1 - (richiamo_C - richiamo_F0 a FA 5 %) / (richiamo_C - richiamo_F0 sotto argmax)"}
         R["gruppi"][gr] = G
         c_ = G["confronti"]
-        print(f"    AUC F0-C {c_['F0-C']['auc']['media']:+.4f} {c_['F0-C']['auc']['ic_con_nodi']} | F0'-F0 {c_['F0p-F0']['auc']['media']:+.4f}"
+        print("    " + " | ".join(f"AUC {n} {c_[n]['auc']['media']:+.4f} {c_[n]['auc']['ic_con_nodi']}" for n in ("F0-C", "F0p-F0", "Fp_672-C") if n in c_)
               + (f" | recupero a FA 5 %: {G['recupero_argmax']['quota_recuperata']['media']:.3f}" if G["recupero_argmax"] else ""), flush=True)
     R["istante"] = datetime.now(timezone.utc).isoformat()
     return R
