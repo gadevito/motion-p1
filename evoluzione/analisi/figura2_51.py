@@ -46,6 +46,10 @@ def main() -> int:
     if en:
         applica(plt)
     RS = json.loads((a.out / "e8_risultati.json").read_text())
+    # Paper 1, --lingua en: nelle citta' il pannello superiore viene dalla campagna causale (E15, episodio 1),
+    # che e' il risultato principale per quelle dichiarazioni; PEMS08 e le curve restano della campagna congelata
+    f15 = a.out / "congelamento_e15.json"
+    E15 = json.loads(f15.read_text())["risultati"]["citta"] if en and f15.exists() else {}
     somme = {}
     for nome, cost in CONTESTI_E8.items():
         if nome == "pems04":
@@ -59,6 +63,8 @@ def main() -> int:
     fig, axs = plt.subplots(2, 4, figsize=(PAGINA, 3.6) if en else (15, 7.2))
     for j, gr in enumerate(GRUPPI):
         ax = axs[0, j]; cf = RS["gruppi"][gr]["confronti"]
+        if gr in E15:
+            cf = {k: {"wce": E15[gr]["dichiarazioni"][k]} for k in ("F0-C", "F0p-C", "A-C")}
         bracci = BRACCI_EN if en else BRACCI
         for i, (k, et, col) in enumerate(bracci):
             w = cf[k]["wce"]; lo, hi = w["ic_con_nodi"]

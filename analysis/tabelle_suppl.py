@@ -297,6 +297,7 @@ def scrivi_D(ris: Path, f: Path) -> None:
         "E4 policy and adaptation arms, E8 wCE and E8-bis $\\Delta$AUC of the principal comparisons). " + crit
         + " $^\\dagger$ origins older than one week. Intervals of both sets are in the E14 record.",
         "Phase & Context & Comparison & Var. & $\\Delta$ & Sign & Reading", righe, "tab:suppD4"))
+    out = out[:2]          # nel supplemento del Paper 1 restano D1 e D2 (revisore, 28/10); D3 e D4 nel congelamento
     f.write_text("\n".join(out).replace("}\\label{tab:suppD", fonte + "}\\label{tab:suppD"))
 
 
@@ -371,4 +372,112 @@ def scrivi_E(ris: Path, f: Path) -> None:
         "targets the natural class distribution, while the campaign loss is minimised by the class-reweighted "
         "posterior: vector scaling against log-loss brings every class's ECE below 0.04 but raises the wCE." + fonte,
         "Context & Arm & Calibration & \\multicolumn{3}{c}{ECE (free / mod. / cong.)} & log-loss & Brier & wCE", righe, "tab:suppE3"))
+    f.write_text("\n".join(out))
+
+
+# --- E: campagna causale (E15), da congelamento_e15.json ---------------------------------------------
+DICH_E15 = (("F0-C", r"$F_0-C$"), ("F0p-C", r"$F_0'-C$"), ("Fp_672-C", r"$F'(1\,\mathrm{wk})-C$$^\dagger$"),
+            ("Fp_672-A", r"$F'(1\,\mathrm{wk})-A$$^\dagger$"), ("A-C", r"$A-C$"), ("A-C_A", r"$A-C_A$"),
+            ("C_A-C", r"$C_A-C$"), ("Fpk_672-C", r"$F'(1\,\mathrm{wk};k)-C$$^\dagger$"),
+            ("Fpk_672-A", r"$F'(1\,\mathrm{wk};k)-A$$^\dagger$"))
+CAT_EN = {"superiorita'": "superiority", "non inferiorita'": "non-inferiority", "inconclusivo": "inconclusive",
+          "inferiorita'": "inferiority"}
+CITTA_E15 = ("Madrid", "Londra", "Melbourne")
+
+
+def scrivi_E15(ris: Path, f: Path) -> None:
+    """Supplementare E (E15, campagna causale end-to-end), da congelamento_e15.json: E1 le dichiarazioni
+    causali con categoria, accanto alla congelata sulle stesse celle e alla pubblicata a dodici semi; E2 i
+    rapporti, il recupero e la riduzione del token; E3 la secondaria k; E4 i livelli; E5 costi e controlli."""
+    R = json.loads((ris / "congelamento_e15.json").read_text())["risultati"]
+    D = R["citta"]
+    imp = lambda x: hashlib.sha256(x.read_bytes()).hexdigest()[:16]
+    rep = Path(__file__).resolve().parents[1]
+    md, js = rep / "CONGELAMENTO_E15.md", rep / "results" / "evoluzione" / "congelamento_e15.json"
+    fonte = " Source: record \\texttt{CONGELAMENTO\\_E15.md}, fingerprint \\texttt{" + imp(md) + "}; " \
+        "\\texttt{congelamento\\_e15.json}, fingerprint \\texttt{" + imp(js) + "}."
+    neg = lambda r: {"media": -r["media"], "ic_con_nodi": [-r["ic_con_nodi"][1], -r["ic_con_nodi"][0]]}
+    out = []
+    # E1
+    righe, prima = [], True
+    for c in CITTA_E15:
+        if not prima:
+            righe.append("\\addlinespace")
+        for i, (k, et) in enumerate(DICH_E15):
+            r = D[c]["dichiarazioni"][k]
+            cg, pb = D[c]["congelate"].get(k), D[c]["pubblicate"].get(k)
+            righe.append(" & ".join([CTX_EN[c] if i == 0 else "", et, _ic(r, scala=1.0, cifre=3),
+                                     CAT_EN.get(r["categoria"], r["categoria"]),
+                                     _ic(cg, scala=1.0, cifre=3) if cg else "--",
+                                     ("confirmed" if r.get("confermata") else "\\textbf{changed}") if cg else "new",
+                                     _ic(pb, scala=1.0, cifre=3) if pb else "--"]) + " \\\\")
+        prima = False
+    out.append(_longtable(
+        "@{}l l c l c l c@{}",
+        "E15: the differences of the causal campaign (six seeds, 18 cells per city, episode 1), with the category of "
+        "Section~III of the paper (inferiority: interval above zero), against the pre-registered campaign on the "
+        "same cells and resamples (frozen) and the published value on twelve seeds; $k$: update budget reselected on "
+        "the causal validation episode. $^\\dagger$ origins older than one week; otherwise all origins after $t_1$."
+        + fonte, "City & Difference & Causal & Category & Frozen, same cells & Verdict & Published (12 seeds)",
+        righe, "tab:suppE15a").replace("{\\footnotesize\\setlength{\\tabcolsep}{3pt}", "{\\scriptsize\\setlength{\\tabcolsep}{2pt}", 1))
+    # E2
+    righe = []
+    for c in CITTA_E15:
+        rp, ad = D[c]["rapporti"], D[c]["addendum"]
+        rc, rt = ad["recupero"], ad["riduzione_token"]
+        righe.append(" & ".join([CTX_EN[c], _ic(neg(rp["(F0-C)/(A-C)"]), scala=1.0, cifre=2),
+                                 _ic(neg(rp["(F0-C)/(A-C_A)"]), scala=1.0, cifre=2),
+                                 _ic(rp["(C_A-C)/(A-C)"], scala=1.0, cifre=2),
+                                 _ic(rc["causale (L_C-L_A)"], scala=1.0, cifre=2),
+                                 _ic(rc["causale (L_C_A-L_A)"], scala=1.0, cifre=2),
+                                 _ic(rt["causale"], scala=1.0, cifre=2)]) + " \\\\")
+    out.append(_longtable(
+        "@{}l c c c c c c@{}",
+        "E15: ratio of the transfer cost to the oracle's advantage, $(F_0-C)/(C-A)$, and to the value of identity, "
+        "$(F_0-C)/(C_A-A)$ (the frozen ratio, on the same cells, is in the E15 record); share of the oracle's advantage due to the additional data, "
+        "$(C_A-C)/(A-C)$; recovery of one week of adaptation, $(L_C-L_{F'})/(L_C-L_A)$ and $(L_C-L_{F'})/(L_{C_A}-L_A)$ "
+        "(origins older than one week); reduction of the transfer cost by the token, $1-(F_0'-C)/(F_0-C)$. Ratios of "
+        "means within each resample." + fonte,
+        "City & $\\frac{F_0-C}{C-A}$ & $\\frac{F_0-C}{C_A-A}$ & $\\frac{C_A-C}{A-C}$ & "
+        "recovery & recovery ($C_A$) & token", righe, "tab:suppE15b")
+               .replace("{\\footnotesize\\setlength{\\tabcolsep}{3pt}", "{\\scriptsize\\setlength{\\tabcolsep}{2pt}", 1))
+    # E3
+    righe = []
+    for c in CITTA_E15:
+        z = R["k_secondaria"][c]
+        righe.append(f"{CTX_EN[c]} & " + " & ".join(f"{z['wce_validazione'][k]:.4f}" for k in ("10", "50", "200"))
+                     + f" & {z['k']} & {z['k_congelato']} \\\\")
+    out.append(_longtable(
+        "@{}l c c c c c@{}",
+        "E15: update budget $k$ of the secondary adaptation, reselected per city on the causal validation episode "
+        "(validation wCE on origins older than one week; ties to the smaller $k$; step frozen), against the frozen "
+        "budget." + fonte, "City & $k=10$ & $k=50$ & $k=200$ & chosen & frozen", righe, "tab:suppE15c"))
+    # E4
+    BR = (("C", "$C$"), ("A", "$A$"), ("C_A", "$C_A$"), ("F0", "$F_0$"), ("F0p", "$F_0'$"))
+    righe = []
+    for c in CITTA_E15:
+        L = D[c]["livelli"]
+        for i, ins in enumerate(("causale", "congelata")):
+            righe.append(" & ".join([CTX_EN[c] if i == 0 else "", "causal" if i == 0 else "frozen"]
+                                    + [f"{L[f'{ins}/{b}']['media']:.4f}" if f"{ins}/{b}" in L else "--" for b, _ in BR]
+                                    + [f"{L[f'{ins}/Fp_672/settimana']['media']:.4f}"]) + " \\\\")
+    out.append(_longtable(
+        "@{}l l c c c c c c@{}",
+        "E15: test wCE per arm, mean over cells, causal and frozen on the same cells (all origins after $t_1$; "
+        "$F'(1\\,\\mathrm{wk})$ on origins older than one week)." + fonte,
+        "City & Set & " + " & ".join(e for _, e in BR) + " & $F'(1\\,\\mathrm{wk})$", righe, "tab:suppE15d"))
+    # E5
+    K, ES, Z = R["costi"]["addestramenti"], R["costi"]["esito_e15"], R["controllo_scarto_zero"]
+    NOMI = {"E": "$E$", "E1": "$E'$", "C": "$C$", "A": "$A$", "C_A": "$C_A$"}
+    righe = [f"{NOMI.get(b, b)} & {K[b]['n']} & {K[b]['minuti_mediana']:.1f} & "
+             f"{K[b]['ore_macchina']:.1f} \\\\" for b in K]
+    out.append(_longtable(
+        "@{}l r r r@{}",
+        f"E15: training cost per arm ({ES['completate']} trainings in {ES['ore_calendario']:.1f}\\,h of calendar "
+        f"time, {ES['ore_macchina']:.1f} machine-hours, on {ES['ambiente']['piattaforma'].replace('_', chr(92) + '_')}, "
+        f"{ES['ambiente']['nuclei_logici']} cores, one thread per worker). Zero-difference control: cell "
+        f"{CTX_EN[Z['cella']['contesto']]} p{Z['cella']['partizione']} seed {Z['cella']['seme']}, arm "
+        f"{Z['cella']['braccio']}, retrained with the frozen scalar: wCE {Z['wce_congelata']:.12f} frozen, "
+        f"{Z['wce_riprodotta']:.12f} reproduced, checkpoint identical to the bit." + fonte,
+        "Arm & trainings & minutes per training (median) & machine-hours", righe, "tab:suppE15e"))
     f.write_text("\n".join(out))

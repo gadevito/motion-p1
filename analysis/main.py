@@ -703,7 +703,11 @@ def main() -> int:
                 from analysis.tabelle_suppl import scrivi_D
                 print("[paper] tabelle D del supplementare (E14)", flush=True)
                 scrivi_D(radice / RIS, dfig / "tableD_e14.tex")
-            if "E16" in a.solo:                     # supplementare E (E16, calibrazione)
+            if "E15" in a.solo:                     # supplementare E (E15, campagna causale)
+                from analysis.tabelle_suppl import scrivi_E15
+                print("[paper] tabelle E del supplementare (E15)", flush=True)
+                scrivi_E15(radice / RIS, dfig / "tableE_e15.tex")
+            if "E16" in a.solo:                     # supplementare F (E16, calibrazione)
                 from analysis.tabelle_suppl import scrivi_E
                 print("[paper] tabelle E del supplementare (E16)", flush=True)
                 scrivi_E(radice / RIS, dfig / "tableE_e16.tex")

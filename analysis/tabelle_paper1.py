@@ -30,15 +30,27 @@ def _righe():
     for g, st in (("PEMS04", "168"), ("PEMS08", "1423")):
         R.append(("I", f"origini > 1 sett., {g}", "E6", "e6_origini_comuni.json",
                   [g, "origini_comuni"], st, str))
-    for g, st in (("Madrid", "-0.039"), ("Londra", "-0.035"), ("Melbourne", "-0.038"), ("PEMS08", "-0.133")):
-        R.append(("I, II", f"A - C, {g}", "E8", "e8_risultati.json",
-                  ["gruppi", g, "confronti", "A-C", "wce", "media"], st, _f3))
+    # citta', episodio 1: campagna causale (E15), risultato principale per le cinque dichiarazioni
+    E15 = lambda c, k: ["risultati", "citta", c, "dichiarazioni", k, "media"]
+    for (c, _), st in zip(CITTA, ("-0.040", "-0.034", "-0.045")):
+        R.append(("I, II", f"A - C, {c} (causale)", "E15", "congelamento_e15.json", E15(c, "A-C"), st, _f3))
+    R.append(("I, II", "A - C, PEMS08", "E8", "e8_risultati.json",
+              ["gruppi", "PEMS08", "confronti", "A-C", "wce", "media"], "-0.133", _f3))
     # ---- Tabella II (colonna wCE contro C) -----------------------------------
-    for k, val in (("F0-C", ("+0.073", "+0.050", "+0.078", "+0.156")),
-                   ("F0p-C", ("+0.008", "+0.013", "+0.001", "-0.039"))):
-        for (g, st) in zip(("Madrid", "Londra", "Melbourne", "PEMS08"), val):
-            R.append(("II", f"{k}, {g}", "E8", "e8_risultati.json",
-                      ["gruppi", g, "confronti", k, "wce", "media"], st, _f3))
+    for k, val in (("F0-C", ("+0.075", "+0.049", "+0.078")), ("F0p-C", ("+0.008", "+0.014", "+0.000")),
+                   ("Fp_672-C", ("-0.031", "-0.031", "-0.040")), ("Fp_672-A", ("+0.008", "+0.008", "-0.002")),
+                   ("A-C_A", ("-0.038", "-0.033", "-0.037")), ("C_A-C", ("-0.002", "-0.001", "-0.008"))):
+        for (c, _), st in zip(CITTA, val):
+            R.append(("II, §V", f"{k}, {c} (causale)", "E15", "congelamento_e15.json", E15(c, k), st, _f3))
+    for (c, _), st in zip(CITTA, ("1.95", "1.47", "2.13")):
+        R.append(("§V-A", f"(F0 - C)/(A - C_A), {c} (causale)", "E15", "congelamento_e15.json",
+                  ["risultati", "citta", c, "rapporti", "(F0-C)/(A-C_A)", "media"], st, lambda v: f"{-v:.2f}"))
+    for (c, _), st in zip(CITTA, ("0.05", "0.03", "0.19")):
+        R.append(("§V-A", f"(C_A - C)/(A - C), {c} (causale)", "E15", "congelamento_e15.json",
+                  ["risultati", "citta", c, "rapporti", "(C_A-C)/(A-C)", "media"], st, "{:.2f}".format))
+    for k, val in (("F0-C", "+0.156"), ("F0p-C", "-0.039")):
+        R.append(("II", f"{k}, PEMS08", "E8", "e8_risultati.json",
+                  ["gruppi", "PEMS08", "confronti", k, "wce", "media"], val, _f3))
     for (c, _), st in zip(CITTA, ("-0.011", "+0.034", "-0.019")):
         R.append(("II", f"F'(24 h) - C, {c}", "E2", "congelamento_e2.json",
                   ["confronti", f"{c}/Fp-C", "media"], st, _f3))
@@ -206,8 +218,8 @@ def scrivi_tabella_C1(ris: Path, f: Path) -> None:
     testa = (r"{\footnotesize\setlength{\tabcolsep}{3pt}" "\n" r"\begin{longtable}{@{}l l c c c c@{}}" "\n"
              r"\caption{Statements (a)--(e) of the replication (main paper, Table~III), per city and installation "
              r"episode: mean $\Delta$wCE over cells and 95\% interval from 4{,}000 joint resamples; last column: "
-             r"sign per episode. Six seeds (201--206); episode-1 values in the main text use twelve seeds on the same "
-             r"cells and origins.}\\" "\n"
+             r"sign per episode. Six seeds (201--206), pre-registered campaign; for the cities, the episode-1 values "
+             r"of the main text come from the causal campaign on the same cells (Section~E).}\\" "\n"
              r"\toprule" "\n" r"Statement & City & Episode 1 & Episode 2 & Episode 3 & Signs\\" "\n"
              r"\midrule" "\n" r"\endfirsthead" "\n" r"\toprule" "\n"
              r"Statement & City & Episode 1 & Episode 2 & Episode 3 & Signs\\" "\n" r"\midrule" "\n"
