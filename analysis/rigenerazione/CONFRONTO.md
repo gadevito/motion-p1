@@ -3,6 +3,7 @@
 Generato da `analysis/main.py` (non modificare a mano). Ogni numero e' rigenerato dalle predizioni per cella con il codice del repository e confrontato con il file congelato omonimo. Valori a 12 cifre significative; scarto = rigenerato − congelato.
 
 - esito: **TUTTO COINCIDE**
+- nota aggiunta a mano (revisore, 28/10): fra paper1-freeze-20261028i e questo commit cambiano solo figura2_51.py e CONFRONTO.md: nessun numero
 - esperimenti: ARCH, E2, E3, E4, E3bis, E5, E6, E7, E8, E14, E16, E15
 - tolleranza combinata: |Δ| ≤ 1e-10 + 1e-09·|congelato|
 - codice del confronto: `impronte.py` cafa4e13066b141f, `main.py` 15e3e6956d24477e, `tabelle_paper1.py` b5379e82bfa9dcae, `tabelle_suppl.py` a9b78ac398969d07
