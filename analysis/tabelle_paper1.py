@@ -116,17 +116,8 @@ def _righe():
         if s04 is not None:
             R.append(("III", f"({k}) PEMS04", "E6", "e6a_risultati.json", ["affermazioni", k, "segno"], s04, str))
         R.append(("III", f"({k}) PEMS08", "E6", "e6_risultati.json", ["affermazioni", k, "segno"], s08, str))
-    nota = {"e6a_risultati.json": {"a": ("+0.003", "-0.007", "+0.013"), "b": ("-0.022", "-0.031", "-0.013"),
-                                   "c": ("-0.033", "-0.047", "-0.019"), "d": ("-0.023", "-0.034", "-0.010")},
-            "e6_risultati.json": {"a": ("-0.039", "-0.076", "-0.004"), "b": ("-0.034", "-0.071", "+0.009"),
-                                  "c": ("-0.091", "-0.131", "-0.042"), "d": ("-0.074", "-0.118", "-0.023"),
-                                  "e": ("+0.040", "-0.019", "+0.089")}}
-    for f, dd in nota.items():
-        rete = "PEMS04" if "e6a" in f else "PEMS08"
-        for k, (m, lo, hi) in dd.items():
-            R.append(("III nota", f"({k}) {rete} media", "E6", f, ["affermazioni", k, "media"], m, _f3))
-            R.append(("III nota", f"({k}) {rete} IC basso", "E6", f, ["affermazioni", k, "ic_con_nodi", 0], lo, _f3))
-            R.append(("III nota", f"({k}) {rete} IC alto", "E6", f, ["affermazioni", k, "ic_con_nodi", 1], hi, _f3))
+    # i valori di PEMS04/PEMS08 della vecchia nota alla Tab. III sono righe della tabella C1 del supplemento
+    # (scrivi_tabella_C1), generate dai json: non c'e' trascrizione da verificare
     return R
 
 
@@ -204,6 +195,8 @@ def scrivi_tabella_C1(ris: Path, f: Path) -> None:
     """Tabella C1 del materiale supplementare: (a)-(e) per citta' ed episodio, da
     e5_risultati.json (rigenerato), come longtable LaTeX."""
     R = json.loads((ris / "e5_risultati.json").read_text())
+    P = {"PEMS04": json.loads((ris / "e6a_risultati.json").read_text())["affermazioni"],
+         "PEMS08": json.loads((ris / "e6_risultati.json").read_text())["affermazioni"]}
     en = {"Madrid": "Madrid", "Londra": "London", "Melbourne": "Melbourne"}
     tit = {"a": r"(a) $F_0'-C$", "b": r"(b) gated$-F_0'$", "c": r"(c) $F'(1\,\mathrm{wk})-C$",
            "d": r"(d) $F'(24\,\mathrm{h})-C$", "e": r"(e) $F'(1\,\mathrm{wk})-A$"}
@@ -214,12 +207,17 @@ def scrivi_tabella_C1(ris: Path, f: Path) -> None:
             rr = [R["affermazioni"][f"{c}/ep{e}/{k}"] for e in (1, 2, 3)]
             righe.append((tit[k] if i == 0 else "") + f" & {en[c]} & " + " & ".join(cella(r) for r in rr)
                          + f" & {''.join(R['stesso_segno'][f'{c}/{k}']['segni'])} \\\\")
+        for g in ("PEMS04", "PEMS08"):
+            r = P[g].get(k)
+            righe.append(f" & {g} & " + (cella(r) + f" & -- & -- & ${r['segno']}$" if r else
+                                          r"n.r. & -- & -- & --") + " \\\\")
         righe.append(r"\addlinespace")
     testa = (r"{\footnotesize\setlength{\tabcolsep}{3pt}" "\n" r"\begin{longtable}{@{}l l c c c c@{}}" "\n"
              r"\caption{Statements (a)--(e) of the replication (main paper, Table~III), per city and installation "
              r"episode: mean $\Delta$wCE over cells and 95\% interval from 4{,}000 joint resamples; last column: "
              r"sign per episode. Six seeds (201--206), pre-registered campaign; for the cities, the episode-1 values "
-             r"of the main text come from the causal campaign on the same cells (Section~E).}\\" "\n"
+             r"of the main text come from the causal campaign on the same cells (Section~E). PEMS04 and PEMS08: one "
+             r"installation date, pre-registered campaign; n.r.: not reportable ($A$ not trained on PEMS04).}\\" "\n"
              r"\toprule" "\n" r"Statement & City & Episode 1 & Episode 2 & Episode 3 & Signs\\" "\n"
              r"\midrule" "\n" r"\endfirsthead" "\n" r"\toprule" "\n"
              r"Statement & City & Episode 1 & Episode 2 & Episode 3 & Signs\\" "\n" r"\midrule" "\n"
