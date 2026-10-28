@@ -19,7 +19,7 @@ JSON keys and code to the English used in the paper. Arm names follow the paper.
 | tag `paper1-freeze-<data><lettera>` | freeze tag | verified state of code and records |
 | esecutore | executor | the team member who ran the experiments and delivered `esecutore/*` branches |
 | revisore | reviewer | internal reviewer who signed protocols and decisions |
-| registro delle correzioni, difetto | register of corrections, defect | list of corrections made to the pipeline during the study (`register_of_corrections.en.md`) |
+| registro delle correzioni, difetto | register of corrections, defect | list of corrections made during the study (`protocol/REGISTRO_CORREZIONI.md`, translated in `register_of_corrections.en.md`) |
 | deviazione dichiarata | declared deviation | a departure from the protocol, stated with date and reason in the frozen record |
 | correzione datata, nota datata | dated correction | a correction added to a record with its date, the earlier version kept in the history |
 | addendum | addendum | additional measures added to a record later, from the same resamples |
