@@ -469,8 +469,9 @@ def scrivi_E15(ris: Path, f: Path) -> None:
     # E5
     K, ES, Z = R["costi"]["addestramenti"], R["costi"]["esito_e15"], R["controllo_scarto_zero"]
     NOMI = {"E": "$E$", "E1": "$E'$", "C": "$C$", "A": "$A$", "C_A": "$C_A$"}
-    righe = [f"{NOMI.get(b, b)} & {K[b]['n']} & {K[b]['minuti_mediana']:.1f} & "
-             f"{K[b]['ore_macchina']:.1f} \\\\" for b in K]
+    num = lambda x: "--" if x is None else f"{x:.1f}"      # tempi assenti dove i registri non ci sono
+    righe = [f"{NOMI.get(b, b)} & {K[b]['n']} & {num(K[b]['minuti_mediana'])} & {num(K[b]['ore_macchina'])} \\\\"
+             for b in K]
     out.append(_longtable(
         "@{}l r r r@{}",
         f"E15: training cost per arm ({ES['completate']} trainings in {ES['ore_calendario']:.1f}\\,h of calendar "
