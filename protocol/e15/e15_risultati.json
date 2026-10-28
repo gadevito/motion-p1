@@ -1,0 +1,2011 @@
+{
+  "protocollo": "protocol/E15.md",
+  "statica": "espansiva",
+  "repliche": 4000,
+  "seme_bootstrap": 20261023,
+  "k_secondaria_file": {
+    "impronta": "67aeef155f50d92d",
+    "istante": "2026-10-28T10:45:37.089381+00:00",
+    "regola": "k in (10, 50, 200), passo congelato per citta'; wCE media sulle origini con eta' > 1 settimana dell'episodio di validazione causale (nodi di validazione, finestra espansiva); a pari merito il k minore"
+  },
+  "pubblicate_fonti": {
+    "e14b_livelli_congelata.json": {
+      "impronta": "916c2e5883c81b9c",
+      "repliche": 4000,
+      "seme": 20261013
+    },
+    "e3bis_risultati.json": {
+      "impronta": "2db2dd9ffece2072"
+    }
+  },
+  "semi": [
+    201,
+    202,
+    203,
+    204,
+    205,
+    206
+  ],
+  "partizioni": [
+    0,
+    1,
+    2
+  ],
+  "delta_non_inferiorita": 0.005,
+  "perimetro": {
+    "principale": "origini comuni dopo t1 (fasce d'eta' 1-3)",
+    "settimana": "origini con eta' > 1 settimana (fascia 3)",
+    "congelate": "predizioni_e5/ep1_* (C, A, F0', F'(1 sett.)) e predizioni_e4/prova_* (F0): stesse celle, stessi nodi, stesse origini, stesse estrazioni"
+  },
+  "k_secondaria": {
+    "Madrid": {
+      "k": 200,
+      "wce_validazione": {
+        "10": 0.920189536724898,
+        "50": 0.904031688163628,
+        "200": 0.899708321075429
+      },
+      "k_congelato": 50,
+      "passo": 0.01
+    },
+    "Londra": {
+      "k": 50,
+      "wce_validazione": {
+        "10": 0.8664133827267535,
+        "50": 0.8601612922367875,
+        "200": 0.8613404147841871
+      },
+      "k_congelato": 50,
+      "passo": 0.01
+    },
+    "Melbourne": {
+      "k": 200,
+      "wce_validazione": {
+        "10": 0.8336358188576687,
+        "50": 0.8234757594206377,
+        "200": 0.8188007699217595
+      },
+      "k_congelato": 200,
+      "passo": 0.001
+    }
+  },
+  "citta": {
+    "Madrid": {
+      "celle": 18,
+      "nodi": 135,
+      "k_secondaria": 200,
+      "livelli": {
+        "causale/C": {
+          "media": 0.9610230515718885,
+          "ic_con_nodi": [
+            0.9366393073191525,
+            0.9841199598751883
+          ]
+        },
+        "causale/A": {
+          "media": 0.9209057732070731,
+          "ic_con_nodi": [
+            0.8941794175234439,
+            0.945832989289749
+          ]
+        },
+        "causale/C_A": {
+          "media": 0.9591041468721555,
+          "ic_con_nodi": [
+            0.9343310800869734,
+            0.9826481740427974
+          ]
+        },
+        "causale/F0": {
+          "media": 1.035625016545349,
+          "ic_con_nodi": [
+            1.0187778507447898,
+            1.0532054878506223
+          ]
+        },
+        "causale/F0p": {
+          "media": 0.9688626624674102,
+          "ic_con_nodi": [
+            0.9460367339733687,
+            0.9908708298669832
+          ]
+        },
+        "causale/Fp_672/settimana": {
+          "media": 0.9320459483688158,
+          "ic_con_nodi": [
+            0.9059422748952262,
+            0.9567012742311537
+          ]
+        },
+        "causale/C/settimana": {
+          "media": 0.9631771862941293,
+          "ic_con_nodi": [
+            0.9393076383768176,
+            0.9860249274844481
+          ]
+        },
+        "causale/A/settimana": {
+          "media": 0.9240704441430749,
+          "ic_con_nodi": [
+            0.8988694918770004,
+            0.9482144339157731
+          ]
+        },
+        "causale/C_A/settimana": {
+          "media": 0.9619272950291321,
+          "ic_con_nodi": [
+            0.9377773203336526,
+            0.9850840392059923
+          ]
+        },
+        "causale/F0/settimana": {
+          "media": 1.0352354599376374,
+          "ic_con_nodi": [
+            1.0199873711550413,
+            1.0509630632707316
+          ]
+        },
+        "causale/F0p/settimana": {
+          "media": 0.9719795754656726,
+          "ic_con_nodi": [
+            0.9493503178276392,
+            0.993514453991699
+          ]
+        },
+        "causale/Fpk/settimana": {
+          "media": 0.9295725888942301,
+          "ic_con_nodi": [
+            0.9038211556564502,
+            0.9536276007918199
+          ]
+        },
+        "congelata/C": {
+          "media": 0.9600922064213536,
+          "ic_con_nodi": [
+            0.9356242813772668,
+            0.9834185960315287
+          ]
+        },
+        "congelata/A": {
+          "media": 0.9210985848811735,
+          "ic_con_nodi": [
+            0.8944013193585987,
+            0.9460257855805551
+          ]
+        },
+        "congelata/F0": {
+          "media": 1.034979334192872,
+          "ic_con_nodi": [
+            1.017781077560202,
+            1.0522554474664902
+          ]
+        },
+        "congelata/F0p": {
+          "media": 0.9680313199951885,
+          "ic_con_nodi": [
+            0.9449412738197364,
+            0.9903462053758656
+          ]
+        },
+        "congelata/Fp_672/settimana": {
+          "media": 0.9319979659663384,
+          "ic_con_nodi": [
+            0.905905563131507,
+            0.9566739856584675
+          ]
+        },
+        "congelata/C/settimana": {
+          "media": 0.9627966085577092,
+          "ic_con_nodi": [
+            0.9387508223380713,
+            0.9857776125262366
+          ]
+        },
+        "congelata/A/settimana": {
+          "media": 0.9243009173338902,
+          "ic_con_nodi": [
+            0.8989956307189048,
+            0.9485256809238706
+          ]
+        }
+      },
+      "dichiarazioni": {
+        "F0-C": {
+          "media": 0.07460196497346061,
+          "ic_con_nodi": [
+            0.05939414724734137,
+            0.09026816711384711
+          ],
+          "segno": "+",
+          "categoria": "inferiorita'",
+          "perimetro": "tutte le origini dopo t1",
+          "segno_congelato": "+",
+          "confermata": true,
+          "categoria_coincide": true
+        },
+        "F0p-C": {
+          "media": 0.007839610895521654,
+          "ic_con_nodi": [
+            0.005307561900993701,
+            0.01055495107806979
+          ],
+          "segno": "+",
+          "categoria": "inferiorita'",
+          "perimetro": "tutte le origini dopo t1",
+          "segno_congelato": "+",
+          "confermata": true,
+          "categoria_coincide": true
+        },
+        "Fp_672-C": {
+          "media": -0.03113123792531347,
+          "ic_con_nodi": [
+            -0.03683503274553811,
+            -0.02564408266017063
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "perimetro": "origini con eta' > 1 settimana",
+          "segno_congelato": "-",
+          "confermata": true,
+          "categoria_coincide": true
+        },
+        "Fp_672-A": {
+          "media": 0.007975504225740893,
+          "ic_con_nodi": [
+            0.0042102993026033935,
+            0.01196774551352651
+          ],
+          "segno": "+",
+          "categoria": "inferiorita'",
+          "perimetro": "origini con eta' > 1 settimana",
+          "segno_congelato": "+",
+          "confermata": true,
+          "categoria_coincide": true
+        },
+        "A-C": {
+          "media": -0.04011727836481538,
+          "ic_con_nodi": [
+            -0.04527648502950729,
+            -0.035284772010946035
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "perimetro": "tutte le origini dopo t1",
+          "segno_congelato": "-",
+          "confermata": true,
+          "categoria_coincide": true
+        },
+        "A-C_A": {
+          "media": -0.038198373665082386,
+          "ic_con_nodi": [
+            -0.04310923922675657,
+            -0.033491420199336805
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "perimetro": "tutte le origini dopo t1"
+        },
+        "C_A-C": {
+          "media": -0.0019189046997329928,
+          "ic_con_nodi": [
+            -0.0029134458229834017,
+            -0.0010395997581333913
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "perimetro": "tutte le origini dopo t1"
+        },
+        "Fpk_672-C": {
+          "media": -0.03360459739989918,
+          "ic_con_nodi": [
+            -0.03914127859110151,
+            -0.028439430274669303
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "perimetro": "origini con eta' > 1 settimana",
+          "nota": "secondaria: F'(1 sett.; k = 200) riselezionato sulla validazione causale"
+        },
+        "Fpk_672-A": {
+          "media": 0.00550214475115518,
+          "ic_con_nodi": [
+            0.0023984861072967574,
+            0.008594910235063893
+          ],
+          "segno": "+",
+          "categoria": "inferiorita'",
+          "perimetro": "origini con eta' > 1 settimana",
+          "nota": "secondaria: k = 200"
+        }
+      },
+      "congelate": {
+        "F0-C": {
+          "media": 0.07488712777151829,
+          "ic_con_nodi": [
+            0.059269277328119846,
+            0.09092713153349882
+          ],
+          "segno": "+",
+          "categoria": "inferiorita'",
+          "perimetro": "tutte le origini dopo t1"
+        },
+        "F0p-C": {
+          "media": 0.007939113573834922,
+          "ic_con_nodi": [
+            0.005396687511605211,
+            0.010741671995226045
+          ],
+          "segno": "+",
+          "categoria": "inferiorita'",
+          "perimetro": "tutte le origini dopo t1"
+        },
+        "Fp_672-C": {
+          "media": -0.030798642591370773,
+          "ic_con_nodi": [
+            -0.03627320876445151,
+            -0.02580437332047159
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "perimetro": "origini con eta' > 1 settimana"
+        },
+        "Fp_672-A": {
+          "media": 0.0076970486324482446,
+          "ic_con_nodi": [
+            0.004237687591623971,
+            0.011466665160215323
+          ],
+          "segno": "+",
+          "categoria": "inferiorita'",
+          "perimetro": "origini con eta' > 1 settimana"
+        },
+        "A-C": {
+          "media": -0.03899362154018016,
+          "ic_con_nodi": [
+            -0.044118580264943634,
+            -0.03413707132360488
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "perimetro": "tutte le origini dopo t1"
+        }
+      },
+      "pubblicate": {
+        "F0-C": {
+          "media": 0.07318323853605913,
+          "ic_con_nodi": [
+            0.058450937111523354,
+            0.0872811891563187
+          ],
+          "celle": 36,
+          "fonte": "protocol/e14b/congelata/e14b_livelli_congelata.json",
+          "scarto_da_congelata_54": -0.0017038892354591662
+        },
+        "F0p-C": {
+          "media": 0.00814709569878258,
+          "ic_con_nodi": [
+            0.005645303746672231,
+            0.010864939294786474
+          ],
+          "celle": 36,
+          "fonte": "protocol/e14b/congelata/e14b_livelli_congelata.json",
+          "scarto_da_congelata_54": 0.00020798212494765878
+        },
+        "A-C": {
+          "media": -0.03908709144885003,
+          "ic_con_nodi": [
+            -0.04429535992796263,
+            -0.034357095070733645
+          ],
+          "celle": 36,
+          "fonte": "protocol/e14b/congelata/e14b_livelli_congelata.json",
+          "scarto_da_congelata_54": -9.346990866987426e-05
+        },
+        "(F0-C)/(A-C)": {
+          "media": -1.872312209053156,
+          "ic_con_nodi": [
+            -2.30198488662428,
+            -1.4755421132399154
+          ],
+          "celle": 36,
+          "fonte": "protocol/e14b/congelata/e14b_livelli_congelata.json"
+        },
+        "Fp_672-C": {
+          "media": -0.03162871500032763,
+          "ic_con_nodi": [
+            -0.036882361647511595,
+            -0.026638399443380766
+          ],
+          "celle": null,
+          "fonte": "e3bis_risultati.json confronti[Madrid/Fpw-C]",
+          "scarto_da_congelata_54": -0.0008300724089568556
+        }
+      },
+      "secondarie_settimana": {
+        "F0-C": {
+          "media": 0.07205827364350814,
+          "ic_con_nodi": [
+            0.05739213129290623,
+            0.0871375158316423
+          ],
+          "segno": "+",
+          "categoria": "inferiorita'"
+        },
+        "F0p-C": {
+          "media": 0.008802389171543301,
+          "ic_con_nodi": [
+            0.006279274770649798,
+            0.01170994146911484
+          ],
+          "segno": "+",
+          "categoria": "inferiorita'"
+        },
+        "A-C": {
+          "media": -0.03910674215105436,
+          "ic_con_nodi": [
+            -0.04404409239866356,
+            -0.03447349911735894
+          ],
+          "segno": "-",
+          "categoria": "superiorita'"
+        },
+        "A-C_A": {
+          "media": -0.03785685088605717,
+          "ic_con_nodi": [
+            -0.04258225609923526,
+            -0.033161696322139195
+          ],
+          "segno": "-",
+          "categoria": "superiorita'"
+        },
+        "C_A-C": {
+          "media": -0.0012498912649971938,
+          "ic_con_nodi": [
+            -0.002071291579377438,
+            -0.000423786022465028
+          ],
+          "segno": "-",
+          "categoria": "superiorita'"
+        }
+      },
+      "rapporti": {
+        "(F0-C)/(A-C)": {
+          "media": -1.859596862355693,
+          "ic_con_nodi": [
+            -2.2682357871974634,
+            -1.473885722416729
+          ],
+          "numeratore": 0.07460196497346061,
+          "denominatore": -0.04011727836481538,
+          "repliche_den_senza_divario": 0
+        },
+        "(F0-C)/(A-C_A)": {
+          "media": -1.953014168287882,
+          "ic_con_nodi": [
+            -2.4232217149669837,
+            -1.5277481295930868
+          ],
+          "numeratore": 0.07460196497346061,
+          "denominatore": -0.038198373665082386,
+          "repliche_den_senza_divario": 0
+        },
+        "congelata (F0-C)/(A-C)": {
+          "media": -1.920496861117463,
+          "ic_con_nodi": [
+            -2.3734437162506166,
+            -1.4897199309708908
+          ],
+          "numeratore": 0.07488712777151829,
+          "denominatore": -0.03899362154018016,
+          "repliche_den_senza_divario": 0
+        },
+        "(C_A-C)/(A-C)": {
+          "media": 0.047832374925412605,
+          "ic_con_nodi": [
+            0.02585986836485751,
+            0.06983721217568062
+          ],
+          "numeratore": -0.0019189046997329928,
+          "denominatore": -0.04011727836481538,
+          "repliche_den_senza_divario": 0
+        }
+      }
+    },
+    "Londra": {
+      "celle": 18,
+      "nodi": 135,
+      "k_secondaria": 50,
+      "livelli": {
+        "causale/C": {
+          "media": 0.890244059032505,
+          "ic_con_nodi": [
+            0.8633072175023991,
+            0.9163015579181122
+          ]
+        },
+        "causale/A": {
+          "media": 0.8558737132529278,
+          "ic_con_nodi": [
+            0.8270908828216043,
+            0.8830765581645614
+          ]
+        },
+        "causale/C_A": {
+          "media": 0.8890526905000825,
+          "ic_con_nodi": [
+            0.861910156651704,
+            0.9151870204934198
+          ]
+        },
+        "causale/F0": {
+          "media": 0.9388594251839315,
+          "ic_con_nodi": [
+            0.9217959318680766,
+            0.9558663872941389
+          ]
+        },
+        "causale/F0p": {
+          "media": 0.904012737747919,
+          "ic_con_nodi": [
+            0.8783279627439563,
+            0.929224121133957
+          ]
+        },
+        "causale/Fp_672/settimana": {
+          "media": 0.857720283480851,
+          "ic_con_nodi": [
+            0.8285177256060914,
+            0.8868581633362248
+          ]
+        },
+        "causale/C/settimana": {
+          "media": 0.8885929761813138,
+          "ic_con_nodi": [
+            0.8614672995104897,
+            0.9150123641986306
+          ]
+        },
+        "causale/A/settimana": {
+          "media": 0.8493368205554164,
+          "ic_con_nodi": [
+            0.8200194965165882,
+            0.8784683048953934
+          ]
+        },
+        "causale/C_A/settimana": {
+          "media": 0.8873048962054413,
+          "ic_con_nodi": [
+            0.8596916228661412,
+            0.9136875988505098
+          ]
+        },
+        "causale/F0/settimana": {
+          "media": 0.9350190890638758,
+          "ic_con_nodi": [
+            0.9172038050649395,
+            0.9529880838978673
+          ]
+        },
+        "causale/F0p/settimana": {
+          "media": 0.9021976907330674,
+          "ic_con_nodi": [
+            0.8763308352668319,
+            0.92811377770812
+          ]
+        },
+        "causale/Fpk/settimana": {
+          "media": 0.857720283480851,
+          "ic_con_nodi": [
+            0.8285177256060914,
+            0.8868581633362248
+          ]
+        },
+        "congelata/C": {
+          "media": 0.8902605939092822,
+          "ic_con_nodi": [
+            0.8633648718986972,
+            0.9164122750426916
+          ]
+        },
+        "congelata/A": {
+          "media": 0.8559944942504664,
+          "ic_con_nodi": [
+            0.8271870619399349,
+            0.8832713240849571
+          ]
+        },
+        "congelata/F0": {
+          "media": 0.9386344082524212,
+          "ic_con_nodi": [
+            0.9216920099729662,
+            0.9555915547798037
+          ]
+        },
+        "congelata/F0p": {
+          "media": 0.9047798745151032,
+          "ic_con_nodi": [
+            0.8783014489010434,
+            0.9307982373025051
+          ]
+        },
+        "congelata/Fp_672/settimana": {
+          "media": 0.8579612770929159,
+          "ic_con_nodi": [
+            0.8287887764298556,
+            0.886724368777128
+          ]
+        },
+        "congelata/C/settimana": {
+          "media": 0.8885873928157929,
+          "ic_con_nodi": [
+            0.8614898973010624,
+            0.9149848727012381
+          ]
+        },
+        "congelata/A/settimana": {
+          "media": 0.8494808742991362,
+          "ic_con_nodi": [
+            0.8200857909097043,
+            0.8786185157328
+          ]
+        }
+      },
+      "dichiarazioni": {
+        "F0-C": {
+          "media": 0.048615366151426476,
+          "ic_con_nodi": [
+            0.03633890402351554,
+            0.062197866685391304
+          ],
+          "segno": "+",
+          "categoria": "inferiorita'",
+          "perimetro": "tutte le origini dopo t1",
+          "segno_congelato": "+",
+          "confermata": true,
+          "categoria_coincide": true
+        },
+        "F0p-C": {
+          "media": 0.013768678715413984,
+          "ic_con_nodi": [
+            0.009639403070424194,
+            0.018082858720315797
+          ],
+          "segno": "+",
+          "categoria": "inferiorita'",
+          "perimetro": "tutte le origini dopo t1",
+          "segno_congelato": "+",
+          "confermata": true,
+          "categoria_coincide": true
+        },
+        "Fp_672-C": {
+          "media": -0.030872692700462778,
+          "ic_con_nodi": [
+            -0.03526210396003616,
+            -0.02649983273517914
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "perimetro": "origini con eta' > 1 settimana",
+          "segno_congelato": "-",
+          "confermata": true,
+          "categoria_coincide": true
+        },
+        "Fp_672-A": {
+          "media": 0.008383462925434682,
+          "ic_con_nodi": [
+            0.005408639099307324,
+            0.011723280636396969
+          ],
+          "segno": "+",
+          "categoria": "inferiorita'",
+          "perimetro": "origini con eta' > 1 settimana",
+          "segno_congelato": "+",
+          "confermata": true,
+          "categoria_coincide": true
+        },
+        "A-C": {
+          "media": -0.034370345779577205,
+          "ic_con_nodi": [
+            -0.03897471261662638,
+            -0.029871021136418926
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "perimetro": "tutte le origini dopo t1",
+          "segno_congelato": "-",
+          "confermata": true,
+          "categoria_coincide": true
+        },
+        "A-C_A": {
+          "media": -0.033178977247154684,
+          "ic_con_nodi": [
+            -0.03737747399778153,
+            -0.028974936137569088
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "perimetro": "tutte le origini dopo t1"
+        },
+        "C_A-C": {
+          "media": -0.001191368532422521,
+          "ic_con_nodi": [
+            -0.002552814472231471,
+            -0.00010532839383906839
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "perimetro": "tutte le origini dopo t1"
+        },
+        "Fpk_672-C": {
+          "media": -0.030872692700462778,
+          "ic_con_nodi": [
+            -0.03526210396003616,
+            -0.02649983273517914
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "perimetro": "origini con eta' > 1 settimana",
+          "nota": "secondaria: F'(1 sett.; k = 50) riselezionato sulla validazione causale"
+        },
+        "Fpk_672-A": {
+          "media": 0.008383462925434682,
+          "ic_con_nodi": [
+            0.005408639099307324,
+            0.011723280636396969
+          ],
+          "segno": "+",
+          "categoria": "inferiorita'",
+          "perimetro": "origini con eta' > 1 settimana",
+          "nota": "secondaria: k = 50"
+        }
+      },
+      "congelate": {
+        "F0-C": {
+          "media": 0.04837381434313892,
+          "ic_con_nodi": [
+            0.03630291397742043,
+            0.06182057086108569
+          ],
+          "segno": "+",
+          "categoria": "inferiorita'",
+          "perimetro": "tutte le origini dopo t1"
+        },
+        "F0p-C": {
+          "media": 0.014519280605820972,
+          "ic_con_nodi": [
+            0.010499384929053859,
+            0.019050668461825876
+          ],
+          "segno": "+",
+          "categoria": "inferiorita'",
+          "perimetro": "tutte le origini dopo t1"
+        },
+        "Fp_672-C": {
+          "media": -0.03062611572287699,
+          "ic_con_nodi": [
+            -0.035016864393592834,
+            -0.026296573077466252
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "perimetro": "origini con eta' > 1 settimana"
+        },
+        "Fp_672-A": {
+          "media": 0.008480402793779707,
+          "ic_con_nodi": [
+            0.00540317477296505,
+            0.011782738603036353
+          ],
+          "segno": "+",
+          "categoria": "inferiorita'",
+          "perimetro": "origini con eta' > 1 settimana"
+        },
+        "A-C": {
+          "media": -0.034266099658815885,
+          "ic_con_nodi": [
+            -0.03886690829260656,
+            -0.029786675395925073
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "perimetro": "tutte le origini dopo t1"
+        }
+      },
+      "pubblicate": {
+        "F0-C": {
+          "media": 0.0497320474340639,
+          "ic_con_nodi": [
+            0.038253431108892615,
+            0.06288172403992695
+          ],
+          "celle": 36,
+          "fonte": "protocol/e14b/congelata/e14b_livelli_congelata.json",
+          "scarto_da_congelata_54": 0.0013582330909249762
+        },
+        "F0p-C": {
+          "media": 0.012875523607309147,
+          "ic_con_nodi": [
+            0.009604257439969182,
+            0.01671118762353551
+          ],
+          "celle": 36,
+          "fonte": "protocol/e14b/congelata/e14b_livelli_congelata.json",
+          "scarto_da_congelata_54": -0.001643756998511825
+        },
+        "A-C": {
+          "media": -0.0347222837386888,
+          "ic_con_nodi": [
+            -0.039199425870692015,
+            -0.03043933782033442
+          ],
+          "celle": 36,
+          "fonte": "protocol/e14b/congelata/e14b_livelli_congelata.json",
+          "scarto_da_congelata_54": -0.0004561840798729122
+        },
+        "(F0-C)/(A-C)": {
+          "media": -1.4322804285667043,
+          "ic_con_nodi": [
+            -1.7560449677533858,
+            -1.130854639177265
+          ],
+          "celle": 36,
+          "fonte": "protocol/e14b/congelata/e14b_livelli_congelata.json"
+        },
+        "Fp_672-C": {
+          "media": -0.030179350855271223,
+          "ic_con_nodi": [
+            -0.034346730378332246,
+            -0.02607460166012079
+          ],
+          "celle": null,
+          "fonte": "e3bis_risultati.json confronti[Londra/Fpw-C]",
+          "scarto_da_congelata_54": 0.0004467648676057673
+        }
+      },
+      "secondarie_settimana": {
+        "F0-C": {
+          "media": 0.04642611288256193,
+          "ic_con_nodi": [
+            0.034116070914244526,
+            0.06035724470339225
+          ],
+          "segno": "+",
+          "categoria": "inferiorita'"
+        },
+        "F0p-C": {
+          "media": 0.013604714551753605,
+          "ic_con_nodi": [
+            0.009458114745222679,
+            0.017972580214181143
+          ],
+          "segno": "+",
+          "categoria": "inferiorita'"
+        },
+        "A-C": {
+          "media": -0.03925615562589746,
+          "ic_con_nodi": [
+            -0.04387235417469905,
+            -0.03457875226946999
+          ],
+          "segno": "-",
+          "categoria": "superiorita'"
+        },
+        "A-C_A": {
+          "media": -0.03796807565002491,
+          "ic_con_nodi": [
+            -0.042012534958305196,
+            -0.03368343266394249
+          ],
+          "segno": "-",
+          "categoria": "superiorita'"
+        },
+        "C_A-C": {
+          "media": -0.001288079975872547,
+          "ic_con_nodi": [
+            -0.002565453786542685,
+            -0.0002716607311317473
+          ],
+          "segno": "-",
+          "categoria": "superiorita'"
+        }
+      },
+      "rapporti": {
+        "(F0-C)/(A-C)": {
+          "media": -1.4144567082101815,
+          "ic_con_nodi": [
+            -1.7675262278742216,
+            -1.0865927405143945
+          ],
+          "numeratore": 0.048615366151426476,
+          "denominatore": -0.034370345779577205,
+          "repliche_den_senza_divario": 0
+        },
+        "(F0-C)/(A-C_A)": {
+          "media": -1.4652460740210298,
+          "ic_con_nodi": [
+            -1.8433035421931936,
+            -1.1242775934242006
+          ],
+          "numeratore": 0.048615366151426476,
+          "denominatore": -0.033178977247154684,
+          "repliche_den_senza_divario": 0
+        },
+        "congelata (F0-C)/(A-C)": {
+          "media": -1.4117105484660388,
+          "ic_con_nodi": [
+            -1.7547950889162323,
+            -1.0862727079241892
+          ],
+          "numeratore": 0.04837381434313892,
+          "denominatore": -0.034266099658815885,
+          "repliche_den_senza_divario": 0
+        },
+        "(C_A-C)/(A-C)": {
+          "media": 0.034662686842400925,
+          "ic_con_nodi": [
+            0.0030765433238394988,
+            0.07088979211334778
+          ],
+          "numeratore": -0.001191368532422521,
+          "denominatore": -0.034370345779577205,
+          "repliche_den_senza_divario": 0
+        }
+      }
+    },
+    "Melbourne": {
+      "celle": 18,
+      "nodi": 90,
+      "k_secondaria": 200,
+      "livelli": {
+        "causale/C": {
+          "media": 0.8206159454253156,
+          "ic_con_nodi": [
+            0.7846670286946551,
+            0.8531332350055827
+          ]
+        },
+        "causale/A": {
+          "media": 0.7755895521141135,
+          "ic_con_nodi": [
+            0.7403513056301424,
+            0.8073733165722045
+          ]
+        },
+        "causale/C_A": {
+          "media": 0.8122396517307116,
+          "ic_con_nodi": [
+            0.7777864542411336,
+            0.8442309735639365
+          ]
+        },
+        "causale/F0": {
+          "media": 0.8987305190188675,
+          "ic_con_nodi": [
+            0.8658377222923802,
+            0.9283351188904471
+          ]
+        },
+        "causale/F0p": {
+          "media": 0.8208363630372607,
+          "ic_con_nodi": [
+            0.7862212608557939,
+            0.8519706987952934
+          ]
+        },
+        "causale/Fp_672/settimana": {
+          "media": 0.7786763770184527,
+          "ic_con_nodi": [
+            0.7413278166210727,
+            0.8132732544259558
+          ]
+        },
+        "causale/C/settimana": {
+          "media": 0.8187041019064486,
+          "ic_con_nodi": [
+            0.7784373240771418,
+            0.8558523572533756
+          ]
+        },
+        "causale/A/settimana": {
+          "media": 0.7803535359891041,
+          "ic_con_nodi": [
+            0.7414179350409732,
+            0.8148200136891179
+          ]
+        },
+        "causale/C_A/settimana": {
+          "media": 0.8121410480345613,
+          "ic_con_nodi": [
+            0.7732529546300768,
+            0.8486768137647086
+          ]
+        },
+        "causale/F0/settimana": {
+          "media": 0.906515694455893,
+          "ic_con_nodi": [
+            0.8706445277453704,
+            0.93955864762445
+          ]
+        },
+        "causale/F0p/settimana": {
+          "media": 0.8221715754343044,
+          "ic_con_nodi": [
+            0.7838675637543464,
+            0.8576380819257212
+          ]
+        },
+        "causale/Fpk/settimana": {
+          "media": 0.7786763770184527,
+          "ic_con_nodi": [
+            0.7413278166210727,
+            0.8132732544259558
+          ]
+        },
+        "congelata/C": {
+          "media": 0.8148326918895132,
+          "ic_con_nodi": [
+            0.7803126826270843,
+            0.8469090173354874
+          ]
+        },
+        "congelata/A": {
+          "media": 0.775696930116035,
+          "ic_con_nodi": [
+            0.7403454494519071,
+            0.8073815078064648
+          ]
+        },
+        "congelata/F0": {
+          "media": 0.8955181206262708,
+          "ic_con_nodi": [
+            0.8628773538498135,
+            0.9242465225719416
+          ]
+        },
+        "congelata/F0p": {
+          "media": 0.8172795485802704,
+          "ic_con_nodi": [
+            0.7837966754520989,
+            0.8478547026818101
+          ]
+        },
+        "congelata/Fp_672/settimana": {
+          "media": 0.7783863492769334,
+          "ic_con_nodi": [
+            0.7414835721407347,
+            0.8132674347002102
+          ]
+        },
+        "congelata/C/settimana": {
+          "media": 0.8143473501175764,
+          "ic_con_nodi": [
+            0.7751882865776945,
+            0.8505481622598265
+          ]
+        },
+        "congelata/A/settimana": {
+          "media": 0.78031751961418,
+          "ic_con_nodi": [
+            0.7411172685485419,
+            0.8149333604955397
+          ]
+        }
+      },
+      "dichiarazioni": {
+        "F0-C": {
+          "media": 0.0781145735935519,
+          "ic_con_nodi": [
+            0.05153783757164377,
+            0.10351845249115199
+          ],
+          "segno": "+",
+          "categoria": "inferiorita'",
+          "perimetro": "tutte le origini dopo t1",
+          "segno_congelato": "+",
+          "confermata": true,
+          "categoria_coincide": true
+        },
+        "F0p-C": {
+          "media": 0.00022041761194513398,
+          "ic_con_nodi": [
+            -0.006402088704576048,
+            0.0066050108021965094
+          ],
+          "segno": "0",
+          "categoria": "inconclusivo",
+          "perimetro": "tutte le origini dopo t1",
+          "segno_congelato": "0",
+          "confermata": true,
+          "categoria_coincide": true
+        },
+        "Fp_672-C": {
+          "media": -0.040027724887995886,
+          "ic_con_nodi": [
+            -0.04805290695707028,
+            -0.03246892696994074
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "perimetro": "origini con eta' > 1 settimana",
+          "segno_congelato": "-",
+          "confermata": true,
+          "categoria_coincide": true
+        },
+        "Fp_672-A": {
+          "media": -0.001677158970651349,
+          "ic_con_nodi": [
+            -0.01156956513855431,
+            0.007588049215394461
+          ],
+          "segno": "0",
+          "categoria": "inconclusivo",
+          "perimetro": "origini con eta' > 1 settimana",
+          "segno_congelato": "0",
+          "confermata": true,
+          "categoria_coincide": true
+        },
+        "A-C": {
+          "media": -0.04502639331120206,
+          "ic_con_nodi": [
+            -0.056586272350682774,
+            -0.033049023749562326
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "perimetro": "tutte le origini dopo t1",
+          "segno_congelato": "-",
+          "confermata": true,
+          "categoria_coincide": true
+        },
+        "A-C_A": {
+          "media": -0.03665009961659804,
+          "ic_con_nodi": [
+            -0.04669934351914347,
+            -0.025639666614534398
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "perimetro": "tutte le origini dopo t1"
+        },
+        "C_A-C": {
+          "media": -0.00837629369460402,
+          "ic_con_nodi": [
+            -0.012443359842443085,
+            -0.005188012770145239
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "perimetro": "tutte le origini dopo t1"
+        },
+        "Fpk_672-C": {
+          "media": -0.040027724887995886,
+          "ic_con_nodi": [
+            -0.04805290695707028,
+            -0.03246892696994074
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "perimetro": "origini con eta' > 1 settimana",
+          "nota": "secondaria: F'(1 sett.; k = 200) riselezionato sulla validazione causale"
+        },
+        "Fpk_672-A": {
+          "media": -0.001677158970651349,
+          "ic_con_nodi": [
+            -0.01156956513855431,
+            0.007588049215394461
+          ],
+          "segno": "0",
+          "categoria": "inconclusivo",
+          "perimetro": "origini con eta' > 1 settimana",
+          "nota": "secondaria: k = 200"
+        }
+      },
+      "congelate": {
+        "F0-C": {
+          "media": 0.08068542873675755,
+          "ic_con_nodi": [
+            0.0543290665834505,
+            0.10576649137025823
+          ],
+          "segno": "+",
+          "categoria": "inferiorita'",
+          "perimetro": "tutte le origini dopo t1"
+        },
+        "F0p-C": {
+          "media": 0.002446856690757171,
+          "ic_con_nodi": [
+            -0.0038854383090959287,
+            0.008397433326130445
+          ],
+          "segno": "0",
+          "categoria": "inconclusivo",
+          "perimetro": "tutte le origini dopo t1"
+        },
+        "Fp_672-C": {
+          "media": -0.03596100084064302,
+          "ic_con_nodi": [
+            -0.04303430113523659,
+            -0.029343760110266705
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "perimetro": "origini con eta' > 1 settimana"
+        },
+        "Fp_672-A": {
+          "media": -0.001931170337246657,
+          "ic_con_nodi": [
+            -0.011753010008664048,
+            0.007441382848069677
+          ],
+          "segno": "0",
+          "categoria": "inconclusivo",
+          "perimetro": "origini con eta' > 1 settimana"
+        },
+        "A-C": {
+          "media": -0.03913576177347822,
+          "ic_con_nodi": [
+            -0.04984959043765474,
+            -0.02802077224600761
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "perimetro": "tutte le origini dopo t1"
+        }
+      },
+      "pubblicate": {
+        "F0-C": {
+          "media": 0.07832186370743077,
+          "ic_con_nodi": [
+            0.05379790540337397,
+            0.10242675899858238
+          ],
+          "celle": 36,
+          "fonte": "protocol/e14b/congelata/e14b_livelli_congelata.json",
+          "scarto_da_congelata_54": -0.002363565029326775
+        },
+        "F0p-C": {
+          "media": 0.001488747964331294,
+          "ic_con_nodi": [
+            -0.0047794646767606586,
+            0.007192458616264169
+          ],
+          "celle": 36,
+          "fonte": "protocol/e14b/congelata/e14b_livelli_congelata.json",
+          "scarto_da_congelata_54": -0.000958108726425877
+        },
+        "A-C": {
+          "media": -0.03835925722998268,
+          "ic_con_nodi": [
+            -0.048714793667456395,
+            -0.027562524226456494
+          ],
+          "celle": 36,
+          "fonte": "protocol/e14b/congelata/e14b_livelli_congelata.json",
+          "scarto_da_congelata_54": 0.0007765045434955375
+        },
+        "(F0-C)/(A-C)": {
+          "media": -2.0417982349828243,
+          "ic_con_nodi": [
+            -3.0571265385462083,
+            -1.347528581951343
+          ],
+          "celle": 36,
+          "fonte": "protocol/e14b/congelata/e14b_livelli_congelata.json"
+        },
+        "Fp_672-C": {
+          "media": -0.03640755593908268,
+          "ic_con_nodi": [
+            -0.0437499592947286,
+            -0.029736921793464148
+          ],
+          "celle": null,
+          "fonte": "e3bis_risultati.json confronti[Melbourne/Fpw-C]",
+          "scarto_da_congelata_54": -0.00044655509843966046
+        }
+      },
+      "secondarie_settimana": {
+        "F0-C": {
+          "media": 0.08781159254944437,
+          "ic_con_nodi": [
+            0.061523085949208654,
+            0.11332673834549206
+          ],
+          "segno": "+",
+          "categoria": "inferiorita'"
+        },
+        "F0p-C": {
+          "media": 0.0034674735278558133,
+          "ic_con_nodi": [
+            -0.002153887953580533,
+            0.008468108851782013
+          ],
+          "segno": "0",
+          "categoria": "inconclusivo"
+        },
+        "A-C": {
+          "media": -0.03835056591734454,
+          "ic_con_nodi": [
+            -0.051092848102137794,
+            -0.024966450602480948
+          ],
+          "segno": "-",
+          "categoria": "superiorita'"
+        },
+        "A-C_A": {
+          "media": -0.03178751204545727,
+          "ic_con_nodi": [
+            -0.043184913497921064,
+            -0.01950300949261875
+          ],
+          "segno": "-",
+          "categoria": "superiorita'"
+        },
+        "C_A-C": {
+          "media": -0.00656305387188727,
+          "ic_con_nodi": [
+            -0.01026721319399351,
+            -0.003750087006918903
+          ],
+          "segno": "-",
+          "categoria": "superiorita'"
+        }
+      },
+      "rapporti": {
+        "(F0-C)/(A-C)": {
+          "media": -1.7348618854203866,
+          "ic_con_nodi": [
+            -2.5128410063432565,
+            -1.1295275678207537
+          ],
+          "numeratore": 0.0781145735935519,
+          "denominatore": -0.04502639331120206,
+          "repliche_den_senza_divario": 0
+        },
+        "(F0-C)/(A-C_A)": {
+          "media": -2.131360471341679,
+          "ic_con_nodi": [
+            -3.1929767585432414,
+            -1.3649571775385698
+          ],
+          "numeratore": 0.0781145735935519,
+          "denominatore": -0.03665009961659804,
+          "repliche_den_senza_divario": 0
+        },
+        "congelata (F0-C)/(A-C)": {
+          "media": -2.0616802913859975,
+          "ic_con_nodi": [
+            -2.9699626317263235,
+            -1.361225406965853
+          ],
+          "numeratore": 0.08068542873675755,
+          "denominatore": -0.03913576177347822,
+          "repliche_den_senza_divario": 0
+        },
+        "(C_A-C)/(A-C)": {
+          "media": 0.18603074949198944,
+          "ic_con_nodi": [
+            0.12071623397709032,
+            0.2722488777807245
+          ],
+          "numeratore": -0.00837629369460402,
+          "denominatore": -0.04502639331120206,
+          "repliche_den_senza_divario": 0
+        }
+      }
+    }
+  },
+  "costi": {
+    "addestramenti": {
+      "E": {
+        "n": 54,
+        "minuti_mediana": 82.869123818477,
+        "ore_macchina": 67.0089473104477
+      },
+      "E1": {
+        "n": 54,
+        "minuti_mediana": 83.14902897079786,
+        "ore_macchina": 66.90544392387072
+      },
+      "C": {
+        "n": 54,
+        "minuti_mediana": 83.27395681738854,
+        "ore_macchina": 67.33165872752666
+      },
+      "A": {
+        "n": 54,
+        "minuti_mediana": 97.79681058923403,
+        "ore_macchina": 78.84298859741952
+      },
+      "C_A": {
+        "n": 54,
+        "minuti_mediana": 97.48707810441653,
+        "ore_macchina": 78.7552100525962
+      }
+    },
+    "adattamenti": 54,
+    "esito_e15": {
+      "completate": 270,
+      "fallite": [],
+      "gia_fatte": 0,
+      "ore_calendario": 22.90218819134765,
+      "ore_macchina": 358.8445319965813,
+      "statica": "espansiva",
+      "ambiente": {
+        "piattaforma": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+        "processore": "aarch64",
+        "nuclei_logici": 20,
+        "python": "3.12.3",
+        "torch": "2.12.1+cu130",
+        "numpy": "2.5.1",
+        "backend": "cpu",
+        "fili_torch": 1,
+        "nota": "numero di fili verificato ininfluente sulla numerica: impronte identiche con 1, 2, 4 e 14 fili"
+      },
+      "lavoratori": 16,
+      "fili": 1,
+      "istante": "2026-10-28T08:58:52.899316+00:00"
+    },
+    "pilota": {
+      "pilota_tempi_16.json": {
+        "contesto": "Londra",
+        "n": 16,
+        "lavoratori": 16,
+        "fili": 1,
+        "statica": "causale",
+        "ambiente": {
+          "piattaforma": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+          "processore": "aarch64",
+          "nuclei_logici": 20,
+          "python": "3.12.3",
+          "torch": "2.12.1+cu130",
+          "numpy": "2.5.1",
+          "backend": "cpu",
+          "fili_torch": 1,
+          "nota": "numero di fili verificato ininfluente sulla numerica: impronte identiche con 1, 2, 4 e 14 fili"
+        },
+        "minuti": {
+          "min": 86.72942032416661,
+          "mediana": 87.17203307350476,
+          "max": 87.42124352057775
+        },
+        "parete_min": 87.44830051263173,
+        "completati": 16,
+        "falliti": 0,
+        "stima_campagna": {
+          "addestramenti": 270,
+          "ore": 24.517134301923214,
+          "regola": "270 / lavoratori x mediana dei minuti per addestramento"
+        },
+        "istante": "2026-10-22T08:32:20.401053+00:00"
+      }
+    }
+  },
+  "esito": {
+    "confermate_per_citta": {
+      "Madrid": true,
+      "Londra": true,
+      "Melbourne": true
+    },
+    "tutte_confermate": true,
+    "regola": "se le cinque dichiarazioni sono confermate in ogni citta', la campagna causale e' il risultato principale e la congelata va nel supplemento; altrimenti il testo segue il verdetto causale e lo dice",
+    "cambiano": []
+  },
+  "controllo_scarto_zero": {
+    "cella": {
+      "contesto": "Madrid",
+      "partizione": 0,
+      "seme": 201,
+      "braccio": "C"
+    },
+    "statica": "congelata",
+    "wce_congelata": 0.9414093038567413,
+    "wce_riprodotta": 0.9414093038567413,
+    "scarto_assoluto": 0.0,
+    "scarto_relativo": 0.0,
+    "punto_identico_al_bit": true,
+    "scarto_massimo_parametri": 0.0,
+    "macchina": "macOS-26.6.2-arm64-arm-64bit",
+    "fili": 4,
+    "riferimento": "results/evoluzione/inserimento_griglia/C_Madrid_p0_s201.json",
+    "riprodotto": "results/evoluzione/e15_controllo_congelata/C_Madrid_p0_s201.json",
+    "secondi": 3903.551577091217,
+    "istante": "2026-10-27T09:56:09.604839+00:00",
+    "verdetto": "scarto zero"
+  },
+  "preflight": {
+    "celle": 54,
+    "rosse": [],
+    "statica": "espansiva"
+  },
+  "impronte_celle": {
+    "Londra/p0/s201": {
+      "E": "82a57aa36e75440d",
+      "E1": "6ce355368e973a46",
+      "C": "f7ce4fff565aa660",
+      "A": "41ac37444b08fabd",
+      "C_A": "59aed6f94260d32e",
+      "impronta_E": "d75545783ecc97ba"
+    },
+    "Londra/p0/s202": {
+      "E": "19827f682e2aaa14",
+      "E1": "b2b2a476ccec027c",
+      "C": "b2169d994908a36b",
+      "A": "acc423175c94cd81",
+      "C_A": "7d0fab97e0195b8c",
+      "impronta_E": "060b0de108084023"
+    },
+    "Londra/p0/s203": {
+      "E": "e330a6c71537c21f",
+      "E1": "d158b373bc3a8df7",
+      "C": "6c0dd8e0dc14274a",
+      "A": "286becf26f4c3d26",
+      "C_A": "8822c20a9ca50c57",
+      "impronta_E": "accc5e777ea9bfb7"
+    },
+    "Londra/p0/s204": {
+      "E": "e4d86bf7dc4ef756",
+      "E1": "1995874178de875c",
+      "C": "82e2ecd8c84d0655",
+      "A": "78645b9349ba8621",
+      "C_A": "b6aaa3b7cc1cb139",
+      "impronta_E": "8aa3361354e7e380"
+    },
+    "Londra/p0/s205": {
+      "E": "5d39535d49093fcc",
+      "E1": "a62c9463673827bb",
+      "C": "dbd2145b00db6324",
+      "A": "ff4146201b3a2a3a",
+      "C_A": "119ca56d84941352",
+      "impronta_E": "332ca33a9e469f13"
+    },
+    "Londra/p0/s206": {
+      "E": "bea93ca1db10d886",
+      "E1": "ad401da817c6a010",
+      "C": "cb722502fdafd0cb",
+      "A": "74f5ac30f8255446",
+      "C_A": "e0b7997bc89d00a1",
+      "impronta_E": "99f44dd1fffc470c"
+    },
+    "Londra/p1/s201": {
+      "E": "f42b475e93964d12",
+      "E1": "d11f65e0f5d7b089",
+      "C": "6c76825d3d44b51c",
+      "A": "b1042ec5676a270b",
+      "C_A": "fc1596ec9b13e3c0",
+      "impronta_E": "40350e1d4d7dc606"
+    },
+    "Londra/p1/s202": {
+      "E": "e7f83209e8a0c8b1",
+      "E1": "8fce29de542884db",
+      "C": "a8a018e6e0d079d9",
+      "A": "918173ddb1126df7",
+      "C_A": "ea7013fd4266d37f",
+      "impronta_E": "992c8c22c70472c2"
+    },
+    "Londra/p1/s203": {
+      "E": "a2ca08ae21de68be",
+      "E1": "f8b62f07016ac64b",
+      "C": "1d75064f005240e1",
+      "A": "a5cb965eeedc3b7b",
+      "C_A": "1d9bbb69fe0f9f0a",
+      "impronta_E": "869ab663733e4055"
+    },
+    "Londra/p1/s204": {
+      "E": "ac6d8848bddea9e1",
+      "E1": "47bd33e1dd35bc85",
+      "C": "fa4d88fa175d88d8",
+      "A": "c0f636c78f23eddd",
+      "C_A": "19b7a5be4d58f2cc",
+      "impronta_E": "d808ba98855bc158"
+    },
+    "Londra/p1/s205": {
+      "E": "d996e0d11a90d0bb",
+      "E1": "1fe21e047f0eda03",
+      "C": "67fee272c7cd1cf2",
+      "A": "9a500986558231e3",
+      "C_A": "6410000605e35c40",
+      "impronta_E": "095e86b9513c06e6"
+    },
+    "Londra/p1/s206": {
+      "E": "d7ae36e5ba5a4de9",
+      "E1": "c219aad00d9d7cde",
+      "C": "68ef3564314a053c",
+      "A": "c6d27d316433f12f",
+      "C_A": "5fac77e99ac8c937",
+      "impronta_E": "9fa14d76f654e276"
+    },
+    "Londra/p2/s201": {
+      "E": "6e8c6d006d27640b",
+      "E1": "c7a94068a7ece1c0",
+      "C": "29df7ad61d3c1593",
+      "A": "b46122ae9e06fba8",
+      "C_A": "a896a5ac264ed7dc",
+      "impronta_E": "46738a24e67edad9"
+    },
+    "Londra/p2/s202": {
+      "E": "e46e5d77669858c6",
+      "E1": "1676b7beed675a3e",
+      "C": "af1ef4e6b94ad87c",
+      "A": "bba38f68bb71b3d6",
+      "C_A": "cc0be70ffbef2792",
+      "impronta_E": "705dffd6429ed1ee"
+    },
+    "Londra/p2/s203": {
+      "E": "e0567eb052b1c906",
+      "E1": "37826923a9ed0524",
+      "C": "e0f88f81d3592564",
+      "A": "73b99b9db91bb09c",
+      "C_A": "a732bd685e1a1be6",
+      "impronta_E": "f0737171708feab2"
+    },
+    "Londra/p2/s204": {
+      "E": "bfd468e881a646f4",
+      "E1": "2f9ef63822d85d1e",
+      "C": "cc6cf38d9fabbc02",
+      "A": "5e9a8d26532a7d6f",
+      "C_A": "da5078b4cb5ba5e1",
+      "impronta_E": "05c9cb81f24c0801"
+    },
+    "Londra/p2/s205": {
+      "E": "7f376f0bff0340b9",
+      "E1": "540f3fb344f95aa9",
+      "C": "7b19f43eba3dcc74",
+      "A": "6960b50380012a0d",
+      "C_A": "30d9b68e610261fd",
+      "impronta_E": "c53aa573d9ded550"
+    },
+    "Londra/p2/s206": {
+      "E": "5495b9e60b027d9d",
+      "E1": "93d4c3f626b78b4e",
+      "C": "96db7058f6b519b5",
+      "A": "96d3f00a8bac3fd1",
+      "C_A": "607679fd289df539",
+      "impronta_E": "6f5ed193977dd5d6"
+    },
+    "Madrid/p0/s201": {
+      "E": "cea40c281be87405",
+      "E1": "062a52e90e99cf56",
+      "C": "ddfd5355a7128aeb",
+      "A": "f1d7cdfb061ce0c4",
+      "C_A": "b45ef60781bebcf9",
+      "impronta_E": "a5a358a93a1b94cb"
+    },
+    "Madrid/p0/s202": {
+      "E": "803e2b50178539d8",
+      "E1": "0080fac6d402cedf",
+      "C": "49e7aef034930fda",
+      "A": "89f47d099e36806f",
+      "C_A": "0a6ee63177d769dd",
+      "impronta_E": "2e48528abdcffa83"
+    },
+    "Madrid/p0/s203": {
+      "E": "de172e430033636b",
+      "E1": "0bd21c07c18d8e53",
+      "C": "38c6ccc7b1d24f24",
+      "A": "66703324eb05cc78",
+      "C_A": "40432421af679bcd",
+      "impronta_E": "ea46d312c01c0949"
+    },
+    "Madrid/p0/s204": {
+      "E": "3e9f3e4b5494546c",
+      "E1": "90c84967d055a67e",
+      "C": "27682c5365325c33",
+      "A": "8fbdd1cfbe8dcdb8",
+      "C_A": "179c8ba028ce0597",
+      "impronta_E": "07e3d1127c1d64c3"
+    },
+    "Madrid/p0/s205": {
+      "E": "2a2426de90300885",
+      "E1": "793bc744d13bdf59",
+      "C": "d2631a3998c2bd32",
+      "A": "c0d0a06fab4c7420",
+      "C_A": "1bbda0d399b3ced7",
+      "impronta_E": "06b1a484549116a1"
+    },
+    "Madrid/p0/s206": {
+      "E": "a5db597b42ddf69e",
+      "E1": "70cf4e6b200013d4",
+      "C": "11131efb9122db5a",
+      "A": "dce8b74c116a5ef5",
+      "C_A": "1a02c7083a1f165d",
+      "impronta_E": "6a18a59e444bab5c"
+    },
+    "Madrid/p1/s201": {
+      "E": "47dffe526b9eed44",
+      "E1": "fb448b0799014622",
+      "C": "4c4f969956f7a0c1",
+      "A": "7797a4a29c2bf014",
+      "C_A": "aec8fba8a5eb52f3",
+      "impronta_E": "e40202424a81644b"
+    },
+    "Madrid/p1/s202": {
+      "E": "48c12823e98d608a",
+      "E1": "2b722e572064d92e",
+      "C": "d3a3bb9baf1602ae",
+      "A": "371f421283ea0728",
+      "C_A": "d3f8670e299071c7",
+      "impronta_E": "76464d6e1e22b39f"
+    },
+    "Madrid/p1/s203": {
+      "E": "bdb41c2262c652f1",
+      "E1": "cba766c6d475f825",
+      "C": "6816ea93d786bbac",
+      "A": "34f53162f137e56a",
+      "C_A": "f3adc8fa5240f68b",
+      "impronta_E": "885b0397f21b6e4e"
+    },
+    "Madrid/p1/s204": {
+      "E": "3c1c8492f0a8fa19",
+      "E1": "95f1a730b4e5a018",
+      "C": "28fa1505a8351f46",
+      "A": "fc65680a47b30293",
+      "C_A": "2217227414c0c8d7",
+      "impronta_E": "ab40695dddd25425"
+    },
+    "Madrid/p1/s205": {
+      "E": "82a099b007f4f754",
+      "E1": "b3b3732033f542a9",
+      "C": "ee8c684de40e54bc",
+      "A": "a363c4d2f3907f45",
+      "C_A": "71b1d44c7f38d076",
+      "impronta_E": "595f4c755fb41263"
+    },
+    "Madrid/p1/s206": {
+      "E": "22eda8af195f1fba",
+      "E1": "ceee424f7c6fcc60",
+      "C": "d0e48b97a9c0fa81",
+      "A": "032c46d6c4bed68b",
+      "C_A": "ec6ebb1f55f79de2",
+      "impronta_E": "b36d390a71f5827f"
+    },
+    "Madrid/p2/s201": {
+      "E": "5419847bab47a287",
+      "E1": "9232abfb51fa9305",
+      "C": "e4383e154f38caf2",
+      "A": "7cfb21524b636629",
+      "C_A": "f6c029617d847db7",
+      "impronta_E": "408791064129ee03"
+    },
+    "Madrid/p2/s202": {
+      "E": "be1d6845ed14b077",
+      "E1": "2418999bee62986c",
+      "C": "0f56dd3c543cb4d7",
+      "A": "0c9430a1d365d7b4",
+      "C_A": "6b486a3bf294b94c",
+      "impronta_E": "aaaf933de6ee75bf"
+    },
+    "Madrid/p2/s203": {
+      "E": "17d9afd599fd2f0d",
+      "E1": "f7e55e77ddd63506",
+      "C": "a7b01eab80e38dc9",
+      "A": "e7129d774aeec2c1",
+      "C_A": "29cd40b27744a109",
+      "impronta_E": "158862731c4a5b8c"
+    },
+    "Madrid/p2/s204": {
+      "E": "b20e541c083aa53c",
+      "E1": "03289cdb774bf8d9",
+      "C": "1d8f6eee352be9b5",
+      "A": "2ebe3633678f7d30",
+      "C_A": "f8765838bb778523",
+      "impronta_E": "3f48735066f6c20a"
+    },
+    "Madrid/p2/s205": {
+      "E": "4f5538d71846f44e",
+      "E1": "25f1c204b9d84982",
+      "C": "0da4103ba7c58817",
+      "A": "e3d47495d2fcd07b",
+      "C_A": "3e56b9eb7f7c0c33",
+      "impronta_E": "c63147015e561314"
+    },
+    "Madrid/p2/s206": {
+      "E": "e55dec3b0fd3e76d",
+      "E1": "ffd4b58f49918107",
+      "C": "ed8bfd8f46d6cbda",
+      "A": "c86e36b728614807",
+      "C_A": "2c3fb439363b1393",
+      "impronta_E": "d0a37f8cae4fa4e3"
+    },
+    "Melbourne/p0/s201": {
+      "E": "e4db93ee3a1f1a11",
+      "E1": "6681488243998774",
+      "C": "171cb304a5a0e25d",
+      "A": "0ec13ed59b0d3054",
+      "C_A": "19aa8c307963cc1e",
+      "impronta_E": "def850d5f0723b43"
+    },
+    "Melbourne/p0/s202": {
+      "E": "de560b2cd816724e",
+      "E1": "ed49c44216dad123",
+      "C": "dcd2f231bf595d83",
+      "A": "595862dd66c1c38e",
+      "C_A": "1196f1a6175a1988",
+      "impronta_E": "c6a2eff24b3130ec"
+    },
+    "Melbourne/p0/s203": {
+      "E": "627cdea2b08f08c9",
+      "E1": "c5ec0b56537836d1",
+      "C": "05a7df7efccac717",
+      "A": "624a3fb842a5258b",
+      "C_A": "90eed998995ecacd",
+      "impronta_E": "3f3f97267ef706a2"
+    },
+    "Melbourne/p0/s204": {
+      "E": "12ac99a64625e39f",
+      "E1": "6b0ef23eedbedcb0",
+      "C": "2aec1fedbdec73e1",
+      "A": "2e70f20e1b50c071",
+      "C_A": "896d4af0b507bd6b",
+      "impronta_E": "6f97f6055dc228c2"
+    },
+    "Melbourne/p0/s205": {
+      "E": "37f1aa693ad2df65",
+      "E1": "5351e88dc650e33d",
+      "C": "aa0b42fb170a1eb1",
+      "A": "d84d791674725e3a",
+      "C_A": "c06bb92097122e1c",
+      "impronta_E": "113499ef75938fdb"
+    },
+    "Melbourne/p0/s206": {
+      "E": "4b82108400717008",
+      "E1": "f668a9b76f1d0bcc",
+      "C": "d567c78536e67b3b",
+      "A": "ae290cca68821e89",
+      "C_A": "fa140a7f3c586a38",
+      "impronta_E": "0c77617a870472ef"
+    },
+    "Melbourne/p1/s201": {
+      "E": "2ce394a1f27ff616",
+      "E1": "6bb6332b6ee0695e",
+      "C": "93ee0a6f9e8526d5",
+      "A": "d4721052d84b536b",
+      "C_A": "bc29080edf93081a",
+      "impronta_E": "1a51054ec77884fc"
+    },
+    "Melbourne/p1/s202": {
+      "E": "378b682250bd1fae",
+      "E1": "ffb7e2a3a2f5d233",
+      "C": "2ab28bd6d1eb6e32",
+      "A": "7fa01daee12b78e2",
+      "C_A": "836a9b441f066866",
+      "impronta_E": "e262e7ac9c98d6e6"
+    },
+    "Melbourne/p1/s203": {
+      "E": "4e7f23b4f50e5b76",
+      "E1": "e9c67be62f9a9901",
+      "C": "c9db98ade9588b7d",
+      "A": "7146b25db79be8dc",
+      "C_A": "f3602190601582bc",
+      "impronta_E": "00c3cc2714e9b485"
+    },
+    "Melbourne/p1/s204": {
+      "E": "d3986661d5c9ae2a",
+      "E1": "7d57dc45a778703d",
+      "C": "55758263abb6db7b",
+      "A": "526eb05b2b033fd6",
+      "C_A": "afb8aaf475650ecd",
+      "impronta_E": "50ad029938ac1932"
+    },
+    "Melbourne/p1/s205": {
+      "E": "d10e7d6b6c6b4e63",
+      "E1": "bde573be38a1d690",
+      "C": "873fd7f75d483d64",
+      "A": "54a9cfe935b6a1b0",
+      "C_A": "bd1496f568a2605f",
+      "impronta_E": "c30f2f7e54220e04"
+    },
+    "Melbourne/p1/s206": {
+      "E": "971f518b5f06efc9",
+      "E1": "4224b207258c7784",
+      "C": "eaf8d71e833b7231",
+      "A": "6c938cd9f4fbfd02",
+      "C_A": "06c36fbe108f3248",
+      "impronta_E": "dfc7efd0bd3ebfc1"
+    },
+    "Melbourne/p2/s201": {
+      "E": "cf2a50c7b288baf3",
+      "E1": "c5707b75993430f7",
+      "C": "6723d78955afbc7f",
+      "A": "c2dcc8adec105ce9",
+      "C_A": "15d359f8678d7e5c",
+      "impronta_E": "0691e4b18b4c56d2"
+    },
+    "Melbourne/p2/s202": {
+      "E": "2beea7eb3cb882ff",
+      "E1": "2ae2a65285e660b3",
+      "C": "ea7779d0e133ab4f",
+      "A": "f2e95e94a10212d9",
+      "C_A": "12589b04a29abfba",
+      "impronta_E": "44c626e7a82164a9"
+    },
+    "Melbourne/p2/s203": {
+      "E": "a2b2eb6203116cd0",
+      "E1": "6e414aa6ffd39a67",
+      "C": "1ea8d5dbc7790fd0",
+      "A": "c89d7dcf602f2d4b",
+      "C_A": "d261d0da4919b06e",
+      "impronta_E": "b8957bf352479b2b"
+    },
+    "Melbourne/p2/s204": {
+      "E": "8bee404d6221f0bf",
+      "E1": "a9cd6a086c103028",
+      "C": "59d612e5d6f96bb3",
+      "A": "34b741acde41dbf7",
+      "C_A": "bc145ada054505e2",
+      "impronta_E": "35a9ae2cc096f749"
+    },
+    "Melbourne/p2/s205": {
+      "E": "7df7c2dc375b1c2d",
+      "E1": "c78f891139c49480",
+      "C": "bc188b3f47956485",
+      "A": "aaacaf73f5d34d4a",
+      "C_A": "1cf766d713a36dc1",
+      "impronta_E": "01ebf9b90ff7ea0f"
+    },
+    "Melbourne/p2/s206": {
+      "E": "5c9cdd7d8e78559b",
+      "E1": "05378f574cc01b6f",
+      "C": "bd63f124764506d1",
+      "A": "dd0a2daa8d9791ed",
+      "C_A": "8d31c5a72076a77a",
+      "impronta_E": "fb9dfd9aa5b8f2d7"
+    }
+  },
+  "impronte_celle_validazione_Ep": {
+    "Londra/p0/s201": "e5d0f3f723b7012d",
+    "Londra/p0/s202": "700afdafca0519e6",
+    "Londra/p0/s203": "0fae5c1d25a8ae01",
+    "Londra/p0/s204": "70ae1f05df99157d",
+    "Londra/p0/s205": "a8e13ceaf7488ebe",
+    "Londra/p0/s206": "3193ab9f98a170d7",
+    "Londra/p1/s201": "e75de342d290b716",
+    "Londra/p1/s202": "8bd560741245278d",
+    "Londra/p1/s203": "734d84ef914ab8bb",
+    "Londra/p1/s204": "bfcc375403f4432e",
+    "Londra/p1/s205": "a6366cad51e70b3d",
+    "Londra/p1/s206": "c9e0c803b91d114d",
+    "Londra/p2/s201": "20391cb0e7f6a13e",
+    "Londra/p2/s202": "70b2c2e394a3f180",
+    "Londra/p2/s203": "bdd4b66b0e1e2ff3",
+    "Londra/p2/s204": "7651baab6fed477b",
+    "Londra/p2/s205": "fcd961af705d398e",
+    "Londra/p2/s206": "432c8053ecf12a22",
+    "Madrid/p0/s201": "441fe9768847b554",
+    "Madrid/p0/s202": "d9f98a7819dba3cc",
+    "Madrid/p0/s203": "7a4d9c1ea7cc1c47",
+    "Madrid/p0/s204": "cbd54398749bcfa9",
+    "Madrid/p0/s205": "f89cb996e1570f78",
+    "Madrid/p0/s206": "0544d1df141b0051",
+    "Madrid/p1/s201": "cbe8d630a1073ae9",
+    "Madrid/p1/s202": "50b9de898e6136c6",
+    "Madrid/p1/s203": "97d1ac5400c3bec3",
+    "Madrid/p1/s204": "b8173c0a8509bdca",
+    "Madrid/p1/s205": "707538cc23498060",
+    "Madrid/p1/s206": "6a4af59d8f342437",
+    "Madrid/p2/s201": "ca722343fdc6dd4a",
+    "Madrid/p2/s202": "65130264fde96c65",
+    "Madrid/p2/s203": "656f0f8526427226",
+    "Madrid/p2/s204": "d87aab5a62b427d1",
+    "Madrid/p2/s205": "b6813b6e84a6a972",
+    "Madrid/p2/s206": "2313e7a0a39d5f5c",
+    "Melbourne/p0/s201": "e506bf99e72fda2d",
+    "Melbourne/p0/s202": "3d725a45d12d66ce",
+    "Melbourne/p0/s203": "32a91a13bea81ec2",
+    "Melbourne/p0/s204": "eb070f5b80fbf323",
+    "Melbourne/p0/s205": "6b1140312074486b",
+    "Melbourne/p0/s206": "dadfbb2332fb507e",
+    "Melbourne/p1/s201": "c6774c58322a1218",
+    "Melbourne/p1/s202": "10f5461e561fb01d",
+    "Melbourne/p1/s203": "196de3e4aa0180a6",
+    "Melbourne/p1/s204": "9337593338399222",
+    "Melbourne/p1/s205": "4c0a39458f3f2d27",
+    "Melbourne/p1/s206": "5c774b41d5964dd7",
+    "Melbourne/p2/s201": "7047600dcc2df626",
+    "Melbourne/p2/s202": "168bc2d4729e5074",
+    "Melbourne/p2/s203": "ee650d3120d901c5",
+    "Melbourne/p2/s204": "7a220b3709ac13dd",
+    "Melbourne/p2/s205": "22f42304a99e1fec",
+    "Melbourne/p2/s206": "a7a06109c62fcbcd"
+  },
+  "istante": "2026-10-28T11:47:47.107547+00:00"
+}
