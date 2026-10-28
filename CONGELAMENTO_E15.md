@@ -1,6 +1,6 @@
 # CONGELAMENTO E15 — campagna causale end-to-end (statica a finestra espansiva)
 
-Generato da `genera_congelamento_e15.py` al commit `811bce9`, 2026-10-28 11:47 UTC. Protocollo `protocol/E15.md` (impronta `31d731567da30bb4`), firmato prima di ogni numero; `e15_risultati.json` impronta `269fe44c9d4a0b1c`. Statica «espansiva»: iniziali con copertura media su [0, t₀); nuovo sensore con finestra espansiva da t₀ all'origine corrente, minimo 24 h. Tre citta', episodio 1, partizioni [0, 1, 2], semi [201, 202, 203, 204, 205, 206]: 54 celle; 4000 ricampionamenti congiunti (partizioni × semi × sensori, schema di E4), seme 20261023, le STESSE estrazioni per le differenze causali e per quelle congelate. Letture del protocollo del 27/10 (in `protocol/E15.md`): per A e C_A i sensori di prova sono iniziali a tutti gli effetti, copertura su [0, t₀) in addestramento, selezione e valutazione; la finestra minima di 24 h e l'espansione valgono per C, F₀, F₀′, F′ e per la selezione di k sui nodi di validazione.
+Generato da `genera_congelamento_e15.py` al commit `484a08a`, 2026-10-28 11:55 UTC. Protocollo `protocol/E15.md` (impronta `31d731567da30bb4`), firmato prima di ogni numero; `e15_risultati.json` impronta `0cf754b66d6a219f`. Statica «espansiva»: iniziali con copertura media su [0, t₀); nuovo sensore con finestra espansiva da t₀ all'origine corrente, minimo 24 h. Tre citta', episodio 1, partizioni [0, 1, 2], semi [201, 202, 203, 204, 205, 206]: 54 celle; 4000 ricampionamenti congiunti (partizioni × semi × sensori, schema di E4), seme 20261023, le STESSE estrazioni per le differenze causali e per quelle congelate. Letture del protocollo del 27/10 (in `protocol/E15.md`): per A e C_A i sensori di prova sono iniziali a tutti gli effetti, copertura su [0, t₀) in addestramento, selezione e valutazione; la finestra minima di 24 h e l'espansione valgono per C, F₀, F₀′, F′ e per la selezione di k sui nodi di validazione. **Rigenerato il 28/10/2026** con l'addendum di sola analisi del revisore (sezione 7-bis): nuove impronte, numeri precedenti invariati.
 
 Perimetro: origini comuni dopo t1 (fasce d'eta' 1-3); per i confronti a una settimana, origini con eta' > 1 settimana (fascia 3). Congelate: predizioni_e5/ep1_* (C, A, F0', F'(1 sett.)) e predizioni_e4/prova_* (F0): stesse celle, stessi nodi, stesse origini, stesse estrazioni.
 
@@ -116,8 +116,18 @@ k scelto per citta' fra 10, 50, 200 aggiornamenti (passo congelato) con la wCE m
 Lancio: 270 addestramenti (270 nell'ultima sessione, 0 gia' fatte, 0 fallite), 16 lavoratori × 1 filo/i, 22.9 h di calendario e 358.8 ore-macchina nell'ultima sessione; piattaforma `Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39`, 20 nuclei, torch 2.12.1+cu130, numpy 2.5.1. Adattamenti: 54 celle × 2 sulla prova (F′(1 sett.), F′(1 sett.; k)) + 3 k sulla validazione.
 Pilota dichiarato (`E_pilota_e15/pilota_tempi_16.json`): 16 addestramenti E su Londra a 16 lavoratori, mediana 87.2 min, stima 24.5 h per 270 addestramenti, piattaforma `Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39`.
 
+## 7-bis. Addendum del 28/10/2026 (revisore, sola analisi; correzione datata)
+
+Stesso congelamento rigenerato con due misure in piu', dalle stesse repliche; i numeri delle altre sezioni non cambiano. **Recupero causale** (E17): (L_C − L_F′(1 sett.))/(L_C − L_A) sulle origini con eta' > 1 settimana, rapporto delle medie nella stessa replica; anche con A − C_A al denominatore, (L_C − L_F′(1 sett.))/(L_C_A − L_A). **Riduzione del costo da parte del token**: 1 − (F₀′ − C)/(F₀ − C), tutte le origini dopo t₁.
+
+| citta' | recupero causale, (L_C − L_A) | recupero causale, (L_C_A − L_A) | recupero congelato, 54 celle | riduzione del token, causale | riduzione del token, congelata 54 celle | repliche con denominatore ≤ 0 (rec. c. / rec. c._A / rec. cong. / rid. c. / rid. cong.) |
+|---|---|---|---|---|---|---|
+| Madrid | 0.796 [0.692, 0.890] | 0.822 [0.708, 0.929] | 0.800 [0.705, 0.888] | 0.895 [0.860, 0.925] | 0.894 [0.859, 0.925] | 0 / 0 / 0 / 0 / 0 |
+| Londra | 0.786 [0.708, 0.858] | 0.813 [0.734, 0.883] | 0.783 [0.706, 0.856] | 0.717 [0.620, 0.795] | 0.700 [0.577, 0.781] | 0 / 0 / 0 / 0 / 0 |
+| Melbourne | 1.044 [0.840, 1.451] | 1.259 [0.966, 1.889] | 1.057 [0.831, 1.527] | 0.997 [0.928, 1.110] | 0.970 [0.908, 1.062] | 0 / 0 / 0 / 0 / 0 |
+
 ## 8. Impronte
 
 - Fonti delle pubblicate: `e14b_livelli_congelata.json` `916c2e5883c81b9c`, `e3bis_risultati.json` `2db2dd9ffece2072`.
-- `results/evoluzione/e15_risultati.json` `269fe44c9d4a0b1c` (copia in `protocol/e15/`); `protocol/E15.md` `31d731567da30bb4`; `results/evoluzione/congelamento_e15.json` `e5e42e6fb0e30fe7`.
+- `results/evoluzione/e15_risultati.json` `0cf754b66d6a219f` (copia committata in `protocol/e15/`); `protocol/E15.md` `31d731567da30bb4`; `results/evoluzione/congelamento_e15.json` `1182cb5fc264b3c4`.
 - Punti di controllo per cella (sha256, 16 esadecimali) in `e15_risultati.json` → `impronte_celle` (54 celle × 5 bracci, piu' l'impronta del punto E).

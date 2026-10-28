@@ -509,6 +509,65 @@
           "denominatore": -0.04011727836481538,
           "repliche_den_senza_divario": 0
         }
+      },
+      "addendum": {
+        "data": "2026-10-28",
+        "recupero": {
+          "definizione": "(L_C - L_F'(1 sett.)) / (L_C - L_A) sulle origini con eta' > 1 settimana (E17); variante con A - C_A al denominatore: (L_C - L_F'(1 sett.)) / (L_C_A - L_A)",
+          "causale (L_C-L_A)": {
+            "media": 0.7960580762535888,
+            "ic_con_nodi": [
+              0.6919558811698642,
+              0.8899721209110784
+            ],
+            "numeratore": 0.03113123792531347,
+            "denominatore": 0.03910674215105436,
+            "repliche_den_non_positivo": 0
+          },
+          "causale (L_C_A-L_A)": {
+            "media": 0.8223409289645703,
+            "ic_con_nodi": [
+              0.7082643358715954,
+              0.9293915171420404
+            ],
+            "numeratore": 0.03113123792531347,
+            "denominatore": 0.03785685088605717,
+            "repliche_den_non_positivo": 0
+          },
+          "congelata 54 celle (L_C-L_A)": {
+            "media": 0.8000542817195673,
+            "ic_con_nodi": [
+              0.7049057385550095,
+              0.8877861371794475
+            ],
+            "numeratore": 0.030798642591370773,
+            "denominatore": 0.03849569122381902,
+            "repliche_den_non_positivo": 0
+          }
+        },
+        "riduzione_token": {
+          "definizione": "1 - (F0' - C) / (F0 - C), tutte le origini dopo t1: la quota del costo di F0 rispetto a C che il token toglie",
+          "causale": {
+            "media": 0.8949141500721788,
+            "ic_con_nodi": [
+              0.8601820297147053,
+              0.9251059653294195
+            ],
+            "F0p-C": 0.007839610895521654,
+            "F0-C": 0.07460196497346061,
+            "repliche_den_non_positivo": 0
+          },
+          "congelata 54 celle": {
+            "media": 0.893985604601404,
+            "ic_con_nodi": [
+              0.8585194709302155,
+              0.9247619968249927
+            ],
+            "F0p-C": 0.007939113573834922,
+            "F0-C": 0.07488712777151829,
+            "repliche_den_non_positivo": 0
+          }
+        }
       }
     },
     "Londra": {
@@ -950,6 +1009,65 @@
           "denominatore": -0.034370345779577205,
           "repliche_den_senza_divario": 0
         }
+      },
+      "addendum": {
+        "data": "2026-10-28",
+        "recupero": {
+          "definizione": "(L_C - L_F'(1 sett.)) / (L_C - L_A) sulle origini con eta' > 1 settimana (E17); variante con A - C_A al denominatore: (L_C - L_F'(1 sett.)) / (L_C_A - L_A)",
+          "causale (L_C-L_A)": {
+            "media": 0.7864420804388682,
+            "ic_con_nodi": [
+              0.707976604371355,
+              0.8575329270302458
+            ],
+            "numeratore": 0.030872692700462778,
+            "denominatore": 0.03925615562589746,
+            "repliche_den_non_positivo": 0
+          },
+          "causale (L_C_A-L_A)": {
+            "media": 0.8131223974855971,
+            "ic_con_nodi": [
+              0.7336068946725638,
+              0.8828315032635246
+            ],
+            "numeratore": 0.030872692700462778,
+            "denominatore": 0.03796807565002491,
+            "repliche_den_non_positivo": 0
+          },
+          "congelata 54 celle (L_C-L_A)": {
+            "media": 0.7831460555567574,
+            "ic_con_nodi": [
+              0.706037371082161,
+              0.8562614284292462
+            ],
+            "numeratore": 0.03062611572287699,
+            "denominatore": 0.039106518516656696,
+            "repliche_den_non_positivo": 0
+          }
+        },
+        "riduzione_token": {
+          "definizione": "1 - (F0' - C) / (F0 - C), tutte le origini dopo t1: la quota del costo di F0 rispetto a C che il token toglie",
+          "causale": {
+            "media": 0.7167833998714008,
+            "ic_con_nodi": [
+              0.6198469068367131,
+              0.7947039598341147
+            ],
+            "F0p-C": 0.013768678715413984,
+            "F0-C": 0.048615366151426476,
+            "repliche_den_non_positivo": 0
+          },
+          "congelata 54 celle": {
+            "media": 0.6998524759112714,
+            "ic_con_nodi": [
+              0.5774682656957131,
+              0.78057394136042
+            ],
+            "F0p-C": 0.014519280605820972,
+            "F0-C": 0.04837381434313892,
+            "repliche_den_non_positivo": 0
+          }
+        }
       }
     },
     "Melbourne": {
@@ -1390,6 +1508,65 @@
           "numeratore": -0.00837629369460402,
           "denominatore": -0.04502639331120206,
           "repliche_den_senza_divario": 0
+        }
+      },
+      "addendum": {
+        "data": "2026-10-28",
+        "recupero": {
+          "definizione": "(L_C - L_F'(1 sett.)) / (L_C - L_A) sulle origini con eta' > 1 settimana (E17); variante con A - C_A al denominatore: (L_C - L_F'(1 sett.)) / (L_C_A - L_A)",
+          "causale (L_C-L_A)": {
+            "media": 1.0437323134752707,
+            "ic_con_nodi": [
+              0.8402360366973681,
+              1.4514280182341723
+            ],
+            "numeratore": 0.040027724887995886,
+            "denominatore": 0.03835056591734454,
+            "repliche_den_non_positivo": 0
+          },
+          "causale (L_C_A-L_A)": {
+            "media": 1.2592279896191567,
+            "ic_con_nodi": [
+              0.9656457680098138,
+              1.8885346974854118
+            ],
+            "numeratore": 0.040027724887995886,
+            "denominatore": 0.03178751204545727,
+            "repliche_den_non_positivo": 0
+          },
+          "congelata 54 celle (L_C-L_A)": {
+            "media": 1.0567493375276704,
+            "ic_con_nodi": [
+              0.8310552363311116,
+              1.5265917818422063
+            ],
+            "numeratore": 0.03596100084064302,
+            "denominatore": 0.03402983050339636,
+            "repliche_den_non_positivo": 0
+          }
+        },
+        "riduzione_token": {
+          "definizione": "1 - (F0' - C) / (F0 - C), tutte le origini dopo t1: la quota del costo di F0 rispetto a C che il token toglie",
+          "causale": {
+            "media": 0.9971782779857186,
+            "ic_con_nodi": [
+              0.9280002822408382,
+              1.1101673038713307
+            ],
+            "F0p-C": 0.00022041761194513398,
+            "F0-C": 0.0781145735935519,
+            "repliche_den_non_positivo": 0
+          },
+          "congelata 54 celle": {
+            "media": 0.9696741192422708,
+            "ic_con_nodi": [
+              0.9082109230613337,
+              1.0623874795032135
+            ],
+            "F0p-C": 0.002446856690757171,
+            "F0-C": 0.08068542873675755,
+            "repliche_den_non_positivo": 0
+          }
         }
       }
     }
@@ -2007,5 +2184,5 @@
     "Melbourne/p2/s205": "22f42304a99e1fec",
     "Melbourne/p2/s206": "a7a06109c62fcbcd"
   },
-  "istante": "2026-10-28T11:47:47.107547+00:00"
+  "istante": "2026-10-28T11:55:08.674857+00:00"
 }
