@@ -89,7 +89,7 @@ def parte_C(out: Path) -> dict:
     file_p = sorted((out / "predizioni_e16").glob("prova_*_p*_s*.npz"))
     if not file_p:
         raise RuntimeError("predizioni_e16/prova_* assenti")
-    celle_gr, controllo, ingressi = {}, {}, {}
+    celle_gr, controllo, ingressi, fuori = {}, {}, {}, []
     print(f"  {len(file_p)} celle di prova di E16; finestra: eta' > {ETA_SETT} passi (una settimana); bracci C e F'(1 sett.)")
     for fp in file_p:
         z = np.load(fp, allow_pickle=True)
@@ -125,14 +125,16 @@ def parte_C(out: Path) -> dict:
             rel = float(np.nanmax(np.abs(mio - loro) / np.maximum(np.abs(loro), 1e-12)))
             sc[nome] = rel
             if rel > TOLLERANZA_C:
-                raise RuntimeError(f"controllo C, {fp.name}, {nome}: scarto relativo {rel:.2e} oltre {TOLLERANZA_C:g} "
-                                   f"rispetto a {f_c.name} (fascia eta' > 1 sett.) — E18-C si ferma")
+                fuori.append(f"{fp.name} {nome}: {rel:.2e} (rispetto a {f_c.name}, fascia eta' > 1 sett.)")
         controllo[f"{gr}/{c}/p{p}/s{s}"] = {"file_congelato": f_c.name, "scarto_relativo_max": sc,
                                            "origini_finestra": int(sel.sum()), "origini_totali": int(len(sel))}
         ingressi[fp.name] = imp(fp)
         celle_gr.setdefault(gr, {})[(gr, p, s)] = cella
     print(f"  controllo: {len(controllo)} celle, scarto relativo massimo "
-          f"{max(max(v['scarto_relativo_max'].values()) for v in controllo.values()):.2e} (<= {TOLLERANZA_C:g})")
+          f"{max(max(v['scarto_relativo_max'].values()) for v in controllo.values()):.2e} (soglia {TOLLERANZA_C:g})")
+    if fuori:
+        # BLOCCANTE, dopo aver esaminato tutte le celle: l'elenco completo serve a chi deve decidere
+        raise RuntimeError(f"controllo C: {len(fuori)} celle oltre {TOLLERANZA_C:g} — E18-C si ferma:\n    " + "\n    ".join(fuori))
     R = {"definizione": "finestra: origini con eta' > 1 settimana per F'(1 sett.) E per C; parametri di calibrazione "
                         "di e16_risultati.json (stimati sulla validazione della stessa cella), invariati",
          "finestra_passi": int(ETA_SETT), "tolleranza_controllo": TOLLERANZA_C, "repliche": None, "seme_bootstrap": SEME_BOOT,
