@@ -44,6 +44,24 @@ def dim(p: Path):
     return b, n
 
 
+def gruppo(p: Path, primi=None) -> str:
+    """Gruppo di una voce di primo livello di results/evoluzione/ (stessa regola per la ripartizione e il manifesto)."""
+    nome = p.name
+    if nome in PROB:
+        return "probabilita"
+    if nome.endswith(".log") or (p.is_dir() and ALTRO.match(nome)):
+        return "altro"
+    if primi is not None and nome in primi:
+        return "rigenerazione"
+    if PUNTI.match(nome) and not nome.startswith("predizioni"):
+        return "punti"
+    if primi is None and RIGEN.match(nome):
+        return "rigenerazione"
+    if nome.endswith(".json") and (nome.endswith("_risultati.json") or nome.startswith("congelamento_") or nome.endswith("_scelta_gated.json")):
+        return "rigenerazione"
+    return "altro"
+
+
 def ingressi_main(radice: Path):
     """Le cartelle/file di primo livello citati dagli ingressi dell'ultimo giro di main.py, se c'e'."""
     giri = sorted((radice / "analysis" / "rigenerazione").glob("2026*/rapporto.json"))
@@ -70,20 +88,7 @@ def main() -> int:
     righe, tot = [], {}
     for p in sorted(a.out.iterdir()):
         nome = p.name
-        if nome in PROB:
-            g = "probabilita"
-        elif nome.endswith(".log") or (p.is_dir() and ALTRO.match(nome)):
-            g = "altro"
-        elif primi is not None and nome in primi:
-            g = "rigenerazione"
-        elif PUNTI.match(nome) and not nome.startswith("predizioni"):
-            g = "punti"
-        elif primi is None and RIGEN.match(nome):
-            g = "rigenerazione"
-        elif nome.endswith(".json") and (nome.endswith("_risultati.json") or nome.startswith("congelamento_") or nome.endswith("_scelta_gated.json")):
-            g = "rigenerazione"
-        else:
-            g = "altro"
+        g = gruppo(p, primi)
         b, n = dim(p)
         righe.append((nome, g, b / 2 ** 20, n))
         t = tot.setdefault(g, [0.0, 0]); t[0] += b / 2 ** 20; t[1] += n
