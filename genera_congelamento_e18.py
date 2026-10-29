@@ -50,7 +50,12 @@ def main() -> int:
          f"Generato da `genera_congelamento_e18.py` al commit `{commit}`, {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}. "
          f"Protocollo `protocol/E18.md` (impronta `{imp(Path('protocol/E18.md'))}`; firma 28/10/2026, commit 964e4f5), letto per intero "
          f"prima del codice; `e18_risultati.json` impronta `{imp(fj)}`. Nessun addestramento: sola analisi da artefatti congelati. "
-         f"Parti presenti: {', '.join(parti)}. Ordine di esecuzione: C → A → B → D.", ""]
+         f"Parti presenti: {', '.join(parti)}. Ordine di esecuzione: C → A → B → D.", "",
+         "Rigenerato il 2026-10-29 (seconda versione; la prima, del 28/10, aveva impronta `b284661178a15d9c`): (i) la sostituzione "
+         "delle affermazioni a 19 soglie e' la **voce 29** del registro delle correzioni, non la 28 scritta nel protocollo §1 r. 61 "
+         "(la 28 era gia' stata assegnata ai nomi di ruolo nelle note sulle correzioni): deviazione dichiarata in §6; (ii) la parte C "
+         "e' completata con le metriche di F16 (ECE per classe, log-loss, Brier) sulla stessa finestra, come il protocollo §3 richiede "
+         "(«righe F′(1wk) di F16 ricalcolate»): la prima versione riportava la sola wCE. Nessun numero gia' congelato cambia.", ""]
 
     # ------------------------------------------------------------------ C --
     if "C" in R:
@@ -74,6 +79,23 @@ def main() -> int:
                 r16 = rif["differenze"].get(f"Fp_672-C/{var}")
                 L.append(f"| {gr if i == 0 else ''} | {CAL_IT[var]} | {wf['media']:.4f} | {wc['media']:.4f} | {ic(d)} | {d['categoria']} | "
                          f"{ic(r16) if r16 else '—'} |")
+        L += ["", "**Metriche di F16 sulla finestra > 1 settimana** (medie sulle celle, come `medie_test` di E16; ECE per classe a "
+              "10 intervalli, log-loss non pesata, Brier multiclasse, wCE; stesse probabilita', stessi parametri di calibrazione). "
+              "Aggiunte il 2026-10-29 (vedi §6).", "",
+              "| contesto | braccio | calibrazione | ECE cl. 0 | ECE cl. 1 | ECE cl. 2 | log-loss | Brier | wCE | log-loss / Brier intero periodo (E16) |",
+              "|---|---|---|---|---|---|---|---|---|---|"]
+        for gr in GRUPPI_A[:4]:
+            if gr not in C["gruppi"] or "medie_settimana" not in C["gruppi"][gr]:
+                continue
+            MS = C["gruppi"][gr]["medie_settimana"]; MT = C["riferimento_intero_periodo"][gr].get("medie_test", {})
+            primo = True
+            for br, et in (("Fp_672", "F′(1 sett.)"), ("C", "C")):
+                for var in CAL:
+                    m = MS[f"{br}/{var}"]; r16 = MT.get(f"{br}/{var}")
+                    L.append(f"| {gr if primo else ''} | {et} | {CAL_IT[var]} | {m['ece']['0']:.4f} | {m['ece']['1']:.4f} | {m['ece']['2']:.4f} | "
+                             f"{m['logloss']:.4f} | {m['brier']:.4f} | {m['wce']:.4f} | "
+                             + (f"{r16['logloss']:.4f} / {r16['brier']:.4f}" if r16 else "—") + " |")
+                    primo = False
         L += ["", "Le righe F′(1 sett.) di F15 (differenze) e di F16 (metriche per braccio) vanno sostituite con questi valori; in F16 si "
               "aggiunge la riga «C, origini > 1 settimana» per ogni calibrazione (colonna «wCE C, > 1 sett.»). I parametri di temperature "
               "e vector scaling sono quelli di E16 (stimati sulla validazione): cambia solo la finestra di valutazione.", ""]
@@ -123,7 +145,8 @@ def main() -> int:
                          f"{ic2(d['pauc']['media'], d['pauc']['ic_con_nodi'])} {d['pauc']['segno']} | "
                          + " | ".join(f"{100*d[f'richiamo_fa_{l}']['media']:+.1f} [{100*d[f'richiamo_fa_{l}']['ic_con_nodi'][0]:+.1f}, {100*d[f'richiamo_fa_{l}']['ic_con_nodi'][1]:+.1f}] {d[f'richiamo_fa_{l}']['segno']}" for l in LIVELLI) + " |")
         # affermazioni A1-A5
-        L += ["", "### 2c. Affermazioni ri-valutate (sostituiscono quelle a 19 soglie; voce 28 del registro)", ""]
+        L += ["", "### 2c. Affermazioni ri-valutate (sostituiscono quelle a 19 soglie; voce 29 del registro — il protocollo §1 r. 61 "
+              "scriveva 28, vedi §6)", ""]
 
         def seg(gr, nome, met="auc"):
             return A["gruppi"].get(gr, {}).get("confronti", {}).get(nome, {}).get(met, {}).get("segno")
@@ -238,7 +261,14 @@ def main() -> int:
           "— come da A.6, non e' una deviazione. La validazione di PEMS04 non viene ricostruita (non serve ad A).",
           "- 29/10/2026, parte B: per i contesti di PEMS04 i confronti con A ed R-orig non esistono (nessun A, nessun R-orig in E6-bis parte A); "
           "per le citta' R-orig(1 sett.) − F′(1 sett.) usa `predizioni_fase3_672` (R-orig per nodo sulle origini comuni) e la fascia > 1 "
-          "settimana di `predizioni_e4`, come E3-bis.", ""]
+          "settimana di `predizioni_e4`, come E3-bis.",
+          "- 29/10/2026, numerazione: il protocollo §1 r. 61 assegnava alla sostituzione delle affermazioni a 19 soglie (ROC empirica) "
+          "la voce 28 del registro delle correzioni; la voce 28 era gia' stata assegnata il 29/10 ai nomi di ruolo nelle note sulle "
+          "correzioni, quindi la sostituzione e' la voce 29. Il protocollo non si modifica (firmato); §2c e il registro portano 29.",
+          "- 29/10/2026, parte C: la prima versione del congelamento (28/10, `b284661178a15d9c`) riportava per la finestra > 1 settimana "
+          "la sola wCE; il protocollo §3 richiede le righe F′(1wk) di F16 intere (ECE per classe, log-loss, Brier, wCE). Completate "
+          "qui dalle stesse probabilita' e con gli stessi parametri di calibrazione (`analizza_e18.py --parte C` rieseguito; le parti "
+          "A, B, D non sono state rieseguite e i loro numeri sono invariati).", ""]
     ingr = {}
     for p in parti:
         ii = R[p].get("impronte_ingressi", {})
