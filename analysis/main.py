@@ -64,6 +64,7 @@ import shutil
 import subprocess
 import sys
 import time
+import traceback
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -423,6 +424,8 @@ def esegui(fase, radice: Path, lavoro: Path, i: int, tol) -> dict:
 
 
 def esito_fase(e) -> str:
+    if e.get("stato"):                                   # fase non eseguita (es. INGRESSI MANCANTI)
+        return e["stato"]
     if e["codice"] != 0:
         return "FALLITA"
     for u, r in e["uscite"].items():
@@ -433,6 +436,24 @@ def esito_fase(e) -> str:
     if not all(e["figure"].values()):
         return "FIGURA MANCANTE"
     return "ok"
+
+
+def ingressi_e18(ris: Path) -> dict:
+    """Completezza degli ingressi di E18 prima del calcolo: i file di probabilita' elencati con impronta in
+    e18_risultati.json (parte C: predizioni_e16/; parte A: i file sotto results/evoluzione/) devono esserci
+    tutti con la stessa impronta. Se ne manca uno o uno e' diverso, le fasi di E18 non si eseguono."""
+    R = json.loads((ris / "e18_risultati.json").read_text())
+    attesi = {f"predizioni_e16/{n}": v for n, v in R["C"]["impronte_ingressi"]["predizioni_e16"].items()}
+    attesi.update({k: v for k, v in R["A"]["impronte_ingressi"].items() if isinstance(v, str) and k.endswith(".npz")})
+    mancanti = sorted(k for k in attesi if not (ris / k).exists())
+    diversi = sorted(k for k in attesi if (ris / k).exists() and sha256(ris / k)[:16] != attesi[k])
+    return {"attesi": len(attesi), "trovati": len(attesi) - len(mancanti), "mancanti": mancanti, "diversi": diversi}
+
+
+def etichetta(ok: bool, meta: dict) -> str:
+    if meta.get("errore") or meta.get("fasi_non_eseguite"):
+        return "NON CONCLUSO"
+    return "TUTTO COINCIDE" if ok else "DIFFERENZE O ERRORI"
 
 
 def manoscritto(d: Path) -> dict:
@@ -455,7 +476,12 @@ def scrivi_confronto(f: Path, meta: dict, esiti: list, paper: list, ok: bool):
          "Generato da `analysis/main.py` (non modificare a mano). Ogni numero e' rigenerato dalle predizioni "
          "per cella con il codice del repository e confrontato con il file congelato omonimo. "
          "Valori a 12 cifre significative; scarto = rigenerato − congelato.", "",
-         f"- esito: **{'TUTTO COINCIDE' if ok else 'DIFFERENZE O ERRORI'}**",
+         f"- esito: **{etichetta(ok, meta)}**",
+         *( [f"- errore: {meta['errore']}"] if meta.get("errore") else [] ),
+         *( [f"- fasi non eseguite: {', '.join(meta['fasi_non_eseguite'])}"] if meta.get("fasi_non_eseguite") else [] ),
+         *( [f"- ingressi di E18 (probabilita' per cella contro e18_risultati.json): attesi {meta['ingressi_e18']['attesi']}, "
+             f"trovati {meta['ingressi_e18']['trovati']}, mancanti {len(meta['ingressi_e18']['mancanti'])}, "
+             f"diversi {len(meta['ingressi_e18']['diversi'])}"] if meta.get("ingressi_e18") else [] ),
          f"- esperimenti: {', '.join(meta['esperimenti'])}",
          f"- tolleranza combinata: |Δ| ≤ {meta['tol_abs']:g} + {meta['tol_rel']:g}·|congelato|",
          f"- codice del confronto: " + ", ".join(f"`{k}` {v}" for k, v in sorted(meta["codice_analysis"].items())),
@@ -567,7 +593,8 @@ def rapporto(lavoro: Path, meta: dict, esiti: list, paper: list) -> bool:
         and not any(r["esito"] in ("DIVERSO", "file non trovato") for r in meta["impronte_citate"]) \
         and all(r["esito"] == "ok" for r in meta.get("coerenza_congelata", []) + meta.get("coerenza_rigenerata", []))
     L = [f"# Rigenerazione Paper 1 — {meta['istante']}", "",
-         f"Esito complessivo: **{'TUTTO COINCIDE' if ok else 'DIFFERENZE O ERRORI'}**", "",
+         f"Esito complessivo: **{etichetta(ok, meta)}**", "",
+         *( [f"- errore: {meta['errore']}", ""] if meta.get("errore") else [] ),
          f"- commit {meta['commit']} ({'pulito' if not meta['git_status'] else 'con modifiche locali'}); "
          f"macchina {meta['macchina']}; Python {meta['python']}; numpy {meta['numpy']}",
          f"- sandbox: {meta['sandbox']}; risultati reali: **{meta['integrita_risultati']}**",
@@ -673,9 +700,23 @@ def main() -> int:
     radice, meta["sandbox"] = prepara_radice(lavoro)
     print(f"  {meta['sandbox']}")
     esiti, paper = [], []
+    if "E18" in a.solo:
+        meta["ingressi_e18"] = ingressi_e18(RADICE / RIS)
+        ie = meta["ingressi_e18"]
+        print(f"ingressi di E18: attesi {ie['attesi']}, trovati {ie['trovati']}, mancanti {len(ie['mancanti'])}, "
+              f"diversi {len(ie['diversi'])}", flush=True)
     try:
         for i, f in enumerate(fasi):
             print(f"[{i + 1}/{len(fasi)}] {f['esperimento']}: {' '.join(f['cmd'])}", flush=True)
+            ie = meta.get("ingressi_e18")
+            if f["esperimento"] == "E18" and ie and (ie["mancanti"] or ie["diversi"]):
+                st = "INGRESSI MANCANTI" if ie["mancanti"] else "INGRESSI DIVERSI"
+                e = {"fase": f"{i:02d}_E18", "cmd": " ".join(f["cmd"]), "codice": 0, "secondi": 0.0,
+                     "uscite": {}, "figure": {}, "stato": st}
+                meta.setdefault("fasi_non_eseguite", []).append(f"{' '.join(f['cmd'])} ({st})")
+                esiti.append(e)
+                print(f"    {st}: non eseguita", flush=True)
+                continue
             e = esegui(f, radice, lavoro, i, (a.tol_rel, a.tol_abs))
             esiti.append(e)
             print(f"    {esito_fase(e)}  ({e['secondi']} s)", flush=True)
@@ -721,6 +762,12 @@ def main() -> int:
                 scrivi_E18(radice / RIS, dfig / "tableG_e18.tex")
                 from analysis.tabelle_paper1 import scrivi_tabella_politiche
                 scrivi_tabella_politiche(radice / RIS, dfig / "table_policies.tex")   # tabella del testo, da E18
+    except Exception as exc:                # CONFRONTO.md si scrive comunque, con l'errore e «NON CONCLUSO»
+        tb = traceback.extract_tb(exc.__traceback__)[-1]
+        dove = Path(tb.filename).resolve()
+        dove = dove.relative_to(RADICE) if dove.is_relative_to(RADICE) else dove.name
+        meta["errore"] = f"{type(exc).__name__}: {exc} ({dove}, riga {tb.lineno})"
+        print(f"\nERRORE: {meta['errore']}", flush=True)
     finally:
         dopo = istantanea(RADICE / RIS)
         meta["integrita_risultati"] = "invariati" if dopo == prima else \
@@ -730,9 +777,9 @@ def main() -> int:
     ok = rapporto(lavoro, meta, esiti, paper)
     confronto = RADICE / "analysis" / "rigenerazione" / "CONFRONTO.md"
     scrivi_confronto(confronto, meta, esiti, paper, ok)
-    print(f"\n{'TUTTO COINCIDE' if ok else 'DIFFERENZE O ERRORI'} — {confronto.relative_to(RADICE)}; "
+    print(f"\n{etichetta(ok, meta)} — {confronto.relative_to(RADICE)}; "
           f"dettaglio in {lavoro / 'rapporto.md'}, ogni numero in {lavoro / 'NUMERI.tsv'}")
-    return 0 if ok else 1
+    return 0 if ok and etichetta(ok, meta) == "TUTTO COINCIDE" else 1
 
 
 if __name__ == "__main__":
