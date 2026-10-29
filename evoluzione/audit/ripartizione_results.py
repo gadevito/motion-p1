@@ -12,8 +12,8 @@ Quattro gruppi, decisi per cartella di primo livello (o file):
                     `predizioni_e18_pems04`)
     punti           punti di controllo e stati dei modelli (cartelle con `.pt`: `*inserimento*`, `stati_*`,
                     `E*_e6_*`, `e6_pems08*`, `rmon_punti`, `pems04`, `canonico`, `stati_iniziali`, `e14b`)
-    altro           il resto (campagne precedenti `raccordo*`, `predizioni_refresh`, sensibilita', veterani,
-                    adeguatezza, quarantene, log, piloti, collaudi)
+    altro           il resto (campagne precedenti `raccordo*`, `predizioni_refresh`, sensibilita', adeguatezza,
+                    quarantene, registri, log, piloti, collaudi, `predizioni_pems04` della ricostruzione preliminare)
 
 Scrive una tabella Markdown (cartella, gruppo, MB, file) e i totali per gruppo; `--md` per il percorso.
 
@@ -26,8 +26,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 PROB = ("predizioni_e16", "predizioni_e16_spark_sostituite", "predizioni_e18_pems04")
-PUNTI = re.compile(r"^(stati_|.*inserimento.*|E1?_e6_.*|e6_pems08.*|rmon_punti|pems04|canonico|stati_iniziali|e14b|adeguatezza_E1)$")
-RIGEN = re.compile(r"^(predizioni_(fase3|fase3_672|e2|f0|e4|e5|e6|e6a|e8|e14|e15)|maschere|pesi.*|selezione_F.*|e15_controllo_congelata|"
+ALTRO = re.compile(r"^(.*collaudo.*|.*pilota.*|.*prova_e3|.*adeguatezza.*|stati_completi|prova_inserimento|stati_prova_inserimento|"
+                   r"_quarantena.*|registro.*|raccordo.*|predizioni_refresh|predizioni_sensibilita_rho|predizioni_pems04|audit.*|predizioni)$")  # solo cartelle
+PUNTI = re.compile(r"^(stati_.*|.*inserimento.*|E1?_e6_.*|e6_pems08.*|e6_(costi|sessione)_.*|E1_costi_sessione|rmon_punti|pems04|canonico|stati_iniziali|e14b)$")
+RIGEN = re.compile(r"^(predizioni_(fase3|fase3_672|e2|f0|e4|e5|e6|e6a|e6bis|e8|e14|e15|veterani_e3)|maschere|pesi(_[a-z0-9]+)*|selezione_F.*|e15_controllo_congelata|"
                    r"frequenze_classi\.json|.*_risultati\.json|.*_scelta_gated\.json|congelamento_.*\.json|e15_k_secondaria\.json|"
                    r"e15_preflight\.json|e5_k_secondaria\.json|preparazione_e5\.json|costi_.*\.json|architettura_ck\.json|.*\.json)$")
 
@@ -70,6 +72,8 @@ def main() -> int:
         nome = p.name
         if nome in PROB:
             g = "probabilita"
+        elif nome.endswith(".log") or (p.is_dir() and ALTRO.match(nome)):
+            g = "altro"
         elif primi is not None and nome in primi:
             g = "rigenerazione"
         elif PUNTI.match(nome) and not nome.startswith("predizioni"):

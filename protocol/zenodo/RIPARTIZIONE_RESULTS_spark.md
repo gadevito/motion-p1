@@ -1,13 +1,13 @@
 # Ripartizione di `results/evoluzione/` per il deposito
 
-Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 09:17 UTC; gruppo «rigenerazione» deciso dai nomi (nessun giro di `main.py` trovato in `analysis/rigenerazione/`).
+Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 09:26 UTC; gruppo «rigenerazione» deciso dai nomi (nessun giro di `main.py` trovato in `analysis/rigenerazione/`).
 
 | gruppo | MB | file |
 |---|---:|---:|
-| rigenerazione | 10,375 | 3,588 |
+| rigenerazione | 10,397 | 4,163 |
 | probabilita | 7,324 | 326 |
-| punti | 566 | 7,720 |
-| altro | 11,212 | 6,233 |
+| punti | 618 | 8,185 |
+| altro | 11,138 | 5,193 |
 | **totale** | **29,476** | **17,867** |
 
 | cartella / file | gruppo | MB | file |
@@ -34,7 +34,7 @@ Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 09:17 UTC; 
 | `rmon_punti` | punti | 52.7 | 442 |
 | `predizioni_e5` | rigenerazione | 45.5 | 162 |
 | `registro` | altro | 45.3 | 3,048 |
-| `predizioni_veterani_e3` | altro | 20.8 | 540 |
+| `predizioni_veterani_e3` | rigenerazione | 20.8 | 540 |
 | `stati_completi_e15_inserimento_griglia` | punti | 20.0 | 162 |
 | `e15_inserimento_griglia` | punti | 19.6 | 488 |
 | `stati_completi_inserimento_griglia_672` | punti | 14.9 | 108 |
@@ -50,12 +50,12 @@ Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 09:17 UTC; 
 | `stati_completi_inserimento_griglia_ep3` | punti | 13.7 | 108 |
 | `inserimento_griglia_ep2` | punti | 13.0 | 216 |
 | `inserimento_griglia_ep3` | punti | 13.0 | 216 |
-| `stati_e6_pems08` | altro | 13.0 | 108 |
+| `stati_e6_pems08` | punti | 13.0 | 108 |
 | `adeguatezza` | altro | 12.9 | 110 |
 | `predizioni_e15` | rigenerazione | 12.4 | 108 |
 | `e6_pems08` | punti | 12.1 | 216 |
 | `stati_iniziali` | punti | 10.6 | 93 |
-| `stati_pems04` | altro | 8.8 | 72 |
+| `stati_pems04` | punti | 8.8 | 72 |
 | `e16_risultati.json` | rigenerazione | 8.4 | 1 |
 | `pems04` | punti | 8.2 | 145 |
 | `stati_completi_E1_inserimento_griglia_ep2` | punti | 7.3 | 54 |
@@ -67,12 +67,12 @@ Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 09:17 UTC; 
 | `E1_inserimento_griglia_ep3` | punti | 6.9 | 108 |
 | `e15_E_inserimento_griglia` | punti | 6.9 | 108 |
 | `_quarantena_e3_falso_20260930` | altro | 5.1 | 650 |
-| `stati_completi_rmon_punti` | altro | 4.6 | 34 |
-| `stati_E1_e6_pems04` | altro | 4.5 | 36 |
+| `stati_completi_rmon_punti` | punti | 4.6 | 34 |
+| `stati_E1_e6_pems04` | punti | 4.5 | 36 |
 | `predizioni_e6a` | rigenerazione | 4.5 | 72 |
-| `stati_e6_pems08_672` | altro | 4.4 | 36 |
-| `stati_E1_e6_pems08` | altro | 4.4 | 36 |
-| `stati_E_e6_pems08` | altro | 4.4 | 36 |
+| `stati_e6_pems08_672` | punti | 4.4 | 36 |
+| `stati_E1_e6_pems08` | punti | 4.4 | 36 |
+| `stati_E_e6_pems08` | punti | 4.4 | 36 |
 | `E1_e6_pems04` | punti | 4.2 | 72 |
 | `e6_pems08_672` | punti | 4.1 | 72 |
 | `E1_e6_pems08` | punti | 4.1 | 72 |
@@ -88,36 +88,36 @@ Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 09:17 UTC; 
 | `registro_prova` | altro | 1.3 | 138 |
 | `stati_completi_inserimento_griglia_672_sessione` | punti | 1.2 | 9 |
 | `inserimento_griglia_672_sessione` | punti | 1.2 | 27 |
-| `stati_completi_E1_costi_sessione` | altro | 1.2 | 9 |
-| `E1_costi_sessione` | altro | 1.2 | 18 |
-| `stati_e6_costi_e6_pems08` | altro | 1.1 | 9 |
-| `stati_e6_sessione_e6_pems08` | altro | 1.1 | 9 |
-| `e6_sessione_e6_pems08` | altro | 1.0 | 18 |
-| `e6_costi_e6_pems08` | altro | 1.0 | 18 |
-| `predizioni_e6bis` | altro | 1.0 | 36 |
+| `stati_completi_E1_costi_sessione` | punti | 1.2 | 9 |
+| `E1_costi_sessione` | punti | 1.2 | 18 |
+| `stati_e6_costi_e6_pems08` | punti | 1.1 | 9 |
+| `stati_e6_sessione_e6_pems08` | punti | 1.1 | 9 |
+| `e6_sessione_e6_pems08` | punti | 1.0 | 18 |
+| `e6_costi_e6_pems08` | punti | 1.0 | 18 |
+| `predizioni_e6bis` | rigenerazione | 1.0 | 36 |
 | `stati_completi_E1_rho005_inserimento_griglia` | punti | 0.5 | 4 |
 | `stati_completi_E1_rho030_inserimento_griglia` | punti | 0.5 | 4 |
-| `stati_prova_inserimento` | punti | 0.5 | 4 |
+| `stati_prova_inserimento` | altro | 0.5 | 4 |
 | `E1_rho005_inserimento_griglia` | punti | 0.5 | 8 |
 | `E1_rho030_inserimento_griglia` | punti | 0.5 | 8 |
 | `selezione_F_principale` | rigenerazione | 0.5 | 109 |
 | `selezione_F_griglia` | rigenerazione | 0.5 | 109 |
-| `prova_inserimento` | punti | 0.5 | 4 |
+| `prova_inserimento` | altro | 0.5 | 4 |
 | `selezione_F` | rigenerazione | 0.5 | 109 |
 | `registro_collaudo` | altro | 0.4 | 66 |
-| `stati_e6_costi_e6_pems08_672` | altro | 0.4 | 3 |
-| `stati_e6_sessione_e6_pems08_672` | altro | 0.4 | 3 |
-| `stati_e6_costi_E1_e6_pems08` | altro | 0.4 | 3 |
-| `stati_e6_sessione_E1_e6_pems08` | altro | 0.4 | 3 |
-| `e6_sessione_e6_pems08_672` | altro | 0.3 | 6 |
-| `e6_costi_e6_pems08_672` | altro | 0.3 | 6 |
-| `e6_sessione_E1_e6_pems08` | altro | 0.3 | 6 |
-| `e6_costi_E1_e6_pems08` | altro | 0.3 | 6 |
+| `stati_e6_costi_e6_pems08_672` | punti | 0.4 | 3 |
+| `stati_e6_sessione_e6_pems08_672` | punti | 0.4 | 3 |
+| `stati_e6_costi_E1_e6_pems08` | punti | 0.4 | 3 |
+| `stati_e6_sessione_E1_e6_pems08` | punti | 0.4 | 3 |
+| `e6_sessione_e6_pems08_672` | punti | 0.3 | 6 |
+| `e6_costi_e6_pems08_672` | punti | 0.3 | 6 |
+| `e6_sessione_E1_e6_pems08` | punti | 0.3 | 6 |
+| `e6_costi_E1_e6_pems08` | punti | 0.3 | 6 |
 | `stati_prova_e3` | altro | 0.3 | 2 |
 | `stati_completi_adeguatezza_E1` | altro | 0.3 | 2 |
 | `stati_completi_collaudo` | altro | 0.3 | 2 |
 | `prova_e3` | altro | 0.3 | 2 |
-| `adeguatezza_E1` | punti | 0.3 | 2 |
+| `adeguatezza_E1` | altro | 0.3 | 2 |
 | `congelamento_e18.json` | rigenerazione | 0.2 | 1 |
 | `e18_risultati.json` | rigenerazione | 0.2 | 1 |
 | `congelamento_e4.json` | rigenerazione | 0.2 | 1 |
@@ -281,7 +281,7 @@ Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 09:17 UTC; 
 | `e5_k_secondaria.json` | rigenerazione | 0.0 | 1 |
 | `LEGGIMI.md` | altro | 0.0 | 1 |
 | `estrazione_pems04.log` | altro | 0.0 | 1 |
-| `pesi_pems04.log` | rigenerazione | 0.0 | 1 |
+| `pesi_pems04.log` | altro | 0.0 | 1 |
 | `e6bis_test.log` | altro | 0.0 | 1 |
 | `e6_origini_comuni.json` | rigenerazione | 0.0 | 1 |
 | `e6a_scegli.log` | altro | 0.0 | 1 |
