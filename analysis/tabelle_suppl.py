@@ -366,10 +366,18 @@ def scrivi_E(ris: Path, f: Path) -> None:
         primo = True
         for b, et in BRACCI_E16 + (("C_sett", "$C$$^\\dagger$"),):
             for c in CAL_EN:
-                if b in ("Fp_672", "C_sett"):       # correzione 27: solo la wCE e' ricalcolata sulla finestra
-                    w = S[g]["wce_settimana"][f"{b.replace('_sett', '')}/{c}"]["media"]
-                    righe.append((CTX_EN[g] if primo else "") + f" & {et}{'$^\\dagger$' if b == 'Fp_672' else ''} & "
-                                 f"{CAL_EN[c]} & -- & -- & -- & -- & -- & {w:.4f} \\\\")
+                if b in ("Fp_672", "C_sett"):       # correzione 27: metriche sulla finestra > 1 sett. (E18, parte C)
+                    k18 = f"{b.replace('_sett', '')}/{c}"
+                    et_ = et + ("$^\\dagger$" if b == "Fp_672" else "")
+                    m = S[g].get("medie_settimana", {}).get(k18)
+                    if m is None:                   # E18 senza le metriche di F16 sulla finestra: solo la wCE
+                        w = S[g]["wce_settimana"][k18]["media"]
+                        righe.append((CTX_EN[g] if primo else "") + f" & {et_} & {CAL_EN[c]} & -- & -- & -- & -- & -- & {w:.4f} \\\\")
+                    else:
+                        e = m["ece"]
+                        righe.append((CTX_EN[g] if primo else "") + f" & {et_} & {CAL_EN[c]} & "
+                                     + " & ".join(f"{e[k]:.4f}" for k in ("0", "1", "2"))
+                                     + f" & {m['logloss']:.4f} & {m['brier']:.4f} & {m['wce']:.4f} \\\\")
                     primo = False
                     continue
                 m = G[g]["medie_test"].get(f"{b}/{c}")
@@ -387,8 +395,10 @@ def scrivi_E(ris: Path, f: Path) -> None:
         "and wCE on the test, per arm and calibration, means over cells. Calibrating against the unweighted log-loss "
         "targets the natural class distribution, while the campaign loss is minimised by the class-reweighted "
         "posterior: vector scaling against log-loss brings every class's ECE below 0.04 but raises the wCE. "
-        "For $F'(1\\,\\mathrm{wk})$ only the wCE is recomputed on its causal window (--: not recomputed); the row "
-        "$C^\\dagger$ is $C$ on the same window." + fonte + fonte18,
+        + ("For $F'(1\\,\\mathrm{wk})$ every metric is on its causal window; the row $C^\\dagger$ is $C$ on the same window."
+           if all("medie_settimana" in S[g] for g in GRUPPI_E16) else
+           "For $F'(1\\,\\mathrm{wk})$ only the wCE is recomputed on its causal window (--: not recomputed); the row "
+           "$C^\\dagger$ is $C$ on the same window.") + fonte + fonte18,
         "Context & Arm & Calibration & \\multicolumn{3}{c}{ECE (free / mod. / cong.)} & log-loss & Brier & wCE", righe, "tab:suppE3"))
     f.write_text("\n".join(out))
 
