@@ -360,12 +360,291 @@ def parte_A(out: Path, pilota=None, repliche=None, lavoratori=1) -> dict:
     return R
 
 
-def parte_B(out: Path) -> dict:
-    raise NotImplementedError("parte B: dopo A")
+# ------------------------------------------------------------------- parte B --
+def _wce_pesata(A, Bm, w):
+    """wCE con pesi di molteplicita' `w` sui sensori: A, B (K, H)."""
+    num = w @ A; den = w @ Bm
+    return float(np.nanmean(np.where(den > 0, num / np.maximum(den, 1e-12), np.nan)))
+
+
+def _ab_fascia(z, nome, fascia):
+    A, Bm = z[f"A_{nome}"], z[f"B_{nome}"]
+    if A.ndim == 3:
+        A = A[:3].sum(0) if fascia is None else A[fascia]
+        Bm = Bm[:3].sum(0) if fascia is None else Bm[fascia]
+    return np.asarray(A, dtype="float64"), np.asarray(Bm, dtype="float64")
+
+
+def _ids_cella(D_cache, out: Path, contesto: str, nodi):
+    """ID fisici dei sensori di una cella: D["sid"][nodi], con D caricato una volta per contesto."""
+    if contesto not in D_cache:
+        from evoluzione.esperimenti.addestramento import _carica
+        D_cache[contesto] = _carica(contesto, out / "maschere")
+    sid = D_cache[contesto]["sid"]
+    return np.asarray(sid[np.asarray(nodi, dtype="int64")]).astype(str)
+
+
+def _boot_sensore(celle, ids, f_vec, rng, B):
+    """Il bootstrap congiunto del paper con il passo sui sensori che conserva l'ID FISICO (E18, parte B):
+    partizioni e semi con reimmissione come oggi; K_d identificatori estratti con reimmissione fra i
+    distinti delle partizioni; ogni partizione pesa i propri sensori con la molteplicita' del loro ID
+    (0 se non estratto); stessi pesi per bracci, partizioni e semi della replica. Restituisce anche lo
+    schema ATTUALE (posizioni) ricalcolato con le stesse estrazioni di partizioni e semi.
+
+    `celle`: {(p, s): z}; `ids`: {p: array di ID (K)}; `f_vec(z, w) -> vettore`."""
+    kk = sorted(celle); parts = sorted({k[0] for k in kk}); semi = sorted({k[1] for k in kk})
+    K = len(ids[parts[0]])
+    distinti = np.array(sorted(set(np.concatenate([ids[p] for p in parts]).tolist())))
+    pos_id = {p: np.searchsorted(distinti, ids[p]) for p in parts}
+    uno = np.ones(K)
+    m0 = np.mean([f_vec(celle[k], uno) for k in kk], axis=0)
+    rep_s = np.empty((B, len(m0))); rep_p = np.empty((B, len(m0)))
+    for b in range(B):
+        ps = rng.choice(parts, len(parts), True); ss = rng.choice(semi, len(semi), True)
+        est = rng.integers(0, len(distinti), len(distinti))
+        molt = np.bincount(est, minlength=len(distinti)).astype("float64")
+        nd = rng.integers(0, K, K); w_pos = np.bincount(nd, minlength=K).astype("float64")
+        rep_s[b] = np.mean([f_vec(celle[(p, s)], molt[pos_id[p]]) for p in ps for s in ss], axis=0)
+        rep_p[b] = np.mean([f_vec(celle[(p, s)], w_pos) for p in ps for s in ss], axis=0)
+    return m0, rep_s, rep_p, {"sensori_distinti": int(len(distinti)), "occorrenze": int(K * len(parts)), "K": int(K)}
+
+
+def _carica_celle(out: Path, cartella: str, prefisso: str, filtro=None):
+    celle = {}
+    for f in sorted((out / cartella).glob(f"{prefisso}_*_p*_s*.npz")):
+        with np.load(f, allow_pickle=True) as z:
+            d = {q: z[q] for q in z.files}
+        if filtro and not filtro(d):
+            continue
+        celle[(str(d["contesto"]), int(d["partizione"]), int(d["seme"]))] = d
+    return celle
+
+
+def parte_B(out: Path, repliche=None) -> dict:
+    """Bootstrap che conserva il sensore fisico, applicato alle differenze di Tabella III (a)-(e) per
+    contesto ed episodio, a quelle di Tabella E9 (E15), e a quelle di E17 (gated(tau,N) - F0', gated(1 sett., 0)
+    - F0' e - gated(tau,N), R-orig(1 sett.) - F'(1 sett.) con margini minimi, F'(1 sett.) - A)."""
+    from evoluzione.esperimenti.esegui_e4 import _politica, _wce
+    from evoluzione.esperimenti.semi import SEME_PARTIZIONE
+    from evoluzione.esperimenti.addestramento import _partizioni
+    B = int(repliche or 4000)
+    rng = np.random.default_rng(SEME_BOOT + 100)
+    SC4 = json.loads((out / "e4_scelta_gated.json").read_text())["scelta"]
+    SC6 = json.loads((out / "e6_scelta_gated.json").read_text())["scelta"]["PEMS08"]
+    SC6a = json.loads((out / "e6a_scelta_gated.json").read_text())["scelta"]["PEMS04"]
+    E5 = json.loads((out / "e5_risultati.json").read_text()); E6 = json.loads((out / "e6_risultati.json").read_text())
+    E6a = json.loads((out / "e6a_risultati.json").read_text()); E15 = json.loads((out / "e15_risultati.json").read_text())
+    E17 = json.loads((out / "e17_risultati.json").read_text()); E3b = json.loads((out / "e3bis_risultati.json").read_text())
+    D_cache = {}
+    R = {"definizione": "passo sui sensori: K_d identificatori fisici estratti con reimmissione fra i distinti delle partizioni "
+                        "del contesto; ogni partizione pesa i propri sensori di prova con la molteplicita' del loro ID; pesi "
+                        "condivisi fra bracci, partizioni e semi della replica; partizioni e semi ricampionati come oggi",
+         "repliche": B, "seme_bootstrap": SEME_BOOT + 100, "delta_non_inferiorita": DELTA_NI, "contesti": {}, "cambi_categoria": [],
+         "verifica_mappa": None, "impronte_ingressi": {}}
+
+    def registra(nome_ctx, celle, ids, voci, attuali):
+        """`voci`: {nome: (f_vec_scalare)}; `attuali`: {nome: intervallo congelato o None}."""
+        nomi = list(voci)
+
+        def f_vec(z, w):
+            return np.array([voci[n](z, w) for n in nomi])
+        m0, rep_s, rep_p, info = _boot_sensore(celle, ids, f_vec, rng, B)
+        C = {"celle": len(celle), **info, "differenze": {}}
+        for i, n in enumerate(nomi):
+            ic_s = _ic(rep_s[:, i]); ic_p = _ic(rep_p[:, i]); att = attuali.get(n)
+            d = {"media": float(m0[i]), "ic_per_sensore": ic_s, "categoria_per_sensore": categoria(ic_s),
+                 "ic_posizioni_ricalcolato": ic_p, "categoria_posizioni_ricalcolato": categoria(ic_p)}
+            if att is not None:
+                d["ic_attuale"] = [float(att["ic_con_nodi"][0]), float(att["ic_con_nodi"][1])]
+                d["media_attuale"] = float(att["media"]); d["fonte_attuale"] = att.get("fonte")
+                d["categoria_attuale"] = categoria(d["ic_attuale"])
+                if d["categoria_attuale"] != d["categoria_per_sensore"]:
+                    R["cambi_categoria"].append({"contesto": nome_ctx, "differenza": n, "da": d["categoria_attuale"],
+                                                 "a": d["categoria_per_sensore"], "ic_attuale": d["ic_attuale"], "ic_per_sensore": ic_s})
+            C["differenze"][n] = d
+        R["contesti"][nome_ctx] = C
+        cambi = [c for c in R["cambi_categoria"] if c["contesto"] == nome_ctx]
+        print(f"  {nome_ctx:16s} {len(celle)} celle, {info['sensori_distinti']} sensori distinti su {info['occorrenze']} occorrenze; "
+              f"{len(nomi)} differenze, cambi di categoria: {len(cambi)}", flush=True)
+
+    def dif(n1, n2, fascia, tau=None, N=None):
+        def f(z, w):
+            def AB(n):
+                if n == "gated":
+                    return _politica(z, tau, N)
+                if n == "gated0":
+                    return _politica(z, 672, 0)
+                return _ab_fascia(z, n, fascia)
+            A1, B1 = AB(n1); A2, B2 = AB(n2)
+            return _wce_pesata(A1, B1, w) - _wce_pesata(A2, B2, w)
+        return f
+
+    def att(j, **k):
+        return None if j is None else {**j, **k}
+
+    # --- Tabella III (a)-(e) ed E17, citta' ep. 1-3 (predizioni_e5), PEMS08 (predizioni_e6), PEMS04 (predizioni_e6a)
+    for c in ("Madrid", "Londra", "Melbourne"):
+        tau, N = SC4[c]["tau"], SC4[c]["N"]
+        for k in (1, 2, 3):
+            celle = _carica_celle(out, "predizioni_e5", f"ep{k}", lambda d, c=c: str(d["contesto"]) == c)
+            celle = {(p, s): z for (c_, p, s), z in celle.items()}
+            if len(celle) != 18:
+                raise RuntimeError(f"{c} ep{k}: {len(celle)} celle, attese 18")
+            ids = {p: _ids_cella(D_cache, out, c, z["nodi"]) for (p, s), z in celle.items()}
+            if R["verifica_mappa"] is None:
+                D = D_cache[c]; p0 = sorted(ids)[0]
+                nodi, _ = _partizioni(D, {"partizione": np.random.default_rng(SEME_PARTIZIONE[p0])})
+                z0 = celle[(p0, sorted(s for (p, s) in celle if p == p0)[0])]
+                R["verifica_mappa"] = {"contesto": c, "partizione": p0, "nodi_uguali_a_partizioni": bool(np.array_equal(nodi["prova"].astype("int64"), z0["nodi"].astype("int64"))),
+                                       "sid_distinti_nel_contesto": int(len(set(np.asarray(D["sid"]).astype(str).tolist()))), "K": int(len(D["sid"]))}
+            g = E17["politica"][f"{c}/ep{k}"]["confronti"]
+            voci = {"(a) F0p-C": dif("F0p", "C", None), "(b) gated-F0p": dif("gated", "F0p", None, tau, N),
+                    "(c) Fp_672-C >1sett": dif("Fp_672", "C", 2), "(d) Fp_96-C": dif("Fp_96", "C", None),
+                    "(e) Fp_672-A >1sett": dif("Fp_672", "A", 2), "E17 gated(1sett,0)-F0p": dif("gated0", "F0p", None),
+                    "E17 gated(1sett,0)-gated": dif("gated0", "gated", None, tau, N)}
+            attuali = {f"({a_}) {n}": att(E5["affermazioni"].get(f"{c}/ep{k}/{a_}"), fonte="e5_risultati.json")
+                       for a_, n in (("a", "F0p-C"), ("b", "gated-F0p"), ("c", "Fp_672-C >1sett"), ("d", "Fp_96-C"), ("e", "Fp_672-A >1sett"))}
+            attuali["E17 gated(1sett,0)-F0p"] = att(g.get("gated672_0-F0p"), fonte="e17_risultati.json")
+            attuali["E17 gated(1sett,0)-gated"] = att(g.get("gated672_0-gated_sel"), fonte="e17_risultati.json")
+            registra(f"{c}/ep{k}", celle, ids, voci, attuali)
+            R["impronte_ingressi"][f"predizioni_e5/ep{k}_{c}"] = f"{len(celle)} celle"
+    for nome_ctx, cart, SC, EJ, con_A, con_R in (("PEMS08", "predizioni_e6", SC6, E6, True, True), ("PEMS04", "predizioni_e6a", SC6a, E6a, False, False)):
+        celle = _carica_celle(out, cart, "prova")
+        celle = {(int(str(c_).rsplit("_p", 1)[1]), s): z for (c_, p, s), z in celle.items()}
+        ids = {p: _ids_cella(D_cache, out, f"{nome_ctx}_p{p}", z["nodi"]) for (p, s), z in celle.items()}
+        tau, N = SC["tau"], SC["N"]; g = E17["politica"][nome_ctx]["confronti"]
+        voci = {"(a) F0p-C": dif("F0p", "C", None), "(b) gated-F0p": dif("gated", "F0p", None, tau, N),
+                "(c) Fp_672-C >1sett": dif("Fp_672", "C", 2), "(d) Fp_96-C": dif("Fp_96", "C", None),
+                "E17 gated(1sett,0)-F0p": dif("gated0", "F0p", None), "E17 gated(1sett,0)-gated": dif("gated0", "gated", None, tau, N)}
+        attuali = {f"({a_}) {n}": att(EJ["affermazioni"].get(a_), fonte=f"{'e6' if con_A else 'e6a'}_risultati.json")
+                   for a_, n in (("a", "F0p-C"), ("b", "gated-F0p"), ("c", "Fp_672-C >1sett"), ("d", "Fp_96-C"))}
+        if con_A:
+            voci["(e) Fp_672-A >1sett"] = dif("Fp_672", "A", 2); attuali["(e) Fp_672-A >1sett"] = att(EJ["affermazioni"].get("e"), fonte="e6_risultati.json")
+        if con_R:
+            voci["E17 Rorig_672-Fp_672 >1sett"] = dif("Rorig_672", "Fp_672", 2)
+            attuali["E17 Rorig_672-Fp_672 >1sett"] = att(EJ["altri"].get("Rorig_672-Fp_672_eta>1sett"), fonte="e6_risultati.json (altri)")
+        attuali["E17 gated(1sett,0)-F0p"] = att(g.get("gated672_0-F0p"), fonte="e17_risultati.json")
+        attuali["E17 gated(1sett,0)-gated"] = att(g.get("gated672_0-gated_sel"), fonte="e17_risultati.json")
+        registra(nome_ctx, celle, ids, voci, attuali)
+    # --- Tabella E9: la campagna causale (predizioni_e15), citta' ep. 1
+    for c in ("Madrid", "Londra", "Melbourne"):
+        celle = _carica_celle(out, "predizioni_e15", "prova", lambda d, c=c: str(d["contesto"]) == c)
+        celle = {(p, s): z for (c_, p, s), z in celle.items()}
+        ids = {p: _ids_cella(D_cache, out, c, z["nodi"]) for (p, s), z in celle.items()}
+        k_sel = int(E15["citta"][c]["k_secondaria"])
+        voci = {"F0-C": dif("F0", "C", None), "F0p-C": dif("F0p", "C", None), "Fp_672-C >1sett": dif("Fp_672", "C", 2),
+                "Fp_672-A >1sett": dif("Fp_672", "A", 2), "A-C": dif("A", "C", None), "A-C_A": dif("A", "C_A", None),
+                "C_A-C": dif("C_A", "C", None), f"Fpk_672-C >1sett": dif(f"Fp_672_k{k_sel}", "C", 2),
+                f"Fpk_672-A >1sett": dif(f"Fp_672_k{k_sel}", "A", 2)}
+        d15 = E15["citta"][c]["dichiarazioni"]
+        attuali = {n: att(d15.get(n.split(" ")[0]), fonte="e15_risultati.json") for n in voci}
+        registra(f"E15 {c}", celle, ids, voci, attuali)
+    # --- E3-bis: R-orig(1 sett.) - F'(1 sett.) sulle origini comuni (predizioni_fase3_672 + predizioni_e4 fascia 2)
+    for c in ("Madrid", "Londra", "Melbourne"):
+        celle = {}
+        for f in sorted((out / "predizioni_fase3_672").glob(f"R-orig_{c}_p*_s*.npz")):
+            with np.load(f, allow_pickle=True) as zr:
+                p, s = int(zr["partizione"]) if "partizione" in zr.files else int(f.stem.split("_p")[1].split("_s")[0]), int(f.stem.rsplit("_s", 1)[1])
+                z4 = np.load(out / "predizioni_e4" / f"prova_{c}_p{p}_s{s}.npz", allow_pickle=True)
+                if not np.array_equal(zr["nodi"].astype("int64"), z4["nodi"].astype("int64")):
+                    raise RuntimeError(f"E3-bis {c} p{p} s{s}: nodi diversi fra R-orig e E4")
+                celle[(p, s)] = {"A_Rorig": np.asarray(zr["A_per_nodo"], dtype="float64"), "B_Rorig": np.asarray(zr["B_per_nodo"], dtype="float64"),
+                                 "A_Fp": np.asarray(z4["A_Fp_672"][2], dtype="float64"), "B_Fp": np.asarray(z4["B_Fp_672"][2], dtype="float64"),
+                                 "nodi": zr["nodi"]}
+        if not celle:
+            print(f"  E3-bis {c}: predizioni_fase3_672 assenti, salto"); continue
+        ids = {p: _ids_cella(D_cache, out, c, z["nodi"]) for (p, s), z in celle.items()}
+        voci = {"Rorig_672-Fp_672 >1sett": lambda z, w: _wce_pesata(z["A_Rorig"], z["B_Rorig"], w) - _wce_pesata(z["A_Fp"], z["B_Fp"], w)}
+        attuali = {"Rorig_672-Fp_672 >1sett": att(E3b["confronti"].get(f"{c}/Rw-Fpw"), fonte="e3bis_risultati.json")}
+        registra(f"E3-bis {c}", celle, ids, voci, attuali)
+        d = R["contesti"][f"E3-bis {c}"]["differenze"]["Rorig_672-Fp_672 >1sett"]
+        d["margine_minimo_per_sensore"] = float(max(abs(d["ic_per_sensore"][0]), abs(d["ic_per_sensore"][1])))
+        d["margine_minimo_attuale"] = E17["margine_minimo"].get(c, {}).get("delta_min")
+    if "PEMS08" in R["contesti"] and "E17 Rorig_672-Fp_672 >1sett" in R["contesti"]["PEMS08"]["differenze"]:
+        d = R["contesti"]["PEMS08"]["differenze"]["E17 Rorig_672-Fp_672 >1sett"]
+        d["margine_minimo_per_sensore"] = float(max(abs(d["ic_per_sensore"][0]), abs(d["ic_per_sensore"][1])))
+        d["margine_minimo_attuale"] = E17["margine_minimo"].get("PEMS08", {}).get("delta_min")
+    R["istante"] = datetime.now(timezone.utc).isoformat()
+    print(f"  cambi di categoria in tutto: {len(R['cambi_categoria'])}")
+    return R
+
+
+# ------------------------------------------------------------------- parte D --
+def _git(args, cwd):
+    import subprocess
+    r = subprocess.run(["git", *args], cwd=str(cwd), capture_output=True, text=True)
+    return r.stdout.strip() if r.returncode == 0 else None
+
+
+def _prima_data(cwd, percorso=None, testo=None):
+    """La data (YYYY-MM-DD) e il commit del primo commit che aggiunge `percorso` o che introduce `testo`."""
+    if testo is not None:
+        o = _git(["log", "--reverse", "--format=%ad %h", "--date=short", "-S", testo, "--"] + ([percorso] if percorso else []), cwd)
+    else:
+        o = _git(["log", "--reverse", "--diff-filter=A", "--format=%ad %h", "--date=short", "--", percorso], cwd)
+    if not o:
+        return None
+    d, h = o.splitlines()[0].split()
+    return {"data": d, "commit": h}
 
 
 def parte_D(out: Path) -> dict:
-    raise NotImplementedError("parte D: dopo B")
+    """Provenienza della politica gated(1 sett., 0): per gli undici contesti, i confronti (attuali e per sensore,
+    da B) e le date da `git log`: prima osservazione dei risultati del contesto (file CONGELAMENTO_*) e prima
+    formulazione scritta della politica (protocollo e manoscritto)."""
+    rep = Path(__file__).resolve().parents[2]; paper = rep.parent / "paper1"
+    E17 = json.loads((out / "e17_risultati.json").read_text())
+    Bp = _carica_json(out).get("B", {}).get("contesti", {})
+    FILE_CTX = {"ep1": "CONGELAMENTO_E4.md", "ep2": "CONGELAMENTO_E5.md", "ep3": "CONGELAMENTO_E5.md",
+                "PEMS08": "CONGELAMENTO_E6.md", "PEMS04": "CONGELAMENTO_E6.md"}
+    # dove il contesto e' stato osservato per la prima volta: il primo commit del file di congelamento che lo riporta
+    # (i risultati di E2 per le citta', ep. 1, precedono E4: si prende il piu' antico fra E2 ed E4)
+    oss = {}
+    for k, f in FILE_CTX.items():
+        d = _prima_data(rep, f)
+        oss[k] = {**d, "file": f} if d else None
+    # citta', ep. 1: i primi risultati sono quelli della fase 3 (E_F_GRIGLIA) e di E2; si prende il piu' antico
+    for f in ("CONGELAMENTO_E_F_GRIGLIA.md", "CONGELAMENTO_E2.md"):
+        d = _prima_data(rep, f)
+        if d and (oss["ep1"] is None or d["data"] < oss["ep1"]["data"]):
+            oss["ep1"] = {**d, "file": f}
+    # prima formulazione scritta della politica "una settimana di attesa, poi F'(1 sett.) per tutti"
+    form = {"protocollo": {}, "manoscritto": {}}
+    for f, testi in (("protocol/E17.md", ("gated(1 sett., 0)", "gated(1wk,0)", "gated(1 sett, 0)")),
+                     ("protocol/E5.md", ("gated(1 sett., 0)", "una settimana")), ("protocol/E4.md", ("gated",))):
+        for t in testi:
+            d = _prima_data(rep, f, t)
+            if d:
+                form["protocollo"][f"{f} «{t}»"] = d
+    if paper.exists():
+        for t in ("gated(1wk,0)", "gated(1\\,wk,0)", "waiting a week", "after one week, then", "1\\,\\text{wk}, 0"):
+            d = _prima_data(paper, None, t)
+            if d:
+                form["manoscritto"][f"«{t}»"] = d
+    prima_form = min((d["data"] for d in list(form["protocollo"].values()) + list(form["manoscritto"].values())), default=None)
+    R = {"definizione": "tabella per gli undici contesti: campagna, gated(1 sett., 0) - F0', gated(1 sett., 0) - gated(tau, N), intervalli "
+                        "attuali (E17) e per sensore (B), data della prima osservazione dei risultati del contesto (git log dei "
+                        "CONGELAMENTO_*), data della prima formulazione scritta della politica (protocollo e manoscritto, git log -S)",
+         "prima_formulazione": {"data": prima_form, "dettaglio": form}, "osservazioni": oss, "contesti": {}, "istante": None}
+    for k in E17["politica"]:
+        c = k.split("/")[0]; ep = k.split("/")[1] if "/" in k else k
+        g = E17["politica"][k]["confronti"]
+        d = {"campagna": {"ep1": "E4/E2 (campagna principale)", "ep2": "E5", "ep3": "E5", "PEMS08": "E6", "PEMS04": "E6-bis (parte A)"}[ep],
+             "gated0-F0p": {"media": g["gated672_0-F0p"]["media"], "ic_attuale": g["gated672_0-F0p"]["ic_con_nodi"], "categoria_attuale": categoria(g["gated672_0-F0p"]["ic_con_nodi"])},
+             "gated0-gated": {"media": g["gated672_0-gated_sel"]["media"], "ic_attuale": g["gated672_0-gated_sel"]["ic_con_nodi"], "categoria_attuale": categoria(g["gated672_0-gated_sel"]["ic_con_nodi"])},
+             "osservato": oss.get(ep), "osservato_prima_della_formulazione": (oss.get(ep) or {}).get("data") is not None and prima_form is not None
+             and oss[ep]["data"] < prima_form}
+        bq = Bp.get(k if "/" in k else k, {}).get("differenze", {})
+        for n, kb in (("gated0-F0p", "E17 gated(1sett,0)-F0p"), ("gated0-gated", "E17 gated(1sett,0)-gated")):
+            if kb in bq:
+                d[n]["ic_per_sensore"] = bq[kb]["ic_per_sensore"]; d[n]["categoria_per_sensore"] = bq[kb]["categoria_per_sensore"]
+        R["contesti"][k] = d
+    n_prima = sum(1 for d in R["contesti"].values() if d["osservato_prima_della_formulazione"])
+    R["esito"] = {"contesti": len(R["contesti"]), "osservati_prima_della_formulazione": n_prima,
+                  "atteso": "nessun contesto non osservato prima della formulazione -> valutazione post hoc descrittiva"}
+    R["istante"] = datetime.now(timezone.utc).isoformat()
+    print(f"  prima formulazione scritta: {prima_form}; contesti osservati prima: {n_prima}/{len(R['contesti'])}")
+    return R
 
 
 def forma(out: Path) -> dict:
@@ -402,7 +681,7 @@ def main() -> int:
         elif parte == "A":
             R["A"] = parte_A(a.out, a.pilota, a.repliche, a.lavoratori)
         elif parte == "B":
-            R["B"] = parte_B(a.out)
+            R["B"] = parte_B(a.out, a.repliche)
         else:
             R["D"] = parte_D(a.out)
         R["protocollo"] = {"file": "protocol/E18.md", "impronta": imp(Path("protocol/E18.md"))}
