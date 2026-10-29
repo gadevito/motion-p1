@@ -4,10 +4,10 @@ Ripartizione di `results/evoluzione/` per il deposito (Zenodo).
 ================================================================
 Quattro gruppi, decisi per cartella di primo livello (o file):
 
-    rigenerazione   cio' che `analysis/main.py` legge per rigenerare: deciso dall'elenco degli ingressi
-                    dell'ultimo giro (`analysis/rigenerazione/<istante>/rapporto.json` → `impronte_ingressi`)
-                    quando esiste; altrimenti dai nomi (predizioni_* aggregate, maschere, pesi_*, selezioni,
-                    json congelati, registro)
+    rigenerazione   cio' che `analysis/main.py` legge per rigenerare: dai nomi (predizioni_* aggregate, maschere,
+                    pesi_*, selezioni, json congelati e di scelta). L'elenco degli ingressi dell'ultimo giro
+                    (`rapporto.json` → `impronte_ingressi`) e' l'istantanea d'integrita' di tutto results/evoluzione
+                    e NON distingue i gruppi: si usa solo senza `--per-nomi`, per confronto
     probabilita     le probabilita' per cella di E16 e la ricostruzione PEMS04 di E18 (`predizioni_e16*`,
                     `predizioni_e18_pems04`)
     punti           punti di controllo e stati dei modelli (cartelle con `.pt`: `*inserimento*`, `stati_*`,
@@ -59,9 +59,12 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
     ap.add_argument("--md", type=Path, default=None)
+    ap.add_argument("--per-nomi", action="store_true",
+                    help="gruppo «rigenerazione» dai nomi anche se esiste un giro di main.py (il cui elenco degli ingressi "
+                         "e' l'istantanea d'integrita' di TUTTO results/evoluzione e non distingue i gruppi)")
     a = ap.parse_args()
     radice = Path(__file__).resolve().parents[2]
-    primi, giro = ingressi_main(radice)
+    primi, giro = (None, None) if a.per_nomi else ingressi_main(radice)
     righe, tot = [], {}
     for p in sorted(a.out.iterdir()):
         nome = p.name
