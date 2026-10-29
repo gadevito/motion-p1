@@ -115,6 +115,9 @@ def main() -> int:
              f"`OR3_STATICA=<variante>` (`inserimento.statica_cella`). Varianti nel fascio: "
              + ", ".join(f"**({v})** commit `{MAN[v]['commit']}`, fascio preparato {MAN[v]['preparata']}, "
                          f"{len(MAN[v]['file'])} file" for v in vv) + ".\n")
+    L.append("Rigenerato il 2026-10-29 (registro, voce 28): nelle note sulle correzioni chi aveva trovato un difetto e' "
+             "indicato con il ruolo («durante la stesura del manoscritto»), non con il nome di uno strumento di lavoro; "
+             "nessun numero cambia.\n")
     L.append("Letture dichiarate. (1) La configurazione di F′ (`selezione_F_*`, fase 2 della campagna, fuori da "
              "E2–E8-bis) resta quella congelata. (2) Le selezioni su validazione — (τ, N) di E4, E6, E6a; k di E5; "
              "soglie di E8 — sono rifatte con la variante. (3) Su PEMS04/08 ogni variante e' l'identita' "

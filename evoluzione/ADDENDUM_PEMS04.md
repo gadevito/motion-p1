@@ -186,6 +186,10 @@ accertata e senza presentarlo come «quarta città».
 
 ---
 
+**Nota del 2026-10-29** (seconda revisione esterna, punto su `distance.csv`): la cartella scaricata contiene anche `data_collection/pems04/distance.csv` (la matrice delle distanze fra sensori dell'artefatto ASTGCN). **Non e' stato usato**: nessuno script di `evoluzione/` lo legge (`estrai_pems04.py`, `fattibilita_pems04.py`, `provenienza_pems04.py` leggono il solo `pems04.npz`; la parola «distance» compare in `evoluzione/` solo nel codice di terzi `MoGERNN-main`, non eseguito) e il predittore e' per nodo, senza grafo. Nessuno SHA-256 da registrare come ingresso.
+
+---
+
 ## 8. Perimetro
 
 3 partizioni × 12 inizializzazioni × 2 modelli = **72 addestramenti**. Modelli:
