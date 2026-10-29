@@ -150,6 +150,6 @@ Analysis of frozen artefacts only; pre-registered 28/10/2026, frozen 29/10/2026.
 - **Part D, policy provenance:** first written formulation of gated(1 wk, 0) on 2026-10-22; the eleven contexts were first observed on 2026-09-23 (episode 1), 2026-10-06 (episodes 2–3) and 2026-10-08 (PEMS08, PEMS04). Verdict: "valutazione post hoc descrittiva, senza conferma prospettica" (post hoc descriptive evaluation, without prospective confirmation).
 - **TOST note:** minimum margins from 95 % bounds = TOST at α = 0.025 per side; δ = 0.005 was fixed when the upper bounds were known, so the two non-inferiorities are secondary post hoc analyses; the confirmatory synthesis is superiority in 8 of 11 contexts.
 - **Deviations:** two E16 cells rebuilt on the Mac after a cross-machine deviation of 1.4–1.6e-06 (originals kept); PEMS04 has no E or A, so A1, A2 and A4 are not defined there.
-- [unclear in source: §2c of the record calls the replacement of the 19-threshold claims "voce 28 del registro"; entry 28 of the register is assigned to another correction.]
+- **Register entry 29:** the replacement of the 19-threshold claims is entry 29 (the protocol called it 28, a number already assigned); deviation declared in the record, §6. Part C was completed on 29/10 with per-class ECE, log-loss and Brier score on the same window.
 
-Original: `protocol/E18.md` (42da14831a4e982c); record: `CONGELAMENTO_E18.md` (b284661178a15d9c)
+Original: `protocol/E18.md` (42da14831a4e982c); record: `CONGELAMENTO_E18.md` (54f5530ab845588c)
