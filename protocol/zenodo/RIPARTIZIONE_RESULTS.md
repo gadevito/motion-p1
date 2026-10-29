@@ -1,17 +1,18 @@
 # Ripartizione di `results/evoluzione/` per il deposito
 
-Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 09:26 UTC; gruppo «rigenerazione» deciso dai nomi (nessun giro di `main.py` trovato in `analysis/rigenerazione/`).
+Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 13:24 UTC; gruppo «rigenerazione» deciso dai nomi (nessun giro di `main.py` trovato in `analysis/rigenerazione/`).
 
 | gruppo | MB | file |
 |---|---:|---:|
 | rigenerazione | 10,397 | 4,163 |
-| probabilita | 134 | 4 |
+| probabilita | 7,324 | 326 |
 | punti | 570 | 7,808 |
 | altro | 11,134 | 4,944 |
-| **totale** | **22,234** | **16,919** |
+| **totale** | **29,424** | **17,241** |
 
 | cartella / file | gruppo | MB | file |
 |---|---|---:|---:|
+| `predizioni_e16` | probabilita | 7,104.1 | 288 |
 | `raccordo_conferma` | altro | 6,672.4 | 438 |
 | `predizioni_fase3` | rigenerazione | 6,290.8 | 871 |
 | `predizioni_e2` | rigenerazione | 2,330.8 | 326 |
@@ -20,14 +21,15 @@ Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 09:26 UTC; 
 | `predizioni_refresh` | altro | 830.4 | 146 |
 | `predizioni_f0` | rigenerazione | 766.0 | 110 |
 | `predizioni_fase3_672` | rigenerazione | 480.0 | 109 |
+| `predizioni_e18_pems04` | probabilita | 154.9 | 36 |
 | `predizioni_e8` | rigenerazione | 154.4 | 540 |
-| `predizioni_e16` | probabilita | 133.8 | 4 |
 | `predizioni_sensibilita_rho` | altro | 129.1 | 16 |
 | `maschere` | rigenerazione | 120.7 | 15 |
 | `predizioni_pems04` | altro | 105.8 | 75 |
 | `predizioni_e4` | rigenerazione | 93.6 | 216 |
 | `stati_completi_inserimento_griglia` | punti | 85.9 | 648 |
 | `inserimento_griglia` | punti | 84.1 | 2,164 |
+| `predizioni_e16_spark_sostituite` | probabilita | 64.8 | 2 |
 | `predizioni_e14` | rigenerazione | 59.9 | 442 |
 | `rmon_punti` | punti | 52.7 | 442 |
 | `predizioni_e5` | rigenerazione | 45.5 | 162 |
@@ -88,6 +90,8 @@ Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 09:26 UTC; 
 | `e6_sessione_e6_pems08` | punti | 1.0 | 18 |
 | `e6_costi_e6_pems08` | punti | 1.0 | 18 |
 | `predizioni_e6bis` | rigenerazione | 1.0 | 36 |
+| `congelamento_e18.json` | rigenerazione | 0.6 | 1 |
+| `e18_risultati.json` | rigenerazione | 0.6 | 1 |
 | `stati_completi_E1_rho005_inserimento_griglia` | punti | 0.5 | 4 |
 | `stati_completi_E1_rho030_inserimento_griglia` | punti | 0.5 | 4 |
 | `stati_prova_inserimento` | altro | 0.5 | 4 |
@@ -111,8 +115,6 @@ Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 09:26 UTC; 
 | `stati_completi_collaudo` | altro | 0.3 | 2 |
 | `prova_e3` | altro | 0.3 | 2 |
 | `adeguatezza_E1` | altro | 0.3 | 2 |
-| `congelamento_e18.json` | rigenerazione | 0.2 | 1 |
-| `e18_risultati.json` | rigenerazione | 0.2 | 1 |
 | `congelamento_e4.json` | rigenerazione | 0.2 | 1 |
 | `registro_ricostruzione` | altro | 0.2 | 108 |
 | `e8_risultati.json` | rigenerazione | 0.1 | 1 |
@@ -297,4 +299,3 @@ Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 09:26 UTC; 
 | `E4_costo` | altro | 0.0 | 0 |
 | `E5_robustezza` | altro | 0.0 | 0 |
 | `predizioni` | altro | 0.0 | 0 |
-| `predizioni_e18_pems04` | probabilita | 0.0 | 0 |
