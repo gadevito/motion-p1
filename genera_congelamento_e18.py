@@ -102,7 +102,11 @@ def main() -> int:
 
     # ------------------------------------------------------------------ A --
     if "A" in R:
-        A = R["A"]; T = A["tempi"]
+        A = R["A"]
+        f_t = Path("protocol/e18/tempi_parte_A.json")
+        if not f_t.exists():
+            raise SystemExit("FERMO: manca protocol/e18/tempi_parte_A.json (registro dei tempi della parte A)")
+        RT = json.loads(f_t.read_text()); T = RT["tempi"]
         e8 = a.out / "e8bis_risultati.json"
         E8 = json.loads(e8.read_text())["gruppi"] if e8.exists() else {}
         L += ["## 2. Parte A — ROC empirica, AUC, pAUC(0–10 %), richiamo a falsi allarmi fissi", "",
@@ -121,7 +125,9 @@ def main() -> int:
                      f"{T[gr]['per_cella_s']['mediana']:.0f} | {v.get('scarto_auc', float('nan')):.1e} / {v.get('scarto_richiami_max', float('nan')):.1e} | "
                      f"{v.get('punti', '—')} | {v.get('soglie_distinte', '—')} |")
         tot_m = sum(T[g]["macchina_s"] for g in T) / 3600
-        L += ["", f"Totale: {tot_m:.1f} ore-macchina; sotto le 6 h per citta' del protocollo, quindi 4.000 repliche ovunque.", "",
+        L += ["", f"Totale: {tot_m:.1f} ore-macchina; sotto le 6 h per citta' del protocollo, quindi 4.000 repliche ovunque. "
+              f"Tempi dal registro `protocol/e18/tempi_parte_A.json` (prima esecuzione, {RT['data']}, impronta `{imp(f_t)}`), "
+              f"come per E15: i tempi dell'esecuzione corrente sono in `e18_risultati.json` → `A/tempi` e non entrano in questo documento.", "",
               "### 2a. AUC e pAUC per braccio (media sulle celle [IC 95 %])", "",
               "| gruppo | braccio / finestra | AUC | pAUC (0–10 %) | AUC a 19 soglie (E8-bis, sostituita) |", "|---|---|---|---|---|"]
         for gr in GRUPPI_A:
@@ -268,7 +274,11 @@ def main() -> int:
           "- 29/10/2026, parte C: la prima versione del congelamento (28/10, `b284661178a15d9c`) riportava per la finestra > 1 settimana "
           "la sola wCE; il protocollo §3 richiede le righe F′(1wk) di F16 intere (ECE per classe, log-loss, Brier, wCE). Completate "
           "qui dalle stesse probabilita' e con gli stessi parametri di calibrazione (`analizza_e18.py --parte C` rieseguito; le parti "
-          "A, B, D non sono state rieseguite e i loro numeri sono invariati).", ""]
+          "A, B, D non sono state rieseguite e i loro numeri sono invariati).",
+          "- 29/10/2026, tempi: il giro `--solo E18` sulla Spark coincideva su tutti i numeri ma non sul documento, che stampava i "
+          "tempi misurati della parte A (diversi a ogni esecuzione). Come per E15, i tempi della prima esecuzione (28/10) sono "
+          "copiati nel registro `protocol/e18/tempi_parte_A.json` e il documento li legge da li'; `main.py` tratta `A/tempi` del "
+          "json come metadati.", ""]
     ingr = {}
     for p in parti:
         ii = R[p].get("impronte_ingressi", {})

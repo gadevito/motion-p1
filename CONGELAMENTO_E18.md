@@ -1,6 +1,6 @@
 # CONGELAMENTO E18 — analisi di verifica dalla seconda revisione esterna
 
-Generato da `genera_congelamento_e18.py` al commit `a0b595b`, 2026-10-29 09:41 UTC. Protocollo `protocol/E18.md` (impronta `42da14831a4e982c`; firma 28/10/2026, commit 964e4f5), letto per intero prima del codice; `e18_risultati.json` impronta `4f705ba30cd5946c`. Nessun addestramento: sola analisi da artefatti congelati. Parti presenti: C, A, B, D. Ordine di esecuzione: C → A → B → D.
+Generato da `genera_congelamento_e18.py` al commit `3a4ec90`, 2026-10-29 13:20 UTC. Protocollo `protocol/E18.md` (impronta `42da14831a4e982c`; firma 28/10/2026, commit 964e4f5), letto per intero prima del codice; `e18_risultati.json` impronta `4f705ba30cd5946c`. Nessun addestramento: sola analisi da artefatti congelati. Parti presenti: C, A, B, D. Ordine di esecuzione: C → A → B → D.
 
 Rigenerato il 2026-10-29 (seconda versione; la prima, del 28/10, aveva impronta `b284661178a15d9c`): (i) la sostituzione delle affermazioni a 19 soglie e' la **voce 29** del registro delle correzioni, non la 28 scritta nel protocollo §1 r. 61 (la 28 era gia' stata assegnata ai nomi di ruolo nelle note sulle correzioni): deviazione dichiarata in §6; (ii) la parte C e' completata con le metriche di F16 (ECE per classe, log-loss, Brier) sulla stessa finestra, come il protocollo §3 richiede («righe F′(1wk) di F16 ricalcolate»): la prima versione riportava la sola wCE. Nessun numero gia' congelato cambia.
 
@@ -94,7 +94,7 @@ PEMS04 (A.6): ricostruzione tipo E16 in `predizioni_e18_pems04/` (36 celle di pr
 | PEMS08 | 36 | 26 | 5.5 | 1.25 | 117 | 0.0e+00 / 0.0e+00 | 207896 | 167690 |
 | PEMS04 | 36 | 47 | 1.6 | 0.39 | 41 | 0.0e+00 / 0.0e+00 | 139872 | 129413 |
 
-Totale: 13.1 ore-macchina; sotto le 6 h per citta' del protocollo, quindi 4.000 repliche ovunque.
+Totale: 13.1 ore-macchina; sotto le 6 h per citta' del protocollo, quindi 4.000 repliche ovunque. Tempi dal registro `protocol/e18/tempi_parte_A.json` (prima esecuzione, 2026-10-28, impronta `632a3c662a635814`), come per E15: i tempi dell'esecuzione corrente sono in `e18_risultati.json` → `A/tempi` e non entrano in questo documento.
 
 ### 2a. AUC e pAUC per braccio (media sulle celle [IC 95 %])
 
@@ -340,9 +340,10 @@ I margini minimi usano gli estremi dell'intervallo al 95 % (`analizza_e17.py` r.
 - 29/10/2026, parte B: per i contesti di PEMS04 i confronti con A ed R-orig non esistono (nessun A, nessun R-orig in E6-bis parte A); per le citta' R-orig(1 sett.) − F′(1 sett.) usa `predizioni_fase3_672` (R-orig per nodo sulle origini comuni) e la fascia > 1 settimana di `predizioni_e4`, come E3-bis.
 - 29/10/2026, numerazione: il protocollo §1 r. 61 assegnava alla sostituzione delle affermazioni a 19 soglie (ROC empirica) la voce 28 del registro delle correzioni; la voce 28 era gia' stata assegnata il 29/10 ai nomi di ruolo nelle note sulle correzioni, quindi la sostituzione e' la voce 29. Il protocollo non si modifica (firmato); §2c e il registro portano 29.
 - 29/10/2026, parte C: la prima versione del congelamento (28/10, `b284661178a15d9c`) riportava per la finestra > 1 settimana la sola wCE; il protocollo §3 richiede le righe F′(1wk) di F16 intere (ECE per classe, log-loss, Brier, wCE). Completate qui dalle stesse probabilita' e con gli stessi parametri di calibrazione (`analizza_e18.py --parte C` rieseguito; le parti A, B, D non sono state rieseguite e i loro numeri sono invariati).
+- 29/10/2026, tempi: il giro `--solo E18` sulla Spark coincideva su tutti i numeri ma non sul documento, che stampava i tempi misurati della parte A (diversi a ogni esecuzione). Come per E15, i tempi della prima esecuzione (28/10) sono copiati nel registro `protocol/e18/tempi_parte_A.json` e il documento li legge da li'; `main.py` tratta `A/tempi` del json come metadati.
 
 ## 7. Impronte
 
-- `results/evoluzione/e18_risultati.json` `4f705ba30cd5946c`; `protocol/E18.md` `42da14831a4e982c`; `results/evoluzione/congelamento_e18.json` `f054365ac1387dfd`.
+- `results/evoluzione/e18_risultati.json` `4f705ba30cd5946c`; `protocol/E18.md` `42da14831a4e982c`; `results/evoluzione/congelamento_e18.json` `e24b4fa376529d01`.
 - Ingressi per parte (impronte dei file elencate in `e18_risultati.json` → `impronte_ingressi`): C: 2 file, insieme `9bfd450be26b80fc`; A: 180 file, insieme `1ebcd16ef54185b6`; B: 9 file, insieme `30cd1c11c5c7e48d`; D: 0 file, insieme `e3b0c44298fc1c14`.
 - `evoluzione/analisi/analizza_e18.py` `99ae0206044e269d`.

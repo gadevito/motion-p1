@@ -1,0 +1,55 @@
+{
+ "nota": "Registro dei tempi della parte A di E18 (prima esecuzione sulla Spark, 28/10/2026): copia del blocco A/tempi di e18_risultati.json, letto da genera_congelamento_e18.py al posto dei tempi dell'esecuzione corrente, come per E15. Parete e ore-macchina per gruppo, s per cella.",
+ "data": "2026-10-28",
+ "copiato_il": "2026-10-29",
+ "commit": "3a4ec90",
+ "origine": "results/evoluzione/e18_risultati.json",
+ "impronta_origine": "4f705ba30cd5946c",
+ "tempi": {
+  "Madrid": {
+   "parete_s": 1211.875914812088,
+   "macchina_s": 17573.44959139824,
+   "per_cella_s": {
+    "min": 281.83992099761963,
+    "mediana": 465.58370864391327,
+    "max": 816.9642930030823
+   }
+  },
+  "Londra": {
+   "parete_s": 937.0260927677155,
+   "macchina_s": 13068.13535451889,
+   "per_cella_s": {
+    "min": 172.29880237579346,
+    "mediana": 343.2422556877136,
+    "max": 579.1495823860168
+   }
+  },
+  "Melbourne": {
+   "parete_s": 779.8767037391663,
+   "macchina_s": 10687.740736246109,
+   "per_cella_s": {
+    "min": 167.10011887550354,
+    "mediana": 278.93569672107697,
+    "max": 479.5269591808319
+   }
+  },
+  "PEMS08": {
+   "parete_s": 332.60662508010864,
+   "macchina_s": 4504.140737295151,
+   "per_cella_s": {
+    "min": 65.5056676864624,
+    "mediana": 116.85409581661224,
+    "max": 199.36108469963074
+   }
+  },
+  "PEMS04": {
+   "parete_s": 94.1042652130127,
+   "macchina_s": 1413.7530546188354,
+   "per_cella_s": {
+    "min": 24.554998874664307,
+    "mediana": 41.39939486980438,
+    "max": 53.19972372055054
+   }
+  }
+ }
+}
