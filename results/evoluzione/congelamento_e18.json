@@ -1,6 +1,6 @@
 {
- "commit": "a0b595b",
- "istante": "2026-10-29T09:41:04.828430+00:00",
+ "commit": "3a4ec90",
+ "istante": "2026-10-29T13:20:39.838609+00:00",
  "risultati": {
   "C": {
    "definizione": "finestra: origini con eta' > 1 settimana per F'(1 sett.) E per C; parametri di calibrazione di e16_risultati.json (stimati sulla validazione della stessa cella), invariati; metriche di F16 (ECE per classe a 10 intervalli, log-loss non pesata, Brier multiclasse, wCE) per cella sulla stessa finestra e in media sulle celle, come `medie_test` di E16",
