@@ -1,6 +1,6 @@
 # CONGELAMENTO E18 — analisi di verifica dalla seconda revisione esterna
 
-Generato da `genera_congelamento_e18.py` al commit `3a4ec90`, 2026-10-29 13:20 UTC. Protocollo `protocol/E18.md` (impronta `42da14831a4e982c`; firma 28/10/2026, commit 964e4f5), letto per intero prima del codice; `e18_risultati.json` impronta `4f705ba30cd5946c`. Nessun addestramento: sola analisi da artefatti congelati. Parti presenti: C, A, B, D. Ordine di esecuzione: C → A → B → D.
+Generato da `genera_congelamento_e18.py` al commit `8fbf5fb`, 2026-10-29 17:24 UTC. Protocollo `protocol/E18.md` (impronta `42da14831a4e982c`; firma 28/10/2026, commit 964e4f5), letto per intero prima del codice; `e18_risultati.json` impronta `ddc86f7c534d44a2`. Nessun addestramento: sola analisi da artefatti congelati. Parti presenti: C, A, B, D. Ordine di esecuzione: C → A → B → D.
 
 Rigenerato il 2026-10-29 (seconda versione; la prima, del 28/10, aveva impronta `b284661178a15d9c`): (i) la sostituzione delle affermazioni a 19 soglie e' la **voce 29** del registro delle correzioni, non la 28 scritta nel protocollo §1 r. 61 (la 28 era gia' stata assegnata ai nomi di ruolo nelle note sulle correzioni): deviazione dichiarata in §6; (ii) la parte C e' completata con le metriche di F16 (ECE per classe, log-loss, Brier) sulla stessa finestra, come il protocollo §3 richiede («righe F′(1wk) di F16 ricalcolate»): la prima versione riportava la sola wCE. Nessun numero gia' congelato cambia.
 
@@ -311,6 +311,8 @@ Margini minimi di equivalenza (R-orig(1 sett.) ≡ F′(1 sett.)), max(|lo|, |hi
 
 tabella per gli undici contesti: campagna, gated(1 sett., 0) - F0', gated(1 sett., 0) - gated(tau, N), intervalli attuali (E17) e per sensore (B), data della prima osservazione dei risultati del contesto (git log dei CONGELAMENTO_*), data della prima formulazione scritta della politica (protocollo e manoscritto, git log -S).
 
+Nota del 29/10/2026 (richiesta del revisore): la ricerca storica (`git log -S` delle stringhe della politica, `git log --diff-filter=A` dei file CONGELAMENTO_*) e' limitata ai commit raggiungibili dalla firma del protocollo E18 (28/10/2026): OR3 `964e4f5` (2026-10-28); manoscritto `ae12921` (2026-10-28). Motivo: la ricostruzione e' storica e non deve dipendere dalle modifiche successive al protocollo e al manoscritto. Esito invariato rispetto alla versione del 28/10.
+
 Prima formulazione scritta della politica: **2026-10-22** — protocol/E17.md «gated(1 sett., 0)»: 2026-10-22 (e5ae222); «waiting a week»: 2026-10-22 (5fb9b2d).
 
 | contesto | campagna | gated(1 sett., 0) − F₀′ [IC attuale] | categoria | IC per sensore | categoria | gated(1 sett., 0) − gated(τ,N) [IC attuale] | categoria | prima osservazione dei risultati (file, commit) | osservato prima della formulazione |
@@ -341,9 +343,10 @@ I margini minimi usano gli estremi dell'intervallo al 95 % (`analizza_e17.py` r.
 - 29/10/2026, numerazione: il protocollo §1 r. 61 assegnava alla sostituzione delle affermazioni a 19 soglie (ROC empirica) la voce 28 del registro delle correzioni; la voce 28 era gia' stata assegnata il 29/10 ai nomi di ruolo nelle note sulle correzioni, quindi la sostituzione e' la voce 29. Il protocollo non si modifica (firmato); §2c e il registro portano 29.
 - 29/10/2026, parte C: la prima versione del congelamento (28/10, `b284661178a15d9c`) riportava per la finestra > 1 settimana la sola wCE; il protocollo §3 richiede le righe F′(1wk) di F16 intere (ECE per classe, log-loss, Brier, wCE). Completate qui dalle stesse probabilita' e con gli stessi parametri di calibrazione (`analizza_e18.py --parte C` rieseguito; le parti A, B, D non sono state rieseguite e i loro numeri sono invariati).
 - 29/10/2026, tempi: il giro `--solo E18` sulla Spark coincideva su tutti i numeri ma non sul documento, che stampava i tempi misurati della parte A (diversi a ogni esecuzione). Come per E15, i tempi della prima esecuzione (28/10) sono copiati nel registro `protocol/e18/tempi_parte_A.json` e il documento li legge da li'; `main.py` tratta `A/tempi` del json come metadati.
+- 29/10/2026, parte D: ricerca storica limitata ai commit fino alla firma del protocollo (OR3 `964e4f5`, manoscritto `ae12921` = `manoscritto-20261028j`), su richiesta del revisore; il protocollo §4 non fissava un limite. Stesso esito (prima formulazione 2026-10-22, 11 contesti su 11 osservati prima); `analizza_e18.py --parte D` rieseguito, parti A, B, C invariate.
 
 ## 7. Impronte
 
-- `results/evoluzione/e18_risultati.json` `4f705ba30cd5946c`; `protocol/E18.md` `42da14831a4e982c`; `results/evoluzione/congelamento_e18.json` `e24b4fa376529d01`.
+- `results/evoluzione/e18_risultati.json` `ddc86f7c534d44a2`; `protocol/E18.md` `42da14831a4e982c`; `results/evoluzione/congelamento_e18.json` `5f3138ca8f77ac9a`.
 - Ingressi per parte (impronte dei file elencate in `e18_risultati.json` → `impronte_ingressi`): C: 2 file, insieme `9bfd450be26b80fc`; A: 180 file, insieme `1ebcd16ef54185b6`; B: 9 file, insieme `30cd1c11c5c7e48d`; D: 0 file, insieme `e3b0c44298fc1c14`.
-- `evoluzione/analisi/analizza_e18.py` `99ae0206044e269d`.
+- `evoluzione/analisi/analizza_e18.py` `cbe06d044c84bd8b`.

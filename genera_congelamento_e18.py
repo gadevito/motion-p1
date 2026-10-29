@@ -235,8 +235,14 @@ def main() -> int:
     # ------------------------------------------------------------------ D --
     if "D" in R:
         Dq = R["D"]; pf = Dq["prima_formulazione"]
+        lim = Dq.get("limite_storia", {})
         L += ["## 4. Parte D — provenienza della politica gated(1 sett., 0) (documentaria)", "",
               f"{Dq['definizione']}.", "",
+              "Nota del 29/10/2026 (richiesta del revisore): la ricerca storica (`git log -S` delle stringhe della politica, "
+              "`git log --diff-filter=A` dei file CONGELAMENTO_*) e' limitata ai commit raggiungibili dalla firma del protocollo E18 "
+              "(28/10/2026): " + "; ".join(f"{k} `{v['commit']}` ({v['data']})" for k, v in lim.items() if isinstance(v, dict))
+              + ". Motivo: la ricostruzione e' storica e non deve dipendere dalle modifiche successive al protocollo e al manoscritto. "
+              "Esito invariato rispetto alla versione del 28/10.", "",
               f"Prima formulazione scritta della politica: **{pf['data']}** — "
               + "; ".join(f"{k}: {v['data']} ({v['commit']})" for k, v in list(pf["dettaglio"]["protocollo"].items()) + list(pf["dettaglio"]["manoscritto"].items())) + ".", "",
               "| contesto | campagna | gated(1 sett., 0) − F₀′ [IC attuale] | categoria | IC per sensore | categoria | gated(1 sett., 0) − gated(τ,N) [IC attuale] | categoria | prima osservazione dei risultati (file, commit) | osservato prima della formulazione |",
@@ -278,7 +284,11 @@ def main() -> int:
           "- 29/10/2026, tempi: il giro `--solo E18` sulla Spark coincideva su tutti i numeri ma non sul documento, che stampava i "
           "tempi misurati della parte A (diversi a ogni esecuzione). Come per E15, i tempi della prima esecuzione (28/10) sono "
           "copiati nel registro `protocol/e18/tempi_parte_A.json` e il documento li legge da li'; `main.py` tratta `A/tempi` del "
-          "json come metadati.", ""]
+          "json come metadati.",
+          "- 29/10/2026, parte D: ricerca storica limitata ai commit fino alla firma del protocollo (OR3 `964e4f5`, manoscritto "
+          "`ae12921` = `manoscritto-20261028j`), su richiesta del revisore; il protocollo §4 non fissava un limite. Stesso esito "
+          "(prima formulazione 2026-10-22, 11 contesti su 11 osservati prima); `analizza_e18.py --parte D` rieseguito, parti A, B, C "
+          "invariate.", ""]
     ingr = {}
     for p in parti:
         ii = R[p].get("impronte_ingressi", {})

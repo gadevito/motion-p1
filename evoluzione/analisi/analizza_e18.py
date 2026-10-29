@@ -38,6 +38,9 @@ from evoluzione.esperimenti.esegui_e4 import FASCE_ETA  # noqa: E402
 
 SEME_BOOT = 20261028
 TOLLERANZA_C = 1e-6
+# parte D: la ricerca storica (git log) e' limitata ai commit raggiungibili dalla firma del protocollo E18 (28/10/2026),
+# cosi' la ricostruzione non dipende dalle modifiche successive (richiesta del revisore, 29/10/2026)
+LIMITE_D = {"OR3": "964e4f5", "manoscritto": "ae12921"}
 DELTA_NI = 0.005
 GRUPPI = ("Madrid", "Londra", "Melbourne", "PEMS08")
 ETA_SETT = FASCE_ETA[1]                       # 672 passi: una settimana
@@ -598,12 +601,13 @@ def _git(args, cwd):
     return r.stdout.strip() if r.returncode == 0 else None
 
 
-def _prima_data(cwd, percorso=None, testo=None):
-    """La data (YYYY-MM-DD) e il commit del primo commit che aggiunge `percorso` o che introduce `testo`."""
+def _prima_data(cwd, percorso=None, testo=None, fino_a="HEAD"):
+    """La data (YYYY-MM-DD) e il commit del primo commit, fra quelli raggiungibili da `fino_a`, che aggiunge `percorso`
+    o che introduce `testo`."""
     if testo is not None:
-        o = _git(["log", "--reverse", "--format=%ad %h", "--date=short", "-S", testo, "--"] + ([percorso] if percorso else []), cwd)
+        o = _git(["log", "--reverse", "--format=%ad %h", "--date=short", "-S", testo, fino_a, "--"] + ([percorso] if percorso else []), cwd)
     else:
-        o = _git(["log", "--reverse", "--diff-filter=A", "--format=%ad %h", "--date=short", "--", percorso], cwd)
+        o = _git(["log", "--reverse", "--diff-filter=A", "--format=%ad %h", "--date=short", fino_a, "--", percorso], cwd)
     if not o:
         return None
     d, h = o.splitlines()[0].split()
@@ -615,6 +619,15 @@ def parte_D(out: Path) -> dict:
     da B) e le date da `git log`: prima osservazione dei risultati del contesto (file CONGELAMENTO_*) e prima
     formulazione scritta della politica (protocollo e manoscritto)."""
     rep = Path(__file__).resolve().parents[2]; paper = rep.parent / "paper1"
+    limite = {}
+    for nome, cwd in (("OR3", rep), ("manoscritto", paper)):
+        if nome == "manoscritto" and not paper.exists():
+            continue
+        o = _git(["log", "-1", "--format=%ad %h", "--date=short", LIMITE_D[nome]], cwd)
+        if not o:
+            raise RuntimeError(f"parte D: il commit limite {LIMITE_D[nome]} ({nome}) non esiste in {cwd}")
+        limite[nome] = {"commit": LIMITE_D[nome], "data": o.split()[0]}
+    f_oss = lambda f: _prima_data(rep, f, fino_a=LIMITE_D["OR3"])  # noqa: E731
     E17 = json.loads((out / "e17_risultati.json").read_text())
     Bp = _carica_json(out).get("B", {}).get("contesti", {})
     FILE_CTX = {"ep1": "CONGELAMENTO_E4.md", "ep2": "CONGELAMENTO_E5.md", "ep3": "CONGELAMENTO_E5.md",
@@ -623,11 +636,11 @@ def parte_D(out: Path) -> dict:
     # (i risultati di E2 per le citta', ep. 1, precedono E4: si prende il piu' antico fra E2 ed E4)
     oss = {}
     for k, f in FILE_CTX.items():
-        d = _prima_data(rep, f)
+        d = f_oss(f)
         oss[k] = {**d, "file": f} if d else None
     # citta', ep. 1: i primi risultati sono quelli della fase 3 (E_F_GRIGLIA) e di E2; si prende il piu' antico
     for f in ("CONGELAMENTO_E_F_GRIGLIA.md", "CONGELAMENTO_E2.md"):
-        d = _prima_data(rep, f)
+        d = f_oss(f)
         if d and (oss["ep1"] is None or d["data"] < oss["ep1"]["data"]):
             oss["ep1"] = {**d, "file": f}
     # prima formulazione scritta della politica "una settimana di attesa, poi F'(1 sett.) per tutti"
@@ -636,18 +649,21 @@ def parte_D(out: Path) -> dict:
     # e le durate di adattamento, non questa formulazione
     for f, testi in (("protocol/E17.md", ("gated(1 sett., 0)", "gated(1wk,0)", "gated(1 sett, 0)")),):
         for t in testi:
-            d = _prima_data(rep, f, t)
+            d = _prima_data(rep, f, t, fino_a=LIMITE_D["OR3"])
             if d:
                 form["protocollo"][f"{f} «{t}»"] = d
     if paper.exists():
         for t in ("gated(1wk,0)", "gated(1\\,wk,0)", "waiting a week", "after one week, then", "1\\,\\text{wk}, 0"):
-            d = _prima_data(paper, None, t)
+            d = _prima_data(paper, None, t, fino_a=LIMITE_D["manoscritto"])
             if d:
                 form["manoscritto"][f"«{t}»"] = d
     prima_form = min((d["data"] for d in list(form["protocollo"].values()) + list(form["manoscritto"].values())), default=None)
     R = {"definizione": "tabella per gli undici contesti: campagna, gated(1 sett., 0) - F0', gated(1 sett., 0) - gated(tau, N), intervalli "
                         "attuali (E17) e per sensore (B), data della prima osservazione dei risultati del contesto (git log dei "
                         "CONGELAMENTO_*), data della prima formulazione scritta della politica (protocollo e manoscritto, git log -S)",
+         "limite_storia": {"motivo": "ricostruzione storica: git log limitato ai commit raggiungibili dalla firma del protocollo "
+                                     "E18 (28/10/2026), indipendente dalle modifiche successive (richiesta del revisore, 29/10/2026)",
+                           **limite},
          "prima_formulazione": {"data": prima_form, "dettaglio": form}, "osservazioni": oss, "contesti": {}, "istante": None}
     for k in E17["politica"]:
         c = k.split("/")[0]; ep = k.split("/")[1] if "/" in k else k
