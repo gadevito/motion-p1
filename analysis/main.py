@@ -73,7 +73,7 @@ RIS = Path("results/evoluzione")
 
 # chiavi di metadati: si riportano se differiscono, non fanno fallire
 METADATI = re.compile(r"(istante|impronta|impronte|hash|^sha|commit|generat|^data$|^data_|percorso|^file$|"
-                      r"durata|secondi_parete|^ora$|macchina|python|versione)", re.I)
+                      r"durata|secondi_parete|^tempi$|^ora$|macchina|python|versione)", re.I)
 
 
 def e_metadato(p: str) -> bool:
