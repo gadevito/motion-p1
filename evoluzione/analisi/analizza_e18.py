@@ -610,8 +610,9 @@ def parte_D(out: Path) -> dict:
             oss["ep1"] = {**d, "file": f}
     # prima formulazione scritta della politica "una settimana di attesa, poi F'(1 sett.) per tutti"
     form = {"protocollo": {}, "manoscritto": {}}
-    for f, testi in (("protocol/E17.md", ("gated(1 sett., 0)", "gated(1wk,0)", "gated(1 sett, 0)")),
-                     ("protocol/E5.md", ("gated(1 sett., 0)", "una settimana")), ("protocol/E4.md", ("gated",))):
+    # SOLO la politica gated(1 sett., 0): «gated» da solo (E4) e «una settimana» (E5) sono la politica gated(tau, N)
+    # e le durate di adattamento, non questa formulazione
+    for f, testi in (("protocol/E17.md", ("gated(1 sett., 0)", "gated(1wk,0)", "gated(1 sett, 0)")),):
         for t in testi:
             d = _prima_data(rep, f, t)
             if d:
@@ -640,8 +641,12 @@ def parte_D(out: Path) -> dict:
                 d[n]["ic_per_sensore"] = bq[kb]["ic_per_sensore"]; d[n]["categoria_per_sensore"] = bq[kb]["categoria_per_sensore"]
         R["contesti"][k] = d
     n_prima = sum(1 for d in R["contesti"].values() if d["osservato_prima_della_formulazione"])
-    R["esito"] = {"contesti": len(R["contesti"]), "osservati_prima_della_formulazione": n_prima,
-                  "atteso": "nessun contesto non osservato prima della formulazione -> valutazione post hoc descrittiva"}
+    n_tot = len(R["contesti"])
+    R["esito"] = {"contesti": n_tot, "osservati_prima_della_formulazione": n_prima, "osservati_dopo": n_tot - n_prima,
+                  "atteso": "nessun contesto osservato dopo la formulazione -> valutazione post hoc descrittiva",
+                  "verdetto": ("tutti gli undici contesti erano gia' stati osservati quando la politica e' stata scritta: valutazione post hoc "
+                               "descrittiva, senza conferma prospettica" if n_prima == n_tot else
+                               f"{n_tot - n_prima} contesti osservati DOPO la formulazione: per quelli la valutazione e' prospettica")}
     R["istante"] = datetime.now(timezone.utc).isoformat()
     print(f"  prima formulazione scritta: {prima_form}; contesti osservati prima: {n_prima}/{len(R['contesti'])}")
     return R

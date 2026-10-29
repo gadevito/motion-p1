@@ -88,7 +88,7 @@ def main() -> int:
               f"ricampionamenti congiunti (partizioni × semi × posizioni dei sensori) con pesi di molteplicita' sui sensori, "
               f"ordinamento una volta per cella e braccio; stessi indici per i due bracci di una differenza; seme {A['seme_bootstrap']} + indice del gruppo.", "",
               f"PEMS04 (A.6): ricostruzione tipo E16 in `{A['pems04']['cartella']}/` (36 celle di prova, 3 controlli per cella); "
-              f"{A['pems04']['bracci']}: A1, A2, A4 not defined (no E, no A); A3 and F₀′ − C only.", "",
+              f"bracci C, F₀′, F′(1 sett.): A1, A2, A4 not defined (no E, no A); A3 and F₀′ − C only.", "",
               "| gruppo | celle | sensori | parete (min) | ore-macchina | s per cella (mediana) | verifica sklearn: scarto AUC / richiami | punteggi | soglie distinte |",
               "|---|---|---|---|---|---|---|---|---|"]
         for gr in GRUPPI_A:
@@ -138,9 +138,10 @@ def main() -> int:
             d = A["gruppi"].get(g, {}).get("confronti", {}).get("Fp_672-C")
             if d:
                 a3[g] = [d[f"richiamo_fa_{l}"]["segno"] for l in LIVELLI]
-        L.append("- **A3** F′(1 sett.) sopra C in richiamo ai cinque livelli di FA (origini > 1 settimana): "
+        L.append("- **A3** F′(1 sett.) sopra C in richiamo ai cinque livelli di FA (origini > 1 settimana), segni per livello 0,5/1/2/5/10 %: "
                  + "; ".join(f"{g} {''.join(s)}" for g, s in a3.items())
-                 + f" → **{'confermata in ' + str(sum(all(x == '+' for x in s) for s in a3.values())) + '/' + str(len(a3)) + ' contesti'}**.")
+                 + f" → sopra zero a tutti e cinque i livelli in {sum(all(x == '+' for x in s) for s in a3.values())}/{len(a3)} contesti; per livello: "
+                 + ", ".join(f"{float(l)*100:g} %: {sum(s[i] == '+' for s in a3.values())}/{len(a3)}" for i, l in enumerate(LIVELLI)) + ".")
         L += ["- **A4** richiamo perso da F₀ sotto argmax e quota recuperata a FA 5 %:", "",
               "| gruppo | richiamo argmax C | richiamo argmax F₀ | perdita sotto argmax (punti) [IC] | perdita a FA 5 % (punti) [IC] | quota recuperata [IC] | testo attuale |",
               "|---|---|---|---|---|---|---|"]
@@ -176,7 +177,7 @@ def main() -> int:
                 att = f"{d['media_attuale']:+.4f} [{d['ic_attuale'][0]:+.4f}, {d['ic_attuale'][1]:+.4f}]" if "ic_attuale" in d else "—"
                 cat_a = d.get("categoria_attuale", "—")
                 esito = ("**cambia**" if "ic_attuale" in d and cat_a != d["categoria_per_sensore"] else "invariata") if "ic_attuale" in d else "—"
-                L.append(f"| {ctx if i == 0 else ''} | {Cq['sensori_distinti']} / {Cq['occorrenze'] if i == 0 else ''} | {n} | {d['media']:+.4f} | {att} | {cat_a} | "
+                L.append(f"| {ctx if i == 0 else ''} | {(str(Cq['sensori_distinti']) + ' / ' + str(Cq['occorrenze'])) if i == 0 else ''} | {n} | {d['media']:+.4f} | {att} | {cat_a} | "
                          f"[{d['ic_posizioni_ricalcolato'][0]:+.4f}, {d['ic_posizioni_ricalcolato'][1]:+.4f}] | [{d['ic_per_sensore'][0]:+.4f}, {d['ic_per_sensore'][1]:+.4f}] | "
                          f"{d['categoria_per_sensore']} | {esito} |")
         L += ["", f"**Cambi di categoria** (attuale → per sensore): {len(Bq['cambi_categoria'])}."]
@@ -218,8 +219,8 @@ def main() -> int:
                      f"{ic2(gg['media'], gg['ic_attuale'])} | {gg['categoria_attuale']} | {o.get('data', '—')} ({o.get('file', '—')}, {o.get('commit', '—')}) | "
                      f"{'sì' if d['osservato_prima_della_formulazione'] else 'no'} |")
         L += ["", f"Esito: {Dq['esito']['osservati_prima_della_formulazione']} contesti su {Dq['esito']['contesti']} osservati prima della prima "
-              f"formulazione scritta. {Dq['esito']['atteso']}. Il paper riporta la politica come valutazione post hoc descrittiva sugli undici "
-              f"contesti, senza «not used to formulate it» e senza conferma prospettica.", ""]
+              f"formulazione scritta ({pf['data']}); atteso: {Dq['esito']['atteso']}. **{Dq['esito'].get('verdetto', '')}**. Il paper riporta la "
+              f"politica come valutazione post hoc descrittiva sugli undici contesti, senza «not used to formulate it» e senza conferma prospettica.", ""]
 
     # ------------------------------------------------------------- 5, 6, 7 --
     L += ["## 5. TOST (punto 6) — nessun calcolo", "",
