@@ -153,6 +153,10 @@ FASI = [
     # non si rifanno qui; e15_k_secondaria.json e' un ingresso congelato), poi il congelamento
     F("E15", [E + "esegui_e15.py", "--fase", "analizza"], [R_ + "e15_risultati.json"]),
     F("E15", ["genera_congelamento_e15.py"], [R_ + "congelamento_e15.json", "CONGELAMENTO_E15.md"]),
+    # E18 (seconda revisione esterna, sola analisi): C (correzione 27 di E16, con controllo), A (ROC empirica,
+    # pAUC, richiami a FA fissi: ~1 h a 16 lavoratori), B (bootstrap per sensore fisico), D (date da git log)
+    F("E18", [A + "analizza_e18.py", "--parte", "tutte", "--lavoratori", "16"], [R_ + "e18_risultati.json"]),
+    F("E18", ["genera_congelamento_e18.py"], [R_ + "congelamento_e18.json", "CONGELAMENTO_E18.md"]),
 ]
 # figure del manoscritto: gli stessi script, con --lingua en, verso <paper>/figures/
 FIGURE_PAPER = [("ARCH", A + "figura_rete.py", ["rete.pdf"]),
@@ -161,7 +165,7 @@ FIGURE_PAPER = [("ARCH", A + "figura_rete.py", ["rete.pdf"]),
                 ("E5", A + "analizza_e5.py", ["episodi_e5.pdf"]),
                 ("E8", A + "figura2_51.py", ["figura2_51.pdf"]),
                 ("E8", A + "figura_e8bis.py", ["curve_e8bis.pdf"])]
-ESPERIMENTI = ["ARCH", "E2", "E3", "E4", "E3bis", "E5", "E6", "E7", "E8", "E14", "E16", "E15"]
+ESPERIMENTI = ["ARCH", "E2", "E3", "E4", "E3bis", "E5", "E6", "E7", "E8", "E14", "E16", "E15", "E18"]
 
 
 # ---------------------------------------------------------------- impronte --
