@@ -118,12 +118,42 @@ def _righe():
         R.append(("III", f"({k}) PEMS08", "E6", "e6_risultati.json", ["affermazioni", k, "segno"], s08, str))
     # i valori di PEMS04/PEMS08 della vecchia nota alla Tab. III sono righe della tabella C1 del supplemento
     # (scrivi_tabella_C1), generate dai json: non c'e' trascrizione da verificare
+    # ---- E18 (seconda revisione esterna): ROC empirica, bootstrap per sensore ---------------------------
+    GA = lambda g, k, m: ["risultati", "A", "gruppi", g, "confronti", k, m, "media"]
+    pt = lambda v: f"{100 * v:+.1f}"
+    for k, g, st in (("F0-C", "Madrid", "-0.051"), ("F0-C", "Londra", "-0.018"), ("F0-C", "Melbourne", "-0.030"),
+                     ("F0-C", "PEMS08", "+0.008"), ("F0p-F0", "Madrid", "+0.045"), ("F0p-F0", "Londra", "+0.013"),
+                     ("F0p-F0", "Melbourne", "+0.031"), ("F0p-F0", "PEMS08", "-0.004")):
+        R.append(("§V-A", f"dAUC {k}, {g} (E18)", "E18", "congelamento_e18.json", GA(g, k, "auc"), st, _f3))
+    for k, g, st in (("F0-C", "Madrid", "-3.9"), ("F0-C", "Londra", "-1.3"), ("F0-C", "Melbourne", "-4.5"),
+                     ("F0-C", "PEMS08", "+5.3"), ("A-C", "Madrid", "+2.6"), ("A-C", "Londra", "+1.9"),
+                     ("A-C", "Melbourne", "+2.5")):
+        R.append(("§V-A", f"richiamo a FA 5 % {k}, {g} (E18)", "E18", "congelamento_e18.json",
+                  GA(g, k, "richiamo_fa_0.05"), st, pt))
+    for g, st in (("Madrid", "92"), ("Londra", "84"), ("Melbourne", "80")):
+        R.append(("§V-A", f"quota recuperata a FA 5 %, {g} (E18)", "E18", "congelamento_e18.json",
+                  ["risultati", "A", "gruppi", g, "recupero_argmax", "quota_recuperata", "media"], st,
+                  lambda v: f"{100 * v:.0f}"))
+    R.append(("§V-B", "dAUC F'(1 wk) - C, minimo sui cinque contesti (E18)", "E18", "congelamento_e18.json",
+              ("min", [GA(g, "Fp_672-C", "auc") for g in ("Madrid", "Londra", "Melbourne", "PEMS08", "PEMS04")]),
+              "+0.007", _f3))
+    R.append(("§V-B", "dAUC F'(1 wk) - C, massimo sui cinque contesti (E18)", "E18", "congelamento_e18.json",
+              ("max18", [GA(g, "Fp_672-C", "auc") for g in ("Madrid", "Londra", "Melbourne", "PEMS08", "PEMS04")]),
+              "+0.032", _f3))
+    MB = lambda c, k: ["risultati", "B", "contesti", c, "differenze", k, "margine_minimo_per_sensore"]
+    for c, k, st in (("E3-bis Madrid", "Rorig_672-Fp_672 >1sett", "0.006"), ("E3-bis Londra", "Rorig_672-Fp_672 >1sett", "0.005"),
+                     ("E3-bis Melbourne", "Rorig_672-Fp_672 >1sett", "0.020"), ("PEMS08", "E17 Rorig_672-Fp_672 >1sett", "0.100")):
+        R.append(("§V-B", f"margine minimo per sensore, {c} (E18)", "E18", "congelamento_e18.json", MB(c, k), st,
+                  "{:.3f}".format))
     return R
 
 
 def _leggi(d, via):
     if isinstance(via, tuple) and via[0] == "max":
         return max(d["affermazioni"][k]["media"] for k in via[1])
+    if isinstance(via, tuple) and via[0] in ("min", "max18"):
+        vals = [_leggi(d, v) for v in via[1]]
+        return min(vals) if via[0] == "min" else max(vals)
     if isinstance(via, tuple) and via[0] == "diff":
         return _leggi(d, via[1]) - _leggi(d, via[2])
     if isinstance(via, tuple) and via[0] == "corpo":            # parametri - K x d_emb

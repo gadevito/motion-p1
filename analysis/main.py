@@ -714,7 +714,11 @@ def main() -> int:
             if "E16" in a.solo:                     # supplementare F (E16, calibrazione)
                 from analysis.tabelle_suppl import scrivi_E
                 print("[paper] tabelle E del supplementare (E16)", flush=True)
-                scrivi_E(radice / RIS, dfig / "tableE_e16.tex")
+                scrivi_E(radice / RIS, dfig / "tableE_e16.tex")        # righe di F'(1 sett.) da E18, parte C
+            if "E18" in a.solo:                     # supplementare G (E18, verifiche della seconda revisione)
+                from analysis.tabelle_suppl import scrivi_E18
+                print("[paper] tabelle G del supplementare (E18)", flush=True)
+                scrivi_E18(radice / RIS, dfig / "tableG_e18.tex")
     finally:
         dopo = istantanea(RADICE / RIS)
         meta["integrita_risultati"] = "invariati" if dopo == prima else \

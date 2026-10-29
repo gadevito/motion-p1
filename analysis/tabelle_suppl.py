@@ -314,11 +314,18 @@ def scrivi_E(ris: Path, f: Path) -> None:
     pesata, Brier e wCE per braccio e calibrazione. A senza calibrazione post-hoc (deviazione dichiarata)."""
     R = json.loads((ris / "congelamento_e16.json").read_text())
     G = R["gruppi"]
+    # correzione 27 (E18, parte C): le righe di F'(1 sett.) sono sulle origini piu' vecchie di una settimana,
+    # per F'(1 sett.) e per C, con i parametri di calibrazione di E16
+    S = json.loads((ris / "congelamento_e18.json").read_text())["risultati"]["C"]["gruppi"]
+    md18 = Path(__file__).resolve().parents[1] / "CONGELAMENTO_E18.md"
     imp = lambda x: hashlib.sha256(x.read_bytes()).hexdigest()[:16]
     rep = Path(__file__).resolve().parents[1]
     md, js = rep / "CONGELAMENTO_E16.md", rep / "results" / "evoluzione" / "congelamento_e16.json"
     fonte = " Source: record \\texttt{CONGELAMENTO\\_E16.md}, fingerprint \\texttt{" + imp(md) + "}; " \
         "\\texttt{congelamento\\_e16.json}, fingerprint \\texttt{" + imp(js) + "}."
+    fonte18 = " Rows marked $^\\dagger$: origins older than one week for both arms (correction~27), from record " \
+        "\\texttt{CONGELAMENTO\\_E18.md}, fingerprint \\texttt{" + imp(md18) + "}, part C; calibration parameters as fitted " \
+        "in E16 on the validation episode. All other rows: all origins after $t_1$."
     cal = [c for c in CAL_EN if c != "grezzo"]
     out = []
     righe = [CTX_EN[g] + " & " + " & ".join(_ic(G[g]["quota_calibrazione"][c], scala=1.0, cifre=2) for c in cal)
@@ -339,14 +346,17 @@ def scrivi_E(ris: Path, f: Path) -> None:
         if not prima:
             righe.append("\\addlinespace")
         for i, (k, et) in enumerate(DIFF_E16):
+            src = (lambda c: S[g]["differenze_settimana"][f"{k}/{c}"]) if k == "Fp_672-C" else \
+                (lambda c: G[g]["differenze"][f"{k}/{c}"])
+            et = et + "$^\\dagger$" if k == "Fp_672-C" else et
             righe.append((CTX_EN[g] if i == 0 else "") + f" & {et} & "
-                         + " & ".join(_ic(G[g]["differenze"][f"{k}/{c}"], scala=1.0, cifre=3) for c in CAL_EN) + " \\\\")
+                         + " & ".join(_ic(src(c), scala=1.0, cifre=3) for c in CAL_EN) + " \\\\")
         prima = False
     out.append(_longtable(
         "@{}l l c c c c c@{}",
         "E16: differences in test wCE between arms before (raw) and after post-hoc calibration; $A$ has no "
         "embeddings for the validation sensors and is not calibrated, so $A-C$ after calibration uses the raw $A$ "
-        "and the calibrated $C$ (declared deviation)." + fonte,
+        "and the calibrated $C$ (declared deviation)." + fonte + fonte18,
         "Context & Difference & " + " & ".join(CAL_EN[c] for c in CAL_EN), righe, "tab:suppE2")
                .replace("{\\footnotesize\\setlength{\\tabcolsep}{3pt}", "{\\scriptsize\\setlength{\\tabcolsep}{2pt}", 1))
     righe, prima = [], True
@@ -354,8 +364,14 @@ def scrivi_E(ris: Path, f: Path) -> None:
         if not prima:
             righe.append("\\addlinespace")
         primo = True
-        for b, et in BRACCI_E16:
+        for b, et in BRACCI_E16 + (("C_sett", "$C$$^\\dagger$"),):
             for c in CAL_EN:
+                if b in ("Fp_672", "C_sett"):       # correzione 27: solo la wCE e' ricalcolata sulla finestra
+                    w = S[g]["wce_settimana"][f"{b.replace('_sett', '')}/{c}"]["media"]
+                    righe.append((CTX_EN[g] if primo else "") + f" & {et}{'$^\\dagger$' if b == 'Fp_672' else ''} & "
+                                 f"{CAL_EN[c]} & -- & -- & -- & -- & -- & {w:.4f} \\\\")
+                    primo = False
+                    continue
                 m = G[g]["medie_test"].get(f"{b}/{c}")
                 if m is None:
                     continue
@@ -370,7 +386,9 @@ def scrivi_E(ris: Path, f: Path) -> None:
         "E16: expected calibration error per class (10 reliability bins), unweighted log-loss, multiclass Brier score "
         "and wCE on the test, per arm and calibration, means over cells. Calibrating against the unweighted log-loss "
         "targets the natural class distribution, while the campaign loss is minimised by the class-reweighted "
-        "posterior: vector scaling against log-loss brings every class's ECE below 0.04 but raises the wCE." + fonte,
+        "posterior: vector scaling against log-loss brings every class's ECE below 0.04 but raises the wCE. "
+        "For $F'(1\\,\\mathrm{wk})$ only the wCE is recomputed on its causal window (--: not recomputed); the row "
+        "$C^\\dagger$ is $C$ on the same window." + fonte + fonte18,
         "Context & Arm & Calibration & \\multicolumn{3}{c}{ECE (free / mod. / cong.)} & log-loss & Brier & wCE", righe, "tab:suppE3"))
     f.write_text("\n".join(out))
 
@@ -481,4 +499,186 @@ def scrivi_E15(ris: Path, f: Path) -> None:
         f"{Z['cella']['braccio']}, retrained with the frozen scalar: wCE {Z['wce_congelata']:.12f} frozen, "
         f"{Z['wce_riprodotta']:.12f} reproduced, checkpoint identical to the bit." + fonte,
         "Arm & trainings & minutes per training (median) & machine-hours", righe, "tab:suppE15e"))
+    f.write_text("\n".join(out))
+
+
+# --- G: analisi di verifica della seconda revisione esterna (E18), da congelamento_e18.json ------------
+CONF_A_EN = {"F0-C": r"$F_0-C$", "F0p-F0": r"$F_0'-F_0$", "F0p-C": r"$F_0'-C$", "A-C": r"$A-C$",
+             "Fp_672-C": r"$F'(1\,\mathrm{wk})-C$"}
+BR_A_EN = {"A": "$A$", "C": "$C$", "F0": "$F_0$", "F0p": "$F_0'$", "Fp_672": r"$F'(1\,\mathrm{wk})$"}
+FIN_EN = {"intero": "all after $t_1$", "sett": r"$>1$\,wk"}
+LIV_E18 = ("0.005", "0.01", "0.02", "0.05", "0.1")
+GRUPPI_E18 = ("Madrid", "Londra", "Melbourne", "PEMS08", "PEMS04")
+DIFF_B_EN = {"(a) F0p-C": r"(a) $F_0'-C$", "(b) gated-F0p": r"(b) gated$-F_0'$",
+             "(c) Fp_672-C >1sett": r"(c) $F'(1\,\mathrm{wk})-C$$^\dagger$", "(d) Fp_96-C": r"(d) $F'(24\,\mathrm{h})-C$",
+             "(e) Fp_672-A >1sett": r"(e) $F'(1\,\mathrm{wk})-A$$^\dagger$",
+             "E17 gated(1sett,0)-F0p": r"gated$(1\,\mathrm{wk},0)-F_0'$",
+             "E17 gated(1sett,0)-gated": r"gated$(1\,\mathrm{wk},0)-$gated$(\tau,N)$",
+             "E17 Rorig_672-Fp_672 >1sett": r"R-orig$(1\,\mathrm{wk})-F'(1\,\mathrm{wk})$$^\dagger$",
+             "Rorig_672-Fp_672 >1sett": r"R-orig$(1\,\mathrm{wk})-F'(1\,\mathrm{wk})$$^\dagger$",
+             "F0-C": r"$F_0-C$", "F0p-C": r"$F_0'-C$", "Fp_672-C >1sett": r"$F'(1\,\mathrm{wk})-C$$^\dagger$",
+             "Fp_672-A >1sett": r"$F'(1\,\mathrm{wk})-A$$^\dagger$", "A-C": r"$A-C$", "A-C_A": r"$A-C_A$",
+             "C_A-C": r"$C_A-C$", "Fpk_672-C >1sett": r"$F'(1\,\mathrm{wk};k)-C$$^\dagger$",
+             "Fpk_672-A >1sett": r"$F'(1\,\mathrm{wk};k)-A$$^\dagger$"}
+
+
+def _ctx_e18(c: str) -> str:
+    """'Madrid/ep3' -> 'Madrid ep.\\ 3'; 'E15 Londra' -> 'London (E15)'; 'E3-bis Melbourne' -> 'Melbourne (E3-bis)'."""
+    if "/ep" in c:
+        g, e = c.split("/ep")
+        return f"{CTX_EN[g]} ep.\\ {e}"
+    if " " in c:
+        camp, g = c.split(" ", 1)
+        return f"{CTX_EN[g]} ({camp})"
+    return CTX_EN[c]
+
+
+def _ic_lista(m, lo_hi, cifre=4):
+    return f"${m:+.{cifre}f}$ {{\\tiny$[{lo_hi[0]:+.{cifre}f},{lo_hi[1]:+.{cifre}f}]$}}"
+
+
+def _ic_t(r, scala=100.0, cifre=1):           # come _ic, intervallo in \\tiny (tabelle larghe)
+    return _ic_lista(r["media"] * scala, [v * scala for v in r["ic_con_nodi"]], cifre)
+
+
+def scrivi_E18(ris: Path, f: Path) -> None:
+    """Supplementare G (E18): G1 AUC e pAUC per braccio (ROC empirica); G2 confronti, Delta AUC, Delta pAUC e
+    Delta richiamo a falsi allarmi fissi; G3 richiamo perso da F0 sotto argmax e quota recuperata a FA 5 %;
+    G4 bootstrap per sensore fisico contro quello attuale; G5 margini minimi di equivalenza; G6 provenienza
+    della politica gated(1 sett., 0)."""
+    R = json.loads((ris / "congelamento_e18.json").read_text())["risultati"]
+    imp = lambda x: hashlib.sha256(x.read_bytes()).hexdigest()[:16]
+    rep = Path(__file__).resolve().parents[1]
+    md, js = rep / "CONGELAMENTO_E18.md", rep / "results" / "evoluzione" / "congelamento_e18.json"
+    fonte = " Source: record \\texttt{CONGELAMENTO\\_E18.md}, fingerprint \\texttt{" + imp(md) + "}; " \
+        "\\texttt{congelamento\\_e18.json}, fingerprint \\texttt{" + imp(js) + "}."
+    A, B, D = R["A"], R["B"], R["D"]
+    out = []
+    # G1
+    righe, prima = [], True
+    for g in GRUPPI_E18:
+        G = A["gruppi"].get(g)
+        if G is None:
+            continue
+        if not prima:
+            righe.append("\\addlinespace")
+        for i, k in enumerate(sorted(G["metriche"])):
+            b, fin = k.split("/")
+            m = G["metriche"][k]
+            righe.append((CTX_EN[g] if i == 0 else "") + f" & {BR_A_EN[b]} & {FIN_EN[fin]} & "
+                         + _ic(m["auc"], scala=1.0, cifre=3) + " & " + _ic(m["pauc"], scala=1.0, cifre=3) + " \\\\")
+        prima = False
+    out.append(_longtable(
+        "@{}l l l c c@{}",
+        "E18, part A: AUC and partial AUC on false-alarm rates 0--10\\% (area divided by 0.10) of the empirical ROC on "
+        "the congested class, per arm; score $p(\\text{congested})$ per origin, sensor and horizon on valid targets, all "
+        "distinct scores of a cell as thresholds, cell = unit, mean over cells and 95\\% interval from 4{,}000 joint "
+        "resamples. Windows: all origins after $t_1$, or origins older than one week (for $F'(1\\,\\mathrm{wk})$ and the "
+        "$C$ it is compared with). These replace the 19-threshold AUC of the operational-metrics experiment; the partial "
+        "AUC is descriptive. Cities: episode 1, pre-registered campaign (36 cells); PEMS04 has neither $E$ nor $A$." + fonte,
+        "Context & Arm & Window & AUC & pAUC (0--10\\%)", righe, "tab:suppG1"))
+    # G2
+    righe, prima = [], True
+    for g in GRUPPI_E18:
+        G = A["gruppi"].get(g)
+        if G is None:
+            continue
+        if not prima:
+            righe.append("\\addlinespace")
+        for i, (k, d) in enumerate(G["confronti"].items()):
+            righe.append((CTX_EN[g] if i == 0 else "") + f" & {CONF_A_EN[k]} & " + _ic_t(d["auc"], scala=1.0, cifre=3)
+                         + " & " + _ic_t(d["pauc"], scala=1.0, cifre=3) + " & "
+                         + " & ".join(_ic_t(d[f"richiamo_fa_{l}"]) for l in LIV_E18) + " \\\\")
+        prima = False
+    out.append(_longtable(
+        "@{}l l c c c c c c c@{}",
+        "E18, part A: differences between arms on the empirical ROC (same resampling indices for both arms): "
+        "$\\Delta$AUC, $\\Delta$pAUC (0--10\\%) and $\\Delta$recall on the congested class, in points, at fixed "
+        "false-alarm rates 0.5, 1, 2, 5 and 10\\% (linear interpolation). Window: all origins after $t_1$, except "
+        "$F'(1\\,\\mathrm{wk})-C$, on origins older than one week." + fonte,
+        "Context & Difference & $\\Delta$AUC & $\\Delta$pAUC & 0.5\\% & 1\\% & 2\\% & 5\\% & 10\\%", righe, "tab:suppG2")
+               .replace("{\\footnotesize\\setlength{\\tabcolsep}{3pt}", "{\\tiny\\setlength{\\tabcolsep}{1pt}", 1))
+    # G3
+    righe = []
+    for g in GRUPPI_E18:
+        G = A["gruppi"].get(g)
+        r = G.get("recupero_argmax") if G else None
+        if not r:
+            continue
+        am = G["argmax"]
+        righe.append(f"{CTX_EN[g]} & {100 * am['C']['richiamo']:.1f} & {100 * am['F0']['richiamo']:.1f} & "
+                     + _ic(r["perdita_argmax_punti"], scala=1.0) + " & " + _ic(r["perdita_fa5_punti"], scala=1.0)
+                     + " & " + _ic(r["quota_recuperata"], scala=1.0, cifre=3) + " \\\\")
+    out.append(_longtable(
+        "@{}l c c c c c@{}",
+        "E18, part A: recall on the congested class lost by $F_0$ against $C$ under the argmax rule, and the share "
+        "recovered at a fixed false-alarm rate of 5\\%: $1-(\\text{loss at 5\\%})/(\\text{loss under argmax})$, in points of "
+        "recall; all origins after $t_1$. A share above 1 (PEMS08) means that at 5\\% false alarms $F_0$ recalls more "
+        "than $C$." + fonte,
+        "Context & recall, $C$ (argmax) & recall, $F_0$ (argmax) & loss under argmax & loss at 5\\% & share recovered",
+        righe, "tab:suppG3"))
+    # G4
+    righe, prima = [], True
+    for c, X in B["contesti"].items():
+        if not prima:
+            righe.append("\\addlinespace")
+        for i, (k, d) in enumerate(X["differenze"].items()):
+            cambia = d["categoria_attuale"] != d["categoria_per_sensore"]
+            cat = CAT_EN[d["categoria_per_sensore"]]
+            righe.append((f"{_ctx_e18(c)} & {X['sensori_distinti']}/{X['occorrenze']}" if i == 0 else " & ")
+                         + f" & {DIFF_B_EN[k]} & ${d['media_attuale']:+.4f}$ & "
+                         f"\\scriptsize$[{d['ic_attuale'][0]:+.4f}, {d['ic_attuale'][1]:+.4f}]$ & {CAT_EN[d['categoria_attuale']]} & "
+                         f"\\scriptsize$[{d['ic_per_sensore'][0]:+.4f}, {d['ic_per_sensore'][1]:+.4f}]$ & "
+                         + (f"\\textbf{{{cat}}}" if cambia else cat) + " \\\\")
+        prima = False
+    out.append(_longtable(
+        "@{}l c l c c l c l@{}",
+        "E18, part B: intervals from the current joint resampling (partitions $\\times$ seeds $\\times$ sensor "
+        "positions; pre-registered, primary) and from a resampling that preserves the physical sensor (sensitivity): "
+        "physical sensor identifiers drawn with replacement among the distinct sensors of the context's partitions, "
+        "each partition weighting its test sensors by the multiplicity of their identifier, weights shared across "
+        "arms, partitions and seeds; 4{,}000 replicates. Categories as in the main paper ($\\delta=0.005$ wCE). "
+        "Second column: distinct sensors / sensor--partition occurrences. Changes of category in bold. "
+        "$^\\dagger$: origins older than one week." + fonte,
+        "Context & sensors & Difference & mean & current interval & category & sensor-level interval & category",
+        righe, "tab:suppG4")
+               .replace("{\\footnotesize\\setlength{\\tabcolsep}{3pt}", "{\\scriptsize\\setlength{\\tabcolsep}{2pt}", 1))
+    # G5
+    righe = []
+    for c, X in B["contesti"].items():
+        for k, d in X["differenze"].items():
+            if "margine_minimo_attuale" in d:
+                righe.append(f"{_ctx_e18(c)} & {d['margine_minimo_attuale']:.4f} & {d['margine_minimo_per_sensore']:.4f} \\\\")
+    out.append(_longtable(
+        "@{}l c c@{}",
+        "E18, part B: smallest equivalence margin of R-orig$(1\\,\\mathrm{wk})$ and $F'(1\\,\\mathrm{wk})$ on the "
+        "origins older than one week, $\\max(|\\text{lower}|,|\\text{upper}|)$ of the 95\\% interval (TOST at "
+        "$\\alpha=0.025$ per side), under the current and the sensor-level resampling, in wCE." + fonte,
+        "Context & current & sensor-level", righe, "tab:suppG5"))
+    # G6
+    righe = []
+    for c, X in D["contesti"].items():
+        a, b, o = X["gated0-F0p"], X["gated0-gated"], X["osservato"]
+        camp = X["campagna"].replace("campagna principale", "main campaign").replace("parte A", "part A")
+        righe.append(f"{_ctx_e18(c)} & {camp} & " + _ic_lista(a["media"], a["ic_attuale"]) + f" & {CAT_EN[a['categoria_attuale']]} & "
+                     f"{{\\tiny$[{a['ic_per_sensore'][0]:+.4f},{a['ic_per_sensore'][1]:+.4f}]$}} & {CAT_EN[a['categoria_per_sensore']]} & "
+                     + _ic_lista(b["media"], b["ic_attuale"]) + f" & {CAT_EN[b['categoria_attuale']]} & {o['data']} \\\\")
+    pf = D["prima_formulazione"]
+    FONTE_EN = {"protocollo": "protocol", "manoscritto": "manuscript"}
+    det = "; ".join(f"{FONTE_EN.get(t, t)}, {k} {v['data']} (commit {v['commit']})"
+                    for t, s in pf["dettaglio"].items() for k, v in s.items())
+    det = det.replace("«", "``").replace("»", "''").replace("gated(1 sett., 0)", "gated(1 wk, 0)")
+    E = D["esito"]
+    out.append(_longtable(
+        "@{}l l c l c l c l c@{}",
+        "E18, part D: provenance of the policy gated$(1\\,\\mathrm{wk},0)$ (token until one week, then $F'(1\\,\\mathrm{wk})$ "
+        "for every sensor). For each context: integrated wCE of the policy against $F_0'$ (current and sensor-level "
+        "interval) and against the selected gated$(\\tau,N)$, and the date on which the results of that context were "
+        "first observed (first commit of its frozen record). First written formulation of the policy: "
+        f"{pf['data']} ({det}). {E['osservati_prima_della_formulazione']} of {E['contesti']} contexts had been observed "
+        "before it: the policy is a post hoc descriptive evaluation on the eleven contexts, without prospective "
+        "confirmation." + fonte,
+        "Context & campaign & gated$(1\\,\\mathrm{wk},0)-F_0'$ & category & sensor-level & category & "
+        "gated$(1\\,\\mathrm{wk},0)-$gated$(\\tau,N)$ & category & first observed", righe, "tab:suppG6")
+               .replace("{\\footnotesize\\setlength{\\tabcolsep}{3pt}", "{\\scriptsize\\setlength{\\tabcolsep}{2pt}", 1))
     f.write_text("\n".join(out))
