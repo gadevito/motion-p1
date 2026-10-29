@@ -39,7 +39,7 @@ def _righe():
     # ---- Tabella II (colonna wCE contro C) -----------------------------------
     for k, val in (("F0-C", ("+0.075", "+0.049", "+0.078")), ("F0p-C", ("+0.008", "+0.014", "0.000")),
                    ("Fp_672-C", ("-0.031", "-0.031", "-0.040")), ("Fp_672-A", ("+0.008", "+0.008", "-0.002")),
-                   ("A-C_A", ("-0.038", "-0.033", "-0.037")), ("C_A-C", ("-0.002", "-0.001", "-0.008"))):
+                   ("A-C_A", ("-0.038", "-0.033", "-0.037"))):   # C_A - C non piu' stampato (resta la quota)
         for (c, _), st in zip(CITTA, val):
             R.append(("II, §V", f"{k}, {c} (causale)", "E15", "congelamento_e15.json", E15(c, k), st, _f3))
     for (c, _), st in zip(CITTA, ("1.95", "1.47", "2.13")):
@@ -56,7 +56,7 @@ def _righe():
                   ["confronti", f"{c}/Fp-C", "media"], st, _f3))
     # (i valori della curva di Fig. 4 per F'(1 wk) - C non sono piu' stampati nel testo: revisione di leggibilita')
     for k, st in (("d", "-0.074"), ("e", "+0.040")):
-        R.append(("II-B", f"({k}) PEMS08", "E6", "e6_risultati.json", ["affermazioni", k, "media"], st, _f3))
+        R.append(("III-B", f"({k}) PEMS08", "E6", "e6_risultati.json", ["affermazioni", k, "media"], st, _f3))
     R.append(("II, III", "F'(1 wk) - C, PEMS08", "E6", "e6_risultati.json",
               ["affermazioni", "c", "media"], "-0.091", _f3))
     R.append(("II", "gated - F0', massimo sui nove episodi", "E5", "e5_risultati.json",
@@ -123,11 +123,11 @@ def _righe():
     pt = lambda v: f"{100 * v:+.1f}"
     for k, g, st in (("F0-C", "Madrid", "-0.051"), ("F0-C", "Londra", "-0.018"), ("F0-C", "Melbourne", "-0.030"),
                      ("F0-C", "PEMS08", "+0.008"), ("F0p-F0", "Madrid", "+0.045"), ("F0p-F0", "Londra", "+0.013"),
-                     ("F0p-F0", "Melbourne", "+0.031"), ("F0p-F0", "PEMS08", "-0.004")):
+                     ("F0p-F0", "Melbourne", "+0.031"), ("F0p-F0", "PEMS08", "-0.004"),
+                     ("A-C", "Madrid", "+0.036"), ("A-C", "Londra", "+0.024"), ("A-C", "Melbourne", "+0.017")):
         R.append(("§V-A", f"dAUC {k}, {g} (E18)", "E18", "congelamento_e18.json", GA(g, k, "auc"), st, _f3))
     for k, g, st in (("F0-C", "Madrid", "-3.9"), ("F0-C", "Londra", "-1.3"), ("F0-C", "Melbourne", "-4.5"),
-                     ("F0-C", "PEMS08", "+5.3"), ("A-C", "Madrid", "+2.6"), ("A-C", "Londra", "+1.9"),
-                     ("A-C", "Melbourne", "+2.5")):
+                     ("F0-C", "PEMS08", "+5.3")):
         R.append(("§V-A", f"richiamo a FA 5 % {k}, {g} (E18)", "E18", "congelamento_e18.json",
                   GA(g, k, "richiamo_fa_0.05"), st, pt))
     for g, st in (("Madrid", "92"), ("Londra", "84"), ("Melbourne", "80")):
