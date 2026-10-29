@@ -1,7 +1,7 @@
 # Registro delle correzioni (Paper 1)
 
-Registro consolidato delle correzioni fatte durante lo studio: alla pipeline (voci 1–16, 17a, 19–27) e alla documentazione (28) e
-al manoscritto (17b, 18). **Dal 28/10/2026 questo file è l'originale**; `register_of_corrections.en.md`
+Registro consolidato delle correzioni fatte durante lo studio: alla pipeline (voci 1–16, 17a, 19–27),
+alla documentazione (28) e al manoscritto (17b, 18). **Dal 28/10/2026 questo file è l'originale**; `register_of_corrections.en.md`
 ne è la traduzione inglese. Il paper richiama le voci per numero.
 
 Colonna «Fonte»: il protocollo o il congelamento che riporta la correzione datata; per le voci senza

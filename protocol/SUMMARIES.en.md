@@ -66,9 +66,9 @@ Original: `protocol/E5.md` (3dd706bcf3ddd899); record: `CONGELAMENTO_E5.md` (069
 - **Outcome (PEMS08):** the thesis "regge" (holds): (c) F′(1 wk) − C = −0.091 [−0.131, −0.042]; signs agree with the cities for "1 affermazione su 5" (1 claim of 5); R-orig(1 wk) ≡ F′(1 wk) within ±3 % not concluded. **PEMS04:** (c) −0.033 [−0.047, −0.019], sign agrees; (e) not reportable (no A).
 - **E6-bis:** F0 − C = +0.156 [+0.066, +0.242]; the cost "esiste anche su PEMS08" (also exists on PEMS08).
 - **Deviations:** nine-channel predictor defect corrected (entry 13, commit `6629f40`); correction of 2026-10-13 (entry 23, class-frequency table, no effect on results).
-- [unclear in source: the record cites `protocol/E6.md` with fingerprint c7a6583897215545, the current file is 2644259cc48fae08; the dated correction appended to the protocol on 2026-10-13 is the likely cause, but no source states it.]
+- [unclear in source: the record cites `protocol/E6.md` with fingerprint c7a6583897215545, the current file is 90818c7597925712; the protocol was changed afterwards by the dated correction of 2026-10-13 and by register entry 28 (2026-10-29).]
 
-Original: `protocol/E6.md` (2644259cc48fae08), `protocol/E6bis.md` (1d74950bf0f0ba9a); record: `CONGELAMENTO_E6.md` (f5e5d941ba4b7a4d)
+Original: `protocol/E6.md` (90818c7597925712), `protocol/E6bis.md` (1d74950bf0f0ba9a); record: `CONGELAMENTO_E6.md` (f5e5d941ba4b7a4d)
 
 ## E7 — Coverage and adaptation, in two stages
 
@@ -103,7 +103,7 @@ Original: `protocol/E8.md` (611d3541a6086e19), `protocol/E8bis.md` (0323686ceb95
 - **Deviations:** stage 0 recomputed on 13/10 with the correct critical class; correction of 2026-10-15 (entry 26).
 - [unclear in source: stage B ran variants (c) and (a) only; the record cites "mandato del revisore 13/10" (reviewer's mandate of 13/10) without stating why (b) was left out.]
 
-Original: `protocol/E14.md` (b669b5d8a269f1bd); records: `CONGELAMENTO_E14.md` (9b1f7816addc51dd), `CONGELAMENTO_E14B.md` (864b21c7796aefb2)
+Original: `protocol/E14.md` (b30984ca153d3e5d); records: `CONGELAMENTO_E14.md` (9b1f7816addc51dd), `CONGELAMENTO_E14B.md` (58e774413c805d58)
 
 ## E15 — End-to-end causal campaign
 

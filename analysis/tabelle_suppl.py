@@ -627,8 +627,8 @@ def scrivi_E18(ris: Path, f: Path) -> None:
             cat = CAT_EN[d["categoria_per_sensore"]]
             righe.append((f"{_ctx_e18(c)} & {X['sensori_distinti']}/{X['occorrenze']}" if i == 0 else " & ")
                          + f" & {DIFF_B_EN[k]} & ${d['media_attuale']:+.4f}$ & "
-                         f"\\scriptsize$[{d['ic_attuale'][0]:+.4f}, {d['ic_attuale'][1]:+.4f}]$ & {CAT_EN[d['categoria_attuale']]} & "
-                         f"\\scriptsize$[{d['ic_per_sensore'][0]:+.4f}, {d['ic_per_sensore'][1]:+.4f}]$ & "
+                         f"$[{d['ic_attuale'][0]:+.4f}, {d['ic_attuale'][1]:+.4f}]$ & {CAT_EN[d['categoria_attuale']]} & "
+                         f"$[{d['ic_per_sensore'][0]:+.4f}, {d['ic_per_sensore'][1]:+.4f}]$ & "
                          + (f"\\textbf{{{cat}}}" if cambia else cat) + " \\\\")
         prima = False
     out.append(_longtable(
@@ -642,7 +642,7 @@ def scrivi_E18(ris: Path, f: Path) -> None:
         "$^\\dagger$: origins older than one week." + fonte,
         "Context & sensors & Difference & mean & current interval & category & sensor-level interval & category",
         righe, "tab:suppG4")
-               .replace("{\\footnotesize\\setlength{\\tabcolsep}{3pt}", "{\\scriptsize\\setlength{\\tabcolsep}{2pt}", 1))
+               .replace("{\\footnotesize\\setlength{\\tabcolsep}{3pt}", "{\\tiny\\setlength{\\tabcolsep}{2pt}", 1))
     # G5
     righe = []
     for c, X in B["contesti"].items():
