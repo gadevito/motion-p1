@@ -719,6 +719,8 @@ def main() -> int:
                 from analysis.tabelle_suppl import scrivi_E18
                 print("[paper] tabelle G del supplementare (E18)", flush=True)
                 scrivi_E18(radice / RIS, dfig / "tableG_e18.tex")
+                from analysis.tabelle_paper1 import scrivi_tabella_politiche
+                scrivi_tabella_politiche(radice / RIS, dfig / "table_policies.tex")   # tabella del testo, da E18
     finally:
         dopo = istantanea(RADICE / RIS)
         meta["integrita_risultati"] = "invariati" if dopo == prima else \

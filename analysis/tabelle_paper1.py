@@ -54,9 +54,9 @@ def _righe():
     for (c, _), st in zip(CITTA, ("-0.011", "+0.034", "-0.019")):
         R.append(("II", f"F'(24 h) - C, {c}", "E2", "congelamento_e2.json",
                   ["confronti", f"{c}/Fp-C", "media"], st, _f3))
-    for (c, _), st in zip(CITTA, ("-0.032", "-0.030", "-0.036")):
-        R.append(("II", f"F'(1 wk) - C, {c}", "E4", "e4_risultati.json",
-                  ["curva", f"{c}/Fp_672-C", "media"], st, _f3))
+    # (i valori della curva di Fig. 4 per F'(1 wk) - C non sono piu' stampati nel testo: revisione di leggibilita')
+    for k, st in (("d", "-0.074"), ("e", "+0.040")):
+        R.append(("II-B", f"({k}) PEMS08", "E6", "e6_risultati.json", ["affermazioni", k, "media"], st, _f3))
     R.append(("II, III", "F'(1 wk) - C, PEMS08", "E6", "e6_risultati.json",
               ["affermazioni", "c", "media"], "-0.091", _f3))
     R.append(("II", "gated - F0', massimo sui nove episodi", "E5", "e5_risultati.json",
@@ -243,7 +243,7 @@ def scrivi_tabella_C1(ris: Path, f: Path) -> None:
                                           r"n.r. & -- & -- & --") + " \\\\")
         righe.append(r"\addlinespace")
     testa = (r"{\footnotesize\setlength{\tabcolsep}{3pt}" "\n" r"\begin{longtable}{@{}l l c c c c@{}}" "\n"
-             r"\caption{Statements (a)--(e) of the replication (main paper, Table~III), per city and installation "
+             r"\caption{Statements (a)--(e) of the replication (main paper, Table~V), per city and installation "
              r"episode: mean $\Delta$wCE over cells and 95\% interval from 4{,}000 joint resamples; last column: "
              r"sign per episode. Six seeds (201--206), pre-registered campaign; for the cities, the episode-1 values "
              r"of the main text come from the causal campaign on the same cells (Section~E). PEMS04 and PEMS08: one "
@@ -255,3 +255,25 @@ def scrivi_tabella_C1(ris: Path, f: Path) -> None:
     f.parent.mkdir(parents=True, exist_ok=True)
     f.write_text("% generato da OR3/analysis/main.py (tabelle_paper1.scrivi_tabella_C1): non modificare a mano\n"
                  + testa + "\n".join(righe[:-1]) + "\n" + r"\bottomrule" + "\n" + r"\end{longtable}}" + "\n")
+
+
+def scrivi_tabella_politiche(ris: Path, f: Path) -> None:
+    """Tabella delle politiche nel testo (revisione di leggibilita'): per gli undici contesti, gated(tau,N) - F0'
+    e gated(1 sett., 0) - F0' con le categorie (attuale e per sensore) e gated(1 sett., 0) - gated(tau,N),
+    da congelamento_e18.json (parte B per gated(tau,N) - F0', parte D per il resto)."""
+    R = json.loads((ris / "congelamento_e18.json").read_text())["risultati"]
+    B, D = R["B"]["contesti"], R["D"]["contesti"]
+    cat = {"superiorita'": "sup.", "non inferiorita'": "n.-i.", "inferiorita'": "inf.", "inconclusivo": "inc."}
+    en = {"Madrid": "Madrid", "Londra": "London", "Melbourne": "Melbourne", "PEMS08": "PEMS08", "PEMS04": "PEMS04"}
+    nome = lambda c: (f"{en[c.split('/ep')[0]]} {c.split('/ep')[1]}" if "/ep" in c else en[c])
+    righe = []
+    for c, X in D.items():
+        g = B[c]["differenze"]["(b) gated-F0p"]
+        a, b = X["gated0-F0p"], X["gated0-gated"]
+        righe.append(f"{nome(c)} & ${g['media_attuale']:+.3f}$ {cat[g['categoria_attuale']]} & "
+                     f"${a['media']:+.3f}$ {cat[a['categoria_attuale']]}/{cat[a['categoria_per_sensore']]} & "
+                     f"${b['media']:+.3f}$ {cat[b['categoria_attuale']]} \\\\".replace("$+0.000$", "$0.000$")
+                     .replace("$-0.000$", "$0.000$"))
+    f.parent.mkdir(parents=True, exist_ok=True)
+    f.write_text("% generato da OR3/analysis/main.py (tabelle_paper1.scrivi_tabella_politiche): non modificare a mano\n"
+                 + "\n".join(righe) + "\n\\bottomrule\n")       # \bottomrule qui: dopo \input darebbe Misplaced \noalign
