@@ -50,7 +50,7 @@ def main() -> int:
         print(f"FERMO: la riga 28 compare {len(i28)} volte"); return 1
     righe.insert(i28[0] + 1, riga)
     t = "\n".join(righe) + "\n"
-    v, n = "alla pipeline (voci 1–16, 17a, 19–27) e alla documentazione (28)", "alla pipeline (voci 1–16, 17a, 19–27, 29) e alla documentazione (28)"
+    v, n = "alla pipeline (voci 1–16, 17a, 19–27),", "alla pipeline (voci 1–16, 17a, 19–27, 29),"
     if t.count(v) != 1:
         print(f"FERMO: l'intestazione attesa compare {t.count(v)} volte"); return 1
     reg.write_text(t.replace(v, n, 1))
