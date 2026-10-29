@@ -1,6 +1,6 @@
 {
- "commit": "3a4ec90",
- "istante": "2026-10-29T13:20:39.838609+00:00",
+ "commit": "8fbf5fb",
+ "istante": "2026-10-29T17:24:50.498020+00:00",
  "risultati": {
   "C": {
    "definizione": "finestra: origini con eta' > 1 settimana per F'(1 sett.) E per C; parametri di calibrazione di e16_risultati.json (stimati sulla validazione della stessa cella), invariati; metriche di F16 (ECE per classe a 10 intervalli, log-loss non pesata, Brier multiclasse, wCE) per cella sulla stessa finestra e in media sulle celle, come `medie_test` di E16",
@@ -17923,7 +17923,7 @@
    "file": "protocol/E18.md",
    "impronta": "42da14831a4e982c"
   },
-  "istante": "2026-10-29T09:41:04.674969+00:00",
+  "istante": "2026-10-29T17:24:50.418679+00:00",
   "A": {
    "definizione": "punteggio = p(congestionata) per (origine, sensore, orizzonte) sui bersagli validi; ROC empirica su tutti i punteggi distinti per cella, orizzonti e sensori riuniti; AUC trapezoidale; pAUC su FPR in [0, 0.10] (area / 0.10); richiamo a FA 0.5/1/2/5/10 % per interpolazione lineare; unita' = cella, media sulle celle",
    "finestre": {
@@ -23554,6 +23554,17 @@
   },
   "D": {
    "definizione": "tabella per gli undici contesti: campagna, gated(1 sett., 0) - F0', gated(1 sett., 0) - gated(tau, N), intervalli attuali (E17) e per sensore (B), data della prima osservazione dei risultati del contesto (git log dei CONGELAMENTO_*), data della prima formulazione scritta della politica (protocollo e manoscritto, git log -S)",
+   "limite_storia": {
+    "motivo": "ricostruzione storica: git log limitato ai commit raggiungibili dalla firma del protocollo E18 (28/10/2026), indipendente dalle modifiche successive (richiesta del revisore, 29/10/2026)",
+    "OR3": {
+     "commit": "964e4f5",
+     "data": "2026-10-28"
+    },
+    "manoscritto": {
+     "commit": "ae12921",
+     "data": "2026-10-28"
+    }
+   },
    "prima_formulazione": {
     "data": "2026-10-22",
     "dettaglio": {
@@ -23985,7 +23996,7 @@
      "osservato_prima_della_formulazione": true
     }
    },
-   "istante": "2026-10-29T08:58:50.961536+00:00",
+   "istante": "2026-10-29T17:24:50.417325+00:00",
    "esito": {
     "contesti": 11,
     "osservati_prima_della_formulazione": 11,
@@ -23996,7 +24007,7 @@
   }
  },
  "impronte": {
-  "e18_risultati.json": "4f705ba30cd5946c",
+  "e18_risultati.json": "ddc86f7c534d44a2",
   "protocol/E18.md": "42da14831a4e982c",
   "ingressi_per_parte": {
    "C": {
