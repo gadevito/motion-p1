@@ -1,0 +1,1864 @@
+{
+  "confronti": {
+    "Madrid/R-orig-C": {
+      "media": -0.01392643154461556,
+      "ic_con_nodi": [
+        -0.022978263871117077,
+        -0.003961146159127823
+      ],
+      "include_zero": false,
+      "etichetta": "1. R-orig - C     principale"
+    },
+    "Madrid/R-orig-R": {
+      "media": -0.11107290885553892,
+      "ic_con_nodi": [
+        -0.1773634748961586,
+        -0.05105726851181091
+      ],
+      "include_zero": false,
+      "etichetta": "R-orig - R     campionamento"
+    },
+    "Madrid/R-mon-R-orig": {
+      "media": 2.0656766023776888e-05,
+      "ic_con_nodi": [
+        -1.7362526831249853e-05,
+        0.0001509763235567438
+      ],
+      "include_zero": true,
+      "etichetta": "R-mon - R-orig sorveglianza"
+    },
+    "Madrid/R-mon-C": {
+      "media": -0.013905774778591784,
+      "ic_con_nodi": [
+        -0.02284268929058869,
+        -0.004378388014520252
+      ],
+      "include_zero": false,
+      "etichetta": "R-mon - C      descrittivo"
+    },
+    "Londra/R-orig-C": {
+      "media": 0.04948456296217298,
+      "ic_con_nodi": [
+        0.034298726407718215,
+        0.06707298350994355
+      ],
+      "include_zero": false,
+      "etichetta": "1. R-orig - C     principale"
+    },
+    "Londra/R-orig-R": {
+      "media": -0.08535254542219085,
+      "ic_con_nodi": [
+        -0.12398096040149018,
+        -0.05161372104095697
+      ],
+      "include_zero": false,
+      "etichetta": "R-orig - R     campionamento"
+    },
+    "Londra/R-mon-R-orig": {
+      "media": 0.0,
+      "ic_con_nodi": [
+        0.0,
+        0.0
+      ],
+      "include_zero": true,
+      "etichetta": "R-mon - R-orig sorveglianza"
+    },
+    "Londra/R-mon-C": {
+      "media": 0.04948456296217298,
+      "ic_con_nodi": [
+        0.034404830410894795,
+        0.06666482477561225
+      ],
+      "include_zero": false,
+      "etichetta": "R-mon - C      descrittivo"
+    },
+    "Melbourne/R-orig-C": {
+      "media": 0.01073573860868119,
+      "ic_con_nodi": [
+        -0.011311979318578157,
+        0.03453235072214656
+      ],
+      "include_zero": true,
+      "etichetta": "1. R-orig - C     principale"
+    },
+    "Melbourne/R-orig-R": {
+      "media": -0.13783581270831416,
+      "ic_con_nodi": [
+        -0.20549391790571686,
+        -0.08264526398059055
+      ],
+      "include_zero": false,
+      "etichetta": "R-orig - R     campionamento"
+    },
+    "Melbourne/R-mon-R-orig": {
+      "media": 0.0,
+      "ic_con_nodi": [
+        0.0,
+        0.0
+      ],
+      "include_zero": true,
+      "etichetta": "R-mon - R-orig sorveglianza"
+    },
+    "Melbourne/R-mon-C": {
+      "media": 0.01073573860868119,
+      "ic_con_nodi": [
+        -0.010817219419881513,
+        0.037064713570200504
+      ],
+      "include_zero": true,
+      "etichetta": "R-mon - C      descrittivo"
+    }
+  },
+  "celle": {
+    "Madrid": {
+      "semi": 12,
+      "partizioni": 3,
+      "nodi": 135
+    },
+    "Londra": {
+      "semi": 12,
+      "partizioni": 3,
+      "nodi": 135
+    },
+    "Melbourne": {
+      "semi": 12,
+      "partizioni": 3,
+      "nodi": 90
+    }
+  },
+  "mancanti": {},
+  "principale": {
+    "Madrid": "paga",
+    "Londra": "non paga",
+    "Melbourne": "non conclusivo"
+  },
+  "repliche": 4000,
+  "seme_bootstrap": 20261002,
+  "riviste": {
+    "R": {
+      "esecuzioni": 108,
+      "lancio": {
+        "Londra_p0_s201": {
+          "file": "R_Londra_p0_s201.json",
+          "impronta": "8410c0af7bd0af51",
+          "modalita": "isolata"
+        },
+        "Londra_p0_s202": {
+          "file": "R_Londra_p0_s202.json",
+          "impronta": "11458b528f94d7e8",
+          "modalita": "isolata"
+        },
+        "Londra_p0_s203": {
+          "file": "R_Londra_p0_s203.json",
+          "impronta": "4cb4d02d5e2b8c04",
+          "modalita": "isolata"
+        },
+        "Londra_p0_s204": {
+          "file": "R_Londra_p0_s204.json",
+          "impronta": "d3ceba3681d4de37",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s205": {
+          "file": "R_Londra_p0_s205.json",
+          "impronta": "aae235f4b28ac9a7",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s206": {
+          "file": "R_Londra_p0_s206.json",
+          "impronta": "f922d8588caeac92",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s207": {
+          "file": "R_Londra_p0_s207.json",
+          "impronta": "3ab9efadca582429",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s208": {
+          "file": "R_Londra_p0_s208.json",
+          "impronta": "02e62d5ce369f2ae",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s209": {
+          "file": "R_Londra_p0_s209.json",
+          "impronta": "3666087476b9e324",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s210": {
+          "file": "R_Londra_p0_s210.json",
+          "impronta": "3d0fd860f2a546df",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s211": {
+          "file": "R_Londra_p0_s211.json",
+          "impronta": "c61b67aa8ed03450",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s212": {
+          "file": "R_Londra_p0_s212.json",
+          "impronta": "efa4105aaa29ee63",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s201": {
+          "file": "R_Londra_p1_s201.json",
+          "impronta": "278fb7c4665c76d0",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s202": {
+          "file": "R_Londra_p1_s202.json",
+          "impronta": "a7e122216ea7647f",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s203": {
+          "file": "R_Londra_p1_s203.json",
+          "impronta": "204b2b59fa3ce32f",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s204": {
+          "file": "R_Londra_p1_s204.json",
+          "impronta": "fb37baa3b03ff128",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s205": {
+          "file": "R_Londra_p1_s205.json",
+          "impronta": "53061f2716226fb8",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s206": {
+          "file": "R_Londra_p1_s206.json",
+          "impronta": "f264cfdbb170995a",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s207": {
+          "file": "R_Londra_p1_s207.json",
+          "impronta": "17286406abab815a",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s208": {
+          "file": "R_Londra_p1_s208.json",
+          "impronta": "747f44f6144bb49a",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s209": {
+          "file": "R_Londra_p1_s209.json",
+          "impronta": "3b14b869c489ab08",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s210": {
+          "file": "R_Londra_p1_s210.json",
+          "impronta": "b45351c75113c630",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s211": {
+          "file": "R_Londra_p1_s211.json",
+          "impronta": "0c3fba6fdcc32484",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s212": {
+          "file": "R_Londra_p1_s212.json",
+          "impronta": "9ff157c947811c23",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s201": {
+          "file": "R_Londra_p2_s201.json",
+          "impronta": "367c591f44a4a1bd",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s202": {
+          "file": "R_Londra_p2_s202.json",
+          "impronta": "90ebe567a3f7e3ee",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s203": {
+          "file": "R_Londra_p2_s203.json",
+          "impronta": "50101f3a1e565395",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s204": {
+          "file": "R_Londra_p2_s204.json",
+          "impronta": "46f4ecefccb21fcf",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s205": {
+          "file": "R_Londra_p2_s205.json",
+          "impronta": "166e72717c4f3195",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s206": {
+          "file": "R_Londra_p2_s206.json",
+          "impronta": "8745b4fca0928bca",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s207": {
+          "file": "R_Londra_p2_s207.json",
+          "impronta": "c91b6022ab825709",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s208": {
+          "file": "R_Londra_p2_s208.json",
+          "impronta": "a9f0b6c9be5feb1a",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s209": {
+          "file": "R_Londra_p2_s209.json",
+          "impronta": "760a11d7fbfd07f1",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s210": {
+          "file": "R_Londra_p2_s210.json",
+          "impronta": "83e2d4f2529d00d2",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s211": {
+          "file": "R_Londra_p2_s211.json",
+          "impronta": "1deb35d27367d52e",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s212": {
+          "file": "R_Londra_p2_s212.json",
+          "impronta": "e150cd2c9329ab31",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s201": {
+          "file": "R_Madrid_p0_s201.json",
+          "impronta": "06aeff608f701f30",
+          "modalita": "isolata"
+        },
+        "Madrid_p0_s202": {
+          "file": "R_Madrid_p0_s202.json",
+          "impronta": "dcd16c5c0d8ae525",
+          "modalita": "isolata"
+        },
+        "Madrid_p0_s203": {
+          "file": "R_Madrid_p0_s203.json",
+          "impronta": "d83d78635f78ecaa",
+          "modalita": "isolata"
+        },
+        "Madrid_p0_s204": {
+          "file": "R_Madrid_p0_s204.json",
+          "impronta": "9f9002138e56edb5",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s205": {
+          "file": "R_Madrid_p0_s205.json",
+          "impronta": "0c42a8e0c409eb14",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s206": {
+          "file": "R_Madrid_p0_s206.json",
+          "impronta": "2c55db75c6062142",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s207": {
+          "file": "R_Madrid_p0_s207.json",
+          "impronta": "0bf1dca4e25664b1",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s208": {
+          "file": "R_Madrid_p0_s208.json",
+          "impronta": "347c1e1a97b6bc33",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s209": {
+          "file": "R_Madrid_p0_s209.json",
+          "impronta": "b621f87191e36888",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s210": {
+          "file": "R_Madrid_p0_s210.json",
+          "impronta": "e6ed11b0e1872b89",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s211": {
+          "file": "R_Madrid_p0_s211.json",
+          "impronta": "bd201bb94db4074e",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s212": {
+          "file": "R_Madrid_p0_s212.json",
+          "impronta": "def61d7e40f816cb",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s201": {
+          "file": "R_Madrid_p1_s201.json",
+          "impronta": "06f8f89108189b03",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s202": {
+          "file": "R_Madrid_p1_s202.json",
+          "impronta": "121984c215d5305a",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s203": {
+          "file": "R_Madrid_p1_s203.json",
+          "impronta": "da68cc07d32086b3",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s204": {
+          "file": "R_Madrid_p1_s204.json",
+          "impronta": "ef632b36bf1a52be",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s205": {
+          "file": "R_Madrid_p1_s205.json",
+          "impronta": "0570f1b0cc7081f0",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s206": {
+          "file": "R_Madrid_p1_s206.json",
+          "impronta": "0f0c22a40d0bb1d0",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s207": {
+          "file": "R_Madrid_p1_s207.json",
+          "impronta": "2e65fb47564b1a5b",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s208": {
+          "file": "R_Madrid_p1_s208.json",
+          "impronta": "ba7aea800fc983de",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s209": {
+          "file": "R_Madrid_p1_s209.json",
+          "impronta": "2a039c14930f2a17",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s210": {
+          "file": "R_Madrid_p1_s210.json",
+          "impronta": "7de22f5b9daf187b",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s211": {
+          "file": "R_Madrid_p1_s211.json",
+          "impronta": "8c11eb42192eb2fe",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s212": {
+          "file": "R_Madrid_p1_s212.json",
+          "impronta": "438612182ae2ee94",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s201": {
+          "file": "R_Madrid_p2_s201.json",
+          "impronta": "06816e742b82579c",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s202": {
+          "file": "R_Madrid_p2_s202.json",
+          "impronta": "c0ac262e2e5348d8",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s203": {
+          "file": "R_Madrid_p2_s203.json",
+          "impronta": "092812be283e9704",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s204": {
+          "file": "R_Madrid_p2_s204.json",
+          "impronta": "3f4920232e315eb8",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s205": {
+          "file": "R_Madrid_p2_s205.json",
+          "impronta": "88868d9e375548c7",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s206": {
+          "file": "R_Madrid_p2_s206.json",
+          "impronta": "08d4615606293569",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s207": {
+          "file": "R_Madrid_p2_s207.json",
+          "impronta": "e395123f35334aec",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s208": {
+          "file": "R_Madrid_p2_s208.json",
+          "impronta": "e153d44a362a7b54",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s209": {
+          "file": "R_Madrid_p2_s209.json",
+          "impronta": "a39fd748063620d2",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s210": {
+          "file": "R_Madrid_p2_s210.json",
+          "impronta": "f680cf1cc1f74807",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s211": {
+          "file": "R_Madrid_p2_s211.json",
+          "impronta": "b4d21edf1224df70",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s212": {
+          "file": "R_Madrid_p2_s212.json",
+          "impronta": "7d17c3b29a252032",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s201": {
+          "file": "R_Melbourne_p0_s201.json",
+          "impronta": "591edb2cfc602bc6",
+          "modalita": "isolata"
+        },
+        "Melbourne_p0_s202": {
+          "file": "R_Melbourne_p0_s202.json",
+          "impronta": "4fe6260285889350",
+          "modalita": "isolata"
+        },
+        "Melbourne_p0_s203": {
+          "file": "R_Melbourne_p0_s203.json",
+          "impronta": "5b3f4a72a121e5e6",
+          "modalita": "isolata"
+        },
+        "Melbourne_p0_s204": {
+          "file": "R_Melbourne_p0_s204.json",
+          "impronta": "436f2efa1818b215",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s205": {
+          "file": "R_Melbourne_p0_s205.json",
+          "impronta": "f85594054e0bfb0e",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s206": {
+          "file": "R_Melbourne_p0_s206.json",
+          "impronta": "dd3405df5e64d652",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s207": {
+          "file": "R_Melbourne_p0_s207.json",
+          "impronta": "5b7db8a06e53a42f",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s208": {
+          "file": "R_Melbourne_p0_s208.json",
+          "impronta": "76dcda44ac3531a4",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s209": {
+          "file": "R_Melbourne_p0_s209.json",
+          "impronta": "62be55953beed464",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s210": {
+          "file": "R_Melbourne_p0_s210.json",
+          "impronta": "db8e684435884680",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s211": {
+          "file": "R_Melbourne_p0_s211.json",
+          "impronta": "32dbc3eb46a21dca",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s212": {
+          "file": "R_Melbourne_p0_s212.json",
+          "impronta": "3fba9ff61341c4a3",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s201": {
+          "file": "R_Melbourne_p1_s201.json",
+          "impronta": "95fb6f33b6c19bc0",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s202": {
+          "file": "R_Melbourne_p1_s202.json",
+          "impronta": "91b69985f9f6d08c",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s203": {
+          "file": "R_Melbourne_p1_s203.json",
+          "impronta": "97f3a9cd4f051de2",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s204": {
+          "file": "R_Melbourne_p1_s204.json",
+          "impronta": "b96453020f412576",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s205": {
+          "file": "R_Melbourne_p1_s205.json",
+          "impronta": "d5de6b99dff51af0",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s206": {
+          "file": "R_Melbourne_p1_s206.json",
+          "impronta": "66382ee44fc19492",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s207": {
+          "file": "R_Melbourne_p1_s207.json",
+          "impronta": "67cabb2efcddf4dc",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s208": {
+          "file": "R_Melbourne_p1_s208.json",
+          "impronta": "22cc5022b8f49ec2",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s209": {
+          "file": "R_Melbourne_p1_s209.json",
+          "impronta": "25aec8ca888a83d2",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s210": {
+          "file": "R_Melbourne_p1_s210.json",
+          "impronta": "03443d478f376048",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s211": {
+          "file": "R_Melbourne_p1_s211.json",
+          "impronta": "2e5c0f33cecffa74",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s212": {
+          "file": "R_Melbourne_p1_s212.json",
+          "impronta": "a2b20bcc20513202",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s201": {
+          "file": "R_Melbourne_p2_s201.json",
+          "impronta": "6659d646fb13e78e",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s202": {
+          "file": "R_Melbourne_p2_s202.json",
+          "impronta": "eccae27f3947c4f9",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s203": {
+          "file": "R_Melbourne_p2_s203.json",
+          "impronta": "656b2ebb00be3fc3",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s204": {
+          "file": "R_Melbourne_p2_s204.json",
+          "impronta": "04b3f38c7e6d32cb",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s205": {
+          "file": "R_Melbourne_p2_s205.json",
+          "impronta": "3efbd40d99cce50f",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s206": {
+          "file": "R_Melbourne_p2_s206.json",
+          "impronta": "a996bda882873570",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s207": {
+          "file": "R_Melbourne_p2_s207.json",
+          "impronta": "aef713102462708d",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s208": {
+          "file": "R_Melbourne_p2_s208.json",
+          "impronta": "3efcdcb0c517aa68",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s209": {
+          "file": "R_Melbourne_p2_s209.json",
+          "impronta": "662aaa4603c0501b",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s210": {
+          "file": "R_Melbourne_p2_s210.json",
+          "impronta": "7d399239d192b9bb",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s211": {
+          "file": "R_Melbourne_p2_s211.json",
+          "impronta": "4ee26b4f120a1887",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s212": {
+          "file": "R_Melbourne_p2_s212.json",
+          "impronta": "3d1d607666409bc3",
+          "modalita": "concorrente"
+        }
+      },
+      "rip_iniziali": {
+        "mediana": 9.383461232828465,
+        "minimo": 8.704646783633295,
+        "massimo": 9.414420682555173
+      },
+      "rip_nuovi": {
+        "mediana": 807.9334207263123,
+        "minimo": 802.8004847762867,
+        "massimo": 1105.354760790009
+      },
+      "rapporto_rip": {
+        "mediana": 92.76704882787044,
+        "minimo": 85.2988415534527,
+        "massimo": 117.46069568658278
+      },
+      "estr_iniziali": {
+        "mediana": 60347.46031746032,
+        "minimo": 60205.95903614458,
+        "massimo": 60357.37936507937
+      },
+      "estr_nuovi": {
+        "mediana": 60328.38148148148,
+        "minimo": 60170.833333333336,
+        "massimo": 60398.68148148148
+      },
+      "quota_nuovi": {
+        "mediana": 0.17648116379011575,
+        "minimo": 0.17634580560754143,
+        "massimo": 0.178412131056979
+      }
+    },
+    "R-orig": {
+      "esecuzioni": 108,
+      "lancio": {
+        "Londra_p0_s201": {
+          "file": "R-orig_Londra_p0_s201.json",
+          "impronta": "b52386c35ebdda3d",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s202": {
+          "file": "R-orig_Londra_p0_s202.json",
+          "impronta": "679cbb6a8929df82",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s203": {
+          "file": "R-orig_Londra_p0_s203.json",
+          "impronta": "2ace522dac20ffc4",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s204": {
+          "file": "R-orig_Londra_p0_s204.json",
+          "impronta": "e591ea524a42f696",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s205": {
+          "file": "R-orig_Londra_p0_s205.json",
+          "impronta": "30859f99d1c82200",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s206": {
+          "file": "R-orig_Londra_p0_s206.json",
+          "impronta": "0adfbbfb5478fb48",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s207": {
+          "file": "R-orig_Londra_p0_s207.json",
+          "impronta": "107143b69313839b",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s208": {
+          "file": "R-orig_Londra_p0_s208.json",
+          "impronta": "e5237d8d37eb902e",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s209": {
+          "file": "R-orig_Londra_p0_s209.json",
+          "impronta": "e22797991edd1bc0",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s210": {
+          "file": "R-orig_Londra_p0_s210.json",
+          "impronta": "745e2bb9f60533ec",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s211": {
+          "file": "R-orig_Londra_p0_s211.json",
+          "impronta": "c444290d7e9e7078",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s212": {
+          "file": "R-orig_Londra_p0_s212.json",
+          "impronta": "2e9919da7f0c9817",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s201": {
+          "file": "R-orig_Londra_p1_s201.json",
+          "impronta": "0323f2c5c2ce413c",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s202": {
+          "file": "R-orig_Londra_p1_s202.json",
+          "impronta": "dbdd38c5c4c31abc",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s203": {
+          "file": "R-orig_Londra_p1_s203.json",
+          "impronta": "7aa6c4250af7b116",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s204": {
+          "file": "R-orig_Londra_p1_s204.json",
+          "impronta": "052e719872381643",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s205": {
+          "file": "R-orig_Londra_p1_s205.json",
+          "impronta": "aed02990d538cccc",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s206": {
+          "file": "R-orig_Londra_p1_s206.json",
+          "impronta": "3558c074594eddf0",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s207": {
+          "file": "R-orig_Londra_p1_s207.json",
+          "impronta": "f76a6135374b17b6",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s208": {
+          "file": "R-orig_Londra_p1_s208.json",
+          "impronta": "cded84110f395101",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s209": {
+          "file": "R-orig_Londra_p1_s209.json",
+          "impronta": "490621901ba8e22c",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s210": {
+          "file": "R-orig_Londra_p1_s210.json",
+          "impronta": "e655dae686cd89f2",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s211": {
+          "file": "R-orig_Londra_p1_s211.json",
+          "impronta": "89fbaeaef8487afe",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s212": {
+          "file": "R-orig_Londra_p1_s212.json",
+          "impronta": "62c07ce155f9ca09",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s201": {
+          "file": "R-orig_Londra_p2_s201.json",
+          "impronta": "2c9529f6fe31f317",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s202": {
+          "file": "R-orig_Londra_p2_s202.json",
+          "impronta": "d9eb2fdca07a58b0",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s203": {
+          "file": "R-orig_Londra_p2_s203.json",
+          "impronta": "75530b043d576d23",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s204": {
+          "file": "R-orig_Londra_p2_s204.json",
+          "impronta": "8963f36b5acf821b",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s205": {
+          "file": "R-orig_Londra_p2_s205.json",
+          "impronta": "cd0d7c90830ef9a6",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s206": {
+          "file": "R-orig_Londra_p2_s206.json",
+          "impronta": "66aca84a6a7f5e10",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s207": {
+          "file": "R-orig_Londra_p2_s207.json",
+          "impronta": "44436eddb68aacae",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s208": {
+          "file": "R-orig_Londra_p2_s208.json",
+          "impronta": "a9839f7fa5e51416",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s209": {
+          "file": "R-orig_Londra_p2_s209.json",
+          "impronta": "fd314025d377a676",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s210": {
+          "file": "R-orig_Londra_p2_s210.json",
+          "impronta": "9713b84be6f1e97b",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s211": {
+          "file": "R-orig_Londra_p2_s211.json",
+          "impronta": "c687f18b53846eba",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s212": {
+          "file": "R-orig_Londra_p2_s212.json",
+          "impronta": "794a910c4931fc54",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s201": {
+          "file": "R-orig_Madrid_p0_s201.json",
+          "impronta": "d19cc7f6c253cc50",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s202": {
+          "file": "R-orig_Madrid_p0_s202.json",
+          "impronta": "cf29bad1d1771e22",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s203": {
+          "file": "R-orig_Madrid_p0_s203.json",
+          "impronta": "fe2322e4f5f2e551",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s204": {
+          "file": "R-orig_Madrid_p0_s204.json",
+          "impronta": "70fda2a237ed0a0a",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s205": {
+          "file": "R-orig_Madrid_p0_s205.json",
+          "impronta": "1d257ddc4fc446de",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s206": {
+          "file": "R-orig_Madrid_p0_s206.json",
+          "impronta": "77e44b25494c4937",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s207": {
+          "file": "R-orig_Madrid_p0_s207.json",
+          "impronta": "b1d487fbe600c0b5",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s208": {
+          "file": "R-orig_Madrid_p0_s208.json",
+          "impronta": "8c3c31a149924801",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s209": {
+          "file": "R-orig_Madrid_p0_s209.json",
+          "impronta": "3f415ec2e37568af",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s210": {
+          "file": "R-orig_Madrid_p0_s210.json",
+          "impronta": "100feb901cfe543c",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s211": {
+          "file": "R-orig_Madrid_p0_s211.json",
+          "impronta": "f76095569018ef19",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s212": {
+          "file": "R-orig_Madrid_p0_s212.json",
+          "impronta": "29635b53f8e3b5cf",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s201": {
+          "file": "R-orig_Madrid_p1_s201.json",
+          "impronta": "7c6c06ce8985bc9c",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s202": {
+          "file": "R-orig_Madrid_p1_s202.json",
+          "impronta": "27418522369241cd",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s203": {
+          "file": "R-orig_Madrid_p1_s203.json",
+          "impronta": "88c49ad373b115f4",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s204": {
+          "file": "R-orig_Madrid_p1_s204.json",
+          "impronta": "132c176f1dcdc545",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s205": {
+          "file": "R-orig_Madrid_p1_s205.json",
+          "impronta": "4f3e7f01b47597a8",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s206": {
+          "file": "R-orig_Madrid_p1_s206.json",
+          "impronta": "725e49f4b353e72d",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s207": {
+          "file": "R-orig_Madrid_p1_s207.json",
+          "impronta": "f7848df7bdebbbe2",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s208": {
+          "file": "R-orig_Madrid_p1_s208.json",
+          "impronta": "30949bd1cc9f5dc3",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s209": {
+          "file": "R-orig_Madrid_p1_s209.json",
+          "impronta": "07722f34cb63bb73",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s210": {
+          "file": "R-orig_Madrid_p1_s210.json",
+          "impronta": "3aace6c27712ee91",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s211": {
+          "file": "R-orig_Madrid_p1_s211.json",
+          "impronta": "7f38d5a4dc1a2668",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s212": {
+          "file": "R-orig_Madrid_p1_s212.json",
+          "impronta": "fb659abb3af1c734",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s201": {
+          "file": "R-orig_Madrid_p2_s201.json",
+          "impronta": "1306e33472d4e761",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s202": {
+          "file": "R-orig_Madrid_p2_s202.json",
+          "impronta": "ca067038a5680b48",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s203": {
+          "file": "R-orig_Madrid_p2_s203.json",
+          "impronta": "5465664d89b4d293",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s204": {
+          "file": "R-orig_Madrid_p2_s204.json",
+          "impronta": "80ee78ac7134440d",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s205": {
+          "file": "R-orig_Madrid_p2_s205.json",
+          "impronta": "803fad353f88aa3b",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s206": {
+          "file": "R-orig_Madrid_p2_s206.json",
+          "impronta": "71743fdf423c9880",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s207": {
+          "file": "R-orig_Madrid_p2_s207.json",
+          "impronta": "e1a9edb135bff9b3",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s208": {
+          "file": "R-orig_Madrid_p2_s208.json",
+          "impronta": "cb7a2be3d84b7bbd",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s209": {
+          "file": "R-orig_Madrid_p2_s209.json",
+          "impronta": "859b3b4631935c5d",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s210": {
+          "file": "R-orig_Madrid_p2_s210.json",
+          "impronta": "9e54164103ddf979",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s211": {
+          "file": "R-orig_Madrid_p2_s211.json",
+          "impronta": "0fbb1b2e3587bfe2",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s212": {
+          "file": "R-orig_Madrid_p2_s212.json",
+          "impronta": "f7c72eb486726f09",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s201": {
+          "file": "R-orig_Melbourne_p0_s201.json",
+          "impronta": "995a46ce376a144f",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s202": {
+          "file": "R-orig_Melbourne_p0_s202.json",
+          "impronta": "7727f1461048d6a7",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s203": {
+          "file": "R-orig_Melbourne_p0_s203.json",
+          "impronta": "21044d0a4ed0e9fd",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s204": {
+          "file": "R-orig_Melbourne_p0_s204.json",
+          "impronta": "98bc53f4f4283cf3",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s205": {
+          "file": "R-orig_Melbourne_p0_s205.json",
+          "impronta": "fa2b307b540989a2",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s206": {
+          "file": "R-orig_Melbourne_p0_s206.json",
+          "impronta": "6d8c171381be0858",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s207": {
+          "file": "R-orig_Melbourne_p0_s207.json",
+          "impronta": "d5415674812d2316",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s208": {
+          "file": "R-orig_Melbourne_p0_s208.json",
+          "impronta": "8fd568ac28e854be",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s209": {
+          "file": "R-orig_Melbourne_p0_s209.json",
+          "impronta": "61809a70fc457979",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s210": {
+          "file": "R-orig_Melbourne_p0_s210.json",
+          "impronta": "924e714e05d4ab62",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s211": {
+          "file": "R-orig_Melbourne_p0_s211.json",
+          "impronta": "594dd4a798c00f10",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s212": {
+          "file": "R-orig_Melbourne_p0_s212.json",
+          "impronta": "4b9e2d398e7f7208",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s201": {
+          "file": "R-orig_Melbourne_p1_s201.json",
+          "impronta": "4cf8fa6c7fbde694",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s202": {
+          "file": "R-orig_Melbourne_p1_s202.json",
+          "impronta": "b0c95afacf14e6ef",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s203": {
+          "file": "R-orig_Melbourne_p1_s203.json",
+          "impronta": "5c3c6d462dc90878",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s204": {
+          "file": "R-orig_Melbourne_p1_s204.json",
+          "impronta": "2241239d8fbb1af6",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s205": {
+          "file": "R-orig_Melbourne_p1_s205.json",
+          "impronta": "e55610b25a9b70d0",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s206": {
+          "file": "R-orig_Melbourne_p1_s206.json",
+          "impronta": "d15847d30ae91e8a",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s207": {
+          "file": "R-orig_Melbourne_p1_s207.json",
+          "impronta": "980390bf1f84a413",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s208": {
+          "file": "R-orig_Melbourne_p1_s208.json",
+          "impronta": "ee77ed3b5f9b94e6",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s209": {
+          "file": "R-orig_Melbourne_p1_s209.json",
+          "impronta": "aef5254f62a79831",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s210": {
+          "file": "R-orig_Melbourne_p1_s210.json",
+          "impronta": "ff94e4853897adaf",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s211": {
+          "file": "R-orig_Melbourne_p1_s211.json",
+          "impronta": "a60aa49d55c56e6c",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s212": {
+          "file": "R-orig_Melbourne_p1_s212.json",
+          "impronta": "d48b8dfb0560d8ce",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s201": {
+          "file": "R-orig_Melbourne_p2_s201.json",
+          "impronta": "f99275aa8a35ab52",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s202": {
+          "file": "R-orig_Melbourne_p2_s202.json",
+          "impronta": "a61c6e0ccebaea20",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s203": {
+          "file": "R-orig_Melbourne_p2_s203.json",
+          "impronta": "adcd560cc8637896",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s204": {
+          "file": "R-orig_Melbourne_p2_s204.json",
+          "impronta": "2311f39a65a23641",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s205": {
+          "file": "R-orig_Melbourne_p2_s205.json",
+          "impronta": "5ab67980796835b2",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s206": {
+          "file": "R-orig_Melbourne_p2_s206.json",
+          "impronta": "8e4664b85658b48c",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s207": {
+          "file": "R-orig_Melbourne_p2_s207.json",
+          "impronta": "f98046a39e703a90",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s208": {
+          "file": "R-orig_Melbourne_p2_s208.json",
+          "impronta": "4a7a6c63db9f3fe1",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s209": {
+          "file": "R-orig_Melbourne_p2_s209.json",
+          "impronta": "949081c9d2e6b1dc",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s210": {
+          "file": "R-orig_Melbourne_p2_s210.json",
+          "impronta": "fbd623655c9e173d",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s211": {
+          "file": "R-orig_Melbourne_p2_s211.json",
+          "impronta": "9f1102e854f3bff9",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s212": {
+          "file": "R-orig_Melbourne_p2_s212.json",
+          "impronta": "fb25721ee726c0ae",
+          "modalita": "concorrente"
+        }
+      },
+      "rip_iniziali": {
+        "mediana": 11.32395231711339,
+        "minimo": 10.533613056706118,
+        "massimo": 11.362152823193052
+      },
+      "rip_nuovi": {
+        "mediana": 11.29211057824077,
+        "minimo": 10.488718227245153,
+        "massimo": 11.475190453788766
+      },
+      "rapporto_rip": {
+        "mediana": 0.9997799597311765,
+        "minimo": 0.9901925919619025,
+        "massimo": 1.0100053918578866
+      },
+      "estr_iniziali": {
+        "mediana": 73110.59841269843,
+        "minimo": 73092.92289156627,
+        "massimo": 73139.27301587301
+      },
+      "estr_nuovi": {
+        "mediana": 790.5407407407407,
+        "minimo": 656.7259259259259,
+        "massimo": 862.6333333333333
+      },
+      "quota_nuovi": {
+        "mediana": 0.0023117028834823594,
+        "minimo": 0.001920400984265613,
+        "massimo": 0.002552908139106645
+      }
+    },
+    "R-mon": {
+      "esecuzioni": 108,
+      "lancio": {
+        "Londra_p0_s201": {
+          "file": "R-mon_Londra_p0_s201.json",
+          "impronta": "6c0258b56779aa62",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s202": {
+          "file": "R-mon_Londra_p0_s202.json",
+          "impronta": "c1a1ab9517c42ba8",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s203": {
+          "file": "R-mon_Londra_p0_s203.json",
+          "impronta": "d0e2035dec19ce3b",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s204": {
+          "file": "R-mon_Londra_p0_s204.json",
+          "impronta": "e91f9e9133b0b333",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s205": {
+          "file": "R-mon_Londra_p0_s205.json",
+          "impronta": "2883248953e7b2a8",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s206": {
+          "file": "R-mon_Londra_p0_s206.json",
+          "impronta": "275629d21dc2741e",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s207": {
+          "file": "R-mon_Londra_p0_s207.json",
+          "impronta": "970643942f676e3e",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s208": {
+          "file": "R-mon_Londra_p0_s208.json",
+          "impronta": "44fc57a6f52c0ddb",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s209": {
+          "file": "R-mon_Londra_p0_s209.json",
+          "impronta": "2ce00d61e7099413",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s210": {
+          "file": "R-mon_Londra_p0_s210.json",
+          "impronta": "b88b7c1433a1f522",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s211": {
+          "file": "R-mon_Londra_p0_s211.json",
+          "impronta": "e48ec7922e202130",
+          "modalita": "concorrente"
+        },
+        "Londra_p0_s212": {
+          "file": "R-mon_Londra_p0_s212.json",
+          "impronta": "c111bf2d36118156",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s201": {
+          "file": "R-mon_Londra_p1_s201.json",
+          "impronta": "e68e4d842ba3ecb9",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s202": {
+          "file": "R-mon_Londra_p1_s202.json",
+          "impronta": "4af2429ab4dd37a0",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s203": {
+          "file": "R-mon_Londra_p1_s203.json",
+          "impronta": "5d08b0edbf474d91",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s204": {
+          "file": "R-mon_Londra_p1_s204.json",
+          "impronta": "0def159129118830",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s205": {
+          "file": "R-mon_Londra_p1_s205.json",
+          "impronta": "27954f9a47af2806",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s206": {
+          "file": "R-mon_Londra_p1_s206.json",
+          "impronta": "d1f816b7d6ca98d2",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s207": {
+          "file": "R-mon_Londra_p1_s207.json",
+          "impronta": "23f21ae625940835",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s208": {
+          "file": "R-mon_Londra_p1_s208.json",
+          "impronta": "0e1bbef07248260c",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s209": {
+          "file": "R-mon_Londra_p1_s209.json",
+          "impronta": "2355164a011e9e83",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s210": {
+          "file": "R-mon_Londra_p1_s210.json",
+          "impronta": "dcf5b0cd9b2bdf76",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s211": {
+          "file": "R-mon_Londra_p1_s211.json",
+          "impronta": "558b74604db0a1ff",
+          "modalita": "concorrente"
+        },
+        "Londra_p1_s212": {
+          "file": "R-mon_Londra_p1_s212.json",
+          "impronta": "e2b2b52b8f11f524",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s201": {
+          "file": "R-mon_Londra_p2_s201.json",
+          "impronta": "695d10f752ca2a61",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s202": {
+          "file": "R-mon_Londra_p2_s202.json",
+          "impronta": "dde1424c7df5eaf1",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s203": {
+          "file": "R-mon_Londra_p2_s203.json",
+          "impronta": "e5ed7cbe1230eb93",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s204": {
+          "file": "R-mon_Londra_p2_s204.json",
+          "impronta": "395fa8892b49318e",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s205": {
+          "file": "R-mon_Londra_p2_s205.json",
+          "impronta": "366ac82e95d63574",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s206": {
+          "file": "R-mon_Londra_p2_s206.json",
+          "impronta": "745d245892e9358f",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s207": {
+          "file": "R-mon_Londra_p2_s207.json",
+          "impronta": "ecf173726bcf6b95",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s208": {
+          "file": "R-mon_Londra_p2_s208.json",
+          "impronta": "b32ac8b8b64bed88",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s209": {
+          "file": "R-mon_Londra_p2_s209.json",
+          "impronta": "756eff0a60cbfbf3",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s210": {
+          "file": "R-mon_Londra_p2_s210.json",
+          "impronta": "2fada3e0ddbbdcec",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s211": {
+          "file": "R-mon_Londra_p2_s211.json",
+          "impronta": "8e1e38102b5024c1",
+          "modalita": "concorrente"
+        },
+        "Londra_p2_s212": {
+          "file": "R-mon_Londra_p2_s212.json",
+          "impronta": "f54a2a98d2885d32",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s201": {
+          "file": "R-mon_Madrid_p0_s201.json",
+          "impronta": "450f56e858b94019",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s202": {
+          "file": "R-mon_Madrid_p0_s202.json",
+          "impronta": "f46b42d8fb28eb81",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s203": {
+          "file": "R-mon_Madrid_p0_s203.json",
+          "impronta": "e58e25b0610472c9",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s204": {
+          "file": "R-mon_Madrid_p0_s204.json",
+          "impronta": "53590e5bc589e03a",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s205": {
+          "file": "R-mon_Madrid_p0_s205.json",
+          "impronta": "9529009f32fac12d",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s206": {
+          "file": "R-mon_Madrid_p0_s206.json",
+          "impronta": "6310918f2f4bed04",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s207": {
+          "file": "R-mon_Madrid_p0_s207.json",
+          "impronta": "ee54c56e3a5564af",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s208": {
+          "file": "R-mon_Madrid_p0_s208.json",
+          "impronta": "bcbb73f6c8484759",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s209": {
+          "file": "R-mon_Madrid_p0_s209.json",
+          "impronta": "97fc205a685c568e",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s210": {
+          "file": "R-mon_Madrid_p0_s210.json",
+          "impronta": "06a043d4c5c4f56a",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s211": {
+          "file": "R-mon_Madrid_p0_s211.json",
+          "impronta": "70dead56baef69f5",
+          "modalita": "concorrente"
+        },
+        "Madrid_p0_s212": {
+          "file": "R-mon_Madrid_p0_s212.json",
+          "impronta": "e11ed1b8b7dca05a",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s201": {
+          "file": "R-mon_Madrid_p1_s201.json",
+          "impronta": "6be17f6d5ac3abe4",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s202": {
+          "file": "R-mon_Madrid_p1_s202.json",
+          "impronta": "6aa59bd8398c08de",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s203": {
+          "file": "R-mon_Madrid_p1_s203.json",
+          "impronta": "f07d58147b1efa4e",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s204": {
+          "file": "R-mon_Madrid_p1_s204.json",
+          "impronta": "bf7cde09b78acb29",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s205": {
+          "file": "R-mon_Madrid_p1_s205.json",
+          "impronta": "491e724db92e904e",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s206": {
+          "file": "R-mon_Madrid_p1_s206.json",
+          "impronta": "7d66593c362efd0f",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s207": {
+          "file": "R-mon_Madrid_p1_s207.json",
+          "impronta": "ce332f89b1979cfa",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s208": {
+          "file": "R-mon_Madrid_p1_s208.json",
+          "impronta": "c79c5b1dcf7bb173",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s209": {
+          "file": "R-mon_Madrid_p1_s209.json",
+          "impronta": "f12eaf246c4ef136",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s210": {
+          "file": "R-mon_Madrid_p1_s210.json",
+          "impronta": "a2b9aa0d9bda73cb",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s211": {
+          "file": "R-mon_Madrid_p1_s211.json",
+          "impronta": "538aa814342607d4",
+          "modalita": "concorrente"
+        },
+        "Madrid_p1_s212": {
+          "file": "R-mon_Madrid_p1_s212.json",
+          "impronta": "022140d94296f665",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s201": {
+          "file": "R-mon_Madrid_p2_s201.json",
+          "impronta": "b4e863a27cb3923c",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s202": {
+          "file": "R-mon_Madrid_p2_s202.json",
+          "impronta": "0800e0c82e86097a",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s203": {
+          "file": "R-mon_Madrid_p2_s203.json",
+          "impronta": "c091942b9172d4f0",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s204": {
+          "file": "R-mon_Madrid_p2_s204.json",
+          "impronta": "d13f30a57e308a02",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s205": {
+          "file": "R-mon_Madrid_p2_s205.json",
+          "impronta": "d76cfa777c04c40e",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s206": {
+          "file": "R-mon_Madrid_p2_s206.json",
+          "impronta": "6c5d1dab09921e1f",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s207": {
+          "file": "R-mon_Madrid_p2_s207.json",
+          "impronta": "9abcc955765964c9",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s208": {
+          "file": "R-mon_Madrid_p2_s208.json",
+          "impronta": "b7733cb7383dd4d6",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s209": {
+          "file": "R-mon_Madrid_p2_s209.json",
+          "impronta": "f17cf3cef58339e5",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s210": {
+          "file": "R-mon_Madrid_p2_s210.json",
+          "impronta": "8f64c336983debc6",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s211": {
+          "file": "R-mon_Madrid_p2_s211.json",
+          "impronta": "10f7580c624621cc",
+          "modalita": "concorrente"
+        },
+        "Madrid_p2_s212": {
+          "file": "R-mon_Madrid_p2_s212.json",
+          "impronta": "53017d1dd51145c6",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s201": {
+          "file": "R-mon_Melbourne_p0_s201.json",
+          "impronta": "a36ba5466ed513ac",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s202": {
+          "file": "R-mon_Melbourne_p0_s202.json",
+          "impronta": "caca72f8272911eb",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s203": {
+          "file": "R-mon_Melbourne_p0_s203.json",
+          "impronta": "053abd6cd4dceb88",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s204": {
+          "file": "R-mon_Melbourne_p0_s204.json",
+          "impronta": "736edd8d9a41dd0d",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s205": {
+          "file": "R-mon_Melbourne_p0_s205.json",
+          "impronta": "7b90b64731aefdb4",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s206": {
+          "file": "R-mon_Melbourne_p0_s206.json",
+          "impronta": "86b6b90e2fc7dfae",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s207": {
+          "file": "R-mon_Melbourne_p0_s207.json",
+          "impronta": "64c4b25af8df233d",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s208": {
+          "file": "R-mon_Melbourne_p0_s208.json",
+          "impronta": "a882a654a2bc2ece",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s209": {
+          "file": "R-mon_Melbourne_p0_s209.json",
+          "impronta": "0c46343aec55106f",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s210": {
+          "file": "R-mon_Melbourne_p0_s210.json",
+          "impronta": "190f18c8b8eb18de",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s211": {
+          "file": "R-mon_Melbourne_p0_s211.json",
+          "impronta": "43bc99d30aa727ba",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p0_s212": {
+          "file": "R-mon_Melbourne_p0_s212.json",
+          "impronta": "99794b44602edaba",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s201": {
+          "file": "R-mon_Melbourne_p1_s201.json",
+          "impronta": "beb9c5859d2740c2",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s202": {
+          "file": "R-mon_Melbourne_p1_s202.json",
+          "impronta": "b22a21dfa90e509e",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s203": {
+          "file": "R-mon_Melbourne_p1_s203.json",
+          "impronta": "0b752025eaf460a3",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s204": {
+          "file": "R-mon_Melbourne_p1_s204.json",
+          "impronta": "94115969be5853fb",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s205": {
+          "file": "R-mon_Melbourne_p1_s205.json",
+          "impronta": "ce5c09fb45e53623",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s206": {
+          "file": "R-mon_Melbourne_p1_s206.json",
+          "impronta": "a06f0191db7b32d9",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s207": {
+          "file": "R-mon_Melbourne_p1_s207.json",
+          "impronta": "90ddabee3175b405",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s208": {
+          "file": "R-mon_Melbourne_p1_s208.json",
+          "impronta": "9837646e6975fbdf",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s209": {
+          "file": "R-mon_Melbourne_p1_s209.json",
+          "impronta": "3fb1edadb0dfcd74",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s210": {
+          "file": "R-mon_Melbourne_p1_s210.json",
+          "impronta": "74a9bdeda900c79a",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s211": {
+          "file": "R-mon_Melbourne_p1_s211.json",
+          "impronta": "fd136af33bb6ac61",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p1_s212": {
+          "file": "R-mon_Melbourne_p1_s212.json",
+          "impronta": "faa64453a16cc51b",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s201": {
+          "file": "R-mon_Melbourne_p2_s201.json",
+          "impronta": "18dcf2b8f898385c",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s202": {
+          "file": "R-mon_Melbourne_p2_s202.json",
+          "impronta": "e538ac10e2edb6c9",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s203": {
+          "file": "R-mon_Melbourne_p2_s203.json",
+          "impronta": "6dd6ad3f8ab62c40",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s204": {
+          "file": "R-mon_Melbourne_p2_s204.json",
+          "impronta": "aea8e966e65b2f88",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s205": {
+          "file": "R-mon_Melbourne_p2_s205.json",
+          "impronta": "24c60b6aa51e984f",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s206": {
+          "file": "R-mon_Melbourne_p2_s206.json",
+          "impronta": "2ef118f39c06809d",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s207": {
+          "file": "R-mon_Melbourne_p2_s207.json",
+          "impronta": "63a9b6272b51d74f",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s208": {
+          "file": "R-mon_Melbourne_p2_s208.json",
+          "impronta": "6b4c0695768aef27",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s209": {
+          "file": "R-mon_Melbourne_p2_s209.json",
+          "impronta": "4bedaa05f34beec8",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s210": {
+          "file": "R-mon_Melbourne_p2_s210.json",
+          "impronta": "424d99361363f009",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s211": {
+          "file": "R-mon_Melbourne_p2_s211.json",
+          "impronta": "a483492738b1b793",
+          "modalita": "concorrente"
+        },
+        "Melbourne_p2_s212": {
+          "file": "R-mon_Melbourne_p2_s212.json",
+          "impronta": "3be679b4e62fc769",
+          "modalita": "concorrente"
+        }
+      },
+      "rip_iniziali": {
+        "mediana": 11.32395231711339,
+        "minimo": 10.533613056706118,
+        "massimo": 11.362152823193052
+      },
+      "rip_nuovi": {
+        "mediana": 11.29211057824077,
+        "minimo": 10.488718227245153,
+        "massimo": 11.475190453788766
+      },
+      "rapporto_rip": {
+        "mediana": 0.9997799597311765,
+        "minimo": 0.9901925919619025,
+        "massimo": 1.0100053918578866
+      },
+      "estr_iniziali": {
+        "mediana": 73110.59841269843,
+        "minimo": 73092.92289156627,
+        "massimo": 73139.27301587301
+      },
+      "estr_nuovi": {
+        "mediana": 790.5407407407407,
+        "minimo": 656.7259259259259,
+        "massimo": 862.6333333333333
+      },
+      "quota_nuovi": {
+        "mediana": 0.0023117028834823594,
+        "minimo": 0.001920400984265613,
+        "massimo": 0.002552908139106645
+      }
+    }
+  }
+}

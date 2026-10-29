@@ -1,0 +1,57 @@
+{
+  "scelte": {
+    "aggregazione": "flusso somma, resto media",
+    "percentile": 95,
+    "soglie": [
+      0.8,
+      0.5
+    ],
+    "inizio": "2018-01-01"
+  },
+  "partizioni": {
+    "p0": {
+      "riferimento_mph": 69.66666666666667,
+      "nodi_iniziali": 214,
+      "classi": {
+        "1": 0.9148666243397928,
+        "2": 0.06050615119895471,
+        "3": 0.024627224461252508
+      },
+      "maschere_sempre_vere": {
+        "velocita": true,
+        "flusso": true,
+        "occupazione": true
+      }
+    },
+    "p1": {
+      "riferimento_mph": 69.83333333333333,
+      "nodi_iniziali": 214,
+      "classi": {
+        "1": 0.9138533097775079,
+        "2": 0.06138891956053663,
+        "3": 0.024757770661955503
+      },
+      "maschere_sempre_vere": {
+        "velocita": true,
+        "flusso": true,
+        "occupazione": true
+      }
+    },
+    "p2": {
+      "riferimento_mph": 69.83333333333333,
+      "nodi_iniziali": 214,
+      "classi": {
+        "1": 0.9138533097775079,
+        "2": 0.06138891956053663,
+        "3": 0.024757770661955503
+      },
+      "maschere_sempre_vere": {
+        "velocita": true,
+        "flusso": true,
+        "occupazione": true
+      }
+    }
+  },
+  "terzili": "proposta SCARTATA prima del test: si usa il flusso continuo",
+  "limite": "il rilascio e' gia' imputato: le maschere derivano dai controlli di validita' sui valori DISTRIBUITI e significano disponibilita' numerica nel rilascio, non misura grezza osservata"
+}

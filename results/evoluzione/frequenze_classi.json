@@ -1,0 +1,482 @@
+{
+  "_cartelle": [
+    "pesi_griglia",
+    "pesi_pems04",
+    "pesi_pems08"
+  ],
+  "_impronte_cartelle": {
+    "pesi_griglia": "6a3101b5c8fa8960",
+    "pesi_pems04": "6696c193837e995e",
+    "pesi_pems08": "7e3a8680454e676b"
+  },
+  "_istante": "2026-10-13T18:39:22.648518+00:00",
+  "_nota": "artefatti letti dagli esecutori (evoluzione.analisi.pesi.carica); frequenze = conteggi / somma, sul periodo di addestramento, per orizzonte (conteggio ripetuto dichiarato in pesi.py)",
+  "pesi_griglia/Londra/p0": {
+    "file": "pesi_griglia/pesi_Londra_p0.json",
+    "impronta_file": "34107e58b25959c3",
+    "impronta_pesi": "1d805fc87241f8e2",
+    "frequenze": [
+      0.4383328691474599,
+      0.40487533115507085,
+      0.15679179969746923
+    ],
+    "conteggi": [
+      4861595,
+      4490514,
+      1738994
+    ],
+    "pesi": [
+      0.7604570790724717,
+      0.8232986988423449,
+      2.1259615233481735
+    ],
+    "n_train": 11091103,
+    "ordine_classi": [
+      1,
+      2,
+      3
+    ]
+  },
+  "pesi_griglia/Londra/p1": {
+    "file": "pesi_griglia/pesi_Londra_p1.json",
+    "impronta_file": "1894d56831e234cf",
+    "impronta_pesi": "6fa5d19008a56a7e",
+    "frequenze": [
+      0.4462407849509269,
+      0.40009157858030964,
+      0.1536676364687635
+    ],
+    "conteggi": [
+      4896153,
+      4389804,
+      1686041
+    ],
+    "pesi": [
+      0.7469808779804608,
+      0.8331425882947545,
+      2.1691837070786932
+    ],
+    "n_train": 10971998,
+    "ordine_classi": [
+      1,
+      2,
+      3
+    ]
+  },
+  "pesi_griglia/Londra/p2": {
+    "file": "pesi_griglia/pesi_Londra_p2.json",
+    "impronta_file": "49b3e097bf45595d",
+    "impronta_pesi": "1de9db8a261005cc",
+    "frequenze": [
+      0.43186912855369974,
+      0.40962158339450433,
+      0.15850928805179593
+    ],
+    "conteggi": [
+      4744931,
+      4500498,
+      1741536
+    ],
+    "pesi": [
+      0.7718387615471471,
+      0.8137592032407672,
+      2.1029261908261825
+    ],
+    "n_train": 10986965,
+    "ordine_classi": [
+      1,
+      2,
+      3
+    ]
+  },
+  "pesi_griglia/Madrid/p0": {
+    "file": "pesi_griglia/pesi_Madrid_p0.json",
+    "impronta_file": "e4d171d0b712bd34",
+    "impronta_pesi": "7e9a8de0c407cc7a",
+    "frequenze": [
+      0.4569857956091207,
+      0.4525441919238974,
+      0.09047001246698187
+    ],
+    "conteggi": [
+      6744280,
+      6678730,
+      1335173
+    ],
+    "pesi": [
+      0.7294172740949861,
+      0.7365763151577222,
+      3.6844621133990376
+    ],
+    "n_train": 14758183,
+    "ordine_classi": [
+      1,
+      2,
+      3
+    ]
+  },
+  "pesi_griglia/Madrid/p1": {
+    "file": "pesi_griglia/pesi_Madrid_p1.json",
+    "impronta_file": "7d395e0732a12339",
+    "impronta_pesi": "a468d36807046c3a",
+    "frequenze": [
+      0.4658141758881873,
+      0.4420870826148988,
+      0.09209874149691387
+    ],
+    "conteggi": [
+      6886001,
+      6535250,
+      1361470
+    ],
+    "pesi": [
+      0.7155929350963885,
+      0.7539992604210499,
+      3.6193038896682754
+    ],
+    "n_train": 14782721,
+    "ordine_classi": [
+      1,
+      2,
+      3
+    ]
+  },
+  "pesi_griglia/Madrid/p2": {
+    "file": "pesi_griglia/pesi_Madrid_p2.json",
+    "impronta_file": "8261a16adef818be",
+    "impronta_pesi": "cd2bb8d8893173d7",
+    "frequenze": [
+      0.4531659807494889,
+      0.45216009291275483,
+      0.0946739263377563
+    ],
+    "conteggi": [
+      6658138,
+      6643359,
+      1390996
+    ],
+    "pesi": [
+      0.7355656591477477,
+      0.737202018838161,
+      3.520856757795613
+    ],
+    "n_train": 14692493,
+    "ordine_classi": [
+      1,
+      2,
+      3
+    ]
+  },
+  "pesi_griglia/Melbourne/p0": {
+    "file": "pesi_griglia/pesi_Melbourne_p0.json",
+    "impronta_file": "599a316be41e81f1",
+    "impronta_pesi": "78cb93efe059933d",
+    "frequenze": [
+      0.74379703572656,
+      0.2090592132260749,
+      0.04714375104736517
+    ],
+    "conteggi": [
+      6023046,
+      1692899,
+      381756
+    ],
+    "pesi": [
+      0.4481509300554348,
+      1.5944445986834812,
+      7.070573001253855
+    ],
+    "n_train": 8097701,
+    "ordine_classi": [
+      1,
+      2,
+      3
+    ]
+  },
+  "pesi_griglia/Melbourne/p1": {
+    "file": "pesi_griglia/pesi_Melbourne_p1.json",
+    "impronta_file": "a6a6314646a828f5",
+    "impronta_pesi": "83796014bbc6e16d",
+    "frequenze": [
+      0.7403914864201798,
+      0.2104587297521656,
+      0.04914978382765463
+    ],
+    "conteggi": [
+      5998041,
+      1704963,
+      398171
+    ],
+    "pesi": [
+      0.4502122720846134,
+      1.5838417998904766,
+      6.781989815096194
+    ],
+    "n_train": 8101175,
+    "ordine_classi": [
+      1,
+      2,
+      3
+    ]
+  },
+  "pesi_griglia/Melbourne/p2": {
+    "file": "pesi_griglia/pesi_Melbourne_p2.json",
+    "impronta_file": "17e99aa8ee37e6f9",
+    "impronta_pesi": "346676cbd4668222",
+    "frequenze": [
+      0.7523674688083399,
+      0.20192840917165067,
+      0.04570412202000934
+    ],
+    "conteggi": [
+      6130962,
+      1645493,
+      372438
+    ],
+    "pesi": [
+      0.4430459145998078,
+      1.6507500588982553,
+      7.2932881893541115
+    ],
+    "n_train": 8148893,
+    "ordine_classi": [
+      1,
+      2,
+      3
+    ]
+  },
+  "pesi_pems04/PEMS04_p0/p0": {
+    "file": "pesi_pems04/pesi_PEMS04_p0_p0.json",
+    "impronta_file": "525a7fb80a55dc43",
+    "impronta_pesi": "7863fe35d6740628",
+    "frequenze": [
+      0.9089441950970087,
+      0.06549542415892586,
+      0.025560380744065372
+    ],
+    "conteggi": [
+      3071766,
+      221341,
+      86381
+    ],
+    "pesi": [
+      0.36672585086233783,
+      5.089414071500535,
+      13.041015964158785
+    ],
+    "n_train": 3379488,
+    "ordine_classi": [
+      1,
+      2,
+      3
+    ]
+  },
+  "pesi_pems04/PEMS04_p1/p1": {
+    "file": "pesi_pems04/pesi_PEMS04_p1_p1.json",
+    "impronta_file": "62089b735675f265",
+    "impronta_pesi": "47c3a9a5b772d57b",
+    "frequenze": [
+      0.9175301110700792,
+      0.05967116912384361,
+      0.022798719806077134
+    ],
+    "conteggi": [
+      3100782,
+      201658,
+      77048
+    ],
+    "pesi": [
+      0.3632941625693132,
+      5.586170645350048,
+      14.62070397674177
+    ],
+    "n_train": 3379488,
+    "ordine_classi": [
+      1,
+      2,
+      3
+    ]
+  },
+  "pesi_pems04/PEMS04_p2/p2": {
+    "file": "pesi_pems04/pesi_PEMS04_p2_p2.json",
+    "impronta_file": "c2c6bf9277b56e83",
+    "impronta_pesi": "4c3a59a25aa46a99",
+    "frequenze": [
+      0.9059774735107803,
+      0.06900542330672575,
+      0.025017103182493915
+    ],
+    "conteggi": [
+      3061740,
+      233203,
+      84545
+    ],
+    "pesi": [
+      0.36792673447124835,
+      4.830538200623491,
+      13.324217872139098
+    ],
+    "n_train": 3379488,
+    "ordine_classi": [
+      1,
+      2,
+      3
+    ]
+  },
+  "pesi_pems08/PEMS08_p0/p0": {
+    "file": "pesi_pems08/pesi_PEMS08_p0_p0.json",
+    "impronta_file": "9cb83e92b52a9d64",
+    "impronta_pesi": "9c6b9745f8d3c200",
+    "frequenze": [
+      0.941591047232786,
+      0.04945026867983798,
+      0.008958684087376082
+    ],
+    "conteggi": [
+      1400402,
+      73546,
+      13324
+    ],
+    "pesi": [
+      0.3540107293001105,
+      6.740779013587868,
+      37.20784549184429
+    ],
+    "n_train": 1487272,
+    "ordine_classi": [
+      1,
+      2,
+      3
+    ]
+  },
+  "pesi_pems08/PEMS08_p1/p1": {
+    "file": "pesi_pems08/pesi_PEMS08_p1_p1.json",
+    "impronta_file": "c35c8bab53aa94ec",
+    "impronta_pesi": "a2baaecb731c07e6",
+    "frequenze": [
+      0.9424342016793162,
+      0.04383327326810429,
+      0.013732525052579488
+    ],
+    "conteggi": [
+      1401656,
+      65192,
+      20424
+    ],
+    "pesi": [
+      0.35369401146453433,
+      7.604573158260727,
+      24.273273273273272
+    ],
+    "n_train": 1487272,
+    "ordine_classi": [
+      1,
+      2,
+      3
+    ]
+  },
+  "pesi_pems08/PEMS08_p2/p2": {
+    "file": "pesi_pems08/pesi_PEMS08_p2_p2.json",
+    "impronta_file": "6a358c2b88c90f56",
+    "impronta_pesi": "f0ed35b98104a900",
+    "frequenze": [
+      0.9339414713650227,
+      0.05244703053644525,
+      0.013611498098532078
+    ],
+    "conteggi": [
+      1389025,
+      78003,
+      20244
+    ],
+    "pesi": [
+      0.35691030279032654,
+      6.355618800986287,
+      24.489099650925375
+    ],
+    "n_train": 1487272,
+    "ordine_classi": [
+      1,
+      2,
+      3
+    ]
+  },
+  "pesi_pems08/PEMS08_p3/p3": {
+    "file": "pesi_pems08/pesi_PEMS08_p3_p3.json",
+    "impronta_file": "8db1d6f73ed61dbf",
+    "impronta_pesi": "fd47937d71bbf703",
+    "frequenze": [
+      0.9391328553216897,
+      0.04991017110521814,
+      0.010956973573092213
+    ],
+    "conteggi": [
+      1396746,
+      74230,
+      16296
+    ],
+    "pesi": [
+      0.35493735678021154,
+      6.678665409313395,
+      30.422025855015544
+    ],
+    "n_train": 1487272,
+    "ordine_classi": [
+      1,
+      2,
+      3
+    ]
+  },
+  "pesi_pems08/PEMS08_p4/p4": {
+    "file": "pesi_pems08/pesi_PEMS08_p4_p4.json",
+    "impronta_file": "1a40c7fb14f0a0ca",
+    "impronta_pesi": "076fa6ad7b6b2128",
+    "frequenze": [
+      0.9402590783662975,
+      0.05032771409668171,
+      0.009413207537020801
+    ],
+    "conteggi": [
+      1398421,
+      74851,
+      14000
+    ],
+    "pesi": [
+      0.3545122200920419,
+      6.623255979657364,
+      35.4112380952381
+    ],
+    "n_train": 1487272,
+    "ordine_classi": [
+      1,
+      2,
+      3
+    ]
+  },
+  "pesi_pems08/PEMS08_p5/p5": {
+    "file": "pesi_pems08/pesi_PEMS08_p5_p5.json",
+    "impronta_file": "5016657edabd40eb",
+    "impronta_pesi": "2ca5c691dd27f73e",
+    "frequenze": [
+      0.9350031467008052,
+      0.051019584850652736,
+      0.01397726844854203
+    ],
+    "conteggi": [
+      1390604,
+      75880,
+      20788
+    ],
+    "pesi": [
+      0.35650503905736886,
+      6.533438762959058,
+      23.848245782823422
+    ],
+    "n_train": 1487272,
+    "ordine_classi": [
+      1,
+      2,
+      3
+    ]
+  }
+}

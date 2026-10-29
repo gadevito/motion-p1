@@ -1,0 +1,51 @@
+{
+  "scelta": {
+    "PEMS08": {
+      "tau": 96,
+      "N": 231,
+      "wce_validazione": 0.46333932713105774,
+      "celle": 36
+    }
+  },
+  "griglia_validazione": {
+    "tau=96/N=0": 0.46333932713105774,
+    "tau=96/N=77": 0.46333932713105774,
+    "tau=96/N=154": 0.46333932713105774,
+    "tau=96/N=231": 0.46333932713105774,
+    "tau=192/N=0": 0.48148853613072906,
+    "tau=192/N=77": 0.48148853613072906,
+    "tau=192/N=154": 0.48148853613072906,
+    "tau=192/N=231": 0.48148853613072906,
+    "tau=672/N=0": 0.5113328387554257,
+    "tau=672/N=77": 0.5113328387554257,
+    "tau=672/N=154": 0.5113328387554257,
+    "tau=672/N=231": 0.5113328387554257,
+    "tau=mai/N=0": 0.5113328387554257,
+    "tau=mai/N=77": 0.5113328387554257,
+    "tau=mai/N=154": 0.5113328387554257,
+    "tau=mai/N=231": 0.5113328387554257
+  },
+  "celle_valide_validazione": {
+    "min": 308,
+    "mediana": 308.0,
+    "max": 308
+  },
+  "regola": "minimo della wCE integrata su tutte le origini dopo t1 dell'episodio di validazione, nodi di validazione; spareggio: N maggiore, poi tau = mai, poi tau minore",
+  "variante_dichiarata": "gated(tau, N = 0) con lo stesso tau, riportata accanto",
+  "griglie": {
+    "tau": [
+      "96",
+      "192",
+      "672",
+      "mai"
+    ],
+    "N": [
+      0,
+      77,
+      154,
+      231
+    ]
+  },
+  "istante": "2026-10-08T07:41:14.044736+00:00",
+  "impronta": "1ce676da7a5168f8"
+}

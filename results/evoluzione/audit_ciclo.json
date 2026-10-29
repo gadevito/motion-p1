@@ -1,0 +1,479 @@
+{
+  "statico": {
+    "step_per_epoca": 1,
+    "cicli_for_nel_blocco": 4,
+    "choice_con_reinserimento": false,
+    "validazione_a_ogni_aggiornamento": true,
+    "istanti_di_validazione": "finestra FISSA: i primi `lotto`",
+    "pazienza_su": "aggiornamenti, non passate"
+  },
+  "dinamico": {
+    "aggiornamenti": 35,
+    "origini_totali": 1120,
+    "origini_distinte": 1050,
+    "ripetute": 70,
+    "origini_di_training": 7308,
+    "copertura": 0.14367816091954022,
+    "aggiornamenti_per_passata_nominale": 229,
+    "quota_di_una_passata": 0.15283842794759825,
+    "istanze_per_aggiornamento": 20160,
+    "validi_mediani": 66480.0,
+    "per_aggiornamento": [
+      {
+        "aggiornamento": 0,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          16780,
+          16263,
+          16001,
+          15886
+        ],
+        "validi_totali": 64930
+      },
+      {
+        "aggiornamento": 1,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          16864,
+          16745,
+          16386,
+          16940
+        ],
+        "validi_totali": 66935
+      },
+      {
+        "aggiornamento": 2,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          16482,
+          16254,
+          16656,
+          16246
+        ],
+        "validi_totali": 65638
+      },
+      {
+        "aggiornamento": 3,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          16730,
+          16774,
+          17123,
+          17434
+        ],
+        "validi_totali": 68061
+      },
+      {
+        "aggiornamento": 4,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          16055,
+          16125,
+          15832,
+          15776
+        ],
+        "validi_totali": 63788
+      },
+      {
+        "aggiornamento": 5,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          16335,
+          15966,
+          15991,
+          16156
+        ],
+        "validi_totali": 64448
+      },
+      {
+        "aggiornamento": 6,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          16921,
+          16657,
+          16666,
+          16470
+        ],
+        "validi_totali": 66714
+      },
+      {
+        "aggiornamento": 7,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          16312,
+          16605,
+          16544,
+          16390
+        ],
+        "validi_totali": 65851
+      },
+      {
+        "aggiornamento": 8,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          16810,
+          16751,
+          16897,
+          16327
+        ],
+        "validi_totali": 66785
+      },
+      {
+        "aggiornamento": 9,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          16062,
+          16083,
+          15664,
+          16101
+        ],
+        "validi_totali": 63910
+      },
+      {
+        "aggiornamento": 10,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          16796,
+          17060,
+          17112,
+          16911
+        ],
+        "validi_totali": 67879
+      },
+      {
+        "aggiornamento": 11,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          17003,
+          16890,
+          16866,
+          16877
+        ],
+        "validi_totali": 67636
+      },
+      {
+        "aggiornamento": 12,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          16655,
+          16461,
+          16587,
+          17021
+        ],
+        "validi_totali": 66724
+      },
+      {
+        "aggiornamento": 13,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          16946,
+          16961,
+          16936,
+          16763
+        ],
+        "validi_totali": 67606
+      },
+      {
+        "aggiornamento": 14,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          17167,
+          17348,
+          17353,
+          17382
+        ],
+        "validi_totali": 69250
+      },
+      {
+        "aggiornamento": 15,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          16283,
+          16323,
+          16401,
+          16772
+        ],
+        "validi_totali": 65779
+      },
+      {
+        "aggiornamento": 16,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          17001,
+          16826,
+          16813,
+          16208
+        ],
+        "validi_totali": 66848
+      },
+      {
+        "aggiornamento": 17,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          17037,
+          16804,
+          17006,
+          16895
+        ],
+        "validi_totali": 67742
+      },
+      {
+        "aggiornamento": 18,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          16765,
+          16718,
+          16695,
+          16302
+        ],
+        "validi_totali": 66480
+      },
+      {
+        "aggiornamento": 19,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          15733,
+          15737,
+          15673,
+          15941
+        ],
+        "validi_totali": 63084
+      },
+      {
+        "aggiornamento": 20,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          16849,
+          16671,
+          16694,
+          16973
+        ],
+        "validi_totali": 67187
+      },
+      {
+        "aggiornamento": 21,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          16258,
+          16354,
+          16634,
+          16916
+        ],
+        "validi_totali": 66162
+      },
+      {
+        "aggiornamento": 22,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          16595,
+          16372,
+          16633,
+          16206
+        ],
+        "validi_totali": 65806
+      },
+      {
+        "aggiornamento": 23,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          16231,
+          16211,
+          16219,
+          16012
+        ],
+        "validi_totali": 64673
+      },
+      {
+        "aggiornamento": 24,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          16135,
+          16163,
+          15883,
+          15717
+        ],
+        "validi_totali": 63898
+      },
+      {
+        "aggiornamento": 25,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          17037,
+          16949,
+          17000,
+          16600
+        ],
+        "validi_totali": 67586
+      },
+      {
+        "aggiornamento": 26,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          16456,
+          16809,
+          16955,
+          16925
+        ],
+        "validi_totali": 67145
+      },
+      {
+        "aggiornamento": 27,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          17214,
+          16954,
+          17199,
+          17206
+        ],
+        "validi_totali": 68573
+      },
+      {
+        "aggiornamento": 28,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          15744,
+          15576,
+          15625,
+          15698
+        ],
+        "validi_totali": 62643
+      },
+      {
+        "aggiornamento": 29,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          16684,
+          16913,
+          16453,
+          16584
+        ],
+        "validi_totali": 66634
+      },
+      {
+        "aggiornamento": 30,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          16236,
+          16120,
+          16426,
+          16646
+        ],
+        "validi_totali": 65428
+      },
+      {
+        "aggiornamento": 31,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          15758,
+          15668,
+          15825,
+          15806
+        ],
+        "validi_totali": 63057
+      },
+      {
+        "aggiornamento": 32,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          16479,
+          16514,
+          16387,
+          16363
+        ],
+        "validi_totali": 65743
+      },
+      {
+        "aggiornamento": 33,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          16728,
+          16660,
+          16823,
+          16802
+        ],
+        "validi_totali": 67013
+      },
+      {
+        "aggiornamento": 34,
+        "origini": 32,
+        "nodi": 630,
+        "istanze": 20160,
+        "validi_per_orizzonte": [
+          16158,
+          16143,
+          16297,
+          16380
+        ],
+        "validi_totali": 64978
+      }
+    ]
+  }
+}

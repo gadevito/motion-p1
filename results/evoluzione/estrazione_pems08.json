@@ -1,0 +1,165 @@
+{
+  "scelte": {
+    "aggregazione": "flusso somma, resto media",
+    "percentile": 95,
+    "soglie": [
+      0.8,
+      0.5
+    ],
+    "inizio": "2016-07-01",
+    "nome": "PEMS08",
+    "fine_periodo": 3840,
+    "addestramento": [
+      11,
+      3162
+    ]
+  },
+  "partizioni": {
+    "p0": {
+      "riferimento_mph": 69.63333333333333,
+      "nodi_iniziali": 118,
+      "classi": {
+        "1": 0.9363990354206199,
+        "2": 0.05029055977229602,
+        "3": 0.013310404807084123
+      },
+      "classi_addestramento": {
+        "1": 0.9367558384826479,
+        "2": 0.05097541396755465,
+        "3": 0.01226874754979745
+      },
+      "classi_prova": {
+        "1": 0.9334265265041378,
+        "2": 0.05154327890852158,
+        "3": 0.01503019458734064
+      },
+      "maschere_sempre_vere": {
+        "velocita": true,
+        "flusso": true,
+        "occupazione": true
+      }
+    },
+    "p1": {
+      "riferimento_mph": 69.5,
+      "nodi_iniziali": 118,
+      "classi": {
+        "1": 0.9374703510436433,
+        "2": 0.04931412080961417,
+        "3": 0.013215528146742568
+      },
+      "classi_addestramento": {
+        "1": 0.9378889988239028,
+        "2": 0.049933727854836,
+        "3": 0.012177273321261225
+      },
+      "classi_prova": {
+        "1": 0.9344414001341982,
+        "2": 0.050629053902929995,
+        "3": 0.01492954596287184
+      },
+      "maschere_sempre_vere": {
+        "velocita": true,
+        "flusso": true,
+        "occupazione": true
+      }
+    },
+    "p2": {
+      "riferimento_mph": 69.76666666666667,
+      "nodi_iniziali": 118,
+      "classi": {
+        "1": 0.9355757827324478,
+        "2": 0.05102091239721695,
+        "3": 0.01340330487033523
+      },
+      "classi_addestramento": {
+        "1": 0.9358915003640301,
+        "2": 0.0517520114996173,
+        "3": 0.012356488136352605
+      },
+      "classi_prova": {
+        "1": 0.9326269290986356,
+        "2": 0.052231044509058376,
+        "3": 0.015142026392305972
+      },
+      "maschere_sempre_vere": {
+        "velocita": true,
+        "flusso": true,
+        "occupazione": true
+      }
+    },
+    "p3": {
+      "riferimento_mph": 69.66666666666667,
+      "nodi_iniziali": 118,
+      "classi": {
+        "1": 0.9361608554712207,
+        "2": 0.05052676312460468,
+        "3": 0.013312381404174574
+      },
+      "classi_addestramento": {
+        "1": 0.9365056844699162,
+        "2": 0.05122370115929584,
+        "3": 0.012270614370787985
+      },
+      "classi_prova": {
+        "1": 0.9331888839185865,
+        "2": 0.05177812569894878,
+        "3": 0.015032990382464773
+      },
+      "maschere_sempre_vere": {
+        "velocita": true,
+        "flusso": true,
+        "occupazione": true
+      }
+    },
+    "p4": {
+      "riferimento_mph": 69.56666666666668,
+      "nodi_iniziali": 118,
+      "classi": {
+        "1": 0.9369534709044909,
+        "2": 0.049783562618595824,
+        "3": 0.013262966476913347
+      },
+      "classi_addestramento": {
+        "1": 0.937342020273676,
+        "2": 0.05043403588029944,
+        "3": 0.012223943846024606
+      },
+      "classi_prova": {
+        "1": 0.9339409528069783,
+        "2": 0.051079176917915456,
+        "3": 0.014979870275106241
+      },
+      "maschere_sempre_vere": {
+        "velocita": true,
+        "flusso": true,
+        "occupazione": true
+      }
+    },
+    "p5": {
+      "riferimento_mph": 69.36666666666667,
+      "nodi_iniziali": 118,
+      "classi": {
+        "1": 0.9382876739405439,
+        "2": 0.0485985926628716,
+        "3": 0.01311373339658444
+      },
+      "classi_addestramento": {
+        "1": 0.9386861313868613,
+        "2": 0.04924673773031904,
+        "3": 0.012067130882819646
+      },
+      "classi_prova": {
+        "1": 0.9352857302616864,
+        "2": 0.049874189219414,
+        "3": 0.014840080518899575
+      },
+      "maschere_sempre_vere": {
+        "velocita": true,
+        "flusso": true,
+        "occupazione": true
+      }
+    }
+  },
+  "terzili": "proposta SCARTATA prima del test: si usa il flusso continuo",
+  "limite": "il rilascio e' gia' imputato: le maschere derivano dai controlli di validita' sui valori DISTRIBUITI e significano disponibilita' numerica nel rilascio, non misura grezza osservata"
+}

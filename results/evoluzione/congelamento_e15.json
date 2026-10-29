@@ -1,0 +1,3557 @@
+{
+ "commit": "1b5a4bb",
+ "istante": "2026-10-28T16:03:43.502625+00:00",
+ "risultati": {
+  "protocollo": "protocol/E15.md",
+  "statica": "espansiva",
+  "repliche": 4000,
+  "seme_bootstrap": 20261023,
+  "k_secondaria_file": {
+   "impronta": "67aeef155f50d92d",
+   "istante": "2026-10-28T10:45:37.089381+00:00",
+   "regola": "k in (10, 50, 200), passo congelato per citta'; wCE media sulle origini con eta' > 1 settimana dell'episodio di validazione causale (nodi di validazione, finestra espansiva); a pari merito il k minore"
+  },
+  "pubblicate_fonti": {
+   "e14b_livelli_congelata.json": {
+    "impronta": "916c2e5883c81b9c",
+    "repliche": 4000,
+    "seme": 20261013
+   },
+   "e3bis_risultati.json": {
+    "impronta": "2db2dd9ffece2072"
+   }
+  },
+  "semi": [
+   201,
+   202,
+   203,
+   204,
+   205,
+   206
+  ],
+  "partizioni": [
+   0,
+   1,
+   2
+  ],
+  "delta_non_inferiorita": 0.005,
+  "perimetro": {
+   "principale": "origini comuni dopo t1 (fasce d'eta' 1-3)",
+   "settimana": "origini con eta' > 1 settimana (fascia 3)",
+   "congelate": "predizioni_e5/ep1_* (C, A, F0', F'(1 sett.)) e predizioni_e4/prova_* (F0): stesse celle, stessi nodi, stesse origini, stesse estrazioni"
+  },
+  "k_secondaria": {
+   "Madrid": {
+    "k": 200,
+    "wce_validazione": {
+     "10": 0.920189536724898,
+     "50": 0.904031688163628,
+     "200": 0.899708321075429
+    },
+    "k_congelato": 50,
+    "passo": 0.01
+   },
+   "Londra": {
+    "k": 50,
+    "wce_validazione": {
+     "10": 0.8664133827267535,
+     "50": 0.8601612922367875,
+     "200": 0.8613404147841871
+    },
+    "k_congelato": 50,
+    "passo": 0.01
+   },
+   "Melbourne": {
+    "k": 200,
+    "wce_validazione": {
+     "10": 0.8336358188576687,
+     "50": 0.8234757594206377,
+     "200": 0.8188007699217595
+    },
+    "k_congelato": 200,
+    "passo": 0.001
+   }
+  },
+  "citta": {
+   "Madrid": {
+    "celle": 18,
+    "nodi": 135,
+    "k_secondaria": 200,
+    "livelli": {
+     "causale/C": {
+      "media": 0.9610230515718885,
+      "ic_con_nodi": [
+       0.9366393073191525,
+       0.9841199598751883
+      ]
+     },
+     "causale/A": {
+      "media": 0.9209057732070731,
+      "ic_con_nodi": [
+       0.8941794175234439,
+       0.945832989289749
+      ]
+     },
+     "causale/C_A": {
+      "media": 0.9591041468721555,
+      "ic_con_nodi": [
+       0.9343310800869734,
+       0.9826481740427974
+      ]
+     },
+     "causale/F0": {
+      "media": 1.035625016545349,
+      "ic_con_nodi": [
+       1.0187778507447898,
+       1.0532054878506223
+      ]
+     },
+     "causale/F0p": {
+      "media": 0.9688626624674102,
+      "ic_con_nodi": [
+       0.9460367339733687,
+       0.9908708298669832
+      ]
+     },
+     "causale/Fp_672/settimana": {
+      "media": 0.9320459483688158,
+      "ic_con_nodi": [
+       0.9059422748952262,
+       0.9567012742311537
+      ]
+     },
+     "causale/C/settimana": {
+      "media": 0.9631771862941293,
+      "ic_con_nodi": [
+       0.9393076383768176,
+       0.9860249274844481
+      ]
+     },
+     "causale/A/settimana": {
+      "media": 0.9240704441430749,
+      "ic_con_nodi": [
+       0.8988694918770004,
+       0.9482144339157731
+      ]
+     },
+     "causale/C_A/settimana": {
+      "media": 0.9619272950291321,
+      "ic_con_nodi": [
+       0.9377773203336526,
+       0.9850840392059923
+      ]
+     },
+     "causale/F0/settimana": {
+      "media": 1.0352354599376374,
+      "ic_con_nodi": [
+       1.0199873711550413,
+       1.0509630632707316
+      ]
+     },
+     "causale/F0p/settimana": {
+      "media": 0.9719795754656726,
+      "ic_con_nodi": [
+       0.9493503178276392,
+       0.993514453991699
+      ]
+     },
+     "causale/Fpk/settimana": {
+      "media": 0.9295725888942301,
+      "ic_con_nodi": [
+       0.9038211556564502,
+       0.9536276007918199
+      ]
+     },
+     "congelata/C": {
+      "media": 0.9600922064213536,
+      "ic_con_nodi": [
+       0.9356242813772668,
+       0.9834185960315287
+      ]
+     },
+     "congelata/A": {
+      "media": 0.9210985848811735,
+      "ic_con_nodi": [
+       0.8944013193585987,
+       0.9460257855805551
+      ]
+     },
+     "congelata/F0": {
+      "media": 1.034979334192872,
+      "ic_con_nodi": [
+       1.017781077560202,
+       1.0522554474664902
+      ]
+     },
+     "congelata/F0p": {
+      "media": 0.9680313199951885,
+      "ic_con_nodi": [
+       0.9449412738197364,
+       0.9903462053758656
+      ]
+     },
+     "congelata/Fp_672/settimana": {
+      "media": 0.9319979659663384,
+      "ic_con_nodi": [
+       0.905905563131507,
+       0.9566739856584675
+      ]
+     },
+     "congelata/C/settimana": {
+      "media": 0.9627966085577092,
+      "ic_con_nodi": [
+       0.9387508223380713,
+       0.9857776125262366
+      ]
+     },
+     "congelata/A/settimana": {
+      "media": 0.9243009173338902,
+      "ic_con_nodi": [
+       0.8989956307189048,
+       0.9485256809238706
+      ]
+     }
+    },
+    "dichiarazioni": {
+     "F0-C": {
+      "media": 0.07460196497346061,
+      "ic_con_nodi": [
+       0.05939414724734137,
+       0.09026816711384711
+      ],
+      "segno": "+",
+      "categoria": "inferiorita'",
+      "perimetro": "tutte le origini dopo t1",
+      "segno_congelato": "+",
+      "confermata": true,
+      "categoria_coincide": true
+     },
+     "F0p-C": {
+      "media": 0.007839610895521654,
+      "ic_con_nodi": [
+       0.005307561900993701,
+       0.01055495107806979
+      ],
+      "segno": "+",
+      "categoria": "inferiorita'",
+      "perimetro": "tutte le origini dopo t1",
+      "segno_congelato": "+",
+      "confermata": true,
+      "categoria_coincide": true
+     },
+     "Fp_672-C": {
+      "media": -0.03113123792531347,
+      "ic_con_nodi": [
+       -0.03683503274553811,
+       -0.02564408266017063
+      ],
+      "segno": "-",
+      "categoria": "superiorita'",
+      "perimetro": "origini con eta' > 1 settimana",
+      "segno_congelato": "-",
+      "confermata": true,
+      "categoria_coincide": true
+     },
+     "Fp_672-A": {
+      "media": 0.007975504225740893,
+      "ic_con_nodi": [
+       0.0042102993026033935,
+       0.01196774551352651
+      ],
+      "segno": "+",
+      "categoria": "inferiorita'",
+      "perimetro": "origini con eta' > 1 settimana",
+      "segno_congelato": "+",
+      "confermata": true,
+      "categoria_coincide": true
+     },
+     "A-C": {
+      "media": -0.04011727836481538,
+      "ic_con_nodi": [
+       -0.04527648502950729,
+       -0.035284772010946035
+      ],
+      "segno": "-",
+      "categoria": "superiorita'",
+      "perimetro": "tutte le origini dopo t1",
+      "segno_congelato": "-",
+      "confermata": true,
+      "categoria_coincide": true
+     },
+     "A-C_A": {
+      "media": -0.038198373665082386,
+      "ic_con_nodi": [
+       -0.04310923922675657,
+       -0.033491420199336805
+      ],
+      "segno": "-",
+      "categoria": "superiorita'",
+      "perimetro": "tutte le origini dopo t1"
+     },
+     "C_A-C": {
+      "media": -0.0019189046997329928,
+      "ic_con_nodi": [
+       -0.0029134458229834017,
+       -0.0010395997581333913
+      ],
+      "segno": "-",
+      "categoria": "superiorita'",
+      "perimetro": "tutte le origini dopo t1"
+     },
+     "Fpk_672-C": {
+      "media": -0.03360459739989918,
+      "ic_con_nodi": [
+       -0.03914127859110151,
+       -0.028439430274669303
+      ],
+      "segno": "-",
+      "categoria": "superiorita'",
+      "perimetro": "origini con eta' > 1 settimana",
+      "nota": "secondaria: F'(1 sett.; k = 200) riselezionato sulla validazione causale"
+     },
+     "Fpk_672-A": {
+      "media": 0.00550214475115518,
+      "ic_con_nodi": [
+       0.0023984861072967574,
+       0.008594910235063893
+      ],
+      "segno": "+",
+      "categoria": "inferiorita'",
+      "perimetro": "origini con eta' > 1 settimana",
+      "nota": "secondaria: k = 200"
+     }
+    },
+    "congelate": {
+     "F0-C": {
+      "media": 0.07488712777151829,
+      "ic_con_nodi": [
+       0.059269277328119846,
+       0.09092713153349882
+      ],
+      "segno": "+",
+      "categoria": "inferiorita'",
+      "perimetro": "tutte le origini dopo t1"
+     },
+     "F0p-C": {
+      "media": 0.007939113573834922,
+      "ic_con_nodi": [
+       0.005396687511605211,
+       0.010741671995226045
+      ],
+      "segno": "+",
+      "categoria": "inferiorita'",
+      "perimetro": "tutte le origini dopo t1"
+     },
+     "Fp_672-C": {
+      "media": -0.030798642591370773,
+      "ic_con_nodi": [
+       -0.03627320876445151,
+       -0.02580437332047159
+      ],
+      "segno": "-",
+      "categoria": "superiorita'",
+      "perimetro": "origini con eta' > 1 settimana"
+     },
+     "Fp_672-A": {
+      "media": 0.0076970486324482446,
+      "ic_con_nodi": [
+       0.004237687591623971,
+       0.011466665160215323
+      ],
+      "segno": "+",
+      "categoria": "inferiorita'",
+      "perimetro": "origini con eta' > 1 settimana"
+     },
+     "A-C": {
+      "media": -0.03899362154018016,
+      "ic_con_nodi": [
+       -0.044118580264943634,
+       -0.03413707132360488
+      ],
+      "segno": "-",
+      "categoria": "superiorita'",
+      "perimetro": "tutte le origini dopo t1"
+     }
+    },
+    "pubblicate": {
+     "F0-C": {
+      "media": 0.07318323853605913,
+      "ic_con_nodi": [
+       0.058450937111523354,
+       0.0872811891563187
+      ],
+      "celle": 36,
+      "fonte": "protocol/e14b/congelata/e14b_livelli_congelata.json",
+      "scarto_da_congelata_54": -0.0017038892354591662
+     },
+     "F0p-C": {
+      "media": 0.00814709569878258,
+      "ic_con_nodi": [
+       0.005645303746672231,
+       0.010864939294786474
+      ],
+      "celle": 36,
+      "fonte": "protocol/e14b/congelata/e14b_livelli_congelata.json",
+      "scarto_da_congelata_54": 0.00020798212494765878
+     },
+     "A-C": {
+      "media": -0.03908709144885003,
+      "ic_con_nodi": [
+       -0.04429535992796263,
+       -0.034357095070733645
+      ],
+      "celle": 36,
+      "fonte": "protocol/e14b/congelata/e14b_livelli_congelata.json",
+      "scarto_da_congelata_54": -9.346990866987426e-05
+     },
+     "(F0-C)/(A-C)": {
+      "media": -1.872312209053156,
+      "ic_con_nodi": [
+       -2.30198488662428,
+       -1.4755421132399154
+      ],
+      "celle": 36,
+      "fonte": "protocol/e14b/congelata/e14b_livelli_congelata.json"
+     },
+     "Fp_672-C": {
+      "media": -0.03162871500032763,
+      "ic_con_nodi": [
+       -0.036882361647511595,
+       -0.026638399443380766
+      ],
+      "celle": null,
+      "fonte": "e3bis_risultati.json confronti[Madrid/Fpw-C]",
+      "scarto_da_congelata_54": -0.0008300724089568556
+     }
+    },
+    "secondarie_settimana": {
+     "F0-C": {
+      "media": 0.07205827364350814,
+      "ic_con_nodi": [
+       0.05739213129290623,
+       0.0871375158316423
+      ],
+      "segno": "+",
+      "categoria": "inferiorita'"
+     },
+     "F0p-C": {
+      "media": 0.008802389171543301,
+      "ic_con_nodi": [
+       0.006279274770649798,
+       0.01170994146911484
+      ],
+      "segno": "+",
+      "categoria": "inferiorita'"
+     },
+     "A-C": {
+      "media": -0.03910674215105436,
+      "ic_con_nodi": [
+       -0.04404409239866356,
+       -0.03447349911735894
+      ],
+      "segno": "-",
+      "categoria": "superiorita'"
+     },
+     "A-C_A": {
+      "media": -0.03785685088605717,
+      "ic_con_nodi": [
+       -0.04258225609923526,
+       -0.033161696322139195
+      ],
+      "segno": "-",
+      "categoria": "superiorita'"
+     },
+     "C_A-C": {
+      "media": -0.0012498912649971938,
+      "ic_con_nodi": [
+       -0.002071291579377438,
+       -0.000423786022465028
+      ],
+      "segno": "-",
+      "categoria": "superiorita'"
+     }
+    },
+    "rapporti": {
+     "(F0-C)/(A-C)": {
+      "media": -1.859596862355693,
+      "ic_con_nodi": [
+       -2.2682357871974634,
+       -1.473885722416729
+      ],
+      "numeratore": 0.07460196497346061,
+      "denominatore": -0.04011727836481538,
+      "repliche_den_senza_divario": 0
+     },
+     "(F0-C)/(A-C_A)": {
+      "media": -1.953014168287882,
+      "ic_con_nodi": [
+       -2.4232217149669837,
+       -1.5277481295930868
+      ],
+      "numeratore": 0.07460196497346061,
+      "denominatore": -0.038198373665082386,
+      "repliche_den_senza_divario": 0
+     },
+     "congelata (F0-C)/(A-C)": {
+      "media": -1.920496861117463,
+      "ic_con_nodi": [
+       -2.3734437162506166,
+       -1.4897199309708908
+      ],
+      "numeratore": 0.07488712777151829,
+      "denominatore": -0.03899362154018016,
+      "repliche_den_senza_divario": 0
+     },
+     "(C_A-C)/(A-C)": {
+      "media": 0.047832374925412605,
+      "ic_con_nodi": [
+       0.02585986836485751,
+       0.06983721217568062
+      ],
+      "numeratore": -0.0019189046997329928,
+      "denominatore": -0.04011727836481538,
+      "repliche_den_senza_divario": 0
+     }
+    },
+    "addendum": {
+     "data": "2026-10-28",
+     "recupero": {
+      "definizione": "(L_C - L_F'(1 sett.)) / (L_C - L_A) sulle origini con eta' > 1 settimana (E17); variante con A - C_A al denominatore: (L_C - L_F'(1 sett.)) / (L_C_A - L_A)",
+      "causale (L_C-L_A)": {
+       "media": 0.7960580762535888,
+       "ic_con_nodi": [
+        0.6919558811698642,
+        0.8899721209110784
+       ],
+       "numeratore": 0.03113123792531347,
+       "denominatore": 0.03910674215105436,
+       "repliche_den_non_positivo": 0
+      },
+      "causale (L_C_A-L_A)": {
+       "media": 0.8223409289645703,
+       "ic_con_nodi": [
+        0.7082643358715954,
+        0.9293915171420404
+       ],
+       "numeratore": 0.03113123792531347,
+       "denominatore": 0.03785685088605717,
+       "repliche_den_non_positivo": 0
+      },
+      "congelata 54 celle (L_C-L_A)": {
+       "media": 0.8000542817195673,
+       "ic_con_nodi": [
+        0.7049057385550095,
+        0.8877861371794475
+       ],
+       "numeratore": 0.030798642591370773,
+       "denominatore": 0.03849569122381902,
+       "repliche_den_non_positivo": 0
+      }
+     },
+     "riduzione_token": {
+      "definizione": "1 - (F0' - C) / (F0 - C), tutte le origini dopo t1: la quota del costo di F0 rispetto a C che il token toglie",
+      "causale": {
+       "media": 0.8949141500721788,
+       "ic_con_nodi": [
+        0.8601820297147053,
+        0.9251059653294195
+       ],
+       "F0p-C": 0.007839610895521654,
+       "F0-C": 0.07460196497346061,
+       "repliche_den_non_positivo": 0
+      },
+      "congelata 54 celle": {
+       "media": 0.893985604601404,
+       "ic_con_nodi": [
+        0.8585194709302155,
+        0.9247619968249927
+       ],
+       "F0p-C": 0.007939113573834922,
+       "F0-C": 0.07488712777151829,
+       "repliche_den_non_positivo": 0
+      }
+     }
+    }
+   },
+   "Londra": {
+    "celle": 18,
+    "nodi": 135,
+    "k_secondaria": 50,
+    "livelli": {
+     "causale/C": {
+      "media": 0.890244059032505,
+      "ic_con_nodi": [
+       0.8633072175023991,
+       0.9163015579181122
+      ]
+     },
+     "causale/A": {
+      "media": 0.8558737132529278,
+      "ic_con_nodi": [
+       0.8270908828216043,
+       0.8830765581645614
+      ]
+     },
+     "causale/C_A": {
+      "media": 0.8890526905000825,
+      "ic_con_nodi": [
+       0.861910156651704,
+       0.9151870204934198
+      ]
+     },
+     "causale/F0": {
+      "media": 0.9388594251839315,
+      "ic_con_nodi": [
+       0.9217959318680766,
+       0.9558663872941389
+      ]
+     },
+     "causale/F0p": {
+      "media": 0.904012737747919,
+      "ic_con_nodi": [
+       0.8783279627439563,
+       0.929224121133957
+      ]
+     },
+     "causale/Fp_672/settimana": {
+      "media": 0.857720283480851,
+      "ic_con_nodi": [
+       0.8285177256060914,
+       0.8868581633362248
+      ]
+     },
+     "causale/C/settimana": {
+      "media": 0.8885929761813138,
+      "ic_con_nodi": [
+       0.8614672995104897,
+       0.9150123641986306
+      ]
+     },
+     "causale/A/settimana": {
+      "media": 0.8493368205554164,
+      "ic_con_nodi": [
+       0.8200194965165882,
+       0.8784683048953934
+      ]
+     },
+     "causale/C_A/settimana": {
+      "media": 0.8873048962054413,
+      "ic_con_nodi": [
+       0.8596916228661412,
+       0.9136875988505098
+      ]
+     },
+     "causale/F0/settimana": {
+      "media": 0.9350190890638758,
+      "ic_con_nodi": [
+       0.9172038050649395,
+       0.9529880838978673
+      ]
+     },
+     "causale/F0p/settimana": {
+      "media": 0.9021976907330674,
+      "ic_con_nodi": [
+       0.8763308352668319,
+       0.92811377770812
+      ]
+     },
+     "causale/Fpk/settimana": {
+      "media": 0.857720283480851,
+      "ic_con_nodi": [
+       0.8285177256060914,
+       0.8868581633362248
+      ]
+     },
+     "congelata/C": {
+      "media": 0.8902605939092822,
+      "ic_con_nodi": [
+       0.8633648718986972,
+       0.9164122750426916
+      ]
+     },
+     "congelata/A": {
+      "media": 0.8559944942504664,
+      "ic_con_nodi": [
+       0.8271870619399349,
+       0.8832713240849571
+      ]
+     },
+     "congelata/F0": {
+      "media": 0.9386344082524212,
+      "ic_con_nodi": [
+       0.9216920099729662,
+       0.9555915547798037
+      ]
+     },
+     "congelata/F0p": {
+      "media": 0.9047798745151032,
+      "ic_con_nodi": [
+       0.8783014489010434,
+       0.9307982373025051
+      ]
+     },
+     "congelata/Fp_672/settimana": {
+      "media": 0.8579612770929159,
+      "ic_con_nodi": [
+       0.8287887764298556,
+       0.886724368777128
+      ]
+     },
+     "congelata/C/settimana": {
+      "media": 0.8885873928157929,
+      "ic_con_nodi": [
+       0.8614898973010624,
+       0.9149848727012381
+      ]
+     },
+     "congelata/A/settimana": {
+      "media": 0.8494808742991362,
+      "ic_con_nodi": [
+       0.8200857909097043,
+       0.8786185157328
+      ]
+     }
+    },
+    "dichiarazioni": {
+     "F0-C": {
+      "media": 0.048615366151426476,
+      "ic_con_nodi": [
+       0.03633890402351554,
+       0.062197866685391304
+      ],
+      "segno": "+",
+      "categoria": "inferiorita'",
+      "perimetro": "tutte le origini dopo t1",
+      "segno_congelato": "+",
+      "confermata": true,
+      "categoria_coincide": true
+     },
+     "F0p-C": {
+      "media": 0.013768678715413984,
+      "ic_con_nodi": [
+       0.009639403070424194,
+       0.018082858720315797
+      ],
+      "segno": "+",
+      "categoria": "inferiorita'",
+      "perimetro": "tutte le origini dopo t1",
+      "segno_congelato": "+",
+      "confermata": true,
+      "categoria_coincide": true
+     },
+     "Fp_672-C": {
+      "media": -0.030872692700462778,
+      "ic_con_nodi": [
+       -0.03526210396003616,
+       -0.02649983273517914
+      ],
+      "segno": "-",
+      "categoria": "superiorita'",
+      "perimetro": "origini con eta' > 1 settimana",
+      "segno_congelato": "-",
+      "confermata": true,
+      "categoria_coincide": true
+     },
+     "Fp_672-A": {
+      "media": 0.008383462925434682,
+      "ic_con_nodi": [
+       0.005408639099307324,
+       0.011723280636396969
+      ],
+      "segno": "+",
+      "categoria": "inferiorita'",
+      "perimetro": "origini con eta' > 1 settimana",
+      "segno_congelato": "+",
+      "confermata": true,
+      "categoria_coincide": true
+     },
+     "A-C": {
+      "media": -0.034370345779577205,
+      "ic_con_nodi": [
+       -0.03897471261662638,
+       -0.029871021136418926
+      ],
+      "segno": "-",
+      "categoria": "superiorita'",
+      "perimetro": "tutte le origini dopo t1",
+      "segno_congelato": "-",
+      "confermata": true,
+      "categoria_coincide": true
+     },
+     "A-C_A": {
+      "media": -0.033178977247154684,
+      "ic_con_nodi": [
+       -0.03737747399778153,
+       -0.028974936137569088
+      ],
+      "segno": "-",
+      "categoria": "superiorita'",
+      "perimetro": "tutte le origini dopo t1"
+     },
+     "C_A-C": {
+      "media": -0.001191368532422521,
+      "ic_con_nodi": [
+       -0.002552814472231471,
+       -0.00010532839383906839
+      ],
+      "segno": "-",
+      "categoria": "superiorita'",
+      "perimetro": "tutte le origini dopo t1"
+     },
+     "Fpk_672-C": {
+      "media": -0.030872692700462778,
+      "ic_con_nodi": [
+       -0.03526210396003616,
+       -0.02649983273517914
+      ],
+      "segno": "-",
+      "categoria": "superiorita'",
+      "perimetro": "origini con eta' > 1 settimana",
+      "nota": "secondaria: F'(1 sett.; k = 50) riselezionato sulla validazione causale"
+     },
+     "Fpk_672-A": {
+      "media": 0.008383462925434682,
+      "ic_con_nodi": [
+       0.005408639099307324,
+       0.011723280636396969
+      ],
+      "segno": "+",
+      "categoria": "inferiorita'",
+      "perimetro": "origini con eta' > 1 settimana",
+      "nota": "secondaria: k = 50"
+     }
+    },
+    "congelate": {
+     "F0-C": {
+      "media": 0.04837381434313892,
+      "ic_con_nodi": [
+       0.03630291397742043,
+       0.06182057086108569
+      ],
+      "segno": "+",
+      "categoria": "inferiorita'",
+      "perimetro": "tutte le origini dopo t1"
+     },
+     "F0p-C": {
+      "media": 0.014519280605820972,
+      "ic_con_nodi": [
+       0.010499384929053859,
+       0.019050668461825876
+      ],
+      "segno": "+",
+      "categoria": "inferiorita'",
+      "perimetro": "tutte le origini dopo t1"
+     },
+     "Fp_672-C": {
+      "media": -0.03062611572287699,
+      "ic_con_nodi": [
+       -0.035016864393592834,
+       -0.026296573077466252
+      ],
+      "segno": "-",
+      "categoria": "superiorita'",
+      "perimetro": "origini con eta' > 1 settimana"
+     },
+     "Fp_672-A": {
+      "media": 0.008480402793779707,
+      "ic_con_nodi": [
+       0.00540317477296505,
+       0.011782738603036353
+      ],
+      "segno": "+",
+      "categoria": "inferiorita'",
+      "perimetro": "origini con eta' > 1 settimana"
+     },
+     "A-C": {
+      "media": -0.034266099658815885,
+      "ic_con_nodi": [
+       -0.03886690829260656,
+       -0.029786675395925073
+      ],
+      "segno": "-",
+      "categoria": "superiorita'",
+      "perimetro": "tutte le origini dopo t1"
+     }
+    },
+    "pubblicate": {
+     "F0-C": {
+      "media": 0.0497320474340639,
+      "ic_con_nodi": [
+       0.038253431108892615,
+       0.06288172403992695
+      ],
+      "celle": 36,
+      "fonte": "protocol/e14b/congelata/e14b_livelli_congelata.json",
+      "scarto_da_congelata_54": 0.0013582330909249762
+     },
+     "F0p-C": {
+      "media": 0.012875523607309147,
+      "ic_con_nodi": [
+       0.009604257439969182,
+       0.01671118762353551
+      ],
+      "celle": 36,
+      "fonte": "protocol/e14b/congelata/e14b_livelli_congelata.json",
+      "scarto_da_congelata_54": -0.001643756998511825
+     },
+     "A-C": {
+      "media": -0.0347222837386888,
+      "ic_con_nodi": [
+       -0.039199425870692015,
+       -0.03043933782033442
+      ],
+      "celle": 36,
+      "fonte": "protocol/e14b/congelata/e14b_livelli_congelata.json",
+      "scarto_da_congelata_54": -0.0004561840798729122
+     },
+     "(F0-C)/(A-C)": {
+      "media": -1.4322804285667043,
+      "ic_con_nodi": [
+       -1.7560449677533858,
+       -1.130854639177265
+      ],
+      "celle": 36,
+      "fonte": "protocol/e14b/congelata/e14b_livelli_congelata.json"
+     },
+     "Fp_672-C": {
+      "media": -0.030179350855271223,
+      "ic_con_nodi": [
+       -0.034346730378332246,
+       -0.02607460166012079
+      ],
+      "celle": null,
+      "fonte": "e3bis_risultati.json confronti[Londra/Fpw-C]",
+      "scarto_da_congelata_54": 0.0004467648676057673
+     }
+    },
+    "secondarie_settimana": {
+     "F0-C": {
+      "media": 0.04642611288256193,
+      "ic_con_nodi": [
+       0.034116070914244526,
+       0.06035724470339225
+      ],
+      "segno": "+",
+      "categoria": "inferiorita'"
+     },
+     "F0p-C": {
+      "media": 0.013604714551753605,
+      "ic_con_nodi": [
+       0.009458114745222679,
+       0.017972580214181143
+      ],
+      "segno": "+",
+      "categoria": "inferiorita'"
+     },
+     "A-C": {
+      "media": -0.03925615562589746,
+      "ic_con_nodi": [
+       -0.04387235417469905,
+       -0.03457875226946999
+      ],
+      "segno": "-",
+      "categoria": "superiorita'"
+     },
+     "A-C_A": {
+      "media": -0.03796807565002491,
+      "ic_con_nodi": [
+       -0.042012534958305196,
+       -0.03368343266394249
+      ],
+      "segno": "-",
+      "categoria": "superiorita'"
+     },
+     "C_A-C": {
+      "media": -0.001288079975872547,
+      "ic_con_nodi": [
+       -0.002565453786542685,
+       -0.0002716607311317473
+      ],
+      "segno": "-",
+      "categoria": "superiorita'"
+     }
+    },
+    "rapporti": {
+     "(F0-C)/(A-C)": {
+      "media": -1.4144567082101815,
+      "ic_con_nodi": [
+       -1.7675262278742216,
+       -1.0865927405143945
+      ],
+      "numeratore": 0.048615366151426476,
+      "denominatore": -0.034370345779577205,
+      "repliche_den_senza_divario": 0
+     },
+     "(F0-C)/(A-C_A)": {
+      "media": -1.4652460740210298,
+      "ic_con_nodi": [
+       -1.8433035421931936,
+       -1.1242775934242006
+      ],
+      "numeratore": 0.048615366151426476,
+      "denominatore": -0.033178977247154684,
+      "repliche_den_senza_divario": 0
+     },
+     "congelata (F0-C)/(A-C)": {
+      "media": -1.4117105484660388,
+      "ic_con_nodi": [
+       -1.7547950889162323,
+       -1.0862727079241892
+      ],
+      "numeratore": 0.04837381434313892,
+      "denominatore": -0.034266099658815885,
+      "repliche_den_senza_divario": 0
+     },
+     "(C_A-C)/(A-C)": {
+      "media": 0.034662686842400925,
+      "ic_con_nodi": [
+       0.0030765433238394988,
+       0.07088979211334778
+      ],
+      "numeratore": -0.001191368532422521,
+      "denominatore": -0.034370345779577205,
+      "repliche_den_senza_divario": 0
+     }
+    },
+    "addendum": {
+     "data": "2026-10-28",
+     "recupero": {
+      "definizione": "(L_C - L_F'(1 sett.)) / (L_C - L_A) sulle origini con eta' > 1 settimana (E17); variante con A - C_A al denominatore: (L_C - L_F'(1 sett.)) / (L_C_A - L_A)",
+      "causale (L_C-L_A)": {
+       "media": 0.7864420804388682,
+       "ic_con_nodi": [
+        0.707976604371355,
+        0.8575329270302458
+       ],
+       "numeratore": 0.030872692700462778,
+       "denominatore": 0.03925615562589746,
+       "repliche_den_non_positivo": 0
+      },
+      "causale (L_C_A-L_A)": {
+       "media": 0.8131223974855971,
+       "ic_con_nodi": [
+        0.7336068946725638,
+        0.8828315032635246
+       ],
+       "numeratore": 0.030872692700462778,
+       "denominatore": 0.03796807565002491,
+       "repliche_den_non_positivo": 0
+      },
+      "congelata 54 celle (L_C-L_A)": {
+       "media": 0.7831460555567574,
+       "ic_con_nodi": [
+        0.706037371082161,
+        0.8562614284292462
+       ],
+       "numeratore": 0.03062611572287699,
+       "denominatore": 0.039106518516656696,
+       "repliche_den_non_positivo": 0
+      }
+     },
+     "riduzione_token": {
+      "definizione": "1 - (F0' - C) / (F0 - C), tutte le origini dopo t1: la quota del costo di F0 rispetto a C che il token toglie",
+      "causale": {
+       "media": 0.7167833998714008,
+       "ic_con_nodi": [
+        0.6198469068367131,
+        0.7947039598341147
+       ],
+       "F0p-C": 0.013768678715413984,
+       "F0-C": 0.048615366151426476,
+       "repliche_den_non_positivo": 0
+      },
+      "congelata 54 celle": {
+       "media": 0.6998524759112714,
+       "ic_con_nodi": [
+        0.5774682656957131,
+        0.78057394136042
+       ],
+       "F0p-C": 0.014519280605820972,
+       "F0-C": 0.04837381434313892,
+       "repliche_den_non_positivo": 0
+      }
+     }
+    }
+   },
+   "Melbourne": {
+    "celle": 18,
+    "nodi": 90,
+    "k_secondaria": 200,
+    "livelli": {
+     "causale/C": {
+      "media": 0.8206159454253156,
+      "ic_con_nodi": [
+       0.7846670286946551,
+       0.8531332350055827
+      ]
+     },
+     "causale/A": {
+      "media": 0.7755895521141135,
+      "ic_con_nodi": [
+       0.7403513056301424,
+       0.8073733165722045
+      ]
+     },
+     "causale/C_A": {
+      "media": 0.8122396517307116,
+      "ic_con_nodi": [
+       0.7777864542411336,
+       0.8442309735639365
+      ]
+     },
+     "causale/F0": {
+      "media": 0.8987305190188675,
+      "ic_con_nodi": [
+       0.8658377222923802,
+       0.9283351188904471
+      ]
+     },
+     "causale/F0p": {
+      "media": 0.8208363630372607,
+      "ic_con_nodi": [
+       0.7862212608557939,
+       0.8519706987952934
+      ]
+     },
+     "causale/Fp_672/settimana": {
+      "media": 0.7786763770184527,
+      "ic_con_nodi": [
+       0.7413278166210727,
+       0.8132732544259558
+      ]
+     },
+     "causale/C/settimana": {
+      "media": 0.8187041019064486,
+      "ic_con_nodi": [
+       0.7784373240771418,
+       0.8558523572533756
+      ]
+     },
+     "causale/A/settimana": {
+      "media": 0.7803535359891041,
+      "ic_con_nodi": [
+       0.7414179350409732,
+       0.8148200136891179
+      ]
+     },
+     "causale/C_A/settimana": {
+      "media": 0.8121410480345613,
+      "ic_con_nodi": [
+       0.7732529546300768,
+       0.8486768137647086
+      ]
+     },
+     "causale/F0/settimana": {
+      "media": 0.906515694455893,
+      "ic_con_nodi": [
+       0.8706445277453704,
+       0.93955864762445
+      ]
+     },
+     "causale/F0p/settimana": {
+      "media": 0.8221715754343044,
+      "ic_con_nodi": [
+       0.7838675637543464,
+       0.8576380819257212
+      ]
+     },
+     "causale/Fpk/settimana": {
+      "media": 0.7786763770184527,
+      "ic_con_nodi": [
+       0.7413278166210727,
+       0.8132732544259558
+      ]
+     },
+     "congelata/C": {
+      "media": 0.8148326918895132,
+      "ic_con_nodi": [
+       0.7803126826270843,
+       0.8469090173354874
+      ]
+     },
+     "congelata/A": {
+      "media": 0.775696930116035,
+      "ic_con_nodi": [
+       0.7403454494519071,
+       0.8073815078064648
+      ]
+     },
+     "congelata/F0": {
+      "media": 0.8955181206262708,
+      "ic_con_nodi": [
+       0.8628773538498135,
+       0.9242465225719416
+      ]
+     },
+     "congelata/F0p": {
+      "media": 0.8172795485802704,
+      "ic_con_nodi": [
+       0.7837966754520989,
+       0.8478547026818101
+      ]
+     },
+     "congelata/Fp_672/settimana": {
+      "media": 0.7783863492769334,
+      "ic_con_nodi": [
+       0.7414835721407347,
+       0.8132674347002102
+      ]
+     },
+     "congelata/C/settimana": {
+      "media": 0.8143473501175764,
+      "ic_con_nodi": [
+       0.7751882865776945,
+       0.8505481622598265
+      ]
+     },
+     "congelata/A/settimana": {
+      "media": 0.78031751961418,
+      "ic_con_nodi": [
+       0.7411172685485419,
+       0.8149333604955397
+      ]
+     }
+    },
+    "dichiarazioni": {
+     "F0-C": {
+      "media": 0.0781145735935519,
+      "ic_con_nodi": [
+       0.05153783757164377,
+       0.10351845249115199
+      ],
+      "segno": "+",
+      "categoria": "inferiorita'",
+      "perimetro": "tutte le origini dopo t1",
+      "segno_congelato": "+",
+      "confermata": true,
+      "categoria_coincide": true
+     },
+     "F0p-C": {
+      "media": 0.00022041761194513398,
+      "ic_con_nodi": [
+       -0.006402088704576048,
+       0.0066050108021965094
+      ],
+      "segno": "0",
+      "categoria": "inconclusivo",
+      "perimetro": "tutte le origini dopo t1",
+      "segno_congelato": "0",
+      "confermata": true,
+      "categoria_coincide": true
+     },
+     "Fp_672-C": {
+      "media": -0.040027724887995886,
+      "ic_con_nodi": [
+       -0.04805290695707028,
+       -0.03246892696994074
+      ],
+      "segno": "-",
+      "categoria": "superiorita'",
+      "perimetro": "origini con eta' > 1 settimana",
+      "segno_congelato": "-",
+      "confermata": true,
+      "categoria_coincide": true
+     },
+     "Fp_672-A": {
+      "media": -0.001677158970651349,
+      "ic_con_nodi": [
+       -0.01156956513855431,
+       0.007588049215394461
+      ],
+      "segno": "0",
+      "categoria": "inconclusivo",
+      "perimetro": "origini con eta' > 1 settimana",
+      "segno_congelato": "0",
+      "confermata": true,
+      "categoria_coincide": true
+     },
+     "A-C": {
+      "media": -0.04502639331120206,
+      "ic_con_nodi": [
+       -0.056586272350682774,
+       -0.033049023749562326
+      ],
+      "segno": "-",
+      "categoria": "superiorita'",
+      "perimetro": "tutte le origini dopo t1",
+      "segno_congelato": "-",
+      "confermata": true,
+      "categoria_coincide": true
+     },
+     "A-C_A": {
+      "media": -0.03665009961659804,
+      "ic_con_nodi": [
+       -0.04669934351914347,
+       -0.025639666614534398
+      ],
+      "segno": "-",
+      "categoria": "superiorita'",
+      "perimetro": "tutte le origini dopo t1"
+     },
+     "C_A-C": {
+      "media": -0.00837629369460402,
+      "ic_con_nodi": [
+       -0.012443359842443085,
+       -0.005188012770145239
+      ],
+      "segno": "-",
+      "categoria": "superiorita'",
+      "perimetro": "tutte le origini dopo t1"
+     },
+     "Fpk_672-C": {
+      "media": -0.040027724887995886,
+      "ic_con_nodi": [
+       -0.04805290695707028,
+       -0.03246892696994074
+      ],
+      "segno": "-",
+      "categoria": "superiorita'",
+      "perimetro": "origini con eta' > 1 settimana",
+      "nota": "secondaria: F'(1 sett.; k = 200) riselezionato sulla validazione causale"
+     },
+     "Fpk_672-A": {
+      "media": -0.001677158970651349,
+      "ic_con_nodi": [
+       -0.01156956513855431,
+       0.007588049215394461
+      ],
+      "segno": "0",
+      "categoria": "inconclusivo",
+      "perimetro": "origini con eta' > 1 settimana",
+      "nota": "secondaria: k = 200"
+     }
+    },
+    "congelate": {
+     "F0-C": {
+      "media": 0.08068542873675755,
+      "ic_con_nodi": [
+       0.0543290665834505,
+       0.10576649137025823
+      ],
+      "segno": "+",
+      "categoria": "inferiorita'",
+      "perimetro": "tutte le origini dopo t1"
+     },
+     "F0p-C": {
+      "media": 0.002446856690757171,
+      "ic_con_nodi": [
+       -0.0038854383090959287,
+       0.008397433326130445
+      ],
+      "segno": "0",
+      "categoria": "inconclusivo",
+      "perimetro": "tutte le origini dopo t1"
+     },
+     "Fp_672-C": {
+      "media": -0.03596100084064302,
+      "ic_con_nodi": [
+       -0.04303430113523659,
+       -0.029343760110266705
+      ],
+      "segno": "-",
+      "categoria": "superiorita'",
+      "perimetro": "origini con eta' > 1 settimana"
+     },
+     "Fp_672-A": {
+      "media": -0.001931170337246657,
+      "ic_con_nodi": [
+       -0.011753010008664048,
+       0.007441382848069677
+      ],
+      "segno": "0",
+      "categoria": "inconclusivo",
+      "perimetro": "origini con eta' > 1 settimana"
+     },
+     "A-C": {
+      "media": -0.03913576177347822,
+      "ic_con_nodi": [
+       -0.04984959043765474,
+       -0.02802077224600761
+      ],
+      "segno": "-",
+      "categoria": "superiorita'",
+      "perimetro": "tutte le origini dopo t1"
+     }
+    },
+    "pubblicate": {
+     "F0-C": {
+      "media": 0.07832186370743077,
+      "ic_con_nodi": [
+       0.05379790540337397,
+       0.10242675899858238
+      ],
+      "celle": 36,
+      "fonte": "protocol/e14b/congelata/e14b_livelli_congelata.json",
+      "scarto_da_congelata_54": -0.002363565029326775
+     },
+     "F0p-C": {
+      "media": 0.001488747964331294,
+      "ic_con_nodi": [
+       -0.0047794646767606586,
+       0.007192458616264169
+      ],
+      "celle": 36,
+      "fonte": "protocol/e14b/congelata/e14b_livelli_congelata.json",
+      "scarto_da_congelata_54": -0.000958108726425877
+     },
+     "A-C": {
+      "media": -0.03835925722998268,
+      "ic_con_nodi": [
+       -0.048714793667456395,
+       -0.027562524226456494
+      ],
+      "celle": 36,
+      "fonte": "protocol/e14b/congelata/e14b_livelli_congelata.json",
+      "scarto_da_congelata_54": 0.0007765045434955375
+     },
+     "(F0-C)/(A-C)": {
+      "media": -2.0417982349828243,
+      "ic_con_nodi": [
+       -3.0571265385462083,
+       -1.347528581951343
+      ],
+      "celle": 36,
+      "fonte": "protocol/e14b/congelata/e14b_livelli_congelata.json"
+     },
+     "Fp_672-C": {
+      "media": -0.03640755593908268,
+      "ic_con_nodi": [
+       -0.0437499592947286,
+       -0.029736921793464148
+      ],
+      "celle": null,
+      "fonte": "e3bis_risultati.json confronti[Melbourne/Fpw-C]",
+      "scarto_da_congelata_54": -0.00044655509843966046
+     }
+    },
+    "secondarie_settimana": {
+     "F0-C": {
+      "media": 0.08781159254944437,
+      "ic_con_nodi": [
+       0.061523085949208654,
+       0.11332673834549206
+      ],
+      "segno": "+",
+      "categoria": "inferiorita'"
+     },
+     "F0p-C": {
+      "media": 0.0034674735278558133,
+      "ic_con_nodi": [
+       -0.002153887953580533,
+       0.008468108851782013
+      ],
+      "segno": "0",
+      "categoria": "inconclusivo"
+     },
+     "A-C": {
+      "media": -0.03835056591734454,
+      "ic_con_nodi": [
+       -0.051092848102137794,
+       -0.024966450602480948
+      ],
+      "segno": "-",
+      "categoria": "superiorita'"
+     },
+     "A-C_A": {
+      "media": -0.03178751204545727,
+      "ic_con_nodi": [
+       -0.043184913497921064,
+       -0.01950300949261875
+      ],
+      "segno": "-",
+      "categoria": "superiorita'"
+     },
+     "C_A-C": {
+      "media": -0.00656305387188727,
+      "ic_con_nodi": [
+       -0.01026721319399351,
+       -0.003750087006918903
+      ],
+      "segno": "-",
+      "categoria": "superiorita'"
+     }
+    },
+    "rapporti": {
+     "(F0-C)/(A-C)": {
+      "media": -1.7348618854203866,
+      "ic_con_nodi": [
+       -2.5128410063432565,
+       -1.1295275678207537
+      ],
+      "numeratore": 0.0781145735935519,
+      "denominatore": -0.04502639331120206,
+      "repliche_den_senza_divario": 0
+     },
+     "(F0-C)/(A-C_A)": {
+      "media": -2.131360471341679,
+      "ic_con_nodi": [
+       -3.1929767585432414,
+       -1.3649571775385698
+      ],
+      "numeratore": 0.0781145735935519,
+      "denominatore": -0.03665009961659804,
+      "repliche_den_senza_divario": 0
+     },
+     "congelata (F0-C)/(A-C)": {
+      "media": -2.0616802913859975,
+      "ic_con_nodi": [
+       -2.9699626317263235,
+       -1.361225406965853
+      ],
+      "numeratore": 0.08068542873675755,
+      "denominatore": -0.03913576177347822,
+      "repliche_den_senza_divario": 0
+     },
+     "(C_A-C)/(A-C)": {
+      "media": 0.18603074949198944,
+      "ic_con_nodi": [
+       0.12071623397709032,
+       0.2722488777807245
+      ],
+      "numeratore": -0.00837629369460402,
+      "denominatore": -0.04502639331120206,
+      "repliche_den_senza_divario": 0
+     }
+    },
+    "addendum": {
+     "data": "2026-10-28",
+     "recupero": {
+      "definizione": "(L_C - L_F'(1 sett.)) / (L_C - L_A) sulle origini con eta' > 1 settimana (E17); variante con A - C_A al denominatore: (L_C - L_F'(1 sett.)) / (L_C_A - L_A)",
+      "causale (L_C-L_A)": {
+       "media": 1.0437323134752707,
+       "ic_con_nodi": [
+        0.8402360366973681,
+        1.4514280182341723
+       ],
+       "numeratore": 0.040027724887995886,
+       "denominatore": 0.03835056591734454,
+       "repliche_den_non_positivo": 0
+      },
+      "causale (L_C_A-L_A)": {
+       "media": 1.2592279896191567,
+       "ic_con_nodi": [
+        0.9656457680098138,
+        1.8885346974854118
+       ],
+       "numeratore": 0.040027724887995886,
+       "denominatore": 0.03178751204545727,
+       "repliche_den_non_positivo": 0
+      },
+      "congelata 54 celle (L_C-L_A)": {
+       "media": 1.0567493375276704,
+       "ic_con_nodi": [
+        0.8310552363311116,
+        1.5265917818422063
+       ],
+       "numeratore": 0.03596100084064302,
+       "denominatore": 0.03402983050339636,
+       "repliche_den_non_positivo": 0
+      }
+     },
+     "riduzione_token": {
+      "definizione": "1 - (F0' - C) / (F0 - C), tutte le origini dopo t1: la quota del costo di F0 rispetto a C che il token toglie",
+      "causale": {
+       "media": 0.9971782779857186,
+       "ic_con_nodi": [
+        0.9280002822408382,
+        1.1101673038713307
+       ],
+       "F0p-C": 0.00022041761194513398,
+       "F0-C": 0.0781145735935519,
+       "repliche_den_non_positivo": 0
+      },
+      "congelata 54 celle": {
+       "media": 0.9696741192422708,
+       "ic_con_nodi": [
+        0.9082109230613337,
+        1.0623874795032135
+       ],
+       "F0p-C": 0.002446856690757171,
+       "F0-C": 0.08068542873675755,
+       "repliche_den_non_positivo": 0
+      }
+     }
+    }
+   }
+  },
+  "costi": {
+   "addestramenti": {
+    "E": {
+     "n": 54,
+     "minuti_mediana": 82.869123818477,
+     "ore_macchina": 67.0089473104477
+    },
+    "E1": {
+     "n": 54,
+     "minuti_mediana": 83.14902897079786,
+     "ore_macchina": 66.90544392387072
+    },
+    "C": {
+     "n": 54,
+     "minuti_mediana": 83.27395681738854,
+     "ore_macchina": 67.33165872752666
+    },
+    "A": {
+     "n": 54,
+     "minuti_mediana": 97.79681058923403,
+     "ore_macchina": 78.84298859741952
+    },
+    "C_A": {
+     "n": 54,
+     "minuti_mediana": 97.48707810441653,
+     "ore_macchina": 78.7552100525962
+    }
+   },
+   "adattamenti": 54,
+   "esito_e15": {
+    "completate": 270,
+    "fallite": [],
+    "gia_fatte": 0,
+    "ore_calendario": 22.90218819134765,
+    "ore_macchina": 358.8445319965813,
+    "statica": "espansiva",
+    "ambiente": {
+     "piattaforma": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+     "processore": "aarch64",
+     "nuclei_logici": 20,
+     "python": "3.12.3",
+     "torch": "2.12.1+cu130",
+     "numpy": "2.5.1",
+     "backend": "cpu",
+     "fili_torch": 1,
+     "nota": "numero di fili verificato ininfluente sulla numerica: impronte identiche con 1, 2, 4 e 14 fili"
+    },
+    "lavoratori": 16,
+    "fili": 1,
+    "istante": "2026-10-28T08:58:52.899316+00:00"
+   },
+   "pilota": {
+    "pilota_tempi_16.json": {
+     "contesto": "Londra",
+     "n": 16,
+     "lavoratori": 16,
+     "fili": 1,
+     "statica": "causale",
+     "ambiente": {
+      "piattaforma": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+      "processore": "aarch64",
+      "nuclei_logici": 20,
+      "python": "3.12.3",
+      "torch": "2.12.1+cu130",
+      "numpy": "2.5.1",
+      "backend": "cpu",
+      "fili_torch": 1,
+      "nota": "numero di fili verificato ininfluente sulla numerica: impronte identiche con 1, 2, 4 e 14 fili"
+     },
+     "minuti": {
+      "min": 86.72942032416661,
+      "mediana": 87.17203307350476,
+      "max": 87.42124352057775
+     },
+     "parete_min": 87.44830051263173,
+     "completati": 16,
+     "falliti": 0,
+     "stima_campagna": {
+      "addestramenti": 270,
+      "ore": 24.517134301923214,
+      "regola": "270 / lavoratori x mediana dei minuti per addestramento"
+     },
+     "istante": "2026-10-22T08:32:20.401053+00:00"
+    }
+   },
+   "pilota_fonte": "protocol/e15/tempi/pilota_tempi_16.json"
+  },
+  "esito": {
+   "confermate_per_citta": {
+    "Madrid": true,
+    "Londra": true,
+    "Melbourne": true
+   },
+   "tutte_confermate": true,
+   "regola": "se le cinque dichiarazioni sono confermate in ogni citta', la campagna causale e' il risultato principale e la congelata va nel supplemento; altrimenti il testo segue il verdetto causale e lo dice",
+   "cambiano": []
+  },
+  "controllo_scarto_zero": {
+   "cella": {
+    "contesto": "Madrid",
+    "partizione": 0,
+    "seme": 201,
+    "braccio": "C"
+   },
+   "statica": "congelata",
+   "wce_congelata": 0.9414093038567413,
+   "wce_riprodotta": 0.9414093038567413,
+   "scarto_assoluto": 0.0,
+   "scarto_relativo": 0.0,
+   "punto_identico_al_bit": true,
+   "scarto_massimo_parametri": 0.0,
+   "macchina": "macOS-26.6.2-arm64-arm-64bit",
+   "fili": 4,
+   "riferimento": "results/evoluzione/inserimento_griglia/C_Madrid_p0_s201.json",
+   "riprodotto": "results/evoluzione/e15_controllo_congelata/C_Madrid_p0_s201.json",
+   "secondi": 3903.551577091217,
+   "istante": "2026-10-27T09:56:09.604839+00:00",
+   "verdetto": "scarto zero"
+  },
+  "preflight": {
+   "celle": 54,
+   "rosse": [],
+   "statica": "espansiva"
+  },
+  "impronte_celle": {
+   "Londra/p0/s201": {
+    "E": "82a57aa36e75440d",
+    "E1": "6ce355368e973a46",
+    "C": "f7ce4fff565aa660",
+    "A": "41ac37444b08fabd",
+    "C_A": "59aed6f94260d32e",
+    "impronta_E": "d75545783ecc97ba"
+   },
+   "Londra/p0/s202": {
+    "E": "19827f682e2aaa14",
+    "E1": "b2b2a476ccec027c",
+    "C": "b2169d994908a36b",
+    "A": "acc423175c94cd81",
+    "C_A": "7d0fab97e0195b8c",
+    "impronta_E": "060b0de108084023"
+   },
+   "Londra/p0/s203": {
+    "E": "e330a6c71537c21f",
+    "E1": "d158b373bc3a8df7",
+    "C": "6c0dd8e0dc14274a",
+    "A": "286becf26f4c3d26",
+    "C_A": "8822c20a9ca50c57",
+    "impronta_E": "accc5e777ea9bfb7"
+   },
+   "Londra/p0/s204": {
+    "E": "e4d86bf7dc4ef756",
+    "E1": "1995874178de875c",
+    "C": "82e2ecd8c84d0655",
+    "A": "78645b9349ba8621",
+    "C_A": "b6aaa3b7cc1cb139",
+    "impronta_E": "8aa3361354e7e380"
+   },
+   "Londra/p0/s205": {
+    "E": "5d39535d49093fcc",
+    "E1": "a62c9463673827bb",
+    "C": "dbd2145b00db6324",
+    "A": "ff4146201b3a2a3a",
+    "C_A": "119ca56d84941352",
+    "impronta_E": "332ca33a9e469f13"
+   },
+   "Londra/p0/s206": {
+    "E": "bea93ca1db10d886",
+    "E1": "ad401da817c6a010",
+    "C": "cb722502fdafd0cb",
+    "A": "74f5ac30f8255446",
+    "C_A": "e0b7997bc89d00a1",
+    "impronta_E": "99f44dd1fffc470c"
+   },
+   "Londra/p1/s201": {
+    "E": "f42b475e93964d12",
+    "E1": "d11f65e0f5d7b089",
+    "C": "6c76825d3d44b51c",
+    "A": "b1042ec5676a270b",
+    "C_A": "fc1596ec9b13e3c0",
+    "impronta_E": "40350e1d4d7dc606"
+   },
+   "Londra/p1/s202": {
+    "E": "e7f83209e8a0c8b1",
+    "E1": "8fce29de542884db",
+    "C": "a8a018e6e0d079d9",
+    "A": "918173ddb1126df7",
+    "C_A": "ea7013fd4266d37f",
+    "impronta_E": "992c8c22c70472c2"
+   },
+   "Londra/p1/s203": {
+    "E": "a2ca08ae21de68be",
+    "E1": "f8b62f07016ac64b",
+    "C": "1d75064f005240e1",
+    "A": "a5cb965eeedc3b7b",
+    "C_A": "1d9bbb69fe0f9f0a",
+    "impronta_E": "869ab663733e4055"
+   },
+   "Londra/p1/s204": {
+    "E": "ac6d8848bddea9e1",
+    "E1": "47bd33e1dd35bc85",
+    "C": "fa4d88fa175d88d8",
+    "A": "c0f636c78f23eddd",
+    "C_A": "19b7a5be4d58f2cc",
+    "impronta_E": "d808ba98855bc158"
+   },
+   "Londra/p1/s205": {
+    "E": "d996e0d11a90d0bb",
+    "E1": "1fe21e047f0eda03",
+    "C": "67fee272c7cd1cf2",
+    "A": "9a500986558231e3",
+    "C_A": "6410000605e35c40",
+    "impronta_E": "095e86b9513c06e6"
+   },
+   "Londra/p1/s206": {
+    "E": "d7ae36e5ba5a4de9",
+    "E1": "c219aad00d9d7cde",
+    "C": "68ef3564314a053c",
+    "A": "c6d27d316433f12f",
+    "C_A": "5fac77e99ac8c937",
+    "impronta_E": "9fa14d76f654e276"
+   },
+   "Londra/p2/s201": {
+    "E": "6e8c6d006d27640b",
+    "E1": "c7a94068a7ece1c0",
+    "C": "29df7ad61d3c1593",
+    "A": "b46122ae9e06fba8",
+    "C_A": "a896a5ac264ed7dc",
+    "impronta_E": "46738a24e67edad9"
+   },
+   "Londra/p2/s202": {
+    "E": "e46e5d77669858c6",
+    "E1": "1676b7beed675a3e",
+    "C": "af1ef4e6b94ad87c",
+    "A": "bba38f68bb71b3d6",
+    "C_A": "cc0be70ffbef2792",
+    "impronta_E": "705dffd6429ed1ee"
+   },
+   "Londra/p2/s203": {
+    "E": "e0567eb052b1c906",
+    "E1": "37826923a9ed0524",
+    "C": "e0f88f81d3592564",
+    "A": "73b99b9db91bb09c",
+    "C_A": "a732bd685e1a1be6",
+    "impronta_E": "f0737171708feab2"
+   },
+   "Londra/p2/s204": {
+    "E": "bfd468e881a646f4",
+    "E1": "2f9ef63822d85d1e",
+    "C": "cc6cf38d9fabbc02",
+    "A": "5e9a8d26532a7d6f",
+    "C_A": "da5078b4cb5ba5e1",
+    "impronta_E": "05c9cb81f24c0801"
+   },
+   "Londra/p2/s205": {
+    "E": "7f376f0bff0340b9",
+    "E1": "540f3fb344f95aa9",
+    "C": "7b19f43eba3dcc74",
+    "A": "6960b50380012a0d",
+    "C_A": "30d9b68e610261fd",
+    "impronta_E": "c53aa573d9ded550"
+   },
+   "Londra/p2/s206": {
+    "E": "5495b9e60b027d9d",
+    "E1": "93d4c3f626b78b4e",
+    "C": "96db7058f6b519b5",
+    "A": "96d3f00a8bac3fd1",
+    "C_A": "607679fd289df539",
+    "impronta_E": "6f5ed193977dd5d6"
+   },
+   "Madrid/p0/s201": {
+    "E": "cea40c281be87405",
+    "E1": "062a52e90e99cf56",
+    "C": "ddfd5355a7128aeb",
+    "A": "f1d7cdfb061ce0c4",
+    "C_A": "b45ef60781bebcf9",
+    "impronta_E": "a5a358a93a1b94cb"
+   },
+   "Madrid/p0/s202": {
+    "E": "803e2b50178539d8",
+    "E1": "0080fac6d402cedf",
+    "C": "49e7aef034930fda",
+    "A": "89f47d099e36806f",
+    "C_A": "0a6ee63177d769dd",
+    "impronta_E": "2e48528abdcffa83"
+   },
+   "Madrid/p0/s203": {
+    "E": "de172e430033636b",
+    "E1": "0bd21c07c18d8e53",
+    "C": "38c6ccc7b1d24f24",
+    "A": "66703324eb05cc78",
+    "C_A": "40432421af679bcd",
+    "impronta_E": "ea46d312c01c0949"
+   },
+   "Madrid/p0/s204": {
+    "E": "3e9f3e4b5494546c",
+    "E1": "90c84967d055a67e",
+    "C": "27682c5365325c33",
+    "A": "8fbdd1cfbe8dcdb8",
+    "C_A": "179c8ba028ce0597",
+    "impronta_E": "07e3d1127c1d64c3"
+   },
+   "Madrid/p0/s205": {
+    "E": "2a2426de90300885",
+    "E1": "793bc744d13bdf59",
+    "C": "d2631a3998c2bd32",
+    "A": "c0d0a06fab4c7420",
+    "C_A": "1bbda0d399b3ced7",
+    "impronta_E": "06b1a484549116a1"
+   },
+   "Madrid/p0/s206": {
+    "E": "a5db597b42ddf69e",
+    "E1": "70cf4e6b200013d4",
+    "C": "11131efb9122db5a",
+    "A": "dce8b74c116a5ef5",
+    "C_A": "1a02c7083a1f165d",
+    "impronta_E": "6a18a59e444bab5c"
+   },
+   "Madrid/p1/s201": {
+    "E": "47dffe526b9eed44",
+    "E1": "fb448b0799014622",
+    "C": "4c4f969956f7a0c1",
+    "A": "7797a4a29c2bf014",
+    "C_A": "aec8fba8a5eb52f3",
+    "impronta_E": "e40202424a81644b"
+   },
+   "Madrid/p1/s202": {
+    "E": "48c12823e98d608a",
+    "E1": "2b722e572064d92e",
+    "C": "d3a3bb9baf1602ae",
+    "A": "371f421283ea0728",
+    "C_A": "d3f8670e299071c7",
+    "impronta_E": "76464d6e1e22b39f"
+   },
+   "Madrid/p1/s203": {
+    "E": "bdb41c2262c652f1",
+    "E1": "cba766c6d475f825",
+    "C": "6816ea93d786bbac",
+    "A": "34f53162f137e56a",
+    "C_A": "f3adc8fa5240f68b",
+    "impronta_E": "885b0397f21b6e4e"
+   },
+   "Madrid/p1/s204": {
+    "E": "3c1c8492f0a8fa19",
+    "E1": "95f1a730b4e5a018",
+    "C": "28fa1505a8351f46",
+    "A": "fc65680a47b30293",
+    "C_A": "2217227414c0c8d7",
+    "impronta_E": "ab40695dddd25425"
+   },
+   "Madrid/p1/s205": {
+    "E": "82a099b007f4f754",
+    "E1": "b3b3732033f542a9",
+    "C": "ee8c684de40e54bc",
+    "A": "a363c4d2f3907f45",
+    "C_A": "71b1d44c7f38d076",
+    "impronta_E": "595f4c755fb41263"
+   },
+   "Madrid/p1/s206": {
+    "E": "22eda8af195f1fba",
+    "E1": "ceee424f7c6fcc60",
+    "C": "d0e48b97a9c0fa81",
+    "A": "032c46d6c4bed68b",
+    "C_A": "ec6ebb1f55f79de2",
+    "impronta_E": "b36d390a71f5827f"
+   },
+   "Madrid/p2/s201": {
+    "E": "5419847bab47a287",
+    "E1": "9232abfb51fa9305",
+    "C": "e4383e154f38caf2",
+    "A": "7cfb21524b636629",
+    "C_A": "f6c029617d847db7",
+    "impronta_E": "408791064129ee03"
+   },
+   "Madrid/p2/s202": {
+    "E": "be1d6845ed14b077",
+    "E1": "2418999bee62986c",
+    "C": "0f56dd3c543cb4d7",
+    "A": "0c9430a1d365d7b4",
+    "C_A": "6b486a3bf294b94c",
+    "impronta_E": "aaaf933de6ee75bf"
+   },
+   "Madrid/p2/s203": {
+    "E": "17d9afd599fd2f0d",
+    "E1": "f7e55e77ddd63506",
+    "C": "a7b01eab80e38dc9",
+    "A": "e7129d774aeec2c1",
+    "C_A": "29cd40b27744a109",
+    "impronta_E": "158862731c4a5b8c"
+   },
+   "Madrid/p2/s204": {
+    "E": "b20e541c083aa53c",
+    "E1": "03289cdb774bf8d9",
+    "C": "1d8f6eee352be9b5",
+    "A": "2ebe3633678f7d30",
+    "C_A": "f8765838bb778523",
+    "impronta_E": "3f48735066f6c20a"
+   },
+   "Madrid/p2/s205": {
+    "E": "4f5538d71846f44e",
+    "E1": "25f1c204b9d84982",
+    "C": "0da4103ba7c58817",
+    "A": "e3d47495d2fcd07b",
+    "C_A": "3e56b9eb7f7c0c33",
+    "impronta_E": "c63147015e561314"
+   },
+   "Madrid/p2/s206": {
+    "E": "e55dec3b0fd3e76d",
+    "E1": "ffd4b58f49918107",
+    "C": "ed8bfd8f46d6cbda",
+    "A": "c86e36b728614807",
+    "C_A": "2c3fb439363b1393",
+    "impronta_E": "d0a37f8cae4fa4e3"
+   },
+   "Melbourne/p0/s201": {
+    "E": "e4db93ee3a1f1a11",
+    "E1": "6681488243998774",
+    "C": "171cb304a5a0e25d",
+    "A": "0ec13ed59b0d3054",
+    "C_A": "19aa8c307963cc1e",
+    "impronta_E": "def850d5f0723b43"
+   },
+   "Melbourne/p0/s202": {
+    "E": "de560b2cd816724e",
+    "E1": "ed49c44216dad123",
+    "C": "dcd2f231bf595d83",
+    "A": "595862dd66c1c38e",
+    "C_A": "1196f1a6175a1988",
+    "impronta_E": "c6a2eff24b3130ec"
+   },
+   "Melbourne/p0/s203": {
+    "E": "627cdea2b08f08c9",
+    "E1": "c5ec0b56537836d1",
+    "C": "05a7df7efccac717",
+    "A": "624a3fb842a5258b",
+    "C_A": "90eed998995ecacd",
+    "impronta_E": "3f3f97267ef706a2"
+   },
+   "Melbourne/p0/s204": {
+    "E": "12ac99a64625e39f",
+    "E1": "6b0ef23eedbedcb0",
+    "C": "2aec1fedbdec73e1",
+    "A": "2e70f20e1b50c071",
+    "C_A": "896d4af0b507bd6b",
+    "impronta_E": "6f97f6055dc228c2"
+   },
+   "Melbourne/p0/s205": {
+    "E": "37f1aa693ad2df65",
+    "E1": "5351e88dc650e33d",
+    "C": "aa0b42fb170a1eb1",
+    "A": "d84d791674725e3a",
+    "C_A": "c06bb92097122e1c",
+    "impronta_E": "113499ef75938fdb"
+   },
+   "Melbourne/p0/s206": {
+    "E": "4b82108400717008",
+    "E1": "f668a9b76f1d0bcc",
+    "C": "d567c78536e67b3b",
+    "A": "ae290cca68821e89",
+    "C_A": "fa140a7f3c586a38",
+    "impronta_E": "0c77617a870472ef"
+   },
+   "Melbourne/p1/s201": {
+    "E": "2ce394a1f27ff616",
+    "E1": "6bb6332b6ee0695e",
+    "C": "93ee0a6f9e8526d5",
+    "A": "d4721052d84b536b",
+    "C_A": "bc29080edf93081a",
+    "impronta_E": "1a51054ec77884fc"
+   },
+   "Melbourne/p1/s202": {
+    "E": "378b682250bd1fae",
+    "E1": "ffb7e2a3a2f5d233",
+    "C": "2ab28bd6d1eb6e32",
+    "A": "7fa01daee12b78e2",
+    "C_A": "836a9b441f066866",
+    "impronta_E": "e262e7ac9c98d6e6"
+   },
+   "Melbourne/p1/s203": {
+    "E": "4e7f23b4f50e5b76",
+    "E1": "e9c67be62f9a9901",
+    "C": "c9db98ade9588b7d",
+    "A": "7146b25db79be8dc",
+    "C_A": "f3602190601582bc",
+    "impronta_E": "00c3cc2714e9b485"
+   },
+   "Melbourne/p1/s204": {
+    "E": "d3986661d5c9ae2a",
+    "E1": "7d57dc45a778703d",
+    "C": "55758263abb6db7b",
+    "A": "526eb05b2b033fd6",
+    "C_A": "afb8aaf475650ecd",
+    "impronta_E": "50ad029938ac1932"
+   },
+   "Melbourne/p1/s205": {
+    "E": "d10e7d6b6c6b4e63",
+    "E1": "bde573be38a1d690",
+    "C": "873fd7f75d483d64",
+    "A": "54a9cfe935b6a1b0",
+    "C_A": "bd1496f568a2605f",
+    "impronta_E": "c30f2f7e54220e04"
+   },
+   "Melbourne/p1/s206": {
+    "E": "971f518b5f06efc9",
+    "E1": "4224b207258c7784",
+    "C": "eaf8d71e833b7231",
+    "A": "6c938cd9f4fbfd02",
+    "C_A": "06c36fbe108f3248",
+    "impronta_E": "dfc7efd0bd3ebfc1"
+   },
+   "Melbourne/p2/s201": {
+    "E": "cf2a50c7b288baf3",
+    "E1": "c5707b75993430f7",
+    "C": "6723d78955afbc7f",
+    "A": "c2dcc8adec105ce9",
+    "C_A": "15d359f8678d7e5c",
+    "impronta_E": "0691e4b18b4c56d2"
+   },
+   "Melbourne/p2/s202": {
+    "E": "2beea7eb3cb882ff",
+    "E1": "2ae2a65285e660b3",
+    "C": "ea7779d0e133ab4f",
+    "A": "f2e95e94a10212d9",
+    "C_A": "12589b04a29abfba",
+    "impronta_E": "44c626e7a82164a9"
+   },
+   "Melbourne/p2/s203": {
+    "E": "a2b2eb6203116cd0",
+    "E1": "6e414aa6ffd39a67",
+    "C": "1ea8d5dbc7790fd0",
+    "A": "c89d7dcf602f2d4b",
+    "C_A": "d261d0da4919b06e",
+    "impronta_E": "b8957bf352479b2b"
+   },
+   "Melbourne/p2/s204": {
+    "E": "8bee404d6221f0bf",
+    "E1": "a9cd6a086c103028",
+    "C": "59d612e5d6f96bb3",
+    "A": "34b741acde41dbf7",
+    "C_A": "bc145ada054505e2",
+    "impronta_E": "35a9ae2cc096f749"
+   },
+   "Melbourne/p2/s205": {
+    "E": "7df7c2dc375b1c2d",
+    "E1": "c78f891139c49480",
+    "C": "bc188b3f47956485",
+    "A": "aaacaf73f5d34d4a",
+    "C_A": "1cf766d713a36dc1",
+    "impronta_E": "01ebf9b90ff7ea0f"
+   },
+   "Melbourne/p2/s206": {
+    "E": "5c9cdd7d8e78559b",
+    "E1": "05378f574cc01b6f",
+    "C": "bd63f124764506d1",
+    "A": "dd0a2daa8d9791ed",
+    "C_A": "8d31c5a72076a77a",
+    "impronta_E": "fb9dfd9aa5b8f2d7"
+   }
+  },
+  "impronte_celle_validazione_Ep": {
+   "Londra/p0/s201": "e5d0f3f723b7012d",
+   "Londra/p0/s202": "700afdafca0519e6",
+   "Londra/p0/s203": "0fae5c1d25a8ae01",
+   "Londra/p0/s204": "70ae1f05df99157d",
+   "Londra/p0/s205": "a8e13ceaf7488ebe",
+   "Londra/p0/s206": "3193ab9f98a170d7",
+   "Londra/p1/s201": "e75de342d290b716",
+   "Londra/p1/s202": "8bd560741245278d",
+   "Londra/p1/s203": "734d84ef914ab8bb",
+   "Londra/p1/s204": "bfcc375403f4432e",
+   "Londra/p1/s205": "a6366cad51e70b3d",
+   "Londra/p1/s206": "c9e0c803b91d114d",
+   "Londra/p2/s201": "20391cb0e7f6a13e",
+   "Londra/p2/s202": "70b2c2e394a3f180",
+   "Londra/p2/s203": "bdd4b66b0e1e2ff3",
+   "Londra/p2/s204": "7651baab6fed477b",
+   "Londra/p2/s205": "fcd961af705d398e",
+   "Londra/p2/s206": "432c8053ecf12a22",
+   "Madrid/p0/s201": "441fe9768847b554",
+   "Madrid/p0/s202": "d9f98a7819dba3cc",
+   "Madrid/p0/s203": "7a4d9c1ea7cc1c47",
+   "Madrid/p0/s204": "cbd54398749bcfa9",
+   "Madrid/p0/s205": "f89cb996e1570f78",
+   "Madrid/p0/s206": "0544d1df141b0051",
+   "Madrid/p1/s201": "cbe8d630a1073ae9",
+   "Madrid/p1/s202": "50b9de898e6136c6",
+   "Madrid/p1/s203": "97d1ac5400c3bec3",
+   "Madrid/p1/s204": "b8173c0a8509bdca",
+   "Madrid/p1/s205": "707538cc23498060",
+   "Madrid/p1/s206": "6a4af59d8f342437",
+   "Madrid/p2/s201": "ca722343fdc6dd4a",
+   "Madrid/p2/s202": "65130264fde96c65",
+   "Madrid/p2/s203": "656f0f8526427226",
+   "Madrid/p2/s204": "d87aab5a62b427d1",
+   "Madrid/p2/s205": "b6813b6e84a6a972",
+   "Madrid/p2/s206": "2313e7a0a39d5f5c",
+   "Melbourne/p0/s201": "e506bf99e72fda2d",
+   "Melbourne/p0/s202": "3d725a45d12d66ce",
+   "Melbourne/p0/s203": "32a91a13bea81ec2",
+   "Melbourne/p0/s204": "eb070f5b80fbf323",
+   "Melbourne/p0/s205": "6b1140312074486b",
+   "Melbourne/p0/s206": "dadfbb2332fb507e",
+   "Melbourne/p1/s201": "c6774c58322a1218",
+   "Melbourne/p1/s202": "10f5461e561fb01d",
+   "Melbourne/p1/s203": "196de3e4aa0180a6",
+   "Melbourne/p1/s204": "9337593338399222",
+   "Melbourne/p1/s205": "4c0a39458f3f2d27",
+   "Melbourne/p1/s206": "5c774b41d5964dd7",
+   "Melbourne/p2/s201": "7047600dcc2df626",
+   "Melbourne/p2/s202": "168bc2d4729e5074",
+   "Melbourne/p2/s203": "ee650d3120d901c5",
+   "Melbourne/p2/s204": "7a220b3709ac13dd",
+   "Melbourne/p2/s205": "22f42304a99e1fec",
+   "Melbourne/p2/s206": "a7a06109c62fcbcd"
+  },
+  "istante": "2026-10-28T16:03:43.188011+00:00"
+ },
+ "registri_tempi": {
+  "E/ck_E_Londra_p0_s1150248972.pt.fatto": {
+   "impronta": "c61cac31a874534d",
+   "secondi": 5069.943456172943,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Londra_p0_s1157715887.pt.fatto": {
+   "impronta": "2d4eef0c32b2ccc9",
+   "secondi": 5012.573511838913,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Londra_p0_s1592395901.pt.fatto": {
+   "impronta": "58cac6876b8b19a0",
+   "secondi": 5041.970704317093,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Londra_p0_s399595374.pt.fatto": {
+   "impronta": "5b4e2869a48d3d9f",
+   "secondi": 4997.969568014145,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Londra_p0_s643310434.pt.fatto": {
+   "impronta": "fc04263c23e460da",
+   "secondi": 4968.022709369659,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Londra_p0_s682647013.pt.fatto": {
+   "impronta": "48d46c88f52b1ab3",
+   "secondi": 4990.984325647354,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Londra_p1_s1150248972.pt.fatto": {
+   "impronta": "d72a3ac066151c6b",
+   "secondi": 4972.0516974925995,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Londra_p1_s1157715887.pt.fatto": {
+   "impronta": "6bc0c0017bc4071d",
+   "secondi": 4973.964705944061,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Londra_p1_s1592395901.pt.fatto": {
+   "impronta": "30ceffe5abd6d748",
+   "secondi": 4965.834666252136,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Londra_p1_s399595374.pt.fatto": {
+   "impronta": "b34152237fe0d8b4",
+   "secondi": 4972.89235830307,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Londra_p1_s643310434.pt.fatto": {
+   "impronta": "6c7ad0fc3a3fbd5e",
+   "secondi": 4984.126415014267,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Londra_p1_s682647013.pt.fatto": {
+   "impronta": "a3e7979c63c2feac",
+   "secondi": 4967.431519031525,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Londra_p2_s1150248972.pt.fatto": {
+   "impronta": "d7dfbf607ecb6c37",
+   "secondi": 3973.3578283786774,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Londra_p2_s1157715887.pt.fatto": {
+   "impronta": "a0ad55f89612c44c",
+   "secondi": 5068.671530246735,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Londra_p2_s1592395901.pt.fatto": {
+   "impronta": "8fbb683273c68051",
+   "secondi": 5139.2705154418945,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Londra_p2_s399595374.pt.fatto": {
+   "impronta": "c6459f36b902ed53",
+   "secondi": 5107.970887899399,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Londra_p2_s643310434.pt.fatto": {
+   "impronta": "b513a77e83f3ccf7",
+   "secondi": 5083.149240970612,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Londra_p2_s682647013.pt.fatto": {
+   "impronta": "2b0918c49ef23f1f",
+   "secondi": 5093.048743724823,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Madrid_p0_s1150248972.pt.fatto": {
+   "impronta": "fb9adf3310580e58",
+   "secondi": 5082.440858364105,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Madrid_p0_s1157715887.pt.fatto": {
+   "impronta": "f7cc051b76a95700",
+   "secondi": 5060.482198476791,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Madrid_p0_s1592395901.pt.fatto": {
+   "impronta": "abd2a32fb937709b",
+   "secondi": 5073.277144193649,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Madrid_p0_s399595374.pt.fatto": {
+   "impronta": "a444c3a6de6930a2",
+   "secondi": 5083.2398064136505,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Madrid_p0_s643310434.pt.fatto": {
+   "impronta": "0fe7d027ce5e09df",
+   "secondi": 5007.722310066223,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Madrid_p0_s682647013.pt.fatto": {
+   "impronta": "23f3384172c23b37",
+   "secondi": 5055.877457380295,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Madrid_p1_s1150248972.pt.fatto": {
+   "impronta": "53ba92129aa21007",
+   "secondi": 5004.8118052482605,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Madrid_p1_s1157715887.pt.fatto": {
+   "impronta": "1169a0a37ffc09f0",
+   "secondi": 4995.497544765472,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Madrid_p1_s1592395901.pt.fatto": {
+   "impronta": "ba947cf23f86a065",
+   "secondi": 4943.264086961746,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Madrid_p1_s399595374.pt.fatto": {
+   "impronta": "ef617774e5b3dd3d",
+   "secondi": 4972.24316072464,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Madrid_p1_s643310434.pt.fatto": {
+   "impronta": "59a85826d6ee7e31",
+   "secondi": 4967.313779830933,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Madrid_p1_s682647013.pt.fatto": {
+   "impronta": "1bc85940e9cfa471",
+   "secondi": 4968.04877614975,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Madrid_p2_s1150248972.pt.fatto": {
+   "impronta": "8f3e89156387ba74",
+   "secondi": 4428.237924337387,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Madrid_p2_s1157715887.pt.fatto": {
+   "impronta": "25188e11d1d48c0f",
+   "secondi": 5028.422505617142,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Madrid_p2_s1592395901.pt.fatto": {
+   "impronta": "b2e5bafb8fd25baa",
+   "secondi": 5053.838959932327,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Madrid_p2_s399595374.pt.fatto": {
+   "impronta": "24612a97ed075eb8",
+   "secondi": 5063.685515880585,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Madrid_p2_s643310434.pt.fatto": {
+   "impronta": "dfbf6111308426d2",
+   "secondi": 5061.724227905273,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Madrid_p2_s682647013.pt.fatto": {
+   "impronta": "a26d735977c21bd1",
+   "secondi": 5057.061540365219,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Melbourne_p0_s1150248972.pt.fatto": {
+   "impronta": "1e3783dfc08d8045",
+   "secondi": 3441.907186985016,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Melbourne_p0_s1157715887.pt.fatto": {
+   "impronta": "059da7da09992f56",
+   "secondi": 3450.561670064926,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Melbourne_p0_s1592395901.pt.fatto": {
+   "impronta": "cbd58240ed73932c",
+   "secondi": 3433.2244946956635,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Melbourne_p0_s399595374.pt.fatto": {
+   "impronta": "9788409b100aa57d",
+   "secondi": 3415.4072227478027,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Melbourne_p0_s643310434.pt.fatto": {
+   "impronta": "d87fa93702a4c9f9",
+   "secondi": 3461.422003507614,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Melbourne_p0_s682647013.pt.fatto": {
+   "impronta": "1cbda74da925d466",
+   "secondi": 3444.1620609760284,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Melbourne_p1_s1150248972.pt.fatto": {
+   "impronta": "ce836b45d0ad8e41",
+   "secondi": 3438.1389927864075,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Melbourne_p1_s1157715887.pt.fatto": {
+   "impronta": "417f0c287fc3730d",
+   "secondi": 3426.674551010132,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Melbourne_p1_s1592395901.pt.fatto": {
+   "impronta": "fa68324a74d2a112",
+   "secondi": 3425.9053540229797,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Melbourne_p1_s399595374.pt.fatto": {
+   "impronta": "1e1fe9eabaacc176",
+   "secondi": 3415.596778869629,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Melbourne_p1_s643310434.pt.fatto": {
+   "impronta": "d9ca1bbd76e1306e",
+   "secondi": 3412.2022750377655,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Melbourne_p1_s682647013.pt.fatto": {
+   "impronta": "0a1b8a9486e2860f",
+   "secondi": 3456.1300253868103,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Melbourne_p2_s1150248972.pt.fatto": {
+   "impronta": "53b1d3b111ff4050",
+   "secondi": 3451.088011741638,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Melbourne_p2_s1157715887.pt.fatto": {
+   "impronta": "f179e1c8f78c9e3b",
+   "secondi": 3464.8315546512604,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Melbourne_p2_s1592395901.pt.fatto": {
+   "impronta": "89021b5de1e7bf9e",
+   "secondi": 3449.7989242076874,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Melbourne_p2_s399595374.pt.fatto": {
+   "impronta": "3fa746db0691d34b",
+   "secondi": 3457.0883028507233,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Melbourne_p2_s643310434.pt.fatto": {
+   "impronta": "1c2798ac2cae1474",
+   "secondi": 3466.143485069275,
+   "verifica": "uguale"
+  },
+  "E/ck_E_Melbourne_p2_s682647013.pt.fatto": {
+   "impronta": "9766c3a37a796662",
+   "secondi": 3431.5034363269806,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Londra_p0_s1150248972.pt.fatto": {
+   "impronta": "80c79a229fc72e35",
+   "secondi": 5005.3670065402985,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Londra_p0_s1157715887.pt.fatto": {
+   "impronta": "2de2802d9dd860bf",
+   "secondi": 5017.120941400528,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Londra_p0_s1592395901.pt.fatto": {
+   "impronta": "87c84d46e9b62ef9",
+   "secondi": 5010.0534410476685,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Londra_p0_s399595374.pt.fatto": {
+   "impronta": "c5d63b4ada5024d2",
+   "secondi": 5008.691526889801,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Londra_p0_s643310434.pt.fatto": {
+   "impronta": "229dba66594829d1",
+   "secondi": 5009.800562381744,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Londra_p0_s682647013.pt.fatto": {
+   "impronta": "5aa5fe567f7c53f1",
+   "secondi": 5043.775182008743,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Londra_p1_s1150248972.pt.fatto": {
+   "impronta": "e0c511df51e5dc30",
+   "secondi": 5002.858797550201,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Londra_p1_s1157715887.pt.fatto": {
+   "impronta": "603710e74a1d44b0",
+   "secondi": 4954.488991737366,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Londra_p1_s1592395901.pt.fatto": {
+   "impronta": "ae0670335d242276",
+   "secondi": 4966.330912590027,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Londra_p1_s399595374.pt.fatto": {
+   "impronta": "36f9ccd3fe5d7071",
+   "secondi": 4991.6574494838715,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Londra_p1_s643310434.pt.fatto": {
+   "impronta": "2b77356c54646ed6",
+   "secondi": 5012.414483308792,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Londra_p1_s682647013.pt.fatto": {
+   "impronta": "22546345f44a1c8a",
+   "secondi": 4981.774976015091,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Londra_p2_s1150248972.pt.fatto": {
+   "impronta": "83a16898df0bed9b",
+   "secondi": 3472.9895944595337,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Londra_p2_s1157715887.pt.fatto": {
+   "impronta": "49ba0512b34d6cc4",
+   "secondi": 5091.13480091095,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Londra_p2_s1592395901.pt.fatto": {
+   "impronta": "5d2fb09dffb02be9",
+   "secondi": 5035.020663976669,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Londra_p2_s399595374.pt.fatto": {
+   "impronta": "3fd35a6b6509d598",
+   "secondi": 5106.188501596451,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Londra_p2_s643310434.pt.fatto": {
+   "impronta": "c22e9920a3814e85",
+   "secondi": 5099.075831651688,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Londra_p2_s682647013.pt.fatto": {
+   "impronta": "9f04ac1559a139c3",
+   "secondi": 5081.47907948494,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Madrid_p0_s1150248972.pt.fatto": {
+   "impronta": "5ac1fd876369c5c9",
+   "secondi": 5076.4957592487335,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Madrid_p0_s1157715887.pt.fatto": {
+   "impronta": "f1808029caef9c71",
+   "secondi": 5054.021130800247,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Madrid_p0_s1592395901.pt.fatto": {
+   "impronta": "9c5ddefd54f20949",
+   "secondi": 5051.693542957306,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Madrid_p0_s399595374.pt.fatto": {
+   "impronta": "695d43a89c11a055",
+   "secondi": 5084.295503377914,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Madrid_p0_s643310434.pt.fatto": {
+   "impronta": "0daadeab03081fa5",
+   "secondi": 5014.452602863312,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Madrid_p0_s682647013.pt.fatto": {
+   "impronta": "6452de03e0fe7462",
+   "secondi": 5075.4950177669525,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Madrid_p1_s1150248972.pt.fatto": {
+   "impronta": "22a169016d697a41",
+   "secondi": 4983.521473169327,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Madrid_p1_s1157715887.pt.fatto": {
+   "impronta": "1101dde556c2cc00",
+   "secondi": 5015.69139456749,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Madrid_p1_s1592395901.pt.fatto": {
+   "impronta": "006e0198e00649a6",
+   "secondi": 4992.778290987015,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Madrid_p1_s399595374.pt.fatto": {
+   "impronta": "86ad42f28897da35",
+   "secondi": 4971.187990665436,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Madrid_p1_s643310434.pt.fatto": {
+   "impronta": "5d263d495c7bf40b",
+   "secondi": 4975.975616455078,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Madrid_p1_s682647013.pt.fatto": {
+   "impronta": "1b30444f894d94ff",
+   "secondi": 4986.226027011871,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Madrid_p2_s1150248972.pt.fatto": {
+   "impronta": "7b10ae1c4f9b2268",
+   "secondi": 4420.152611017227,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Madrid_p2_s1157715887.pt.fatto": {
+   "impronta": "f10a1d45a5add97f",
+   "secondi": 5042.935196638107,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Madrid_p2_s1592395901.pt.fatto": {
+   "impronta": "38338ebc7c3b80c3",
+   "secondi": 5004.925822734833,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Madrid_p2_s399595374.pt.fatto": {
+   "impronta": "986eff80dcb43f05",
+   "secondi": 5010.029705762863,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Madrid_p2_s643310434.pt.fatto": {
+   "impronta": "5c1045516877ec85",
+   "secondi": 5090.073775053024,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Madrid_p2_s682647013.pt.fatto": {
+   "impronta": "b21945479822170f",
+   "secondi": 5072.40916967392,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Melbourne_p0_s1150248972.pt.fatto": {
+   "impronta": "e963a70ca3bb7378",
+   "secondi": 3458.762102842331,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Melbourne_p0_s1157715887.pt.fatto": {
+   "impronta": "0eccf9cf6e836bbc",
+   "secondi": 3418.0202186107635,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Melbourne_p0_s1592395901.pt.fatto": {
+   "impronta": "5c77cd7fe6b41f2d",
+   "secondi": 3447.64289355278,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Melbourne_p0_s399595374.pt.fatto": {
+   "impronta": "25dab181f8fbad84",
+   "secondi": 3447.8996815681458,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Melbourne_p0_s643310434.pt.fatto": {
+   "impronta": "270aedfef192949d",
+   "secondi": 3466.3971252441406,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Melbourne_p0_s682647013.pt.fatto": {
+   "impronta": "974f834a57624df9",
+   "secondi": 3474.3744463920593,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Melbourne_p1_s1150248972.pt.fatto": {
+   "impronta": "6ec5c43a56cbf6b4",
+   "secondi": 3440.1213595867157,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Melbourne_p1_s1157715887.pt.fatto": {
+   "impronta": "b62206b50d1a1113",
+   "secondi": 3432.2674717903137,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Melbourne_p1_s1592395901.pt.fatto": {
+   "impronta": "9a4373e2a6813444",
+   "secondi": 3433.666594028473,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Melbourne_p1_s399595374.pt.fatto": {
+   "impronta": "73a5d84d810266bc",
+   "secondi": 3425.105272769928,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Melbourne_p1_s643310434.pt.fatto": {
+   "impronta": "9fbb45983c142a4d",
+   "secondi": 3453.6934077739716,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Melbourne_p1_s682647013.pt.fatto": {
+   "impronta": "4356bbf165fd1980",
+   "secondi": 3423.637484073639,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Melbourne_p2_s1150248972.pt.fatto": {
+   "impronta": "7019f7a4cfb87250",
+   "secondi": 3461.639752626419,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Melbourne_p2_s1157715887.pt.fatto": {
+   "impronta": "eab2cd0ec43e79b9",
+   "secondi": 3450.2737963199615,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Melbourne_p2_s1592395901.pt.fatto": {
+   "impronta": "4990b576698a92ab",
+   "secondi": 3441.370837688446,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Melbourne_p2_s399595374.pt.fatto": {
+   "impronta": "7ccb3bd83574c8ef",
+   "secondi": 3442.932357311249,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Melbourne_p2_s643310434.pt.fatto": {
+   "impronta": "3adc914e179a0756",
+   "secondi": 3464.7698493003845,
+   "verifica": "uguale"
+  },
+  "E1/ck_E1_Melbourne_p2_s682647013.pt.fatto": {
+   "impronta": "8f18d07327199e80",
+   "secondi": 3464.440100669861,
+   "verifica": "uguale"
+  },
+  "C/C_Londra_p0_s201.json.fatto": {
+   "impronta": "221f498404b16b39",
+   "secondi": 5015.754935503006,
+   "verifica": "uguale"
+  },
+  "C/C_Londra_p0_s202.json.fatto": {
+   "impronta": "e004c3210b6658d6",
+   "secondi": 5032.751615524292,
+   "verifica": "uguale"
+  },
+  "C/C_Londra_p0_s203.json.fatto": {
+   "impronta": "b1ca66f8d2cb89a0",
+   "secondi": 5054.963528871536,
+   "verifica": "uguale"
+  },
+  "C/C_Londra_p0_s204.json.fatto": {
+   "impronta": "8882a475bb46dd91",
+   "secondi": 5023.822962760925,
+   "verifica": "uguale"
+  },
+  "C/C_Londra_p0_s205.json.fatto": {
+   "impronta": "0862741cb26055ea",
+   "secondi": 5059.552256822586,
+   "verifica": "uguale"
+  },
+  "C/C_Londra_p0_s206.json.fatto": {
+   "impronta": "899c0725eeef9153",
+   "secondi": 5020.75474524498,
+   "verifica": "uguale"
+  },
+  "C/C_Londra_p1_s201.json.fatto": {
+   "impronta": "9a4f51793877f81b",
+   "secondi": 5015.404362916946,
+   "verifica": "uguale"
+  },
+  "C/C_Londra_p1_s202.json.fatto": {
+   "impronta": "2f51d53de9011222",
+   "secondi": 4979.226627588272,
+   "verifica": "uguale"
+  },
+  "C/C_Londra_p1_s203.json.fatto": {
+   "impronta": "bd1ebacd8bfce59e",
+   "secondi": 4994.18288230896,
+   "verifica": "uguale"
+  },
+  "C/C_Londra_p1_s204.json.fatto": {
+   "impronta": "f3354e5fde2fafd4",
+   "secondi": 4982.8908360004425,
+   "verifica": "uguale"
+  },
+  "C/C_Londra_p1_s205.json.fatto": {
+   "impronta": "db8df9c7d6fe5a5f",
+   "secondi": 4980.858157634735,
+   "verifica": "uguale"
+  },
+  "C/C_Londra_p1_s206.json.fatto": {
+   "impronta": "9cee593159e1252f",
+   "secondi": 4969.592980861664,
+   "verifica": "uguale"
+  },
+  "C/C_Londra_p2_s201.json.fatto": {
+   "impronta": "58b532ccfbcefac9",
+   "secondi": 5122.343374013901,
+   "verifica": "uguale"
+  },
+  "C/C_Londra_p2_s202.json.fatto": {
+   "impronta": "45ddd17fd0fe3238",
+   "secondi": 5060.225531578064,
+   "verifica": "uguale"
+  },
+  "C/C_Londra_p2_s203.json.fatto": {
+   "impronta": "376614e0e3caa691",
+   "secondi": 5077.684991836548,
+   "verifica": "uguale"
+  },
+  "C/C_Londra_p2_s204.json.fatto": {
+   "impronta": "6f34321e23fbc8dd",
+   "secondi": 5050.102093219757,
+   "verifica": "uguale"
+  },
+  "C/C_Londra_p2_s205.json.fatto": {
+   "impronta": "08aa2f3323ffe0a8",
+   "secondi": 5061.662566184998,
+   "verifica": "uguale"
+  },
+  "C/C_Londra_p2_s206.json.fatto": {
+   "impronta": "f5f1f166d2665c5a",
+   "secondi": 4384.494988441467,
+   "verifica": "uguale"
+  },
+  "C/C_Madrid_p0_s201.json.fatto": {
+   "impronta": "68a2e59d3a3f388e",
+   "secondi": 5044.333211898804,
+   "verifica": "uguale"
+  },
+  "C/C_Madrid_p0_s202.json.fatto": {
+   "impronta": "64bd1a23d75bd5d9",
+   "secondi": 5086.632487297058,
+   "verifica": "uguale"
+  },
+  "C/C_Madrid_p0_s203.json.fatto": {
+   "impronta": "30fa7544f5bf542f",
+   "secondi": 5081.470496177673,
+   "verifica": "uguale"
+  },
+  "C/C_Madrid_p0_s204.json.fatto": {
+   "impronta": "de1f19902aebd516",
+   "secondi": 5104.453387737274,
+   "verifica": "uguale"
+  },
+  "C/C_Madrid_p0_s205.json.fatto": {
+   "impronta": "5f33a7acd7d5ffc7",
+   "secondi": 5087.308177947998,
+   "verifica": "uguale"
+  },
+  "C/C_Madrid_p0_s206.json.fatto": {
+   "impronta": "91d7c6bd71e34877",
+   "secondi": 5109.678743124008,
+   "verifica": "uguale"
+  },
+  "C/C_Madrid_p1_s201.json.fatto": {
+   "impronta": "2959bf4af43b4102",
+   "secondi": 4994.630720376968,
+   "verifica": "uguale"
+  },
+  "C/C_Madrid_p1_s202.json.fatto": {
+   "impronta": "974281b7b0eba3a4",
+   "secondi": 4998.267608165741,
+   "verifica": "uguale"
+  },
+  "C/C_Madrid_p1_s203.json.fatto": {
+   "impronta": "ee235994f7a52d9f",
+   "secondi": 5041.373270988464,
+   "verifica": "uguale"
+  },
+  "C/C_Madrid_p1_s204.json.fatto": {
+   "impronta": "8e9ba2b80a98856c",
+   "secondi": 5004.312412023544,
+   "verifica": "uguale"
+  },
+  "C/C_Madrid_p1_s205.json.fatto": {
+   "impronta": "fb03e1ba49a36efe",
+   "secondi": 4998.244097709656,
+   "verifica": "uguale"
+  },
+  "C/C_Madrid_p1_s206.json.fatto": {
+   "impronta": "98ffc1c2aff6ea5f",
+   "secondi": 4985.054738044739,
+   "verifica": "uguale"
+  },
+  "C/C_Madrid_p2_s201.json.fatto": {
+   "impronta": "fd9cfed25a9652a2",
+   "secondi": 5069.677935123444,
+   "verifica": "uguale"
+  },
+  "C/C_Madrid_p2_s202.json.fatto": {
+   "impronta": "8d709b463210d8f0",
+   "secondi": 5050.937930345535,
+   "verifica": "uguale"
+  },
+  "C/C_Madrid_p2_s203.json.fatto": {
+   "impronta": "b6cd7c22e2251503",
+   "secondi": 5098.658792734146,
+   "verifica": "uguale"
+  },
+  "C/C_Madrid_p2_s204.json.fatto": {
+   "impronta": "1ab4d3ab6b335aba",
+   "secondi": 5006.420768976212,
+   "verifica": "uguale"
+  },
+  "C/C_Madrid_p2_s205.json.fatto": {
+   "impronta": "c7c48531d925d8f1",
+   "secondi": 5052.852328777313,
+   "verifica": "uguale"
+  },
+  "C/C_Madrid_p2_s206.json.fatto": {
+   "impronta": "4d0a5372e0599c81",
+   "secondi": 4602.186855792999,
+   "verifica": "uguale"
+  },
+  "C/C_Melbourne_p0_s201.json.fatto": {
+   "impronta": "7ed33348dd88efcf",
+   "secondi": 3451.1379997730255,
+   "verifica": "uguale"
+  },
+  "C/C_Melbourne_p0_s202.json.fatto": {
+   "impronta": "cd58e47897de7740",
+   "secondi": 3442.4138028621674,
+   "verifica": "uguale"
+  },
+  "C/C_Melbourne_p0_s203.json.fatto": {
+   "impronta": "536512b2963433f2",
+   "secondi": 3479.7796127796173,
+   "verifica": "uguale"
+  },
+  "C/C_Melbourne_p0_s204.json.fatto": {
+   "impronta": "8e0bdc4a71f1570a",
+   "secondi": 3439.831910133362,
+   "verifica": "uguale"
+  },
+  "C/C_Melbourne_p0_s205.json.fatto": {
+   "impronta": "e3c5746b35fba0ca",
+   "secondi": 3463.230541944504,
+   "verifica": "uguale"
+  },
+  "C/C_Melbourne_p0_s206.json.fatto": {
+   "impronta": "af42ce45bf23f7ac",
+   "secondi": 3461.3285143375397,
+   "verifica": "uguale"
+  },
+  "C/C_Melbourne_p1_s201.json.fatto": {
+   "impronta": "de30ae8fccdb4e6e",
+   "secondi": 3434.6910123825073,
+   "verifica": "uguale"
+  },
+  "C/C_Melbourne_p1_s202.json.fatto": {
+   "impronta": "8cdd60964e0931f0",
+   "secondi": 3442.2950875759125,
+   "verifica": "uguale"
+  },
+  "C/C_Melbourne_p1_s203.json.fatto": {
+   "impronta": "4cf473dcd54688d5",
+   "secondi": 3447.6094765663147,
+   "verifica": "uguale"
+  },
+  "C/C_Melbourne_p1_s204.json.fatto": {
+   "impronta": "fe171758eb87fcf6",
+   "secondi": 3413.7350475788116,
+   "verifica": "uguale"
+  },
+  "C/C_Melbourne_p1_s205.json.fatto": {
+   "impronta": "241a7d6fbfe09eaa",
+   "secondi": 3458.4964838027954,
+   "verifica": "uguale"
+  },
+  "C/C_Melbourne_p1_s206.json.fatto": {
+   "impronta": "9563d73b6afa672c",
+   "secondi": 3440.3920969963074,
+   "verifica": "uguale"
+  },
+  "C/C_Melbourne_p2_s201.json.fatto": {
+   "impronta": "179fe8cfeaed9b94",
+   "secondi": 3446.5296790599823,
+   "verifica": "uguale"
+  },
+  "C/C_Melbourne_p2_s202.json.fatto": {
+   "impronta": "73b2a1b571570ad3",
+   "secondi": 3446.594888448715,
+   "verifica": "uguale"
+  },
+  "C/C_Melbourne_p2_s203.json.fatto": {
+   "impronta": "7d5066c048dbdc16",
+   "secondi": 3464.9452831745148,
+   "verifica": "uguale"
+  },
+  "C/C_Melbourne_p2_s204.json.fatto": {
+   "impronta": "4c3d3d11bce0e03c",
+   "secondi": 3440.9477820396423,
+   "verifica": "uguale"
+  },
+  "C/C_Melbourne_p2_s205.json.fatto": {
+   "impronta": "5deaaea7e9a924c0",
+   "secondi": 3475.336638212204,
+   "verifica": "uguale"
+  },
+  "C/C_Melbourne_p2_s206.json.fatto": {
+   "impronta": "86e1183a4977e0a4",
+   "secondi": 3441.912160873413,
+   "verifica": "uguale"
+  },
+  "A/A_Londra_p0_s201.json.fatto": {
+   "impronta": "58de8b76995d3582",
+   "secondi": 5912.09984087944,
+   "verifica": "uguale"
+  },
+  "A/A_Londra_p0_s202.json.fatto": {
+   "impronta": "9b85d627d7cbaebd",
+   "secondi": 5932.515696763992,
+   "verifica": "uguale"
+  },
+  "A/A_Londra_p0_s203.json.fatto": {
+   "impronta": "0687c237d3e9f826",
+   "secondi": 5925.056908369064,
+   "verifica": "uguale"
+  },
+  "A/A_Londra_p0_s204.json.fatto": {
+   "impronta": "033199f20eaba676",
+   "secondi": 5823.021291971207,
+   "verifica": "uguale"
+  },
+  "A/A_Londra_p0_s205.json.fatto": {
+   "impronta": "a5f807df5e524e97",
+   "secondi": 5900.460141420364,
+   "verifica": "uguale"
+  },
+  "A/A_Londra_p0_s206.json.fatto": {
+   "impronta": "7ef512174db1ebc2",
+   "secondi": 5870.718750715256,
+   "verifica": "uguale"
+  },
+  "A/A_Londra_p1_s201.json.fatto": {
+   "impronta": "4ef92d8c09d6499b",
+   "secondi": 5865.692795038223,
+   "verifica": "uguale"
+  },
+  "A/A_Londra_p1_s202.json.fatto": {
+   "impronta": "01951bb128f26e93",
+   "secondi": 5869.924475669861,
+   "verifica": "uguale"
+  },
+  "A/A_Londra_p1_s203.json.fatto": {
+   "impronta": "4e7ae2b5a430d8d8",
+   "secondi": 5862.498733520508,
+   "verifica": "uguale"
+  },
+  "A/A_Londra_p1_s204.json.fatto": {
+   "impronta": "2fe96cc30277875b",
+   "secondi": 5855.889363288879,
+   "verifica": "uguale"
+  },
+  "A/A_Londra_p1_s205.json.fatto": {
+   "impronta": "d1eb48ba4b354dc0",
+   "secondi": 5860.171984672546,
+   "verifica": "uguale"
+  },
+  "A/A_Londra_p1_s206.json.fatto": {
+   "impronta": "d94528e255a3d688",
+   "secondi": 5913.543812274933,
+   "verifica": "uguale"
+  },
+  "A/A_Londra_p2_s201.json.fatto": {
+   "impronta": "f8c89357d9aa67d7",
+   "secondi": 6024.913749933243,
+   "verifica": "uguale"
+  },
+  "A/A_Londra_p2_s202.json.fatto": {
+   "impronta": "397f0227219be416",
+   "secondi": 5935.156796693802,
+   "verifica": "uguale"
+  },
+  "A/A_Londra_p2_s203.json.fatto": {
+   "impronta": "a02fe084d162b95f",
+   "secondi": 5969.771077156067,
+   "verifica": "uguale"
+  },
+  "A/A_Londra_p2_s204.json.fatto": {
+   "impronta": "23c3c90a9e161e20",
+   "secondi": 5949.910551786423,
+   "verifica": "uguale"
+  },
+  "A/A_Londra_p2_s205.json.fatto": {
+   "impronta": "0afe7191d536c112",
+   "secondi": 5987.186147451401,
+   "verifica": "uguale"
+  },
+  "A/A_Londra_p2_s206.json.fatto": {
+   "impronta": "368a84f83f5121ed",
+   "secondi": 4576.043599367142,
+   "verifica": "uguale"
+  },
+  "A/A_Madrid_p0_s201.json.fatto": {
+   "impronta": "fa13896b2944185d",
+   "secondi": 5920.182569503784,
+   "verifica": "uguale"
+  },
+  "A/A_Madrid_p0_s202.json.fatto": {
+   "impronta": "9689aca1aeb11052",
+   "secondi": 5933.882023334503,
+   "verifica": "uguale"
+  },
+  "A/A_Madrid_p0_s203.json.fatto": {
+   "impronta": "a0cafafc831b2e1b",
+   "secondi": 5905.713871002197,
+   "verifica": "uguale"
+  },
+  "A/A_Madrid_p0_s204.json.fatto": {
+   "impronta": "370edd1a9589cf86",
+   "secondi": 5945.2116487026215,
+   "verifica": "uguale"
+  },
+  "A/A_Madrid_p0_s205.json.fatto": {
+   "impronta": "e4d4106e207b0a4b",
+   "secondi": 5950.184547662735,
+   "verifica": "uguale"
+  },
+  "A/A_Madrid_p0_s206.json.fatto": {
+   "impronta": "ee94c8258d1d0609",
+   "secondi": 5915.089349269867,
+   "verifica": "uguale"
+  },
+  "A/A_Madrid_p1_s201.json.fatto": {
+   "impronta": "045a4f4382ca8a9c",
+   "secondi": 5849.762558698654,
+   "verifica": "uguale"
+  },
+  "A/A_Madrid_p1_s202.json.fatto": {
+   "impronta": "1e012b18d03feffd",
+   "secondi": 5893.867391824722,
+   "verifica": "uguale"
+  },
+  "A/A_Madrid_p1_s203.json.fatto": {
+   "impronta": "49484eb0b92e0b3f",
+   "secondi": 5915.291229248047,
+   "verifica": "uguale"
+  },
+  "A/A_Madrid_p1_s204.json.fatto": {
+   "impronta": "7f944bea7fdd06ff",
+   "secondi": 5870.786907672882,
+   "verifica": "uguale"
+  },
+  "A/A_Madrid_p1_s205.json.fatto": {
+   "impronta": "7f35ccf32ceabfbb",
+   "secondi": 5924.412900686264,
+   "verifica": "uguale"
+  },
+  "A/A_Madrid_p1_s206.json.fatto": {
+   "impronta": "a7b988df8c03c1fa",
+   "secondi": 5789.826763629913,
+   "verifica": "uguale"
+  },
+  "A/A_Madrid_p2_s201.json.fatto": {
+   "impronta": "4e669026c82f4acb",
+   "secondi": 5995.76435136795,
+   "verifica": "uguale"
+  },
+  "A/A_Madrid_p2_s202.json.fatto": {
+   "impronta": "4c4a2b792a4ced0a",
+   "secondi": 5910.050462961197,
+   "verifica": "uguale"
+  },
+  "A/A_Madrid_p2_s203.json.fatto": {
+   "impronta": "2e79103bde3eeedc",
+   "secondi": 5895.044542312622,
+   "verifica": "uguale"
+  },
+  "A/A_Madrid_p2_s204.json.fatto": {
+   "impronta": "98228c54f1a76cdb",
+   "secondi": 5958.342596292496,
+   "verifica": "uguale"
+  },
+  "A/A_Madrid_p2_s205.json.fatto": {
+   "impronta": "40733c5085413d3e",
+   "secondi": 5918.989654302597,
+   "verifica": "uguale"
+  },
+  "A/A_Madrid_p2_s206.json.fatto": {
+   "impronta": "f600e796225d96c5",
+   "secondi": 5145.060672283173,
+   "verifica": "uguale"
+  },
+  "A/A_Melbourne_p0_s201.json.fatto": {
+   "impronta": "5bd3dce43a7d9d92",
+   "secondi": 4088.9292607307434,
+   "verifica": "uguale"
+  },
+  "A/A_Melbourne_p0_s202.json.fatto": {
+   "impronta": "e7eccab4a3b7e3a3",
+   "secondi": 4053.9766733646393,
+   "verifica": "uguale"
+  },
+  "A/A_Melbourne_p0_s203.json.fatto": {
+   "impronta": "8d4828a12fd3e282",
+   "secondi": 4089.52375125885,
+   "verifica": "uguale"
+  },
+  "A/A_Melbourne_p0_s204.json.fatto": {
+   "impronta": "64776eed9c7e0778",
+   "secondi": 4051.4165744781494,
+   "verifica": "uguale"
+  },
+  "A/A_Melbourne_p0_s205.json.fatto": {
+   "impronta": "e361da049b9e624b",
+   "secondi": 4082.7712330818176,
+   "verifica": "uguale"
+  },
+  "A/A_Melbourne_p0_s206.json.fatto": {
+   "impronta": "d18c045547af6802",
+   "secondi": 4072.8487486839294,
+   "verifica": "uguale"
+  },
+  "A/A_Melbourne_p1_s201.json.fatto": {
+   "impronta": "0ad3bd53818e4d3b",
+   "secondi": 4055.914544582367,
+   "verifica": "uguale"
+  },
+  "A/A_Melbourne_p1_s202.json.fatto": {
+   "impronta": "151b98b42b37fd8f",
+   "secondi": 4077.9826815128326,
+   "verifica": "uguale"
+  },
+  "A/A_Melbourne_p1_s203.json.fatto": {
+   "impronta": "e3fb24f616312e1a",
+   "secondi": 4037.882990837097,
+   "verifica": "uguale"
+  },
+  "A/A_Melbourne_p1_s204.json.fatto": {
+   "impronta": "12716995cfbb11bd",
+   "secondi": 4062.708509683609,
+   "verifica": "uguale"
+  },
+  "A/A_Melbourne_p1_s205.json.fatto": {
+   "impronta": "0013beb9d421dfab",
+   "secondi": 4038.3683483600616,
+   "verifica": "uguale"
+  },
+  "A/A_Melbourne_p1_s206.json.fatto": {
+   "impronta": "cea2e43e8b091c47",
+   "secondi": 4035.7244906425476,
+   "verifica": "uguale"
+  },
+  "A/A_Melbourne_p2_s201.json.fatto": {
+   "impronta": "a9c9167d895ceb1d",
+   "secondi": 4067.4505393505096,
+   "verifica": "uguale"
+  },
+  "A/A_Melbourne_p2_s202.json.fatto": {
+   "impronta": "1138415d791ea929",
+   "secondi": 4094.8916137218475,
+   "verifica": "uguale"
+  },
+  "A/A_Melbourne_p2_s203.json.fatto": {
+   "impronta": "bbc6a69c26b3abb4",
+   "secondi": 4033.8586616516113,
+   "verifica": "uguale"
+  },
+  "A/A_Melbourne_p2_s204.json.fatto": {
+   "impronta": "6b9b74927668257d",
+   "secondi": 4074.180021762848,
+   "verifica": "uguale"
+  },
+  "A/A_Melbourne_p2_s205.json.fatto": {
+   "impronta": "2184328b671bc2a8",
+   "secondi": 4073.7435636520386,
+   "verifica": "uguale"
+  },
+  "A/A_Melbourne_p2_s206.json.fatto": {
+   "impronta": "043f89aeb73731a4",
+   "secondi": 4070.5469856262207,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Londra_p0_s201.json.fatto": {
+   "impronta": "c6fafa14a68c5fe3",
+   "secondi": 5917.343112707138,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Londra_p0_s202.json.fatto": {
+   "impronta": "b7de2051299dc21c",
+   "secondi": 5912.708631277084,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Londra_p0_s203.json.fatto": {
+   "impronta": "6482f4e2d3afd3f3",
+   "secondi": 5890.582373142242,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Londra_p0_s204.json.fatto": {
+   "impronta": "69a2ba447e389cc6",
+   "secondi": 5934.393661737442,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Londra_p0_s205.json.fatto": {
+   "impronta": "96f16c9bf220259a",
+   "secondi": 5879.3145842552185,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Londra_p0_s206.json.fatto": {
+   "impronta": "e3691ca437fbdc6b",
+   "secondi": 5839.255586385727,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Londra_p1_s201.json.fatto": {
+   "impronta": "7320aae6be008c23",
+   "secondi": 5883.854297161102,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Londra_p1_s202.json.fatto": {
+   "impronta": "b4dd09847a82ad0d",
+   "secondi": 5849.680360794067,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Londra_p1_s203.json.fatto": {
+   "impronta": "e89eb0b08f37ad72",
+   "secondi": 5829.440760850906,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Londra_p1_s204.json.fatto": {
+   "impronta": "68dbeebd334b1f57",
+   "secondi": 5819.582883358002,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Londra_p1_s205.json.fatto": {
+   "impronta": "cbed6401223cf9c2",
+   "secondi": 5848.769011735916,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Londra_p1_s206.json.fatto": {
+   "impronta": "78eb145b43baa0f7",
+   "secondi": 5848.097126960754,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Londra_p2_s201.json.fatto": {
+   "impronta": "6afc97ca2edbe5ea",
+   "secondi": 5972.668961763382,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Londra_p2_s202.json.fatto": {
+   "impronta": "d3234ebc6eb07fb4",
+   "secondi": 5931.313821077347,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Londra_p2_s203.json.fatto": {
+   "impronta": "f20a022428a4b436",
+   "secondi": 5959.606213569641,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Londra_p2_s204.json.fatto": {
+   "impronta": "7293768436dc6ade",
+   "secondi": 5929.891003847122,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Londra_p2_s205.json.fatto": {
+   "impronta": "a27a4544896baa13",
+   "secondi": 5966.58011007309,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Londra_p2_s206.json.fatto": {
+   "impronta": "0a57badc128cb964",
+   "secondi": 4563.161682605743,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Madrid_p0_s201.json.fatto": {
+   "impronta": "d745323c7aa25487",
+   "secondi": 5877.412506103516,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Madrid_p0_s202.json.fatto": {
+   "impronta": "c153e56e85da9d06",
+   "secondi": 5971.254763364792,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Madrid_p0_s203.json.fatto": {
+   "impronta": "ff777560c342e312",
+   "secondi": 5933.926255941391,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Madrid_p0_s204.json.fatto": {
+   "impronta": "f4a80017e5015006",
+   "secondi": 5935.253031492233,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Madrid_p0_s205.json.fatto": {
+   "impronta": "c7ac9a46b58bb9ce",
+   "secondi": 5953.706417798996,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Madrid_p0_s206.json.fatto": {
+   "impronta": "6e3d2749d3f94167",
+   "secondi": 5942.493769407272,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Madrid_p1_s201.json.fatto": {
+   "impronta": "b727f9369dd76364",
+   "secondi": 5872.656351327896,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Madrid_p1_s202.json.fatto": {
+   "impronta": "88bb582bbc0fd97c",
+   "secondi": 5866.632189273834,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Madrid_p1_s203.json.fatto": {
+   "impronta": "2ca7632a21be2f8a",
+   "secondi": 5887.602066516876,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Madrid_p1_s204.json.fatto": {
+   "impronta": "d1e5b0cbfa6037ff",
+   "secondi": 5841.305771112442,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Madrid_p1_s205.json.fatto": {
+   "impronta": "252f3775c5e4f7df",
+   "secondi": 5863.869450569153,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Madrid_p1_s206.json.fatto": {
+   "impronta": "a113a25b549a0f17",
+   "secondi": 5744.197031021118,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Madrid_p2_s201.json.fatto": {
+   "impronta": "3afed0ea51b5eb6c",
+   "secondi": 6008.869431972504,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Madrid_p2_s202.json.fatto": {
+   "impronta": "b833cc015d1648df",
+   "secondi": 5942.6315841674805,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Madrid_p2_s203.json.fatto": {
+   "impronta": "9b14e120db7242b7",
+   "secondi": 5986.166926622391,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Madrid_p2_s204.json.fatto": {
+   "impronta": "aad4754dcf422c7d",
+   "secondi": 6006.983224630356,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Madrid_p2_s205.json.fatto": {
+   "impronta": "ff161a4561e9639c",
+   "secondi": 5907.007005929947,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Madrid_p2_s206.json.fatto": {
+   "impronta": "a1bb3ef79ca37fef",
+   "secondi": 5087.040568351746,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Melbourne_p0_s201.json.fatto": {
+   "impronta": "3011c0fdff4888d2",
+   "secondi": 4091.573371887207,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Melbourne_p0_s202.json.fatto": {
+   "impronta": "658c5b468212584e",
+   "secondi": 4059.5446376800537,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Melbourne_p0_s203.json.fatto": {
+   "impronta": "0aeb50bb6845ab70",
+   "secondi": 4043.658758878708,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Melbourne_p0_s204.json.fatto": {
+   "impronta": "836035c8fb4b6863",
+   "secondi": 4076.906835794449,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Melbourne_p0_s205.json.fatto": {
+   "impronta": "7ee76a5c338ca711",
+   "secondi": 4060.574925661087,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Melbourne_p0_s206.json.fatto": {
+   "impronta": "16f6a42235f741a2",
+   "secondi": 4047.863469839096,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Melbourne_p1_s201.json.fatto": {
+   "impronta": "70a84b24aeaccc01",
+   "secondi": 4047.9378390312195,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Melbourne_p1_s202.json.fatto": {
+   "impronta": "e4f2189b5e77c473",
+   "secondi": 4059.032961368561,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Melbourne_p1_s203.json.fatto": {
+   "impronta": "dcb10029d55ea9b4",
+   "secondi": 4072.2252790927887,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Melbourne_p1_s204.json.fatto": {
+   "impronta": "b5e462cfff2dd6be",
+   "secondi": 4050.457606315613,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Melbourne_p1_s205.json.fatto": {
+   "impronta": "d56ff45d527b9a73",
+   "secondi": 4047.4039599895477,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Melbourne_p1_s206.json.fatto": {
+   "impronta": "85fd250970ac2b4e",
+   "secondi": 4075.8873450756073,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Melbourne_p2_s201.json.fatto": {
+   "impronta": "90f1ab46c5926a72",
+   "secondi": 4053.267420530319,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Melbourne_p2_s202.json.fatto": {
+   "impronta": "c48a6a730e8aa455",
+   "secondi": 4084.2971329689026,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Melbourne_p2_s203.json.fatto": {
+   "impronta": "16b7a63dba930bb4",
+   "secondi": 4078.5200893878937,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Melbourne_p2_s204.json.fatto": {
+   "impronta": "647bb0e2f9a20aa0",
+   "secondi": 4067.07004070282,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Melbourne_p2_s205.json.fatto": {
+   "impronta": "ea542683844a1ea3",
+   "secondi": 4037.3199157714844,
+   "verifica": "uguale"
+  },
+  "C_A/C_A_Melbourne_p2_s206.json.fatto": {
+   "impronta": "28060dcf5db73ff1",
+   "secondi": 4059.962070465088,
+   "verifica": "uguale"
+  },
+  "esito_e15.json": {
+   "impronta": "e282c18d3f514641",
+   "verifica": "uguale"
+  },
+  "pilota_tempi_16.json": {
+   "impronta": "ceaf1a5c1cd27ac8",
+   "verifica": "uguale"
+  }
+ },
+ "impronte": {
+  "e15_risultati.json": "82df1d02792e330e",
+  "protocol/E15.md": "31d731567da30bb4"
+ }
+}

@@ -1,0 +1,3244 @@
+{
+  "data": "2026-10-10",
+  "commit": "33cafd6e2914",
+  "esecuzioni": {
+    "completate": 216,
+    "fallite": 0,
+    "ore_calendario": 33.00497557918231,
+    "somma_parete_ore": 261.1663605933057,
+    "lavoratori": 8,
+    "marcatori": {
+      "R-orig": 108,
+      "R-mon": 108
+    },
+    "isolate": {
+      "R-orig": 9,
+      "R-mon": 9
+    },
+    "ricostruzione": {
+      "R": {
+        "esecuzioni": 108,
+        "anomalie": 0,
+        "scarto_max": 9.844184396702279e-09
+      },
+      "R-orig": {
+        "esecuzioni": 108,
+        "anomalie": 0,
+        "scarto_max": 4.533624537666348e-09
+      },
+      "R-mon": {
+        "esecuzioni": 108,
+        "anomalie": 0,
+        "scarto_max": 4.533624537666348e-09
+      }
+    }
+  },
+  "analisi": {
+    "confronti": {
+      "Madrid/R-orig-C": {
+        "media": -0.01392643154461556,
+        "ic_con_nodi": [
+          -0.022978263871117077,
+          -0.003961146159127823
+        ],
+        "include_zero": false,
+        "etichetta": "1. R-orig - C     principale"
+      },
+      "Madrid/R-orig-R": {
+        "media": -0.11107290885553892,
+        "ic_con_nodi": [
+          -0.1773634748961586,
+          -0.05105726851181091
+        ],
+        "include_zero": false,
+        "etichetta": "R-orig - R     campionamento"
+      },
+      "Madrid/R-mon-R-orig": {
+        "media": 2.0656766023776888e-05,
+        "ic_con_nodi": [
+          -1.7362526831249853e-05,
+          0.0001509763235567438
+        ],
+        "include_zero": true,
+        "etichetta": "R-mon - R-orig sorveglianza"
+      },
+      "Madrid/R-mon-C": {
+        "media": -0.013905774778591784,
+        "ic_con_nodi": [
+          -0.02284268929058869,
+          -0.004378388014520252
+        ],
+        "include_zero": false,
+        "etichetta": "R-mon - C      descrittivo"
+      },
+      "Londra/R-orig-C": {
+        "media": 0.04948456296217298,
+        "ic_con_nodi": [
+          0.034298726407718215,
+          0.06707298350994355
+        ],
+        "include_zero": false,
+        "etichetta": "1. R-orig - C     principale"
+      },
+      "Londra/R-orig-R": {
+        "media": -0.08535254542219085,
+        "ic_con_nodi": [
+          -0.12398096040149018,
+          -0.05161372104095697
+        ],
+        "include_zero": false,
+        "etichetta": "R-orig - R     campionamento"
+      },
+      "Londra/R-mon-R-orig": {
+        "media": 0.0,
+        "ic_con_nodi": [
+          0.0,
+          0.0
+        ],
+        "include_zero": true,
+        "etichetta": "R-mon - R-orig sorveglianza"
+      },
+      "Londra/R-mon-C": {
+        "media": 0.04948456296217298,
+        "ic_con_nodi": [
+          0.034404830410894795,
+          0.06666482477561225
+        ],
+        "include_zero": false,
+        "etichetta": "R-mon - C      descrittivo"
+      },
+      "Melbourne/R-orig-C": {
+        "media": 0.01073573860868119,
+        "ic_con_nodi": [
+          -0.011311979318578157,
+          0.03453235072214656
+        ],
+        "include_zero": true,
+        "etichetta": "1. R-orig - C     principale"
+      },
+      "Melbourne/R-orig-R": {
+        "media": -0.13783581270831416,
+        "ic_con_nodi": [
+          -0.20549391790571686,
+          -0.08264526398059055
+        ],
+        "include_zero": false,
+        "etichetta": "R-orig - R     campionamento"
+      },
+      "Melbourne/R-mon-R-orig": {
+        "media": 0.0,
+        "ic_con_nodi": [
+          0.0,
+          0.0
+        ],
+        "include_zero": true,
+        "etichetta": "R-mon - R-orig sorveglianza"
+      },
+      "Melbourne/R-mon-C": {
+        "media": 0.01073573860868119,
+        "ic_con_nodi": [
+          -0.010817219419881513,
+          0.037064713570200504
+        ],
+        "include_zero": true,
+        "etichetta": "R-mon - C      descrittivo"
+      }
+    },
+    "celle": {
+      "Madrid": {
+        "semi": 12,
+        "partizioni": 3,
+        "nodi": 135
+      },
+      "Londra": {
+        "semi": 12,
+        "partizioni": 3,
+        "nodi": 135
+      },
+      "Melbourne": {
+        "semi": 12,
+        "partizioni": 3,
+        "nodi": 90
+      }
+    },
+    "mancanti": {},
+    "principale": {
+      "Madrid": "paga",
+      "Londra": "non paga",
+      "Melbourne": "non conclusivo"
+    },
+    "repliche": 4000,
+    "seme_bootstrap": 20261002,
+    "riviste": {
+      "R": {
+        "esecuzioni": 108,
+        "lancio": {
+          "Londra_p0_s201": {
+            "file": "R_Londra_p0_s201.json",
+            "impronta": "8410c0af7bd0af51",
+            "modalita": "isolata"
+          },
+          "Londra_p0_s202": {
+            "file": "R_Londra_p0_s202.json",
+            "impronta": "11458b528f94d7e8",
+            "modalita": "isolata"
+          },
+          "Londra_p0_s203": {
+            "file": "R_Londra_p0_s203.json",
+            "impronta": "4cb4d02d5e2b8c04",
+            "modalita": "isolata"
+          },
+          "Londra_p0_s204": {
+            "file": "R_Londra_p0_s204.json",
+            "impronta": "d3ceba3681d4de37",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s205": {
+            "file": "R_Londra_p0_s205.json",
+            "impronta": "aae235f4b28ac9a7",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s206": {
+            "file": "R_Londra_p0_s206.json",
+            "impronta": "f922d8588caeac92",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s207": {
+            "file": "R_Londra_p0_s207.json",
+            "impronta": "3ab9efadca582429",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s208": {
+            "file": "R_Londra_p0_s208.json",
+            "impronta": "02e62d5ce369f2ae",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s209": {
+            "file": "R_Londra_p0_s209.json",
+            "impronta": "3666087476b9e324",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s210": {
+            "file": "R_Londra_p0_s210.json",
+            "impronta": "3d0fd860f2a546df",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s211": {
+            "file": "R_Londra_p0_s211.json",
+            "impronta": "c61b67aa8ed03450",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s212": {
+            "file": "R_Londra_p0_s212.json",
+            "impronta": "efa4105aaa29ee63",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s201": {
+            "file": "R_Londra_p1_s201.json",
+            "impronta": "278fb7c4665c76d0",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s202": {
+            "file": "R_Londra_p1_s202.json",
+            "impronta": "a7e122216ea7647f",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s203": {
+            "file": "R_Londra_p1_s203.json",
+            "impronta": "204b2b59fa3ce32f",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s204": {
+            "file": "R_Londra_p1_s204.json",
+            "impronta": "fb37baa3b03ff128",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s205": {
+            "file": "R_Londra_p1_s205.json",
+            "impronta": "53061f2716226fb8",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s206": {
+            "file": "R_Londra_p1_s206.json",
+            "impronta": "f264cfdbb170995a",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s207": {
+            "file": "R_Londra_p1_s207.json",
+            "impronta": "17286406abab815a",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s208": {
+            "file": "R_Londra_p1_s208.json",
+            "impronta": "747f44f6144bb49a",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s209": {
+            "file": "R_Londra_p1_s209.json",
+            "impronta": "3b14b869c489ab08",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s210": {
+            "file": "R_Londra_p1_s210.json",
+            "impronta": "b45351c75113c630",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s211": {
+            "file": "R_Londra_p1_s211.json",
+            "impronta": "0c3fba6fdcc32484",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s212": {
+            "file": "R_Londra_p1_s212.json",
+            "impronta": "9ff157c947811c23",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s201": {
+            "file": "R_Londra_p2_s201.json",
+            "impronta": "367c591f44a4a1bd",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s202": {
+            "file": "R_Londra_p2_s202.json",
+            "impronta": "90ebe567a3f7e3ee",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s203": {
+            "file": "R_Londra_p2_s203.json",
+            "impronta": "50101f3a1e565395",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s204": {
+            "file": "R_Londra_p2_s204.json",
+            "impronta": "46f4ecefccb21fcf",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s205": {
+            "file": "R_Londra_p2_s205.json",
+            "impronta": "166e72717c4f3195",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s206": {
+            "file": "R_Londra_p2_s206.json",
+            "impronta": "8745b4fca0928bca",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s207": {
+            "file": "R_Londra_p2_s207.json",
+            "impronta": "c91b6022ab825709",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s208": {
+            "file": "R_Londra_p2_s208.json",
+            "impronta": "a9f0b6c9be5feb1a",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s209": {
+            "file": "R_Londra_p2_s209.json",
+            "impronta": "760a11d7fbfd07f1",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s210": {
+            "file": "R_Londra_p2_s210.json",
+            "impronta": "83e2d4f2529d00d2",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s211": {
+            "file": "R_Londra_p2_s211.json",
+            "impronta": "1deb35d27367d52e",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s212": {
+            "file": "R_Londra_p2_s212.json",
+            "impronta": "e150cd2c9329ab31",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s201": {
+            "file": "R_Madrid_p0_s201.json",
+            "impronta": "06aeff608f701f30",
+            "modalita": "isolata"
+          },
+          "Madrid_p0_s202": {
+            "file": "R_Madrid_p0_s202.json",
+            "impronta": "dcd16c5c0d8ae525",
+            "modalita": "isolata"
+          },
+          "Madrid_p0_s203": {
+            "file": "R_Madrid_p0_s203.json",
+            "impronta": "d83d78635f78ecaa",
+            "modalita": "isolata"
+          },
+          "Madrid_p0_s204": {
+            "file": "R_Madrid_p0_s204.json",
+            "impronta": "9f9002138e56edb5",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s205": {
+            "file": "R_Madrid_p0_s205.json",
+            "impronta": "0c42a8e0c409eb14",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s206": {
+            "file": "R_Madrid_p0_s206.json",
+            "impronta": "2c55db75c6062142",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s207": {
+            "file": "R_Madrid_p0_s207.json",
+            "impronta": "0bf1dca4e25664b1",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s208": {
+            "file": "R_Madrid_p0_s208.json",
+            "impronta": "347c1e1a97b6bc33",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s209": {
+            "file": "R_Madrid_p0_s209.json",
+            "impronta": "b621f87191e36888",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s210": {
+            "file": "R_Madrid_p0_s210.json",
+            "impronta": "e6ed11b0e1872b89",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s211": {
+            "file": "R_Madrid_p0_s211.json",
+            "impronta": "bd201bb94db4074e",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s212": {
+            "file": "R_Madrid_p0_s212.json",
+            "impronta": "def61d7e40f816cb",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s201": {
+            "file": "R_Madrid_p1_s201.json",
+            "impronta": "06f8f89108189b03",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s202": {
+            "file": "R_Madrid_p1_s202.json",
+            "impronta": "121984c215d5305a",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s203": {
+            "file": "R_Madrid_p1_s203.json",
+            "impronta": "da68cc07d32086b3",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s204": {
+            "file": "R_Madrid_p1_s204.json",
+            "impronta": "ef632b36bf1a52be",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s205": {
+            "file": "R_Madrid_p1_s205.json",
+            "impronta": "0570f1b0cc7081f0",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s206": {
+            "file": "R_Madrid_p1_s206.json",
+            "impronta": "0f0c22a40d0bb1d0",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s207": {
+            "file": "R_Madrid_p1_s207.json",
+            "impronta": "2e65fb47564b1a5b",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s208": {
+            "file": "R_Madrid_p1_s208.json",
+            "impronta": "ba7aea800fc983de",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s209": {
+            "file": "R_Madrid_p1_s209.json",
+            "impronta": "2a039c14930f2a17",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s210": {
+            "file": "R_Madrid_p1_s210.json",
+            "impronta": "7de22f5b9daf187b",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s211": {
+            "file": "R_Madrid_p1_s211.json",
+            "impronta": "8c11eb42192eb2fe",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s212": {
+            "file": "R_Madrid_p1_s212.json",
+            "impronta": "438612182ae2ee94",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s201": {
+            "file": "R_Madrid_p2_s201.json",
+            "impronta": "06816e742b82579c",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s202": {
+            "file": "R_Madrid_p2_s202.json",
+            "impronta": "c0ac262e2e5348d8",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s203": {
+            "file": "R_Madrid_p2_s203.json",
+            "impronta": "092812be283e9704",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s204": {
+            "file": "R_Madrid_p2_s204.json",
+            "impronta": "3f4920232e315eb8",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s205": {
+            "file": "R_Madrid_p2_s205.json",
+            "impronta": "88868d9e375548c7",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s206": {
+            "file": "R_Madrid_p2_s206.json",
+            "impronta": "08d4615606293569",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s207": {
+            "file": "R_Madrid_p2_s207.json",
+            "impronta": "e395123f35334aec",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s208": {
+            "file": "R_Madrid_p2_s208.json",
+            "impronta": "e153d44a362a7b54",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s209": {
+            "file": "R_Madrid_p2_s209.json",
+            "impronta": "a39fd748063620d2",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s210": {
+            "file": "R_Madrid_p2_s210.json",
+            "impronta": "f680cf1cc1f74807",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s211": {
+            "file": "R_Madrid_p2_s211.json",
+            "impronta": "b4d21edf1224df70",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s212": {
+            "file": "R_Madrid_p2_s212.json",
+            "impronta": "7d17c3b29a252032",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s201": {
+            "file": "R_Melbourne_p0_s201.json",
+            "impronta": "591edb2cfc602bc6",
+            "modalita": "isolata"
+          },
+          "Melbourne_p0_s202": {
+            "file": "R_Melbourne_p0_s202.json",
+            "impronta": "4fe6260285889350",
+            "modalita": "isolata"
+          },
+          "Melbourne_p0_s203": {
+            "file": "R_Melbourne_p0_s203.json",
+            "impronta": "5b3f4a72a121e5e6",
+            "modalita": "isolata"
+          },
+          "Melbourne_p0_s204": {
+            "file": "R_Melbourne_p0_s204.json",
+            "impronta": "436f2efa1818b215",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s205": {
+            "file": "R_Melbourne_p0_s205.json",
+            "impronta": "f85594054e0bfb0e",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s206": {
+            "file": "R_Melbourne_p0_s206.json",
+            "impronta": "dd3405df5e64d652",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s207": {
+            "file": "R_Melbourne_p0_s207.json",
+            "impronta": "5b7db8a06e53a42f",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s208": {
+            "file": "R_Melbourne_p0_s208.json",
+            "impronta": "76dcda44ac3531a4",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s209": {
+            "file": "R_Melbourne_p0_s209.json",
+            "impronta": "62be55953beed464",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s210": {
+            "file": "R_Melbourne_p0_s210.json",
+            "impronta": "db8e684435884680",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s211": {
+            "file": "R_Melbourne_p0_s211.json",
+            "impronta": "32dbc3eb46a21dca",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s212": {
+            "file": "R_Melbourne_p0_s212.json",
+            "impronta": "3fba9ff61341c4a3",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s201": {
+            "file": "R_Melbourne_p1_s201.json",
+            "impronta": "95fb6f33b6c19bc0",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s202": {
+            "file": "R_Melbourne_p1_s202.json",
+            "impronta": "91b69985f9f6d08c",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s203": {
+            "file": "R_Melbourne_p1_s203.json",
+            "impronta": "97f3a9cd4f051de2",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s204": {
+            "file": "R_Melbourne_p1_s204.json",
+            "impronta": "b96453020f412576",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s205": {
+            "file": "R_Melbourne_p1_s205.json",
+            "impronta": "d5de6b99dff51af0",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s206": {
+            "file": "R_Melbourne_p1_s206.json",
+            "impronta": "66382ee44fc19492",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s207": {
+            "file": "R_Melbourne_p1_s207.json",
+            "impronta": "67cabb2efcddf4dc",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s208": {
+            "file": "R_Melbourne_p1_s208.json",
+            "impronta": "22cc5022b8f49ec2",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s209": {
+            "file": "R_Melbourne_p1_s209.json",
+            "impronta": "25aec8ca888a83d2",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s210": {
+            "file": "R_Melbourne_p1_s210.json",
+            "impronta": "03443d478f376048",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s211": {
+            "file": "R_Melbourne_p1_s211.json",
+            "impronta": "2e5c0f33cecffa74",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s212": {
+            "file": "R_Melbourne_p1_s212.json",
+            "impronta": "a2b20bcc20513202",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s201": {
+            "file": "R_Melbourne_p2_s201.json",
+            "impronta": "6659d646fb13e78e",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s202": {
+            "file": "R_Melbourne_p2_s202.json",
+            "impronta": "eccae27f3947c4f9",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s203": {
+            "file": "R_Melbourne_p2_s203.json",
+            "impronta": "656b2ebb00be3fc3",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s204": {
+            "file": "R_Melbourne_p2_s204.json",
+            "impronta": "04b3f38c7e6d32cb",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s205": {
+            "file": "R_Melbourne_p2_s205.json",
+            "impronta": "3efbd40d99cce50f",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s206": {
+            "file": "R_Melbourne_p2_s206.json",
+            "impronta": "a996bda882873570",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s207": {
+            "file": "R_Melbourne_p2_s207.json",
+            "impronta": "aef713102462708d",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s208": {
+            "file": "R_Melbourne_p2_s208.json",
+            "impronta": "3efcdcb0c517aa68",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s209": {
+            "file": "R_Melbourne_p2_s209.json",
+            "impronta": "662aaa4603c0501b",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s210": {
+            "file": "R_Melbourne_p2_s210.json",
+            "impronta": "7d399239d192b9bb",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s211": {
+            "file": "R_Melbourne_p2_s211.json",
+            "impronta": "4ee26b4f120a1887",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s212": {
+            "file": "R_Melbourne_p2_s212.json",
+            "impronta": "3d1d607666409bc3",
+            "modalita": "concorrente"
+          }
+        },
+        "rip_iniziali": {
+          "mediana": 9.383461232828465,
+          "minimo": 8.704646783633295,
+          "massimo": 9.414420682555173
+        },
+        "rip_nuovi": {
+          "mediana": 807.9334207263123,
+          "minimo": 802.8004847762867,
+          "massimo": 1105.354760790009
+        },
+        "rapporto_rip": {
+          "mediana": 92.76704882787044,
+          "minimo": 85.2988415534527,
+          "massimo": 117.46069568658278
+        },
+        "estr_iniziali": {
+          "mediana": 60347.46031746032,
+          "minimo": 60205.95903614458,
+          "massimo": 60357.37936507937
+        },
+        "estr_nuovi": {
+          "mediana": 60328.38148148148,
+          "minimo": 60170.833333333336,
+          "massimo": 60398.68148148148
+        },
+        "quota_nuovi": {
+          "mediana": 0.17648116379011575,
+          "minimo": 0.17634580560754143,
+          "massimo": 0.178412131056979
+        }
+      },
+      "R-orig": {
+        "esecuzioni": 108,
+        "lancio": {
+          "Londra_p0_s201": {
+            "file": "R-orig_Londra_p0_s201.json",
+            "impronta": "b52386c35ebdda3d",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s202": {
+            "file": "R-orig_Londra_p0_s202.json",
+            "impronta": "679cbb6a8929df82",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s203": {
+            "file": "R-orig_Londra_p0_s203.json",
+            "impronta": "2ace522dac20ffc4",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s204": {
+            "file": "R-orig_Londra_p0_s204.json",
+            "impronta": "e591ea524a42f696",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s205": {
+            "file": "R-orig_Londra_p0_s205.json",
+            "impronta": "30859f99d1c82200",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s206": {
+            "file": "R-orig_Londra_p0_s206.json",
+            "impronta": "0adfbbfb5478fb48",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s207": {
+            "file": "R-orig_Londra_p0_s207.json",
+            "impronta": "107143b69313839b",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s208": {
+            "file": "R-orig_Londra_p0_s208.json",
+            "impronta": "e5237d8d37eb902e",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s209": {
+            "file": "R-orig_Londra_p0_s209.json",
+            "impronta": "e22797991edd1bc0",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s210": {
+            "file": "R-orig_Londra_p0_s210.json",
+            "impronta": "745e2bb9f60533ec",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s211": {
+            "file": "R-orig_Londra_p0_s211.json",
+            "impronta": "c444290d7e9e7078",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s212": {
+            "file": "R-orig_Londra_p0_s212.json",
+            "impronta": "2e9919da7f0c9817",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s201": {
+            "file": "R-orig_Londra_p1_s201.json",
+            "impronta": "0323f2c5c2ce413c",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s202": {
+            "file": "R-orig_Londra_p1_s202.json",
+            "impronta": "dbdd38c5c4c31abc",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s203": {
+            "file": "R-orig_Londra_p1_s203.json",
+            "impronta": "7aa6c4250af7b116",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s204": {
+            "file": "R-orig_Londra_p1_s204.json",
+            "impronta": "052e719872381643",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s205": {
+            "file": "R-orig_Londra_p1_s205.json",
+            "impronta": "aed02990d538cccc",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s206": {
+            "file": "R-orig_Londra_p1_s206.json",
+            "impronta": "3558c074594eddf0",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s207": {
+            "file": "R-orig_Londra_p1_s207.json",
+            "impronta": "f76a6135374b17b6",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s208": {
+            "file": "R-orig_Londra_p1_s208.json",
+            "impronta": "cded84110f395101",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s209": {
+            "file": "R-orig_Londra_p1_s209.json",
+            "impronta": "490621901ba8e22c",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s210": {
+            "file": "R-orig_Londra_p1_s210.json",
+            "impronta": "e655dae686cd89f2",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s211": {
+            "file": "R-orig_Londra_p1_s211.json",
+            "impronta": "89fbaeaef8487afe",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s212": {
+            "file": "R-orig_Londra_p1_s212.json",
+            "impronta": "62c07ce155f9ca09",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s201": {
+            "file": "R-orig_Londra_p2_s201.json",
+            "impronta": "2c9529f6fe31f317",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s202": {
+            "file": "R-orig_Londra_p2_s202.json",
+            "impronta": "d9eb2fdca07a58b0",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s203": {
+            "file": "R-orig_Londra_p2_s203.json",
+            "impronta": "75530b043d576d23",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s204": {
+            "file": "R-orig_Londra_p2_s204.json",
+            "impronta": "8963f36b5acf821b",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s205": {
+            "file": "R-orig_Londra_p2_s205.json",
+            "impronta": "cd0d7c90830ef9a6",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s206": {
+            "file": "R-orig_Londra_p2_s206.json",
+            "impronta": "66aca84a6a7f5e10",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s207": {
+            "file": "R-orig_Londra_p2_s207.json",
+            "impronta": "44436eddb68aacae",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s208": {
+            "file": "R-orig_Londra_p2_s208.json",
+            "impronta": "a9839f7fa5e51416",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s209": {
+            "file": "R-orig_Londra_p2_s209.json",
+            "impronta": "fd314025d377a676",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s210": {
+            "file": "R-orig_Londra_p2_s210.json",
+            "impronta": "9713b84be6f1e97b",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s211": {
+            "file": "R-orig_Londra_p2_s211.json",
+            "impronta": "c687f18b53846eba",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s212": {
+            "file": "R-orig_Londra_p2_s212.json",
+            "impronta": "794a910c4931fc54",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s201": {
+            "file": "R-orig_Madrid_p0_s201.json",
+            "impronta": "d19cc7f6c253cc50",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s202": {
+            "file": "R-orig_Madrid_p0_s202.json",
+            "impronta": "cf29bad1d1771e22",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s203": {
+            "file": "R-orig_Madrid_p0_s203.json",
+            "impronta": "fe2322e4f5f2e551",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s204": {
+            "file": "R-orig_Madrid_p0_s204.json",
+            "impronta": "70fda2a237ed0a0a",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s205": {
+            "file": "R-orig_Madrid_p0_s205.json",
+            "impronta": "1d257ddc4fc446de",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s206": {
+            "file": "R-orig_Madrid_p0_s206.json",
+            "impronta": "77e44b25494c4937",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s207": {
+            "file": "R-orig_Madrid_p0_s207.json",
+            "impronta": "b1d487fbe600c0b5",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s208": {
+            "file": "R-orig_Madrid_p0_s208.json",
+            "impronta": "8c3c31a149924801",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s209": {
+            "file": "R-orig_Madrid_p0_s209.json",
+            "impronta": "3f415ec2e37568af",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s210": {
+            "file": "R-orig_Madrid_p0_s210.json",
+            "impronta": "100feb901cfe543c",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s211": {
+            "file": "R-orig_Madrid_p0_s211.json",
+            "impronta": "f76095569018ef19",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s212": {
+            "file": "R-orig_Madrid_p0_s212.json",
+            "impronta": "29635b53f8e3b5cf",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s201": {
+            "file": "R-orig_Madrid_p1_s201.json",
+            "impronta": "7c6c06ce8985bc9c",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s202": {
+            "file": "R-orig_Madrid_p1_s202.json",
+            "impronta": "27418522369241cd",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s203": {
+            "file": "R-orig_Madrid_p1_s203.json",
+            "impronta": "88c49ad373b115f4",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s204": {
+            "file": "R-orig_Madrid_p1_s204.json",
+            "impronta": "132c176f1dcdc545",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s205": {
+            "file": "R-orig_Madrid_p1_s205.json",
+            "impronta": "4f3e7f01b47597a8",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s206": {
+            "file": "R-orig_Madrid_p1_s206.json",
+            "impronta": "725e49f4b353e72d",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s207": {
+            "file": "R-orig_Madrid_p1_s207.json",
+            "impronta": "f7848df7bdebbbe2",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s208": {
+            "file": "R-orig_Madrid_p1_s208.json",
+            "impronta": "30949bd1cc9f5dc3",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s209": {
+            "file": "R-orig_Madrid_p1_s209.json",
+            "impronta": "07722f34cb63bb73",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s210": {
+            "file": "R-orig_Madrid_p1_s210.json",
+            "impronta": "3aace6c27712ee91",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s211": {
+            "file": "R-orig_Madrid_p1_s211.json",
+            "impronta": "7f38d5a4dc1a2668",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s212": {
+            "file": "R-orig_Madrid_p1_s212.json",
+            "impronta": "fb659abb3af1c734",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s201": {
+            "file": "R-orig_Madrid_p2_s201.json",
+            "impronta": "1306e33472d4e761",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s202": {
+            "file": "R-orig_Madrid_p2_s202.json",
+            "impronta": "ca067038a5680b48",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s203": {
+            "file": "R-orig_Madrid_p2_s203.json",
+            "impronta": "5465664d89b4d293",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s204": {
+            "file": "R-orig_Madrid_p2_s204.json",
+            "impronta": "80ee78ac7134440d",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s205": {
+            "file": "R-orig_Madrid_p2_s205.json",
+            "impronta": "803fad353f88aa3b",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s206": {
+            "file": "R-orig_Madrid_p2_s206.json",
+            "impronta": "71743fdf423c9880",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s207": {
+            "file": "R-orig_Madrid_p2_s207.json",
+            "impronta": "e1a9edb135bff9b3",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s208": {
+            "file": "R-orig_Madrid_p2_s208.json",
+            "impronta": "cb7a2be3d84b7bbd",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s209": {
+            "file": "R-orig_Madrid_p2_s209.json",
+            "impronta": "859b3b4631935c5d",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s210": {
+            "file": "R-orig_Madrid_p2_s210.json",
+            "impronta": "9e54164103ddf979",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s211": {
+            "file": "R-orig_Madrid_p2_s211.json",
+            "impronta": "0fbb1b2e3587bfe2",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s212": {
+            "file": "R-orig_Madrid_p2_s212.json",
+            "impronta": "f7c72eb486726f09",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s201": {
+            "file": "R-orig_Melbourne_p0_s201.json",
+            "impronta": "995a46ce376a144f",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s202": {
+            "file": "R-orig_Melbourne_p0_s202.json",
+            "impronta": "7727f1461048d6a7",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s203": {
+            "file": "R-orig_Melbourne_p0_s203.json",
+            "impronta": "21044d0a4ed0e9fd",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s204": {
+            "file": "R-orig_Melbourne_p0_s204.json",
+            "impronta": "98bc53f4f4283cf3",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s205": {
+            "file": "R-orig_Melbourne_p0_s205.json",
+            "impronta": "fa2b307b540989a2",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s206": {
+            "file": "R-orig_Melbourne_p0_s206.json",
+            "impronta": "6d8c171381be0858",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s207": {
+            "file": "R-orig_Melbourne_p0_s207.json",
+            "impronta": "d5415674812d2316",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s208": {
+            "file": "R-orig_Melbourne_p0_s208.json",
+            "impronta": "8fd568ac28e854be",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s209": {
+            "file": "R-orig_Melbourne_p0_s209.json",
+            "impronta": "61809a70fc457979",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s210": {
+            "file": "R-orig_Melbourne_p0_s210.json",
+            "impronta": "924e714e05d4ab62",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s211": {
+            "file": "R-orig_Melbourne_p0_s211.json",
+            "impronta": "594dd4a798c00f10",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s212": {
+            "file": "R-orig_Melbourne_p0_s212.json",
+            "impronta": "4b9e2d398e7f7208",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s201": {
+            "file": "R-orig_Melbourne_p1_s201.json",
+            "impronta": "4cf8fa6c7fbde694",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s202": {
+            "file": "R-orig_Melbourne_p1_s202.json",
+            "impronta": "b0c95afacf14e6ef",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s203": {
+            "file": "R-orig_Melbourne_p1_s203.json",
+            "impronta": "5c3c6d462dc90878",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s204": {
+            "file": "R-orig_Melbourne_p1_s204.json",
+            "impronta": "2241239d8fbb1af6",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s205": {
+            "file": "R-orig_Melbourne_p1_s205.json",
+            "impronta": "e55610b25a9b70d0",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s206": {
+            "file": "R-orig_Melbourne_p1_s206.json",
+            "impronta": "d15847d30ae91e8a",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s207": {
+            "file": "R-orig_Melbourne_p1_s207.json",
+            "impronta": "980390bf1f84a413",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s208": {
+            "file": "R-orig_Melbourne_p1_s208.json",
+            "impronta": "ee77ed3b5f9b94e6",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s209": {
+            "file": "R-orig_Melbourne_p1_s209.json",
+            "impronta": "aef5254f62a79831",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s210": {
+            "file": "R-orig_Melbourne_p1_s210.json",
+            "impronta": "ff94e4853897adaf",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s211": {
+            "file": "R-orig_Melbourne_p1_s211.json",
+            "impronta": "a60aa49d55c56e6c",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s212": {
+            "file": "R-orig_Melbourne_p1_s212.json",
+            "impronta": "d48b8dfb0560d8ce",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s201": {
+            "file": "R-orig_Melbourne_p2_s201.json",
+            "impronta": "f99275aa8a35ab52",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s202": {
+            "file": "R-orig_Melbourne_p2_s202.json",
+            "impronta": "a61c6e0ccebaea20",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s203": {
+            "file": "R-orig_Melbourne_p2_s203.json",
+            "impronta": "adcd560cc8637896",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s204": {
+            "file": "R-orig_Melbourne_p2_s204.json",
+            "impronta": "2311f39a65a23641",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s205": {
+            "file": "R-orig_Melbourne_p2_s205.json",
+            "impronta": "5ab67980796835b2",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s206": {
+            "file": "R-orig_Melbourne_p2_s206.json",
+            "impronta": "8e4664b85658b48c",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s207": {
+            "file": "R-orig_Melbourne_p2_s207.json",
+            "impronta": "f98046a39e703a90",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s208": {
+            "file": "R-orig_Melbourne_p2_s208.json",
+            "impronta": "4a7a6c63db9f3fe1",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s209": {
+            "file": "R-orig_Melbourne_p2_s209.json",
+            "impronta": "949081c9d2e6b1dc",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s210": {
+            "file": "R-orig_Melbourne_p2_s210.json",
+            "impronta": "fbd623655c9e173d",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s211": {
+            "file": "R-orig_Melbourne_p2_s211.json",
+            "impronta": "9f1102e854f3bff9",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s212": {
+            "file": "R-orig_Melbourne_p2_s212.json",
+            "impronta": "fb25721ee726c0ae",
+            "modalita": "concorrente"
+          }
+        },
+        "rip_iniziali": {
+          "mediana": 11.32395231711339,
+          "minimo": 10.533613056706118,
+          "massimo": 11.362152823193052
+        },
+        "rip_nuovi": {
+          "mediana": 11.29211057824077,
+          "minimo": 10.488718227245153,
+          "massimo": 11.475190453788766
+        },
+        "rapporto_rip": {
+          "mediana": 0.9997799597311765,
+          "minimo": 0.9901925919619025,
+          "massimo": 1.0100053918578866
+        },
+        "estr_iniziali": {
+          "mediana": 73110.59841269843,
+          "minimo": 73092.92289156627,
+          "massimo": 73139.27301587301
+        },
+        "estr_nuovi": {
+          "mediana": 790.5407407407407,
+          "minimo": 656.7259259259259,
+          "massimo": 862.6333333333333
+        },
+        "quota_nuovi": {
+          "mediana": 0.0023117028834823594,
+          "minimo": 0.001920400984265613,
+          "massimo": 0.002552908139106645
+        }
+      },
+      "R-mon": {
+        "esecuzioni": 108,
+        "lancio": {
+          "Londra_p0_s201": {
+            "file": "R-mon_Londra_p0_s201.json",
+            "impronta": "6c0258b56779aa62",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s202": {
+            "file": "R-mon_Londra_p0_s202.json",
+            "impronta": "c1a1ab9517c42ba8",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s203": {
+            "file": "R-mon_Londra_p0_s203.json",
+            "impronta": "d0e2035dec19ce3b",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s204": {
+            "file": "R-mon_Londra_p0_s204.json",
+            "impronta": "e91f9e9133b0b333",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s205": {
+            "file": "R-mon_Londra_p0_s205.json",
+            "impronta": "2883248953e7b2a8",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s206": {
+            "file": "R-mon_Londra_p0_s206.json",
+            "impronta": "275629d21dc2741e",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s207": {
+            "file": "R-mon_Londra_p0_s207.json",
+            "impronta": "970643942f676e3e",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s208": {
+            "file": "R-mon_Londra_p0_s208.json",
+            "impronta": "44fc57a6f52c0ddb",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s209": {
+            "file": "R-mon_Londra_p0_s209.json",
+            "impronta": "2ce00d61e7099413",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s210": {
+            "file": "R-mon_Londra_p0_s210.json",
+            "impronta": "b88b7c1433a1f522",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s211": {
+            "file": "R-mon_Londra_p0_s211.json",
+            "impronta": "e48ec7922e202130",
+            "modalita": "concorrente"
+          },
+          "Londra_p0_s212": {
+            "file": "R-mon_Londra_p0_s212.json",
+            "impronta": "c111bf2d36118156",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s201": {
+            "file": "R-mon_Londra_p1_s201.json",
+            "impronta": "e68e4d842ba3ecb9",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s202": {
+            "file": "R-mon_Londra_p1_s202.json",
+            "impronta": "4af2429ab4dd37a0",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s203": {
+            "file": "R-mon_Londra_p1_s203.json",
+            "impronta": "5d08b0edbf474d91",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s204": {
+            "file": "R-mon_Londra_p1_s204.json",
+            "impronta": "0def159129118830",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s205": {
+            "file": "R-mon_Londra_p1_s205.json",
+            "impronta": "27954f9a47af2806",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s206": {
+            "file": "R-mon_Londra_p1_s206.json",
+            "impronta": "d1f816b7d6ca98d2",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s207": {
+            "file": "R-mon_Londra_p1_s207.json",
+            "impronta": "23f21ae625940835",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s208": {
+            "file": "R-mon_Londra_p1_s208.json",
+            "impronta": "0e1bbef07248260c",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s209": {
+            "file": "R-mon_Londra_p1_s209.json",
+            "impronta": "2355164a011e9e83",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s210": {
+            "file": "R-mon_Londra_p1_s210.json",
+            "impronta": "dcf5b0cd9b2bdf76",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s211": {
+            "file": "R-mon_Londra_p1_s211.json",
+            "impronta": "558b74604db0a1ff",
+            "modalita": "concorrente"
+          },
+          "Londra_p1_s212": {
+            "file": "R-mon_Londra_p1_s212.json",
+            "impronta": "e2b2b52b8f11f524",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s201": {
+            "file": "R-mon_Londra_p2_s201.json",
+            "impronta": "695d10f752ca2a61",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s202": {
+            "file": "R-mon_Londra_p2_s202.json",
+            "impronta": "dde1424c7df5eaf1",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s203": {
+            "file": "R-mon_Londra_p2_s203.json",
+            "impronta": "e5ed7cbe1230eb93",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s204": {
+            "file": "R-mon_Londra_p2_s204.json",
+            "impronta": "395fa8892b49318e",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s205": {
+            "file": "R-mon_Londra_p2_s205.json",
+            "impronta": "366ac82e95d63574",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s206": {
+            "file": "R-mon_Londra_p2_s206.json",
+            "impronta": "745d245892e9358f",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s207": {
+            "file": "R-mon_Londra_p2_s207.json",
+            "impronta": "ecf173726bcf6b95",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s208": {
+            "file": "R-mon_Londra_p2_s208.json",
+            "impronta": "b32ac8b8b64bed88",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s209": {
+            "file": "R-mon_Londra_p2_s209.json",
+            "impronta": "756eff0a60cbfbf3",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s210": {
+            "file": "R-mon_Londra_p2_s210.json",
+            "impronta": "2fada3e0ddbbdcec",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s211": {
+            "file": "R-mon_Londra_p2_s211.json",
+            "impronta": "8e1e38102b5024c1",
+            "modalita": "concorrente"
+          },
+          "Londra_p2_s212": {
+            "file": "R-mon_Londra_p2_s212.json",
+            "impronta": "f54a2a98d2885d32",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s201": {
+            "file": "R-mon_Madrid_p0_s201.json",
+            "impronta": "450f56e858b94019",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s202": {
+            "file": "R-mon_Madrid_p0_s202.json",
+            "impronta": "f46b42d8fb28eb81",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s203": {
+            "file": "R-mon_Madrid_p0_s203.json",
+            "impronta": "e58e25b0610472c9",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s204": {
+            "file": "R-mon_Madrid_p0_s204.json",
+            "impronta": "53590e5bc589e03a",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s205": {
+            "file": "R-mon_Madrid_p0_s205.json",
+            "impronta": "9529009f32fac12d",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s206": {
+            "file": "R-mon_Madrid_p0_s206.json",
+            "impronta": "6310918f2f4bed04",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s207": {
+            "file": "R-mon_Madrid_p0_s207.json",
+            "impronta": "ee54c56e3a5564af",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s208": {
+            "file": "R-mon_Madrid_p0_s208.json",
+            "impronta": "bcbb73f6c8484759",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s209": {
+            "file": "R-mon_Madrid_p0_s209.json",
+            "impronta": "97fc205a685c568e",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s210": {
+            "file": "R-mon_Madrid_p0_s210.json",
+            "impronta": "06a043d4c5c4f56a",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s211": {
+            "file": "R-mon_Madrid_p0_s211.json",
+            "impronta": "70dead56baef69f5",
+            "modalita": "concorrente"
+          },
+          "Madrid_p0_s212": {
+            "file": "R-mon_Madrid_p0_s212.json",
+            "impronta": "e11ed1b8b7dca05a",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s201": {
+            "file": "R-mon_Madrid_p1_s201.json",
+            "impronta": "6be17f6d5ac3abe4",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s202": {
+            "file": "R-mon_Madrid_p1_s202.json",
+            "impronta": "6aa59bd8398c08de",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s203": {
+            "file": "R-mon_Madrid_p1_s203.json",
+            "impronta": "f07d58147b1efa4e",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s204": {
+            "file": "R-mon_Madrid_p1_s204.json",
+            "impronta": "bf7cde09b78acb29",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s205": {
+            "file": "R-mon_Madrid_p1_s205.json",
+            "impronta": "491e724db92e904e",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s206": {
+            "file": "R-mon_Madrid_p1_s206.json",
+            "impronta": "7d66593c362efd0f",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s207": {
+            "file": "R-mon_Madrid_p1_s207.json",
+            "impronta": "ce332f89b1979cfa",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s208": {
+            "file": "R-mon_Madrid_p1_s208.json",
+            "impronta": "c79c5b1dcf7bb173",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s209": {
+            "file": "R-mon_Madrid_p1_s209.json",
+            "impronta": "f12eaf246c4ef136",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s210": {
+            "file": "R-mon_Madrid_p1_s210.json",
+            "impronta": "a2b9aa0d9bda73cb",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s211": {
+            "file": "R-mon_Madrid_p1_s211.json",
+            "impronta": "538aa814342607d4",
+            "modalita": "concorrente"
+          },
+          "Madrid_p1_s212": {
+            "file": "R-mon_Madrid_p1_s212.json",
+            "impronta": "022140d94296f665",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s201": {
+            "file": "R-mon_Madrid_p2_s201.json",
+            "impronta": "b4e863a27cb3923c",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s202": {
+            "file": "R-mon_Madrid_p2_s202.json",
+            "impronta": "0800e0c82e86097a",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s203": {
+            "file": "R-mon_Madrid_p2_s203.json",
+            "impronta": "c091942b9172d4f0",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s204": {
+            "file": "R-mon_Madrid_p2_s204.json",
+            "impronta": "d13f30a57e308a02",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s205": {
+            "file": "R-mon_Madrid_p2_s205.json",
+            "impronta": "d76cfa777c04c40e",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s206": {
+            "file": "R-mon_Madrid_p2_s206.json",
+            "impronta": "6c5d1dab09921e1f",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s207": {
+            "file": "R-mon_Madrid_p2_s207.json",
+            "impronta": "9abcc955765964c9",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s208": {
+            "file": "R-mon_Madrid_p2_s208.json",
+            "impronta": "b7733cb7383dd4d6",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s209": {
+            "file": "R-mon_Madrid_p2_s209.json",
+            "impronta": "f17cf3cef58339e5",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s210": {
+            "file": "R-mon_Madrid_p2_s210.json",
+            "impronta": "8f64c336983debc6",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s211": {
+            "file": "R-mon_Madrid_p2_s211.json",
+            "impronta": "10f7580c624621cc",
+            "modalita": "concorrente"
+          },
+          "Madrid_p2_s212": {
+            "file": "R-mon_Madrid_p2_s212.json",
+            "impronta": "53017d1dd51145c6",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s201": {
+            "file": "R-mon_Melbourne_p0_s201.json",
+            "impronta": "a36ba5466ed513ac",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s202": {
+            "file": "R-mon_Melbourne_p0_s202.json",
+            "impronta": "caca72f8272911eb",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s203": {
+            "file": "R-mon_Melbourne_p0_s203.json",
+            "impronta": "053abd6cd4dceb88",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s204": {
+            "file": "R-mon_Melbourne_p0_s204.json",
+            "impronta": "736edd8d9a41dd0d",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s205": {
+            "file": "R-mon_Melbourne_p0_s205.json",
+            "impronta": "7b90b64731aefdb4",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s206": {
+            "file": "R-mon_Melbourne_p0_s206.json",
+            "impronta": "86b6b90e2fc7dfae",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s207": {
+            "file": "R-mon_Melbourne_p0_s207.json",
+            "impronta": "64c4b25af8df233d",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s208": {
+            "file": "R-mon_Melbourne_p0_s208.json",
+            "impronta": "a882a654a2bc2ece",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s209": {
+            "file": "R-mon_Melbourne_p0_s209.json",
+            "impronta": "0c46343aec55106f",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s210": {
+            "file": "R-mon_Melbourne_p0_s210.json",
+            "impronta": "190f18c8b8eb18de",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s211": {
+            "file": "R-mon_Melbourne_p0_s211.json",
+            "impronta": "43bc99d30aa727ba",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p0_s212": {
+            "file": "R-mon_Melbourne_p0_s212.json",
+            "impronta": "99794b44602edaba",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s201": {
+            "file": "R-mon_Melbourne_p1_s201.json",
+            "impronta": "beb9c5859d2740c2",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s202": {
+            "file": "R-mon_Melbourne_p1_s202.json",
+            "impronta": "b22a21dfa90e509e",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s203": {
+            "file": "R-mon_Melbourne_p1_s203.json",
+            "impronta": "0b752025eaf460a3",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s204": {
+            "file": "R-mon_Melbourne_p1_s204.json",
+            "impronta": "94115969be5853fb",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s205": {
+            "file": "R-mon_Melbourne_p1_s205.json",
+            "impronta": "ce5c09fb45e53623",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s206": {
+            "file": "R-mon_Melbourne_p1_s206.json",
+            "impronta": "a06f0191db7b32d9",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s207": {
+            "file": "R-mon_Melbourne_p1_s207.json",
+            "impronta": "90ddabee3175b405",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s208": {
+            "file": "R-mon_Melbourne_p1_s208.json",
+            "impronta": "9837646e6975fbdf",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s209": {
+            "file": "R-mon_Melbourne_p1_s209.json",
+            "impronta": "3fb1edadb0dfcd74",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s210": {
+            "file": "R-mon_Melbourne_p1_s210.json",
+            "impronta": "74a9bdeda900c79a",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s211": {
+            "file": "R-mon_Melbourne_p1_s211.json",
+            "impronta": "fd136af33bb6ac61",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p1_s212": {
+            "file": "R-mon_Melbourne_p1_s212.json",
+            "impronta": "faa64453a16cc51b",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s201": {
+            "file": "R-mon_Melbourne_p2_s201.json",
+            "impronta": "18dcf2b8f898385c",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s202": {
+            "file": "R-mon_Melbourne_p2_s202.json",
+            "impronta": "e538ac10e2edb6c9",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s203": {
+            "file": "R-mon_Melbourne_p2_s203.json",
+            "impronta": "6dd6ad3f8ab62c40",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s204": {
+            "file": "R-mon_Melbourne_p2_s204.json",
+            "impronta": "aea8e966e65b2f88",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s205": {
+            "file": "R-mon_Melbourne_p2_s205.json",
+            "impronta": "24c60b6aa51e984f",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s206": {
+            "file": "R-mon_Melbourne_p2_s206.json",
+            "impronta": "2ef118f39c06809d",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s207": {
+            "file": "R-mon_Melbourne_p2_s207.json",
+            "impronta": "63a9b6272b51d74f",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s208": {
+            "file": "R-mon_Melbourne_p2_s208.json",
+            "impronta": "6b4c0695768aef27",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s209": {
+            "file": "R-mon_Melbourne_p2_s209.json",
+            "impronta": "4bedaa05f34beec8",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s210": {
+            "file": "R-mon_Melbourne_p2_s210.json",
+            "impronta": "424d99361363f009",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s211": {
+            "file": "R-mon_Melbourne_p2_s211.json",
+            "impronta": "a483492738b1b793",
+            "modalita": "concorrente"
+          },
+          "Melbourne_p2_s212": {
+            "file": "R-mon_Melbourne_p2_s212.json",
+            "impronta": "3be679b4e62fc769",
+            "modalita": "concorrente"
+          }
+        },
+        "rip_iniziali": {
+          "mediana": 11.32395231711339,
+          "minimo": 10.533613056706118,
+          "massimo": 11.362152823193052
+        },
+        "rip_nuovi": {
+          "mediana": 11.29211057824077,
+          "minimo": 10.488718227245153,
+          "massimo": 11.475190453788766
+        },
+        "rapporto_rip": {
+          "mediana": 0.9997799597311765,
+          "minimo": 0.9901925919619025,
+          "massimo": 1.0100053918578866
+        },
+        "estr_iniziali": {
+          "mediana": 73110.59841269843,
+          "minimo": 73092.92289156627,
+          "massimo": 73139.27301587301
+        },
+        "estr_nuovi": {
+          "mediana": 790.5407407407407,
+          "minimo": 656.7259259259259,
+          "massimo": 862.6333333333333
+        },
+        "quota_nuovi": {
+          "mediana": 0.0023117028834823594,
+          "minimo": 0.001920400984265613,
+          "massimo": 0.002552908139106645
+        }
+      }
+    }
+  },
+  "veterani": {
+    "confronti": {
+      "Madrid/R-orig-C": {
+        "media": -0.039757515039847015,
+        "ic_con_nodi": [
+          -0.04187448280816615,
+          -0.03764270542287859
+        ],
+        "include_zero": false
+      },
+      "Madrid/R-orig-E": {
+        "media": -0.0029272306900351586,
+        "ic_con_nodi": [
+          -0.0037645063358281573,
+          -0.002218914691252193
+        ],
+        "include_zero": false
+      },
+      "Madrid/R-C": {
+        "media": -0.0286762767382151,
+        "ic_con_nodi": [
+          -0.031035246174593377,
+          -0.02619473141219644
+        ],
+        "include_zero": false
+      },
+      "Madrid/R-mon-R-orig": {
+        "media": 7.307321002279919e-06,
+        "ic_con_nodi": [
+          0.0,
+          4.27907161810702e-05
+        ],
+        "include_zero": true
+      },
+      "Londra/R-orig-C": {
+        "media": -0.037168371655042894,
+        "ic_con_nodi": [
+          -0.03926163062019204,
+          -0.03520659889087648
+        ],
+        "include_zero": false
+      },
+      "Londra/R-orig-E": {
+        "media": -0.0038204235189043443,
+        "ic_con_nodi": [
+          -0.004961761685819623,
+          -0.002644233807990842
+        ],
+        "include_zero": false
+      },
+      "Londra/R-C": {
+        "media": -0.03014195238828253,
+        "ic_con_nodi": [
+          -0.03227025110187677,
+          -0.02800394760610598
+        ],
+        "include_zero": false
+      },
+      "Londra/R-mon-R-orig": {
+        "media": 0.0,
+        "ic_con_nodi": [
+          0.0,
+          0.0
+        ],
+        "include_zero": true
+      },
+      "Melbourne/R-orig-C": {
+        "media": -0.03259346760054124,
+        "ic_con_nodi": [
+          -0.037268849514071355,
+          -0.02779342605328749
+        ],
+        "include_zero": false
+      },
+      "Melbourne/R-orig-E": {
+        "media": -0.001367090146050434,
+        "ic_con_nodi": [
+          -0.0028572385379137953,
+          9.168003336690184e-05
+        ],
+        "include_zero": true
+      },
+      "Melbourne/R-C": {
+        "media": -0.01640780862582608,
+        "ic_con_nodi": [
+          -0.02146812790078391,
+          -0.01128631003169456
+        ],
+        "include_zero": false
+      },
+      "Melbourne/R-mon-R-orig": {
+        "media": 0.0,
+        "ic_con_nodi": [
+          0.0,
+          0.0
+        ],
+        "include_zero": true
+      }
+    },
+    "celle": {
+      "Madrid": {
+        "semi": 12,
+        "partizioni": 3,
+        "nodi_per_partizione": {
+          "0": 630,
+          "1": 630,
+          "2": 630
+        }
+      },
+      "Londra": {
+        "semi": 12,
+        "partizioni": 3,
+        "nodi_per_partizione": {
+          "0": 630,
+          "1": 630,
+          "2": 630
+        }
+      },
+      "Melbourne": {
+        "semi": 12,
+        "partizioni": 3,
+        "nodi_per_partizione": {
+          "0": 415,
+          "1": 415,
+          "2": 415
+        }
+      }
+    },
+    "mancanti": {},
+    "costo_della_politica": {
+      "Madrid/R-orig-C": false,
+      "Madrid/R-orig-E": false,
+      "Londra/R-orig-C": false,
+      "Londra/R-orig-E": false,
+      "Melbourne/R-orig-C": false,
+      "Melbourne/R-orig-E": false
+    },
+    "repliche": 4000,
+    "seme_bootstrap": 20261002
+  },
+  "costi": {
+    "C": {
+      "esecuzioni_isolate": 9,
+      "addestramento_s": 2514.5273337364197,
+      "inserimento_s": 0.0,
+      "attesa_dati_s": 0.0,
+      "disponibilita_s": 0.0,
+      "rimisure_che_riproducono_la_concorrente": 0,
+      "celle": [
+        [
+          "Londra",
+          0,
+          201
+        ],
+        [
+          "Londra",
+          0,
+          202
+        ],
+        [
+          "Londra",
+          0,
+          203
+        ],
+        [
+          "Madrid",
+          0,
+          201
+        ],
+        [
+          "Madrid",
+          0,
+          202
+        ],
+        [
+          "Madrid",
+          0,
+          203
+        ],
+        [
+          "Melbourne",
+          0,
+          201
+        ],
+        [
+          "Melbourne",
+          0,
+          202
+        ],
+        [
+          "Melbourne",
+          0,
+          203
+        ]
+      ]
+    },
+    "P": {
+      "esecuzioni_isolate": 9,
+      "addestramento_s": 2517.44913315773,
+      "inserimento_s": 0.04802203178405762,
+      "attesa_dati_s": 86400.0,
+      "disponibilita_s": 86400.04802203178,
+      "rimisure_che_riproducono_la_concorrente": 0,
+      "celle": [
+        [
+          "Londra",
+          0,
+          201
+        ],
+        [
+          "Londra",
+          0,
+          202
+        ],
+        [
+          "Londra",
+          0,
+          203
+        ],
+        [
+          "Madrid",
+          0,
+          201
+        ],
+        [
+          "Madrid",
+          0,
+          202
+        ],
+        [
+          "Madrid",
+          0,
+          203
+        ],
+        [
+          "Melbourne",
+          0,
+          201
+        ],
+        [
+          "Melbourne",
+          0,
+          202
+        ],
+        [
+          "Melbourne",
+          0,
+          203
+        ]
+      ]
+    },
+    "A": {
+      "esecuzioni_isolate": 9,
+      "addestramento_s": 2992.2944869995117,
+      "inserimento_s": 0.0,
+      "attesa_dati_s": 0.0,
+      "disponibilita_s": 0.0,
+      "rimisure_che_riproducono_la_concorrente": 0,
+      "celle": [
+        [
+          "Londra",
+          0,
+          201
+        ],
+        [
+          "Londra",
+          0,
+          202
+        ],
+        [
+          "Londra",
+          0,
+          203
+        ],
+        [
+          "Madrid",
+          0,
+          201
+        ],
+        [
+          "Madrid",
+          0,
+          202
+        ],
+        [
+          "Madrid",
+          0,
+          203
+        ],
+        [
+          "Melbourne",
+          0,
+          201
+        ],
+        [
+          "Melbourne",
+          0,
+          202
+        ],
+        [
+          "Melbourne",
+          0,
+          203
+        ]
+      ]
+    },
+    "R": {
+      "esecuzioni_isolate": 9,
+      "addestramento_s": 0.0,
+      "inserimento_s": 2320.4797191619873,
+      "attesa_dati_s": 86400.0,
+      "disponibilita_s": 88720.47971916199,
+      "rimisure_che_riproducono_la_concorrente": 0,
+      "celle": [
+        [
+          "Londra",
+          0,
+          201
+        ],
+        [
+          "Londra",
+          0,
+          202
+        ],
+        [
+          "Londra",
+          0,
+          203
+        ],
+        [
+          "Madrid",
+          0,
+          201
+        ],
+        [
+          "Madrid",
+          0,
+          202
+        ],
+        [
+          "Madrid",
+          0,
+          203
+        ],
+        [
+          "Melbourne",
+          0,
+          201
+        ],
+        [
+          "Melbourne",
+          0,
+          202
+        ],
+        [
+          "Melbourne",
+          0,
+          203
+        ]
+      ]
+    },
+    "R-orig": {
+      "esecuzioni_isolate": 9,
+      "addestramento_s": 0.0,
+      "inserimento_s": 2206.07937169075,
+      "attesa_dati_s": 86400.0,
+      "disponibilita_s": 88606.07937169075,
+      "rimisure_che_riproducono_la_concorrente": 9,
+      "celle": [
+        [
+          "Londra",
+          0,
+          201
+        ],
+        [
+          "Londra",
+          0,
+          202
+        ],
+        [
+          "Londra",
+          0,
+          203
+        ],
+        [
+          "Madrid",
+          0,
+          201
+        ],
+        [
+          "Madrid",
+          0,
+          202
+        ],
+        [
+          "Madrid",
+          0,
+          203
+        ],
+        [
+          "Melbourne",
+          0,
+          201
+        ],
+        [
+          "Melbourne",
+          0,
+          202
+        ],
+        [
+          "Melbourne",
+          0,
+          203
+        ]
+      ]
+    },
+    "R-mon": {
+      "esecuzioni_isolate": 9,
+      "addestramento_s": 0.0,
+      "inserimento_s": 2232.845376968384,
+      "attesa_dati_s": 86400.0,
+      "disponibilita_s": 88632.84537696838,
+      "rimisure_che_riproducono_la_concorrente": 9,
+      "celle": [
+        [
+          "Londra",
+          0,
+          201
+        ],
+        [
+          "Londra",
+          0,
+          202
+        ],
+        [
+          "Londra",
+          0,
+          203
+        ],
+        [
+          "Madrid",
+          0,
+          201
+        ],
+        [
+          "Madrid",
+          0,
+          202
+        ],
+        [
+          "Madrid",
+          0,
+          203
+        ],
+        [
+          "Melbourne",
+          0,
+          201
+        ],
+        [
+          "Melbourne",
+          0,
+          202
+        ],
+        [
+          "Melbourne",
+          0,
+          203
+        ]
+      ]
+    },
+    "F": {
+      "esecuzioni_isolate": 9,
+      "addestramento_s": 0.0,
+      "inserimento_s": 15.562621355056763,
+      "attesa_dati_s": 86400.0,
+      "disponibilita_s": 86415.56262135506,
+      "rimisure_che_riproducono_la_concorrente": 0,
+      "celle": [
+        [
+          "Londra",
+          0,
+          201
+        ],
+        [
+          "Londra",
+          0,
+          202
+        ],
+        [
+          "Londra",
+          0,
+          203
+        ],
+        [
+          "Madrid",
+          0,
+          201
+        ],
+        [
+          "Madrid",
+          0,
+          202
+        ],
+        [
+          "Madrid",
+          0,
+          203
+        ],
+        [
+          "Melbourne",
+          0,
+          201
+        ],
+        [
+          "Melbourne",
+          0,
+          202
+        ],
+        [
+          "Melbourne",
+          0,
+          203
+        ]
+      ]
+    }
+  },
+  "riselezione": {
+    "esecuzioni": 108,
+    "diverse": 34
+  },
+  "riselezione_test": {
+    "confronti": {
+      "Madrid/Rmoneq-R-mon": {
+        "media": -0.0002457668065693259,
+        "ic_con_nodi": [
+          -0.0008739545826505763,
+          0.0002205163841751385
+        ],
+        "include_zero": true
+      },
+      "Madrid/Rmoneq-R-orig": {
+        "media": -0.00022511004054554898,
+        "ic_con_nodi": [
+          -0.0008777115199328772,
+          0.0002195359882630754
+        ],
+        "include_zero": true
+      },
+      "Madrid/Rmoneq-C": {
+        "media": -0.01415154158516111,
+        "ic_con_nodi": [
+          -0.023295356502216875,
+          -0.004433465836721881
+        ],
+        "include_zero": false
+      },
+      "Londra/Rmoneq-R-mon": {
+        "media": 0.0011558256549073314,
+        "ic_con_nodi": [
+          0.0,
+          0.0028693411406440447
+        ],
+        "include_zero": true
+      },
+      "Londra/Rmoneq-R-orig": {
+        "media": 0.0011558256549073314,
+        "ic_con_nodi": [
+          0.0,
+          0.002802585985223202
+        ],
+        "include_zero": true
+      },
+      "Londra/Rmoneq-C": {
+        "media": 0.05064038861708032,
+        "ic_con_nodi": [
+          0.03535718739308724,
+          0.06790393522943229
+        ],
+        "include_zero": false
+      },
+      "Melbourne/Rmoneq-R-mon": {
+        "media": 0.004574041628570243,
+        "ic_con_nodi": [
+          0.0008758712670933677,
+          0.009475043924626569
+        ],
+        "include_zero": false
+      },
+      "Melbourne/Rmoneq-R-orig": {
+        "media": 0.004574041628570243,
+        "ic_con_nodi": [
+          0.0009915462690214785,
+          0.009512957043966102
+        ],
+        "include_zero": false
+      },
+      "Melbourne/Rmoneq-C": {
+        "media": 0.015309780237251432,
+        "ic_con_nodi": [
+          -0.006768499331419506,
+          0.04072977172083157
+        ],
+        "include_zero": true
+      }
+    },
+    "nota": "analisi aggiunta il 2/10, non pre-registrata; secondaria",
+    "repliche": 4000,
+    "seme_bootstrap": 20261003
+  },
+  "f_rorig": {
+    "Madrid/wce_C": 0.9598171083811278,
+    "Madrid/margine": 0.028794513251433833,
+    "Madrid/F-C": {
+      "media": -0.010760383633850774,
+      "ic_con_nodi": [
+        -0.019793215721027716,
+        -0.0011068554354239583
+      ],
+      "include_zero": false,
+      "equivalente_3pc": true
+    },
+    "Madrid/R-orig-F": {
+      "media": -0.0031660479107647865,
+      "ic_con_nodi": [
+        -0.004874359933391769,
+        -0.0015257540518833807
+      ],
+      "include_zero": false,
+      "equivalente_3pc": true
+    },
+    "Londra/wce_C": 0.8900161769832106,
+    "Londra/margine": 0.026700485309496317,
+    "Londra/F-C": {
+      "media": 0.03964793096438708,
+      "ic_con_nodi": [
+        0.028341277012652436,
+        0.05212271205066106
+      ],
+      "include_zero": false,
+      "equivalente_3pc": false
+    },
+    "Londra/R-orig-F": {
+      "media": 0.00983663199778591,
+      "ic_con_nodi": [
+        0.0029784818745592846,
+        0.017703728010185375
+      ],
+      "include_zero": false,
+      "equivalente_3pc": true
+    },
+    "Melbourne/wce_C": 0.8143018128012369,
+    "Melbourne/margine": 0.024429054384037106,
+    "Melbourne/F-C": {
+      "media": -0.011325533826426513,
+      "ic_con_nodi": [
+        -0.02431517128374392,
+        0.0026409609344106876
+      ],
+      "include_zero": true,
+      "equivalente_3pc": true
+    },
+    "Melbourne/R-orig-F": {
+      "media": 0.022061272435107703,
+      "ic_con_nodi": [
+        0.005794503521565767,
+        0.038917835163553904
+      ],
+      "include_zero": false,
+      "equivalente_3pc": false
+    }
+  },
+  "quarantena": {
+    "motivo": "primo lancio di E3: R-orig e R-mon instradati nel ramo di F da `esegui_inserimento._lavora` (ADDESTRANO derivato dai soli cinque bracci della fase 3). Adattamenti di F con nome sbagliato, un minuto l'uno.",
+    "corretto_in": "esegui_inserimento.esecutore(), dalla tabella unica",
+    "perso": "esito_concorrente.json della fase 3, sovrascritto; numeri in CONGELAMENTO_E_F_GRIGLIA.md e nei manifesti",
+    "file": [
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p0_s201.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p0_s201.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p0_s202.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p0_s202.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p0_s203.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p0_s203.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p0_s204.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p0_s204.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p0_s205.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p0_s205.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p0_s206.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p0_s206.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p0_s207.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p0_s207.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p0_s208.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p0_s208.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p0_s209.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p0_s209.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p0_s210.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p0_s210.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p0_s211.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p0_s211.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p0_s212.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p0_s212.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p1_s201.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p1_s201.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p1_s202.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p1_s202.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p1_s203.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p1_s203.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p1_s204.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p1_s204.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p1_s205.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p1_s205.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p1_s206.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p1_s206.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p1_s207.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p1_s207.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p1_s208.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p1_s208.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p1_s209.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p1_s209.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p1_s210.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p1_s210.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p1_s211.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p1_s211.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p1_s212.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p1_s212.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p2_s201.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p2_s201.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p2_s202.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p2_s202.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p2_s203.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p2_s203.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p2_s204.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p2_s204.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p2_s205.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p2_s205.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p2_s206.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p2_s206.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p2_s207.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p2_s207.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p2_s208.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p2_s208.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p2_s209.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p2_s209.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p2_s210.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p2_s210.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p2_s211.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p2_s211.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p2_s212.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Londra_p2_s212.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p0_s201.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p0_s201.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p0_s202.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p0_s202.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p0_s203.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p0_s203.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p0_s204.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p0_s204.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p0_s205.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p0_s205.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p0_s206.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p0_s206.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p0_s207.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p0_s207.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p0_s208.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p0_s208.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p0_s209.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p0_s209.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p0_s210.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p0_s210.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p0_s211.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p0_s211.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p0_s212.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p0_s212.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p1_s201.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p1_s201.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p1_s202.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p1_s202.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p1_s203.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p1_s203.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p1_s204.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p1_s204.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p1_s205.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p1_s205.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p1_s206.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p1_s206.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p1_s207.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p1_s207.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p1_s208.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p1_s208.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p1_s209.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p1_s209.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p1_s210.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p1_s210.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p1_s211.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p1_s211.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p1_s212.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p1_s212.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p2_s201.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p2_s201.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p2_s202.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p2_s202.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p2_s203.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p2_s203.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p2_s204.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p2_s204.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p2_s205.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p2_s205.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p2_s206.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p2_s206.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p2_s207.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p2_s207.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p2_s208.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p2_s208.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p2_s209.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p2_s209.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p2_s210.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p2_s210.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p2_s211.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p2_s211.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p2_s212.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Madrid_p2_s212.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p0_s201.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p0_s201.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p0_s202.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p0_s202.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p0_s203.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p0_s203.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p0_s204.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p0_s204.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p0_s205.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p0_s205.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p0_s206.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p0_s206.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p0_s207.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p0_s207.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p0_s208.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p0_s208.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p0_s209.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p0_s209.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p0_s210.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p0_s210.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p0_s211.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p0_s211.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p0_s212.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p0_s212.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p1_s201.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p1_s201.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p1_s202.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p1_s202.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p1_s203.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p1_s203.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p1_s204.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p1_s204.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p1_s205.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p1_s205.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p1_s206.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p1_s206.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p1_s207.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p1_s207.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p1_s208.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p1_s208.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p1_s209.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p1_s209.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p1_s210.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p1_s210.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p1_s211.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p1_s211.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p1_s212.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p1_s212.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p2_s201.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p2_s201.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p2_s202.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p2_s202.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p2_s203.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p2_s203.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p2_s204.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p2_s204.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p2_s205.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p2_s205.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p2_s206.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p2_s206.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p2_s207.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p2_s207.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p2_s208.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p2_s208.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p2_s209.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p2_s209.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p2_s210.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p2_s210.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p2_s211.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p2_s211.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p2_s212.json",
+      "results/evoluzione/inserimento_griglia/R-orig_Melbourne_p2_s212.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p0_s201.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p0_s201.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p0_s202.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p0_s202.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p0_s203.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p0_s203.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p0_s204.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p0_s204.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p0_s205.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p0_s205.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p0_s206.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p0_s206.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p0_s207.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p0_s207.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p0_s208.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p0_s208.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p0_s209.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p0_s209.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p0_s210.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p0_s210.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p0_s211.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p0_s211.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p0_s212.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p0_s212.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p1_s201.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p1_s201.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p1_s202.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p1_s202.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p1_s203.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p1_s203.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p1_s204.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p1_s204.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p1_s205.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p1_s205.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p1_s206.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p1_s206.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p1_s207.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p1_s207.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p1_s208.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p1_s208.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p1_s209.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p1_s209.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p1_s210.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p1_s210.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p1_s211.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p1_s211.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p1_s212.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p1_s212.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p2_s201.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p2_s201.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p2_s202.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p2_s202.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p2_s203.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p2_s203.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p2_s204.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p2_s204.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p2_s205.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p2_s205.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p2_s206.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p2_s206.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p2_s207.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p2_s207.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p2_s208.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p2_s208.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p2_s209.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p2_s209.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p2_s210.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p2_s210.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p2_s211.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p2_s211.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p2_s212.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Londra_p2_s212.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p0_s201.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p0_s201.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p0_s202.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p0_s202.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p0_s203.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p0_s203.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p0_s204.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p0_s204.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p0_s205.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p0_s205.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p0_s206.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p0_s206.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p0_s207.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p0_s207.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p0_s208.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p0_s208.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p0_s209.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p0_s209.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p0_s210.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p0_s210.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p0_s211.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p0_s211.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p0_s212.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p0_s212.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p1_s201.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p1_s201.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p1_s202.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p1_s202.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p1_s203.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p1_s203.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p1_s204.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p1_s204.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p1_s205.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p1_s205.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p1_s206.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p1_s206.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p1_s207.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p1_s207.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p1_s208.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p1_s208.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p1_s209.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p1_s209.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p1_s210.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p1_s210.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p1_s211.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p1_s211.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p1_s212.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p1_s212.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p2_s201.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p2_s201.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p2_s202.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p2_s202.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p2_s203.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p2_s203.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p2_s204.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p2_s204.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p2_s205.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p2_s205.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p2_s206.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p2_s206.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p2_s207.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p2_s207.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p2_s208.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p2_s208.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p2_s209.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p2_s209.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p2_s210.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p2_s210.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p2_s211.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p2_s211.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p2_s212.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Madrid_p2_s212.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p0_s201.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p0_s201.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p0_s202.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p0_s202.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p0_s203.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p0_s203.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p0_s204.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p0_s204.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p0_s205.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p0_s205.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p0_s206.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p0_s206.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p0_s207.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p0_s207.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p0_s208.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p0_s208.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p0_s209.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p0_s209.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p0_s210.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p0_s210.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p0_s211.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p0_s211.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p0_s212.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p0_s212.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p1_s201.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p1_s201.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p1_s202.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p1_s202.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p1_s203.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p1_s203.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p1_s204.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p1_s204.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p1_s205.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p1_s205.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p1_s206.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p1_s206.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p1_s207.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p1_s207.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p1_s208.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p1_s208.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p1_s209.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p1_s209.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p1_s210.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p1_s210.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p1_s211.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p1_s211.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p1_s212.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p1_s212.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p2_s201.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p2_s201.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p2_s202.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p2_s202.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p2_s203.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p2_s203.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p2_s204.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p2_s204.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p2_s205.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p2_s205.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p2_s206.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p2_s206.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p2_s207.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p2_s207.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p2_s208.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p2_s208.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p2_s209.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p2_s209.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p2_s210.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p2_s210.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p2_s211.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p2_s211.json.fatto",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p2_s212.json",
+      "results/evoluzione/inserimento_griglia/R-mon_Melbourne_p2_s212.json.fatto",
+      "results/evoluzione/inserimento_griglia/esito_concorrente.json",
+      "results/evoluzione/registro/20260930T193756-11e1ae46.json",
+      "results/evoluzione/registro/20260930T193756-1811f1d8.json",
+      "results/evoluzione/registro/20260930T193756-2083e143.json",
+      "results/evoluzione/registro/20260930T193756-704cef41.json",
+      "results/evoluzione/registro/20260930T193756-9cffeaf6.json",
+      "results/evoluzione/registro/20260930T193756-a30c3901.json",
+      "results/evoluzione/registro/20260930T193756-cc60f530.json",
+      "results/evoluzione/registro/20260930T193756-e71684b4.json",
+      "results/evoluzione/registro/20260930T193835-0ecb1144.json",
+      "results/evoluzione/registro/20260930T193835-2d727337.json",
+      "results/evoluzione/registro/20260930T193835-2e8e9d57.json",
+      "results/evoluzione/registro/20260930T193835-4d03a140.json",
+      "results/evoluzione/registro/20260930T193835-ec8f2d6e.json",
+      "results/evoluzione/registro/20260930T193835-f4b05ac6.json",
+      "results/evoluzione/registro/20260930T193900-d03a2687.json",
+      "results/evoluzione/registro/20260930T193900-ee3d5159.json",
+      "results/evoluzione/registro/20260930T193913-30a984c2.json",
+      "results/evoluzione/registro/20260930T193913-aeb773a2.json",
+      "results/evoluzione/registro/20260930T193938-9963bc59.json",
+      "results/evoluzione/registro/20260930T193938-bd044e98.json",
+      "results/evoluzione/registro/20260930T193940-4efd3741.json",
+      "results/evoluzione/registro/20260930T193940-5cea18e0.json",
+      "results/evoluzione/registro/20260930T193940-7605f45f.json",
+      "results/evoluzione/registro/20260930T193940-e1c0bec0.json",
+      "results/evoluzione/registro/20260930T193951-9a1676f0.json",
+      "results/evoluzione/registro/20260930T193952-572ac284.json",
+      "results/evoluzione/registro/20260930T194016-0c866d2a.json",
+      "results/evoluzione/registro/20260930T194016-c84c4aa1.json",
+      "results/evoluzione/registro/20260930T194018-291aab7a.json",
+      "results/evoluzione/registro/20260930T194018-c6bb22ac.json",
+      "results/evoluzione/registro/20260930T194029-6fedb50f.json",
+      "results/evoluzione/registro/20260930T194030-888fc13c.json",
+      "results/evoluzione/registro/20260930T194045-5c0ebb6b.json",
+      "results/evoluzione/registro/20260930T194045-da65b736.json",
+      "results/evoluzione/registro/20260930T194054-ebe7edb8.json",
+      "results/evoluzione/registro/20260930T194055-f64f7308.json",
+      "results/evoluzione/registro/20260930T194120-27859f50.json",
+      "results/evoluzione/registro/20260930T194120-f97fc345.json",
+      "results/evoluzione/registro/20260930T194123-896b0e4d.json",
+      "results/evoluzione/registro/20260930T194123-fadd8494.json",
+      "results/evoluzione/registro/20260930T194132-209f1e7c.json",
+      "results/evoluzione/registro/20260930T194133-89bfcaaf.json",
+      "results/evoluzione/registro/20260930T194134-3b4d8cf8.json",
+      "results/evoluzione/registro/20260930T194135-48a9f14e.json",
+      "results/evoluzione/registro/20260930T194158-a7ee0954.json",
+      "results/evoluzione/registro/20260930T194158-b1805815.json",
+      "results/evoluzione/registro/20260930T194201-8f31d115.json",
+      "results/evoluzione/registro/20260930T194201-95bb4539.json",
+      "results/evoluzione/registro/20260930T194213-f5be90ea.json",
+      "results/evoluzione/registro/20260930T194215-c41d0998.json",
+      "results/evoluzione/registro/20260930T194238-54ede482.json",
+      "results/evoluzione/registro/20260930T194240-dcd5180a.json",
+      "results/evoluzione/registro/20260930T194241-075da229.json",
+      "results/evoluzione/registro/20260930T194241-e952e142.json",
+      "results/evoluzione/registro/20260930T194310-78e56331.json",
+      "results/evoluzione/registro/20260930T194310-b9790a4d.json",
+      "results/evoluzione/registro/20260930T194324-741d836c.json",
+      "results/evoluzione/registro/20260930T194326-379d78a8.json",
+      "results/evoluzione/registro/20260930T194326-5bbffb78.json",
+      "results/evoluzione/registro/20260930T194326-b732f133.json",
+      "results/evoluzione/registro/20260930T194327-463720f1.json",
+      "results/evoluzione/registro/20260930T194331-020443a7.json",
+      "results/evoluzione/registro/20260930T194405-85968b55.json",
+      "results/evoluzione/registro/20260930T194405-b264888a.json",
+      "results/evoluzione/registro/20260930T194425-1a4e9adb.json",
+      "results/evoluzione/registro/20260930T194428-b810b834.json",
+      "results/evoluzione/registro/20260930T194429-86bef063.json",
+      "results/evoluzione/registro/20260930T194435-aea2fd55.json",
+      "results/evoluzione/registro/20260930T194543-825b088c.json",
+      "results/evoluzione/registro/20260930T194545-f1b4433a.json",
+      "results/evoluzione/registro/20260930T194603-4e668700.json",
+      "results/evoluzione/registro/20260930T194607-3db2d165.json",
+      "results/evoluzione/registro/20260930T194638-3a5494d0.json",
+      "results/evoluzione/registro/20260930T194639-8af382df.json",
+      "results/evoluzione/registro/20260930T194703-c7e2243d.json",
+      "results/evoluzione/registro/20260930T194704-7d3b6aa5.json",
+      "results/evoluzione/registro/20260930T194704-f0b7b07d.json",
+      "results/evoluzione/registro/20260930T194712-9226b6cf.json",
+      "results/evoluzione/registro/20260930T194717-52633b13.json",
+      "results/evoluzione/registro/20260930T194720-70bf516f.json",
+      "results/evoluzione/registro/20260930T194744-0662fd44.json",
+      "results/evoluzione/registro/20260930T194745-89866892.json",
+      "results/evoluzione/registro/20260930T194804-3c18b1af.json",
+      "results/evoluzione/registro/20260930T194804-6e0a1dff.json",
+      "results/evoluzione/registro/20260930T194814-1a00518b.json",
+      "results/evoluzione/registro/20260930T194816-77dec04d.json",
+      "results/evoluzione/registro/20260930T194842-5decd7a7.json",
+      "results/evoluzione/registro/20260930T194847-d66c9ebc.json",
+      "results/evoluzione/registro/20260930T194853-1400f328.json",
+      "results/evoluzione/registro/20260930T194853-304663ee.json",
+      "results/evoluzione/registro/20260930T194909-7dab4a43.json",
+      "results/evoluzione/registro/20260930T194910-3bb320b7.json",
+      "results/evoluzione/registro/20260930T194925-9b22b933.json",
+      "results/evoluzione/registro/20260930T194931-a334f64f.json",
+      "results/evoluzione/registro/20260930T194932-2b7646ba.json",
+      "results/evoluzione/registro/20260930T194935-787c7690.json",
+      "results/evoluzione/registro/20260930T194935-ef49ad05.json",
+      "results/evoluzione/registro/20260930T194936-a250f12c.json",
+      "results/evoluzione/registro/20260930T194951-1e446c2b.json",
+      "results/evoluzione/registro/20260930T194951-6e1bb435.json",
+      "results/evoluzione/registro/20260930T195006-79c05766.json",
+      "results/evoluzione/registro/20260930T195011-66e371ef.json",
+      "results/evoluzione/registro/20260930T195015-e0202241.json",
+      "results/evoluzione/registro/20260930T195016-f4c8e6fb.json",
+      "results/evoluzione/registro/20260930T195039-a68578a1.json",
+      "results/evoluzione/registro/20260930T195043-1c71db65.json",
+      "results/evoluzione/registro/20260930T195043-ebc061ef.json",
+      "results/evoluzione/registro/20260930T195049-29ef91d8.json",
+      "results/evoluzione/registro/20260930T195057-07bc7415.json",
+      "results/evoluzione/registro/20260930T195057-54327e14.json",
+      "results/evoluzione/registro/20260930T195116-d9388881.json",
+      "results/evoluzione/registro/20260930T195120-7a61dc3d.json",
+      "results/evoluzione/registro/20260930T195120-c86d64fa.json",
+      "results/evoluzione/registro/20260930T195120-f7043f92.json",
+      "results/evoluzione/registro/20260930T195121-c3ab65ec.json",
+      "results/evoluzione/registro/20260930T195126-ede538e6.json",
+      "results/evoluzione/registro/20260930T195135-08fcd218.json",
+      "results/evoluzione/registro/20260930T195135-1a303d4f.json",
+      "results/evoluzione/registro/20260930T195154-38169f48.json",
+      "results/evoluzione/registro/20260930T195158-565e3b37.json",
+      "results/evoluzione/registro/20260930T195159-3e75fdc6.json",
+      "results/evoluzione/registro/20260930T195205-fcb2f260.json",
+      "results/evoluzione/registro/20260930T195227-80cc21f6.json",
+      "results/evoluzione/registro/20260930T195228-74f79201.json",
+      "results/evoluzione/registro/20260930T195234-b99ee251.json",
+      "results/evoluzione/registro/20260930T195239-0fa9257b.json",
+      "results/evoluzione/registro/20260930T195244-a77298c2.json",
+      "results/evoluzione/registro/20260930T195244-f7513846.json",
+      "results/evoluzione/registro/20260930T195309-19ae273e.json",
+      "results/evoluzione/registro/20260930T195309-cb4a12fb.json",
+      "results/evoluzione/registro/20260930T195310-71560031.json",
+      "results/evoluzione/registro/20260930T195316-139b68b4.json",
+      "results/evoluzione/registro/20260930T195318-5a89cc0e.json",
+      "results/evoluzione/registro/20260930T195320-17bcf888.json",
+      "results/evoluzione/registro/20260930T195326-4bd4ce3f.json",
+      "results/evoluzione/registro/20260930T195326-d2167e35.json",
+      "results/evoluzione/registro/20260930T195353-042c92c1.json",
+      "results/evoluzione/registro/20260930T195353-72e4e86c.json",
+      "results/evoluzione/registro/20260930T195402-511e7e62.json",
+      "results/evoluzione/registro/20260930T195404-c2c1fb30.json",
+      "results/evoluzione/registro/20260930T195432-e4d07ed8.json",
+      "results/evoluzione/registro/20260930T195436-6ffcdcb8.json",
+      "results/evoluzione/registro/20260930T195443-53e390f1.json",
+      "results/evoluzione/registro/20260930T195443-eca3b5cf.json",
+      "results/evoluzione/registro/20260930T195449-36acb815.json",
+      "results/evoluzione/registro/20260930T195450-455a3ccd.json",
+      "results/evoluzione/registro/20260930T195527-c28ccb16.json",
+      "results/evoluzione/registro/20260930T195532-edc6cea2.json",
+      "results/evoluzione/registro/20260930T195538-20197a4e.json",
+      "results/evoluzione/registro/20260930T195539-581638d5.json",
+      "results/evoluzione/registro/20260930T195539-6d13f9b3.json",
+      "results/evoluzione/registro/20260930T195539-7db862e2.json",
+      "results/evoluzione/registro/20260930T195546-9aabde16.json",
+      "results/evoluzione/registro/20260930T195546-f892df8d.json",
+      "results/evoluzione/registro/20260930T195626-9e70dbe6.json",
+      "results/evoluzione/registro/20260930T195633-901e8963.json",
+      "results/evoluzione/registro/20260930T195640-f507f819.json",
+      "results/evoluzione/registro/20260930T195641-7f20abbe.json",
+      "results/evoluzione/registro/20260930T195723-8e668d80.json",
+      "results/evoluzione/registro/20260930T195724-2a3a729b.json",
+      "results/evoluzione/registro/20260930T195725-e4b6435e.json",
+      "results/evoluzione/registro/20260930T195730-08e369b7.json",
+      "results/evoluzione/registro/20260930T195730-33373ce9.json",
+      "results/evoluzione/registro/20260930T195730-81139ae6.json",
+      "results/evoluzione/registro/20260930T195819-2ba56f0b.json",
+      "results/evoluzione/registro/20260930T195819-654a436d.json",
+      "results/evoluzione/registro/20260930T195819-6e8dfb4c.json",
+      "results/evoluzione/registro/20260930T195820-65675863.json",
+      "results/evoluzione/registro/20260930T195820-b435c013.json",
+      "results/evoluzione/registro/20260930T195825-529b047d.json",
+      "results/evoluzione/registro/20260930T195825-c95933c0.json",
+      "results/evoluzione/registro/20260930T195825-eba252a4.json",
+      "results/evoluzione/registro/20260930T195910-087f8385.json",
+      "results/evoluzione/registro/20260930T195910-151644ff.json",
+      "results/evoluzione/registro/20260930T195910-fe28b48e.json",
+      "results/evoluzione/registro/20260930T195915-9c6d7497.json",
+      "results/evoluzione/registro/20260930T195945-514460d9.json",
+      "results/evoluzione/registro/20260930T195946-6e3624d5.json",
+      "results/evoluzione/registro/20260930T195950-2e306f69.json",
+      "results/evoluzione/registro/20260930T195950-6620350c.json",
+      "results/evoluzione/registro/20260930T195957-1dc385ae.json",
+      "results/evoluzione/registro/20260930T195957-8ff1948d.json",
+      "results/evoluzione/registro/20260930T200034-f0bccc7b.json",
+      "results/evoluzione/registro/20260930T200035-25cc2f8f.json",
+      "results/evoluzione/registro/20260930T200035-9f050c93.json",
+      "results/evoluzione/registro/20260930T200038-09e41730.json",
+      "results/evoluzione/registro/20260930T200039-1cf39ba5.json",
+      "results/evoluzione/registro/20260930T200039-c5f17130.json",
+      "results/evoluzione/registro/20260930T200045-c81d4d3d.json",
+      "results/evoluzione/registro/20260930T200045-cb7165ee.json",
+      "results/evoluzione/registro/20260930T200120-3804da0a.json",
+      "results/evoluzione/registro/20260930T200120-737634f8.json",
+      "results/evoluzione/registro/20260930T200125-2931876f.json",
+      "results/evoluzione/registro/20260930T200125-fe139696.json",
+      "results/evoluzione/registro/20260930T200156-2b7f80b2.json",
+      "results/evoluzione/registro/20260930T200157-0cd233e2.json",
+      "results/evoluzione/registro/20260930T200206-5e3dbf29.json",
+      "results/evoluzione/registro/20260930T200206-76900fd5.json",
+      "results/evoluzione/registro/20260930T200206-eb6f0517.json",
+      "results/evoluzione/registro/20260930T200207-108781ef.json",
+      "results/evoluzione/registro/20260930T200242-dc4384f4.json",
+      "results/evoluzione/registro/20260930T200244-6ad9b22d.json",
+      "results/evoluzione/registro/20260930T200246-52a7c4fd.json",
+      "results/evoluzione/registro/20260930T200246-f5b1bce9.json",
+      "results/evoluzione/registro/20260930T200251-14081b03.json",
+      "results/evoluzione/registro/20260930T200252-24d873ef.json",
+      "results/evoluzione/registro/20260930T200252-a7b5ec6e.json",
+      "results/evoluzione/registro/20260930T200252-e40b009f.json",
+      "results/evoluzione/registro/20260930T200325-13ae4be2.json",
+      "results/evoluzione/registro/20260930T200327-24ace54d.json",
+      "results/evoluzione/registro/20260930T200334-516fc87b.json",
+      "results/evoluzione/registro/20260930T200334-8123da86.json",
+      "results/evoluzione/registro/20260930T200359-ad4ce576.json",
+      "results/evoluzione/registro/20260930T200400-55c58c7a.json",
+      "results/evoluzione/registro/20260930T200405-977049a7.json",
+      "results/evoluzione/registro/20260930T200407-94ae0504.json"
+    ],
+    "istante": "2026-09-30T21:07:30.053971+00:00"
+  },
+  "impronte": {
+    "evoluzione/componente/bracci.py": "d803e43387c5c6a4",
+    "evoluzione/componente/campionamento.py": "d45b2980a89a570f",
+    "evoluzione/esperimenti/addestramento.py": "f5d69a789aadd479",
+    "evoluzione/esperimenti/inserimento.py": "bc1d6ecd562b0888",
+    "evoluzione/esperimenti/esegui_inserimento.py": "95349fe3b6f6356f",
+    "evoluzione/esperimenti/ricostruisci_predizioni.py": "12f5a31f2521a5fa",
+    "evoluzione/esperimenti/veterani_e3.py": "5fee87edbc851cde",
+    "evoluzione/esperimenti/riselezione_rmon_test.py": "a8b19db9c3d2fc07",
+    "evoluzione/analisi/analizza_e3.py": "a591fde2f22d251f",
+    "evoluzione/analisi/analizza_veterani_e3.py": "d51ff7c1953d9fc2",
+    "evoluzione/analisi/costi_e3.py": "c71f3f1ca388a3cb",
+    "evoluzione/analisi/riselezione_rmon.py": "d0552d186bccad66",
+    "protocol/E3.md": "245085de8a909ca8"
+  }
+}

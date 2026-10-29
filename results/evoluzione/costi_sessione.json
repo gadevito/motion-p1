@@ -1,0 +1,759 @@
+{
+  "istante_inizio": "2026-10-10T16:31:14.529416+00:00",
+  "macchina_prima": {
+    "piattaforma": "macOS-26.6.2-arm64-arm-64bit",
+    "arch": "arm64",
+    "cpu": "Apple M3 Max",
+    "python": "3.12.7",
+    "torch": "2.12.1",
+    "fili_torch": 1,
+    "load_average": [
+      2.57568359375,
+      2.708984375,
+      2.88427734375
+    ]
+  },
+  "modalita": "isolata, un processo, un filo di torch, una sessione",
+  "carico_max_ammesso": 4.0,
+  "celle": {
+    "Madrid_p0_s201": {
+      "contesto": "Madrid",
+      "seme": 201,
+      "E1": {
+        "addestramento_s": 2586.251226902008,
+        "impronta_pesi": "d4cff9528e82f432",
+        "riproduce_originale": true,
+        "load_average_dopo": [
+          1.59912109375,
+          2.22705078125,
+          2.720703125
+        ]
+      },
+      "C": {
+        "addestramento_s": 2484.9973289966583,
+        "inserimento_s": 0.0,
+        "secondi_parete": 2497.330122947693,
+        "wce": 0.9414093038567413,
+        "wce_registrata": 0.9414093038567413,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          1.318359375,
+          1.4404296875,
+          1.8310546875
+        ]
+      },
+      "R-orig_96": {
+        "addestramento_s": 0.0,
+        "inserimento_s": 2218.0223321914673,
+        "secondi_parete": 2230.5165753364563,
+        "wce": 0.9196459316446133,
+        "wce_registrata": 0.9196459316446133,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          2.8212890625,
+          2.625,
+          2.25634765625
+        ]
+      },
+      "R-orig_672": {
+        "addestramento_s": 0.0,
+        "inserimento_s": 2243.310205936432,
+        "secondi_parete": 2251.0730378627777,
+        "wce": 0.9104177744528562,
+        "wce_registrata": 0.9104177744528562,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          1.5556640625,
+          1.6435546875,
+          1.99169921875
+        ]
+      },
+      "Fp": {
+        "Fp_96": {
+          "inserimento_s": 14.397310018539429,
+          "aggiornamenti": 50,
+          "origini": 77,
+          "scarto_relativo": 0.0
+        },
+        "Fp_672": {
+          "inserimento_s": 139.05349206924438,
+          "aggiornamenti": 50,
+          "origini": 634,
+          "scarto_relativo": 0.0
+        },
+        "load_average_dopo": [
+          1.81640625,
+          1.6572265625,
+          1.9248046875
+        ]
+      }
+    },
+    "Madrid_p0_s202": {
+      "contesto": "Madrid",
+      "seme": 202,
+      "E1": {
+        "addestramento_s": 2471.4318652153015,
+        "impronta_pesi": "6504f58c4dfcb21f",
+        "riproduce_originale": true,
+        "load_average_dopo": [
+          1.3603515625,
+          1.47119140625,
+          1.56396484375
+        ]
+      },
+      "C": {
+        "addestramento_s": 2466.9495158195496,
+        "inserimento_s": 0.0,
+        "secondi_parete": 2479.3171899318695,
+        "wce": 0.9424468317609042,
+        "wce_registrata": 0.9424468317609042,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          1.4453125,
+          1.53125,
+          1.47998046875
+        ]
+      },
+      "R-orig_96": {
+        "addestramento_s": 0.0,
+        "inserimento_s": 2225.248001098633,
+        "secondi_parete": 2237.670951128006,
+        "wce": 0.9212585822488526,
+        "wce_registrata": 0.9212585822488526,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          1.69970703125,
+          1.830078125,
+          1.69384765625
+        ]
+      },
+      "R-orig_672": {
+        "addestramento_s": 0.0,
+        "inserimento_s": 2223.1592869758606,
+        "secondi_parete": 2231.1540117263794,
+        "wce": 0.909450052865563,
+        "wce_registrata": 0.909450052865563,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          1.41650390625,
+          1.50830078125,
+          1.5595703125
+        ]
+      },
+      "Fp": {
+        "Fp_96": {
+          "inserimento_s": 14.580075025558472,
+          "aggiornamenti": 50,
+          "origini": 77,
+          "scarto_relativo": 0.0
+        },
+        "Fp_672": {
+          "inserimento_s": 138.35017085075378,
+          "aggiornamenti": 50,
+          "origini": 634,
+          "scarto_relativo": 0.0
+        },
+        "load_average_dopo": [
+          1.25,
+          1.431640625,
+          1.51708984375
+        ]
+      }
+    },
+    "Madrid_p0_s203": {
+      "contesto": "Madrid",
+      "seme": 203,
+      "E1": {
+        "addestramento_s": 2465.6283259391785,
+        "impronta_pesi": "36c20c1ad2ea9867",
+        "riproduce_originale": true,
+        "load_average_dopo": [
+          1.87109375,
+          1.9287109375,
+          1.796875
+        ]
+      },
+      "C": {
+        "addestramento_s": 2463.7833240032196,
+        "inserimento_s": 0.0,
+        "secondi_parete": 2476.1697838306427,
+        "wce": 0.9442761179986752,
+        "wce_registrata": 0.9442761179986752,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          1.42822265625,
+          1.68115234375,
+          1.6416015625
+        ]
+      },
+      "R-orig_96": {
+        "addestramento_s": 0.0,
+        "inserimento_s": 2227.0214371681213,
+        "secondi_parete": 2239.460184812546,
+        "wce": 0.9222501069883801,
+        "wce_registrata": 0.9222501069883801,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          1.94775390625,
+          1.84228515625,
+          1.75
+        ]
+      },
+      "R-orig_672": {
+        "addestramento_s": 0.0,
+        "inserimento_s": 2228.8921508789062,
+        "secondi_parete": 2236.703279733658,
+        "wce": 0.9095252775647513,
+        "wce_registrata": 0.9095252775647513,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          2.09912109375,
+          1.89990234375,
+          1.763671875
+        ]
+      },
+      "Fp": {
+        "Fp_96": {
+          "inserimento_s": 14.417747974395752,
+          "aggiornamenti": 50,
+          "origini": 77,
+          "scarto_relativo": 0.0
+        },
+        "Fp_672": {
+          "inserimento_s": 138.14348101615906,
+          "aggiornamenti": 50,
+          "origini": 634,
+          "scarto_relativo": 0.0
+        },
+        "load_average_dopo": [
+          2.2822265625,
+          2.15625,
+          1.8935546875
+        ]
+      }
+    },
+    "Londra_p0_s201": {
+      "contesto": "Londra",
+      "seme": 201,
+      "E1": {
+        "addestramento_s": 2465.5376439094543,
+        "impronta_pesi": "516464cc5bfa68fc",
+        "riproduce_originale": true,
+        "load_average_dopo": [
+          1.7529296875,
+          1.7197265625,
+          1.86474609375
+        ]
+      },
+      "C": {
+        "addestramento_s": 2462.581461906433,
+        "inserimento_s": 0.0,
+        "secondi_parete": 2475.1075048446655,
+        "wce": 0.8764536761368973,
+        "wce_registrata": 0.8764536761368973,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          1.57080078125,
+          1.5029296875,
+          1.4912109375
+        ]
+      },
+      "R-orig_96": {
+        "addestramento_s": 0.0,
+        "inserimento_s": 2228.434314966202,
+        "secondi_parete": 2240.9350090026855,
+        "wce": 0.9232426611101717,
+        "wce_registrata": 0.9232426611101717,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          1.59033203125,
+          1.732421875,
+          1.82080078125
+        ]
+      },
+      "R-orig_672": {
+        "addestramento_s": 0.0,
+        "inserimento_s": 2227.498080968857,
+        "secondi_parete": 2235.4055981636047,
+        "wce": 0.8432190039505854,
+        "wce_registrata": 0.8432190039505854,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          1.5380859375,
+          1.62451171875,
+          1.67919921875
+        ]
+      },
+      "Fp": {
+        "Fp_96": {
+          "inserimento_s": 14.337548732757568,
+          "aggiornamenti": 50,
+          "origini": 77,
+          "scarto_relativo": 0.0
+        },
+        "Fp_672": {
+          "inserimento_s": 138.81725788116455,
+          "aggiornamenti": 50,
+          "origini": 634,
+          "scarto_relativo": 0.0
+        },
+        "load_average_dopo": [
+          1.60546875,
+          1.6630859375,
+          1.6806640625
+        ]
+      }
+    },
+    "Londra_p0_s202": {
+      "contesto": "Londra",
+      "seme": 202,
+      "E1": {
+        "addestramento_s": 2463.5387279987335,
+        "impronta_pesi": "bef2ad0343738029",
+        "riproduce_originale": true,
+        "load_average_dopo": [
+          1.59130859375,
+          1.49365234375,
+          1.51025390625
+        ]
+      },
+      "C": {
+        "addestramento_s": 2462.0551879405975,
+        "inserimento_s": 0.0,
+        "secondi_parete": 2474.5462398529053,
+        "wce": 0.8785752729684941,
+        "wce_registrata": 0.8785752729684941,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          1.330078125,
+          1.41796875,
+          1.4501953125
+        ]
+      },
+      "R-orig_96": {
+        "addestramento_s": 0.0,
+        "inserimento_s": 2228.0682649612427,
+        "secondi_parete": 2240.619521856308,
+        "wce": 0.9254396695997807,
+        "wce_registrata": 0.9254396695997807,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          1.4052734375,
+          1.53466796875,
+          1.5771484375
+        ]
+      },
+      "R-orig_672": {
+        "addestramento_s": 0.0,
+        "inserimento_s": 2228.4475932121277,
+        "secondi_parete": 2236.3357322216034,
+        "wce": 0.8448292545706202,
+        "wce_registrata": 0.8448292545706202,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          1.75732421875,
+          1.84423828125,
+          1.697265625
+        ]
+      },
+      "Fp": {
+        "Fp_96": {
+          "inserimento_s": 14.528474807739258,
+          "aggiornamenti": 50,
+          "origini": 77,
+          "scarto_relativo": 0.0
+        },
+        "Fp_672": {
+          "inserimento_s": 138.4533839225769,
+          "aggiornamenti": 50,
+          "origini": 634,
+          "scarto_relativo": 0.0
+        },
+        "load_average_dopo": [
+          1.4072265625,
+          1.6982421875,
+          1.65869140625
+        ]
+      }
+    },
+    "Londra_p0_s203": {
+      "contesto": "Londra",
+      "seme": 203,
+      "E1": {
+        "addestramento_s": 2522.5628821849823,
+        "impronta_pesi": "b4146b1bf99390c5",
+        "riproduce_originale": true,
+        "load_average_dopo": [
+          2.8232421875,
+          2.7255859375,
+          2.45166015625
+        ]
+      },
+      "C": {
+        "addestramento_s": 2556.699208021164,
+        "inserimento_s": 0.0,
+        "secondi_parete": 2570.1386790275574,
+        "wce": 0.8779946038466621,
+        "wce_registrata": 0.8779946038466621,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          2.88427734375,
+          2.60107421875,
+          2.58154296875
+        ]
+      },
+      "R-orig_96": {
+        "addestramento_s": 0.0,
+        "inserimento_s": 2287.1309270858765,
+        "secondi_parete": 2299.7243299484253,
+        "wce": 0.928972081098523,
+        "wce_registrata": 0.928972081098523,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          1.4765625,
+          1.6162109375,
+          2.078125
+        ]
+      },
+      "R-orig_672": {
+        "addestramento_s": 0.0,
+        "inserimento_s": 2319.3416571617126,
+        "secondi_parete": 2327.7276699543,
+        "wce": 0.845242442495798,
+        "wce_registrata": 0.845242442495798,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          2.63525390625,
+          3.22314453125,
+          2.98876953125
+        ]
+      },
+      "Fp": {
+        "Fp_96": {
+          "inserimento_s": 15.351472854614258,
+          "aggiornamenti": 50,
+          "origini": 77,
+          "scarto_relativo": 0.0
+        },
+        "Fp_672": {
+          "inserimento_s": 149.83425378799438,
+          "aggiornamenti": 50,
+          "origini": 634,
+          "scarto_relativo": 0.0
+        },
+        "load_average_dopo": [
+          3.31884765625,
+          3.46240234375,
+          3.14111328125
+        ]
+      }
+    },
+    "Melbourne_p0_s201": {
+      "contesto": "Melbourne",
+      "seme": 201,
+      "E1": {
+        "addestramento_s": 1761.3009428977966,
+        "impronta_pesi": "84cc80b71b2a1618",
+        "riproduce_originale": true,
+        "load_average_dopo": [
+          2.60107421875,
+          3.04150390625,
+          3.05712890625
+        ]
+      },
+      "C": {
+        "addestramento_s": 1746.0092499256134,
+        "inserimento_s": 0.0,
+        "secondi_parete": 1756.0100140571594,
+        "wce": 0.8032687185350202,
+        "wce_registrata": 0.8032687185350202,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          2.53466796875,
+          2.95458984375,
+          2.77734375
+        ]
+      },
+      "R-orig_96": {
+        "addestramento_s": 0.0,
+        "inserimento_s": 1540.8791160583496,
+        "secondi_parete": 1549.1511917114258,
+        "wce": 0.7973907840513546,
+        "wce_registrata": 0.7973907840513546,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          1.7431640625,
+          2.34912109375,
+          2.501953125
+        ]
+      },
+      "R-orig_672": {
+        "addestramento_s": 0.0,
+        "inserimento_s": 1563.1920766830444,
+        "secondi_parete": 1568.8556668758392,
+        "wce": 0.7557708613464933,
+        "wce_registrata": 0.7557708613464933,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          2.65673828125,
+          3.0498046875,
+          2.9755859375
+        ]
+      },
+      "Fp": {
+        "Fp_96": {
+          "inserimento_s": 39.44391918182373,
+          "aggiornamenti": 200,
+          "origini": 77,
+          "scarto_relativo": 0.0
+        },
+        "Fp_672": {
+          "inserimento_s": 401.3304240703583,
+          "aggiornamenti": 200,
+          "origini": 634,
+          "scarto_relativo": 0.0
+        },
+        "load_average_dopo": [
+          3.0869140625,
+          3.0390625,
+          2.99169921875
+        ]
+      }
+    },
+    "Melbourne_p0_s202": {
+      "contesto": "Melbourne",
+      "seme": 202,
+      "E1": {
+        "addestramento_s": 1725.5998830795288,
+        "impronta_pesi": "e3f89b20528fe172",
+        "riproduce_originale": true,
+        "load_average_dopo": [
+          2.703125,
+          2.38330078125,
+          2.5751953125
+        ]
+      },
+      "C": {
+        "addestramento_s": 1727.8540108203888,
+        "inserimento_s": 0.0,
+        "secondi_parete": 1736.9467360973358,
+        "wce": 0.8050639026494963,
+        "wce_registrata": 0.8050639026494963,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          4.7392578125,
+          3.26513671875,
+          2.8564453125
+        ]
+      },
+      "R-orig_96": {
+        "addestramento_s": 0.0,
+        "inserimento_s": 1555.963317155838,
+        "secondi_parete": 1564.4559421539307,
+        "wce": 0.8106353316163404,
+        "wce_registrata": 0.8106353316163404,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          2.55078125,
+          2.67919921875,
+          2.70263671875
+        ]
+      },
+      "R-orig_672": {
+        "addestramento_s": 0.0,
+        "inserimento_s": 1557.4534537792206,
+        "secondi_parete": 1562.899347782135,
+        "wce": 0.759045400433157,
+        "wce_registrata": 0.759045400433157,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          3.5712890625,
+          3.544921875,
+          3.24072265625
+        ]
+      },
+      "Fp": {
+        "Fp_96": {
+          "inserimento_s": 38.79145431518555,
+          "aggiornamenti": 200,
+          "origini": 77,
+          "scarto_relativo": 0.0
+        },
+        "Fp_672": {
+          "inserimento_s": 408.2845661640167,
+          "aggiornamenti": 200,
+          "origini": 634,
+          "scarto_relativo": 0.0
+        },
+        "load_average_dopo": [
+          3.3818359375,
+          3.50634765625,
+          3.31494140625
+        ]
+      }
+    },
+    "Melbourne_p0_s203": {
+      "contesto": "Melbourne",
+      "seme": 203,
+      "E1": {
+        "addestramento_s": 1754.1916828155518,
+        "impronta_pesi": "136e583078568d63",
+        "riproduce_originale": true,
+        "load_average_dopo": [
+          3.345703125,
+          3.85546875,
+          3.54248046875
+        ]
+      },
+      "C": {
+        "addestramento_s": 1774.3255968093872,
+        "inserimento_s": 0.0,
+        "secondi_parete": 1784.0641641616821,
+        "wce": 0.7988033394817543,
+        "wce_registrata": 0.7988033394817543,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          3.28955078125,
+          3.05419921875,
+          3.18115234375
+        ]
+      },
+      "R-orig_96": {
+        "addestramento_s": 0.0,
+        "inserimento_s": 1559.0136051177979,
+        "secondi_parete": 1568.398234128952,
+        "wce": 0.8194203562733234,
+        "wce_registrata": 0.8194203562733234,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          3.68896484375,
+          3.16455078125,
+          3.150390625
+        ]
+      },
+      "R-orig_672": {
+        "addestramento_s": 0.0,
+        "inserimento_s": 1546.9053390026093,
+        "secondi_parete": 1552.2921590805054,
+        "wce": 0.7603281429622956,
+        "wce_registrata": 0.7603281429622956,
+        "scarto_relativo": 0.0,
+        "load_average_dopo": [
+          1.86376953125,
+          2.1962890625,
+          2.68408203125
+        ]
+      },
+      "Fp": {
+        "Fp_96": {
+          "inserimento_s": 36.55505418777466,
+          "aggiornamenti": 200,
+          "origini": 77,
+          "scarto_relativo": 0.0
+        },
+        "Fp_672": {
+          "inserimento_s": 388.8407437801361,
+          "aggiornamenti": 200,
+          "origini": 634,
+          "scarto_relativo": 0.0
+        },
+        "load_average_dopo": [
+          2.03271484375,
+          2.36279296875,
+          2.5576171875
+        ]
+      }
+    }
+  },
+  "riprese": 0,
+  "PEMS08": {
+    "contesto": "PEMS08_p0",
+    "partizione": 0,
+    "semi": [
+      201,
+      202,
+      203
+    ],
+    "modalita_misura": "isolata, un processo",
+    "addestramento_s": {
+      "C": {
+        "valori": [
+          425.03786396980286,
+          426.08898878097534,
+          425.99639201164246
+        ],
+        "mediana": 425.99639201164246
+      },
+      "A": {
+        "valori": [
+          502.04965019226074,
+          503.760537147522,
+          502.57466292381287
+        ],
+        "mediana": 502.57466292381287
+      },
+      "E1": {
+        "valori": [
+          425.03271293640137,
+          424.5592861175537,
+          424.5024518966675
+        ],
+        "mediana": 424.5592861175537
+      },
+      "R-orig_96": {
+        "valori": [
+          380.24874997138977,
+          376.78908801078796,
+          376.4739067554474
+        ],
+        "mediana": 376.78908801078796
+      },
+      "R-orig_672": {
+        "valori": [
+          378.73035311698914,
+          379.89032077789307,
+          378.34671998023987
+        ],
+        "mediana": 378.73035311698914
+      }
+    },
+    "adattamento_s": {
+      "Fp_96": {
+        "valori": [
+          12.926435708999634,
+          13.118723630905151,
+          13.13094687461853
+        ],
+        "mediana": 13.118723630905151
+      },
+      "Fp_672": {
+        "valori": [
+          127.13522624969482,
+          127.00591397285461,
+          126.81960701942444
+        ],
+        "mediana": 127.00591397285461
+      }
+    },
+    "F0p_s": 0.0,
+    "nota": "F0', F' e gated non riaddestrano: il loro costo e' quello di E' piu' l'adattamento",
+    "ore_calendario": 1.8750964555475447,
+    "istante": "2026-10-11T16:23:32.613729+00:00",
+    "checkpoint_che_riproducono_i_pesi_di_e6": "15/15"
+  },
+  "macchina_dopo": {
+    "piattaforma": "macOS-26.6.2-arm64-arm-64bit",
+    "arch": "arm64",
+    "cpu": "Apple M3 Max",
+    "python": "3.12.7",
+    "torch": "2.12.1",
+    "fili_torch": 1,
+    "load_average": [
+      2.2529296875,
+      2.068359375,
+      2.32373046875
+    ]
+  },
+  "istante_fine": "2026-10-11T16:23:32.720783+00:00",
+  "ore_sessione": 23.871719748311573
+}

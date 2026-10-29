@@ -1,0 +1,2073 @@
+{
+  "data": "2026-10-11",
+  "commit": "5fe337f0229d",
+  "addestramenti": {
+    "marcatori": {
+      "ep2/C": 54,
+      "ep2/A": 54,
+      "ep2/E1": 54,
+      "ep3/C": 54,
+      "ep3/A": 54,
+      "ep3/E1": 54
+    },
+    "selezionati": {
+      "1374": 1,
+      "1603": 9,
+      "1832": 29,
+      "2061": 91,
+      "2290": 194
+    },
+    "esito": {
+      "completate": 324,
+      "fallite": [],
+      "gia_fatte": 0,
+      "ore_calendario": 50.03545522636838,
+      "lavoratori": 8,
+      "istante": "2026-10-06T10:51:13.588230+00:00"
+    }
+  },
+  "celle": {
+    "per_episodio": {
+      "1": 54,
+      "2": 54,
+      "3": 54
+    },
+    "controllo_6_max": 0.0,
+    "controllo_3": 162,
+    "k": [
+      [
+        "Londra",
+        10
+      ],
+      [
+        "Madrid",
+        50
+      ],
+      [
+        "Melbourne",
+        100
+      ]
+    ],
+    "imp_k": [
+      "395d17a4f05462ea"
+    ]
+  },
+  "risultati": {
+    "impronta_scelta_e4": "81e47f64f3d63b3b",
+    "impronta_k_secondaria": "395d17a4f05462ea",
+    "k_secondaria": {
+      "Madrid": 50,
+      "Londra": 10,
+      "Melbourne": 100
+    },
+    "affermazioni": {
+      "Madrid/ep1/a": {
+        "media": 0.00793911357383483,
+        "ic_con_nodi": [
+          0.005267617548960755,
+          0.01069307765553195
+        ],
+        "include_zero": false,
+        "confronto": "F0p-C",
+        "fascia": null,
+        "segno": "+"
+      },
+      "Madrid/ep1/b": {
+        "media": -0.028681995386142918,
+        "ic_con_nodi": [
+          -0.03724148221739769,
+          -0.02102080640341701
+        ],
+        "include_zero": false,
+        "confronto": "gated-F0p",
+        "fascia": null,
+        "segno": "-"
+      },
+      "Madrid/ep1/c": {
+        "media": -0.030798642591370932,
+        "ic_con_nodi": [
+          -0.03634532270712355,
+          -0.025568246468948883
+        ],
+        "include_zero": false,
+        "confronto": "Fp_672-C",
+        "fascia": 2,
+        "segno": "-"
+      },
+      "Madrid/ep1/d": {
+        "media": -0.011197244673064778,
+        "ic_con_nodi": [
+          -0.02056176881618736,
+          -0.0017843446413266246
+        ],
+        "include_zero": false,
+        "confronto": "Fp_96-C",
+        "fascia": null,
+        "segno": "-"
+      },
+      "Madrid/ep1/e": {
+        "media": 0.0076970486324482385,
+        "ic_con_nodi": [
+          0.0041929248720670295,
+          0.01159528942492978
+        ],
+        "include_zero": false,
+        "confronto": "Fp_672-A",
+        "fascia": 2,
+        "segno": "+"
+      },
+      "Madrid/ep2/a": {
+        "media": 0.004084903204546513,
+        "ic_con_nodi": [
+          0.001572651175579744,
+          0.006655085175149439
+        ],
+        "include_zero": false,
+        "confronto": "F0p-C",
+        "fascia": null,
+        "segno": "+"
+      },
+      "Madrid/ep2/b": {
+        "media": -0.02667824751742353,
+        "ic_con_nodi": [
+          -0.035296650763501365,
+          -0.01890027720463781
+        ],
+        "include_zero": false,
+        "confronto": "gated-F0p",
+        "fascia": null,
+        "segno": "-"
+      },
+      "Madrid/ep2/c": {
+        "media": -0.03533625468036833,
+        "ic_con_nodi": [
+          -0.04238089524610996,
+          -0.02950951490457827
+        ],
+        "include_zero": false,
+        "confronto": "Fp_672-C",
+        "fascia": 2,
+        "segno": "-"
+      },
+      "Madrid/ep2/d": {
+        "media": -0.011926658204161143,
+        "ic_con_nodi": [
+          -0.02040138144069692,
+          -0.0037797484576874304
+        ],
+        "include_zero": false,
+        "confronto": "Fp_96-C",
+        "fascia": null,
+        "segno": "-"
+      },
+      "Madrid/ep2/e": {
+        "media": 0.004500680374066559,
+        "ic_con_nodi": [
+          0.0013735435194002607,
+          0.007551902226706242
+        ],
+        "include_zero": false,
+        "confronto": "Fp_672-A",
+        "fascia": 2,
+        "segno": "+"
+      },
+      "Madrid/ep3/a": {
+        "media": 0.00215141504175261,
+        "ic_con_nodi": [
+          -0.0004929972948957232,
+          0.004884344154017287
+        ],
+        "include_zero": true,
+        "confronto": "F0p-C",
+        "fascia": null,
+        "segno": "0"
+      },
+      "Madrid/ep3/b": {
+        "media": -0.007558930478863875,
+        "ic_con_nodi": [
+          -0.017706259332121842,
+          0.0026923094028661323
+        ],
+        "include_zero": true,
+        "confronto": "gated-F0p",
+        "fascia": null,
+        "segno": "0"
+      },
+      "Madrid/ep3/c": {
+        "media": -0.03564006249923157,
+        "ic_con_nodi": [
+          -0.04329052709038319,
+          -0.029120563045085392
+        ],
+        "include_zero": false,
+        "confronto": "Fp_672-C",
+        "fascia": 2,
+        "segno": "-"
+      },
+      "Madrid/ep3/d": {
+        "media": 0.010517458211176401,
+        "ic_con_nodi": [
+          -0.003954365409674985,
+          0.026375106014668897
+        ],
+        "include_zero": true,
+        "confronto": "Fp_96-C",
+        "fascia": null,
+        "segno": "0"
+      },
+      "Madrid/ep3/e": {
+        "media": 0.0029930383537061234,
+        "ic_con_nodi": [
+          9.485741000569596e-05,
+          0.006143683995920029
+        ],
+        "include_zero": false,
+        "confronto": "Fp_672-A",
+        "fascia": 2,
+        "segno": "+"
+      },
+      "Londra/ep1/a": {
+        "media": 0.01451928060582088,
+        "ic_con_nodi": [
+          0.010293742520330572,
+          0.019136514637891597
+        ],
+        "include_zero": false,
+        "confronto": "F0p-C",
+        "fascia": null,
+        "segno": "+"
+      },
+      "Londra/ep1/b": {
+        "media": -0.01058855671841853,
+        "ic_con_nodi": [
+          -0.017490041555862375,
+          -0.004256362878634218
+        ],
+        "include_zero": false,
+        "confronto": "gated-F0p",
+        "fascia": null,
+        "segno": "-"
+      },
+      "Londra/ep1/c": {
+        "media": -0.03062611572287704,
+        "ic_con_nodi": [
+          -0.035133006328533736,
+          -0.02636151001656377
+        ],
+        "include_zero": false,
+        "confronto": "Fp_672-C",
+        "fascia": 2,
+        "segno": "-"
+      },
+      "Londra/ep1/d": {
+        "media": 0.031670135315980855,
+        "ic_con_nodi": [
+          0.021055133439697317,
+          0.04278093824392049
+        ],
+        "include_zero": false,
+        "confronto": "Fp_96-C",
+        "fascia": null,
+        "segno": "+"
+      },
+      "Londra/ep1/e": {
+        "media": 0.008480402793779806,
+        "ic_con_nodi": [
+          0.005624903703383317,
+          0.011851478299256533
+        ],
+        "include_zero": false,
+        "confronto": "Fp_672-A",
+        "fascia": 2,
+        "segno": "+"
+      },
+      "Londra/ep2/a": {
+        "media": 0.009759803359337134,
+        "ic_con_nodi": [
+          0.00564116719935382,
+          0.014855703155447146
+        ],
+        "include_zero": false,
+        "confronto": "F0p-C",
+        "fascia": null,
+        "segno": "+"
+      },
+      "Londra/ep2/b": {
+        "media": -0.017840726786902524,
+        "ic_con_nodi": [
+          -0.02401869914164181,
+          -0.012669837319956757
+        ],
+        "include_zero": false,
+        "confronto": "gated-F0p",
+        "fascia": null,
+        "segno": "-"
+      },
+      "Londra/ep2/c": {
+        "media": -0.024269337674746722,
+        "ic_con_nodi": [
+          -0.029012462208845662,
+          -0.019645443474314832
+        ],
+        "include_zero": false,
+        "confronto": "Fp_672-C",
+        "fascia": 2,
+        "segno": "-"
+      },
+      "Londra/ep2/d": {
+        "media": 0.005463327975981215,
+        "ic_con_nodi": [
+          -0.0035395816614322588,
+          0.014736905845171861
+        ],
+        "include_zero": true,
+        "confronto": "Fp_96-C",
+        "fascia": null,
+        "segno": "0"
+      },
+      "Londra/ep2/e": {
+        "media": 0.008997231958666925,
+        "ic_con_nodi": [
+          0.005418992221845221,
+          0.012790471521369492
+        ],
+        "include_zero": false,
+        "confronto": "Fp_672-A",
+        "fascia": 2,
+        "segno": "+"
+      },
+      "Londra/ep3/a": {
+        "media": 0.010508979054150732,
+        "ic_con_nodi": [
+          0.007472753880691092,
+          0.014012616661586989
+        ],
+        "include_zero": false,
+        "confronto": "F0p-C",
+        "fascia": null,
+        "segno": "+"
+      },
+      "Londra/ep3/b": {
+        "media": -0.023554653427910584,
+        "ic_con_nodi": [
+          -0.03156049299490326,
+          -0.015834397961474688
+        ],
+        "include_zero": false,
+        "confronto": "gated-F0p",
+        "fascia": null,
+        "segno": "-"
+      },
+      "Londra/ep3/c": {
+        "media": -0.03039409739349522,
+        "ic_con_nodi": [
+          -0.03489821432822871,
+          -0.025854067479048927
+        ],
+        "include_zero": false,
+        "confronto": "Fp_672-C",
+        "fascia": 2,
+        "segno": "-"
+      },
+      "Londra/ep3/d": {
+        "media": -0.0068782994196844305,
+        "ic_con_nodi": [
+          -0.013849982776520012,
+          0.0006392058429563726
+        ],
+        "include_zero": true,
+        "confronto": "Fp_96-C",
+        "fascia": null,
+        "segno": "0"
+      },
+      "Londra/ep3/e": {
+        "media": 0.008412903363663503,
+        "ic_con_nodi": [
+          0.004425583466257963,
+          0.012143697507389237
+        ],
+        "include_zero": false,
+        "confronto": "Fp_672-A",
+        "fascia": 2,
+        "segno": "+"
+      },
+      "Melbourne/ep1/a": {
+        "media": 0.0024468566907569923,
+        "ic_con_nodi": [
+          -0.003978582059903247,
+          0.008413647062622058
+        ],
+        "include_zero": true,
+        "confronto": "F0p-C",
+        "fascia": null,
+        "segno": "0"
+      },
+      "Melbourne/ep1/b": {
+        "media": -0.0239157931427252,
+        "ic_con_nodi": [
+          -0.02804851169872439,
+          -0.02013231169359426
+        ],
+        "include_zero": false,
+        "confronto": "gated-F0p",
+        "fascia": null,
+        "segno": "-"
+      },
+      "Melbourne/ep1/c": {
+        "media": -0.035961000840642965,
+        "ic_con_nodi": [
+          -0.043602797412319205,
+          -0.029470124082297686
+        ],
+        "include_zero": false,
+        "confronto": "Fp_672-C",
+        "fascia": 2,
+        "segno": "-"
+      },
+      "Melbourne/ep1/d": {
+        "media": -0.019534627407438936,
+        "ic_con_nodi": [
+          -0.02870733023779197,
+          -0.010055836646578081
+        ],
+        "include_zero": false,
+        "confronto": "Fp_96-C",
+        "fascia": null,
+        "segno": "-"
+      },
+      "Melbourne/ep1/e": {
+        "media": -0.0019311703372465645,
+        "ic_con_nodi": [
+          -0.012011461043013214,
+          0.00694983059042372
+        ],
+        "include_zero": true,
+        "confronto": "Fp_672-A",
+        "fascia": 2,
+        "segno": "0"
+      },
+      "Melbourne/ep2/a": {
+        "media": 0.006243035517973049,
+        "ic_con_nodi": [
+          0.0012477854055850503,
+          0.010704618452645807
+        ],
+        "include_zero": false,
+        "confronto": "F0p-C",
+        "fascia": null,
+        "segno": "+"
+      },
+      "Melbourne/ep2/b": {
+        "media": 0.0005319460381107853,
+        "ic_con_nodi": [
+          -0.003042421194162611,
+          0.0038732518315866844
+        ],
+        "include_zero": true,
+        "confronto": "gated-F0p",
+        "fascia": null,
+        "segno": "0"
+      },
+      "Melbourne/ep2/c": {
+        "media": -0.025390878982248843,
+        "ic_con_nodi": [
+          -0.03245841644298697,
+          -0.017883781126026923
+        ],
+        "include_zero": false,
+        "confronto": "Fp_672-C",
+        "fascia": 2,
+        "segno": "-"
+      },
+      "Melbourne/ep2/d": {
+        "media": 0.022662086689218725,
+        "ic_con_nodi": [
+          0.007909120030956583,
+          0.03855633030885277
+        ],
+        "include_zero": false,
+        "confronto": "Fp_96-C",
+        "fascia": null,
+        "segno": "+"
+      },
+      "Melbourne/ep2/e": {
+        "media": 0.010088767424115198,
+        "ic_con_nodi": [
+          0.0005855034819081766,
+          0.019638190983239143
+        ],
+        "include_zero": false,
+        "confronto": "Fp_672-A",
+        "fascia": 2,
+        "segno": "+"
+      },
+      "Melbourne/ep3/a": {
+        "media": 0.016338738940228026,
+        "ic_con_nodi": [
+          0.01258770739730064,
+          0.01997553025747014
+        ],
+        "include_zero": false,
+        "confronto": "F0p-C",
+        "fascia": null,
+        "segno": "+"
+      },
+      "Melbourne/ep3/b": {
+        "media": -0.03339501671388329,
+        "ic_con_nodi": [
+          -0.03884961417857594,
+          -0.028540014327793007
+        ],
+        "include_zero": false,
+        "confronto": "gated-F0p",
+        "fascia": null,
+        "segno": "-"
+      },
+      "Melbourne/ep3/c": {
+        "media": -0.03834957358024501,
+        "ic_con_nodi": [
+          -0.044690441388510665,
+          -0.032594895165644344
+        ],
+        "include_zero": false,
+        "confronto": "Fp_672-C",
+        "fascia": 2,
+        "segno": "-"
+      },
+      "Melbourne/ep3/d": {
+        "media": -0.021565725092105803,
+        "ic_con_nodi": [
+          -0.02943318802757502,
+          -0.013149942416676623
+        ],
+        "include_zero": false,
+        "confronto": "Fp_96-C",
+        "fascia": null,
+        "segno": "-"
+      },
+      "Melbourne/ep3/e": {
+        "media": 0.015387888497653638,
+        "ic_con_nodi": [
+          0.009972510755964855,
+          0.021332927857997064
+        ],
+        "include_zero": false,
+        "confronto": "Fp_672-A",
+        "fascia": 2,
+        "segno": "+"
+      }
+    },
+    "altri": {
+      "Madrid/ep1/gated-C": {
+        "media": -0.020742881812308087,
+        "ic_con_nodi": [
+          -0.02749129323302551,
+          -0.014328614415146565
+        ],
+        "include_zero": false
+      },
+      "Madrid/ep1/Fp_96k-C": {
+        "media": -0.011197244673064778,
+        "ic_con_nodi": [
+          -0.020377432397183575,
+          -0.0019428463161737942
+        ],
+        "include_zero": false
+      },
+      "Madrid/ep1/Fp_96k-Fp_96": {
+        "media": 0.0,
+        "ic_con_nodi": [
+          0.0,
+          0.0
+        ],
+        "include_zero": true
+      },
+      "Madrid/ep1/A-C": {
+        "media": -0.03899362154018012,
+        "ic_con_nodi": [
+          -0.044051930674691306,
+          -0.03401016616084135
+        ],
+        "include_zero": false
+      },
+      "Madrid/ep1/Fp_672-C_intero": {
+        "media": -0.037309464069806536,
+        "ic_con_nodi": [
+          -0.042742245245665375,
+          -0.03196798198572655
+        ],
+        "include_zero": false
+      },
+      "Madrid/ep2/gated-C": {
+        "media": -0.022593344312877017,
+        "ic_con_nodi": [
+          -0.030190293951777487,
+          -0.015647104260809386
+        ],
+        "include_zero": false
+      },
+      "Madrid/ep2/Fp_96k-C": {
+        "media": -0.011926658204161143,
+        "ic_con_nodi": [
+          -0.02048721952536099,
+          -0.004064965244757431
+        ],
+        "include_zero": false
+      },
+      "Madrid/ep2/Fp_96k-Fp_96": {
+        "media": 0.0,
+        "ic_con_nodi": [
+          0.0,
+          0.0
+        ],
+        "include_zero": true
+      },
+      "Madrid/ep2/A-C": {
+        "media": -0.040604014933320776,
+        "ic_con_nodi": [
+          -0.04669967622198886,
+          -0.03490340616809114
+        ],
+        "include_zero": false
+      },
+      "Madrid/ep2/Fp_672-C_intero": {
+        "media": -0.03949410386773299,
+        "ic_con_nodi": [
+          -0.04583965955634984,
+          -0.03369892912277625
+        ],
+        "include_zero": false
+      },
+      "Madrid/ep3/gated-C": {
+        "media": -0.0054075154371112655,
+        "ic_con_nodi": [
+          -0.013701758580739357,
+          0.003462658031209463
+        ],
+        "include_zero": true
+      },
+      "Madrid/ep3/Fp_96k-C": {
+        "media": 0.010517458211176401,
+        "ic_con_nodi": [
+          -0.003977113309597465,
+          0.026302853310871968
+        ],
+        "include_zero": true
+      },
+      "Madrid/ep3/Fp_96k-Fp_96": {
+        "media": 0.0,
+        "ic_con_nodi": [
+          0.0,
+          0.0
+        ],
+        "include_zero": true
+      },
+      "Madrid/ep3/A-C": {
+        "media": -0.03571109016730035,
+        "ic_con_nodi": [
+          -0.04364769039638635,
+          -0.028364293807947267
+        ],
+        "include_zero": false
+      },
+      "Madrid/ep3/Fp_672-C_intero": {
+        "media": -0.04122756620702977,
+        "ic_con_nodi": [
+          -0.04999755631454723,
+          -0.034247342081519666
+        ],
+        "include_zero": false
+      },
+      "Londra/ep1/gated-C": {
+        "media": 0.003930723887402349,
+        "ic_con_nodi": [
+          -0.0009054751005524589,
+          0.008831463178360106
+        ],
+        "include_zero": true
+      },
+      "Londra/ep1/Fp_96k-C": {
+        "media": -0.0023428017440398044,
+        "ic_con_nodi": [
+          -0.006659049960640726,
+          0.0019585837643969995
+        ],
+        "include_zero": true
+      },
+      "Londra/ep1/Fp_96k-Fp_96": {
+        "media": -0.034012937060020655,
+        "ic_con_nodi": [
+          -0.04418698099324239,
+          -0.0250611179543057
+        ],
+        "include_zero": false
+      },
+      "Londra/ep1/A-C": {
+        "media": -0.03426609965881594,
+        "ic_con_nodi": [
+          -0.0388583151445287,
+          -0.029837505296771986
+        ],
+        "include_zero": false
+      },
+      "Londra/ep1/Fp_672-C_intero": {
+        "media": -0.03694453249389861,
+        "ic_con_nodi": [
+          -0.041235156084357655,
+          -0.03291101051556843
+        ],
+        "include_zero": false
+      },
+      "Londra/ep2/gated-C": {
+        "media": -0.00808092342756539,
+        "ic_con_nodi": [
+          -0.011881427226574247,
+          -0.004463438179734631
+        ],
+        "include_zero": false
+      },
+      "Londra/ep2/Fp_96k-C": {
+        "media": -0.009280703873492304,
+        "ic_con_nodi": [
+          -0.013584821548003593,
+          -0.004891432131463935
+        ],
+        "include_zero": false
+      },
+      "Londra/ep2/Fp_96k-Fp_96": {
+        "media": -0.014744031849473519,
+        "ic_con_nodi": [
+          -0.021816728993516454,
+          -0.008343623796574771
+        ],
+        "include_zero": false
+      },
+      "Londra/ep2/A-C": {
+        "media": -0.03211254994050952,
+        "ic_con_nodi": [
+          -0.03699116713509458,
+          -0.027823633459537294
+        ],
+        "include_zero": false
+      },
+      "Londra/ep2/Fp_672-C_intero": {
+        "media": -0.034352150365672345,
+        "ic_con_nodi": [
+          -0.03842920768510181,
+          -0.0308691635529577
+        ],
+        "include_zero": false
+      },
+      "Londra/ep3/gated-C": {
+        "media": -0.013045674373759851,
+        "ic_con_nodi": [
+          -0.0184656953574516,
+          -0.007007558422074989
+        ],
+        "include_zero": false
+      },
+      "Londra/ep3/Fp_96k-C": {
+        "media": -0.009883324523875019,
+        "ic_con_nodi": [
+          -0.014144636343048848,
+          -0.005026848377696565
+        ],
+        "include_zero": false
+      },
+      "Londra/ep3/Fp_96k-Fp_96": {
+        "media": -0.003005025104190589,
+        "ic_con_nodi": [
+          -0.008981519465680942,
+          0.0024511571640930263
+        ],
+        "include_zero": true
+      },
+      "Londra/ep3/A-C": {
+        "media": -0.040485514378832875,
+        "ic_con_nodi": [
+          -0.044685558602130616,
+          -0.03626132558540953
+        ],
+        "include_zero": false
+      },
+      "Londra/ep3/Fp_672-C_intero": {
+        "media": -0.036706238067367516,
+        "ic_con_nodi": [
+          -0.040775986473665864,
+          -0.032592995284681445
+        ],
+        "include_zero": false
+      },
+      "Melbourne/ep1/gated-C": {
+        "media": -0.02146893645196821,
+        "ic_con_nodi": [
+          -0.027406918973488837,
+          -0.015817259408910097
+        ],
+        "include_zero": false
+      },
+      "Melbourne/ep1/Fp_96k-C": {
+        "media": -0.020191978323735687,
+        "ic_con_nodi": [
+          -0.027029267724005896,
+          -0.013297626248476259
+        ],
+        "include_zero": false
+      },
+      "Melbourne/ep1/Fp_96k-Fp_96": {
+        "media": -0.0006573509162967493,
+        "ic_con_nodi": [
+          -0.005045712699921205,
+          0.003162939009239519
+        ],
+        "include_zero": true
+      },
+      "Melbourne/ep1/A-C": {
+        "media": -0.039135761773478384,
+        "ic_con_nodi": [
+          -0.04986424046669796,
+          -0.028281409014266012
+        ],
+        "include_zero": false
+      },
+      "Melbourne/ep1/Fp_672-C_intero": {
+        "media": -0.04536904528466147,
+        "ic_con_nodi": [
+          -0.05267936977136375,
+          -0.03855620491149546
+        ],
+        "include_zero": false
+      },
+      "Melbourne/ep2/gated-C": {
+        "media": 0.006774981556083835,
+        "ic_con_nodi": [
+          0.002577746419151047,
+          0.010779134907427466
+        ],
+        "include_zero": false
+      },
+      "Melbourne/ep2/Fp_96k-C": {
+        "media": 0.0018317486378641847,
+        "ic_con_nodi": [
+          -0.0064895050963637855,
+          0.010964364767976497
+        ],
+        "include_zero": true
+      },
+      "Melbourne/ep2/Fp_96k-Fp_96": {
+        "media": -0.020830338051354542,
+        "ic_con_nodi": [
+          -0.02828226080770737,
+          -0.013317909931431124
+        ],
+        "include_zero": false
+      },
+      "Melbourne/ep2/A-C": {
+        "media": -0.04121232616313338,
+        "ic_con_nodi": [
+          -0.05105323282499425,
+          -0.029374217475662785
+        ],
+        "include_zero": false
+      },
+      "Melbourne/ep2/Fp_672-C_intero": {
+        "media": -0.03439272511879593,
+        "ic_con_nodi": [
+          -0.04079673549893728,
+          -0.028615611934173366
+        ],
+        "include_zero": false
+      },
+      "Melbourne/ep3/gated-C": {
+        "media": -0.017056277773655266,
+        "ic_con_nodi": [
+          -0.02129793544388023,
+          -0.013416225025240975
+        ],
+        "include_zero": false
+      },
+      "Melbourne/ep3/Fp_96k-C": {
+        "media": -0.01562502384342484,
+        "ic_con_nodi": [
+          -0.020637917336088517,
+          -0.01066647742341884
+        ],
+        "include_zero": false
+      },
+      "Melbourne/ep3/Fp_96k-Fp_96": {
+        "media": 0.0059407012486809635,
+        "ic_con_nodi": [
+          0.0018768305104064607,
+          0.009713860180740042
+        ],
+        "include_zero": false
+      },
+      "Melbourne/ep3/A-C": {
+        "media": -0.05424340299222409,
+        "ic_con_nodi": [
+          -0.06435930773447603,
+          -0.0460693895682871
+        ],
+        "include_zero": false
+      },
+      "Melbourne/ep3/Fp_672-C_intero": {
+        "media": -0.04301886649283497,
+        "ic_con_nodi": [
+          -0.049054159377319,
+          -0.03802213587955442
+        ],
+        "include_zero": false
+      }
+    },
+    "nodi_sotto_N": {
+      "Madrid/ep1": {
+        "N": 77,
+        "media_per_cella": 0.0,
+        "massimo": 0,
+        "nodi": 135
+      },
+      "Madrid/ep2": {
+        "N": 77,
+        "media_per_cella": 0.0,
+        "massimo": 0,
+        "nodi": 135
+      },
+      "Madrid/ep3": {
+        "N": 77,
+        "media_per_cella": 0.0,
+        "massimo": 0,
+        "nodi": 135
+      },
+      "Londra/ep1": {
+        "N": 154,
+        "media_per_cella": 99.0,
+        "massimo": 101,
+        "nodi": 135
+      },
+      "Londra/ep2": {
+        "N": 154,
+        "media_per_cella": 69.66666666666667,
+        "massimo": 77,
+        "nodi": 135
+      },
+      "Londra/ep3": {
+        "N": 154,
+        "media_per_cella": 36.333333333333336,
+        "massimo": 38,
+        "nodi": 135
+      },
+      "Melbourne/ep1": {
+        "N": 154,
+        "media_per_cella": 0.0,
+        "massimo": 0,
+        "nodi": 90
+      },
+      "Melbourne/ep2": {
+        "N": 154,
+        "media_per_cella": 68.0,
+        "massimo": 72,
+        "nodi": 90
+      },
+      "Melbourne/ep3": {
+        "N": 154,
+        "media_per_cella": 0.6666666666666666,
+        "massimo": 1,
+        "nodi": 90
+      }
+    },
+    "stesso_segno": {
+      "Madrid/a": {
+        "segni": [
+          "+",
+          "+",
+          "0"
+        ],
+        "concorda": false,
+        "solo_ep3": "0"
+      },
+      "Madrid/b": {
+        "segni": [
+          "-",
+          "-",
+          "0"
+        ],
+        "concorda": false,
+        "solo_ep3": "0"
+      },
+      "Madrid/c": {
+        "segni": [
+          "-",
+          "-",
+          "-"
+        ],
+        "concorda": true,
+        "solo_ep3": "-"
+      },
+      "Madrid/d": {
+        "segni": [
+          "-",
+          "-",
+          "0"
+        ],
+        "concorda": false,
+        "solo_ep3": "0"
+      },
+      "Madrid/e": {
+        "segni": [
+          "+",
+          "+",
+          "+"
+        ],
+        "concorda": true,
+        "solo_ep3": "+"
+      },
+      "Londra/a": {
+        "segni": [
+          "+",
+          "+",
+          "+"
+        ],
+        "concorda": true,
+        "solo_ep3": "+"
+      },
+      "Londra/b": {
+        "segni": [
+          "-",
+          "-",
+          "-"
+        ],
+        "concorda": true,
+        "solo_ep3": "-"
+      },
+      "Londra/c": {
+        "segni": [
+          "-",
+          "-",
+          "-"
+        ],
+        "concorda": true,
+        "solo_ep3": "-"
+      },
+      "Londra/d": {
+        "segni": [
+          "+",
+          "0",
+          "0"
+        ],
+        "concorda": false,
+        "solo_ep3": "0"
+      },
+      "Londra/e": {
+        "segni": [
+          "+",
+          "+",
+          "+"
+        ],
+        "concorda": true,
+        "solo_ep3": "+"
+      },
+      "Melbourne/a": {
+        "segni": [
+          "0",
+          "+",
+          "+"
+        ],
+        "concorda": false,
+        "solo_ep3": "+"
+      },
+      "Melbourne/b": {
+        "segni": [
+          "-",
+          "0",
+          "-"
+        ],
+        "concorda": false,
+        "solo_ep3": "-"
+      },
+      "Melbourne/c": {
+        "segni": [
+          "-",
+          "-",
+          "-"
+        ],
+        "concorda": true,
+        "solo_ep3": "-"
+      },
+      "Melbourne/d": {
+        "segni": [
+          "-",
+          "+",
+          "-"
+        ],
+        "concorda": false,
+        "solo_ep3": "-"
+      },
+      "Melbourne/e": {
+        "segni": [
+          "0",
+          "+",
+          "+"
+        ],
+        "concorda": false,
+        "solo_ep3": "+"
+      }
+    },
+    "celle": {
+      "Madrid/ep1": 18,
+      "Madrid/ep2": 18,
+      "Madrid/ep3": 18,
+      "Londra/ep1": 18,
+      "Londra/ep2": 18,
+      "Londra/ep3": 18,
+      "Melbourne/ep1": 18,
+      "Melbourne/ep2": 18,
+      "Melbourne/ep3": 18
+    },
+    "repliche": 4000,
+    "seme_bootstrap": 20261007,
+    "istante": "2026-10-06T14:33:30.857872+00:00"
+  },
+  "preparazione": {
+    "calendario": {
+      "Madrid": {
+        "righe": 10464,
+        "fine": 10456,
+        "episodi": [
+          {
+            "episodio": 1,
+            "t0": 8887,
+            "t1": 8983,
+            "fine_valutazione": 10456,
+            "origini_valutazione": 1426,
+            "addestramento": [
+              11,
+              7319
+            ],
+            "selezione": [
+              7319,
+              8887
+            ],
+            "origini_addestramento": 7118,
+            "perdita_addestramento": 0.0,
+            "data_t0": "2021-12-01 13:45:00",
+            "nota": "campagna principale, punti esistenti"
+          },
+          {
+            "episodio": 2,
+            "t0": 7295,
+            "t1": 7391,
+            "fine_valutazione": 8887,
+            "origini_valutazione": 1438,
+            "addestramento": [
+              11,
+              6007
+            ],
+            "selezione": [
+              6007,
+              7295
+            ],
+            "origini_addestramento": 5844,
+            "perdita_addestramento": 0.178982860354032,
+            "data_t0": "2021-10-24 23:45:00",
+            "fattibile": true
+          },
+          {
+            "episodio": 3,
+            "t0": 5726,
+            "t1": 5822,
+            "fine_valutazione": 7295,
+            "origini_valutazione": 1426,
+            "addestramento": [
+              11,
+              4715
+            ],
+            "selezione": [
+              4715,
+              5726
+            ],
+            "origini_addestramento": 4571,
+            "perdita_addestramento": 0.35782523180668724,
+            "data_t0": "2021-09-24 15:30:00",
+            "fattibile": true
+          }
+        ],
+        "episodi_ammessi": 3
+      },
+      "Londra": {
+        "righe": 10557,
+        "fine": 10549,
+        "episodi": [
+          {
+            "episodio": 1,
+            "t0": 8966,
+            "t1": 9062,
+            "fine_valutazione": 10549,
+            "origini_valutazione": 1440,
+            "addestramento": [
+              11,
+              7384
+            ],
+            "selezione": [
+              7384,
+              8966
+            ],
+            "origini_addestramento": 7161,
+            "perdita_addestramento": 0.0,
+            "data_t0": "2020-01-01 10:15:00",
+            "nota": "campagna principale, punti esistenti"
+          },
+          {
+            "episodio": 2,
+            "t0": 7292,
+            "t1": 7388,
+            "fine_valutazione": 8966,
+            "origini_valutazione": 1520,
+            "addestramento": [
+              11,
+              6005
+            ],
+            "selezione": [
+              6005,
+              7292
+            ],
+            "origini_addestramento": 5823,
+            "perdita_addestramento": 0.18684541265186427,
+            "data_t0": "2019-11-23 23:45:00",
+            "fattibile": true
+          },
+          {
+            "episodio": 3,
+            "t0": 5709,
+            "t1": 5805,
+            "fine_valutazione": 7292,
+            "origini_valutazione": 1440,
+            "addestramento": [
+              11,
+              4701
+            ],
+            "selezione": [
+              4701,
+              5709
+            ],
+            "origini_addestramento": 4549,
+            "perdita_addestramento": 0.3647535260438486,
+            "data_t0": "2019-10-24 12:00:00",
+            "fattibile": true
+          }
+        ],
+        "episodi_ammessi": 3
+      },
+      "Melbourne": {
+        "righe": 10368,
+        "fine": 10360,
+        "episodi": [
+          {
+            "episodio": 1,
+            "t0": 8806,
+            "t1": 8902,
+            "fine_valutazione": 10360,
+            "origini_valutazione": 1411,
+            "addestramento": [
+              11,
+              7251
+            ],
+            "selezione": [
+              7251,
+              8806
+            ],
+            "origini_addestramento": 7050,
+            "perdita_addestramento": 0.0,
+            "data_t0": "2020-11-30 17:30:00",
+            "nota": "campagna principale, punti esistenti"
+          },
+          {
+            "episodio": 2,
+            "t0": 7233,
+            "t1": 7329,
+            "fine_valutazione": 8806,
+            "origini_valutazione": 1411,
+            "addestramento": [
+              11,
+              5956
+            ],
+            "selezione": [
+              5956,
+              7233
+            ],
+            "origini_addestramento": 5793,
+            "perdita_addestramento": 0.1782978723404255,
+            "data_t0": "2020-10-24 08:15:00",
+            "fattibile": true
+          },
+          {
+            "episodio": 3,
+            "t0": 5679,
+            "t1": 5775,
+            "fine_valutazione": 7233,
+            "origini_valutazione": 1411,
+            "addestramento": [
+              11,
+              4676
+            ],
+            "selezione": [
+              4676,
+              5679
+            ],
+            "origini_addestramento": 4551,
+            "perdita_addestramento": 0.35446808510638295,
+            "data_t0": "2020-09-24 03:45:00",
+            "fattibile": true
+          }
+        ],
+        "episodi_ammessi": 3
+      }
+    },
+    "regola_calendario": "periodi di valutazione consecutivi, non sovrapposti, di lunghezza uguale in origini ammissibili; t0 = t1 - 96 con acquisizione su griglia reale; addestramento su tutto cio' che precede t0 con quote 70/15; soglia di perdita 40 %",
+    "potenza": {
+      "Madrid": {
+        "Fp_96-C": {
+          "semiampiezza_6": 0.00897688637033755,
+          "semiampiezza_12": 0.009284080478675395,
+          "media_6": -0.011197244673064778,
+          "media_12": -0.011341706378744106,
+          "oltre_soglia": false
+        },
+        "Fp_672-C": {
+          "semiampiezza_6": 0.0051673997064147145,
+          "semiampiezza_12": 0.004803710529835026,
+          "media_6": -0.037309464069806536,
+          "media_12": -0.03832797523732196,
+          "oltre_soglia": false
+        },
+        "gated-F0p": {
+          "semiampiezza_6": 0.007975760171135852,
+          "semiampiezza_12": 0.007931089206526102,
+          "media_6": -0.028681995386142918,
+          "media_12": -0.029534138621465405,
+          "oltre_soglia": false
+        }
+      },
+      "Londra": {
+        "Fp_96-C": {
+          "semiampiezza_6": 0.010721484298148377,
+          "semiampiezza_12": 0.01053465448645809,
+          "media_6": 0.031670135315980855,
+          "media_12": 0.0336059154613556,
+          "oltre_soglia": true
+        },
+        "Fp_672-C": {
+          "semiampiezza_6": 0.0042026361168557395,
+          "semiampiezza_12": 0.0038441359207828513,
+          "media_6": -0.03694453249389861,
+          "media_12": -0.03675015810409205,
+          "oltre_soglia": false
+        },
+        "gated-F0p": {
+          "semiampiezza_6": 0.006464444223320892,
+          "semiampiezza_12": 0.006317871945105716,
+          "media_6": -0.01058855671841853,
+          "media_12": -0.009416979917358563,
+          "oltre_soglia": false
+        }
+      },
+      "Melbourne": {
+        "Fp_96-C": {
+          "semiampiezza_6": 0.009170547020320526,
+          "semiampiezza_12": 0.00935716856991976,
+          "media_6": -0.019534627407438936,
+          "media_12": -0.019230327344511338,
+          "oltre_soglia": false
+        },
+        "Fp_672-C": {
+          "semiampiezza_6": 0.006887077912364384,
+          "semiampiezza_12": 0.0069394033785509755,
+          "media_6": -0.04536904528466147,
+          "media_12": -0.04567370848800938,
+          "oltre_soglia": false
+        },
+        "gated-F0p": {
+          "semiampiezza_6": 0.003875160233115958,
+          "semiampiezza_12": 0.00375853112931911,
+          "media_6": -0.0239157931427252,
+          "media_12": -0.0235349402792265,
+          "oltre_soglia": false
+        }
+      }
+    },
+    "regola_potenza": "semiampiezza con i semi 201-206 dalle celle di E4, ricampionamento congiunto; oltre 0,010 si passa a 8 semi",
+    "istante": "2026-10-04T07:32:24.933903+00:00"
+  },
+  "prepara": {
+    "origini_prova": {
+      "Madrid": {
+        "righe_periodo_prova": 1569,
+        "nominali": 1464,
+        "escluse": 38,
+        "ammissibili": 1426,
+        "salti": {
+          "9407": {
+            "da": "2021-12-06 23:45:00",
+            "a": "2021-12-14 00:00:00",
+            "origini_escluse": 19
+          },
+          "10079": {
+            "da": "2021-12-20 23:45:00",
+            "a": "2021-12-28 00:00:00",
+            "origini_escluse": 19
+          }
+        }
+      },
+      "Londra": {
+        "righe_periodo_prova": 1583,
+        "nominali": 1478,
+        "escluse": 38,
+        "ammissibili": 1440,
+        "salti": {
+          "9404": {
+            "da": "2020-01-05 23:45:00",
+            "a": "2020-01-13 00:00:00",
+            "origini_escluse": 19
+          },
+          "10076": {
+            "da": "2020-01-19 23:45:00",
+            "a": "2020-01-27 00:00:00",
+            "origini_escluse": 19
+          }
+        }
+      },
+      "Melbourne": {
+        "righe_periodo_prova": 1554,
+        "nominali": 1449,
+        "escluse": 38,
+        "ammissibili": 1411,
+        "salti": {
+          "9407": {
+            "da": "2020-12-06 23:45:00",
+            "a": "2020-12-14 00:00:00",
+            "origini_escluse": 19
+          },
+          "10079": {
+            "da": "2020-12-20 23:45:00",
+            "a": "2020-12-28 00:00:00",
+            "origini_escluse": 19
+          }
+        }
+      }
+    },
+    "pesi": {
+      "Madrid/p0/ep2": {
+        "origini_addestramento": 5844,
+        "pesi": [
+          0.7207557134692708,
+          0.7431945783886355,
+          3.7449716748096717
+        ],
+        "periodo": [
+          11,
+          6006
+        ],
+        "impronta": "d02a03662eb2ed02",
+        "pesi_ep1": [
+          0.7294172740949861,
+          0.7365763151577222,
+          3.6844621133990376
+        ]
+      },
+      "Madrid/p0/ep3": {
+        "origini_addestramento": 4571,
+        "pesi": [
+          0.7074427796784152,
+          0.7531559787183515,
+          3.8653034438156966
+        ],
+        "periodo": [
+          11,
+          4695
+        ],
+        "impronta": "4b3bdbb377ac2bed",
+        "pesi_ep1": [
+          0.7294172740949861,
+          0.7365763151577222,
+          3.6844621133990376
+        ]
+      },
+      "Madrid/p1/ep2": {
+        "origini_addestramento": 5844,
+        "pesi": [
+          0.7070229573409019,
+          0.761399552959948,
+          3.6731230329355866
+        ],
+        "periodo": [
+          11,
+          6006
+        ],
+        "impronta": "8cde3981e83011a2",
+        "pesi_ep1": [
+          0.7155929350963885,
+          0.7539992604210499,
+          3.6193038896682754
+        ]
+      },
+      "Madrid/p1/ep3": {
+        "origini_addestramento": 4571,
+        "pesi": [
+          0.6935403788082255,
+          0.7719781635182428,
+          3.805906997527675
+        ],
+        "periodo": [
+          11,
+          4695
+        ],
+        "impronta": "00d5b9a82eee4bb3",
+        "pesi_ep1": [
+          0.7155929350963885,
+          0.7539992604210499,
+          3.6193038896682754
+        ]
+      },
+      "Madrid/p2/ep2": {
+        "origini_addestramento": 5844,
+        "pesi": [
+          0.727011594334506,
+          0.7435976390852143,
+          3.575351097607855
+        ],
+        "periodo": [
+          11,
+          6006
+        ],
+        "impronta": "b2a2a9f06bea9222",
+        "pesi_ep1": [
+          0.7355656591477477,
+          0.737202018838161,
+          3.520856757795613
+        ]
+      },
+      "Madrid/p2/ep3": {
+        "origini_addestramento": 4571,
+        "pesi": [
+          0.713136531314239,
+          0.7530142008522119,
+          3.7071669097049003
+        ],
+        "periodo": [
+          11,
+          4695
+        ],
+        "impronta": "ed0ca9c3f1dc3d47",
+        "pesi_ep1": [
+          0.7355656591477477,
+          0.737202018838161,
+          3.520856757795613
+        ]
+      },
+      "Londra/p0/ep2": {
+        "origini_addestramento": 5823,
+        "pesi": [
+          0.7563591388192104,
+          0.8268054976679841,
+          2.1349162259534165
+        ],
+        "periodo": [
+          11,
+          6004
+        ],
+        "impronta": "d80afc5e38cd17e4",
+        "pesi_ep1": [
+          0.7604570790724717,
+          0.8232986988423449,
+          2.1259615233481735
+        ]
+      },
+      "Londra/p0/ep3": {
+        "origini_addestramento": 4549,
+        "pesi": [
+          0.756384540340448,
+          0.8273994364953,
+          2.1307647712804405
+        ],
+        "periodo": [
+          11,
+          4692
+        ],
+        "impronta": "888ab5f8ef6bcaa1",
+        "pesi_ep1": [
+          0.7604570790724717,
+          0.8232986988423449,
+          2.1259615233481735
+        ]
+      },
+      "Londra/p1/ep2": {
+        "origini_addestramento": 5823,
+        "pesi": [
+          0.7427254632116312,
+          0.8368513187359701,
+          2.180301831902118
+        ],
+        "periodo": [
+          11,
+          6004
+        ],
+        "impronta": "47cf503e5abc815d",
+        "pesi_ep1": [
+          0.7469808779804608,
+          0.8331425882947545,
+          2.1691837070786932
+        ]
+      },
+      "Londra/p1/ep3": {
+        "origini_addestramento": 4549,
+        "pesi": [
+          0.7415013811496343,
+          0.8372373263278922,
+          2.188277749729306
+        ],
+        "periodo": [
+          11,
+          4692
+        ],
+        "impronta": "b4c855d01ef42e04",
+        "pesi_ep1": [
+          0.7469808779804608,
+          0.8331425882947545,
+          2.1691837070786932
+        ]
+      },
+      "Londra/p2/ep2": {
+        "origini_addestramento": 5823,
+        "pesi": [
+          0.7673347900344034,
+          0.8174197361952522,
+          2.112261745131684
+        ],
+        "periodo": [
+          11,
+          6004
+        ],
+        "impronta": "52e6b6783568e0a3",
+        "pesi_ep1": [
+          0.7718387615471471,
+          0.8137592032407672,
+          2.1029261908261825
+        ]
+      },
+      "Londra/p2/ep3": {
+        "origini_addestramento": 4549,
+        "pesi": [
+          0.7665645608450811,
+          0.8180602877363312,
+          2.113831334711145
+        ],
+        "periodo": [
+          11,
+          4692
+        ],
+        "impronta": "1c9de0e320706cf6",
+        "pesi_ep1": [
+          0.7718387615471471,
+          0.8137592032407672,
+          2.1029261908261825
+        ]
+      },
+      "Melbourne/p0/ep2": {
+        "origini_addestramento": 5793,
+        "pesi": [
+          0.4499371506508652,
+          1.5857116928486625,
+          6.810332655986449
+        ],
+        "periodo": [
+          11,
+          5955
+        ],
+        "impronta": "acb8772bf2003194",
+        "pesi_ep1": [
+          0.4481509300554348,
+          1.5944445986834812,
+          7.070573001253855
+        ]
+      },
+      "Melbourne/p0/ep3": {
+        "origini_addestramento": 4551,
+        "pesi": [
+          0.45088690044619034,
+          1.580594391245487,
+          6.690057988387053
+        ],
+        "periodo": [
+          11,
+          4675
+        ],
+        "impronta": "7095bf4286fda3f1",
+        "pesi_ep1": [
+          0.4481509300554348,
+          1.5944445986834812,
+          7.070573001253855
+        ]
+      },
+      "Melbourne/p1/ep2": {
+        "origini_addestramento": 5793,
+        "pesi": [
+          0.45176747583297366,
+          1.5769266686762298,
+          6.564824000913361
+        ],
+        "periodo": [
+          11,
+          5955
+        ],
+        "impronta": "a430257645d31ac7",
+        "pesi_ep1": [
+          0.4502122720846134,
+          1.5838417998904766,
+          6.781989815096194
+        ]
+      },
+      "Melbourne/p1/ep3": {
+        "origini_addestramento": 4551,
+        "pesi": [
+          0.45314476348235094,
+          1.5654553089539118,
+          6.47635217850811
+        ],
+        "periodo": [
+          11,
+          4675
+        ],
+        "impronta": "683a7cf56c900c46",
+        "pesi_ep1": [
+          0.4502122720846134,
+          1.5838417998904766,
+          6.781989815096194
+        ]
+      },
+      "Melbourne/p2/ep2": {
+        "origini_addestramento": 5793,
+        "pesi": [
+          0.44454528312812464,
+          1.6429906482555499,
+          7.048995290308415
+        ],
+        "periodo": [
+          11,
+          5955
+        ],
+        "impronta": "f64171be5bf3ef22",
+        "pesi_ep1": [
+          0.4430459145998078,
+          1.6507500588982553,
+          7.2932881893541115
+        ]
+      },
+      "Melbourne/p2/ep3": {
+        "origini_addestramento": 4551,
+        "pesi": [
+          0.44589307227875385,
+          1.6318023994423887,
+          6.920867589222208
+        ],
+        "periodo": [
+          11,
+          4675
+        ],
+        "impronta": "cf6f1bc07810c756",
+        "pesi_ep1": [
+          0.4430459145998078,
+          1.6507500588982553,
+          7.2932881893541115
+        ]
+      }
+    },
+    "istante": "2026-10-04T08:20:18.802057+00:00"
+  },
+  "k_secondaria": {
+    "k": {
+      "Madrid": 50,
+      "Londra": 10,
+      "Melbourne": 100
+    },
+    "curva_validazione": {
+      "Madrid": {
+        "0": 0.9523362074673227,
+        "5": 0.9336339743100035,
+        "10": 0.9277399926354879,
+        "25": 0.9260068039847932,
+        "50": 0.9258367215549362
+      },
+      "Londra": {
+        "0": 0.8803747440072525,
+        "5": 0.8638526865687051,
+        "10": 0.8588911905987408,
+        "25": 0.8614676069127847,
+        "50": 0.8630923622100183
+      },
+      "Melbourne": {
+        "0": 0.8455126214165063,
+        "5": 0.843137683847785,
+        "10": 0.8409974312638027,
+        "25": 0.8359073962510638,
+        "50": 0.8309973918233311,
+        "100": 0.828740160917339,
+        "200": 0.8345355514616603
+      }
+    },
+    "celle": 108,
+    "regola": "argmin della wCE integrata media sulle celle, lungo la traiettoria di F'(24 h) sull'episodio di validazione esteso di E4; a parita' il k minore",
+    "istante": "2026-10-04T08:46:13.686655+00:00",
+    "impronta": "395d17a4f05462ea"
+  },
+  "scelta_e4": {
+    "scelta": {
+      "Madrid": {
+        "tau": 192,
+        "N": 77,
+        "wce_validazione": 0.917232539990618,
+        "celle": 36
+      },
+      "Londra": {
+        "tau": 192,
+        "N": 154,
+        "wce_validazione": 0.8568605359890255,
+        "celle": 36
+      },
+      "Melbourne": {
+        "tau": 672,
+        "N": 154,
+        "wce_validazione": 0.8329082384542317,
+        "celle": 36
+      }
+    },
+    "griglia_validazione": {
+      "Madrid": {
+        "tau=96/N=0": 0.9258367215549342,
+        "tau=96/N=77": 0.9258367215549342,
+        "tau=96/N=154": 0.9259148212167353,
+        "tau=96/N=231": 0.9299582819304614,
+        "tau=192/N=0": 0.917232539990618,
+        "tau=192/N=77": 0.917232539990618,
+        "tau=192/N=154": 0.9173572347640343,
+        "tau=192/N=231": 0.9235860694110021,
+        "tau=672/N=0": 0.9241175811539052,
+        "tau=672/N=77": 0.9241175811539052,
+        "tau=672/N=154": 0.9241961372508108,
+        "tau=672/N=231": 0.9288428811248407,
+        "tau=mai/N=0": 0.9523362074673205,
+        "tau=mai/N=77": 0.9523362074673205,
+        "tau=mai/N=154": 0.9523362074673205,
+        "tau=mai/N=231": 0.9523362074673205
+      },
+      "Londra": {
+        "tau=96/N=0": 0.8630923622100194,
+        "tau=96/N=77": 0.8630923622100194,
+        "tau=96/N=154": 0.8615600963607133,
+        "tau=96/N=231": 0.8652899194510751,
+        "tau=192/N=0": 0.8580668880409664,
+        "tau=192/N=77": 0.8580668880409664,
+        "tau=192/N=154": 0.8568605359890255,
+        "tau=192/N=231": 0.8648471263934856,
+        "tau=672/N=0": 0.8607865309553059,
+        "tau=672/N=77": 0.8607865309553059,
+        "tau=672/N=154": 0.8604638180938537,
+        "tau=672/N=231": 0.8681695379235695,
+        "tau=mai/N=0": 0.8803747440072536,
+        "tau=mai/N=77": 0.8803747440072536,
+        "tau=mai/N=154": 0.8803747440072536,
+        "tau=mai/N=231": 0.8803747440072536
+      },
+      "Melbourne": {
+        "tau=96/N=0": 0.8345355514616581,
+        "tau=96/N=77": 0.8345355514616581,
+        "tau=96/N=154": 0.8345355514616581,
+        "tau=96/N=231": 0.8450325994989103,
+        "tau=192/N=0": 0.8361507343755871,
+        "tau=192/N=77": 0.8361507343755871,
+        "tau=192/N=154": 0.8361507343755871,
+        "tau=192/N=231": 0.846060264628573,
+        "tau=672/N=0": 0.8329082384542317,
+        "tau=672/N=77": 0.8329082384542317,
+        "tau=672/N=154": 0.8329082384542317,
+        "tau=672/N=231": 0.8426212348180857,
+        "tau=mai/N=0": 0.8455126214165043,
+        "tau=mai/N=77": 0.8455126214165043,
+        "tau=mai/N=154": 0.8455126214165043,
+        "tau=mai/N=231": 0.8455126214165043
+      }
+    },
+    "regola": "minimo della wCE integrata su tutte le origini dopo t1 dell'episodio di validazione, nodi della partizione di validazione; spareggio: N maggiore, poi tau = mai, poi tau minore",
+    "griglie": {
+      "tau": [
+        "96",
+        "192",
+        "672",
+        "mai"
+      ],
+      "N": [
+        0,
+        77,
+        154,
+        231
+      ]
+    },
+    "istante": "2026-10-03T22:54:37.053635+00:00",
+    "impronta": "81e47f64f3d63b3b"
+  },
+  "settimana_vs_A": {
+    "confronti": {
+      "Madrid/Fp_672-A": {
+        "media": 0.00704644002698145,
+        "ic_con_nodi": [
+          0.004033323812937837,
+          0.010324152416876438
+        ],
+        "include_zero": false
+      },
+      "Madrid/A-C": {
+        "media": -0.03867515502730909,
+        "ic_con_nodi": [
+          -0.04388698265258964,
+          -0.034062775378910816
+        ],
+        "include_zero": false
+      },
+      "Madrid/Fp_672-C": {
+        "media": -0.03162871500032763,
+        "ic_con_nodi": [
+          -0.03700313493274156,
+          -0.026839832215828616
+        ],
+        "include_zero": false
+      },
+      "Madrid/Fp_96-A": {
+        "media": 0.03104964054157496,
+        "ic_con_nodi": [
+          0.0235616572832628,
+          0.038673244674380595
+        ],
+        "include_zero": false
+      },
+      "Madrid/F0p-A": {
+        "media": 0.04800220864603488,
+        "ic_con_nodi": [
+          0.041709939574393486,
+          0.05449432291064271
+        ],
+        "include_zero": false
+      },
+      "Londra/Fp_672-A": {
+        "media": 0.009313336291743753,
+        "ic_con_nodi": [
+          0.006260621518878203,
+          0.012480988552146412
+        ],
+        "include_zero": false
+      },
+      "Londra/A-C": {
+        "media": -0.03949268714701497,
+        "ic_con_nodi": [
+          -0.04390627825946094,
+          -0.034991065996378364
+        ],
+        "include_zero": false
+      },
+      "Londra/Fp_672-C": {
+        "media": -0.030179350855271223,
+        "ic_con_nodi": [
+          -0.03438148539060287,
+          -0.0260120126662213
+        ],
+        "include_zero": false
+      },
+      "Londra/Fp_96-A": {
+        "media": 0.0809370199659505,
+        "ic_con_nodi": [
+          0.0704936528428619,
+          0.09321595312619292
+        ],
+        "include_zero": false
+      },
+      "Londra/F0p-A": {
+        "media": 0.05221189234440306,
+        "ic_con_nodi": [
+          0.045876389172199154,
+          0.05871069378252925
+        ],
+        "include_zero": false
+      },
+      "Melbourne/Fp_672-A": {
+        "media": -0.0026857745489767917,
+        "ic_con_nodi": [
+          -0.012420444293903186,
+          0.006278391112034524
+        ],
+        "include_zero": true
+      },
+      "Melbourne/A-C": {
+        "media": -0.03372178139010588,
+        "ic_con_nodi": [
+          -0.045053656102218786,
+          -0.021233845285008053
+        ],
+        "include_zero": false
+      },
+      "Melbourne/Fp_672-C": {
+        "media": -0.03640755593908268,
+        "ic_con_nodi": [
+          -0.04338245803636727,
+          -0.029959553161767405
+        ],
+        "include_zero": false
+      },
+      "Melbourne/Fp_96-A": {
+        "media": 0.019146981101616976,
+        "ic_con_nodi": [
+          0.0068894825565549885,
+          0.029920784442368963
+        ],
+        "include_zero": false
+      },
+      "Melbourne/F0p-A": {
+        "media": 0.038121327048735866,
+        "ic_con_nodi": [
+          0.02417633392517341,
+          0.0513454296350848
+        ],
+        "include_zero": false
+      }
+    },
+    "verifica_C": {
+      "Madrid": 0.0,
+      "Londra": 0.0,
+      "Melbourne": 0.0
+    },
+    "origini_comuni": {
+      "Madrid": 869,
+      "Londra": 883,
+      "Melbourne": 854
+    },
+    "celle": {
+      "Madrid": 36,
+      "Londra": 36,
+      "Melbourne": 36
+    },
+    "una_settimana_chiude_il_divario": {
+      "citta": [
+        "Melbourne"
+      ],
+      "n": 1
+    },
+    "repliche": 4000,
+    "seme_bootstrap": 20261005,
+    "tolleranza_verifica_C": 1e-09,
+    "istante": "2026-10-04T07:24:18.065447+00:00"
+  },
+  "impronte": {
+    "evoluzione/esperimenti/addestramento.py": "f5d69a789aadd479",
+    "evoluzione/esperimenti/esegui_e5.py": "f08dd758210319e2",
+    "evoluzione/esperimenti/preparazione_e5.py": "324044aefb327bab",
+    "evoluzione/analisi/settimana_vs_A_e5.py": "ef2ceb4812f93353",
+    "evoluzione/analisi/analizza_e5.py": "b85d5af32a602af6",
+    "protocol/E5.md": "3dd706bcf3ddd899"
+  }
+}

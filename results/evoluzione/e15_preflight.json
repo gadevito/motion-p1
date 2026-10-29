@@ -1,0 +1,4435 @@
+{
+  "statica": "espansiva",
+  "celle": {
+    "Madrid/p0/s201": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Londra/p0/s201": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Melbourne/p0/s201": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Madrid/p1/s201": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Londra/p1/s201": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Melbourne/p1/s201": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Madrid/p2/s201": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Londra/p2/s201": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Melbourne/p2/s201": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Madrid/p0/s202": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Londra/p0/s202": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Melbourne/p0/s202": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Madrid/p1/s202": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Londra/p1/s202": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Melbourne/p1/s202": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Madrid/p2/s202": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Londra/p2/s202": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Melbourne/p2/s202": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Madrid/p0/s203": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Londra/p0/s203": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Melbourne/p0/s203": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Madrid/p1/s203": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Londra/p1/s203": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Melbourne/p1/s203": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Madrid/p2/s203": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Londra/p2/s203": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Melbourne/p2/s203": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Madrid/p0/s204": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Londra/p0/s204": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Melbourne/p0/s204": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Madrid/p1/s204": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Londra/p1/s204": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Melbourne/p1/s204": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Madrid/p2/s204": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Londra/p2/s204": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Melbourne/p2/s204": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Madrid/p0/s205": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Londra/p0/s205": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Melbourne/p0/s205": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Madrid/p1/s205": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Londra/p1/s205": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Melbourne/p1/s205": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Madrid/p2/s205": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Londra/p2/s205": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Melbourne/p2/s205": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Madrid/p0/s206": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Londra/p0/s206": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Melbourne/p0/s206": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Madrid/p1/s206": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Londra/p1/s206": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Melbourne/p1/s206": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Madrid/p2/s206": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Londra/p2/s206": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    },
+    "Melbourne/p2/s206": {
+      "ok": true,
+      "codice": 0,
+      "controlli": [
+        {
+          "n": "1",
+          "ok": true,
+          "titolo": "il budget e' in AGGIORNAMENTI, non in passate"
+        },
+        {
+          "n": "2",
+          "ok": true,
+          "titolo": "la validazione valuta l'intero perimetro, non 32 istanti"
+        },
+        {
+          "n": "3",
+          "ok": true,
+          "titolo": "nessun bersaglio mancante ha una classe assegnata"
+        },
+        {
+          "n": "4",
+          "ok": true,
+          "titolo": "i bracci hanno caricato lo STESSO artefatto canonico"
+        },
+        {
+          "n": "5",
+          "ok": true,
+          "titolo": "ogni finestra rispetta la cadenza di 15 minuti"
+        },
+        {
+          "n": "6",
+          "ok": true,
+          "titolo": "la riga t0 non compare in nessuna finestra"
+        },
+        {
+          "n": "7",
+          "ok": true,
+          "titolo": "descrittore IDENTICO AL BIT con i valori futuri perturbati"
+        },
+        {
+          "n": "8",
+          "ok": true,
+          "titolo": "la normalizzazione usa i soli nodi iniziali"
+        },
+        {
+          "n": "9",
+          "ok": true,
+          "titolo": "nessun nodo nuovo fra quelli di addestramento"
+        },
+        {
+          "n": "10",
+          "ok": true,
+          "titolo": "il conteggio delle riviste e' registrabile"
+        },
+        {
+          "n": "11",
+          "ok": true,
+          "titolo": "il nome del punto di controllo distingue braccio, citta', partizione e seme"
+        },
+        {
+          "n": "12",
+          "ok": true,
+          "titolo": "popolazione uguale al PROTOCOLLO, non al deliverable"
+        },
+        {
+          "n": "13",
+          "ok": true,
+          "titolo": "il lotto produce bersagli e maschere coerenti"
+        },
+        {
+          "n": "14",
+          "ok": true,
+          "titolo": "canali e costanti coerenti con la sorgente"
+        },
+        {
+          "n": "15",
+          "ok": true,
+          "titolo": "statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+        }
+      ],
+      "riga_15": "[15] PASSA  statica per nodo causale: IDENTICA AL BIT con m_r perturbata dopo l'origine (E14 n. 8; E15 finestra espansiva)"
+    }
+  },
+  "rosse": [],
+  "istante": "2026-10-28T09:48:43.401146+00:00"
+}

@@ -1,0 +1,344 @@
+{
+  "contesto": "Madrid",
+  "partizione": 0,
+  "seme": 201,
+  "rho": 0.15,
+  "tetto": 4580,
+  "punti": [
+    35,
+    229,
+    458,
+    687,
+    916,
+    1145,
+    1374,
+    1603,
+    1832,
+    2061,
+    2290,
+    2519,
+    2748,
+    2977,
+    3206,
+    3435,
+    3664,
+    3893,
+    4122,
+    4351,
+    4580
+  ],
+  "bracci": [
+    "E",
+    "E1"
+  ],
+  "curve": {
+    "E": [
+      {
+        "aggiornamento": 35,
+        "training": 1.0476806163787842,
+        "V-full": 1.0258847553538981,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 229,
+        "training": 0.9340225458145142,
+        "V-full": 0.937609393732998,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 458,
+        "training": 0.9215384721755981,
+        "V-full": 0.9291405042630745,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 687,
+        "training": 0.9319930672645569,
+        "V-full": 0.924552982925527,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 916,
+        "training": 0.9332293272018433,
+        "V-full": 0.9245406009704858,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 1145,
+        "training": 0.9230684041976929,
+        "V-full": 0.9233595455585112,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 1374,
+        "training": 0.9288276433944702,
+        "V-full": 0.9201019555003944,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 1603,
+        "training": 0.9250505566596985,
+        "V-full": 0.9198886518378566,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 1832,
+        "training": 0.9202063083648682,
+        "V-full": 0.918322113146312,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 2061,
+        "training": 0.923001229763031,
+        "V-full": 0.9182742596432476,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 2290,
+        "training": 0.91890949010849,
+        "V-full": 0.9193076196140221,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 2519,
+        "training": 0.9176273941993713,
+        "V-full": 0.9175879817459591,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 2748,
+        "training": 0.9360618591308594,
+        "V-full": 0.9153086558637573,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 2977,
+        "training": 0.9275597929954529,
+        "V-full": 0.9137341560166525,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 3206,
+        "training": 0.9181017875671387,
+        "V-full": 0.9104374781396625,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 3435,
+        "training": 0.9297232031822205,
+        "V-full": 0.9104191164116229,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 3664,
+        "training": 0.9156031608581543,
+        "V-full": 0.9083775715159843,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 3893,
+        "training": 0.912077784538269,
+        "V-full": 0.9082274417297511,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 4122,
+        "training": 0.9179930686950684,
+        "V-full": 0.9109889941851158,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 4351,
+        "training": 0.9148563146591187,
+        "V-full": 0.9070659317513114,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 4580,
+        "training": 0.9105480909347534,
+        "V-full": 0.9045520874064985,
+        "celle": 3251081
+      }
+    ],
+    "E1": [
+      {
+        "aggiornamento": 35,
+        "training": 1.048014760017395,
+        "V-full": 1.0260451595862503,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 229,
+        "training": 0.9419382214546204,
+        "V-full": 0.9394162385894131,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 458,
+        "training": 0.9328147768974304,
+        "V-full": 0.9317312907955413,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 687,
+        "training": 0.9415123462677002,
+        "V-full": 0.9265981681196165,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 916,
+        "training": 0.9418067932128906,
+        "V-full": 0.9268223377964445,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 1145,
+        "training": 0.9293662309646606,
+        "V-full": 0.9244252515394662,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 1374,
+        "training": 0.9348922371864319,
+        "V-full": 0.9215229917463449,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 1603,
+        "training": 0.9324145317077637,
+        "V-full": 0.9212279620207454,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 1832,
+        "training": 0.9298257827758789,
+        "V-full": 0.918831234441857,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 2061,
+        "training": 0.9308863878250122,
+        "V-full": 0.9196470771514466,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 2290,
+        "training": 0.9249401688575745,
+        "V-full": 0.9193635589197786,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 2519,
+        "training": 0.9272212386131287,
+        "V-full": 0.9188450903463983,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 2748,
+        "training": 0.9439107179641724,
+        "V-full": 0.9168657679909262,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 2977,
+        "training": 0.9351935982704163,
+        "V-full": 0.9137809884133242,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 3206,
+        "training": 0.9271519184112549,
+        "V-full": 0.9121401730841814,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 3435,
+        "training": 0.9373721480369568,
+        "V-full": 0.9127038950405313,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 3664,
+        "training": 0.9241515398025513,
+        "V-full": 0.9106305242409666,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 3893,
+        "training": 0.9194435477256775,
+        "V-full": 0.9094972496826239,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 4122,
+        "training": 0.9270167350769043,
+        "V-full": 0.9136907288042797,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 4351,
+        "training": 0.9269611239433289,
+        "V-full": 0.9087441663250578,
+        "celle": 3251081
+      },
+      {
+        "aggiornamento": 4580,
+        "training": 0.9209170937538147,
+        "V-full": 0.9061952866224887,
+        "celle": 3251081
+      }
+    ]
+  },
+  "riproduce_campagna": {
+    "E": {
+      "scarto_massimo": 0.0,
+      "punti": 11
+    },
+    "E1": {
+      "scarto_massimo": 0.0,
+      "punti": 11
+    }
+  },
+  "selezione": {
+    "E": {
+      "2290": {
+        "aggiornamento": 2061,
+        "V-full": 0.9182742596432476
+      },
+      "4580": {
+        "aggiornamento": 4580,
+        "V-full": 0.9045520874064985
+      }
+    },
+    "E1": {
+      "2290": {
+        "aggiornamento": 1832,
+        "V-full": 0.918831234441857
+      },
+      "4580": {
+        "aggiornamento": 4580,
+        "V-full": 0.9061952866224887
+      }
+    }
+  },
+  "ordine": {
+    "2290": "E < E1",
+    "4580": "E < E1"
+  },
+  "ordine_invariato": true,
+  "miglioramento_relativo_oltre_2290": {
+    "E": 0.014943435572374862,
+    "E1": 0.013752196644734186
+  },
+  "secondi": {
+    "E": 5454.526612997055,
+    "E1": 5454.635279893875
+  },
+  "nota_tempi": "in concorrenza: non entrano nella tabella dei costi",
+  "manifesti": {
+    "E": "results/evoluzione/registro/20260930T102408-0ed10438.json",
+    "E1": "results/evoluzione/registro/20260930T102408-94ca92ff.json"
+  },
+  "ore_calendario": 1.5159232058789995,
+  "istante": "2026-09-30T11:55:05.273266+00:00"
+}

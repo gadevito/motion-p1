@@ -1,0 +1,270 @@
+{
+  "calendario": {
+    "Madrid": {
+      "righe": 10464,
+      "fine": 10456,
+      "episodi": [
+        {
+          "episodio": 1,
+          "t0": 8887,
+          "t1": 8983,
+          "fine_valutazione": 10456,
+          "origini_valutazione": 1426,
+          "addestramento": [
+            11,
+            7319
+          ],
+          "selezione": [
+            7319,
+            8887
+          ],
+          "origini_addestramento": 7118,
+          "perdita_addestramento": 0.0,
+          "data_t0": "2021-12-01 13:45:00",
+          "nota": "campagna principale, punti esistenti"
+        },
+        {
+          "episodio": 2,
+          "t0": 7295,
+          "t1": 7391,
+          "fine_valutazione": 8887,
+          "origini_valutazione": 1438,
+          "addestramento": [
+            11,
+            6007
+          ],
+          "selezione": [
+            6007,
+            7295
+          ],
+          "origini_addestramento": 5844,
+          "perdita_addestramento": 0.178982860354032,
+          "data_t0": "2021-10-24 23:45:00",
+          "fattibile": true
+        },
+        {
+          "episodio": 3,
+          "t0": 5726,
+          "t1": 5822,
+          "fine_valutazione": 7295,
+          "origini_valutazione": 1426,
+          "addestramento": [
+            11,
+            4715
+          ],
+          "selezione": [
+            4715,
+            5726
+          ],
+          "origini_addestramento": 4571,
+          "perdita_addestramento": 0.35782523180668724,
+          "data_t0": "2021-09-24 15:30:00",
+          "fattibile": true
+        }
+      ],
+      "episodi_ammessi": 3
+    },
+    "Londra": {
+      "righe": 10557,
+      "fine": 10549,
+      "episodi": [
+        {
+          "episodio": 1,
+          "t0": 8966,
+          "t1": 9062,
+          "fine_valutazione": 10549,
+          "origini_valutazione": 1440,
+          "addestramento": [
+            11,
+            7384
+          ],
+          "selezione": [
+            7384,
+            8966
+          ],
+          "origini_addestramento": 7161,
+          "perdita_addestramento": 0.0,
+          "data_t0": "2020-01-01 10:15:00",
+          "nota": "campagna principale, punti esistenti"
+        },
+        {
+          "episodio": 2,
+          "t0": 7292,
+          "t1": 7388,
+          "fine_valutazione": 8966,
+          "origini_valutazione": 1520,
+          "addestramento": [
+            11,
+            6005
+          ],
+          "selezione": [
+            6005,
+            7292
+          ],
+          "origini_addestramento": 5823,
+          "perdita_addestramento": 0.18684541265186427,
+          "data_t0": "2019-11-23 23:45:00",
+          "fattibile": true
+        },
+        {
+          "episodio": 3,
+          "t0": 5709,
+          "t1": 5805,
+          "fine_valutazione": 7292,
+          "origini_valutazione": 1440,
+          "addestramento": [
+            11,
+            4701
+          ],
+          "selezione": [
+            4701,
+            5709
+          ],
+          "origini_addestramento": 4549,
+          "perdita_addestramento": 0.3647535260438486,
+          "data_t0": "2019-10-24 12:00:00",
+          "fattibile": true
+        }
+      ],
+      "episodi_ammessi": 3
+    },
+    "Melbourne": {
+      "righe": 10368,
+      "fine": 10360,
+      "episodi": [
+        {
+          "episodio": 1,
+          "t0": 8806,
+          "t1": 8902,
+          "fine_valutazione": 10360,
+          "origini_valutazione": 1411,
+          "addestramento": [
+            11,
+            7251
+          ],
+          "selezione": [
+            7251,
+            8806
+          ],
+          "origini_addestramento": 7050,
+          "perdita_addestramento": 0.0,
+          "data_t0": "2020-11-30 17:30:00",
+          "nota": "campagna principale, punti esistenti"
+        },
+        {
+          "episodio": 2,
+          "t0": 7233,
+          "t1": 7329,
+          "fine_valutazione": 8806,
+          "origini_valutazione": 1411,
+          "addestramento": [
+            11,
+            5956
+          ],
+          "selezione": [
+            5956,
+            7233
+          ],
+          "origini_addestramento": 5793,
+          "perdita_addestramento": 0.1782978723404255,
+          "data_t0": "2020-10-24 08:15:00",
+          "fattibile": true
+        },
+        {
+          "episodio": 3,
+          "t0": 5679,
+          "t1": 5775,
+          "fine_valutazione": 7233,
+          "origini_valutazione": 1411,
+          "addestramento": [
+            11,
+            4676
+          ],
+          "selezione": [
+            4676,
+            5679
+          ],
+          "origini_addestramento": 4551,
+          "perdita_addestramento": 0.35446808510638295,
+          "data_t0": "2020-09-24 03:45:00",
+          "fattibile": true
+        }
+      ],
+      "episodi_ammessi": 3
+    }
+  },
+  "regola_calendario": "periodi di valutazione consecutivi, non sovrapposti, di lunghezza uguale in origini ammissibili; t0 = t1 - 96 con acquisizione su griglia reale; addestramento su tutto cio' che precede t0 con quote 70/15; soglia di perdita 40 %",
+  "potenza": {
+    "Madrid": {
+      "Fp_96-C": {
+        "semiampiezza_6": 0.00897688637033755,
+        "semiampiezza_12": 0.009284080478675395,
+        "media_6": -0.011197244673064778,
+        "media_12": -0.011341706378744106,
+        "oltre_soglia": false
+      },
+      "Fp_672-C": {
+        "semiampiezza_6": 0.0051673997064147145,
+        "semiampiezza_12": 0.004803710529835026,
+        "media_6": -0.037309464069806536,
+        "media_12": -0.03832797523732196,
+        "oltre_soglia": false
+      },
+      "gated-F0p": {
+        "semiampiezza_6": 0.007975760171135852,
+        "semiampiezza_12": 0.007931089206526102,
+        "media_6": -0.028681995386142918,
+        "media_12": -0.029534138621465405,
+        "oltre_soglia": false
+      }
+    },
+    "Londra": {
+      "Fp_96-C": {
+        "semiampiezza_6": 0.010721484298148377,
+        "semiampiezza_12": 0.01053465448645809,
+        "media_6": 0.031670135315980855,
+        "media_12": 0.0336059154613556,
+        "oltre_soglia": true
+      },
+      "Fp_672-C": {
+        "semiampiezza_6": 0.0042026361168557395,
+        "semiampiezza_12": 0.0038441359207828513,
+        "media_6": -0.03694453249389861,
+        "media_12": -0.03675015810409205,
+        "oltre_soglia": false
+      },
+      "gated-F0p": {
+        "semiampiezza_6": 0.006464444223320892,
+        "semiampiezza_12": 0.006317871945105716,
+        "media_6": -0.01058855671841853,
+        "media_12": -0.009416979917358563,
+        "oltre_soglia": false
+      }
+    },
+    "Melbourne": {
+      "Fp_96-C": {
+        "semiampiezza_6": 0.009170547020320526,
+        "semiampiezza_12": 0.00935716856991976,
+        "media_6": -0.019534627407438936,
+        "media_12": -0.019230327344511338,
+        "oltre_soglia": false
+      },
+      "Fp_672-C": {
+        "semiampiezza_6": 0.006887077912364384,
+        "semiampiezza_12": 0.0069394033785509755,
+        "media_6": -0.04536904528466147,
+        "media_12": -0.04567370848800938,
+        "oltre_soglia": false
+      },
+      "gated-F0p": {
+        "semiampiezza_6": 0.003875160233115958,
+        "semiampiezza_12": 0.00375853112931911,
+        "media_6": -0.0239157931427252,
+        "media_12": -0.0235349402792265,
+        "oltre_soglia": false
+      }
+    }
+  },
+  "regola_potenza": "semiampiezza con i semi 201-206 dalle celle di E4, ricampionamento congiunto; oltre 0,010 si passa a 8 semi",
+  "istante": "2026-10-04T07:32:24.933903+00:00"
+}

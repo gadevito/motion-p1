@@ -1,0 +1,32 @@
+{
+  "contesto": "Londra",
+  "n": 16,
+  "lavoratori": 16,
+  "fili": 1,
+  "statica": "causale",
+  "ambiente": {
+    "piattaforma": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+    "processore": "aarch64",
+    "nuclei_logici": 20,
+    "python": "3.12.3",
+    "torch": "2.12.1+cu130",
+    "numpy": "2.5.1",
+    "backend": "cpu",
+    "fili_torch": 1,
+    "nota": "numero di fili verificato ininfluente sulla numerica: impronte identiche con 1, 2, 4 e 14 fili"
+  },
+  "minuti": {
+    "min": 86.72942032416661,
+    "mediana": 87.17203307350476,
+    "max": 87.42124352057775
+  },
+  "parete_min": 87.44830051263173,
+  "completati": 16,
+  "falliti": 0,
+  "stima_campagna": {
+    "addestramenti": 270,
+    "ore": 24.517134301923214,
+    "regola": "270 / lavoratori x mediana dei minuti per addestramento"
+  },
+  "istante": "2026-10-22T08:32:20.401053+00:00"
+}

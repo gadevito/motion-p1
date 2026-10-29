@@ -1,0 +1,387 @@
+{
+  "C": {
+    "esecuzioni_isolate": 9,
+    "addestramento_s": 2514.5273337364197,
+    "inserimento_s": 0.0,
+    "attesa_dati_s": 0.0,
+    "disponibilita_s": 0.0,
+    "rimisure_che_riproducono_la_concorrente": 0,
+    "celle": [
+      [
+        "Londra",
+        0,
+        201
+      ],
+      [
+        "Londra",
+        0,
+        202
+      ],
+      [
+        "Londra",
+        0,
+        203
+      ],
+      [
+        "Madrid",
+        0,
+        201
+      ],
+      [
+        "Madrid",
+        0,
+        202
+      ],
+      [
+        "Madrid",
+        0,
+        203
+      ],
+      [
+        "Melbourne",
+        0,
+        201
+      ],
+      [
+        "Melbourne",
+        0,
+        202
+      ],
+      [
+        "Melbourne",
+        0,
+        203
+      ]
+    ]
+  },
+  "P": {
+    "esecuzioni_isolate": 9,
+    "addestramento_s": 2517.44913315773,
+    "inserimento_s": 0.04802203178405762,
+    "attesa_dati_s": 86400.0,
+    "disponibilita_s": 86400.04802203178,
+    "rimisure_che_riproducono_la_concorrente": 0,
+    "celle": [
+      [
+        "Londra",
+        0,
+        201
+      ],
+      [
+        "Londra",
+        0,
+        202
+      ],
+      [
+        "Londra",
+        0,
+        203
+      ],
+      [
+        "Madrid",
+        0,
+        201
+      ],
+      [
+        "Madrid",
+        0,
+        202
+      ],
+      [
+        "Madrid",
+        0,
+        203
+      ],
+      [
+        "Melbourne",
+        0,
+        201
+      ],
+      [
+        "Melbourne",
+        0,
+        202
+      ],
+      [
+        "Melbourne",
+        0,
+        203
+      ]
+    ]
+  },
+  "A": {
+    "esecuzioni_isolate": 9,
+    "addestramento_s": 2992.2944869995117,
+    "inserimento_s": 0.0,
+    "attesa_dati_s": 0.0,
+    "disponibilita_s": 0.0,
+    "rimisure_che_riproducono_la_concorrente": 0,
+    "celle": [
+      [
+        "Londra",
+        0,
+        201
+      ],
+      [
+        "Londra",
+        0,
+        202
+      ],
+      [
+        "Londra",
+        0,
+        203
+      ],
+      [
+        "Madrid",
+        0,
+        201
+      ],
+      [
+        "Madrid",
+        0,
+        202
+      ],
+      [
+        "Madrid",
+        0,
+        203
+      ],
+      [
+        "Melbourne",
+        0,
+        201
+      ],
+      [
+        "Melbourne",
+        0,
+        202
+      ],
+      [
+        "Melbourne",
+        0,
+        203
+      ]
+    ]
+  },
+  "R": {
+    "esecuzioni_isolate": 9,
+    "addestramento_s": 0.0,
+    "inserimento_s": 2320.4797191619873,
+    "attesa_dati_s": 86400.0,
+    "disponibilita_s": 88720.47971916199,
+    "rimisure_che_riproducono_la_concorrente": 0,
+    "celle": [
+      [
+        "Londra",
+        0,
+        201
+      ],
+      [
+        "Londra",
+        0,
+        202
+      ],
+      [
+        "Londra",
+        0,
+        203
+      ],
+      [
+        "Madrid",
+        0,
+        201
+      ],
+      [
+        "Madrid",
+        0,
+        202
+      ],
+      [
+        "Madrid",
+        0,
+        203
+      ],
+      [
+        "Melbourne",
+        0,
+        201
+      ],
+      [
+        "Melbourne",
+        0,
+        202
+      ],
+      [
+        "Melbourne",
+        0,
+        203
+      ]
+    ]
+  },
+  "R-orig": {
+    "esecuzioni_isolate": 9,
+    "addestramento_s": 0.0,
+    "inserimento_s": 2206.07937169075,
+    "attesa_dati_s": 86400.0,
+    "disponibilita_s": 88606.07937169075,
+    "rimisure_che_riproducono_la_concorrente": 9,
+    "celle": [
+      [
+        "Londra",
+        0,
+        201
+      ],
+      [
+        "Londra",
+        0,
+        202
+      ],
+      [
+        "Londra",
+        0,
+        203
+      ],
+      [
+        "Madrid",
+        0,
+        201
+      ],
+      [
+        "Madrid",
+        0,
+        202
+      ],
+      [
+        "Madrid",
+        0,
+        203
+      ],
+      [
+        "Melbourne",
+        0,
+        201
+      ],
+      [
+        "Melbourne",
+        0,
+        202
+      ],
+      [
+        "Melbourne",
+        0,
+        203
+      ]
+    ]
+  },
+  "R-mon": {
+    "esecuzioni_isolate": 9,
+    "addestramento_s": 0.0,
+    "inserimento_s": 2232.845376968384,
+    "attesa_dati_s": 86400.0,
+    "disponibilita_s": 88632.84537696838,
+    "rimisure_che_riproducono_la_concorrente": 9,
+    "celle": [
+      [
+        "Londra",
+        0,
+        201
+      ],
+      [
+        "Londra",
+        0,
+        202
+      ],
+      [
+        "Londra",
+        0,
+        203
+      ],
+      [
+        "Madrid",
+        0,
+        201
+      ],
+      [
+        "Madrid",
+        0,
+        202
+      ],
+      [
+        "Madrid",
+        0,
+        203
+      ],
+      [
+        "Melbourne",
+        0,
+        201
+      ],
+      [
+        "Melbourne",
+        0,
+        202
+      ],
+      [
+        "Melbourne",
+        0,
+        203
+      ]
+    ]
+  },
+  "F": {
+    "esecuzioni_isolate": 9,
+    "addestramento_s": 0.0,
+    "inserimento_s": 15.562621355056763,
+    "attesa_dati_s": 86400.0,
+    "disponibilita_s": 86415.56262135506,
+    "rimisure_che_riproducono_la_concorrente": 0,
+    "celle": [
+      [
+        "Londra",
+        0,
+        201
+      ],
+      [
+        "Londra",
+        0,
+        202
+      ],
+      [
+        "Londra",
+        0,
+        203
+      ],
+      [
+        "Madrid",
+        0,
+        201
+      ],
+      [
+        "Madrid",
+        0,
+        202
+      ],
+      [
+        "Madrid",
+        0,
+        203
+      ],
+      [
+        "Melbourne",
+        0,
+        201
+      ],
+      [
+        "Melbourne",
+        0,
+        202
+      ],
+      [
+        "Melbourne",
+        0,
+        203
+      ]
+    ]
+  }
+}

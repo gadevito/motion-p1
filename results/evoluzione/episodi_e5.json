@@ -1,0 +1,89 @@
+{
+  "Madrid": {
+    "episodi": [
+      {
+        "episodio": 1,
+        "t0": 8887,
+        "t1": 8983,
+        "fine_val": 10456,
+        "origini_valutazione": 1434
+      },
+      {
+        "episodio": 2,
+        "t0": 7295,
+        "t1": 7391,
+        "fine_val": 8887,
+        "origini_valutazione": 1446
+      },
+      {
+        "episodio": 3,
+        "t0": 5726,
+        "t1": 5822,
+        "fine_val": 7295,
+        "origini_valutazione": 1434
+      }
+    ],
+    "addestramento_attuale": 7118,
+    "addestramento_piu_antico": 4571,
+    "perdita": 0.35782523180668724,
+    "decisione": "tre"
+  },
+  "Londra": {
+    "episodi": [
+      {
+        "episodio": 1,
+        "t0": 8966,
+        "t1": 9062,
+        "fine_val": 10549,
+        "origini_valutazione": 1448
+      },
+      {
+        "episodio": 2,
+        "t0": 7292,
+        "t1": 7388,
+        "fine_val": 8966,
+        "origini_valutazione": 1528
+      },
+      {
+        "episodio": 3,
+        "t0": 5709,
+        "t1": 5805,
+        "fine_val": 7292,
+        "origini_valutazione": 1448
+      }
+    ],
+    "addestramento_attuale": 7161,
+    "addestramento_piu_antico": 4549,
+    "perdita": 0.3647535260438486,
+    "decisione": "tre"
+  },
+  "Melbourne": {
+    "episodi": [
+      {
+        "episodio": 1,
+        "t0": 8806,
+        "t1": 8902,
+        "fine_val": 10360,
+        "origini_valutazione": 1419
+      },
+      {
+        "episodio": 2,
+        "t0": 7233,
+        "t1": 7329,
+        "fine_val": 8806,
+        "origini_valutazione": 1419
+      },
+      {
+        "episodio": 3,
+        "t0": 5679,
+        "t1": 5775,
+        "fine_val": 7233,
+        "origini_valutazione": 1419
+      }
+    ],
+    "addestramento_attuale": 7050,
+    "addestramento_piu_antico": 4551,
+    "perdita": 0.35446808510638295,
+    "decisione": "tre"
+  }
+}

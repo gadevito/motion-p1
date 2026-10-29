@@ -1,0 +1,365 @@
+{
+  "post_hoc": true,
+  "rho": {
+    "Madrid/ep1/wCE_C/v": {
+      "rho": -0.5266984373395828,
+      "ic_nodi": [
+        -0.5984654106611532,
+        -0.45215810375694726
+      ],
+      "esclude_zero": true
+    },
+    "Madrid/ep1/wCE_C/v7": {
+      "rho": -0.5558553127311736,
+      "ic_nodi": [
+        -0.6263508348466281,
+        -0.47831033631237413
+      ],
+      "esclude_zero": true
+    },
+    "Madrid/ep1/wCE_Fp672/v": {
+      "rho": -0.5000580147609952,
+      "ic_nodi": [
+        -0.5724056063661412,
+        -0.4206281203113253
+      ],
+      "esclude_zero": true
+    },
+    "Madrid/ep1/wCE_Fp672/v7": {
+      "rho": -0.5277475638266408,
+      "ic_nodi": [
+        -0.5962521869870947,
+        -0.44639079730323533
+      ],
+      "esclude_zero": true
+    },
+    "Madrid/ep2/wCE_C/v": {
+      "rho": -0.5160614613259132,
+      "ic_nodi": [
+        -0.5903587393440511,
+        -0.4357865231675829
+      ],
+      "esclude_zero": true
+    },
+    "Madrid/ep2/wCE_C/v7": {
+      "rho": -0.5811947058153374,
+      "ic_nodi": [
+        -0.6479128803768129,
+        -0.5049933495536604
+      ],
+      "esclude_zero": true
+    },
+    "Madrid/ep2/wCE_Fp672/v": {
+      "rho": -0.5013490447931764,
+      "ic_nodi": [
+        -0.5753050752960641,
+        -0.41852750000082134
+      ],
+      "esclude_zero": true
+    },
+    "Madrid/ep2/wCE_Fp672/v7": {
+      "rho": -0.5707553788206821,
+      "ic_nodi": [
+        -0.639521903975837,
+        -0.49648172466447443
+      ],
+      "esclude_zero": true
+    },
+    "Madrid/ep3/wCE_C/v": {
+      "rho": -0.4987407987543718,
+      "ic_nodi": [
+        -0.5752082878888459,
+        -0.4142146360346892
+      ],
+      "esclude_zero": true
+    },
+    "Madrid/ep3/wCE_C/v7": {
+      "rho": -0.5289560890931649,
+      "ic_nodi": [
+        -0.6003283833799969,
+        -0.44303251451619874
+      ],
+      "esclude_zero": true
+    },
+    "Madrid/ep3/wCE_Fp672/v": {
+      "rho": -0.48455281992494453,
+      "ic_nodi": [
+        -0.5626729331570322,
+        -0.40222458563391505
+      ],
+      "esclude_zero": true
+    },
+    "Madrid/ep3/wCE_Fp672/v7": {
+      "rho": -0.5161294695632103,
+      "ic_nodi": [
+        -0.5897994815467303,
+        -0.4379684906453527
+      ],
+      "esclude_zero": true
+    },
+    "Londra/ep1/wCE_C/v": {
+      "rho": -0.32518353501724684,
+      "ic_nodi": [
+        -0.41526630197670983,
+        -0.23857533403075007
+      ],
+      "esclude_zero": true
+    },
+    "Londra/ep1/wCE_C/v7": {
+      "rho": -0.34955149855551987,
+      "ic_nodi": [
+        -0.4364126512465046,
+        -0.260868603621672
+      ],
+      "esclude_zero": true
+    },
+    "Londra/ep1/wCE_Fp672/v": {
+      "rho": -0.283447271704366,
+      "ic_nodi": [
+        -0.3692829708601074,
+        -0.19048118826319055
+      ],
+      "esclude_zero": true
+    },
+    "Londra/ep1/wCE_Fp672/v7": {
+      "rho": -0.2960524176676424,
+      "ic_nodi": [
+        -0.38376357164450303,
+        -0.20632955400301667
+      ],
+      "esclude_zero": true
+    },
+    "Londra/ep2/wCE_C/v": {
+      "rho": -0.2497768406275347,
+      "ic_nodi": [
+        -0.3417184030663413,
+        -0.1522313499555901
+      ],
+      "esclude_zero": true
+    },
+    "Londra/ep2/wCE_C/v7": {
+      "rho": -0.279731405081321,
+      "ic_nodi": [
+        -0.3633907413152025,
+        -0.19243348481136807
+      ],
+      "esclude_zero": true
+    },
+    "Londra/ep2/wCE_Fp672/v": {
+      "rho": -0.17231604742994783,
+      "ic_nodi": [
+        -0.2614454035636662,
+        -0.07415460031435037
+      ],
+      "esclude_zero": true
+    },
+    "Londra/ep2/wCE_Fp672/v7": {
+      "rho": -0.20444216352664987,
+      "ic_nodi": [
+        -0.2937920846175975,
+        -0.11539484781802191
+      ],
+      "esclude_zero": true
+    },
+    "Londra/ep3/wCE_C/v": {
+      "rho": -0.335471623490307,
+      "ic_nodi": [
+        -0.4198540438882646,
+        -0.2449441432033359
+      ],
+      "esclude_zero": true
+    },
+    "Londra/ep3/wCE_C/v7": {
+      "rho": -0.31618681842720175,
+      "ic_nodi": [
+        -0.39806596513379033,
+        -0.2217875113918964
+      ],
+      "esclude_zero": true
+    },
+    "Londra/ep3/wCE_Fp672/v": {
+      "rho": -0.2864591182032951,
+      "ic_nodi": [
+        -0.37066620219575375,
+        -0.19178665118129493
+      ],
+      "esclude_zero": true
+    },
+    "Londra/ep3/wCE_Fp672/v7": {
+      "rho": -0.26459336527628996,
+      "ic_nodi": [
+        -0.3518422570123212,
+        -0.17574646008046368
+      ],
+      "esclude_zero": true
+    },
+    "Melbourne/ep1/wCE_C/v": {
+      "rho": -0.4382783909838947,
+      "ic_nodi": [
+        -0.5226766108128339,
+        -0.338254906576876
+      ],
+      "esclude_zero": true
+    },
+    "Melbourne/ep1/wCE_C/v7": {
+      "rho": -0.439580204009926,
+      "ic_nodi": [
+        -0.5199216706847557,
+        -0.337967891471274
+      ],
+      "esclude_zero": true
+    },
+    "Melbourne/ep1/wCE_Fp672/v": {
+      "rho": -0.4274594914650288,
+      "ic_nodi": [
+        -0.5208184444163878,
+        -0.33079408302837277
+      ],
+      "esclude_zero": true
+    },
+    "Melbourne/ep1/wCE_Fp672/v7": {
+      "rho": -0.43234450656028695,
+      "ic_nodi": [
+        -0.5216645113056962,
+        -0.33121843580084565
+      ],
+      "esclude_zero": true
+    },
+    "Melbourne/ep2/wCE_C/v": {
+      "rho": -0.44271505874439104,
+      "ic_nodi": [
+        -0.5397223924416154,
+        -0.34608734901617727
+      ],
+      "esclude_zero": true
+    },
+    "Melbourne/ep2/wCE_C/v7": {
+      "rho": -0.46391458586841183,
+      "ic_nodi": [
+        -0.5514009690914449,
+        -0.3697252169654403
+      ],
+      "esclude_zero": true
+    },
+    "Melbourne/ep2/wCE_Fp672/v": {
+      "rho": -0.40215747494235465,
+      "ic_nodi": [
+        -0.4947200768005241,
+        -0.299099260951201
+      ],
+      "esclude_zero": true
+    },
+    "Melbourne/ep2/wCE_Fp672/v7": {
+      "rho": -0.422180530113018,
+      "ic_nodi": [
+        -0.5113071091373957,
+        -0.3230633326759134
+      ],
+      "esclude_zero": true
+    },
+    "Melbourne/ep3/wCE_C/v": {
+      "rho": -0.616013008947875,
+      "ic_nodi": [
+        -0.6759222755166723,
+        -0.5386255100707444
+      ],
+      "esclude_zero": true
+    },
+    "Melbourne/ep3/wCE_C/v7": {
+      "rho": -0.6574692405717039,
+      "ic_nodi": [
+        -0.7175617317330807,
+        -0.586263837204081
+      ],
+      "esclude_zero": true
+    },
+    "Melbourne/ep3/wCE_Fp672/v": {
+      "rho": -0.5769376069397444,
+      "ic_nodi": [
+        -0.6439069146127137,
+        -0.5016099597623199
+      ],
+      "esclude_zero": true
+    },
+    "Melbourne/ep3/wCE_Fp672/v7": {
+      "rho": -0.6159564481902231,
+      "ic_nodi": [
+        -0.6818864341498778,
+        -0.5393966633848184
+      ],
+      "esclude_zero": true
+    }
+  },
+  "copertura_episodio": {
+    "Madrid/ep1": {
+      "v_mediana": 260.0,
+      "v7_mediana": 2297.0,
+      "v_quota": 0.8441558441558441,
+      "v7_quota": 0.9057570977917981
+    },
+    "Madrid/ep2": {
+      "v_mediana": 284.0,
+      "v7_mediana": 2276.0,
+      "v_quota": 0.922077922077922,
+      "v7_quota": 0.8974763406940063
+    },
+    "Madrid/ep3": {
+      "v_mediana": 288.0,
+      "v7_mediana": 2253.0,
+      "v_quota": 0.935064935064935,
+      "v7_quota": 0.8884069400630915
+    },
+    "Londra/ep1": {
+      "v_mediana": 114.0,
+      "v7_mediana": 1355.0,
+      "v_quota": 0.37012987012987014,
+      "v7_quota": 0.5343059936908517
+    },
+    "Londra/ep2": {
+      "v_mediana": 149.0,
+      "v7_mediana": 1582.0,
+      "v_quota": 0.4837662337662338,
+      "v7_quota": 0.6238170347003155
+    },
+    "Londra/ep3": {
+      "v_mediana": 188.0,
+      "v7_mediana": 1529.0,
+      "v_quota": 0.6103896103896104,
+      "v7_quota": 0.6029179810725552
+    },
+    "Melbourne/ep1": {
+      "v_mediana": 260.0,
+      "v7_mediana": 2098.5,
+      "v_quota": 0.8441558441558441,
+      "v7_quota": 0.8274842271293376
+    },
+    "Melbourne/ep2": {
+      "v_mediana": 109.0,
+      "v7_mediana": 1598.5,
+      "v_quota": 0.3538961038961039,
+      "v7_quota": 0.6303233438485805
+    },
+    "Melbourne/ep3": {
+      "v_mediana": 226.0,
+      "v7_mediana": 1666.5,
+      "v_quota": 0.7337662337662337,
+      "v7_quota": 0.6571372239747634
+    }
+  },
+  "anomalie_stadio1": [
+    "Londra/ep2/D1/v",
+    "Londra/ep2/D1/v7",
+    "Londra/ep2/D3/v",
+    "Melbourne/ep2/D1/v",
+    "Melbourne/ep2/D1/v7"
+  ],
+  "segno_C": {
+    "celle": 9,
+    "negative": 9,
+    "anomale": 2,
+    "anomale_negative": 2,
+    "non_anomale_negative": 7,
+    "discrimina": false
+  },
+  "istante": "2026-10-07T14:12:39.248817+00:00"
+}

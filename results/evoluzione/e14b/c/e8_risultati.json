@@ -1,0 +1,4923 @@
+{
+  "impronta_soglie": "1d3fdf6006206cf8",
+  "repliche": 4000,
+  "gruppi": {
+    "Londra": {
+      "celle": 36,
+      "gated": {
+        "tau": 192,
+        "N": 154
+      },
+      "livelli": {
+        "prim/C": {
+          "richiamo": 0.4704284069666712,
+          "precisione": 0.3844030438082997,
+          "falsi_allarmi": 0.10315780314387321,
+          "f1_macro": 0.5541491206014345,
+          "f1_congestionata": 0.4230871743615372
+        },
+        "prim/A": {
+          "richiamo": 0.5406023457803311,
+          "precisione": 0.372260109669197,
+          "falsi_allarmi": 0.1248274365875795,
+          "f1_macro": 0.5678858013619367,
+          "f1_congestionata": 0.44090911467820343
+        },
+        "prim/Rorig_672": {
+          "richiamo": 0.3390989984650223,
+          "precisione": 0.5150111442111414,
+          "falsi_allarmi": 0.043726079465922905,
+          "f1_macro": 0.5756005654277967,
+          "f1_congestionata": 0.4089396776231422
+        },
+        "prim/F0": {
+          "richiamo": 0.46135389595586557,
+          "precisione": 0.3658229068439747,
+          "falsi_allarmi": 0.10951478302987926,
+          "f1_macro": 0.5191540118753603,
+          "f1_congestionata": 0.4080719447912448
+        },
+        "prim/F0p": {
+          "richiamo": 0.4849313819358957,
+          "precisione": 0.36573760321401605,
+          "falsi_allarmi": 0.1151538705059701,
+          "f1_macro": 0.5430992073526483,
+          "f1_congestionata": 0.4169839137164256
+        },
+        "prim/Fp_96": {
+          "richiamo": 0.35866901472666757,
+          "precisione": 0.43857574761519263,
+          "falsi_allarmi": 0.06286940015956344,
+          "f1_macro": 0.5441111898083498,
+          "f1_congestionata": 0.39461791086110815
+        },
+        "prim/Fp_192": {
+          "richiamo": 0.33888527941154123,
+          "precisione": 0.48457967884659137,
+          "falsi_allarmi": 0.04935690783013231,
+          "f1_macro": 0.5594100943007719,
+          "f1_congestionata": 0.3988437351613564
+        },
+        "prim/Fp_672": {
+          "richiamo": 0.3647847041748355,
+          "precisione": 0.49039236292453203,
+          "falsi_allarmi": 0.05190721752731815,
+          "f1_macro": 0.5759423480928881,
+          "f1_congestionata": 0.41836396208748683
+        },
+        "prim/gated": {
+          "richiamo": 0.42742053450660344,
+          "precisione": 0.3974845261745488,
+          "falsi_allarmi": 0.0887160631792144,
+          "f1_macro": 0.5542070119365589,
+          "f1_congestionata": 0.4119093377735934
+        },
+        "par/C": {
+          "richiamo": 0.4704284069666712,
+          "precisione": 0.3844030438082997,
+          "falsi_allarmi": 0.10315780314387321,
+          "f1_macro": 0.5541491206014345,
+          "f1_congestionata": 0.4230871743615372
+        },
+        "par/A": {
+          "richiamo": 0.5406023457803311,
+          "precisione": 0.372260109669197,
+          "falsi_allarmi": 0.1248274365875795,
+          "f1_macro": 0.5678858013619367,
+          "f1_congestionata": 0.44090911467820343
+        },
+        "par/Rorig_672": {
+          "richiamo": 0.399018222161431,
+          "precisione": 0.46616275192269385,
+          "falsi_allarmi": 0.06256953586912781,
+          "f1_macro": 0.5777912646413944,
+          "f1_congestionata": 0.4299850275995258
+        },
+        "par/F0": {
+          "richiamo": 0.46135389595586557,
+          "precisione": 0.3658229068439747,
+          "falsi_allarmi": 0.10951478302987926,
+          "f1_macro": 0.5191540118753603,
+          "f1_congestionata": 0.4080719447912448
+        },
+        "par/F0p": {
+          "richiamo": 0.4849313819358957,
+          "precisione": 0.36573760321401605,
+          "falsi_allarmi": 0.1151538705059701,
+          "f1_macro": 0.5430992073526483,
+          "f1_congestionata": 0.4169839137164256
+        },
+        "par/Fp_96": {
+          "richiamo": 0.35866901472666757,
+          "precisione": 0.43857574761519263,
+          "falsi_allarmi": 0.06286940015956344,
+          "f1_macro": 0.5441111898083498,
+          "f1_congestionata": 0.39461791086110815
+        },
+        "par/Fp_192": {
+          "richiamo": 0.33888527941154123,
+          "precisione": 0.48457967884659137,
+          "falsi_allarmi": 0.04935690783013231,
+          "f1_macro": 0.5594100943007719,
+          "f1_congestionata": 0.3988437351613564
+        },
+        "par/Fp_672": {
+          "richiamo": 0.41909024073314183,
+          "precisione": 0.44982589072023793,
+          "falsi_allarmi": 0.0701878837397987,
+          "f1_macro": 0.5763395669445744,
+          "f1_congestionata": 0.4339144688558681
+        },
+        "par/gated": {
+          "richiamo": 0.42742053450660344,
+          "precisione": 0.3974845261745488,
+          "falsi_allarmi": 0.0887160631792144,
+          "f1_macro": 0.5542070119365589,
+          "f1_congestionata": 0.4119093377735934
+        },
+        "argmax/C": {
+          "richiamo": 0.5190366684904026,
+          "precisione": 0.3478888250113165,
+          "falsi_allarmi": 0.13322266123412202,
+          "f1_macro": 0.5468593212418158,
+          "f1_congestionata": 0.41656880110783434
+        },
+        "argmax/A": {
+          "richiamo": 0.5858419200899709,
+          "precisione": 0.34166834242118554,
+          "falsi_allarmi": 0.15456791318125643,
+          "f1_macro": 0.5609609234385703,
+          "f1_congestionata": 0.4316149283697599
+        },
+        "argmax/Rorig_672": {
+          "richiamo": 0.5175710307147525,
+          "precisione": 0.3796561644513284,
+          "falsi_allarmi": 0.11580061749542628,
+          "f1_macro": 0.5694659814120265,
+          "f1_congestionata": 0.43801399112943906
+        },
+        "argmax/F0": {
+          "richiamo": 0.4357299313059469,
+          "precisione": 0.3854979890181736,
+          "falsi_allarmi": 0.09510809551643382,
+          "f1_macro": 0.5254908772988288,
+          "f1_congestionata": 0.4090776947943373
+        },
+        "argmax/F0p": {
+          "richiamo": 0.5289855278955607,
+          "precisione": 0.33738085963412634,
+          "falsi_allarmi": 0.14226112112176167,
+          "f1_macro": 0.5360166923839901,
+          "f1_congestionata": 0.4119956515032756
+        },
+        "argmax/Fp_96": {
+          "richiamo": 0.5003937179896351,
+          "precisione": 0.3363384002671265,
+          "falsi_allarmi": 0.13520133633730888,
+          "f1_macro": 0.52667837450599,
+          "f1_congestionata": 0.4022831655201458
+        },
+        "argmax/Fp_192": {
+          "richiamo": 0.48491285961792735,
+          "precisione": 0.3705641918278346,
+          "falsi_allarmi": 0.11278480604353684,
+          "f1_macro": 0.5513582526007345,
+          "f1_congestionata": 0.4200962296476846
+        },
+        "argmax/Fp_672": {
+          "richiamo": 0.5209857862581498,
+          "precisione": 0.37606600561405623,
+          "falsi_allarmi": 0.11835847094834634,
+          "f1_macro": 0.5673638895133587,
+          "f1_congestionata": 0.43681991473623266
+        },
+        "argmax/gated": {
+          "richiamo": 0.4961554316934908,
+          "precisione": 0.354123341438223,
+          "falsi_allarmi": 0.12391152058964076,
+          "f1_macro": 0.547048081758391,
+          "f1_congestionata": 0.4132767391026139
+        }
+      },
+      "confronti": {
+        "A-C": {
+          "wce": {
+            "media": -0.03506552856366321,
+            "ic_con_nodi": [
+              -0.03960469627498476,
+              -0.031044814196351606
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "prim": {
+            "richiamo": {
+              "media": 0.07022120864511416,
+              "ic_con_nodi": [
+                0.04515813156645536,
+                0.0931873040870922
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": -0.011718490607206948,
+              "ic_con_nodi": [
+                -0.025004491370106317,
+                0.0024936480527799477
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": 0.02166679263020084,
+              "ic_con_nodi": [
+                0.009519994244976166,
+                0.03400005862278779
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "f1_macro": {
+              "media": 0.01388543474267716,
+              "ic_con_nodi": [
+                0.009016285882671194,
+                0.018141600927141614
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": 0.07022120864511416,
+              "ic_con_nodi": [
+                0.0456450225529664,
+                0.09340026905077087
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": -0.011718490607206948,
+              "ic_con_nodi": [
+                -0.02471511473752844,
+                0.0027733313463560623
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": 0.02166679263020084,
+              "ic_con_nodi": [
+                0.009863841478130936,
+                0.03368482077885855
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "f1_macro": {
+              "media": 0.01388543474267716,
+              "ic_con_nodi": [
+                0.008939804991697074,
+                0.018396024875478065
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": 0.06699889651245759,
+              "ic_con_nodi": [
+                0.03994732998693591,
+                0.09350506284870433
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": -0.005634768327110886,
+              "ic_con_nodi": [
+                -0.017766113667437217,
+                0.008534184930756385
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": 0.021347724199154667,
+              "ic_con_nodi": [
+                0.005786298175325985,
+                0.0370062352884328
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "f1_macro": {
+              "media": 0.014335291909085798,
+              "ic_con_nodi": [
+                0.008461513865566993,
+                0.019542235059025508
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          }
+        },
+        "F0-C": {
+          "wce": {
+            "media": 0.049658272427276745,
+            "ic_con_nodi": [
+              0.038021477449678584,
+              0.06264220905085488
+            ],
+            "include_zero": false,
+            "segno": "+"
+          },
+          "prim": {
+            "richiamo": {
+              "media": -0.008767115495029404,
+              "ic_con_nodi": [
+                -0.030318346596580018,
+                0.014124273214788503
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": -0.01575180263551891,
+              "ic_con_nodi": [
+                -0.031557811686079205,
+                -0.0008200900266036611
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "falsi_allarmi": {
+              "media": 0.006371727478976923,
+              "ic_con_nodi": [
+                -0.005641739095661427,
+                0.018317009602537033
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": -0.03476314741682814,
+              "ic_con_nodi": [
+                -0.042470399667589684,
+                -0.02696770141258255
+              ],
+              "include_zero": false,
+              "segno": "-"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": -0.008767115495029404,
+              "ic_con_nodi": [
+                -0.03078561815244218,
+                0.01309532389891283
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": -0.01575180263551891,
+              "ic_con_nodi": [
+                -0.031108957662023363,
+                -7.792580361998338e-05
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "falsi_allarmi": {
+              "media": 0.006371727478976923,
+              "ic_con_nodi": [
+                -0.005016973700099093,
+                0.01839928043901396
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": -0.03476314741682814,
+              "ic_con_nodi": [
+                -0.042511753293072135,
+                -0.026912900357203288
+              ],
+              "include_zero": false,
+              "segno": "-"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": -0.08313944853207542,
+              "ic_con_nodi": [
+                -0.10405914487750206,
+                -0.06313882222752962
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "precisione": {
+              "media": 0.03985641047614298,
+              "ic_con_nodi": [
+                0.024819046795318333,
+                0.05554368537422284
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": -0.038103620734735916,
+              "ic_con_nodi": [
+                -0.04976131198710786,
+                -0.027139776299767358
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "f1_macro": {
+              "media": -0.02128753628326781,
+              "ic_con_nodi": [
+                -0.028574081294663906,
+                -0.013992335617111122
+              ],
+              "include_zero": false,
+              "segno": "-"
+            }
+          }
+        },
+        "F0p-C": {
+          "wce": {
+            "media": 0.013018648701863497,
+            "ic_con_nodi": [
+              0.009788523291725602,
+              0.01682495027883046
+            ],
+            "include_zero": false,
+            "segno": "+"
+          },
+          "prim": {
+            "richiamo": {
+              "media": 0.01482096491062854,
+              "ic_con_nodi": [
+                -0.0005426177592057809,
+                0.03037591236327033
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": -0.017700661897568627,
+              "ic_con_nodi": [
+                -0.02923978111493569,
+                -0.0064699159175421895
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "falsi_allarmi": {
+              "media": 0.012011703450272736,
+              "ic_con_nodi": [
+                0.003732440151948588,
+                0.02159470244330936
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "f1_macro": {
+              "media": -0.010839873750196473,
+              "ic_con_nodi": [
+                -0.01590489808238339,
+                -0.0065129237387
+              ],
+              "include_zero": false,
+              "segno": "-"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": 0.01482096491062854,
+              "ic_con_nodi": [
+                -0.0009252144436016381,
+                0.02995778583330602
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": -0.017700661897568627,
+              "ic_con_nodi": [
+                -0.02906102964637035,
+                -0.006674706037668275
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "falsi_allarmi": {
+              "media": 0.012011703450272736,
+              "ic_con_nodi": [
+                0.0035241667227561254,
+                0.021638876761689785
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "f1_macro": {
+              "media": -0.010839873750196473,
+              "ic_con_nodi": [
+                -0.016386008260693696,
+                -0.006486409712566268
+              ],
+              "include_zero": false,
+              "segno": "-"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": 0.010316667111399603,
+              "ic_con_nodi": [
+                -0.0065878793731557195,
+                0.027830928187028172
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": -0.009714995607459823,
+              "ic_con_nodi": [
+                -0.019906488597917143,
+                -0.00040864649790770804
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "falsi_allarmi": {
+              "media": 0.009054729282447641,
+              "ic_con_nodi": [
+                -0.0008237624201926535,
+                0.02044011175916789
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": -0.01062021905796597,
+              "ic_con_nodi": [
+                -0.016895319885721384,
+                -0.005294442974453642
+              ],
+              "include_zero": false,
+              "segno": "-"
+            }
+          }
+        },
+        "Fp_96-C": {
+          "wce": {
+            "media": 0.0331681920728509,
+            "ic_con_nodi": [
+              0.023011790289488222,
+              0.04364000171611189
+            ],
+            "include_zero": false,
+            "segno": "+"
+          },
+          "prim": {
+            "richiamo": {
+              "media": -0.11102690902728668,
+              "ic_con_nodi": [
+                -0.15034300858069397,
+                -0.07536793915170789
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "precisione": {
+              "media": 0.05520965790253771,
+              "ic_con_nodi": [
+                0.02971122063527002,
+                0.08355174416132014
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": -0.0402682424709977,
+              "ic_con_nodi": [
+                -0.053105038474772805,
+                -0.027504466044743634
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "f1_macro": {
+              "media": -0.009781920859957466,
+              "ic_con_nodi": [
+                -0.02192522267224171,
+                -0.0007422264835908484
+              ],
+              "include_zero": false,
+              "segno": "-"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": -0.11102690902728668,
+              "ic_con_nodi": [
+                -0.14890832757293476,
+                -0.07571507139317865
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "precisione": {
+              "media": 0.05520965790253771,
+              "ic_con_nodi": [
+                0.030473837325605425,
+                0.08239846851519257
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": -0.0402682424709977,
+              "ic_con_nodi": [
+                -0.052762280288341776,
+                -0.028172721359684204
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "f1_macro": {
+              "media": -0.009781920859957466,
+              "ic_con_nodi": [
+                -0.021464084223854426,
+                -0.0010335976936745694
+              ],
+              "include_zero": false,
+              "segno": "-"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": -0.01777974392892922,
+              "ic_con_nodi": [
+                -0.0593133064001648,
+                0.022462338098394697
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": -0.010679878982589704,
+              "ic_con_nodi": [
+                -0.02760346343930479,
+                0.009253294177091925
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": 0.0020098858454756985,
+              "ic_con_nodi": [
+                -0.01738339726887646,
+                0.021468360565649602
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": -0.01989970699103638,
+              "ic_con_nodi": [
+                -0.03177669488846095,
+                -0.00982776794075505
+              ],
+              "include_zero": false,
+              "segno": "-"
+            }
+          }
+        },
+        "Fp_672-C_eta>1sett": {
+          "wce": {
+            "media": -0.030428403783751015,
+            "ic_con_nodi": [
+              -0.0347687249487211,
+              -0.02632144945643931
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "prim": {
+            "richiamo": {
+              "media": -0.1159349361477828,
+              "ic_con_nodi": [
+                -0.14076143643190384,
+                -0.09393237880132385
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "precisione": {
+              "media": 0.10284630272473765,
+              "ic_con_nodi": [
+                0.08247483519935887,
+                0.12468128490680502
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": -0.05665183962692471,
+              "ic_con_nodi": [
+                -0.06683791162443266,
+                -0.04747626055776062
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "f1_macro": {
+              "media": 0.02001182638707939,
+              "ic_con_nodi": [
+                0.012463250525460831,
+                0.026027026632066266
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": -0.062307692313846204,
+              "ic_con_nodi": [
+                -0.0840683260915133,
+                -0.0423222621492537
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "precisione": {
+              "media": 0.06417322623147577,
+              "ic_con_nodi": [
+                0.048507684216387494,
+                0.08168333861182489
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": -0.037471222852180776,
+              "ic_con_nodi": [
+                -0.046543581095014636,
+                -0.028928790612391547
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "f1_macro": {
+              "media": 0.019985292461936865,
+              "ic_con_nodi": [
+                0.014153118306023836,
+                0.024689776207784248
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": -0.008114180416458143,
+              "ic_con_nodi": [
+                -0.032529177755181056,
+                0.013824863283373384
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.025373394260517435,
+              "ic_con_nodi": [
+                0.013276433556223611,
+                0.039904071306363906
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": -0.016798424979959935,
+              "ic_con_nodi": [
+                -0.02851694653091476,
+                -0.004951814617041874
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "f1_macro": {
+              "media": 0.017301476279786666,
+              "ic_con_nodi": [
+                0.011303372307550017,
+                0.02232982105617814
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          }
+        },
+        "gated-F0p": {
+          "wce": {
+            "media": -0.009761741270260301,
+            "ic_con_nodi": [
+              -0.016602873084192366,
+              -0.0037369144667135194
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "prim": {
+            "richiamo": {
+              "media": -0.05759997154880763,
+              "ic_con_nodi": [
+                -0.07934869843363968,
+                -0.03804229752181636
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "precisione": {
+              "media": 0.03115811714845847,
+              "ic_con_nodi": [
+                0.018779961799512964,
+                0.044540658966506934
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": -0.026443136877474956,
+              "ic_con_nodi": [
+                -0.036381916970356545,
+                -0.017384756401217588
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "f1_macro": {
+              "media": 0.010941925127017702,
+              "ic_con_nodi": [
+                0.004827240181045269,
+                0.017045648675380606
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": -0.05759997154880763,
+              "ic_con_nodi": [
+                -0.08001024201997403,
+                -0.03642117688244932
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "precisione": {
+              "media": 0.03115811714845847,
+              "ic_con_nodi": [
+                0.018750484386092114,
+                0.044031311415359604
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": -0.026443136877474956,
+              "ic_con_nodi": [
+                -0.03580863393958451,
+                -0.017469700223961875
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "f1_macro": {
+              "media": 0.010941925127017702,
+              "ic_con_nodi": [
+                0.004550126537028992,
+                0.017180596348685594
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": -0.032858633008305285,
+              "ic_con_nodi": [
+                -0.05166007925176846,
+                -0.015447376412803271
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "precisione": {
+              "media": 0.016252557646332006,
+              "ic_con_nodi": [
+                0.005419716435658801,
+                0.027785826816154924
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": -0.018353937355901278,
+              "ic_con_nodi": [
+                -0.029248284296481946,
+                -0.008987961521404747
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "f1_macro": {
+              "media": 0.010911863058774986,
+              "ic_con_nodi": [
+                0.004094694706966654,
+                0.018193117253689398
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          }
+        },
+        "Rorig_672-Fp_672_eta>1sett": {
+          "wce": {
+            "media": -0.0023047782662973587,
+            "ic_con_nodi": [
+              -0.004613924576564385,
+              0.0005683326751658961
+            ],
+            "include_zero": true,
+            "segno": "0"
+          },
+          "prim": {
+            "richiamo": {
+              "media": -0.02909677613913097,
+              "ic_con_nodi": [
+                -0.0422138977170273,
+                -0.017649278548747406
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "precisione": {
+              "media": 0.025274521082113355,
+              "ic_con_nodi": [
+                0.015459446119616724,
+                0.03639623643234662
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": -0.0095376140533907,
+              "ic_con_nodi": [
+                -0.013349976864245928,
+                -0.005959014102540587
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "f1_macro": {
+              "media": -0.000733450775080481,
+              "ic_con_nodi": [
+                -0.003750473748042847,
+                0.0015290625663158751
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": -0.023497279464760785,
+              "ic_con_nodi": [
+                -0.036903174906420456,
+                -0.011285981930301298
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "precisione": {
+              "media": 0.016818984571305238,
+              "ic_con_nodi": [
+                0.007119708715385878,
+                0.0267823274851122
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": -0.008880126122563734,
+              "ic_con_nodi": [
+                -0.013626967928857902,
+                -0.004392972991148592
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "f1_macro": {
+              "media": 0.0010124809889482944,
+              "ic_con_nodi": [
+                -0.0015169174556409156,
+                0.0028703409362800824
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": -0.006829648583376781,
+              "ic_con_nodi": [
+                -0.01902418384565225,
+                0.0044808516972664825
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.004099017283986729,
+              "ic_con_nodi": [
+                -0.0017505437846300738,
+                0.010732611928903816
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": -0.0036201041049494895,
+              "ic_con_nodi": [
+                -0.009027893972434652,
+                0.001588714959667969
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.0017121500284470027,
+              "ic_con_nodi": [
+                -0.0005115040740214391,
+                0.00362953451416198
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          }
+        }
+      }
+    },
+    "Madrid": {
+      "celle": 36,
+      "gated": {
+        "tau": 192,
+        "N": 77
+      },
+      "livelli": {
+        "prim/C": {
+          "richiamo": 0.48384126129628796,
+          "precisione": 0.22396563181137874,
+          "falsi_allarmi": 0.18776995132176355,
+          "f1_macro": 0.46899003730969,
+          "f1_congestionata": 0.30619598322039504
+        },
+        "prim/A": {
+          "richiamo": 0.5692481768925176,
+          "precisione": 0.2449230384294031,
+          "falsi_allarmi": 0.19655624459632123,
+          "f1_macro": 0.49023061887437075,
+          "f1_congestionata": 0.342488141268386
+        },
+        "prim/Rorig_672": {
+          "richiamo": 0.5700253548600415,
+          "precisione": 0.249376465703115,
+          "falsi_allarmi": 0.19216951817143418,
+          "f1_macro": 0.495110553601628,
+          "f1_congestionata": 0.34696263735041244
+        },
+        "prim/F0": {
+          "richiamo": 0.41571585941511024,
+          "precisione": 0.19014327346553989,
+          "falsi_allarmi": 0.1983112887431904,
+          "f1_macro": 0.4268372660899342,
+          "f1_congestionata": 0.26093713885237624
+        },
+        "prim/F0p": {
+          "richiamo": 0.46326909880586253,
+          "precisione": 0.22105801864456734,
+          "falsi_allarmi": 0.1828335058416489,
+          "f1_macro": 0.4622590620962381,
+          "f1_congestionata": 0.29929940366186475
+        },
+        "prim/Fp_96": {
+          "richiamo": 0.43419948592439733,
+          "precisione": 0.2583690948934914,
+          "falsi_allarmi": 0.13959188663803065,
+          "f1_macro": 0.490619160071925,
+          "f1_congestionata": 0.3239642435093502
+        },
+        "prim/Fp_192": {
+          "richiamo": 0.5708324402640494,
+          "precisione": 0.2371076087145938,
+          "falsi_allarmi": 0.2057074664650906,
+          "f1_macro": 0.48352827607101495,
+          "f1_congestionata": 0.33504643088017716
+        },
+        "prim/Fp_672": {
+          "richiamo": 0.5656509768931822,
+          "precisione": 0.24552191915303698,
+          "falsi_allarmi": 0.19468321741593336,
+          "f1_macro": 0.49166024913232276,
+          "f1_congestionata": 0.3424170459701631
+        },
+        "prim/gated": {
+          "richiamo": 0.5615125353696975,
+          "precisione": 0.23382495694704192,
+          "falsi_allarmi": 0.20607258115241509,
+          "f1_macro": 0.48044366989738735,
+          "f1_congestionata": 0.3301633474503827
+        },
+        "par/C": {
+          "richiamo": 0.48384126129628796,
+          "precisione": 0.22396563181137874,
+          "falsi_allarmi": 0.18776995132176355,
+          "f1_macro": 0.46899003730969,
+          "f1_congestionata": 0.30619598322039504
+        },
+        "par/A": {
+          "richiamo": 0.5692481768925176,
+          "precisione": 0.2449230384294031,
+          "falsi_allarmi": 0.19655624459632123,
+          "f1_macro": 0.49023061887437075,
+          "f1_congestionata": 0.342488141268386
+        },
+        "par/Rorig_672": {
+          "richiamo": 0.5700253548600415,
+          "precisione": 0.249376465703115,
+          "falsi_allarmi": 0.19216951817143418,
+          "f1_macro": 0.495110553601628,
+          "f1_congestionata": 0.34696263735041244
+        },
+        "par/F0": {
+          "richiamo": 0.41571585941511024,
+          "precisione": 0.19014327346553989,
+          "falsi_allarmi": 0.1983112887431904,
+          "f1_macro": 0.4268372660899342,
+          "f1_congestionata": 0.26093713885237624
+        },
+        "par/F0p": {
+          "richiamo": 0.46326909880586253,
+          "precisione": 0.22105801864456734,
+          "falsi_allarmi": 0.1828335058416489,
+          "f1_macro": 0.4622590620962381,
+          "f1_congestionata": 0.29929940366186475
+        },
+        "par/Fp_96": {
+          "richiamo": 0.5230432644299228,
+          "precisione": 0.23710830042592118,
+          "falsi_allarmi": 0.18848524672410988,
+          "f1_macro": 0.4815099531892733,
+          "f1_congestionata": 0.3262978206240319
+        },
+        "par/Fp_192": {
+          "richiamo": 0.5708324402640494,
+          "precisione": 0.2371076087145938,
+          "falsi_allarmi": 0.2057074664650906,
+          "f1_macro": 0.48352827607101495,
+          "f1_congestionata": 0.33504643088017716
+        },
+        "par/Fp_672": {
+          "richiamo": 0.5656509768931822,
+          "precisione": 0.24552191915303698,
+          "falsi_allarmi": 0.19468321741593336,
+          "f1_macro": 0.49166024913232276,
+          "f1_congestionata": 0.3424170459701631
+        },
+        "par/gated": {
+          "richiamo": 0.5615125353696975,
+          "precisione": 0.23382495694704192,
+          "falsi_allarmi": 0.20607258115241509,
+          "f1_macro": 0.48044366989738735,
+          "f1_congestionata": 0.3301633474503827
+        },
+        "argmax/C": {
+          "richiamo": 0.645284095723735,
+          "precisione": 0.19103551276367722,
+          "falsi_allarmi": 0.30604826808722707,
+          "f1_macro": 0.4422522307906096,
+          "f1_congestionata": 0.29479681416960324
+        },
+        "argmax/A": {
+          "richiamo": 0.693033394975883,
+          "precisione": 0.2147296066282432,
+          "falsi_allarmi": 0.283860572340534,
+          "f1_macro": 0.4691538770143004,
+          "f1_congestionata": 0.32787145547997365
+        },
+        "argmax/Rorig_672": {
+          "richiamo": 0.7530252202765774,
+          "precisione": 0.20383499257286,
+          "falsi_allarmi": 0.3294257036273642,
+          "f1_macro": 0.45723727235724154,
+          "f1_congestionata": 0.3208261522864775
+        },
+        "argmax/F0": {
+          "richiamo": 0.18166192301493544,
+          "precisione": 0.2742147655551473,
+          "falsi_allarmi": 0.05385236935612155,
+          "f1_macro": 0.45081102179540594,
+          "f1_congestionata": 0.21854322837207188
+        },
+        "argmax/F0p": {
+          "richiamo": 0.6261848744801506,
+          "precisione": 0.19124145484041657,
+          "falsi_allarmi": 0.29659445881703583,
+          "f1_macro": 0.4374707318277051,
+          "f1_congestionata": 0.29299889690165515
+        },
+        "argmax/Fp_96": {
+          "richiamo": 0.7088444597304675,
+          "precisione": 0.19757341886976823,
+          "falsi_allarmi": 0.32244181519688464,
+          "f1_macro": 0.4474370022158394,
+          "f1_congestionata": 0.3090160215553493
+        },
+        "argmax/Fp_192": {
+          "richiamo": 0.750473534410998,
+          "precisione": 0.19723497182811373,
+          "falsi_allarmi": 0.34210822840473165,
+          "f1_macro": 0.446827902816592,
+          "f1_congestionata": 0.312373742438378
+        },
+        "argmax/Fp_672": {
+          "richiamo": 0.7568724796754046,
+          "precisione": 0.20141053564275274,
+          "falsi_allarmi": 0.3361148670904379,
+          "f1_macro": 0.45354372352968725,
+          "f1_congestionata": 0.3181567221956235
+        },
+        "argmax/gated": {
+          "richiamo": 0.7388025727041473,
+          "precisione": 0.1955432841426265,
+          "falsi_allarmi": 0.34041743290505866,
+          "f1_macro": 0.44489945321563074,
+          "f1_congestionata": 0.30923855516872545
+        }
+      },
+      "confronti": {
+        "A-C": {
+          "wce": {
+            "media": -0.04304086483733962,
+            "ic_con_nodi": [
+              -0.04819735734804017,
+              -0.03825054396940872
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "prim": {
+            "richiamo": {
+              "media": 0.08508191370739414,
+              "ic_con_nodi": [
+                0.04056332389013419,
+                0.12332882509092956
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": 0.020701500105154872,
+              "ic_con_nodi": [
+                0.012656645945762296,
+                0.030481290351951965
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": 0.008783347766570554,
+              "ic_con_nodi": [
+                -0.013334876025626679,
+                0.03036054580275818
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.020846996792542934,
+              "ic_con_nodi": [
+                0.013363737437066104,
+                0.027252488864781776
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": 0.08508191370739414,
+              "ic_con_nodi": [
+                0.04115334051414889,
+                0.12414445030184121
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": 0.020701500105154872,
+              "ic_con_nodi": [
+                0.01229635027603461,
+                0.030423160494691598
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": 0.008783347766570554,
+              "ic_con_nodi": [
+                -0.013174155860861191,
+                0.031600118741896985
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.020846996792542934,
+              "ic_con_nodi": [
+                0.013543766419459428,
+                0.027105351866765083
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": 0.04766309605330661,
+              "ic_con_nodi": [
+                0.014324680830181187,
+                0.08004738118255117
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": 0.02361138805023207,
+              "ic_con_nodi": [
+                0.01671914590536722,
+                0.03169295396438082
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": -0.022186782189099346,
+              "ic_con_nodi": [
+                -0.04580098912520486,
+                0.0017541192233666183
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.026734025840249292,
+              "ic_con_nodi": [
+                0.018036856891076834,
+                0.03455949431381708
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          }
+        },
+        "F0-C": {
+          "wce": {
+            "media": 0.0712794651277317,
+            "ic_con_nodi": [
+              0.05746298033494434,
+              0.0863787514250436
+            ],
+            "include_zero": false,
+            "segno": "+"
+          },
+          "prim": {
+            "richiamo": {
+              "media": -0.06813956398910291,
+              "ic_con_nodi": [
+                -0.10605130326808644,
+                -0.02866845223564398
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "precisione": {
+              "media": -0.03241287090710002,
+              "ic_con_nodi": [
+                -0.04297305644481448,
+                -0.022417434352526203
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "falsi_allarmi": {
+              "media": 0.01054110068974426,
+              "ic_con_nodi": [
+                -0.01503121533197103,
+                0.036444068660400335
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": -0.04245569661591581,
+              "ic_con_nodi": [
+                -0.05150710974797992,
+                -0.03327225567908262
+              ],
+              "include_zero": false,
+              "segno": "-"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": -0.06813956398910291,
+              "ic_con_nodi": [
+                -0.10640876645662953,
+                -0.026391291991888107
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "precisione": {
+              "media": -0.03241287090710002,
+              "ic_con_nodi": [
+                -0.04251699558363986,
+                -0.02215014585239859
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "falsi_allarmi": {
+              "media": 0.01054110068974426,
+              "ic_con_nodi": [
+                -0.014195415900416432,
+                0.03640286546212844
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": -0.04245569661591581,
+              "ic_con_nodi": [
+                -0.0513469375383983,
+                -0.03297055652220966
+              ],
+              "include_zero": false,
+              "segno": "-"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": -0.46362886649058843,
+              "ic_con_nodi": [
+                -0.49715179851816904,
+                -0.42670936006942733
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "precisione": {
+              "media": 0.0850576560720611,
+              "ic_con_nodi": [
+                0.06528883020746735,
+                0.10532270045735838
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": -0.2521965552445922,
+              "ic_con_nodi": [
+                -0.28631721502611607,
+                -0.22074665368091761
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "f1_macro": {
+              "media": 0.008129027045056797,
+              "ic_con_nodi": [
+                -0.0019855117370419146,
+                0.018431284000119546
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          }
+        },
+        "F0p-C": {
+          "wce": {
+            "media": 0.008970540038843754,
+            "ic_con_nodi": [
+              0.006236081268742286,
+              0.012026174230939692
+            ],
+            "include_zero": false,
+            "segno": "+"
+          },
+          "prim": {
+            "richiamo": {
+              "media": -0.020491286967853916,
+              "ic_con_nodi": [
+                -0.03751885934174789,
+                -0.0026927254084109006
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "precisione": {
+              "media": -0.0023268609165025284,
+              "ic_con_nodi": [
+                -0.006947383708153294,
+                0.001926184585276498
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": -0.004935050803735304,
+              "ic_con_nodi": [
+                -0.015105785910256476,
+                0.005555518990160946
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": -0.006553993394335099,
+              "ic_con_nodi": [
+                -0.009832130768922004,
+                -0.0031706175837893265
+              ],
+              "include_zero": false,
+              "segno": "-"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": -0.020491286967853916,
+              "ic_con_nodi": [
+                -0.03762930903980624,
+                -0.002702514442418115
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "precisione": {
+              "media": -0.0023268609165025284,
+              "ic_con_nodi": [
+                -0.006930883290032121,
+                0.002052386479836943
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": -0.004935050803735304,
+              "ic_con_nodi": [
+                -0.015779057943233067,
+                0.005521913585811692
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": -0.006553993394335099,
+              "ic_con_nodi": [
+                -0.009795485670675352,
+                -0.0032375653954577347
+              ],
+              "include_zero": false,
+              "segno": "-"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": -0.019047764087640157,
+              "ic_con_nodi": [
+                -0.034771142736645846,
+                -0.0034246698012344893
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "precisione": {
+              "media": 0.00042549106817333125,
+              "ic_con_nodi": [
+                -0.0026200939871131096,
+                0.0031693603600264813
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": -0.009453017047972731,
+              "ic_con_nodi": [
+                -0.0212149228516669,
+                0.002763411963297857
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": -0.004590248095100937,
+              "ic_con_nodi": [
+                -0.00859058978845623,
+                -0.00047036933355203576
+              ],
+              "include_zero": false,
+              "segno": "-"
+            }
+          }
+        },
+        "Fp_96-C": {
+          "wce": {
+            "media": -0.01586696175069746,
+            "ic_con_nodi": [
+              -0.025626854500643902,
+              -0.006989047096691724
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "prim": {
+            "richiamo": {
+              "media": -0.04948899886730315,
+              "ic_con_nodi": [
+                -0.09317544162435908,
+                -0.006141950444658229
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "precisione": {
+              "media": 0.03454459085092302,
+              "ic_con_nodi": [
+                0.021709348254608563,
+                0.04882497031249642
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": -0.048173707360516585,
+              "ic_con_nodi": [
+                -0.06958860343921405,
+                -0.026147213206710988
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "f1_macro": {
+              "media": 0.02157679652876786,
+              "ic_con_nodi": [
+                0.014849469105777011,
+                0.027892248486679122
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": 0.03932824662052291,
+              "ic_con_nodi": [
+                -0.0005449427102077064,
+                0.07690439697750479
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.013234482163556292,
+              "ic_con_nodi": [
+                0.004430182359202044,
+                0.02301121893152647
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": 0.0007191713296388956,
+              "ic_con_nodi": [
+                -0.020390096038060954,
+                0.022261565555855234
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.01249280514610824,
+              "ic_con_nodi": [
+                0.005970657516598279,
+                0.01837826212169169
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": 0.06335027482400594,
+              "ic_con_nodi": [
+                0.029073051925602857,
+                0.09526072787655906
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": 0.006400571054660853,
+              "ic_con_nodi": [
+                -0.00020955787184604634,
+                0.013263391782184601
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": 0.01638840578457624,
+              "ic_con_nodi": [
+                -0.010007569625543063,
+                0.042493417587173385
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.005102090341233773,
+              "ic_con_nodi": [
+                -0.004374946619831718,
+                0.01341567971793632
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          }
+        },
+        "Fp_672-C_eta>1sett": {
+          "wce": {
+            "media": -0.036077167984746694,
+            "ic_con_nodi": [
+              -0.042293638805974955,
+              -0.030748486147435312
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "prim": {
+            "richiamo": {
+              "media": 0.08880571832157177,
+              "ic_con_nodi": [
+                0.05390899195764697,
+                0.12163812325282185
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": 0.01661287475541618,
+              "ic_con_nodi": [
+                0.009640302126014482,
+                0.024982526752704612
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": 0.014326543913314484,
+              "ic_con_nodi": [
+                -0.004124925402516275,
+                0.03311640791767141
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.018284927993826035,
+              "ic_con_nodi": [
+                0.012459508946269604,
+                0.023401503890758263
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": 0.08880571832157177,
+              "ic_con_nodi": [
+                0.05232765944597575,
+                0.12152711883148676
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": 0.01661287475541618,
+              "ic_con_nodi": [
+                0.009362900728703395,
+                0.025106693896503416
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": 0.014326543913314484,
+              "ic_con_nodi": [
+                -0.004163923973756967,
+                0.033861953840619394
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.018284927993826035,
+              "ic_con_nodi": [
+                0.012568925272897173,
+                0.02357605124848701
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": 0.1184464690491675,
+              "ic_con_nodi": [
+                0.09290890750708246,
+                0.14317318080903754
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": 0.007171625726673582,
+              "ic_con_nodi": [
+                0.0013498313327859224,
+                0.01369044744889887
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": 0.03912621658584139,
+              "ic_con_nodi": [
+                0.01599209691356361,
+                0.06389919650099736
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "f1_macro": {
+              "media": 0.006243284096336672,
+              "ic_con_nodi": [
+                -0.002628617019091041,
+                0.014452586352952553
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          }
+        },
+        "gated-F0p": {
+          "wce": {
+            "media": -0.03449932789396651,
+            "ic_con_nodi": [
+              -0.043550072941688715,
+              -0.026607907428344544
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "prim": {
+            "richiamo": {
+              "media": 0.09782310995060696,
+              "ic_con_nodi": [
+                0.055824936951975414,
+                0.13959875105955147
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": 0.011795542237448978,
+              "ic_con_nodi": [
+                0.002552405860826249,
+                0.021293923096690665
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": 0.023233211315221363,
+              "ic_con_nodi": [
+                0.0005772671581455308,
+                0.04707325673287047
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "f1_macro": {
+              "media": 0.017708559433947817,
+              "ic_con_nodi": [
+                0.010155015124201134,
+                0.024447834359427073
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": 0.09782310995060696,
+              "ic_con_nodi": [
+                0.05480036076031199,
+                0.13803268296663807
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": 0.011795542237448978,
+              "ic_con_nodi": [
+                0.0026199189561924626,
+                0.021268666647821923
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": 0.023233211315221363,
+              "ic_con_nodi": [
+                0.0013093407646789855,
+                0.04718332830359518
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "f1_macro": {
+              "media": 0.017708559433947817,
+              "ic_con_nodi": [
+                0.010349441716619532,
+                0.024411102878524365
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": 0.11241338297132314,
+              "ic_con_nodi": [
+                0.08247497999406052,
+                0.1419563443852284
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": 0.003992297237269658,
+              "ic_con_nodi": [
+                -0.0029985870374936666,
+                0.010993947495020398
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": 0.043820874564342444,
+              "ic_con_nodi": [
+                0.017863459276094423,
+                0.07189457574671394
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "f1_macro": {
+              "media": 0.0070155158426183405,
+              "ic_con_nodi": [
+                -0.003517351982456184,
+                0.01638855662249155
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          }
+        },
+        "Rorig_672-Fp_672_eta>1sett": {
+          "wce": {
+            "media": -0.0025984446005794435,
+            "ic_con_nodi": [
+              -0.005330912436538146,
+              -7.826957825160563e-05
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "prim": {
+            "richiamo": {
+              "media": 0.0037678299719771428,
+              "ic_con_nodi": [
+                -0.007168697131583983,
+                0.015555521585409555
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.001228242840755259,
+              "ic_con_nodi": [
+                -0.0012975538566660117,
+                0.004276824813122914
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": -1.852431054295756e-05,
+              "ic_con_nodi": [
+                -0.006042316049430115,
+                0.006304521284911501
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.0014890901367724052,
+              "ic_con_nodi": [
+                -0.000495944372849501,
+                0.003496237707391109
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": 0.0037678299719771428,
+              "ic_con_nodi": [
+                -0.0075647826371115735,
+                0.015203865919507039
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.001228242840755259,
+              "ic_con_nodi": [
+                -0.0014670845954087265,
+                0.0041715041713039774
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": -1.852431054295756e-05,
+              "ic_con_nodi": [
+                -0.0062586487841366474,
+                0.006376605551639551
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.0014890901367724052,
+              "ic_con_nodi": [
+                -0.0005762671421178613,
+                0.003562695799080069
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": -0.005613936173654247,
+              "ic_con_nodi": [
+                -0.016139631830018618,
+                0.00455803046582526
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.0009121749587746547,
+              "ic_con_nodi": [
+                -0.0011995800886849548,
+                0.0031632438339099754
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": -0.004367313040951086,
+              "ic_con_nodi": [
+                -0.012627337721692762,
+                0.0037926057452505337
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.0018924322690558372,
+              "ic_con_nodi": [
+                -0.0008778687110638598,
+                0.004558658005510509
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          }
+        }
+      }
+    },
+    "Melbourne": {
+      "celle": 36,
+      "gated": {
+        "tau": 96,
+        "N": 154
+      },
+      "livelli": {
+        "prim/C": {
+          "richiamo": 0.46458829759068043,
+          "precisione": 0.3876899685365004,
+          "falsi_allarmi": 0.043631250839046,
+          "f1_macro": 0.5760232034763694,
+          "f1_congestionata": 0.4226699885093149
+        },
+        "prim/A": {
+          "richiamo": 0.5502960502563362,
+          "precisione": 0.3596785992401539,
+          "falsi_allarmi": 0.05825355061368791,
+          "f1_macro": 0.582604261513618,
+          "f1_congestionata": 0.43502247591865856
+        },
+        "prim/Rorig_672": {
+          "richiamo": 0.5763581004645342,
+          "precisione": 0.37344097114193237,
+          "falsi_allarmi": 0.05750094960686133,
+          "f1_macro": 0.5893374894570277,
+          "f1_congestionata": 0.45322370846067617
+        },
+        "prim/F0": {
+          "richiamo": 0.4630514838616507,
+          "precisione": 0.33300589646013334,
+          "falsi_allarmi": 0.05514954554835467,
+          "f1_macro": 0.5568667364043081,
+          "f1_congestionata": 0.38740643150174264
+        },
+        "prim/F0p": {
+          "richiamo": 0.4768840108792452,
+          "precisione": 0.37630146508597934,
+          "falsi_allarmi": 0.046999600120336014,
+          "f1_macro": 0.5745724186766383,
+          "f1_congestionata": 0.42066386975685566
+        },
+        "prim/Fp_96": {
+          "richiamo": 0.5443557898283872,
+          "precisione": 0.3551897163677482,
+          "falsi_allarmi": 0.058762059005292896,
+          "f1_macro": 0.5750449908054535,
+          "f1_congestionata": 0.4298828180686365
+        },
+        "prim/Fp_192": {
+          "richiamo": 0.5469323898235733,
+          "precisione": 0.362195738142335,
+          "falsi_allarmi": 0.0572690938245928,
+          "f1_macro": 0.5784835376503299,
+          "f1_congestionata": 0.43579463565674414
+        },
+        "prim/Fp_672": {
+          "richiamo": 0.561284809974246,
+          "precisione": 0.3595830817992646,
+          "falsi_allarmi": 0.05944145369568098,
+          "f1_macro": 0.579292807464673,
+          "f1_congestionata": 0.43834413935086824
+        },
+        "prim/gated": {
+          "richiamo": 0.5443557898283872,
+          "precisione": 0.3551897163677482,
+          "falsi_allarmi": 0.058762059005292896,
+          "f1_macro": 0.5750449908054535,
+          "f1_congestionata": 0.4298828180686365
+        },
+        "par/C": {
+          "richiamo": 0.46458829759068043,
+          "precisione": 0.3876899685365004,
+          "falsi_allarmi": 0.043631250839046,
+          "f1_macro": 0.5760232034763694,
+          "f1_congestionata": 0.4226699885093149
+        },
+        "par/A": {
+          "richiamo": 0.5502960502563362,
+          "precisione": 0.3596785992401539,
+          "falsi_allarmi": 0.05825355061368791,
+          "f1_macro": 0.582604261513618,
+          "f1_congestionata": 0.43502247591865856
+        },
+        "par/Rorig_672": {
+          "richiamo": 0.5177726430307844,
+          "precisione": 0.4154998063683097,
+          "falsi_allarmi": 0.04331073168818775,
+          "f1_macro": 0.5961856848398713,
+          "f1_congestionata": 0.4610324306918465
+        },
+        "par/F0": {
+          "richiamo": 0.4630514838616507,
+          "precisione": 0.33300589646013334,
+          "falsi_allarmi": 0.05514954554835467,
+          "f1_macro": 0.5568667364043081,
+          "f1_congestionata": 0.38740643150174264
+        },
+        "par/F0p": {
+          "richiamo": 0.4768840108792452,
+          "precisione": 0.37630146508597934,
+          "falsi_allarmi": 0.046999600120336014,
+          "f1_macro": 0.5745724186766383,
+          "f1_congestionata": 0.42066386975685566
+        },
+        "par/Fp_96": {
+          "richiamo": 0.48169302236021855,
+          "precisione": 0.39554429859365936,
+          "falsi_allarmi": 0.043770578989686997,
+          "f1_macro": 0.5810241111121407,
+          "f1_congestionata": 0.4343885608053148
+        },
+        "par/Fp_192": {
+          "richiamo": 0.48344525477170436,
+          "precisione": 0.40436013270844406,
+          "falsi_allarmi": 0.042345309972575185,
+          "f1_macro": 0.5846188691935875,
+          "f1_congestionata": 0.4403802683189395
+        },
+        "par/Fp_672": {
+          "richiamo": 0.4969335932798999,
+          "precisione": 0.40194253764177723,
+          "falsi_allarmi": 0.04396629675650935,
+          "f1_macro": 0.5858953585310792,
+          "f1_congestionata": 0.44441885294598804
+        },
+        "par/gated": {
+          "richiamo": 0.48169302236021855,
+          "precisione": 0.39554429859365936,
+          "falsi_allarmi": 0.043770578989686997,
+          "f1_macro": 0.5810241111121407,
+          "f1_congestionata": 0.4343885608053148
+        },
+        "argmax/C": {
+          "richiamo": 0.6568837701879798,
+          "precisione": 0.2483712087774078,
+          "falsi_allarmi": 0.11820429986566677,
+          "f1_macro": 0.5349292646146272,
+          "f1_congestionata": 0.3604531757766506
+        },
+        "argmax/A": {
+          "richiamo": 0.7259453149445206,
+          "precisione": 0.2380950877299623,
+          "falsi_allarmi": 0.13813280527463317,
+          "f1_macro": 0.5376328204025546,
+          "f1_congestionata": 0.35858250954910054
+        },
+        "argmax/Rorig_672": {
+          "richiamo": 0.7417069824536068,
+          "precisione": 0.24710332757988177,
+          "falsi_allarmi": 0.13437910309596168,
+          "f1_macro": 0.5446154680802365,
+          "f1_congestionata": 0.3707045964100274
+        },
+        "argmax/F0": {
+          "richiamo": 0.43438996798806173,
+          "precisione": 0.3298612570755967,
+          "falsi_allarmi": 0.05247540396576435,
+          "f1_macro": 0.5561164032233304,
+          "f1_congestionata": 0.37497727501747874
+        },
+        "argmax/F0p": {
+          "richiamo": 0.6675307483091438,
+          "precisione": 0.2412084994688158,
+          "falsi_allarmi": 0.1248658599802894,
+          "f1_macro": 0.5304597751386251,
+          "f1_congestionata": 0.35436807762546724
+        },
+        "argmax/Fp_96": {
+          "richiamo": 0.7005391484343033,
+          "precisione": 0.24607701230668294,
+          "falsi_allarmi": 0.127623584141179,
+          "f1_macro": 0.5369310665354278,
+          "f1_congestionata": 0.3642164328055451
+        },
+        "argmax/Fp_192": {
+          "richiamo": 0.7102486340770694,
+          "precisione": 0.2498544709282659,
+          "falsi_allarmi": 0.1267977052574873,
+          "f1_macro": 0.5393827802760306,
+          "f1_congestionata": 0.36966612391877135
+        },
+        "argmax/Fp_672": {
+          "richiamo": 0.7325739523912678,
+          "precisione": 0.2435341283840632,
+          "falsi_allarmi": 0.13530802899399494,
+          "f1_macro": 0.5372295236246479,
+          "f1_congestionata": 0.3655471407034467
+        },
+        "argmax/gated": {
+          "richiamo": 0.7005391484343033,
+          "precisione": 0.24607701230668294,
+          "falsi_allarmi": 0.127623584141179,
+          "f1_macro": 0.5369310665354278,
+          "f1_congestionata": 0.3642164328055451
+        }
+      },
+      "confronti": {
+        "A-C": {
+          "wce": {
+            "media": -0.043039794388361995,
+            "ic_con_nodi": [
+              -0.053116912741818956,
+              -0.03157908944469622
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "prim": {
+            "richiamo": {
+              "media": 0.0849206986922225,
+              "ic_con_nodi": [
+                0.032538751121925766,
+                0.13563710505330193
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": -0.02812460266523531,
+              "ic_con_nodi": [
+                -0.05155022353094848,
+                0.0037080737075660436
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": 0.014658558648567521,
+              "ic_con_nodi": [
+                0.0028630284664245623,
+                0.02908868085131494
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "f1_macro": {
+              "media": 0.006543858981069791,
+              "ic_con_nodi": [
+                -0.0018771976805578923,
+                0.014800526350596293
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": 0.0849206986922225,
+              "ic_con_nodi": [
+                0.030591384394935486,
+                0.13638416312093024
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": -0.02812460266523531,
+              "ic_con_nodi": [
+                -0.050669878434619654,
+                0.0031681069394200023
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": 0.014658558648567521,
+              "ic_con_nodi": [
+                0.0030099727641797794,
+                0.02870434094662337
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "f1_macro": {
+              "media": 0.006543858981069791,
+              "ic_con_nodi": [
+                -0.002066058126464055,
+                0.014713177957898114
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": 0.06908205050129713,
+              "ic_con_nodi": [
+                0.028257830044631012,
+                0.10264075773504235
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": -0.01016507034134178,
+              "ic_con_nodi": [
+                -0.02589887887275721,
+                0.01146382619330067
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": 0.019948481663629766,
+              "ic_con_nodi": [
+                -0.0007339847284547836,
+                0.041861599298538395
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.002659767398211465,
+              "ic_con_nodi": [
+                -0.009885224109933505,
+                0.015868281618023308
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          }
+        },
+        "F0-C": {
+          "wce": {
+            "media": 0.07705663056004913,
+            "ic_con_nodi": [
+              0.053185745078005296,
+              0.10050381762866518
+            ],
+            "include_zero": false,
+            "segno": "+"
+          },
+          "prim": {
+            "richiamo": {
+              "media": -0.0016149421416633667,
+              "ic_con_nodi": [
+                -0.03266951901591764,
+                0.03377823352754745
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": -0.05379928813960916,
+              "ic_con_nodi": [
+                -0.0754089670105525,
+                -0.03361382471814334
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "falsi_allarmi": {
+              "media": 0.011550675657850461,
+              "ic_con_nodi": [
+                0.005004494698177357,
+                0.018061970661087372
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "f1_macro": {
+              "media": -0.01900143514352244,
+              "ic_con_nodi": [
+                -0.026456536919573666,
+                -0.010960663371025595
+              ],
+              "include_zero": false,
+              "segno": "-"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": -0.0016149421416633667,
+              "ic_con_nodi": [
+                -0.03431393742942884,
+                0.03348056413366383
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": -0.05379928813960916,
+              "ic_con_nodi": [
+                -0.0764028963330985,
+                -0.03451846056814154
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "falsi_allarmi": {
+              "media": 0.011550675657850461,
+              "ic_con_nodi": [
+                0.004912187701878119,
+                0.017773521074057774
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "f1_macro": {
+              "media": -0.01900143514352244,
+              "ic_con_nodi": [
+                -0.02650622453846594,
+                -0.01119827583182619
+              ],
+              "include_zero": false,
+              "segno": "-"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": -0.22212195259951828,
+              "ic_con_nodi": [
+                -0.2638490071543376,
+                -0.16951361690025935
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "precisione": {
+              "media": 0.08252292197472111,
+              "ic_con_nodi": [
+                0.06509560994310551,
+                0.09894235196477794
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": -0.06579887800041724,
+              "ic_con_nodi": [
+                -0.08489740237561648,
+                -0.04878240275196564
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "f1_macro": {
+              "media": 0.021183951623317307,
+              "ic_con_nodi": [
+                0.01060027258544127,
+                0.03183241310082112
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          }
+        },
+        "F0p-C": {
+          "wce": {
+            "media": 0.0023949107594319462,
+            "ic_con_nodi": [
+              -0.0035266554057496492,
+              0.007799061771624054
+            ],
+            "include_zero": true,
+            "segno": "0"
+          },
+          "prim": {
+            "richiamo": {
+              "media": 0.012401086808042054,
+              "ic_con_nodi": [
+                -0.006153195528445911,
+                0.031125191820537065
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": -0.011313672258174024,
+              "ic_con_nodi": [
+                -0.023739921578010238,
+                -0.00026832584339684165
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "falsi_allarmi": {
+              "media": 0.003372660229430677,
+              "ic_con_nodi": [
+                -0.00026082024283800566,
+                0.007099397277065254
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": -0.0013741755796361221,
+              "ic_con_nodi": [
+                -0.004079126982456053,
+                0.0014387181408832472
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": 0.012401086808042054,
+              "ic_con_nodi": [
+                -0.005990212081156692,
+                0.03088321787365399
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": -0.011313672258174024,
+              "ic_con_nodi": [
+                -0.023787601298920352,
+                -0.0003966235092473021
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "falsi_allarmi": {
+              "media": 0.003372660229430677,
+              "ic_con_nodi": [
+                -0.00021648244869062005,
+                0.007171186625478584
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": -0.0013741755796361221,
+              "ic_con_nodi": [
+                -0.003906949705765551,
+                0.0014853643258116664
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": 0.01075269860652532,
+              "ic_con_nodi": [
+                -0.00456841080893973,
+                0.028098521666527838
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": -0.006612998617599151,
+              "ic_con_nodi": [
+                -0.013831997391763485,
+                -0.0001221568210247767
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "falsi_allarmi": {
+              "media": 0.006677595161551669,
+              "ic_con_nodi": [
+                -2.2868228537314194e-06,
+                0.014472895388430279
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": -0.004364961887505462,
+              "ic_con_nodi": [
+                -0.009101044392015274,
+                3.25074324849623e-05
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          }
+        },
+        "Fp_96-C": {
+          "wce": {
+            "media": -0.023460649767853673,
+            "ic_con_nodi": [
+              -0.032621345059653625,
+              -0.013468672115011845
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "prim": {
+            "richiamo": {
+              "media": 0.07987148068246702,
+              "ic_con_nodi": [
+                0.03996891895575719,
+                0.11926870015720654
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": -0.03241591603465727,
+              "ic_con_nodi": [
+                -0.05099640851649318,
+                -0.010080057531293901
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "falsi_allarmi": {
+              "media": 0.015125901645799359,
+              "ic_con_nodi": [
+                0.0054990096612956224,
+                0.02635987945875281
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "f1_macro": {
+              "media": -0.00094006343681625,
+              "ic_con_nodi": [
+                -0.008163374255208675,
+                0.005428185177628697
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": 0.01735989005799514,
+              "ic_con_nodi": [
+                -0.02435084864776515,
+                0.054335576649601675
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.008125251691779823,
+              "ic_con_nodi": [
+                -0.012147377222848123,
+                0.03391353707012548
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": 0.0001246375426733898,
+              "ic_con_nodi": [
+                -0.007086333700329103,
+                0.007705143365585822
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.005026085291754319,
+              "ic_con_nodi": [
+                -0.0005133322579911745,
+                0.010178917354425795
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": 0.04428670197626001,
+              "ic_con_nodi": [
+                0.006931056485176975,
+                0.07951733715610201
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": -0.002271048043720404,
+              "ic_con_nodi": [
+                -0.019117889532558996,
+                0.017409130109755328
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": 0.009373003710648272,
+              "ic_con_nodi": [
+                -0.008719946082348936,
+                0.028061147040504806
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.001952803513286003,
+              "ic_con_nodi": [
+                -0.009912430891308159,
+                0.013733548956276815
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          }
+        },
+        "Fp_672-C_eta>1sett": {
+          "wce": {
+            "media": -0.04053680969899305,
+            "ic_con_nodi": [
+              -0.047050909501092406,
+              -0.034358598686874665
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "prim": {
+            "richiamo": {
+              "media": 0.0971274738707853,
+              "ic_con_nodi": [
+                0.05900557802800449,
+                0.13274430257666286
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": -0.038321670210342114,
+              "ic_con_nodi": [
+                -0.053756218680116805,
+                -0.019285733790234627
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "falsi_allarmi": {
+              "media": 0.01673477055930407,
+              "ic_con_nodi": [
+                0.008190813949936154,
+                0.026997421481743628
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "f1_macro": {
+              "media": -0.0008806644292625886,
+              "ic_con_nodi": [
+                -0.0064618571622905956,
+                0.004856044792592766
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": 0.03192445698587389,
+              "ic_con_nodi": [
+                -0.0014491380089491457,
+                0.06390022380012995
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.007764598184391853,
+              "ic_con_nodi": [
+                -0.009850770305368309,
+                0.02986364260754219
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": 0.0013403439368108372,
+              "ic_con_nodi": [
+                -0.004195699696775801,
+                0.007502410365127147
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.006583690068748399,
+              "ic_con_nodi": [
+                0.0016826216667027763,
+                0.011092469348503971
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": 0.07495652018305567,
+              "ic_con_nodi": [
+                0.04417191315792507,
+                0.10226448168783414
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": -0.009565213597908533,
+              "ic_con_nodi": [
+                -0.024797723023883635,
+                0.0068644961257979045
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": 0.019262502742933812,
+              "ic_con_nodi": [
+                0.003665232718286821,
+                0.03486150207676401
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "f1_macro": {
+              "media": -0.001979151715799352,
+              "ic_con_nodi": [
+                -0.011751653004612362,
+                0.007421379624920838
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          }
+        },
+        "gated-F0p": {
+          "wce": {
+            "media": -0.025855560527285618,
+            "ic_con_nodi": [
+              -0.035889005865121656,
+              -0.01484129949185963
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "prim": {
+            "richiamo": {
+              "media": 0.06747039387442497,
+              "ic_con_nodi": [
+                0.021665624607152874,
+                0.10486032581126019
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": -0.021102243776483256,
+              "ic_con_nodi": [
+                -0.038514268026251124,
+                0.002351513673549938
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": 0.01175324141636868,
+              "ic_con_nodi": [
+                0.002833430917442559,
+                0.022054061375937378
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "f1_macro": {
+              "media": 0.00043411214281987204,
+              "ic_con_nodi": [
+                -0.006652886584662248,
+                0.006783241172395635
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": 0.00495880324995309,
+              "ic_con_nodi": [
+                -0.03551345979482718,
+                0.04005902312131544
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.01943892394995385,
+              "ic_con_nodi": [
+                -0.00016332345186032614,
+                0.04735725538335224
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": -0.003248022686757287,
+              "ic_con_nodi": [
+                -0.010063144497775551,
+                0.003921167473058101
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.006400260871390441,
+              "ic_con_nodi": [
+                0.0004187984475961201,
+                0.011689629783216509
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": 0.033534003369734694,
+              "ic_con_nodi": [
+                -0.005122873391690275,
+                0.0656257158996698
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.004341950573878746,
+              "ic_con_nodi": [
+                -0.012875529359850604,
+                0.024466566571256586
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": 0.0026954085490966022,
+              "ic_con_nodi": [
+                -0.01553571731095077,
+                0.021618991204509375
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.006317765400791465,
+              "ic_con_nodi": [
+                -0.005053662317649603,
+                0.017593222986200988
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          }
+        },
+        "Rorig_672-Fp_672_eta>1sett": {
+          "wce": {
+            "media": -0.013670598320632594,
+            "ic_con_nodi": [
+              -0.020243728963235837,
+              -0.00745226319577248
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "prim": {
+            "richiamo": {
+              "media": 0.012124510678036375,
+              "ic_con_nodi": [
+                -0.008055335698822873,
+                0.02923762942556713
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.006069096791019843,
+              "ic_con_nodi": [
+                -0.005798140560337999,
+                0.021009364587303334
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": -0.0002674782540028828,
+              "ic_con_nodi": [
+                -0.004376146759716568,
+                0.004470252527760835
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.006547201448881912,
+              "ic_con_nodi": [
+                0.002119735083086759,
+                0.010853761483520833
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": 0.018524956960026547,
+              "ic_con_nodi": [
+                -0.0039388203753379335,
+                0.04031906378692707
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.003288137084418472,
+              "ic_con_nodi": [
+                -0.0100826070842212,
+                0.02164149892621574
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": 0.000992964114370629,
+              "ic_con_nodi": [
+                -0.0026296496403571024,
+                0.00546097106043726
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.006539894969795688,
+              "ic_con_nodi": [
+                0.002231503784084172,
+                0.010771111041601103
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": 0.0006987563111224097,
+              "ic_con_nodi": [
+                -0.01942465339255097,
+                0.016594607862181334
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": -0.0006214973856026457,
+              "ic_con_nodi": [
+                -0.007356373788065422,
+                0.008839694628198495
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": 0.0006289844146048037,
+              "ic_con_nodi": [
+                -0.007114653368155173,
+                0.008687810963259286
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.004308545280572667,
+              "ic_con_nodi": [
+                -0.0006072729481621586,
+                0.009523496738886167
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          }
+        }
+      }
+    },
+    "PEMS08": {
+      "celle": 36,
+      "gated": {
+        "tau": 96,
+        "N": 231
+      },
+      "livelli": {
+        "prim/C": {
+          "richiamo": 0.45023541945905077,
+          "precisione": 0.5250543570834544,
+          "falsi_allarmi": 0.006433475735450201,
+          "f1_macro": 0.6477058240434268,
+          "f1_congestionata": 0.4847750368886771
+        },
+        "prim/A": {
+          "richiamo": 0.5320222016015397,
+          "precisione": 0.660321624330838,
+          "falsi_allarmi": 0.004323231632271371,
+          "f1_macro": 0.6867670090839706,
+          "f1_congestionata": 0.5892692304032128
+        },
+        "prim/Rorig_672": {
+          "richiamo": 0.5572567618654845,
+          "precisione": 0.616990106544901,
+          "falsi_allarmi": 0.005464538724092234,
+          "f1_macro": 0.6851691857092798,
+          "f1_congestionata": 0.585604131679217
+        },
+        "prim/F0": {
+          "richiamo": 0.5053356016084133,
+          "precisione": 0.5622956461882637,
+          "falsi_allarmi": 0.006213873538451015,
+          "f1_macro": 0.6827345656505098,
+          "f1_congestionata": 0.5322961635578725
+        },
+        "prim/F0p": {
+          "richiamo": 0.4965374437227206,
+          "precisione": 0.558610023681794,
+          "falsi_allarmi": 0.0061977223261871685,
+          "f1_macro": 0.6568539162590358,
+          "f1_congestionata": 0.5257479201066215
+        },
+        "prim/Fp_96": {
+          "richiamo": 0.5485788912946352,
+          "precisione": 0.5257402588847535,
+          "falsi_allarmi": 0.007817186735701562,
+          "f1_macro": 0.669944748370063,
+          "f1_congestionata": 0.5369168152309193
+        },
+        "prim/Fp_672": {
+          "richiamo": 0.5058425267209677,
+          "precisione": 0.5785005404343126,
+          "falsi_allarmi": 0.0058220369854617374,
+          "f1_macro": 0.6686167475415634,
+          "f1_congestionata": 0.5397372546502993
+        },
+        "prim/gated": {
+          "richiamo": 0.5485788912946352,
+          "precisione": 0.5257402588847535,
+          "falsi_allarmi": 0.007817186735701562,
+          "f1_macro": 0.669944748370063,
+          "f1_congestionata": 0.5369168152309193
+        },
+        "par/C": {
+          "richiamo": 0.45023541945905077,
+          "precisione": 0.5250543570834544,
+          "falsi_allarmi": 0.006433475735450201,
+          "f1_macro": 0.6477058240434268,
+          "f1_congestionata": 0.4847750368886771
+        },
+        "par/A": {
+          "richiamo": 0.5320222016015397,
+          "precisione": 0.660321624330838,
+          "falsi_allarmi": 0.004323231632271371,
+          "f1_macro": 0.6867670090839706,
+          "f1_congestionata": 0.5892692304032128
+        },
+        "par/Rorig_672": {
+          "richiamo": 0.5572567618654845,
+          "precisione": 0.616990106544901,
+          "falsi_allarmi": 0.005464538724092234,
+          "f1_macro": 0.6851691857092798,
+          "f1_congestionata": 0.585604131679217
+        },
+        "par/F0": {
+          "richiamo": 0.5053356016084133,
+          "precisione": 0.5622956461882637,
+          "falsi_allarmi": 0.006213873538451015,
+          "f1_macro": 0.6827345656505098,
+          "f1_congestionata": 0.5322961635578725
+        },
+        "par/F0p": {
+          "richiamo": 0.4965374437227206,
+          "precisione": 0.558610023681794,
+          "falsi_allarmi": 0.0061977223261871685,
+          "f1_macro": 0.6568539162590358,
+          "f1_congestionata": 0.5257479201066215
+        },
+        "par/Fp_96": {
+          "richiamo": 0.5485788912946352,
+          "precisione": 0.5257402588847535,
+          "falsi_allarmi": 0.007817186735701562,
+          "f1_macro": 0.669944748370063,
+          "f1_congestionata": 0.5369168152309193
+        },
+        "par/Fp_672": {
+          "richiamo": 0.5058425267209677,
+          "precisione": 0.5785005404343126,
+          "falsi_allarmi": 0.0058220369854617374,
+          "f1_macro": 0.6686167475415634,
+          "f1_congestionata": 0.5397372546502993
+        },
+        "par/gated": {
+          "richiamo": 0.5485788912946352,
+          "precisione": 0.5257402588847535,
+          "falsi_allarmi": 0.007817186735701562,
+          "f1_macro": 0.669944748370063,
+          "f1_congestionata": 0.5369168152309193
+        },
+        "argmax/C": {
+          "richiamo": 0.6752500257758531,
+          "precisione": 0.2638415158188752,
+          "falsi_allarmi": 0.029761798121247556,
+          "f1_macro": 0.6039758328147767,
+          "f1_congestionata": 0.3794283783131367
+        },
+        "argmax/A": {
+          "richiamo": 0.7575265491287761,
+          "precisione": 0.3255280734595319,
+          "falsi_allarmi": 0.024793603794204783,
+          "f1_macro": 0.6379754180484699,
+          "f1_congestionata": 0.45537159989773546
+        },
+        "argmax/Rorig_672": {
+          "richiamo": 0.7848747293535416,
+          "precisione": 0.2845014450867052,
+          "falsi_allarmi": 0.031181068933373943,
+          "f1_macro": 0.6230028426481246,
+          "f1_congestionata": 0.41762290959961235
+        },
+        "argmax/F0": {
+          "richiamo": 0.48337457469842254,
+          "precisione": 0.5682268099547512,
+          "falsi_allarmi": 0.005802085487959339,
+          "f1_macro": 0.6803989869145415,
+          "f1_congestionata": 0.5223773886237442
+        },
+        "argmax/F0p": {
+          "richiamo": 0.7003900745781352,
+          "precisione": 0.27385483681319606,
+          "falsi_allarmi": 0.029336573347948144,
+          "f1_macro": 0.6040277120924447,
+          "f1_congestionata": 0.39375152456328055
+        },
+        "argmax/Fp_96": {
+          "richiamo": 0.7432381345155858,
+          "precisione": 0.2898529357561461,
+          "falsi_allarmi": 0.028765037592964476,
+          "f1_macro": 0.6224236316873912,
+          "f1_congestionata": 0.41705859522839533
+        },
+        "argmax/Fp_672": {
+          "richiamo": 0.7625872083032615,
+          "precisione": 0.25877516509468346,
+          "falsi_allarmi": 0.03450509699685173,
+          "f1_macro": 0.6091752667247948,
+          "f1_congestionata": 0.38642236265518437
+        },
+        "argmax/gated": {
+          "richiamo": 0.7432381345155858,
+          "precisione": 0.2898529357561461,
+          "falsi_allarmi": 0.028765037592964476,
+          "f1_macro": 0.6224236316873912,
+          "f1_congestionata": 0.41705859522839533
+        }
+      },
+      "confronti": {
+        "A-C": {
+          "wce": {
+            "media": -0.13252559202081873,
+            "ic_con_nodi": [
+              -0.18799512513206443,
+              -0.06701508577746854
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "prim": {
+            "richiamo": {
+              "media": 0.07897135185069559,
+              "ic_con_nodi": [
+                -0.05006124847967411,
+                0.1652061737388871
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.1254196437125696,
+              "ic_con_nodi": [
+                0.021473921923298344,
+                0.27162897841396505
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": -0.0021091626363307753,
+              "ic_con_nodi": [
+                -0.007438851799413137,
+                0.0015979363160460085
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.03653503550744158,
+              "ic_con_nodi": [
+                0.010065531193190806,
+                0.05706646910587884
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": 0.07897135185069559,
+              "ic_con_nodi": [
+                -0.054568712748716844,
+                0.1663601006776475
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.1254196437125696,
+              "ic_con_nodi": [
+                0.021770929738586582,
+                0.274961438529823
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": -0.0021091626363307753,
+              "ic_con_nodi": [
+                -0.007484741101761725,
+                0.0018445282110963687
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.03653503550744158,
+              "ic_con_nodi": [
+                0.009111901794296747,
+                0.05703618691823679
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": 0.08314533299331045,
+              "ic_con_nodi": [
+                -0.02818687068054475,
+                0.15350268697644337
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.06499778018323475,
+              "ic_con_nodi": [
+                0.0018183584434512388,
+                0.13689579605877641
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": -0.0049696215340662465,
+              "ic_con_nodi": [
+                -0.01711070852057402,
+                0.006559846248619421
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.03482701947309583,
+              "ic_con_nodi": [
+                0.006112523145907793,
+                0.06578365514589359
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          }
+        },
+        "F0-C": {
+          "wce": {
+            "media": 0.15649094624804374,
+            "ic_con_nodi": [
+              0.06455483605007323,
+              0.2438022876127606
+            ],
+            "include_zero": false,
+            "segno": "+"
+          },
+          "prim": {
+            "richiamo": {
+              "media": 0.061695243783516575,
+              "ic_con_nodi": [
+                -0.0018241571552909117,
+                0.14916517569827778
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.043476700807813504,
+              "ic_con_nodi": [
+                -0.05684103568956635,
+                0.1571053318034526
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": -0.00022470327258845016,
+              "ic_con_nodi": [
+                -0.004307390355377084,
+                0.005974837847685721
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.03446349985255859,
+              "ic_con_nodi": [
+                0.01728326161820058,
+                0.05575340875633021
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": 0.061695243783516575,
+              "ic_con_nodi": [
+                -0.0004811170482420712,
+                0.14686925697065065
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.043476700807813504,
+              "ic_con_nodi": [
+                -0.05721120009203442,
+                0.1561045126133293
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": -0.00022470327258845016,
+              "ic_con_nodi": [
+                -0.004317820258731991,
+                0.005430142234496957
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.03446349985255859,
+              "ic_con_nodi": [
+                0.018083098458658714,
+                0.05587358838955368
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": -0.18780237445964734,
+              "ic_con_nodi": [
+                -0.264503412673378,
+                -0.1068607581686572
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "precisione": {
+              "media": 0.32654205098151756,
+              "ic_con_nodi": [
+                0.22048061157095294,
+                0.4391059038126527
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": -0.02396930382398446,
+              "ic_con_nodi": [
+                -0.032870536103272834,
+                -0.01659996049122229
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "f1_macro": {
+              "media": 0.07361688912108443,
+              "ic_con_nodi": [
+                0.04913848290830503,
+                0.10085206240894269
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          }
+        },
+        "F0p-C": {
+          "wce": {
+            "media": -0.039431195931425106,
+            "ic_con_nodi": [
+              -0.07617028530131666,
+              -0.004397875734176101
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "prim": {
+            "richiamo": {
+              "media": 0.05173029668452288,
+              "ic_con_nodi": [
+                0.0027283947908368555,
+                0.11345068503865766
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": 0.03030673742460334,
+              "ic_con_nodi": [
+                -0.04630060565341066,
+                0.11484463458970624
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": -0.00023935692032495275,
+              "ic_con_nodi": [
+                -0.002700453278186828,
+                0.0031842298490874325
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.008895716687787072,
+              "ic_con_nodi": [
+                -0.003666452436309321,
+                0.02271866981991957
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": 0.05173029668452288,
+              "ic_con_nodi": [
+                0.0012675978985396091,
+                0.11218854655034646
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": 0.03030673742460334,
+              "ic_con_nodi": [
+                -0.04832465019201506,
+                0.10973019833072059
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": -0.00023935692032495275,
+              "ic_con_nodi": [
+                -0.0026518463535500276,
+                0.0034334930722693165
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.008895716687787072,
+              "ic_con_nodi": [
+                -0.0035904346155358918,
+                0.022931478147853495
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": 0.026440836039853186,
+              "ic_con_nodi": [
+                -0.00593425575227476,
+                0.06788632235613364
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.018240593037569603,
+              "ic_con_nodi": [
+                -0.016371465674254206,
+                0.05729819006933865
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": -0.00043139399533285376,
+              "ic_con_nodi": [
+                -0.005801641271182636,
+                0.005826897186300856
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.0013747884291857027,
+              "ic_con_nodi": [
+                -0.017099243710469423,
+                0.018077043239914263
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          }
+        },
+        "Fp_96-C": {
+          "wce": {
+            "media": -0.07382358941137662,
+            "ic_con_nodi": [
+              -0.11807050911489303,
+              -0.022543330929969
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "prim": {
+            "richiamo": {
+              "media": 0.09498784967876953,
+              "ic_con_nodi": [
+                0.02470509016837884,
+                0.15335737316264358
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": -0.012443761178717073,
+              "ic_con_nodi": [
+                -0.08003138042725488,
+                0.0798794860545448
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": 0.0013840102859572585,
+              "ic_con_nodi": [
+                -0.0016373853857607234,
+                0.00470089066995437
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.02050077781260263,
+              "ic_con_nodi": [
+                0.0008747352099786142,
+                0.04317506194448146
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": 0.09498784967876953,
+              "ic_con_nodi": [
+                0.022189175540362514,
+                0.15164739336263666
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": -0.012443761178717073,
+              "ic_con_nodi": [
+                -0.07929674521760928,
+                0.08820610344933767
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": 0.0013840102859572585,
+              "ic_con_nodi": [
+                -0.0017321393228122992,
+                0.00458827372161149
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.02050077781260263,
+              "ic_con_nodi": [
+                0.0007208524948502594,
+                0.04274225271663543
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": 0.06379596272432847,
+              "ic_con_nodi": [
+                -0.0016515424681930893,
+                0.11968979104180608
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.026408770005857767,
+              "ic_con_nodi": [
+                -0.020806040542212054,
+                0.0996679217958323
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": -0.0009999440152872493,
+              "ic_con_nodi": [
+                -0.009245596534848993,
+                0.008232513968810796
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.017525180900436046,
+              "ic_con_nodi": [
+                -0.0029119986040744192,
+                0.046874401489749695
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          }
+        },
+        "Fp_672-C_eta>1sett": {
+          "wce": {
+            "media": -0.09084929865480666,
+            "ic_con_nodi": [
+              -0.13025182133704596,
+              -0.042845340555619844
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "prim": {
+            "richiamo": {
+              "media": 0.04476309111990587,
+              "ic_con_nodi": [
+                -0.0159156242064113,
+                0.09272621086557196
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.03767047232489722,
+              "ic_con_nodi": [
+                -0.03716821801151479,
+                0.12482224788836808
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": -0.0006793097927569864,
+              "ic_con_nodi": [
+                -0.004208631255634562,
+                0.0018708524642698547
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.017260863882991098,
+              "ic_con_nodi": [
+                -0.001873224071752698,
+                0.03346062568277879
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": 0.04476309111990587,
+              "ic_con_nodi": [
+                -0.02241456091024591,
+                0.0954163272147895
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.03767047232489722,
+              "ic_con_nodi": [
+                -0.03556943794994628,
+                0.12859553872807394
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": -0.0006793097927569864,
+              "ic_con_nodi": [
+                -0.003876571303249296,
+                0.0016460811296887185
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.017260863882991098,
+              "ic_con_nodi": [
+                -0.0015512314829434655,
+                0.03412054760454412
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": 0.07293471710671037,
+              "ic_con_nodi": [
+                0.014316836101403352,
+                0.12614006042290027
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": -0.010255511275328578,
+              "ic_con_nodi": [
+                -0.0579381631551592,
+                0.04842562166561221
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": 0.004834807506286,
+              "ic_con_nodi": [
+                -0.004685173924604829,
+                0.01476250529029103
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.0031123266529480462,
+              "ic_con_nodi": [
+                -0.016197887159024513,
+                0.027117244641586265
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          }
+        },
+        "gated-F0p": {
+          "wce": {
+            "media": -0.034392393479951495,
+            "ic_con_nodi": [
+              -0.07191379877319798,
+              0.01178309081985895
+            ],
+            "include_zero": true,
+            "segno": "0"
+          },
+          "prim": {
+            "richiamo": {
+              "media": 0.043257552994246634,
+              "ic_con_nodi": [
+                -0.03904002375621476,
+                0.11054095231616784
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": -0.04275049860332042,
+              "ic_con_nodi": [
+                -0.10364095315303602,
+                0.0189833807313127
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": 0.001623367206282211,
+              "ic_con_nodi": [
+                -0.0010696719515304474,
+                0.004556281800398739
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.011605061124815555,
+              "ic_con_nodi": [
+                -0.007197361741681427,
+                0.029917506363512897
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": 0.043257552994246634,
+              "ic_con_nodi": [
+                -0.041146335466514534,
+                0.1104244648520375
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": -0.04275049860332042,
+              "ic_con_nodi": [
+                -0.1038612568204455,
+                0.020183295311161427
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": 0.001623367206282211,
+              "ic_con_nodi": [
+                -0.001209454896937856,
+                0.004557609021490844
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.011605061124815555,
+              "ic_con_nodi": [
+                -0.007284527057126827,
+                0.0309944164149215
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": 0.03735512668447529,
+              "ic_con_nodi": [
+                -0.036882890462880936,
+                0.09145260617141944
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.00816817696828816,
+              "ic_con_nodi": [
+                -0.03756679327890749,
+                0.08021128090450004
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": -0.0005685500199543956,
+              "ic_con_nodi": [
+                -0.008998887068809608,
+                0.00830559291414065
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.016150392471250344,
+              "ic_con_nodi": [
+                -0.002078555207173151,
+                0.041916643568901485
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          }
+        },
+        "Rorig_672-Fp_672_eta>1sett": {
+          "wce": {
+            "media": 0.009812877485939087,
+            "ic_con_nodi": [
+              -0.04084953118245488,
+              0.07768555215251151
+            ],
+            "include_zero": true,
+            "segno": "0"
+          },
+          "prim": {
+            "richiamo": {
+              "media": 0.027303183513762045,
+              "ic_con_nodi": [
+                -0.041436800255837805,
+                0.08155479454623363
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.03648591337831687,
+              "ic_con_nodi": [
+                -0.040425034604466906,
+                0.14612386939680957
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": -0.00023519897111403518,
+              "ic_con_nodi": [
+                -0.0026443094255621784,
+                0.0026914237724812717
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.008209600780294245,
+              "ic_con_nodi": [
+                -0.012448784966727744,
+                0.02649034517811522
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": 0.027303183513762045,
+              "ic_con_nodi": [
+                -0.04069016438885161,
+                0.08228188266344541
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.03648591337831687,
+              "ic_con_nodi": [
+                -0.03836156043985833,
+                0.14922452645201842
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": -0.00023519897111403518,
+              "ic_con_nodi": [
+                -0.002598415193336048,
+                0.0026705556543304755
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.008209600780294245,
+              "ic_con_nodi": [
+                -0.01239696897118705,
+                0.026283773735995188
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": -0.0020446477465162266,
+              "ic_con_nodi": [
+                -0.07019913573805983,
+                0.05061961481494539
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.02044012481732473,
+              "ic_con_nodi": [
+                -0.019757043943582693,
+                0.060738072930820404
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": -0.0031291338149475214,
+              "ic_con_nodi": [
+                -0.009390613035380267,
+                0.0032908271328023347
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.008715513313720379,
+              "ic_con_nodi": [
+                -0.008887662209091426,
+                0.02562336479298637
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          }
+        }
+      }
+    },
+    "PEMS04": {
+      "celle": 36,
+      "gated": {
+        "tau": 192,
+        "N": 231
+      },
+      "livelli": {
+        "prim/C": {
+          "richiamo": 0.6181984965097548,
+          "precisione": 0.6416115174735865,
+          "falsi_allarmi": 0.009446873729929832,
+          "f1_macro": 0.6745292119275327,
+          "f1_congestionata": 0.6296874465878921
+        },
+        "prim/F0p": {
+          "richiamo": 0.6062212875126782,
+          "precisione": 0.6781998548270022,
+          "falsi_allarmi": 0.007869334364895546,
+          "f1_macro": 0.6704609440372865,
+          "f1_congestionata": 0.6401937427395696
+        },
+        "prim/Fp_96": {
+          "richiamo": 0.6638923691903824,
+          "precisione": 0.660072369201566,
+          "falsi_allarmi": 0.009353429209859253,
+          "f1_macro": 0.68455858813391,
+          "f1_congestionata": 0.661976858324162
+        },
+        "prim/Fp_192": {
+          "richiamo": 0.6671812541017839,
+          "precisione": 0.6611656369172555,
+          "falsi_allarmi": 0.00935404129186845,
+          "f1_macro": 0.6849845944332168,
+          "f1_congestionata": 0.66415982419932
+        },
+        "prim/Fp_672": {
+          "richiamo": 0.6330767853946662,
+          "precisione": 0.700292035836262,
+          "falsi_allarmi": 0.007412313131362593,
+          "f1_macro": 0.6855018540480651,
+          "f1_congestionata": 0.6649902469977204
+        },
+        "prim/gated": {
+          "richiamo": 0.6577247777578903,
+          "precisione": 0.6631700842939535,
+          "falsi_allarmi": 0.009139200506640681,
+          "f1_macro": 0.6825398681833751,
+          "f1_congestionata": 0.6604362070579425
+        },
+        "par/C": {
+          "richiamo": 0.6181984965097548,
+          "precisione": 0.6416115174735865,
+          "falsi_allarmi": 0.009446873729929832,
+          "f1_macro": 0.6745292119275327,
+          "f1_congestionata": 0.6296874465878921
+        },
+        "par/F0p": {
+          "richiamo": 0.6062212875126782,
+          "precisione": 0.6781998548270022,
+          "falsi_allarmi": 0.007869334364895546,
+          "f1_macro": 0.6704609440372865,
+          "f1_congestionata": 0.6401937427395696
+        },
+        "par/Fp_96": {
+          "richiamo": 0.6638923691903824,
+          "precisione": 0.660072369201566,
+          "falsi_allarmi": 0.009353429209859253,
+          "f1_macro": 0.68455858813391,
+          "f1_congestionata": 0.661976858324162
+        },
+        "par/Fp_192": {
+          "richiamo": 0.6671812541017839,
+          "precisione": 0.6611656369172555,
+          "falsi_allarmi": 0.00935404129186845,
+          "f1_macro": 0.6849845944332168,
+          "f1_congestionata": 0.66415982419932
+        },
+        "par/Fp_672": {
+          "richiamo": 0.6805829007815762,
+          "precisione": 0.6507598068928141,
+          "falsi_allarmi": 0.009992238800123395,
+          "f1_macro": 0.6842365530585696,
+          "f1_congestionata": 0.6653373237921997
+        },
+        "par/gated": {
+          "richiamo": 0.6577247777578903,
+          "precisione": 0.6631700842939535,
+          "falsi_allarmi": 0.009139200506640681,
+          "f1_macro": 0.6825398681833751,
+          "f1_congestionata": 0.6604362070579425
+        },
+        "argmax/C": {
+          "richiamo": 0.8158075293836883,
+          "precisione": 0.3392874312600997,
+          "falsi_allarmi": 0.043462107226974696,
+          "f1_macro": 0.6180950517685808,
+          "f1_congestionata": 0.4792562524780996
+        },
+        "argmax/F0p": {
+          "richiamo": 0.8165383926973331,
+          "precisione": 0.355686078317989,
+          "falsi_allarmi": 0.040465557737287876,
+          "f1_macro": 0.6126290063030913,
+          "f1_congestionata": 0.4955217125659071
+        },
+        "argmax/Fp_96": {
+          "richiamo": 0.8245406002028518,
+          "precisione": 0.4040824531267132,
+          "falsi_allarmi": 0.03326645317246186,
+          "f1_macro": 0.6380055577338131,
+          "f1_congestionata": 0.5423671443077964
+        },
+        "argmax/Fp_192": {
+          "richiamo": 0.8290301891295269,
+          "precisione": 0.4068447326813843,
+          "falsi_allarmi": 0.03306650638279119,
+          "f1_macro": 0.6387853945712721,
+          "f1_congestionata": 0.5458263772954924
+        },
+        "argmax/Fp_672": {
+          "richiamo": 0.841656225762186,
+          "precisione": 0.39485819449012294,
+          "falsi_allarmi": 0.03528816004883598,
+          "f1_macro": 0.6345936155504802,
+          "f1_congestionata": 0.537534948630871
+        },
+        "argmax/gated": {
+          "richiamo": 0.8247792494481236,
+          "precisione": 0.39566883356171,
+          "falsi_allarmi": 0.03446348155511268,
+          "f1_macro": 0.6334227576913138,
+          "f1_congestionata": 0.5347862774633279
+        }
+      },
+      "confronti": {
+        "F0p-C": {
+          "wce": {
+            "media": 0.0025810144167768495,
+            "ic_con_nodi": [
+              -0.007100801378077185,
+              0.012863007389177467
+            ],
+            "include_zero": true,
+            "segno": "0"
+          },
+          "prim": {
+            "richiamo": {
+              "media": -0.012109836460549575,
+              "ic_con_nodi": [
+                -0.030628305080710714,
+                0.010296986928837211
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.038253579641635185,
+              "ic_con_nodi": [
+                0.01718611849104072,
+                0.06425489615566729
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": -0.0015771141836602035,
+              "ic_con_nodi": [
+                -0.0025971144541916346,
+                -0.0006527612200507768
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "f1_macro": {
+              "media": -0.003747785600268517,
+              "ic_con_nodi": [
+                -0.009185836974591202,
+                0.0023635001236734557
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": -0.012109836460549575,
+              "ic_con_nodi": [
+                -0.030418692576578196,
+                0.00874744877678209
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.038253579641635185,
+              "ic_con_nodi": [
+                0.016896235652210552,
+                0.06345655219054361
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": -0.0015771141836602035,
+              "ic_con_nodi": [
+                -0.002588596799255352,
+                -0.0006716661740533718
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "f1_macro": {
+              "media": -0.003747785600268517,
+              "ic_con_nodi": [
+                -0.009143488425005106,
+                0.0021396734519018796
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": -0.0007178429119179788,
+              "ic_con_nodi": [
+                -0.02277730116181809,
+                0.02444921515666244
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.017618319139366265,
+              "ic_con_nodi": [
+                -0.002385978291075403,
+                0.039226760352923565
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": -0.00299862341371859,
+              "ic_con_nodi": [
+                -0.00725265992710086,
+                0.0010981703668459335
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": -0.005203359038021182,
+              "ic_con_nodi": [
+                -0.014361718439632179,
+                0.0030676378494815188
+              ],
+              "include_zero": true,
+              "segno": "0"
+            }
+          }
+        },
+        "Fp_96-C": {
+          "wce": {
+            "media": -0.022513523037251418,
+            "ic_con_nodi": [
+              -0.03397178534655588,
+              -0.009903778195638528
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "prim": {
+            "richiamo": {
+              "media": 0.04370710169267203,
+              "ic_con_nodi": [
+                0.013942335194451849,
+                0.06977013026676937
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": 0.018869623430516163,
+              "ic_con_nodi": [
+                -0.014071403666057443,
+                0.05325351492857752
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": -9.095471105365717e-05,
+              "ic_con_nodi": [
+                -0.0016238878469281974,
+                0.0016765884534197468
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.009744883929505744,
+              "ic_con_nodi": [
+                0.0026063574192569786,
+                0.018011894163201567
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": 0.04370710169267203,
+              "ic_con_nodi": [
+                0.014070458360628878,
+                0.06915902538435352
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": 0.018869623430516163,
+              "ic_con_nodi": [
+                -0.01443084512385195,
+                0.05518664072185569
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": -9.095471105365717e-05,
+              "ic_con_nodi": [
+                -0.0016301741881261744,
+                0.001668099484718431
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.009744883929505744,
+              "ic_con_nodi": [
+                0.002428754409904412,
+                0.0175123736766521
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": 0.008338588488475867,
+              "ic_con_nodi": [
+                -0.017116614147069765,
+                0.02776547964635279
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.06287571014421661,
+              "ic_con_nodi": [
+                0.033931998179753106,
+                0.08813170646795744
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": -0.01018752097071041,
+              "ic_con_nodi": [
+                -0.015521295414545009,
+                -0.004812921929094982
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "f1_macro": {
+              "media": 0.019711912583663768,
+              "ic_con_nodi": [
+                0.008152199828137544,
+                0.03104408731953714
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          }
+        },
+        "Fp_672-C_eta>1sett": {
+          "wce": {
+            "media": -0.03302534177775578,
+            "ic_con_nodi": [
+              -0.04665844282285909,
+              -0.01868436256033755
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "prim": {
+            "richiamo": {
+              "media": 0.020352885299398153,
+              "ic_con_nodi": [
+                -0.011802915766840833,
+                0.04584622151889406
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.05576843148991527,
+              "ic_con_nodi": [
+                0.021022159255231102,
+                0.10002860441665612
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": -0.002524919417509984,
+              "ic_con_nodi": [
+                -0.0046418180176080685,
+                -0.0005805108899427518
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "f1_macro": {
+              "media": 0.011147980154051891,
+              "ic_con_nodi": [
+                0.0031804701723718207,
+                0.020799874713209304
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": 0.0707856705380305,
+              "ic_con_nodi": [
+                0.035531605947895464,
+                0.09833695909743123
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": 0.006510792205315485,
+              "ic_con_nodi": [
+                -0.027711314655407385,
+                0.04941623268250374
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": 0.0013956306204498772,
+              "ic_con_nodi": [
+                -0.0012845616524331624,
+                0.003972217504014473
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "f1_macro": {
+              "media": 0.00930948998982996,
+              "ic_con_nodi": [
+                0.0008964594639399502,
+                0.018858628285631413
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": 0.03200940934413485,
+              "ic_con_nodi": [
+                -0.0004562186097147173,
+                0.05876817238261076
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.0418669490314911,
+              "ic_con_nodi": [
+                0.018475495163405315,
+                0.06472521540446706
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": -0.008885285644706536,
+              "ic_con_nodi": [
+                -0.016328520774243172,
+                -0.0017318902832019576
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "f1_macro": {
+              "media": 0.01241274723584981,
+              "ic_con_nodi": [
+                0.0017779032947928017,
+                0.022900427645394537
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          }
+        },
+        "gated-F0p": {
+          "wce": {
+            "media": -0.021901349774880566,
+            "ic_con_nodi": [
+              -0.03061785052273883,
+              -0.013332754679065086
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "prim": {
+            "richiamo": {
+              "media": 0.050634753805958756,
+              "ic_con_nodi": [
+                0.03166400731114125,
+                0.06507215153539239
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": -0.01572146893135349,
+              "ic_con_nodi": [
+                -0.037606586862283915,
+                0.01037151549617154
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": 0.0012719962361183764,
+              "ic_con_nodi": [
+                0.0001805501130441011,
+                0.0024714781554547116
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "f1_macro": {
+              "media": 0.011803300542384284,
+              "ic_con_nodi": [
+                0.007808973374079314,
+                0.01593674409527667
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "par": {
+            "richiamo": {
+              "media": 0.050634753805958756,
+              "ic_con_nodi": [
+                0.031765254695867655,
+                0.064753183376056
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "precisione": {
+              "media": -0.01572146893135349,
+              "ic_con_nodi": [
+                -0.03668542088892259,
+                0.009093085755573029
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "falsi_allarmi": {
+              "media": 0.0012719962361183764,
+              "ic_con_nodi": [
+                0.00019458869143102576,
+                0.002505180400775029
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "f1_macro": {
+              "media": 0.011803300542384284,
+              "ic_con_nodi": [
+                0.007877373596351088,
+                0.016125865392206357
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          },
+          "argmax": {
+            "richiamo": {
+              "media": 0.009060694369518889,
+              "ic_con_nodi": [
+                -0.014216432415201739,
+                0.02619116920785016
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "precisione": {
+              "media": 0.03746862950100316,
+              "ic_con_nodi": [
+                0.013808192869911112,
+                0.055960043748253765
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "falsi_allarmi": {
+              "media": -0.005991088519860971,
+              "ic_con_nodi": [
+                -0.010118471332866995,
+                -0.001564658695708737
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "f1_macro": {
+              "media": 0.020525428426573167,
+              "ic_con_nodi": [
+                0.011351068728114979,
+                0.03010627197344553
+              ],
+              "include_zero": false,
+              "segno": "+"
+            }
+          }
+        }
+      }
+    }
+  },
+  "istante": "2026-10-14T12:11:21.559447+00:00"
+}

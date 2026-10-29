@@ -1,0 +1,74 @@
+{
+  "Madrid": {
+    "righe": 10464,
+    "inizio": "2021-06-01 00:00:00",
+    "fine": "2021-12-31 23:45:00",
+    "confini": {
+      "addestramento": [
+        11,
+        7319
+      ],
+      "validazione": [
+        7319,
+        8887
+      ],
+      "prova": [
+        8887,
+        10456
+      ]
+    },
+    "righe_dopo_la_prova": 8,
+    "giorni_dopo_la_prova": 0.07291666666666667,
+    "episodio_ammissibile": false,
+    "t0_vecchio": 8887,
+    "t1_vecchio": 8983
+  },
+  "Londra": {
+    "righe": 10557,
+    "inizio": "2019-07-01 00:00:00",
+    "fine": "2020-01-31 23:45:00",
+    "confini": {
+      "addestramento": [
+        11,
+        7384
+      ],
+      "validazione": [
+        7384,
+        8966
+      ],
+      "prova": [
+        8966,
+        10549
+      ]
+    },
+    "righe_dopo_la_prova": 8,
+    "giorni_dopo_la_prova": 0.07291666666666667,
+    "episodio_ammissibile": false,
+    "t0_vecchio": 8966,
+    "t1_vecchio": 9062
+  },
+  "Melbourne": {
+    "righe": 10368,
+    "inizio": "2020-06-01 00:00:00",
+    "fine": "2020-12-30 23:45:00",
+    "confini": {
+      "addestramento": [
+        11,
+        7251
+      ],
+      "validazione": [
+        7251,
+        8806
+      ],
+      "prova": [
+        8806,
+        10360
+      ]
+    },
+    "righe_dopo_la_prova": 8,
+    "giorni_dopo_la_prova": 0.07291666666666667,
+    "episodio_ammissibile": false,
+    "t0_vecchio": 8806,
+    "t1_vecchio": 8902
+  }
+}

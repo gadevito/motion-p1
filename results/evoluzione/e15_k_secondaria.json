@@ -1,0 +1,47 @@
+{
+  "regola": "k in (10, 50, 200), passo congelato per citta'; wCE media sulle origini con eta' > 1 settimana dell'episodio di validazione causale (nodi di validazione, finestra espansiva); a pari merito il k minore",
+  "griglia": [
+    10,
+    50,
+    200
+  ],
+  "k": {
+    "Madrid": 200,
+    "Londra": 50,
+    "Melbourne": 200
+  },
+  "wce_validazione": {
+    "Madrid": {
+      "10": 0.920189536724898,
+      "50": 0.904031688163628,
+      "200": 0.899708321075429
+    },
+    "Londra": {
+      "10": 0.8664133827267535,
+      "50": 0.8601612922367875,
+      "200": 0.8613404147841871
+    },
+    "Melbourne": {
+      "10": 0.8336358188576687,
+      "50": 0.8234757594206377,
+      "200": 0.8188007699217595
+    }
+  },
+  "k_congelato": {
+    "Madrid": 50,
+    "Londra": 50,
+    "Melbourne": 200
+  },
+  "passo": {
+    "Madrid": 0.01,
+    "Londra": 0.01,
+    "Melbourne": 0.001
+  },
+  "celle_per_citta": {
+    "Madrid": 18,
+    "Londra": 18,
+    "Melbourne": 18
+  },
+  "istante": "2026-10-28T10:45:37.089381+00:00",
+  "impronta": "67aeef155f50d92d"
+}

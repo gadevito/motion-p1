@@ -1,0 +1,124 @@
+{
+  "impronta_scelta_gated": "16ed7800df4b401b",
+  "impronta_configurazione_F": "16a47787e7f89d5a",
+  "scelta_gated": {
+    "tau": 192,
+    "N": 231,
+    "wce_validazione": 0.4672018627399669,
+    "celle": 36
+  },
+  "configurazione_F": {
+    "aggiornamenti": 50,
+    "passo": 0.001,
+    "wce_validazione": 0.5062151418791877
+  },
+  "celle": 36,
+  "affermazioni": {
+    "a": {
+      "media": 0.0025810156049758688,
+      "ic_con_nodi": [
+        -0.007100800293001966,
+        0.012863007206157063
+      ],
+      "include_zero": true,
+      "confronto": "F0p-C",
+      "fascia": null,
+      "segno": "0"
+    },
+    "b": {
+      "media": -0.02190134912185902,
+      "ic_con_nodi": [
+        -0.03051071090785891,
+        -0.013283061384361234
+      ],
+      "include_zero": false,
+      "confronto": "gated-F0p",
+      "fascia": null,
+      "segno": "-"
+    },
+    "c": {
+      "media": -0.0330253450751993,
+      "ic_con_nodi": [
+        -0.04665844751382767,
+        -0.018684369619160226
+      ],
+      "include_zero": false,
+      "confronto": "Fp_672-C",
+      "fascia": 2,
+      "segno": "-"
+    },
+    "d": {
+      "media": -0.022513523397002123,
+      "ic_con_nodi": [
+        -0.03414355075613779,
+        -0.009641920112103743
+      ],
+      "include_zero": false,
+      "confronto": "Fp_96-C",
+      "fascia": null,
+      "segno": "-"
+    }
+  },
+  "altri": {
+    "gated-C": {
+      "media": -0.019320333516883153,
+      "ic_con_nodi": [
+        -0.029957085241320784,
+        -0.007383848300743493
+      ],
+      "include_zero": false,
+      "segno": "-"
+    },
+    "gated0-F0p": {
+      "media": -0.02190134912185902,
+      "ic_con_nodi": [
+        -0.030678188265020646,
+        -0.013439211988854465
+      ],
+      "include_zero": false,
+      "segno": "-"
+    },
+    "gated0-C": {
+      "media": -0.019320333516883153,
+      "ic_con_nodi": [
+        -0.030334443870687646,
+        -0.007381259008107969
+      ],
+      "include_zero": false,
+      "segno": "-"
+    },
+    "Fp_672-C_intero": {
+      "media": -0.032173276491462934,
+      "ic_con_nodi": [
+        -0.04242079353036524,
+        -0.022188132306535595
+      ],
+      "include_zero": false,
+      "segno": "-"
+    },
+    "Fp_192-C": {
+      "media": -0.025945987652423726,
+      "ic_con_nodi": [
+        -0.036976917640793146,
+        -0.013419994534940695
+      ],
+      "include_zero": false,
+      "segno": "-"
+    }
+  },
+  "nodi_sotto_N": {
+    "N": 231,
+    "media_per_cella": 0.0,
+    "massimo": 0,
+    "nodi": 47,
+    "celle_valide_min_mediana_max": [
+      308,
+      308.0,
+      308
+    ]
+  },
+  "e": "non riportabile: A non esiste su PEMS04",
+  "repliche": 4000,
+  "seme_bootstrap": 20261011,
+  "istante": "2026-10-08T15:40:33.673126+00:00"
+}

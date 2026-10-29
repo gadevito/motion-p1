@@ -1,0 +1,3694 @@
+{
+  "data": "2026-10-13",
+  "commit": "77f1d902f6c9",
+  "stadio0": {
+    "istante": "2026-10-13T06:01:48.048196+00:00",
+    "soglia_p90": 0.01,
+    "classe_rossa": 3,
+    "definizioni": {
+      "non_causale": "media di m_r su tutta la serie (inserimento.statiche)",
+      "iniziali": "media di m_r su [0, t0)",
+      "nuovi_a": "media di m_r su (t0, t0+96]",
+      "nuovi_b": "media delle coperture causali degli iniziali",
+      "test": "(t1, fine]"
+    },
+    "per_cella": {
+      "Madrid/ep1/p0": {
+        "contesto": "Madrid",
+        "episodio": 1,
+        "partizione": 0,
+        "t0": 8887,
+        "t1": 8983,
+        "fine": 10456,
+        "nodi": {
+          "iniziali": 630,
+          "nuovi": 135,
+          "selezione": 135
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.8270341852337265,
+          "nuovi_media": 0.8294236323479444
+        },
+        "copertura_causale_iniziali_media": 0.8214572382345534,
+        "copertura_b_nuovi": 0.8214572382345534,
+        "delta_iniziali": {
+          "n": 630,
+          "mediana": 0.004909533098031049,
+          "p90": 0.011830151521877287,
+          "massimo": 0.02718182616673015
+        },
+        "delta_selezione": {
+          "n": 135,
+          "mediana": 0.0048816602025637534,
+          "p90": 0.01272866742783756,
+          "massimo": 0.021330582777509988
+        },
+        "delta_nuovi_a": {
+          "n": 135,
+          "mediana": 0.018922018348623837,
+          "p90": 0.08623853211009176,
+          "massimo": 0.18549311926605505
+        },
+        "delta_nuovi_b": {
+          "n": 135,
+          "mediana": 0.13869184433425397,
+          "p90": 0.22392283456482873,
+          "massimo": 0.30282191713363593
+        },
+        "p90_abs_delta_tutti_a": 0.017775229357798173,
+        "p90_abs_delta_tutti_b": 0.12662980617571923,
+        "rho_delta_rosso": {
+          "iniziali": 0.42643160146656,
+          "nuovi_a": -0.2503121646668618,
+          "nuovi_b": -0.4834113745000488
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.10845251531140716,
+          "nuovi": 0.10798612251070376
+        }
+      },
+      "Madrid/ep2/p0": {
+        "contesto": "Madrid",
+        "episodio": 2,
+        "partizione": 0,
+        "t0": 7295,
+        "t1": 7391,
+        "fine": 8887,
+        "nodi": {
+          "iniziali": 630,
+          "nuovi": 135,
+          "selezione": 135
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.8270341852337265,
+          "nuovi_media": 0.8294236323479444
+        },
+        "copertura_causale_iniziali_media": 0.8174450863278826,
+        "copertura_b_nuovi": 0.8174450863278826,
+        "delta_iniziali": {
+          "n": 630,
+          "mediana": 0.008730818729262402,
+          "p90": 0.022278180040369466,
+          "massimo": 0.04314203415267037
+        },
+        "delta_selezione": {
+          "n": 135,
+          "mediana": 0.008801153548679164,
+          "p90": 0.024589545434537934,
+          "massimo": 0.03531637175561164
+        },
+        "delta_nuovi_a": {
+          "n": 135,
+          "mediana": 0.019017584097859364,
+          "p90": 0.0679281345565749,
+          "massimo": 0.1183103975535168
+        },
+        "delta_nuovi_b": {
+          "n": 135,
+          "mediana": 0.13897693202074124,
+          "p90": 0.2199106826581579,
+          "massimo": 0.2988097652269651
+        },
+        "p90_abs_delta_tutti_a": 0.028145382556440838,
+        "p90_abs_delta_tutti_b": 0.12791944540013317,
+        "rho_delta_rosso": {
+          "iniziali": 0.36707889820596074,
+          "nuovi_a": -0.02437810945273632,
+          "nuovi_b": -0.4241976392547069
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.1067167786761196,
+          "nuovi": 0.10816874091721065
+        }
+      },
+      "Madrid/ep3/p0": {
+        "contesto": "Madrid",
+        "episodio": 3,
+        "partizione": 0,
+        "t0": 5726,
+        "t1": 5822,
+        "fine": 7295,
+        "nodi": {
+          "iniziali": 630,
+          "nuovi": 135,
+          "selezione": 135
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.8270341852337265,
+          "nuovi_media": 0.8294236323479444
+        },
+        "copertura_causale_iniziali_media": 0.8088044508757049,
+        "copertura_b_nuovi": 0.8088044508757049,
+        "delta_iniziali": {
+          "n": 630,
+          "mediana": 0.016671683618154687,
+          "p90": 0.03995287537078038,
+          "massimo": 0.07038322299378019
+        },
+        "delta_selezione": {
+          "n": 135,
+          "mediana": 0.016792801439007188,
+          "p90": 0.042624387017317834,
+          "massimo": 0.058412135855441305
+        },
+        "delta_nuovi_a": {
+          "n": 135,
+          "mediana": 0.04883409785932724,
+          "p90": 0.12157874617737001,
+          "massimo": 0.21836773700305812
+        },
+        "delta_nuovi_b": {
+          "n": 135,
+          "mediana": 0.1448136251876314,
+          "p90": 0.21127004720598017,
+          "massimo": 0.29016912977478737
+        },
+        "p90_abs_delta_tutti_a": 0.053602972278388956,
+        "p90_abs_delta_tutti_b": 0.12591071998885472,
+        "rho_delta_rosso": {
+          "iniziali": 0.38500765278056226,
+          "nuovi_a": -0.1441371573505024,
+          "nuovi_b": -0.4129694663935226
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.10139329423978236,
+          "nuovi": 0.10478777511835588
+        }
+      },
+      "Madrid/ep1/p1": {
+        "contesto": "Madrid",
+        "episodio": 1,
+        "partizione": 1,
+        "t0": 8887,
+        "t1": 8983,
+        "fine": 10456,
+        "nodi": {
+          "iniziali": 630,
+          "nuovi": 135,
+          "selezione": 135
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.8286091997961264,
+          "nuovi_media": 0.8211660437195606
+        },
+        "copertura_causale_iniziali_media": 0.8230320371650405,
+        "copertura_b_nuovi": 0.8230320371650405,
+        "delta_iniziali": {
+          "n": 630,
+          "mediana": 0.00485488953386537,
+          "p90": 0.011873678188151715,
+          "massimo": 0.02718182616673015
+        },
+        "delta_selezione": {
+          "n": 135,
+          "mediana": 0.0061330908391427075,
+          "p90": 0.01161531085676808,
+          "massimo": 0.019135463218273308
+        },
+        "delta_nuovi_a": {
+          "n": 135,
+          "mediana": 0.022935779816513735,
+          "p90": 0.08006498470948016,
+          "massimo": 0.18549311926605505
+        },
+        "delta_nuovi_b": {
+          "n": 135,
+          "mediana": 0.1267399882353769,
+          "p90": 0.23803585979501002,
+          "massimo": 0.332206349091646
+        },
+        "p90_abs_delta_tutti_a": 0.021120030581039728,
+        "p90_abs_delta_tutti_b": 0.11751160620976649,
+        "rho_delta_rosso": {
+          "iniziali": 0.43565141137621793,
+          "nuovi_a": -0.3073505023900107,
+          "nuovi_b": -0.5838747439274217
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.10837345961099173,
+          "nuovi": 0.10502712641584402
+        }
+      },
+      "Madrid/ep2/p1": {
+        "contesto": "Madrid",
+        "episodio": 2,
+        "partizione": 1,
+        "t0": 7295,
+        "t1": 7391,
+        "fine": 8887,
+        "nodi": {
+          "iniziali": 630,
+          "nuovi": 135,
+          "selezione": 135
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.8286091997961264,
+          "nuovi_media": 0.8211660437195606
+        },
+        "copertura_causale_iniziali_media": 0.8189233765244732,
+        "copertura_b_nuovi": 0.8189233765244732,
+        "delta_iniziali": {
+          "n": 630,
+          "mediana": 0.00878144434104039,
+          "p90": 0.022630042779919205,
+          "massimo": 0.03929169732106741
+        },
+        "delta_selezione": {
+          "n": 135,
+          "mediana": 0.009429424661439145,
+          "p90": 0.02197345695702935,
+          "massimo": 0.032987501912625006
+        },
+        "delta_nuovi_a": {
+          "n": 135,
+          "mediana": 0.020928899082568786,
+          "p90": 0.05963302752293578,
+          "massimo": 0.12643348623853212
+        },
+        "delta_nuovi_b": {
+          "n": 135,
+          "mediana": 0.12497952867430351,
+          "p90": 0.23392719915444277,
+          "massimo": 0.32809768845107873
+        },
+        "p90_abs_delta_tutti_a": 0.029252001182159457,
+        "p90_abs_delta_tutti_b": 0.1170257222486222,
+        "rho_delta_rosso": {
+          "iniziali": 0.3819740874462605,
+          "nuovi_a": -0.16043800604819042,
+          "nuovi_b": -0.5370110233147986
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.1070849888043582,
+          "nuovi": 0.10371677980165622
+        }
+      },
+      "Madrid/ep3/p1": {
+        "contesto": "Madrid",
+        "episodio": 3,
+        "partizione": 1,
+        "t0": 5726,
+        "t1": 5822,
+        "fine": 7295,
+        "nodi": {
+          "iniziali": 630,
+          "nuovi": 135,
+          "selezione": 135
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.8286091997961264,
+          "nuovi_media": 0.8211660437195606
+        },
+        "copertura_causale_iniziali_media": 0.8103546063902334,
+        "copertura_b_nuovi": 0.8103546063902334,
+        "delta_iniziali": {
+          "n": 630,
+          "mediana": 0.016492869186211068,
+          "p90": 0.040631148519388496,
+          "massimo": 0.06703835501137045
+        },
+        "delta_selezione": {
+          "n": 135,
+          "mediana": 0.017779902499570066,
+          "p90": 0.03874505848637209,
+          "massimo": 0.05686442468017017
+        },
+        "delta_nuovi_a": {
+          "n": 135,
+          "mediana": 0.05456804281345562,
+          "p90": 0.12691131498470945,
+          "massimo": 0.18874235474006118
+        },
+        "delta_nuovi_b": {
+          "n": 135,
+          "mediana": 0.13259264131618864,
+          "p90": 0.22535842902020292,
+          "massimo": 0.3195289183168389
+        },
+        "p90_abs_delta_tutti_a": 0.0575609364335223,
+        "p90_abs_delta_tutti_b": 0.1215261275547208,
+        "rho_delta_rosso": {
+          "iniziali": 0.3929914039543945,
+          "nuovi_a": -0.2633352843625012,
+          "nuovi_b": -0.5473758657691933
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.1023038235521304,
+          "nuovi": 0.09939298751461705
+        }
+      },
+      "Madrid/ep1/p2": {
+        "contesto": "Madrid",
+        "episodio": 1,
+        "partizione": 2,
+        "t0": 8887,
+        "t1": 8983,
+        "fine": 10456,
+        "nodi": {
+          "iniziali": 630,
+          "nuovi": 135,
+          "selezione": 135
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.823611414494442,
+          "nuovi_media": 0.8255769339676067
+        },
+        "copertura_causale_iniziali_media": 0.8179598879047512,
+        "copertura_b_nuovi": 0.8179598879047512,
+        "delta_iniziali": {
+          "n": 630,
+          "mediana": 0.004843775862003741,
+          "p90": 0.011859483658052538,
+          "massimo": 0.02718182616673015
+        },
+        "delta_selezione": {
+          "n": 135,
+          "mediana": 0.004511107692953598,
+          "p90": 0.012113222712349358,
+          "massimo": 0.02464165048490241
+        },
+        "delta_nuovi_a": {
+          "n": 135,
+          "mediana": 0.0210244648318042,
+          "p90": 0.08266437308868511,
+          "massimo": 0.17335626911314983
+        },
+        "delta_nuovi_b": {
+          "n": 135,
+          "mediana": 0.12498735980167086,
+          "p90": 0.19752793071820685,
+          "massimo": 0.32579627934206
+        },
+        "p90_abs_delta_tutti_a": 0.01985771747138465,
+        "p90_abs_delta_tutti_b": 0.10820601423592159,
+        "rho_delta_rosso": {
+          "iniziali": 0.4456442619023024,
+          "nuovi_a": -0.1744073748902546,
+          "nuovi_b": -0.36804214223002635
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.11288385813621836,
+          "nuovi": 0.10390281797672882
+        }
+      },
+      "Madrid/ep2/p2": {
+        "contesto": "Madrid",
+        "episodio": 2,
+        "partizione": 2,
+        "t0": 7295,
+        "t1": 7391,
+        "fine": 8887,
+        "nodi": {
+          "iniziali": 630,
+          "nuovi": 135,
+          "selezione": 135
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.823611414494442,
+          "nuovi_media": 0.8255769339676067
+        },
+        "copertura_causale_iniziali_media": 0.8138244285605493,
+        "copertura_b_nuovi": 0.8138244285605493,
+        "delta_iniziali": {
+          "n": 630,
+          "mediana": 0.008700983089250935,
+          "p90": 0.022465673621285598,
+          "massimo": 0.04314203415267037
+        },
+        "delta_selezione": {
+          "n": 135,
+          "mediana": 0.006867358670112567,
+          "p90": 0.022510210273468667,
+          "massimo": 0.037728270483951776
+        },
+        "delta_nuovi_a": {
+          "n": 135,
+          "mediana": 0.020928899082568786,
+          "p90": 0.06735474006116215,
+          "massimo": 0.09078746177370034
+        },
+        "delta_nuovi_b": {
+          "n": 135,
+          "mediana": 0.12912281914587276,
+          "p90": 0.19339247137400495,
+          "massimo": 0.3216608199978581
+        },
+        "p90_abs_delta_tutti_a": 0.02957080432955417,
+        "p90_abs_delta_tutti_b": 0.11234147358012349,
+        "rho_delta_rosso": {
+          "iniziali": 0.3733797935158987,
+          "nuovi_a": -0.17222709979514195,
+          "nuovi_b": -0.36682762657301726
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.11140985763047849,
+          "nuovi": 0.10043964646514938
+        }
+      },
+      "Madrid/ep3/p2": {
+        "contesto": "Madrid",
+        "episodio": 3,
+        "partizione": 2,
+        "t0": 5726,
+        "t1": 5822,
+        "fine": 7295,
+        "nodi": {
+          "iniziali": 630,
+          "nuovi": 135,
+          "selezione": 135
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.823611414494442,
+          "nuovi_media": 0.8255769339676067
+        },
+        "copertura_causale_iniziali_media": 0.805175778542876,
+        "copertura_b_nuovi": 0.805175778542876,
+        "delta_iniziali": {
+          "n": 630,
+          "mediana": 0.01701160461268464,
+          "p90": 0.04020939747447396,
+          "massimo": 0.07038322299378019
+        },
+        "delta_selezione": {
+          "n": 135,
+          "mediana": 0.01429887919367745,
+          "p90": 0.039794859757680205,
+          "massimo": 0.058299947073331415
+        },
+        "delta_nuovi_a": {
+          "n": 135,
+          "mediana": 0.05705275229357798,
+          "p90": 0.12817278287461775,
+          "massimo": 0.22954892966360863
+        },
+        "delta_nuovi_b": {
+          "n": 135,
+          "mediana": 0.12716367099840842,
+          "p90": 0.19404058231339308,
+          "massimo": 0.3130121699801849
+        },
+        "p90_abs_delta_tutti_a": 0.057290755404021114,
+        "p90_abs_delta_tutti_b": 0.12005357925528913,
+        "rho_delta_rosso": {
+          "iniziali": 0.3908165433475399,
+          "nuovi_a": -0.10807238318212857,
+          "nuovi_b": -0.35269242025168274
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.10591118251113592,
+          "nuovi": 0.09964767469212829
+        }
+      },
+      "Londra/ep1/p0": {
+        "contesto": "Londra",
+        "episodio": 1,
+        "partizione": 0,
+        "t0": 8966,
+        "t1": 9062,
+        "fine": 10549,
+        "nodi": {
+          "iniziali": 630,
+          "nuovi": 135,
+          "selezione": 135
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.6044121781831359,
+          "nuovi_media": 0.6112363571300767
+        },
+        "copertura_causale_iniziali_media": 0.6047491581955111,
+        "copertura_b_nuovi": 0.6047491581955111,
+        "delta_iniziali": {
+          "n": 630,
+          "mediana": 0.0016910420600861342,
+          "p90": 0.004462010304428343,
+          "massimo": 0.012983943573388335
+        },
+        "delta_selezione": {
+          "n": 135,
+          "mediana": 0.001687016876254166,
+          "p90": 0.00436071724000602,
+          "massimo": 0.008686906643266934
+        },
+        "delta_nuovi_a": {
+          "n": 135,
+          "mediana": 0.19364521170787152,
+          "p90": 0.2598252344416027,
+          "massimo": 0.3328182722364308
+        },
+        "delta_nuovi_b": {
+          "n": 135,
+          "mediana": 0.12203626627545805,
+          "p90": 0.20614408799185271,
+          "massimo": 0.3563193271696494
+        },
+        "p90_abs_delta_tutti_a": 0.18330136402387046,
+        "p90_abs_delta_tutti_b": 0.10338802430747393,
+        "rho_delta_rosso": {
+          "iniziali": 0.0814688491578582,
+          "nuovi_a": 0.035928202126621796,
+          "nuovi_b": -0.0065944785874548825
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.13126673956308493,
+          "nuovi": 0.12135734864249001
+        }
+      },
+      "Londra/ep2/p0": {
+        "contesto": "Londra",
+        "episodio": 2,
+        "partizione": 0,
+        "t0": 7292,
+        "t1": 7388,
+        "fine": 8966,
+        "nodi": {
+          "iniziali": 630,
+          "nuovi": 135,
+          "selezione": 135
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.6044121781831359,
+          "nuovi_media": 0.6112363571300767
+        },
+        "copertura_causale_iniziali_media": 0.6072129491767452,
+        "copertura_b_nuovi": 0.6072129491767452,
+        "delta_iniziali": {
+          "n": 630,
+          "mediana": 0.0034395667102146976,
+          "p90": 0.010133693689368372,
+          "massimo": 0.05688739253217301
+        },
+        "delta_selezione": {
+          "n": 135,
+          "mediana": 0.0035493915926243513,
+          "p90": 0.010951150900336697,
+          "massimo": 0.045279105756691806
+        },
+        "delta_nuovi_a": {
+          "n": 135,
+          "mediana": 0.1036516055697641,
+          "p90": 0.19246412333049165,
+          "massimo": 0.2971428909728142
+        },
+        "delta_nuovi_b": {
+          "n": 135,
+          "mediana": 0.12450005725669211,
+          "p90": 0.20491327279452307,
+          "massimo": 0.35385553618841536
+        },
+        "p90_abs_delta_tutti_a": 0.09137953490574983,
+        "p90_abs_delta_tutti_b": 0.10344505265622625,
+        "rho_delta_rosso": {
+          "iniziali": 0.0793359327711896,
+          "nuovi_a": -0.08002633889376647,
+          "nuovi_b": 0.14904887328065555
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.15986429991046186,
+          "nuovi": 0.14955427443239488
+        }
+      },
+      "Londra/ep3/p0": {
+        "contesto": "Londra",
+        "episodio": 3,
+        "partizione": 0,
+        "t0": 5709,
+        "t1": 5805,
+        "fine": 7292,
+        "nodi": {
+          "iniziali": 630,
+          "nuovi": 135,
+          "selezione": 135
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.6044121781831359,
+          "nuovi_media": 0.6112363571300767
+        },
+        "copertura_causale_iniziali_media": 0.6060797904728541,
+        "copertura_b_nuovi": 0.6060797904728541,
+        "delta_iniziali": {
+          "n": 630,
+          "mediana": 0.004611206258087669,
+          "p90": 0.01382990050110077,
+          "massimo": 0.05949077776170009
+        },
+        "delta_selezione": {
+          "n": 135,
+          "mediana": 0.004409911791311172,
+          "p90": 0.013956595557056826,
+          "massimo": 0.05211859190837054
+        },
+        "delta_nuovi_a": {
+          "n": 135,
+          "mediana": 0.062064862176754776,
+          "p90": 0.11852147863976512,
+          "massimo": 0.17228201667140286
+        },
+        "delta_nuovi_b": {
+          "n": 135,
+          "mediana": 0.12336689855280103,
+          "p90": 0.2049941394710255,
+          "massimo": 0.35498869489230644
+        },
+        "p90_abs_delta_tutti_a": 0.056477337311736285,
+        "p90_abs_delta_tutti_b": 0.10321842091544797,
+        "rho_delta_rosso": {
+          "iniziali": 0.06607176900828435,
+          "nuovi_a": -0.10540435079504439,
+          "nuovi_b": 0.00960394107891913
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.15409350351717238,
+          "nuovi": 0.14622767057904318
+        }
+      },
+      "Londra/ep1/p1": {
+        "contesto": "Londra",
+        "episodio": 1,
+        "partizione": 1,
+        "t0": 8966,
+        "t1": 9062,
+        "fine": 10549,
+        "nodi": {
+          "iniziali": 630,
+          "nuovi": 135,
+          "selezione": 135
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.5979762167883793,
+          "nuovi_media": 0.6020846270159522
+        },
+        "copertura_causale_iniziali_media": 0.598134044308481,
+        "copertura_b_nuovi": 0.598134044308481,
+        "delta_iniziali": {
+          "n": 630,
+          "mediana": 0.0017245113051778116,
+          "p90": 0.004414028211488697,
+          "massimo": 0.015277780683094155
+        },
+        "delta_selezione": {
+          "n": 135,
+          "mediana": 0.0018087760459767344,
+          "p90": 0.005001966001205527,
+          "massimo": 0.011687770990747304
+        },
+        "delta_nuovi_a": {
+          "n": 135,
+          "mediana": 0.20182994695462728,
+          "p90": 0.25999100123141045,
+          "massimo": 0.31149355877616747
+        },
+        "delta_nuovi_b": {
+          "n": 135,
+          "mediana": 0.11570511454346555,
+          "p90": 0.23240493456809375,
+          "massimo": 0.34474745611777646
+        },
+        "p90_abs_delta_tutti_a": 0.1956675665435256,
+        "p90_abs_delta_tutti_b": 0.10413006590552565,
+        "rho_delta_rosso": {
+          "iniziali": 0.04871919556360686,
+          "nuovi_a": -0.046556433518681106,
+          "nuovi_b": 0.03240171690566774
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.12901361901601024,
+          "nuovi": 0.11255533236063345
+        }
+      },
+      "Londra/ep2/p1": {
+        "contesto": "Londra",
+        "episodio": 2,
+        "partizione": 1,
+        "t0": 7292,
+        "t1": 7388,
+        "fine": 8966,
+        "nodi": {
+          "iniziali": 630,
+          "nuovi": 135,
+          "selezione": 135
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.5979762167883793,
+          "nuovi_media": 0.6020846270159522
+        },
+        "copertura_causale_iniziali_media": 0.6006219035429129,
+        "copertura_b_nuovi": 0.6006219035429129,
+        "delta_iniziali": {
+          "n": 630,
+          "mediana": 0.0034265895906301913,
+          "p90": 0.009481035505035474,
+          "massimo": 0.07573987378081976
+        },
+        "delta_selezione": {
+          "n": 135,
+          "mediana": 0.0035233204424680586,
+          "p90": 0.010857583140209374,
+          "massimo": 0.03186023151181344
+        },
+        "delta_nuovi_a": {
+          "n": 135,
+          "mediana": 0.11659917590224489,
+          "p90": 0.21103237188595242,
+          "massimo": 0.2563080183764327
+        },
+        "delta_nuovi_b": {
+          "n": 135,
+          "mediana": 0.1167723250641784,
+          "p90": 0.2299170753336619,
+          "massimo": 0.3422595968833446
+        },
+        "p90_abs_delta_tutti_a": 0.09807769726247992,
+        "p90_abs_delta_tutti_b": 0.10635152857255907,
+        "rho_delta_rosso": {
+          "iniziali": 0.0612588377107814,
+          "nuovi_a": -0.036279387376841284,
+          "nuovi_b": 0.19254219100575554
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.15691601616833603,
+          "nuovi": 0.14519852560610022
+        }
+      },
+      "Londra/ep3/p1": {
+        "contesto": "Londra",
+        "episodio": 3,
+        "partizione": 1,
+        "t0": 5709,
+        "t1": 5805,
+        "fine": 7292,
+        "nodi": {
+          "iniziali": 630,
+          "nuovi": 135,
+          "selezione": 135
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.5979762167883793,
+          "nuovi_media": 0.6020846270159522
+        },
+        "copertura_causale_iniziali_media": 0.5994578318277741,
+        "copertura_b_nuovi": 0.5994578318277741,
+        "delta_iniziali": {
+          "n": 630,
+          "mediana": 0.004666457706683613,
+          "p90": 0.014159871111809979,
+          "massimo": 0.07768164523482884
+        },
+        "delta_selezione": {
+          "n": 135,
+          "mediana": 0.004416930218565263,
+          "p90": 0.015827797859937178,
+          "massimo": 0.03857750715518704
+        },
+        "delta_nuovi_a": {
+          "n": 135,
+          "mediana": 0.06474969214739035,
+          "p90": 0.12385443307757887,
+          "massimo": 0.20743345647437728
+        },
+        "delta_nuovi_b": {
+          "n": 135,
+          "mediana": 0.11560825334903962,
+          "p90": 0.23108114704880067,
+          "massimo": 0.3434236685984834
+        },
+        "p90_abs_delta_tutti_a": 0.05874538221085533,
+        "p90_abs_delta_tutti_b": 0.10545385342481872,
+        "rho_delta_rosso": {
+          "iniziali": 0.005473264818841401,
+          "nuovi_a": 0.04263974246414984,
+          "nuovi_b": 0.07673885474587845
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.1518881029497237,
+          "nuovi": 0.13935460487108378
+        }
+      },
+      "Londra/ep1/p2": {
+        "contesto": "Londra",
+        "episodio": 1,
+        "partizione": 2,
+        "t0": 8966,
+        "t1": 9062,
+        "fine": 10549,
+        "nodi": {
+          "iniziali": 630,
+          "nuovi": 135,
+          "selezione": 135
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.5984755469552286,
+          "nuovi_media": 0.6060525050957939
+        },
+        "copertura_causale_iniziali_media": 0.5988127989689445,
+        "copertura_b_nuovi": 0.5988127989689445,
+        "delta_iniziali": {
+          "n": 630,
+          "mediana": 0.0017131013352602031,
+          "p90": 0.004681908949665549,
+          "massimo": 0.015277780683094155
+        },
+        "delta_selezione": {
+          "n": 135,
+          "mediana": 0.0018844410501897002,
+          "p90": 0.0042395708279270305,
+          "massimo": 0.00892538557933209
+        },
+        "delta_nuovi_a": {
+          "n": 135,
+          "mediana": 0.20147177228379276,
+          "p90": 0.25324133276499,
+          "massimo": 0.35633643554039973
+        },
+        "delta_nuovi_b": {
+          "n": 135,
+          "mediana": 0.1309399717045423,
+          "p90": 0.2142022621279581,
+          "massimo": 0.3622556863962161
+        },
+        "p90_abs_delta_tutti_a": 0.19056490953869473,
+        "p90_abs_delta_tutti_b": 0.1096018429721484,
+        "rho_delta_rosso": {
+          "iniziali": 0.07709263685771563,
+          "nuovi_a": 0.012749975612135402,
+          "nuovi_b": -0.08571358891815432
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.13144301842906805,
+          "nuovi": 0.12250692888976274
+        }
+      },
+      "Londra/ep2/p2": {
+        "contesto": "Londra",
+        "episodio": 2,
+        "partizione": 2,
+        "t0": 7292,
+        "t1": 7388,
+        "fine": 8966,
+        "nodi": {
+          "iniziali": 630,
+          "nuovi": 135,
+          "selezione": 135
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.5984755469552286,
+          "nuovi_media": 0.6060525050957939
+        },
+        "copertura_causale_iniziali_media": 0.601502625186114,
+        "copertura_b_nuovi": 0.601502625186114,
+        "delta_iniziali": {
+          "n": 630,
+          "mediana": 0.0036615222195046926,
+          "p90": 0.010136172202298016,
+          "massimo": 0.07573987378081976
+        },
+        "delta_selezione": {
+          "n": 135,
+          "mediana": 0.0032127658900088507,
+          "p90": 0.010399193345364257,
+          "massimo": 0.03346870586447859
+        },
+        "delta_nuovi_a": {
+          "n": 135,
+          "mediana": 0.10796746234725774,
+          "p90": 0.20149367718101735,
+          "massimo": 0.3161912711944681
+        },
+        "delta_nuovi_b": {
+          "n": 135,
+          "mediana": 0.1282501454873728,
+          "p90": 0.21151722621786864,
+          "massimo": 0.35956586017904657
+        },
+        "p90_abs_delta_tutti_a": 0.09500864355404005,
+        "p90_abs_delta_tutti_b": 0.11115498854691726,
+        "rho_delta_rosso": {
+          "iniziali": 0.10388721899862013,
+          "nuovi_a": 0.021714954638571846,
+          "nuovi_b": 0.05521900302409521
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.16065778295760502,
+          "nuovi": 0.14889430838330872
+        }
+      },
+      "Londra/ep3/p2": {
+        "contesto": "Londra",
+        "episodio": 3,
+        "partizione": 2,
+        "t0": 5709,
+        "t1": 5805,
+        "fine": 7292,
+        "nodi": {
+          "iniziali": 630,
+          "nuovi": 135,
+          "selezione": 135
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.5984755469552286,
+          "nuovi_media": 0.6060525050957939
+        },
+        "copertura_causale_iniziali_media": 0.600544670486867,
+        "copertura_b_nuovi": 0.600544670486867,
+        "delta_iniziali": {
+          "n": 630,
+          "mediana": 0.00478303328561297,
+          "p90": 0.014474635130135407,
+          "massimo": 0.07768164523482884
+        },
+        "delta_selezione": {
+          "n": 135,
+          "mediana": 0.004603540741795975,
+          "p90": 0.013799751129556153,
+          "massimo": 0.04125904412704229
+        },
+        "delta_nuovi_a": {
+          "n": 135,
+          "mediana": 0.06456320450885666,
+          "p90": 0.12167459979160743,
+          "massimo": 0.161702543336175
+        },
+        "delta_nuovi_b": {
+          "n": 135,
+          "mediana": 0.12920810018661977,
+          "p90": 0.21247039061003556,
+          "massimo": 0.36052381487829355
+        },
+        "p90_abs_delta_tutti_a": 0.055245926873164784,
+        "p90_abs_delta_tutti_b": 0.11074643235103297,
+        "rho_delta_rosso": {
+          "iniziali": 0.07164785475589988,
+          "nuovi_a": 0.02599746366208175,
+          "nuovi_b": -0.031226221832016388
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.15493965903570803,
+          "nuovi": 0.1468381987466898
+        }
+      },
+      "Melbourne/ep1/p0": {
+        "contesto": "Melbourne",
+        "episodio": 1,
+        "partizione": 0,
+        "t0": 8806,
+        "t1": 8902,
+        "fine": 10360,
+        "nodi": {
+          "iniziali": 415,
+          "nuovi": 90,
+          "selezione": 89
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.6995753848728247,
+          "nuovi_media": 0.7003011402606311
+        },
+        "copertura_causale_iniziali_media": 0.6812570290245697,
+        "copertura_b_nuovi": 0.6812570290245697,
+        "delta_iniziali": {
+          "n": 415,
+          "mediana": 0.0184346855609111,
+          "p90": 0.026831873890697456,
+          "massimo": 0.04412930086949696
+        },
+        "delta_selezione": {
+          "n": 89,
+          "mediana": 0.017980143133329407,
+          "p90": 0.028258843577470997,
+          "massimo": 0.04412930086949696
+        },
+        "delta_nuovi_a": {
+          "n": 90,
+          "mediana": 0.1338252314814815,
+          "p90": 0.189621913580247,
+          "massimo": 0.25559413580246915
+        },
+        "delta_nuovi_b": {
+          "n": 90,
+          "mediana": 0.099633487654321,
+          "p90": 0.19562375801246729,
+          "massimo": 0.2714821685062945
+        },
+        "p90_abs_delta_tutti_a": 0.12885802469135807,
+        "p90_abs_delta_tutti_b": 0.08603921444688922,
+        "rho_delta_rosso": {
+          "iniziali": 0.31786913540449424,
+          "nuovi_a": -0.29624233444458165,
+          "nuovi_b": -0.40066674898135574
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.05635008047717679,
+          "nuovi": 0.06012127392608272
+        }
+      },
+      "Melbourne/ep2/p0": {
+        "contesto": "Melbourne",
+        "episodio": 2,
+        "partizione": 0,
+        "t0": 7233,
+        "t1": 7329,
+        "fine": 8806,
+        "nodi": {
+          "iniziali": 415,
+          "nuovi": 90,
+          "selezione": 89
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.6995753848728247,
+          "nuovi_media": 0.7003011402606311
+        },
+        "copertura_causale_iniziali_media": 0.6809615900349635,
+        "copertura_b_nuovi": 0.6809615900349635,
+        "delta_iniziali": {
+          "n": 415,
+          "mediana": 0.01855528256550476,
+          "p90": 0.03003074578449592,
+          "massimo": 0.06784314817375098
+        },
+        "delta_selezione": {
+          "n": 89,
+          "mediana": 0.01824376827401164,
+          "p90": 0.029636022333338397,
+          "massimo": 0.06784314817375098
+        },
+        "delta_nuovi_a": {
+          "n": 90,
+          "mediana": 0.2511091820987654,
+          "p90": 0.315162037037037,
+          "massimo": 0.370949074074074
+        },
+        "delta_nuovi_b": {
+          "n": 90,
+          "mediana": 0.099633487654321,
+          "p90": 0.19591919700207355,
+          "massimo": 0.27177760749590074
+        },
+        "p90_abs_delta_tutti_a": 0.2442708333333333,
+        "p90_abs_delta_tutti_b": 0.08608777458559988,
+        "rho_delta_rosso": {
+          "iniziali": 0.38104676230003626,
+          "nuovi_a": 0.3374984565995802,
+          "nuovi_b": -0.4734493970449027
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.05620832400475889,
+          "nuovi": 0.06301405758626231
+        }
+      },
+      "Melbourne/ep3/p0": {
+        "contesto": "Melbourne",
+        "episodio": 3,
+        "partizione": 0,
+        "t0": 5679,
+        "t1": 5775,
+        "fine": 7233,
+        "nodi": {
+          "iniziali": 415,
+          "nuovi": 90,
+          "selezione": 89
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.6995753848728247,
+          "nuovi_media": 0.7003011402606311
+        },
+        "copertura_causale_iniziali_media": 0.683761565013355,
+        "copertura_b_nuovi": 0.683761565013355,
+        "delta_iniziali": {
+          "n": 415,
+          "mediana": 0.016268055066424036,
+          "p90": 0.026834518254387475,
+          "massimo": 0.09919158791649552
+        },
+        "delta_selezione": {
+          "n": 89,
+          "mediana": 0.014615860577957829,
+          "p90": 0.02763235286924536,
+          "massimo": 0.09919158791649552
+        },
+        "delta_nuovi_a": {
+          "n": 90,
+          "mediana": 0.05049189814814814,
+          "p90": 0.09310378086419759,
+          "massimo": 0.15142746913580252
+        },
+        "delta_nuovi_b": {
+          "n": 90,
+          "mediana": 0.099633487654321,
+          "p90": 0.19311922202368198,
+          "massimo": 0.26897763251750917
+        },
+        "p90_abs_delta_tutti_a": 0.04853395061728395,
+        "p90_abs_delta_tutti_b": 0.09111110205039215,
+        "rho_delta_rosso": {
+          "iniziali": 0.36673281755785686,
+          "nuovi_a": 0.004453224677943779,
+          "nuovi_b": -0.6108490760176153
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.04404339902221081,
+          "nuovi": 0.04769321937836081
+        }
+      },
+      "Melbourne/ep1/p1": {
+        "contesto": "Melbourne",
+        "episodio": 1,
+        "partizione": 1,
+        "t0": 8806,
+        "t1": 8902,
+        "fine": 10360,
+        "nodi": {
+          "iniziali": 415,
+          "nuovi": 90,
+          "selezione": 89
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.6996316283653131,
+          "nuovi_media": 0.711068244170096
+        },
+        "copertura_causale_iniziali_media": 0.681596884927856,
+        "copertura_b_nuovi": 0.681596884927856,
+        "delta_iniziali": {
+          "n": 415,
+          "mediana": 0.01823289062872402,
+          "p90": 0.02687424819777755,
+          "massimo": 0.04412930086949696
+        },
+        "delta_selezione": {
+          "n": 89,
+          "mediana": 0.01915178921919125,
+          "p90": 0.02792521162619206,
+          "massimo": 0.03235397950471486
+        },
+        "delta_nuovi_a": {
+          "n": 90,
+          "mediana": 0.13724922839506176,
+          "p90": 0.200925925925926,
+          "massimo": 0.3128858024691358
+        },
+        "delta_nuovi_b": {
+          "n": 90,
+          "mediana": 0.1121524404834115,
+          "p90": 0.19314269840547738,
+          "massimo": 0.22243475087461317
+        },
+        "p90_abs_delta_tutti_a": 0.129224537037037,
+        "p90_abs_delta_tutti_b": 0.09550147575100337,
+        "rho_delta_rosso": {
+          "iniziali": 0.25301104081879355,
+          "nuovi_a": -0.31588261925340577,
+          "nuovi_b": -0.43365847635510557
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.05775100449553589,
+          "nuovi": 0.054773198892395056
+        }
+      },
+      "Melbourne/ep2/p1": {
+        "contesto": "Melbourne",
+        "episodio": 2,
+        "partizione": 1,
+        "t0": 7233,
+        "t1": 7329,
+        "fine": 8806,
+        "nodi": {
+          "iniziali": 415,
+          "nuovi": 90,
+          "selezione": 89
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.6996316283653131,
+          "nuovi_media": 0.711068244170096
+        },
+        "copertura_causale_iniziali_media": 0.681342708036626,
+        "copertura_b_nuovi": 0.681342708036626,
+        "delta_iniziali": {
+          "n": 415,
+          "mediana": 0.01855528256550476,
+          "p90": 0.02972131972287509,
+          "massimo": 0.06784314817375098
+        },
+        "delta_selezione": {
+          "n": 89,
+          "mediana": 0.02125201942229793,
+          "p90": 0.030768466992846567,
+          "massimo": 0.03548106575571841
+        },
+        "delta_nuovi_a": {
+          "n": 90,
+          "mediana": 0.2584394290123456,
+          "p90": 0.31081211419753085,
+          "massimo": 0.3611111111111111
+        },
+        "delta_nuovi_b": {
+          "n": 90,
+          "mediana": 0.11189826359218152,
+          "p90": 0.19339687529670735,
+          "massimo": 0.22268892776584315
+        },
+        "p90_abs_delta_tutti_a": 0.2495177469135803,
+        "p90_abs_delta_tutti_b": 0.09545064037275737,
+        "rho_delta_rosso": {
+          "iniziali": 0.3237825885481726,
+          "nuovi_a": 0.15421656994690702,
+          "nuovi_b": -0.46844466395028195
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.0592217877308039,
+          "nuovi": 0.053366019408393146
+        }
+      },
+      "Melbourne/ep3/p1": {
+        "contesto": "Melbourne",
+        "episodio": 3,
+        "partizione": 1,
+        "t0": 5679,
+        "t1": 5775,
+        "fine": 7233,
+        "nodi": {
+          "iniziali": 415,
+          "nuovi": 90,
+          "selezione": 89
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.6996316283653131,
+          "nuovi_media": 0.711068244170096
+        },
+        "copertura_causale_iniziali_media": 0.6842927971792081,
+        "copertura_b_nuovi": 0.6842927971792081,
+        "delta_iniziali": {
+          "n": 415,
+          "mediana": 0.015530077918647689,
+          "p90": 0.026834518254387475,
+          "massimo": 0.09919158791649552
+        },
+        "delta_selezione": {
+          "n": 89,
+          "mediana": 0.018578895687816677,
+          "p90": 0.0280406553872943,
+          "massimo": 0.03720685737903773
+        },
+        "delta_nuovi_a": {
+          "n": 90,
+          "mediana": 0.05333719135802467,
+          "p90": 0.0978780864197531,
+          "massimo": 0.1807484567901234
+        },
+        "delta_nuovi_b": {
+          "n": 90,
+          "mediana": 0.11330514285822046,
+          "p90": 0.19044678615412525,
+          "massimo": 0.21973883862326105
+        },
+        "p90_abs_delta_tutti_a": 0.04506172839506171,
+        "p90_abs_delta_tutti_b": 0.09944212828893789,
+        "rho_delta_rosso": {
+          "iniziali": 0.2965092812722462,
+          "nuovi_a": 0.08716302424167592,
+          "nuovi_b": -0.6007737580771288
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.04687752539737371,
+          "nuovi": 0.04168715378256672
+        }
+      },
+      "Melbourne/ep1/p2": {
+        "contesto": "Melbourne",
+        "episodio": 1,
+        "partizione": 2,
+        "t0": 8806,
+        "t1": 8902,
+        "fine": 10360,
+        "nodi": {
+          "iniziali": 415,
+          "nuovi": 90,
+          "selezione": 89
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.7035426427933957,
+          "nuovi_media": 0.6907750342935528
+        },
+        "copertura_causale_iniziali_media": 0.6855900549734709,
+        "copertura_b_nuovi": 0.6855900549734709,
+        "delta_iniziali": {
+          "n": 415,
+          "mediana": 0.018200207385256406,
+          "p90": 0.026721206500618246,
+          "massimo": 0.03996867140249494
+        },
+        "delta_selezione": {
+          "n": 89,
+          "mediana": 0.018679043188847055,
+          "p90": 0.027089975129190782,
+          "massimo": 0.04412930086949696
+        },
+        "delta_nuovi_a": {
+          "n": 90,
+          "mediana": 0.14269868827160498,
+          "p90": 0.21273148148148155,
+          "massimo": 0.3128858024691358
+        },
+        "delta_nuovi_b": {
+          "n": 90,
+          "mediana": 0.0917918296648289,
+          "p90": 0.18610707484297426,
+          "massimo": 0.24342229070554144
+        },
+        "p90_abs_delta_tutti_a": 0.1306905864197532,
+        "p90_abs_delta_tutti_b": 0.08549360435618696,
+        "rho_delta_rosso": {
+          "iniziali": 0.35144255953580206,
+          "nuovi_a": -0.2733588508869408,
+          "nuovi_b": -0.23692636951063917
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.05712931434786333,
+          "nuovi": 0.060988934152744624
+        }
+      },
+      "Melbourne/ep2/p2": {
+        "contesto": "Melbourne",
+        "episodio": 2,
+        "partizione": 2,
+        "t0": 7233,
+        "t1": 7329,
+        "fine": 8806,
+        "nodi": {
+          "iniziali": 415,
+          "nuovi": 90,
+          "selezione": 89
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.7035426427933957,
+          "nuovi_media": 0.6907750342935528
+        },
+        "copertura_causale_iniziali_media": 0.6854020811574794,
+        "copertura_b_nuovi": 0.6854020811574794,
+        "delta_iniziali": {
+          "n": 415,
+          "mediana": 0.01814247712388173,
+          "p90": 0.029874208552877483,
+          "massimo": 0.06598062314699604
+        },
+        "delta_selezione": {
+          "n": 89,
+          "mediana": 0.019223476120251326,
+          "p90": 0.02836249814379567,
+          "massimo": 0.06784314817375098
+        },
+        "delta_nuovi_a": {
+          "n": 90,
+          "mediana": 0.2676986882716049,
+          "p90": 0.3219135802469136,
+          "massimo": 0.41261574074074076
+        },
+        "delta_nuovi_b": {
+          "n": 90,
+          "mediana": 0.09160385584883735,
+          "p90": 0.185956695790181,
+          "massimo": 0.243610264521533
+        },
+        "p90_abs_delta_tutti_a": 0.2538194444444446,
+        "p90_abs_delta_tutti_b": 0.0853056305401954,
+        "rho_delta_rosso": {
+          "iniziali": 0.4091901049012102,
+          "nuovi_a": 0.298612997489402,
+          "nuovi_b": -0.41233897188953367
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.05717774569889313,
+          "nuovi": 0.06134448364122503
+        }
+      },
+      "Melbourne/ep3/p2": {
+        "contesto": "Melbourne",
+        "episodio": 3,
+        "partizione": 2,
+        "t0": 5679,
+        "t1": 5775,
+        "fine": 7233,
+        "nodi": {
+          "iniziali": 415,
+          "nuovi": 90,
+          "selezione": 89
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 0.7035426427933957,
+          "nuovi_media": 0.6907750342935528
+        },
+        "copertura_causale_iniziali_media": 0.6883750533035471,
+        "copertura_b_nuovi": 0.6883750533035471,
+        "delta_iniziali": {
+          "n": 415,
+          "mediana": 0.015462210923284592,
+          "p90": 0.026817979495607557,
+          "massimo": 0.09509908581323001
+        },
+        "delta_selezione": {
+          "n": 89,
+          "mediana": 0.01873495920643309,
+          "p90": 0.0263934439259651,
+          "massimo": 0.09919158791649552
+        },
+        "delta_nuovi_a": {
+          "n": 90,
+          "mediana": 0.04118441358024688,
+          "p90": 0.09731867283950613,
+          "massimo": 0.17515432098765438
+        },
+        "delta_nuovi_b": {
+          "n": 90,
+          "mediana": 0.09457682799490508,
+          "p90": 0.1849288153818537,
+          "massimo": 0.24063729237546527
+        },
+        "p90_abs_delta_tutti_a": 0.03954475308641977,
+        "p90_abs_delta_tutti_b": 0.08879943601959643,
+        "rho_delta_rosso": {
+          "iniziali": 0.3780837396408376,
+          "nuovi_a": 0.1924270486068239,
+          "nuovi_b": -0.45830349425855044
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.04399765796635383,
+          "nuovi": 0.05202641690822017
+        }
+      },
+      "PEMS08/ep1/p0": {
+        "contesto": "PEMS08_p0",
+        "episodio": 1,
+        "partizione": 0,
+        "t0": 3840,
+        "t1": 3936,
+        "fine": 5944,
+        "nodi": {
+          "iniziali": 118,
+          "nuovi": 26,
+          "selezione": 26
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 1.0,
+          "nuovi_media": 1.0
+        },
+        "copertura_causale_iniziali_media": 1.0,
+        "copertura_b_nuovi": 1.0,
+        "delta_iniziali": {
+          "n": 118,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_selezione": {
+          "n": 26,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_nuovi_a": {
+          "n": 26,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_nuovi_b": {
+          "n": 26,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "p90_abs_delta_tutti_a": 0.0,
+        "p90_abs_delta_tutti_b": 0.0,
+        "rho_delta_rosso": {
+          "iniziali": 0.13371241586595525,
+          "nuovi_a": 0.08102564102564103,
+          "nuovi_b": 0.08102564102564103
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.012281382942805053,
+          "nuovi": 0.012105424456022066
+        }
+      },
+      "PEMS08/ep1/p1": {
+        "contesto": "PEMS08_p1",
+        "episodio": 1,
+        "partizione": 1,
+        "t0": 3840,
+        "t1": 3936,
+        "fine": 5944,
+        "nodi": {
+          "iniziali": 118,
+          "nuovi": 26,
+          "selezione": 26
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 1.0,
+          "nuovi_media": 1.0
+        },
+        "copertura_causale_iniziali_media": 1.0,
+        "copertura_b_nuovi": 1.0,
+        "delta_iniziali": {
+          "n": 118,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_selezione": {
+          "n": 26,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_nuovi_a": {
+          "n": 26,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_nuovi_b": {
+          "n": 26,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "p90_abs_delta_tutti_a": 0.0,
+        "p90_abs_delta_tutti_b": 0.0,
+        "rho_delta_rosso": {
+          "iniziali": -0.09843363681848229,
+          "nuovi_a": 0.16102564102564101,
+          "nuovi_b": 0.16102564102564101
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.014543520831926535,
+          "nuovi": 0.017698437021146183
+        }
+      },
+      "PEMS08/ep1/p2": {
+        "contesto": "PEMS08_p2",
+        "episodio": 1,
+        "partizione": 2,
+        "t0": 3840,
+        "t1": 3936,
+        "fine": 5944,
+        "nodi": {
+          "iniziali": 118,
+          "nuovi": 26,
+          "selezione": 26
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 1.0,
+          "nuovi_media": 1.0
+        },
+        "copertura_causale_iniziali_media": 1.0,
+        "copertura_b_nuovi": 1.0,
+        "delta_iniziali": {
+          "n": 118,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_selezione": {
+          "n": 26,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_nuovi_a": {
+          "n": 26,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_nuovi_b": {
+          "n": 26,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "p90_abs_delta_tutti_a": 0.0,
+        "p90_abs_delta_tutti_b": 0.0,
+        "rho_delta_rosso": {
+          "iniziali": 0.22177788977390173,
+          "nuovi_a": -0.24376068376068377,
+          "nuovi_b": -0.24376068376068377
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.015923593760551018,
+          "nuovi": 0.012699203187250995
+        }
+      },
+      "PEMS08/ep1/p3": {
+        "contesto": "PEMS08_p3",
+        "episodio": 1,
+        "partizione": 3,
+        "t0": 3840,
+        "t1": 3936,
+        "fine": 5944,
+        "nodi": {
+          "iniziali": 118,
+          "nuovi": 26,
+          "selezione": 26
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 1.0,
+          "nuovi_media": 1.0
+        },
+        "copertura_causale_iniziali_media": 1.0,
+        "copertura_b_nuovi": 1.0,
+        "delta_iniziali": {
+          "n": 118,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_selezione": {
+          "n": 26,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_nuovi_a": {
+          "n": 26,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_nuovi_b": {
+          "n": 26,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "p90_abs_delta_tutti_a": 0.0,
+        "p90_abs_delta_tutti_b": 0.0,
+        "rho_delta_rosso": {
+          "iniziali": 0.030863453595258182,
+          "nuovi_a": 0.1541880341880342,
+          "nuovi_b": 0.1541880341880342
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.012830035789047203,
+          "nuovi": 0.017526049647563595
+        }
+      },
+      "PEMS08/ep1/p4": {
+        "contesto": "PEMS08_p4",
+        "episodio": 1,
+        "partizione": 4,
+        "t0": 3840,
+        "t1": 3936,
+        "fine": 5944,
+        "nodi": {
+          "iniziali": 118,
+          "nuovi": 26,
+          "selezione": 26
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 1.0,
+          "nuovi_media": 1.0
+        },
+        "copertura_causale_iniziali_media": 1.0,
+        "copertura_b_nuovi": 1.0,
+        "delta_iniziali": {
+          "n": 118,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_selezione": {
+          "n": 26,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_nuovi_a": {
+          "n": 26,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_nuovi_b": {
+          "n": 26,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "p90_abs_delta_tutti_a": 0.0,
+        "p90_abs_delta_tutti_b": 0.0,
+        "rho_delta_rosso": {
+          "iniziali": 0.038423191962573815,
+          "nuovi_a": 0.3463247863247863,
+          "nuovi_b": 0.3463247863247863
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.012391113512053482,
+          "nuovi": 0.019077536009806925
+        }
+      },
+      "PEMS08/ep1/p5": {
+        "contesto": "PEMS08_p5",
+        "episodio": 1,
+        "partizione": 5,
+        "t0": 3840,
+        "t1": 3936,
+        "fine": 5944,
+        "nodi": {
+          "iniziali": 118,
+          "nuovi": 26,
+          "selezione": 26
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 1.0,
+          "nuovi_media": 1.0
+        },
+        "copertura_causale_iniziali_media": 1.0,
+        "copertura_b_nuovi": 1.0,
+        "delta_iniziali": {
+          "n": 118,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_selezione": {
+          "n": 26,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_nuovi_a": {
+          "n": 26,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_nuovi_b": {
+          "n": 26,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "p90_abs_delta_tutti_a": 0.0,
+        "p90_abs_delta_tutti_b": 0.0,
+        "rho_delta_rosso": {
+          "iniziali": 0.10483932816933814,
+          "nuovi_a": 0.3531623931623932,
+          "nuovi_b": 0.3531623931623932
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.016890066851239113,
+          "nuovi": 0.013925068954949434
+        }
+      },
+      "PEMS04/ep1/p0": {
+        "contesto": "PEMS04_p0",
+        "episodio": 1,
+        "partizione": 0,
+        "t0": 4807,
+        "t1": 4903,
+        "fine": 5656,
+        "nodi": {
+          "iniziali": 214,
+          "nuovi": 47,
+          "selezione": 46
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 1.0,
+          "nuovi_media": 1.0
+        },
+        "copertura_causale_iniziali_media": 1.0,
+        "copertura_b_nuovi": 1.0,
+        "delta_iniziali": {
+          "n": 214,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_selezione": {
+          "n": 46,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_nuovi_a": {
+          "n": 47,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_nuovi_b": {
+          "n": 47,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "p90_abs_delta_tutti_a": 0.0,
+        "p90_abs_delta_tutti_b": 0.0,
+        "rho_delta_rosso": {
+          "iniziali": 0.22424824976811533,
+          "nuovi_a": 0.08522201665124884,
+          "nuovi_b": 0.08522201665124884
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.03134502488488414,
+          "nuovi": 0.01672741657483541
+        }
+      },
+      "PEMS04/ep1/p1": {
+        "contesto": "PEMS04_p1",
+        "episodio": 1,
+        "partizione": 1,
+        "t0": 4807,
+        "t1": 4903,
+        "fine": 5656,
+        "nodi": {
+          "iniziali": 214,
+          "nuovi": 47,
+          "selezione": 46
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 1.0,
+          "nuovi_media": 1.0
+        },
+        "copertura_causale_iniziali_media": 1.0,
+        "copertura_b_nuovi": 1.0,
+        "delta_iniziali": {
+          "n": 214,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_selezione": {
+          "n": 46,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_nuovi_a": {
+          "n": 47,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_nuovi_b": {
+          "n": 47,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "p90_abs_delta_tutti_a": 0.0,
+        "p90_abs_delta_tutti_b": 0.0,
+        "rho_delta_rosso": {
+          "iniziali": 0.18014516133969652,
+          "nuovi_a": -0.03885291396854764,
+          "nuovi_b": -0.03885291396854764
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.027547132342902535,
+          "nuovi": 0.031279138764092565
+        }
+      },
+      "PEMS04/ep1/p2": {
+        "contesto": "PEMS04_p2",
+        "episodio": 1,
+        "partizione": 2,
+        "t0": 4807,
+        "t1": 4903,
+        "fine": 5656,
+        "nodi": {
+          "iniziali": 214,
+          "nuovi": 47,
+          "selezione": 46
+        },
+        "copertura_non_causale": {
+          "iniziali_media": 1.0,
+          "nuovi_media": 1.0
+        },
+        "copertura_causale_iniziali_media": 1.0,
+        "copertura_b_nuovi": 1.0,
+        "delta_iniziali": {
+          "n": 214,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_selezione": {
+          "n": 46,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_nuovi_a": {
+          "n": 47,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_nuovi_b": {
+          "n": 47,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "p90_abs_delta_tutti_a": 0.0,
+        "p90_abs_delta_tutti_b": 0.0,
+        "rho_delta_rosso": {
+          "iniziali": 0.1371551193708655,
+          "nuovi_a": 0.1717160037002775,
+          "nuovi_b": 0.1717160037002775
+        },
+        "frequenza_rosso_test": {
+          "iniziali": 0.03066860284717826,
+          "nuovi": 0.03096832528043853
+        }
+      }
+    },
+    "per_contesto_episodio": {
+      "Madrid/ep1": {
+        "delta_iniziali": {
+          "n": 1890,
+          "mediana": 0.004862207244268724,
+          "p90": 0.011863519421042135,
+          "massimo": 0.02718182616673015
+        },
+        "delta_nuovi_a": {
+          "n": 405,
+          "mediana": 0.0210244648318042,
+          "p90": 0.08415519877675842,
+          "massimo": 0.18549311926605505
+        },
+        "delta_nuovi_b": {
+          "n": 405,
+          "mediana": 0.13109640320193205,
+          "p90": 0.22550841162937832,
+          "massimo": 0.332206349091646
+        },
+        "p90_abs_delta_tutti_a": 0.02006880733944949,
+        "p90_abs_delta_tutti_b": 0.11865804138195879
+      },
+      "Madrid/ep2": {
+        "delta_iniziali": {
+          "n": 1890,
+          "mediana": 0.008761735133401616,
+          "p90": 0.02242477357664015,
+          "massimo": 0.04314203415267037
+        },
+        "delta_nuovi_a": {
+          "n": 405,
+          "mediana": 0.020737767584097844,
+          "p90": 0.0658830275229358,
+          "massimo": 0.12643348623853212
+        },
+        "delta_nuovi_b": {
+          "n": 405,
+          "mediana": 0.13310959675626788,
+          "p90": 0.22145765622914892,
+          "massimo": 0.32809768845107873
+        },
+        "p90_abs_delta_tutti_a": 0.02897862680860963,
+        "p90_abs_delta_tutti_b": 0.11964143201889438
+      },
+      "Madrid/ep3": {
+        "delta_iniziali": {
+          "n": 1890,
+          "mediana": 0.01671966677027692,
+          "p90": 0.0402701783591344,
+          "massimo": 0.07038322299378019
+        },
+        "delta_nuovi_a": {
+          "n": 405,
+          "mediana": 0.054185779816513735,
+          "p90": 0.12605122324159024,
+          "massimo": 0.22954892966360863
+        },
+        "delta_nuovi_b": {
+          "n": 405,
+          "mediana": 0.13414279683071717,
+          "p90": 0.21284576690414633,
+          "massimo": 0.3195289183168389
+        },
+        "p90_abs_delta_tutti_a": 0.05692008179867353,
+        "p90_abs_delta_tutti_b": 0.12156091149738343
+      },
+      "Londra/ep1": {
+        "delta_iniziali": {
+          "n": 1890,
+          "mediana": 0.0017131013352602031,
+          "p90": 0.004474165091826739,
+          "massimo": 0.015277780683094155
+        },
+        "delta_nuovi_a": {
+          "n": 405,
+          "mediana": 0.19747560860092828,
+          "p90": 0.2587530785260964,
+          "massimo": 0.35633643554039973
+        },
+        "delta_nuovi_b": {
+          "n": 405,
+          "mediana": 0.12203626627545805,
+          "p90": 0.21973736392392162,
+          "massimo": 0.3622556863962161
+        },
+        "p90_abs_delta_tutti_a": 0.19056490953869473,
+        "p90_abs_delta_tutti_b": 0.1084651623297477
+      },
+      "Londra/ep2": {
+        "delta_iniziali": {
+          "n": 1890,
+          "mediana": 0.003512999800315997,
+          "p90": 0.009983405914272214,
+          "massimo": 0.07573987378081976
+        },
+        "delta_nuovi_a": {
+          "n": 405,
+          "mediana": 0.10646964099649525,
+          "p90": 0.20624111963626032,
+          "massimo": 0.3161912711944681
+        },
+        "delta_nuovi_b": {
+          "n": 405,
+          "mediana": 0.12399954666001756,
+          "p90": 0.2197119528910035,
+          "massimo": 0.35956586017904657
+        },
+        "p90_abs_delta_tutti_a": 0.09392701525054459,
+        "p90_abs_delta_tutti_b": 0.10716741988147568
+      },
+      "Londra/ep3": {
+        "delta_iniziali": {
+          "n": 1890,
+          "mediana": 0.004666457706683613,
+          "p90": 0.014321772789020026,
+          "massimo": 0.07768164523482884
+        },
+        "delta_nuovi_a": {
+          "n": 405,
+          "mediana": 0.06416358814057022,
+          "p90": 0.12191851378232443,
+          "massimo": 0.20743345647437728
+        },
+        "delta_nuovi_b": {
+          "n": 405,
+          "mediana": 0.12336689855280103,
+          "p90": 0.21998194806467655,
+          "massimo": 0.36052381487829355
+        },
+        "p90_abs_delta_tutti_a": 0.057344652836980245,
+        "p90_abs_delta_tutti_b": 0.10768016667193214
+      },
+      "Melbourne/ep1": {
+        "delta_iniziali": {
+          "n": 1245,
+          "mediana": 0.018236570779462946,
+          "p90": 0.026870664431938973,
+          "massimo": 0.04412930086949696
+        },
+        "delta_nuovi_a": {
+          "n": 270,
+          "mediana": 0.13753858024691362,
+          "p90": 0.20694444444444446,
+          "massimo": 0.3128858024691358
+        },
+        "delta_nuovi_b": {
+          "n": 270,
+          "mediana": 0.099633487654321,
+          "p90": 0.193080233378522,
+          "massimo": 0.2714821685062945
+        },
+        "p90_abs_delta_tutti_a": 0.12957175925925932,
+        "p90_abs_delta_tutti_b": 0.08860656606160694
+      },
+      "Melbourne/ep2": {
+        "delta_iniziali": {
+          "n": 1245,
+          "mediana": 0.01837774302195183,
+          "p90": 0.02989357068426089,
+          "massimo": 0.06784314817375098
+        },
+        "delta_nuovi_a": {
+          "n": 270,
+          "mediana": 0.25829475308641975,
+          "p90": 0.31601080246913577,
+          "massimo": 0.41261574074074076
+        },
+        "delta_nuovi_b": {
+          "n": 270,
+          "mediana": 0.099633487654321,
+          "p90": 0.1933385364795896,
+          "massimo": 0.27177760749590074
+        },
+        "p90_abs_delta_tutti_a": 0.24789737654321,
+        "p90_abs_delta_tutti_b": 0.08831112707200067
+      },
+      "Melbourne/ep3": {
+        "delta_iniziali": {
+          "n": 1245,
+          "mediana": 0.015616898759562514,
+          "p90": 0.026834518254387475,
+          "massimo": 0.09919158791649552
+        },
+        "delta_nuovi_a": {
+          "n": 270,
+          "mediana": 0.0483699845679012,
+          "p90": 0.09731867283950613,
+          "massimo": 0.1807484567901234
+        },
+        "delta_nuovi_b": {
+          "n": 270,
+          "mediana": 0.10059739714566429,
+          "p90": 0.19040345875342654,
+          "massimo": 0.26897763251750917
+        },
+        "p90_abs_delta_tutti_a": 0.04282407407407416,
+        "p90_abs_delta_tutti_b": 0.09310838359896118
+      },
+      "PEMS08/ep1": {
+        "delta_iniziali": {
+          "n": 708,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_nuovi_a": {
+          "n": 156,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_nuovi_b": {
+          "n": 156,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "p90_abs_delta_tutti_a": 0.0,
+        "p90_abs_delta_tutti_b": 0.0
+      },
+      "PEMS04/ep1": {
+        "delta_iniziali": {
+          "n": 642,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_nuovi_a": {
+          "n": 141,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "delta_nuovi_b": {
+          "n": 141,
+          "mediana": 0.0,
+          "p90": 0.0,
+          "massimo": 0.0
+        },
+        "p90_abs_delta_tutti_a": 0.0,
+        "p90_abs_delta_tutti_b": 0.0
+      }
+    },
+    "criterio": {
+      "sotto_soglia": {
+        "Madrid/ep1": false,
+        "Madrid/ep2": false,
+        "Madrid/ep3": false,
+        "Londra/ep1": false,
+        "Londra/ep2": false,
+        "Londra/ep3": false,
+        "Melbourne/ep1": false,
+        "Melbourne/ep2": false,
+        "Melbourne/ep3": false,
+        "PEMS08/ep1": true,
+        "PEMS04/ep1": true
+      },
+      "verdetto": "stadio A con entrambe le varianti (a) e (b)"
+    }
+  },
+  "risultati": {
+    "repliche": 4000,
+    "soglia_delta": 0.002,
+    "varianti": [
+      "a",
+      "b",
+      "c"
+    ],
+    "gruppi": {
+      "Londra": {
+        "celle": 36,
+        "confronti": {
+          "F0-C": {
+            "nc": {
+              "media": 0.04973204743406413,
+              "ic_con_nodi": [
+                0.03820775678429181,
+                0.06239221388727985
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "a": {
+              "media": 0.04978611142970155,
+              "ic_con_nodi": [
+                0.03827441036127735,
+                0.06256988505116745
+              ],
+              "include_zero": false,
+              "segno": "+",
+              "delta_da_nc": 5.406399563741976e-05,
+              "insensibile": true
+            },
+            "b": {
+              "media": 0.049763994917737656,
+              "ic_con_nodi": [
+                0.03817256331320713,
+                0.06255071399226574
+              ],
+              "include_zero": false,
+              "segno": "+",
+              "delta_da_nc": 3.194748367352229e-05,
+              "insensibile": true
+            },
+            "c": {
+              "media": 0.049658272427276745,
+              "ic_con_nodi": [
+                0.03808765259143018,
+                0.06251116033845662
+              ],
+              "include_zero": false,
+              "segno": "+",
+              "delta_da_nc": -7.377500678738824e-05,
+              "insensibile": true
+            }
+          },
+          "F0p-C": {
+            "nc": {
+              "media": 0.012875523607309008,
+              "ic_con_nodi": [
+                0.009580269907943653,
+                0.016614230927502267
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "a": {
+              "media": 0.012665050536355629,
+              "ic_con_nodi": [
+                0.009559571202790327,
+                0.01634599298616824
+              ],
+              "include_zero": false,
+              "segno": "+",
+              "delta_da_nc": -0.00021047307095337954,
+              "insensibile": true
+            },
+            "b": {
+              "media": 0.01295165934067912,
+              "ic_con_nodi": [
+                0.00972910323122882,
+                0.01663544021260398
+              ],
+              "include_zero": false,
+              "segno": "+",
+              "delta_da_nc": 7.613573337011091e-05,
+              "insensibile": true
+            },
+            "c": {
+              "media": 0.013018648701863497,
+              "ic_con_nodi": [
+                0.009780746818868882,
+                0.016642660871874118
+              ],
+              "include_zero": false,
+              "segno": "+",
+              "delta_da_nc": 0.0001431250945544884,
+              "insensibile": true
+            }
+          },
+          "Fp_672-C_eta>1sett": {
+            "nc": {
+              "media": -0.030179350855271223,
+              "ic_con_nodi": [
+                -0.03429526893226528,
+                -0.026073575517494646
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "a": {
+              "media": -0.030545439540462835,
+              "ic_con_nodi": [
+                -0.03477898475608573,
+                -0.026365897852520574
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -0.0003660886851916123,
+              "insensibile": true
+            },
+            "b": {
+              "media": -0.030289381195932226,
+              "ic_con_nodi": [
+                -0.03447563856087399,
+                -0.026193363152208316
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -0.00011003034066100342,
+              "insensibile": true
+            },
+            "c": {
+              "media": -0.030428403783751015,
+              "ic_con_nodi": [
+                -0.03455679970974962,
+                -0.02629978601373731
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -0.00024905292847979266,
+              "insensibile": true
+            }
+          },
+          "Fp_672-A_eta>1sett": {
+            "nc": {
+              "media": 0.009313336291743753,
+              "ic_con_nodi": [
+                0.006257313792194019,
+                0.012366987733080918
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "a": {
+              "media": 0.009182627299533388,
+              "ic_con_nodi": [
+                0.006086376657328882,
+                0.012299028181949946
+              ],
+              "include_zero": false,
+              "segno": "+",
+              "delta_da_nc": -0.00013070899221036443,
+              "insensibile": true
+            },
+            "b": {
+              "media": 0.009360497173111718,
+              "ic_con_nodi": [
+                0.006297906601261408,
+                0.01242449877908309
+              ],
+              "include_zero": false,
+              "segno": "+",
+              "delta_da_nc": 4.7160881367965674e-05,
+              "insensibile": true
+            },
+            "c": {
+              "media": 0.009369410641822649,
+              "ic_con_nodi": [
+                0.006304938613842104,
+                0.012449140306754945
+              ],
+              "include_zero": false,
+              "segno": "+",
+              "delta_da_nc": 5.6074350078896135e-05,
+              "insensibile": true
+            }
+          },
+          "Rorig_672-Fp_672_eta>1sett": {
+            "nc": {
+              "media": -0.002458556132130551,
+              "ic_con_nodi": [
+                -0.004937739248944104,
+                0.00036717845296706383
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "a": {
+              "media": -0.0015210430033046525,
+              "ic_con_nodi": [
+                -0.004126913040885785,
+                0.0014916950868752849
+              ],
+              "include_zero": true,
+              "segno": "0",
+              "delta_da_nc": 0.0009375131288258986,
+              "insensibile": true
+            },
+            "b": {
+              "media": -0.002306111558932582,
+              "ic_con_nodi": [
+                -0.00481050912472532,
+                0.0005168446845348231
+              ],
+              "include_zero": true,
+              "segno": "0",
+              "delta_da_nc": 0.00015244457319796897,
+              "insensibile": true
+            },
+            "c": {
+              "media": -0.0023047782662973587,
+              "ic_con_nodi": [
+                -0.004806540559826105,
+                0.0004892320523541893
+              ],
+              "include_zero": true,
+              "segno": "0",
+              "delta_da_nc": 0.00015377786583319238,
+              "insensibile": true
+            }
+          },
+          "A-C": {
+            "nc": {
+              "media": -0.03472228373868913,
+              "ic_con_nodi": [
+                -0.0392027466691199,
+                -0.03070264895239286
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "a": {
+              "media": -0.03488369375859806,
+              "ic_con_nodi": [
+                -0.039524661332016986,
+                -0.03083077596130677
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -0.0001614100199089294,
+              "insensibile": true
+            },
+            "b": {
+              "media": -0.03491721594097287,
+              "ic_con_nodi": [
+                -0.039528213555381775,
+                -0.030851381894663705
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -0.0001949322022837402,
+              "insensibile": true
+            },
+            "c": {
+              "media": -0.03506552856366321,
+              "ic_con_nodi": [
+                -0.03960469627498476,
+                -0.031044814196351606
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -0.0003432448249740816,
+              "insensibile": true
+            }
+          }
+        },
+        "assolute": {
+          "wCE_C": {
+            "nc": {
+              "media": 0.8900161769832162,
+              "ic_con_nodi": [
+                0.8633864034035421,
+                0.9151209486558934
+              ],
+              "include_zero": false
+            },
+            "a": {
+              "media": 0.8901467769216121,
+              "ic_con_nodi": [
+                0.8635293620787816,
+                0.9151543925420762
+              ],
+              "include_zero": false,
+              "delta_da_nc": 0.00013059993839592554
+            },
+            "b": {
+              "media": 0.8902117451954005,
+              "ic_con_nodi": [
+                0.8634969040657714,
+                0.9153754643772943
+              ],
+              "include_zero": false,
+              "delta_da_nc": 0.00019556821218424947
+            },
+            "c": {
+              "media": 0.8903839735698228,
+              "ic_con_nodi": [
+                0.8637468585146876,
+                0.9154040383504929
+              ],
+              "include_zero": false,
+              "delta_da_nc": 0.00036779658660657244
+            }
+          },
+          "wCE_A": {
+            "nc": {
+              "media": 0.8552938932445271,
+              "ic_con_nodi": [
+                0.8272772113774114,
+                0.8815924655543478
+              ],
+              "include_zero": false
+            },
+            "a": {
+              "media": 0.8552630831630141,
+              "ic_con_nodi": [
+                0.8272644919137031,
+                0.8815809815999407
+              ],
+              "include_zero": false,
+              "delta_da_nc": -3.081008151295528e-05
+            },
+            "b": {
+              "media": 0.8552945292544275,
+              "ic_con_nodi": [
+                0.8272606263580925,
+                0.8816792801566296
+              ],
+              "include_zero": false,
+              "delta_da_nc": 6.360099004121267e-07
+            },
+            "c": {
+              "media": 0.8553184450061594,
+              "ic_con_nodi": [
+                0.8272478278347601,
+                0.8816915981352087
+              ],
+              "include_zero": false,
+              "delta_da_nc": 2.4551761632296554e-05
+            }
+          }
+        },
+        "controllo_1": {
+          "Londra_p0_s201": 6.0897034647318915e-09,
+          "Londra_p0_s202": 2.8343084749531605e-08,
+          "Londra_p0_s203": 4.1985257115847605e-08
+        },
+        "tutte_insensibili": {
+          "a": true,
+          "b": true,
+          "c": true
+        }
+      },
+      "Madrid": {
+        "celle": 36,
+        "confronti": {
+          "F0-C": {
+            "nc": {
+              "media": 0.07318323853605929,
+              "ic_con_nodi": [
+                0.058556581216183054,
+                0.08823139150155436
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "a": {
+              "media": 0.07371110971776422,
+              "ic_con_nodi": [
+                0.059339601655536554,
+                0.08856832313335013
+              ],
+              "include_zero": false,
+              "segno": "+",
+              "delta_da_nc": 0.0005278711817049281,
+              "insensibile": true
+            },
+            "b": {
+              "media": 0.07357861000217152,
+              "ic_con_nodi": [
+                0.0592981889970696,
+                0.08837992828541463
+              ],
+              "include_zero": false,
+              "segno": "+",
+              "delta_da_nc": 0.00039537146611222374,
+              "insensibile": true
+            },
+            "c": {
+              "media": 0.0712794651277317,
+              "ic_con_nodi": [
+                0.057081058384442177,
+                0.08582727632023457
+              ],
+              "include_zero": false,
+              "segno": "+",
+              "delta_da_nc": -0.0019037734083275915,
+              "insensibile": true
+            }
+          },
+          "F0p-C": {
+            "nc": {
+              "media": 0.008147095698782601,
+              "ic_con_nodi": [
+                0.005694830360874619,
+                0.01084794530342239
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "a": {
+              "media": 0.008202163934765352,
+              "ic_con_nodi": [
+                0.005705899991863746,
+                0.010957249521036497
+              ],
+              "include_zero": false,
+              "segno": "+",
+              "delta_da_nc": 5.506823598275083e-05,
+              "insensibile": true
+            },
+            "b": {
+              "media": 0.009096755965160543,
+              "ic_con_nodi": [
+                0.006610908772585635,
+                0.011891048818265207
+              ],
+              "include_zero": false,
+              "segno": "+",
+              "delta_da_nc": 0.000949660266377942,
+              "insensibile": true
+            },
+            "c": {
+              "media": 0.008970540038843754,
+              "ic_con_nodi": [
+                0.006301420904708947,
+                0.01200939825828697
+              ],
+              "include_zero": false,
+              "segno": "+",
+              "delta_da_nc": 0.0008234443400611524,
+              "insensibile": true
+            }
+          },
+          "Fp_672-C_eta>1sett": {
+            "nc": {
+              "media": -0.03162871500032763,
+              "ic_con_nodi": [
+                -0.03701146491234651,
+                -0.026805152808714244
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "a": {
+              "media": -0.03166588035442233,
+              "ic_con_nodi": [
+                -0.03710587292428859,
+                -0.026910218939213058
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -3.716535409470367e-05,
+              "insensibile": true
+            },
+            "b": {
+              "media": -0.0337202130207804,
+              "ic_con_nodi": [
+                -0.03903380097647189,
+                -0.029103909413882127
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -0.0020914980204527686,
+              "insensibile": false
+            },
+            "c": {
+              "media": -0.036077167984746694,
+              "ic_con_nodi": [
+                -0.04198833424361588,
+                -0.030925908648019862
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -0.004448452984419066,
+              "insensibile": false
+            }
+          },
+          "Fp_672-A_eta>1sett": {
+            "nc": {
+              "media": 0.00704644002698145,
+              "ic_con_nodi": [
+                0.003972134213113854,
+                0.010236598885955524
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "a": {
+              "media": 0.006991539138384369,
+              "ic_con_nodi": [
+                0.003926975917776553,
+                0.010175286491820982
+              ],
+              "include_zero": false,
+              "segno": "+",
+              "delta_da_nc": -5.490088859708142e-05,
+              "insensibile": true
+            },
+            "b": {
+              "media": 0.006819735530250236,
+              "ic_con_nodi": [
+                0.003705616870866008,
+                0.010016672221122135
+              ],
+              "include_zero": false,
+              "segno": "+",
+              "delta_da_nc": -0.00022670449673121464,
+              "insensibile": true
+            },
+            "c": {
+              "media": 0.006769060952222334,
+              "ic_con_nodi": [
+                0.0036266538608986255,
+                0.010075708063017857
+              ],
+              "include_zero": false,
+              "segno": "+",
+              "delta_da_nc": -0.0002773790747591159,
+              "insensibile": true
+            }
+          },
+          "Rorig_672-Fp_672_eta>1sett": {
+            "nc": {
+              "media": -0.003335877563759082,
+              "ic_con_nodi": [
+                -0.005949316463069535,
+                -0.0010227373313449785
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "a": {
+              "media": -0.003458104025164166,
+              "ic_con_nodi": [
+                -0.006022177369720658,
+                -0.0011180190392205865
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -0.00012222646140508386,
+              "insensibile": true
+            },
+            "b": {
+              "media": -0.0030173538926617505,
+              "ic_con_nodi": [
+                -0.005406307575204076,
+                -0.0007871208514442123
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": 0.0003185236710973316,
+              "insensibile": true
+            },
+            "c": {
+              "media": -0.0025984446005794435,
+              "ic_con_nodi": [
+                -0.005177478979714212,
+                -0.0002226879142667887
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": 0.0007374329631796386,
+              "insensibile": true
+            }
+          },
+          "A-C": {
+            "nc": {
+              "media": -0.03908709144885013,
+              "ic_con_nodi": [
+                -0.04411992408475339,
+                -0.0341800595538551
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "a": {
+              "media": -0.03917970054371031,
+              "ic_con_nodi": [
+                -0.044179713813244495,
+                -0.03444233858855731
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -9.260909486018265e-05,
+              "insensibile": true
+            },
+            "b": {
+              "media": -0.040702504059238004,
+              "ic_con_nodi": [
+                -0.045393114738718154,
+                -0.036402018117098686
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -0.0016154126103878758,
+              "insensibile": true
+            },
+            "c": {
+              "media": -0.04304086483733962,
+              "ic_con_nodi": [
+                -0.04819735734804017,
+                -0.03825054396940872
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -0.003953773388489491,
+              "insensibile": false
+            }
+          }
+        },
+        "assolute": {
+          "wCE_C": {
+            "nc": {
+              "media": 0.9598171083811307,
+              "ic_con_nodi": [
+                0.9347742636081906,
+                0.9829870495305445
+              ],
+              "include_zero": false
+            },
+            "a": {
+              "media": 0.9600074340573741,
+              "ic_con_nodi": [
+                0.9349455899559469,
+                0.983249813620525
+              ],
+              "include_zero": false,
+              "delta_da_nc": 0.00019032567624344132
+            },
+            "b": {
+              "media": 0.9618667593341635,
+              "ic_con_nodi": [
+                0.9368703645558526,
+                0.9847114403362418
+              ],
+              "include_zero": false,
+              "delta_da_nc": 0.002049650953032889
+            },
+            "c": {
+              "media": 0.9643762513237684,
+              "ic_con_nodi": [
+                0.9396278095375658,
+                0.9868734285533964
+              ],
+              "include_zero": false,
+              "delta_da_nc": 0.004559142942637706
+            }
+          },
+          "wCE_A": {
+            "nc": {
+              "media": 0.9207300169322805,
+              "ic_con_nodi": [
+                0.8936525837446814,
+                0.9455466636538709
+              ],
+              "include_zero": false
+            },
+            "a": {
+              "media": 0.920827733513664,
+              "ic_con_nodi": [
+                0.8937396247615035,
+                0.9456997533441523
+              ],
+              "include_zero": false,
+              "delta_da_nc": 9.771658138346684e-05
+            },
+            "b": {
+              "media": 0.9211642552749255,
+              "ic_con_nodi": [
+                0.8940891824082005,
+                0.9460892383820563
+              ],
+              "include_zero": false,
+              "delta_da_nc": 0.00043423834264499916
+            },
+            "c": {
+              "media": 0.921335386486429,
+              "ic_con_nodi": [
+                0.894256453553915,
+                0.9463230362711578
+              ],
+              "include_zero": false,
+              "delta_da_nc": 0.0006053695541484716
+            }
+          }
+        },
+        "controllo_1": {
+          "Madrid_p0_s201": 3.3757196760819755e-08,
+          "Madrid_p0_s202": 5.138045990459207e-08,
+          "Madrid_p0_s203": 2.7602162185454566e-09
+        },
+        "tutte_insensibili": {
+          "a": true,
+          "b": false,
+          "c": false
+        }
+      },
+      "Melbourne": {
+        "celle": 36,
+        "confronti": {
+          "F0-C": {
+            "nc": {
+              "media": 0.07832186370743104,
+              "ic_con_nodi": [
+                0.05186660322972026,
+                0.10244771250700885
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "a": {
+              "media": 0.07419240270157802,
+              "ic_con_nodi": [
+                0.04756487245496125,
+                0.09817110144560394
+              ],
+              "include_zero": false,
+              "segno": "+",
+              "delta_da_nc": -0.0041294610058530135,
+              "insensibile": false
+            },
+            "b": {
+              "media": 0.07967874432231842,
+              "ic_con_nodi": [
+                0.054625950426618754,
+                0.10251909402318204
+              ],
+              "include_zero": false,
+              "segno": "+",
+              "delta_da_nc": 0.0013568806148873819,
+              "insensibile": true
+            },
+            "c": {
+              "media": 0.07705663056004913,
+              "ic_con_nodi": [
+                0.051912995701615415,
+                0.10009637276486846
+              ],
+              "include_zero": false,
+              "segno": "+",
+              "delta_da_nc": -0.0012652331473819028,
+              "insensibile": true
+            }
+          },
+          "F0p-C": {
+            "nc": {
+              "media": 0.0014887479643314512,
+              "ic_con_nodi": [
+                -0.005189351027096385,
+                0.007510705195668
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "a": {
+              "media": 0.0009942549037875725,
+              "ic_con_nodi": [
+                -0.005853653470238117,
+                0.007051460672777172
+              ],
+              "include_zero": true,
+              "segno": "0",
+              "delta_da_nc": -0.0004944930605438787,
+              "insensibile": true
+            },
+            "b": {
+              "media": 0.0028723148319443246,
+              "ic_con_nodi": [
+                -0.003446989467579747,
+                0.008362614159714071
+              ],
+              "include_zero": true,
+              "segno": "0",
+              "delta_da_nc": 0.0013835668676128734,
+              "insensibile": true
+            },
+            "c": {
+              "media": 0.0023949107594319462,
+              "ic_con_nodi": [
+                -0.0038451788379138454,
+                0.007938511921338811
+              ],
+              "include_zero": true,
+              "segno": "0",
+              "delta_da_nc": 0.0009061627951004951,
+              "insensibile": true
+            }
+          },
+          "Fp_672-C_eta>1sett": {
+            "nc": {
+              "media": -0.03640755593908268,
+              "ic_con_nodi": [
+                -0.0431961609761637,
+                -0.029653759920136663
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "a": {
+              "media": -0.04148206621004047,
+              "ic_con_nodi": [
+                -0.04887253612555301,
+                -0.03382309495953525
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -0.005074510270957788,
+              "insensibile": false
+            },
+            "b": {
+              "media": -0.037928089376164466,
+              "ic_con_nodi": [
+                -0.043925305900704766,
+                -0.031860835450123366
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -0.001520533437081785,
+              "insensibile": true
+            },
+            "c": {
+              "media": -0.04053680969899305,
+              "ic_con_nodi": [
+                -0.04682229155955484,
+                -0.034034574823019456
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -0.00412925375991037,
+              "insensibile": false
+            }
+          },
+          "Fp_672-A_eta>1sett": {
+            "nc": {
+              "media": -0.0026857745489767917,
+              "ic_con_nodi": [
+                -0.012907218682281611,
+                0.006219678992964727
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "a": {
+              "media": -0.0022746189235950706,
+              "ic_con_nodi": [
+                -0.012766252195900323,
+                0.0068090534787131896
+              ],
+              "include_zero": true,
+              "segno": "0",
+              "delta_da_nc": 0.0004111556253817211,
+              "insensibile": true
+            },
+            "b": {
+              "media": -0.0017589780740378319,
+              "ic_con_nodi": [
+                -0.011789887741362658,
+                0.006952723628977343
+              ],
+              "include_zero": true,
+              "segno": "0",
+              "delta_da_nc": 0.0009267964749389598,
+              "insensibile": true
+            },
+            "c": {
+              "media": -0.0017271516946085197,
+              "ic_con_nodi": [
+                -0.011842411837895368,
+                0.007079122689346435
+              ],
+              "include_zero": true,
+              "segno": "0",
+              "delta_da_nc": 0.000958622854368272,
+              "insensibile": true
+            }
+          },
+          "Rorig_672-Fp_672_eta>1sett": {
+            "nc": {
+              "media": -0.013384702671234166,
+              "ic_con_nodi": [
+                -0.020013507545325753,
+                -0.007004253095510278
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "a": {
+              "media": -0.01444181728937797,
+              "ic_con_nodi": [
+                -0.021314409499987714,
+                -0.007746616556191947
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -0.0010571146181438049,
+              "insensibile": true
+            },
+            "b": {
+              "media": -0.013602127187450162,
+              "ic_con_nodi": [
+                -0.020044541574221288,
+                -0.007282820540080848
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -0.00021742451621599608,
+              "insensibile": true
+            },
+            "c": {
+              "media": -0.013670598320632594,
+              "ic_con_nodi": [
+                -0.02004630554774689,
+                -0.007327799756034164
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -0.0002858956493984287,
+              "insensibile": true
+            }
+          },
+          "A-C": {
+            "nc": {
+              "media": -0.03835925722998263,
+              "ic_con_nodi": [
+                -0.04820446638632996,
+                -0.02706808163517694
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "a": {
+              "media": -0.044920784213021925,
+              "ic_con_nodi": [
+                -0.05584936786854702,
+                -0.03267000960365139
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -0.006561526983039294,
+              "insensibile": false
+            },
+            "b": {
+              "media": -0.040241253772947946,
+              "ic_con_nodi": [
+                -0.049884567128887496,
+                -0.029048546582467583
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -0.0018819965429653154,
+              "insensibile": true
+            },
+            "c": {
+              "media": -0.043039794388361995,
+              "ic_con_nodi": [
+                -0.053116912741818956,
+                -0.03157908944469622
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -0.004680537158379364,
+              "insensibile": false
+            }
+          }
+        },
+        "assolute": {
+          "wCE_C": {
+            "nc": {
+              "media": 0.8143018128012375,
+              "ic_con_nodi": [
+                0.7795068752207733,
+                0.8474712642263929
+              ],
+              "include_zero": false
+            },
+            "a": {
+              "media": 0.8212458850175782,
+              "ic_con_nodi": [
+                0.785164309524961,
+                0.8557152018917962
+              ],
+              "include_zero": false,
+              "delta_da_nc": 0.0069440722163407465
+            },
+            "b": {
+              "media": 0.8156941218523295,
+              "ic_con_nodi": [
+                0.7822945203431502,
+                0.8474495030812342
+              ],
+              "include_zero": false,
+              "delta_da_nc": 0.001392309051092
+            },
+            "c": {
+              "media": 0.81865135763804,
+              "ic_con_nodi": [
+                0.7847279369116907,
+                0.8507983000018804
+              ],
+              "include_zero": false,
+              "delta_da_nc": 0.004349544836802499
+            }
+          },
+          "wCE_A": {
+            "nc": {
+              "media": 0.7759425555712549,
+              "ic_con_nodi": [
+                0.74071838213106,
+                0.8093979219216574
+              ],
+              "include_zero": false
+            },
+            "a": {
+              "media": 0.7763251008045563,
+              "ic_con_nodi": [
+                0.7409538802667809,
+                0.8097377999561216
+              ],
+              "include_zero": false,
+              "delta_da_nc": 0.0003825452333013901
+            },
+            "b": {
+              "media": 0.7754528680793816,
+              "ic_con_nodi": [
+                0.7403557262382539,
+                0.8086410108638548
+              ],
+              "include_zero": false,
+              "delta_da_nc": -0.0004896874918732808
+            },
+            "c": {
+              "media": 0.775611563249678,
+              "ic_con_nodi": [
+                0.7404921385420992,
+                0.8087875556676045
+              ],
+              "include_zero": false,
+              "delta_da_nc": -0.0003309923215769617
+            }
+          }
+        },
+        "controllo_1": {
+          "Melbourne_p0_s201": 1.8109923519153524e-08,
+          "Melbourne_p0_s202": 1.1575509627528478e-08,
+          "Melbourne_p0_s203": 9.279754953659037e-09
+        },
+        "tutte_insensibili": {
+          "a": false,
+          "b": true,
+          "c": false
+        }
+      },
+      "PEMS08": {
+        "celle": 36,
+        "confronti": {
+          "F0-C": {
+            "nc": {
+              "media": 0.1564909617167898,
+              "ic_con_nodi": [
+                0.05906507400684129,
+                0.2405280809256084
+              ],
+              "include_zero": false,
+              "segno": "+"
+            },
+            "a": {
+              "media": 0.15649094624804374,
+              "ic_con_nodi": [
+                0.05906503877292453,
+                0.24052806940500907
+              ],
+              "include_zero": false,
+              "segno": "+",
+              "delta_da_nc": -1.5468746061841898e-08,
+              "insensibile": true
+            },
+            "b": {
+              "media": 0.15649094624804374,
+              "ic_con_nodi": [
+                0.05906503877292453,
+                0.24052806940500907
+              ],
+              "include_zero": false,
+              "segno": "+",
+              "delta_da_nc": -1.5468746061841898e-08,
+              "insensibile": true
+            },
+            "c": {
+              "media": 0.15649094624804374,
+              "ic_con_nodi": [
+                0.05906503877292453,
+                0.24052806940500907
+              ],
+              "include_zero": false,
+              "segno": "+",
+              "delta_da_nc": -1.5468746061841898e-08,
+              "insensibile": true
+            }
+          },
+          "F0p-C": {
+            "nc": {
+              "media": -0.03943119600870017,
+              "ic_con_nodi": [
+                -0.07598181548573642,
+                -0.0036742616232915805
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "a": {
+              "media": -0.039431195931425106,
+              "ic_con_nodi": [
+                -0.07598181702404129,
+                -0.0036742675398903336
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": 7.727506134980189e-11,
+              "insensibile": true
+            },
+            "b": {
+              "media": -0.039431195931425106,
+              "ic_con_nodi": [
+                -0.07598181702404129,
+                -0.0036742675398903336
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": 7.727506134980189e-11,
+              "insensibile": true
+            },
+            "c": {
+              "media": -0.039431195931425106,
+              "ic_con_nodi": [
+                -0.07598181702404129,
+                -0.0036742675398903336
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": 7.727506134980189e-11,
+              "insensibile": true
+            }
+          },
+          "Fp_672-C_eta>1sett": {
+            "nc": {
+              "media": -0.09084929069187012,
+              "ic_con_nodi": [
+                -0.13126150710092538,
+                -0.04537666729745332
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "a": {
+              "media": -0.09084929865480666,
+              "ic_con_nodi": [
+                -0.1312615123507455,
+                -0.045376687893203586
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -7.96293654625746e-09,
+              "insensibile": true
+            },
+            "b": {
+              "media": -0.09084929865480666,
+              "ic_con_nodi": [
+                -0.1312615123507455,
+                -0.045376687893203586
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -7.96293654625746e-09,
+              "insensibile": true
+            },
+            "c": {
+              "media": -0.09084929865480666,
+              "ic_con_nodi": [
+                -0.1312615123507455,
+                -0.045376687893203586
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -7.96293654625746e-09,
+              "insensibile": true
+            }
+          },
+          "Fp_672-A_eta>1sett": {
+            "nc": {
+              "media": 0.039588628047137094,
+              "ic_con_nodi": [
+                -0.016480261421525463,
+                0.09058238290741935
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "a": {
+              "media": 0.039588619906215615,
+              "ic_con_nodi": [
+                -0.016480264618089633,
+                0.09058238633172977
+              ],
+              "include_zero": true,
+              "segno": "0",
+              "delta_da_nc": -8.140921478605456e-09,
+              "insensibile": true
+            },
+            "b": {
+              "media": 0.039588619906215615,
+              "ic_con_nodi": [
+                -0.016480264618089633,
+                0.09058238633172977
+              ],
+              "include_zero": true,
+              "segno": "0",
+              "delta_da_nc": -8.140921478605456e-09,
+              "insensibile": true
+            },
+            "c": {
+              "media": 0.039588619906215615,
+              "ic_con_nodi": [
+                -0.016480264618089633,
+                0.09058238633172977
+              ],
+              "include_zero": true,
+              "segno": "0",
+              "delta_da_nc": -8.140921478605456e-09,
+              "insensibile": true
+            }
+          },
+          "Rorig_672-Fp_672_eta>1sett": {
+            "nc": {
+              "media": 0.009812870264789364,
+              "ic_con_nodi": [
+                -0.03955446843685011,
+                0.07752628096535201
+              ],
+              "include_zero": true,
+              "segno": "0"
+            },
+            "a": {
+              "media": 0.009812877485939087,
+              "ic_con_nodi": [
+                -0.03955446910523996,
+                0.0775262798129477
+              ],
+              "include_zero": true,
+              "segno": "0",
+              "delta_da_nc": 7.221149723318776e-09,
+              "insensibile": true
+            },
+            "b": {
+              "media": 0.009812877485939087,
+              "ic_con_nodi": [
+                -0.03955446910523996,
+                0.0775262798129477
+              ],
+              "include_zero": true,
+              "segno": "0",
+              "delta_da_nc": 7.221149723318776e-09,
+              "insensibile": true
+            },
+            "c": {
+              "media": 0.009812877485939087,
+              "ic_con_nodi": [
+                -0.03955446910523996,
+                0.0775262798129477
+              ],
+              "include_zero": true,
+              "segno": "0",
+              "delta_da_nc": 7.221149723318776e-09,
+              "insensibile": true
+            }
+          },
+          "A-C": {
+            "nc": {
+              "media": -0.1325255920001575,
+              "ic_con_nodi": [
+                -0.18799513169268964,
+                -0.06701508117142613
+              ],
+              "include_zero": false,
+              "segno": "-"
+            },
+            "a": {
+              "media": -0.13252559202081873,
+              "ic_con_nodi": [
+                -0.18799512513206443,
+                -0.06701508577746854
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -2.0661222732698548e-11,
+              "insensibile": true
+            },
+            "b": {
+              "media": -0.13252559202081873,
+              "ic_con_nodi": [
+                -0.18799512513206443,
+                -0.06701508577746854
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -2.0661222732698548e-11,
+              "insensibile": true
+            },
+            "c": {
+              "media": -0.13252559202081873,
+              "ic_con_nodi": [
+                -0.18799512513206443,
+                -0.06701508577746854
+              ],
+              "include_zero": false,
+              "segno": "-",
+              "delta_da_nc": -2.0661222732698548e-11,
+              "insensibile": true
+            }
+          }
+        },
+        "assolute": {
+          "wCE_C": {
+            "nc": {
+              "media": 0.6095952062888622,
+              "ic_con_nodi": [
+                0.498839936367435,
+                0.707737222080627
+              ],
+              "include_zero": false
+            },
+            "a": {
+              "media": 0.6095952034393147,
+              "ic_con_nodi": [
+                0.4988399285882401,
+                0.7077372233683736
+              ],
+              "include_zero": false,
+              "delta_da_nc": -2.8495474868606152e-09
+            },
+            "b": {
+              "media": 0.6095952034393147,
+              "ic_con_nodi": [
+                0.4988399285882401,
+                0.7077372233683736
+              ],
+              "include_zero": false,
+              "delta_da_nc": -2.8495474868606152e-09
+            },
+            "c": {
+              "media": 0.6095952034393147,
+              "ic_con_nodi": [
+                0.4988399285882401,
+                0.7077372233683736
+              ],
+              "include_zero": false,
+              "delta_da_nc": -2.8495474868606152e-09
+            }
+          },
+          "wCE_A": {
+            "nc": {
+              "media": 0.47706961428870476,
+              "ic_con_nodi": [
+                0.3847512294841861,
+                0.5670261371805729
+              ],
+              "include_zero": false
+            },
+            "a": {
+              "media": 0.47706961141849596,
+              "ic_con_nodi": [
+                0.38475122063854306,
+                0.5670261309803933
+              ],
+              "include_zero": false,
+              "delta_da_nc": -2.8702087928600406e-09
+            },
+            "b": {
+              "media": 0.47706961141849596,
+              "ic_con_nodi": [
+                0.38475122063854306,
+                0.5670261309803933
+              ],
+              "include_zero": false,
+              "delta_da_nc": -2.8702087928600406e-09
+            },
+            "c": {
+              "media": 0.47706961141849596,
+              "ic_con_nodi": [
+                0.38475122063854306,
+                0.5670261309803933
+              ],
+              "include_zero": false,
+              "delta_da_nc": -2.8702087928600406e-09
+            }
+          }
+        },
+        "controllo_1": {
+          "PEMS08_p0_p0_s201": 3.03112415258962e-08
+        },
+        "tutte_insensibili": {
+          "a": true,
+          "b": true,
+          "c": true
+        }
+      }
+    },
+    "verdetto": {
+      "a": false,
+      "b": false,
+      "c": false
+    },
+    "istante": "2026-10-13T17:04:17.558429+00:00"
+  },
+  "esecuzioni": {
+    "varianti": [
+      "a",
+      "b",
+      "c"
+    ],
+    "completate": 432,
+    "fallite": [],
+    "presenti_prima": 0,
+    "lavoratori": 16,
+    "ore_calendario": 1.912373536096679,
+    "istante": "2026-10-13T16:31:32.798219+00:00"
+  },
+  "controllo_1": {
+    "prova_Londra_p0_s201": 6.0897034647318915e-09,
+    "prova_Londra_p0_s202": 2.8343084749531605e-08,
+    "prova_Londra_p0_s203": 4.1985257115847605e-08,
+    "prova_Madrid_p0_s201": 3.3757196760819755e-08,
+    "prova_Madrid_p0_s202": 5.138045990459207e-08,
+    "prova_Madrid_p0_s203": 2.7602162185454566e-09,
+    "prova_Melbourne_p0_s201": 1.8109923519153524e-08,
+    "prova_Melbourne_p0_s202": 1.1575509627528478e-08,
+    "prova_Melbourne_p0_s203": 9.279754953659037e-09,
+    "prova_PEMS08_p0_p0_s201": 3.03112415258962e-08
+  },
+  "impronte": {
+    "evoluzione/esperimenti/esegui_e14.py": "fe1945976e0bb91a",
+    "evoluzione/analisi/e14_stadio0.py": "132160382d964d00",
+    "evoluzione/esperimenti/esegui_e8.py": "f9db7b5830a5b325",
+    "evoluzione/esperimenti/inserimento.py": "bc1d6ecd562b0888",
+    "protocol/E14.md": "b669b5d8a269f1bd"
+  },
+  "impronte_dati": {
+    "e14_stadio0.json": "8072111407112630",
+    "e14_risultati.json": "5019fd42135cde10",
+    "esito_e14_celle.json": "0b4b003372f708b2"
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "contesto": "Madrid",
+  "partizione": 0,
+  "semi": [
+    201,
+    202,
+    203,
+    204
+  ],
+  "rho": [
+    0.05,
+    0.15,
+    0.3
+  ],
+  "rho_campagna": 0.15,
+  "confronti": {
+    "0.05": {
+      "F0p-C": {
+        "media": 0.032878742945402606,
+        "per_seme": [
+          0.027920512261656927,
+          0.028588129609508295,
+          0.037302033864190176,
+          0.037704296046255026
+        ],
+        "ic_semi_nodi": [
+          0.02466844103947926,
+          0.042000213480277764
+        ]
+      },
+      "Fp-C": {
+        "media": -0.021919578966197284,
+        "per_seme": [
+          -0.02141134038208692,
+          -0.020131415555357357,
+          -0.02275303722862332,
+          -0.023382522698721542
+        ],
+        "ic_semi_nodi": [
+          -0.028069407909166157,
+          -0.015810146344775802
+        ]
+      }
+    },
+    "0.15": {
+      "F0p-C": {
+        "media": 0.00973517332562801,
+        "per_seme": [
+          0.013387021217766804,
+          0.009511944204305123,
+          0.006695069558311784,
+          0.009346658322128332
+        ],
+        "ic_semi_nodi": [
+          0.0062142172163834105,
+          0.013601832639951768
+        ]
+      },
+      "Fp-C": {
+        "media": -0.020986554754886144,
+        "per_seme": [
+          -0.018840463767550886,
+          -0.018161657841939793,
+          -0.022395394050832018,
+          -0.02454870335922188
+        ],
+        "ic_semi_nodi": [
+          -0.027580656958359973,
+          -0.014499270294922562
+        ]
+      }
+    },
+    "0.30": {
+      "F0p-C": {
+        "media": 0.002632329876988637,
+        "per_seme": [
+          0.0044004091712940285,
+          0.0027622963411644275,
+          0.000725894045878972,
+          0.0026407199496171208
+        ],
+        "ic_semi_nodi": [
+          0.0002728440835797586,
+          0.004812382110342448
+        ]
+      },
+      "Fp-C": {
+        "media": -0.020610280705040535,
+        "per_seme": [
+          -0.01745014147809043,
+          -0.021031987715206868,
+          -0.0228385911255905,
+          -0.021120402501274338
+        ],
+        "ic_semi_nodi": [
+          -0.02663358199166908,
+          -0.01454399616739855
+        ]
+      }
+    }
+  },
+  "per_seme": {
+    "0.05": [
+      {
+        "rho": 0.05,
+        "seme": 201,
+        "impronta_ck": "636d7a8e0d4a314d",
+        "rapporto_norma_token": 1.1293533626090164,
+        "distanza_dalla_media": 0.40995001001709463,
+        "veterani_rel": -0.0015944766509409522
+      },
+      {
+        "rho": 0.05,
+        "seme": 202,
+        "impronta_ck": "bde29b962b26fcc5",
+        "rapporto_norma_token": 1.0771961315596053,
+        "distanza_dalla_media": 0.44157841566443845,
+        "veterani_rel": -0.00014331359691785903
+      },
+      {
+        "rho": 0.05,
+        "seme": 203,
+        "impronta_ck": "9f51c97af25d3d68",
+        "rapporto_norma_token": 0.37968788723817365,
+        "distanza_dalla_media": 0.1946484091295113,
+        "veterani_rel": -0.0009197038255984721
+      },
+      {
+        "rho": 0.05,
+        "seme": 204,
+        "impronta_ck": "47b1a9738e07ff93",
+        "rapporto_norma_token": 0.48007958476005624,
+        "distanza_dalla_media": 0.2129445187516092,
+        "veterani_rel": -0.002040528457573507
+      }
+    ],
+    "0.15": [
+      {
+        "rho": 0.15,
+        "seme": 201,
+        "impronta_ck": "d4cff9528e82f432",
+        "rapporto_norma_token": 1.4757028339245601,
+        "distanza_dalla_media": 0.4952237702485756,
+        "veterani_rel": -0.0003735423146793975
+      },
+      {
+        "rho": 0.15,
+        "seme": 202,
+        "impronta_ck": "6504f58c4dfcb21f",
+        "rapporto_norma_token": 1.5473129190049224,
+        "distanza_dalla_media": 0.6667945397905318,
+        "veterani_rel": -0.00021137081569782925
+      },
+      {
+        "rho": 0.15,
+        "seme": 203,
+        "impronta_ck": "36c20c1ad2ea9867",
+        "rapporto_norma_token": 1.322259697480313,
+        "distanza_dalla_media": 0.5576710077401389,
+        "veterani_rel": 8.015344650389515e-06
+      },
+      {
+        "rho": 0.15,
+        "seme": 204,
+        "impronta_ck": "be5d724dfd90b70d",
+        "rapporto_norma_token": 1.177918986146449,
+        "distanza_dalla_media": 0.515581395781719,
+        "veterani_rel": -0.0022486304525263707
+      }
+    ],
+    "0.30": [
+      {
+        "rho": 0.3,
+        "seme": 201,
+        "impronta_ck": "a3b6885930c21d5b",
+        "rapporto_norma_token": 1.7301753480365287,
+        "distanza_dalla_media": 0.6365723703660545,
+        "veterani_rel": -0.0007546202549528775
+      },
+      {
+        "rho": 0.3,
+        "seme": 202,
+        "impronta_ck": "c752c80261ce6514",
+        "rapporto_norma_token": 1.4286600538992067,
+        "distanza_dalla_media": 0.6570632342570835,
+        "veterani_rel": 0.0003034694046719524
+      },
+      {
+        "rho": 0.3,
+        "seme": 203,
+        "impronta_ck": "9f5c1d11cdae9c12",
+        "rapporto_norma_token": 1.3615551554034169,
+        "distanza_dalla_media": 0.6142954200477185,
+        "veterani_rel": 0.0003972158914473926
+      },
+      {
+        "rho": 0.3,
+        "seme": 204,
+        "impronta_ck": "a39241de3b398351",
+        "rapporto_norma_token": 1.070500590553879,
+        "distanza_dalla_media": 0.5161467436872944,
+        "veterani_rel": -6.101595640031721e-05
+      }
+    ]
+  },
+  "repliche": 4000,
+  "seme_bootstrap": 20260930,
+  "nota": "figura, non criterio: intervallo su semi (4) e nodi, una sola partizione; non confrontabile con gli intervalli a tre livelli della campagna",
+  "figura": "figure/sensibilita_rho_e2.png",
+  "ore_calendario_addestramento": 1.387366357445717,
+  "istante": "2026-09-30T13:33:04.316580+00:00"
+}

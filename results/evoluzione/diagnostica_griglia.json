@@ -1,0 +1,149 @@
+{
+  "Madrid": {
+    "origini": {
+      "addestramento": {
+        "nominali": 7308,
+        "ammissibili": 7118
+      },
+      "validazione": {
+        "nominali": 1568,
+        "ammissibili": 1511
+      },
+      "prova, dopo t1": {
+        "nominali": 1472,
+        "ammissibili": 1434
+      }
+    },
+    "descrittore": {
+      "training, fine periodo": {
+        "t": 7318,
+        "durata_reale": "0 days 23:45:00",
+        "24_ore_reali": true
+      },
+      "validazione, inizio": {
+        "t": 7319,
+        "durata_reale": "0 days 23:45:00",
+        "24_ore_reali": true
+      },
+      "prova, t1": {
+        "t": 8983,
+        "durata_reale": "0 days 23:45:00",
+        "24_ore_reali": true
+      },
+      "episodio di validazione, t1": {
+        "t": 7488,
+        "durata_reale": "0 days 23:45:00",
+        "24_ore_reali": true
+      }
+    },
+    "calendario": {
+      "validazione": {
+        "approvata": 7392,
+        "congelata": 7392
+      },
+      "prova": {
+        "approvata": 8887,
+        "congelata": 8887
+      }
+    },
+    "salti_totali": 15
+  },
+  "Londra": {
+    "origini": {
+      "addestramento": {
+        "nominali": 7373,
+        "ammissibili": 7161
+      },
+      "validazione": {
+        "nominali": 1582,
+        "ammissibili": 1528
+      },
+      "prova, dopo t1": {
+        "nominali": 1486,
+        "ammissibili": 1448
+      }
+    },
+    "descrittore": {
+      "training, fine periodo": {
+        "t": 7383,
+        "durata_reale": "0 days 23:45:00",
+        "24_ore_reali": true
+      },
+      "validazione, inizio": {
+        "t": 7384,
+        "durata_reale": "0 days 23:45:00",
+        "24_ore_reali": true
+      },
+      "prova, t1": {
+        "t": 9062,
+        "durata_reale": "0 days 23:45:00",
+        "24_ore_reali": true
+      },
+      "episodio di validazione, t1": {
+        "t": 7485,
+        "durata_reale": "0 days 23:45:00",
+        "24_ore_reali": true
+      }
+    },
+    "calendario": {
+      "validazione": {
+        "approvata": 7389,
+        "congelata": 7389
+      },
+      "prova": {
+        "approvata": 8966,
+        "congelata": 8966
+      }
+    },
+    "salti_totali": 16
+  },
+  "Melbourne": {
+    "origini": {
+      "addestramento": {
+        "nominali": 7240,
+        "ammissibili": 7050
+      },
+      "validazione": {
+        "nominali": 1555,
+        "ammissibili": 1498
+      },
+      "prova, dopo t1": {
+        "nominali": 1457,
+        "ammissibili": 1419
+      }
+    },
+    "descrittore": {
+      "training, fine periodo": {
+        "t": 7250,
+        "durata_reale": "0 days 23:45:00",
+        "24_ore_reali": true
+      },
+      "validazione, inizio": {
+        "t": 7251,
+        "durata_reale": "0 days 23:45:00",
+        "24_ore_reali": true
+      },
+      "prova, t1": {
+        "t": 8902,
+        "durata_reale": "0 days 23:45:00",
+        "24_ore_reali": true
+      },
+      "episodio di validazione, t1": {
+        "t": 7347,
+        "durata_reale": "0 days 23:45:00",
+        "24_ore_reali": true
+      }
+    },
+    "calendario": {
+      "validazione": {
+        "approvata": 7392,
+        "congelata": 7251
+      },
+      "prova": {
+        "approvata": 8806,
+        "congelata": 8806
+      }
+    },
+    "salti_totali": 15
+  }
+}

@@ -1,0 +1,1000 @@
+{
+  "politica": {
+    "Madrid/ep1": {
+      "celle": 18,
+      "tau_sel": 192,
+      "N_sel": 77,
+      "confronti": {
+        "gated672_0-F0p": {
+          "media": -0.02379414765067122,
+          "ic_con_nodi": [
+            -0.02803998818759617,
+            -0.019870512597709947
+          ],
+          "categoria": "superiorita'",
+          "segno": "-"
+        },
+        "gated672_0-gated_sel": {
+          "media": 0.004887847735470617,
+          "ic_con_nodi": [
+            0.00025215285434236916,
+            0.009757050810979955
+          ],
+          "categoria": "inconclusivo",
+          "segno": "+"
+        },
+        "gated672_0-C": {
+          "media": -0.015855034076836447,
+          "ic_con_nodi": [
+            -0.01877689193198204,
+            -0.013259211177524023
+          ],
+          "categoria": "superiorita'",
+          "segno": "-"
+        }
+      },
+      "livelli": {
+        "gated672_0": {
+          "media": 0.9442371723445172,
+          "ic_con_nodi": [
+            0.9191881520113513,
+            0.9678152670825788
+          ]
+        },
+        "F0p": {
+          "media": 0.9680313199951885,
+          "ic_con_nodi": [
+            0.9448878332889794,
+            0.9895185155524125
+          ]
+        },
+        "gated_sel": {
+          "media": 0.9393493246090466,
+          "ic_con_nodi": [
+            0.9106683501938168,
+            0.9658489936274963
+          ]
+        },
+        "C": {
+          "media": 0.9600922064213536,
+          "ic_con_nodi": [
+            0.9358360114759768,
+            0.9827319264200595
+          ]
+        }
+      }
+    },
+    "Madrid/ep2": {
+      "celle": 18,
+      "tau_sel": 192,
+      "N_sel": 77,
+      "confronti": {
+        "gated672_0-F0p": {
+          "media": -0.02421605246360056,
+          "ic_con_nodi": [
+            -0.029119755945718813,
+            -0.020026510755942778
+          ],
+          "categoria": "superiorita'",
+          "segno": "-"
+        },
+        "gated672_0-gated_sel": {
+          "media": 0.002462195053822971,
+          "ic_con_nodi": [
+            -0.0018505735519212555,
+            0.006912850870755433
+          ],
+          "categoria": "inconclusivo",
+          "segno": "0"
+        },
+        "gated672_0-C": {
+          "media": -0.02013114925905407,
+          "ic_con_nodi": [
+            -0.024185681268439924,
+            -0.016577460062375506
+          ],
+          "categoria": "superiorita'",
+          "segno": "-"
+        }
+      },
+      "livelli": {
+        "gated672_0": {
+          "media": 0.9446624928315652,
+          "ic_con_nodi": [
+            0.9177107694316315,
+            0.9689184638015564
+          ]
+        },
+        "F0p": {
+          "media": 0.9688785452951658,
+          "ic_con_nodi": [
+            0.9455365527661335,
+            0.9900265568627281
+          ]
+        },
+        "gated_sel": {
+          "media": 0.9422002977777422,
+          "ic_con_nodi": [
+            0.9118251255841457,
+            0.9691027524668587
+          ]
+        },
+        "C": {
+          "media": 0.9647936420906191,
+          "ic_con_nodi": [
+            0.9406766104254817,
+            0.9860806892769687
+          ]
+        }
+      }
+    },
+    "Madrid/ep3": {
+      "celle": 18,
+      "tau_sel": 192,
+      "N_sel": 77,
+      "confronti": {
+        "gated672_0-F0p": {
+          "media": -0.02370990009580352,
+          "ic_con_nodi": [
+            -0.028875496417999556,
+            -0.018931551452954047
+          ],
+          "categoria": "superiorita'",
+          "segno": "-"
+        },
+        "gated672_0-gated_sel": {
+          "media": -0.01615096961694205,
+          "ic_con_nodi": [
+            -0.025518065757557447,
+            -0.008370255253053672
+          ],
+          "categoria": "superiorita'",
+          "segno": "-"
+        },
+        "gated672_0-C": {
+          "media": -0.02155848505405086,
+          "ic_con_nodi": [
+            -0.02643401876745441,
+            -0.01760178592881446
+          ],
+          "categoria": "superiorita'",
+          "segno": "-"
+        }
+      },
+      "livelli": {
+        "gated672_0": {
+          "media": 0.9488116088682891,
+          "ic_con_nodi": [
+            0.921288543500988,
+            0.9732007774586886
+          ]
+        },
+        "F0p": {
+          "media": 0.9725215089640926,
+          "ic_con_nodi": [
+            0.948526319406936,
+            0.9941759130025812
+          ]
+        },
+        "gated_sel": {
+          "media": 0.9649625784852311,
+          "ic_con_nodi": [
+            0.936796462806993,
+            0.9897688785522173
+          ]
+        },
+        "C": {
+          "media": 0.9703700939223402,
+          "ic_con_nodi": [
+            0.9458435780667778,
+            0.9928592934685608
+          ]
+        }
+      }
+    },
+    "Londra/ep1": {
+      "celle": 18,
+      "tau_sel": 192,
+      "N_sel": 154,
+      "confronti": {
+        "gated672_0-F0p": {
+          "media": -0.028850879189624274,
+          "ic_con_nodi": [
+            -0.033874886556942964,
+            -0.024108817589635068
+          ],
+          "categoria": "superiorita'",
+          "segno": "-"
+        },
+        "gated672_0-gated_sel": {
+          "media": -0.018262322471206356,
+          "ic_con_nodi": [
+            -0.023633156474315173,
+            -0.013188157943180038
+          ],
+          "categoria": "superiorita'",
+          "segno": "-"
+        },
+        "gated672_0-C": {
+          "media": -0.014331598583803408,
+          "ic_con_nodi": [
+            -0.016923941288103657,
+            -0.011835717800472103
+          ],
+          "categoria": "superiorita'",
+          "segno": "-"
+        }
+      },
+      "livelli": {
+        "gated672_0": {
+          "media": 0.875928995325479,
+          "ic_con_nodi": [
+            0.8486787944647509,
+            0.9024886818930975
+          ]
+        },
+        "F0p": {
+          "media": 0.9047798745151032,
+          "ic_con_nodi": [
+            0.8784671304818142,
+            0.9298692511920155
+          ]
+        },
+        "gated_sel": {
+          "media": 0.8941913177966853,
+          "ic_con_nodi": [
+            0.8673948669600848,
+            0.9188484389668452
+          ]
+        },
+        "C": {
+          "media": 0.8902605939092822,
+          "ic_con_nodi": [
+            0.8635554292671953,
+            0.9157967001390599
+          ]
+        }
+      }
+    },
+    "Londra/ep2": {
+      "celle": 18,
+      "tau_sel": 192,
+      "N_sel": 154,
+      "confronti": {
+        "gated672_0-F0p": {
+          "media": -0.020405076917067153,
+          "ic_con_nodi": [
+            -0.025255226943885625,
+            -0.015987033289465997
+          ],
+          "categoria": "superiorita'",
+          "segno": "-"
+        },
+        "gated672_0-gated_sel": {
+          "media": -0.002564350130164761,
+          "ic_con_nodi": [
+            -0.006355579697043525,
+            0.0010665928386218945
+          ],
+          "categoria": "non inferiorita'",
+          "segno": "0"
+        },
+        "gated672_0-C": {
+          "media": -0.010645273557729991,
+          "ic_con_nodi": [
+            -0.013399242317703385,
+            -0.008006021349880198
+          ],
+          "categoria": "superiorita'",
+          "segno": "-"
+        }
+      },
+      "livelli": {
+        "gated672_0": {
+          "media": 0.8744377518367137,
+          "ic_con_nodi": [
+            0.8504462965223003,
+            0.8982402678849098
+          ]
+        },
+        "F0p": {
+          "media": 0.8948428287537806,
+          "ic_con_nodi": [
+            0.8723428974913654,
+            0.9177669843597159
+          ]
+        },
+        "gated_sel": {
+          "media": 0.8770021019668783,
+          "ic_con_nodi": [
+            0.8518686025072357,
+            0.9027842044575273
+          ]
+        },
+        "C": {
+          "media": 0.8850830253944435,
+          "ic_con_nodi": [
+            0.8615643020813116,
+            0.9088423193817776
+          ]
+        }
+      }
+    },
+    "Londra/ep3": {
+      "celle": 18,
+      "tau_sel": 192,
+      "N_sel": 154,
+      "confronti": {
+        "gated672_0-F0p": {
+          "media": -0.025108137124613523,
+          "ic_con_nodi": [
+            -0.029067450064003787,
+            -0.021387058295582954
+          ],
+          "categoria": "superiorita'",
+          "segno": "-"
+        },
+        "gated672_0-gated_sel": {
+          "media": -0.0015534836967033777,
+          "ic_con_nodi": [
+            -0.006962504614033246,
+            0.0033307254974832595
+          ],
+          "categoria": "non inferiorita'",
+          "segno": "0"
+        },
+        "gated672_0-C": {
+          "media": -0.014599158070462772,
+          "ic_con_nodi": [
+            -0.017185204581816597,
+            -0.011855935207444037
+          ],
+          "categoria": "superiorita'",
+          "segno": "-"
+        }
+      },
+      "livelli": {
+        "gated672_0": {
+          "media": 0.8779931721444212,
+          "ic_con_nodi": [
+            0.8514598715079194,
+            0.9028027631298101
+          ]
+        },
+        "F0p": {
+          "media": 0.9031013092690345,
+          "ic_con_nodi": [
+            0.8788115713984301,
+            0.9266060086493494
+          ]
+        },
+        "gated_sel": {
+          "media": 0.8795466558411245,
+          "ic_con_nodi": [
+            0.8505090373138234,
+            0.9068125779975067
+          ]
+        },
+        "C": {
+          "media": 0.8925923302148839,
+          "ic_con_nodi": [
+            0.8671368355521369,
+            0.9170399220659922
+          ]
+        }
+      }
+    },
+    "Melbourne/ep1": {
+      "celle": 18,
+      "tau_sel": 672,
+      "N_sel": 154,
+      "confronti": {
+        "gated672_0-F0p": {
+          "media": -0.02391579314272543,
+          "ic_con_nodi": [
+            -0.02792035616259551,
+            -0.020091002298853206
+          ],
+          "categoria": "superiorita'",
+          "segno": "-"
+        },
+        "gated672_0-gated_sel": {
+          "media": 0.0,
+          "ic_con_nodi": [
+            0.0,
+            0.0
+          ],
+          "categoria": "non inferiorita'",
+          "segno": "0"
+        },
+        "gated672_0-C": {
+          "media": -0.021468936451968488,
+          "ic_con_nodi": [
+            -0.027452081093571112,
+            -0.015826668272296483
+          ],
+          "categoria": "superiorita'",
+          "segno": "-"
+        }
+      },
+      "livelli": {
+        "gated672_0": {
+          "media": 0.793363755437545,
+          "ic_con_nodi": [
+            0.7610715779472206,
+            0.8247283722436811
+          ]
+        },
+        "F0p": {
+          "media": 0.8172795485802704,
+          "ic_con_nodi": [
+            0.7849291642447895,
+            0.8486250864817846
+          ]
+        },
+        "gated_sel": {
+          "media": 0.793363755437545,
+          "ic_con_nodi": [
+            0.7610715779472206,
+            0.8247283722436811
+          ]
+        },
+        "C": {
+          "media": 0.8148326918895132,
+          "ic_con_nodi": [
+            0.7811571236505739,
+            0.8476044964087774
+          ]
+        }
+      }
+    },
+    "Melbourne/ep2": {
+      "celle": 18,
+      "tau_sel": 672,
+      "N_sel": 154,
+      "confronti": {
+        "gated672_0-F0p": {
+          "media": -0.017744319175341486,
+          "ic_con_nodi": [
+            -0.024987347343060025,
+            -0.010434655678084789
+          ],
+          "categoria": "superiorita'",
+          "segno": "-"
+        },
+        "gated672_0-gated_sel": {
+          "media": -0.01827626521345223,
+          "ic_con_nodi": [
+            -0.024133681267666334,
+            -0.012904379062515903
+          ],
+          "categoria": "superiorita'",
+          "segno": "-"
+        },
+        "gated672_0-C": {
+          "media": -0.011501283657368386,
+          "ic_con_nodi": [
+            -0.016288432122152252,
+            -0.0068564029875415955
+          ],
+          "categoria": "superiorita'",
+          "segno": "-"
+        }
+      },
+      "livelli": {
+        "gated672_0": {
+          "media": 0.8143951299557781,
+          "ic_con_nodi": [
+            0.7785837108349641,
+            0.8479489448416637
+          ]
+        },
+        "F0p": {
+          "media": 0.8321394491311198,
+          "ic_con_nodi": [
+            0.7950316338178838,
+            0.8668197766461972
+          ]
+        },
+        "gated_sel": {
+          "media": 0.8326713951692304,
+          "ic_con_nodi": [
+            0.7959805541584812,
+            0.8669200471774293
+          ]
+        },
+        "C": {
+          "media": 0.8258964136131466,
+          "ic_con_nodi": [
+            0.7897084744910982,
+            0.8609748075835056
+          ]
+        }
+      }
+    },
+    "Melbourne/ep3": {
+      "celle": 18,
+      "tau_sel": 672,
+      "N_sel": 154,
+      "confronti": {
+        "gated672_0-F0p": {
+          "media": -0.033445517405119175,
+          "ic_con_nodi": [
+            -0.0385169564447174,
+            -0.028914050880591458
+          ],
+          "categoria": "superiorita'",
+          "segno": "-"
+        },
+        "gated672_0-gated_sel": {
+          "media": -5.050069123510889e-05,
+          "ic_con_nodi": [
+            -0.0001933473201219176,
+            0.0
+          ],
+          "categoria": "non inferiorita'",
+          "segno": "0"
+        },
+        "gated672_0-C": {
+          "media": -0.0171067784648912,
+          "ic_con_nodi": [
+            -0.021250059697377994,
+            -0.013612950947614805
+          ],
+          "categoria": "superiorita'",
+          "segno": "-"
+        }
+      },
+      "livelli": {
+        "gated672_0": {
+          "media": 0.7791566228505604,
+          "ic_con_nodi": [
+            0.7359254639361106,
+            0.8180593290641864
+          ]
+        },
+        "F0p": {
+          "media": 0.8126021402556796,
+          "ic_con_nodi": [
+            0.7695555708874037,
+            0.8508308305972423
+          ]
+        },
+        "gated_sel": {
+          "media": 0.7792071235417957,
+          "ic_con_nodi": [
+            0.7359817996763613,
+            0.8181162043645724
+          ]
+        },
+        "C": {
+          "media": 0.7962634013154518,
+          "ic_con_nodi": [
+            0.7521825925403955,
+            0.8351947343171773
+          ]
+        }
+      }
+    },
+    "PEMS08": {
+      "celle": 36,
+      "tau_sel": 96,
+      "N_sel": 231,
+      "confronti": {
+        "gated672_0-F0p": {
+          "media": -0.03606554269268934,
+          "ic_con_nodi": [
+            -0.06148648469012151,
+            -0.0028637129699859007
+          ],
+          "categoria": "superiorita'",
+          "segno": "-"
+        },
+        "gated672_0-gated_sel": {
+          "media": -0.001673098048688682,
+          "ic_con_nodi": [
+            -0.03333681196845119,
+            0.021951142789217785
+          ],
+          "categoria": "inconclusivo",
+          "segno": "0"
+        },
+        "gated672_0-C": {
+          "media": -0.07549673870138952,
+          "ic_con_nodi": [
+            -0.11113136906449561,
+            -0.03646701974377005
+          ],
+          "categoria": "superiorita'",
+          "segno": "-"
+        }
+      },
+      "livelli": {
+        "gated672_0": {
+          "media": 0.5340984675874726,
+          "ic_con_nodi": [
+            0.4337109833057716,
+            0.6245723136395492
+          ]
+        },
+        "F0p": {
+          "media": 0.5701640102801621,
+          "ic_con_nodi": [
+            0.482427891607693,
+            0.649285929493956
+          ]
+        },
+        "gated_sel": {
+          "media": 0.5357715656361614,
+          "ic_con_nodi": [
+            0.43261781219363227,
+            0.6303696912486912
+          ]
+        },
+        "C": {
+          "media": 0.6095952062888622,
+          "ic_con_nodi": [
+            0.5034306897169174,
+            0.7041793974447172
+          ]
+        }
+      }
+    },
+    "PEMS04": {
+      "celle": 36,
+      "tau_sel": 192,
+      "N_sel": 231,
+      "confronti": {
+        "gated672_0-F0p": {
+          "media": -0.010111626345319384,
+          "ic_con_nodi": [
+            -0.013070152153966588,
+            -0.00752092785601217
+          ],
+          "categoria": "superiorita'",
+          "segno": "-"
+        },
+        "gated672_0-gated_sel": {
+          "media": 0.011789722776539453,
+          "ic_con_nodi": [
+            0.004887840234249077,
+            0.01865660914833863
+          ],
+          "categoria": "inconclusivo",
+          "segno": "+"
+        },
+        "gated672_0-C": {
+          "media": -0.00753061074034352,
+          "ic_con_nodi": [
+            -0.0169200059016228,
+            0.0018413583969549908
+          ],
+          "categoria": "non inferiorita'",
+          "segno": "0"
+        }
+      },
+      "livelli": {
+        "gated672_0": {
+          "media": 0.49271862702664915,
+          "ic_con_nodi": [
+            0.44372085599380884,
+            0.5427065136463013
+          ]
+        },
+        "F0p": {
+          "media": 0.5028302533719686,
+          "ic_con_nodi": [
+            0.45367151758012236,
+            0.5525329794389147
+          ]
+        },
+        "gated_sel": {
+          "media": 0.4809289042501098,
+          "ic_con_nodi": [
+            0.4329295017693544,
+            0.5310867093902008
+          ]
+        },
+        "C": {
+          "media": 0.5002492377669929,
+          "ic_con_nodi": [
+            0.4508855448810943,
+            0.5485142021579991
+          ]
+        }
+      }
+    }
+  },
+  "categorie": {
+    "gated_sel-F0p": {
+      "Madrid/ep1": {
+        "media": -0.028681995386142918,
+        "ic_con_nodi": [
+          -0.03724148221739769,
+          -0.02102080640341701
+        ],
+        "categoria": "superiorita'",
+        "fonte": "e5_risultati.json"
+      },
+      "Madrid/ep2": {
+        "media": -0.02667824751742353,
+        "ic_con_nodi": [
+          -0.035296650763501365,
+          -0.01890027720463781
+        ],
+        "categoria": "superiorita'",
+        "fonte": "e5_risultati.json"
+      },
+      "Madrid/ep3": {
+        "media": -0.007558930478863875,
+        "ic_con_nodi": [
+          -0.017706259332121842,
+          0.0026923094028661323
+        ],
+        "categoria": "non inferiorita'",
+        "fonte": "e5_risultati.json"
+      },
+      "Londra/ep1": {
+        "media": -0.01058855671841853,
+        "ic_con_nodi": [
+          -0.017490041555862375,
+          -0.004256362878634218
+        ],
+        "categoria": "superiorita'",
+        "fonte": "e5_risultati.json"
+      },
+      "Londra/ep2": {
+        "media": -0.017840726786902524,
+        "ic_con_nodi": [
+          -0.02401869914164181,
+          -0.012669837319956757
+        ],
+        "categoria": "superiorita'",
+        "fonte": "e5_risultati.json"
+      },
+      "Londra/ep3": {
+        "media": -0.023554653427910584,
+        "ic_con_nodi": [
+          -0.03156049299490326,
+          -0.015834397961474688
+        ],
+        "categoria": "superiorita'",
+        "fonte": "e5_risultati.json"
+      },
+      "Melbourne/ep1": {
+        "media": -0.0239157931427252,
+        "ic_con_nodi": [
+          -0.02804851169872439,
+          -0.02013231169359426
+        ],
+        "categoria": "superiorita'",
+        "fonte": "e5_risultati.json"
+      },
+      "Melbourne/ep2": {
+        "media": 0.0005319460381107853,
+        "ic_con_nodi": [
+          -0.003042421194162611,
+          0.0038732518315866844
+        ],
+        "categoria": "non inferiorita'",
+        "fonte": "e5_risultati.json"
+      },
+      "Melbourne/ep3": {
+        "media": -0.03339501671388329,
+        "ic_con_nodi": [
+          -0.03884961417857594,
+          -0.028540014327793007
+        ],
+        "categoria": "superiorita'",
+        "fonte": "e5_risultati.json"
+      },
+      "PEMS08": {
+        "media": -0.034392444644001145,
+        "ic_con_nodi": [
+          -0.07120113752465773,
+          0.009063307583321184
+        ],
+        "categoria": "inconclusivo",
+        "fonte": "e6_risultati.json"
+      },
+      "PEMS04": {
+        "media": -0.02190134912185902,
+        "ic_con_nodi": [
+          -0.03051071090785891,
+          -0.013283061384361234
+        ],
+        "categoria": "superiorita'",
+        "fonte": "e6a_risultati.json"
+      }
+    },
+    "Rorig_672-Fp_672": {
+      "Madrid": {
+        "media": -0.003335877563759082,
+        "ic_con_nodi": [
+          -0.005899964212600002,
+          -0.0009738431916648512
+        ],
+        "categoria": "superiorita'",
+        "fonte": "e3bis_risultati.json"
+      },
+      "Londra": {
+        "media": -0.002458556132130551,
+        "ic_con_nodi": [
+          -0.004899477015059268,
+          0.0003496462106025751
+        ],
+        "categoria": "non inferiorita'",
+        "fonte": "e3bis_risultati.json"
+      },
+      "Melbourne": {
+        "media": -0.013384702671234166,
+        "ic_con_nodi": [
+          -0.019919630494977206,
+          -0.00687588681080033
+        ],
+        "categoria": "superiorita'",
+        "fonte": "e3bis_risultati.json"
+      },
+      "PEMS08": {
+        "media": 0.009812870264789364,
+        "ic_con_nodi": [
+          -0.03962071253309518,
+          0.07922674958835747
+        ],
+        "categoria": "inconclusivo",
+        "fonte": "e6_risultati.json (altri)"
+      }
+    }
+  },
+  "recupero": {
+    "Madrid/ep1": {
+      "definizione": "(L_C - L_F'(1 sett.)) / (L_C - L_A), origini con eta' > 1 settimana",
+      "media": 0.8000542817195673,
+      "ic_con_nodi": [
+        0.705595354295716,
+        0.8906902273455967
+      ],
+      "L_C": 0.9627966085577092,
+      "L_Fp_672": 0.9319979659663384,
+      "L_A": 0.9243009173338902,
+      "repliche_den_non_positivo": 0
+    },
+    "Madrid/ep2": {
+      "definizione": "(L_C - L_F'(1 sett.)) / (L_C - L_A), origini con eta' > 1 settimana",
+      "media": 0.8870224235896503,
+      "ic_con_nodi": [
+        0.8064684635414134,
+        0.9625907698370448
+      ],
+      "L_C": 0.9637295491965507,
+      "L_Fp_672": 0.9283932945161821,
+      "L_A": 0.9238926141421155,
+      "repliche_den_non_positivo": 0
+    },
+    "Madrid/ep3": {
+      "definizione": "(L_C - L_F'(1 sett.)) / (L_C - L_A), origini con eta' > 1 settimana",
+      "media": 0.9225265824480474,
+      "ic_con_nodi": [
+        0.8438461087564262,
+        1.0032140094159827
+      ],
+      "L_C": 0.97198776417001,
+      "L_Fp_672": 0.9363477016707785,
+      "L_A": 0.9333546633170722,
+      "repliche_den_non_positivo": 0
+    },
+    "Londra/ep1": {
+      "definizione": "(L_C - L_F'(1 sett.)) / (L_C - L_A), origini con eta' > 1 settimana",
+      "media": 0.7831460555567574,
+      "ic_con_nodi": [
+        0.7044512457836338,
+        0.8527246986679075
+      ],
+      "L_C": 0.8885873928157929,
+      "L_Fp_672": 0.8579612770929159,
+      "L_A": 0.8494808742991362,
+      "repliche_den_non_positivo": 0
+    },
+    "Londra/ep2": {
+      "definizione": "(L_C - L_F'(1 sett.)) / (L_C - L_A), origini con eta' > 1 settimana",
+      "media": 0.7295413366086909,
+      "ic_con_nodi": [
+        0.6160259789105633,
+        0.8320320100927272
+      ],
+      "L_C": 0.8931616609467264,
+      "L_Fp_672": 0.8688923232719797,
+      "L_A": 0.8598950913133128,
+      "repliche_den_non_positivo": 0
+    },
+    "Londra/ep3": {
+      "definizione": "(L_C - L_F'(1 sett.)) / (L_C - L_A), origini con eta' > 1 settimana",
+      "media": 0.7832117092400731,
+      "ic_con_nodi": [
+        0.6911180228639277,
+        0.8766166339461865
+      ],
+      "L_C": 0.8946773575530962,
+      "L_Fp_672": 0.8642832601596011,
+      "L_A": 0.8558703567959375,
+      "repliche_den_non_positivo": 0
+    },
+    "Melbourne/ep1": {
+      "definizione": "(L_C - L_F'(1 sett.)) / (L_C - L_A), origini con eta' > 1 settimana",
+      "media": 1.0567493375276704,
+      "ic_con_nodi": [
+        0.8339788562265595,
+        1.5647760418975298
+      ],
+      "L_C": 0.8143473501175764,
+      "L_Fp_672": 0.7783863492769334,
+      "L_A": 0.78031751961418,
+      "repliche_den_non_positivo": 0
+    },
+    "Melbourne/ep2": {
+      "definizione": "(L_C - L_F'(1 sett.)) / (L_C - L_A), origini con eta' > 1 settimana",
+      "media": 0.7156463368162143,
+      "ic_con_nodi": [
+        0.5344140980445921,
+        1.0063795760128376
+      ],
+      "L_C": 0.8229340533273881,
+      "L_Fp_672": 0.7975431743451392,
+      "L_A": 0.7874544069210242,
+      "repliche_den_non_positivo": 0
+    },
+    "Melbourne/ep3": {
+      "definizione": "(L_C - L_F'(1 sett.)) / (L_C - L_A), origini con eta' > 1 settimana",
+      "media": 0.7136469065966107,
+      "ic_con_nodi": [
+        0.6485537584757816,
+        0.7857641049504158
+      ],
+      "L_C": 0.8014282174897219,
+      "L_Fp_672": 0.7630786439094769,
+      "L_A": 0.7476907554118233,
+      "repliche_den_non_positivo": 0
+    },
+    "PEMS08": {
+      "definizione": "(L_C - L_F'(1 sett.)) / (L_C - L_A), origini con eta' > 1 settimana",
+      "media": 0.6964944823571596,
+      "ic_con_nodi": [
+        0.3804040852508813,
+        1.2208529035987934
+      ],
+      "L_C": 0.6094482760641046,
+      "L_Fp_672": 0.5185989853722346,
+      "L_A": 0.4790103573250975,
+      "repliche_den_non_positivo": 0
+    }
+  },
+  "margine_minimo": {
+    "Madrid": {
+      "delta_min": 0.005899964212600002,
+      "livello_Fp": null,
+      "fonte": "e3bis_risultati.json",
+      "margine_3pc_e3bis": 0.028877762211079863
+    },
+    "Londra": {
+      "delta_min": 0.004899477015059268,
+      "livello_Fp": null,
+      "fonte": "e3bis_risultati.json",
+      "margine_3pc_e3bis": 0.026649170597373668
+    },
+    "Melbourne": {
+      "delta_min": 0.019919630494977206,
+      "livello_Fp": null,
+      "fonte": "e3bis_risultati.json",
+      "margine_3pc_e3bis": 0.02440942496308118
+    },
+    "PEMS08": {
+      "delta_min": 0.07922674958835747,
+      "fonte": "e6_risultati.json (altri)"
+    }
+  },
+  "delta_non_inferiorita": 0.005,
+  "politica_definizione": "gated(672, 0): F0' per eta' <= 1 settimana, F'(1 sett.) oltre, per tutti i sensori (N = 0)",
+  "repliche": 4000,
+  "seme_bootstrap": 20261022,
+  "istante": "2026-10-22T13:30:22.899684+00:00"
+}

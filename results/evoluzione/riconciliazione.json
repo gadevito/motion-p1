@@ -1,0 +1,159 @@
+{
+  "discrepanze": [
+    "Madrid: la sorgente ha 900 nodi, il deliverable ne dichiarava 828",
+    "Londra: la sorgente ha 900 nodi, il deliverable ne dichiarava 774",
+    "Melbourne: la sorgente ha 594 nodi, il deliverable ne dichiarava 587"
+  ],
+  "contesti": {
+    "Madrid": {
+      "nodi_sorgente": 900,
+      "deliverable": 828,
+      "partizioni": {
+        "0": {
+          "numerosita": {
+            "addestramento": 630,
+            "validazione": 135,
+            "prova": 135
+          },
+          "impronte": {
+            "addestramento": "f7a44c934cd72ec5",
+            "validazione": "08eb1e92b10527c2",
+            "prova": "7e5eaa6e92ce59ea"
+          }
+        },
+        "1": {
+          "numerosita": {
+            "addestramento": 630,
+            "validazione": 135,
+            "prova": 135
+          },
+          "impronte": {
+            "addestramento": "c62efa50896bf162",
+            "validazione": "73232d2b33f2c31d",
+            "prova": "545396b17c4ad7dc"
+          }
+        },
+        "2": {
+          "numerosita": {
+            "addestramento": 630,
+            "validazione": 135,
+            "prova": 135
+          },
+          "impronte": {
+            "addestramento": "b8c045457dfaaf33",
+            "validazione": "92e8c588a17adef6",
+            "prova": "9d22170240ee63de"
+          }
+        }
+      },
+      "origini_per_nodo": {
+        "candidate": 78,
+        "minimo": 56,
+        "mediana": 78.0,
+        "massimo": 78,
+        "nodi_senza_esempi": 0,
+        "media": 76.02222222222223
+      }
+    },
+    "Londra": {
+      "nodi_sorgente": 900,
+      "deliverable": 774,
+      "partizioni": {
+        "0": {
+          "numerosita": {
+            "addestramento": 630,
+            "validazione": 135,
+            "prova": 135
+          },
+          "impronte": {
+            "addestramento": "f7a44c934cd72ec5",
+            "validazione": "08eb1e92b10527c2",
+            "prova": "7e5eaa6e92ce59ea"
+          }
+        },
+        "1": {
+          "numerosita": {
+            "addestramento": 630,
+            "validazione": 135,
+            "prova": 135
+          },
+          "impronte": {
+            "addestramento": "c62efa50896bf162",
+            "validazione": "73232d2b33f2c31d",
+            "prova": "545396b17c4ad7dc"
+          }
+        },
+        "2": {
+          "numerosita": {
+            "addestramento": 630,
+            "validazione": 135,
+            "prova": 135
+          },
+          "impronte": {
+            "addestramento": "b8c045457dfaaf33",
+            "validazione": "92e8c588a17adef6",
+            "prova": "9d22170240ee63de"
+          }
+        }
+      },
+      "origini_per_nodo": {
+        "candidate": 78,
+        "minimo": 26,
+        "mediana": 63.0,
+        "massimo": 78,
+        "nodi_senza_esempi": 0,
+        "media": 60.71851851851852
+      }
+    },
+    "Melbourne": {
+      "nodi_sorgente": 594,
+      "deliverable": 587,
+      "partizioni": {
+        "0": {
+          "numerosita": {
+            "addestramento": 415,
+            "validazione": 89,
+            "prova": 90
+          },
+          "impronte": {
+            "addestramento": "1178f19d5908e6ed",
+            "validazione": "c3e826c4d1b40c9a",
+            "prova": "f3e9ea021d56c456"
+          }
+        },
+        "1": {
+          "numerosita": {
+            "addestramento": 415,
+            "validazione": 89,
+            "prova": 90
+          },
+          "impronte": {
+            "addestramento": "271243208f5a52f4",
+            "validazione": "e0256aa1cdd89512",
+            "prova": "505140d04ffac9ff"
+          }
+        },
+        "2": {
+          "numerosita": {
+            "addestramento": 415,
+            "validazione": 89,
+            "prova": 90
+          },
+          "impronte": {
+            "addestramento": "795b82d4a829eb8f",
+            "validazione": "b58f187c274e9637",
+            "prova": "6a52f57febbef48a"
+          }
+        }
+      },
+      "origini_per_nodo": {
+        "candidate": 78,
+        "minimo": 57,
+        "mediana": 77.0,
+        "massimo": 78,
+        "nodi_senza_esempi": 0,
+        "media": 75.86666666666666
+      }
+    }
+  }
+}

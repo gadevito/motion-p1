@@ -1,0 +1,1435 @@
+{
+  "repliche": 4000,
+  "soglia_delta": 0.002,
+  "varianti": [
+    "a",
+    "b",
+    "c"
+  ],
+  "gruppi": {
+    "Londra": {
+      "celle": 36,
+      "confronti": {
+        "F0-C": {
+          "nc": {
+            "media": 0.04973204743406413,
+            "ic_con_nodi": [
+              0.03820775678429181,
+              0.06239221388727985
+            ],
+            "include_zero": false,
+            "segno": "+"
+          },
+          "a": {
+            "media": 0.04978611142970155,
+            "ic_con_nodi": [
+              0.03827441036127735,
+              0.06256988505116745
+            ],
+            "include_zero": false,
+            "segno": "+",
+            "delta_da_nc": 5.406399563741976e-05,
+            "insensibile": true
+          },
+          "b": {
+            "media": 0.049763994917737656,
+            "ic_con_nodi": [
+              0.03817256331320713,
+              0.06255071399226574
+            ],
+            "include_zero": false,
+            "segno": "+",
+            "delta_da_nc": 3.194748367352229e-05,
+            "insensibile": true
+          },
+          "c": {
+            "media": 0.049658272427276745,
+            "ic_con_nodi": [
+              0.03808765259143018,
+              0.06251116033845662
+            ],
+            "include_zero": false,
+            "segno": "+",
+            "delta_da_nc": -7.377500678738824e-05,
+            "insensibile": true
+          }
+        },
+        "F0p-C": {
+          "nc": {
+            "media": 0.012875523607309008,
+            "ic_con_nodi": [
+              0.009580269907943653,
+              0.016614230927502267
+            ],
+            "include_zero": false,
+            "segno": "+"
+          },
+          "a": {
+            "media": 0.012665050536355629,
+            "ic_con_nodi": [
+              0.009559571202790327,
+              0.01634599298616824
+            ],
+            "include_zero": false,
+            "segno": "+",
+            "delta_da_nc": -0.00021047307095337954,
+            "insensibile": true
+          },
+          "b": {
+            "media": 0.01295165934067912,
+            "ic_con_nodi": [
+              0.00972910323122882,
+              0.01663544021260398
+            ],
+            "include_zero": false,
+            "segno": "+",
+            "delta_da_nc": 7.613573337011091e-05,
+            "insensibile": true
+          },
+          "c": {
+            "media": 0.013018648701863497,
+            "ic_con_nodi": [
+              0.009780746818868882,
+              0.016642660871874118
+            ],
+            "include_zero": false,
+            "segno": "+",
+            "delta_da_nc": 0.0001431250945544884,
+            "insensibile": true
+          }
+        },
+        "Fp_672-C_eta>1sett": {
+          "nc": {
+            "media": -0.030179350855271223,
+            "ic_con_nodi": [
+              -0.03429526893226528,
+              -0.026073575517494646
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "a": {
+            "media": -0.030545439540462835,
+            "ic_con_nodi": [
+              -0.03477898475608573,
+              -0.026365897852520574
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -0.0003660886851916123,
+            "insensibile": true
+          },
+          "b": {
+            "media": -0.030289381195932226,
+            "ic_con_nodi": [
+              -0.03447563856087399,
+              -0.026193363152208316
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -0.00011003034066100342,
+            "insensibile": true
+          },
+          "c": {
+            "media": -0.030428403783751015,
+            "ic_con_nodi": [
+              -0.03455679970974962,
+              -0.02629978601373731
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -0.00024905292847979266,
+            "insensibile": true
+          }
+        },
+        "Fp_672-A_eta>1sett": {
+          "nc": {
+            "media": 0.009313336291743753,
+            "ic_con_nodi": [
+              0.006257313792194019,
+              0.012366987733080918
+            ],
+            "include_zero": false,
+            "segno": "+"
+          },
+          "a": {
+            "media": 0.009182627299533388,
+            "ic_con_nodi": [
+              0.006086376657328882,
+              0.012299028181949946
+            ],
+            "include_zero": false,
+            "segno": "+",
+            "delta_da_nc": -0.00013070899221036443,
+            "insensibile": true
+          },
+          "b": {
+            "media": 0.009360497173111718,
+            "ic_con_nodi": [
+              0.006297906601261408,
+              0.01242449877908309
+            ],
+            "include_zero": false,
+            "segno": "+",
+            "delta_da_nc": 4.7160881367965674e-05,
+            "insensibile": true
+          },
+          "c": {
+            "media": 0.009369410641822649,
+            "ic_con_nodi": [
+              0.006304938613842104,
+              0.012449140306754945
+            ],
+            "include_zero": false,
+            "segno": "+",
+            "delta_da_nc": 5.6074350078896135e-05,
+            "insensibile": true
+          }
+        },
+        "Rorig_672-Fp_672_eta>1sett": {
+          "nc": {
+            "media": -0.002458556132130551,
+            "ic_con_nodi": [
+              -0.004937739248944104,
+              0.00036717845296706383
+            ],
+            "include_zero": true,
+            "segno": "0"
+          },
+          "a": {
+            "media": -0.0015210430033046525,
+            "ic_con_nodi": [
+              -0.004126913040885785,
+              0.0014916950868752849
+            ],
+            "include_zero": true,
+            "segno": "0",
+            "delta_da_nc": 0.0009375131288258986,
+            "insensibile": true
+          },
+          "b": {
+            "media": -0.002306111558932582,
+            "ic_con_nodi": [
+              -0.00481050912472532,
+              0.0005168446845348231
+            ],
+            "include_zero": true,
+            "segno": "0",
+            "delta_da_nc": 0.00015244457319796897,
+            "insensibile": true
+          },
+          "c": {
+            "media": -0.0023047782662973587,
+            "ic_con_nodi": [
+              -0.004806540559826105,
+              0.0004892320523541893
+            ],
+            "include_zero": true,
+            "segno": "0",
+            "delta_da_nc": 0.00015377786583319238,
+            "insensibile": true
+          }
+        },
+        "A-C": {
+          "nc": {
+            "media": -0.03472228373868913,
+            "ic_con_nodi": [
+              -0.0392027466691199,
+              -0.03070264895239286
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "a": {
+            "media": -0.03488369375859806,
+            "ic_con_nodi": [
+              -0.039524661332016986,
+              -0.03083077596130677
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -0.0001614100199089294,
+            "insensibile": true
+          },
+          "b": {
+            "media": -0.03491721594097287,
+            "ic_con_nodi": [
+              -0.039528213555381775,
+              -0.030851381894663705
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -0.0001949322022837402,
+            "insensibile": true
+          },
+          "c": {
+            "media": -0.03506552856366321,
+            "ic_con_nodi": [
+              -0.03960469627498476,
+              -0.031044814196351606
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -0.0003432448249740816,
+            "insensibile": true
+          }
+        }
+      },
+      "assolute": {
+        "wCE_C": {
+          "nc": {
+            "media": 0.8900161769832162,
+            "ic_con_nodi": [
+              0.8633864034035421,
+              0.9151209486558934
+            ],
+            "include_zero": false
+          },
+          "a": {
+            "media": 0.8901467769216121,
+            "ic_con_nodi": [
+              0.8635293620787816,
+              0.9151543925420762
+            ],
+            "include_zero": false,
+            "delta_da_nc": 0.00013059993839592554
+          },
+          "b": {
+            "media": 0.8902117451954005,
+            "ic_con_nodi": [
+              0.8634969040657714,
+              0.9153754643772943
+            ],
+            "include_zero": false,
+            "delta_da_nc": 0.00019556821218424947
+          },
+          "c": {
+            "media": 0.8903839735698228,
+            "ic_con_nodi": [
+              0.8637468585146876,
+              0.9154040383504929
+            ],
+            "include_zero": false,
+            "delta_da_nc": 0.00036779658660657244
+          }
+        },
+        "wCE_A": {
+          "nc": {
+            "media": 0.8552938932445271,
+            "ic_con_nodi": [
+              0.8272772113774114,
+              0.8815924655543478
+            ],
+            "include_zero": false
+          },
+          "a": {
+            "media": 0.8552630831630141,
+            "ic_con_nodi": [
+              0.8272644919137031,
+              0.8815809815999407
+            ],
+            "include_zero": false,
+            "delta_da_nc": -3.081008151295528e-05
+          },
+          "b": {
+            "media": 0.8552945292544275,
+            "ic_con_nodi": [
+              0.8272606263580925,
+              0.8816792801566296
+            ],
+            "include_zero": false,
+            "delta_da_nc": 6.360099004121267e-07
+          },
+          "c": {
+            "media": 0.8553184450061594,
+            "ic_con_nodi": [
+              0.8272478278347601,
+              0.8816915981352087
+            ],
+            "include_zero": false,
+            "delta_da_nc": 2.4551761632296554e-05
+          }
+        }
+      },
+      "controllo_1": {
+        "Londra_p0_s201": 6.0897034647318915e-09,
+        "Londra_p0_s202": 2.8343084749531605e-08,
+        "Londra_p0_s203": 4.1985257115847605e-08
+      },
+      "tutte_insensibili": {
+        "a": true,
+        "b": true,
+        "c": true
+      }
+    },
+    "Madrid": {
+      "celle": 36,
+      "confronti": {
+        "F0-C": {
+          "nc": {
+            "media": 0.07318323853605929,
+            "ic_con_nodi": [
+              0.058556581216183054,
+              0.08823139150155436
+            ],
+            "include_zero": false,
+            "segno": "+"
+          },
+          "a": {
+            "media": 0.07371110971776422,
+            "ic_con_nodi": [
+              0.059339601655536554,
+              0.08856832313335013
+            ],
+            "include_zero": false,
+            "segno": "+",
+            "delta_da_nc": 0.0005278711817049281,
+            "insensibile": true
+          },
+          "b": {
+            "media": 0.07357861000217152,
+            "ic_con_nodi": [
+              0.0592981889970696,
+              0.08837992828541463
+            ],
+            "include_zero": false,
+            "segno": "+",
+            "delta_da_nc": 0.00039537146611222374,
+            "insensibile": true
+          },
+          "c": {
+            "media": 0.0712794651277317,
+            "ic_con_nodi": [
+              0.057081058384442177,
+              0.08582727632023457
+            ],
+            "include_zero": false,
+            "segno": "+",
+            "delta_da_nc": -0.0019037734083275915,
+            "insensibile": true
+          }
+        },
+        "F0p-C": {
+          "nc": {
+            "media": 0.008147095698782601,
+            "ic_con_nodi": [
+              0.005694830360874619,
+              0.01084794530342239
+            ],
+            "include_zero": false,
+            "segno": "+"
+          },
+          "a": {
+            "media": 0.008202163934765352,
+            "ic_con_nodi": [
+              0.005705899991863746,
+              0.010957249521036497
+            ],
+            "include_zero": false,
+            "segno": "+",
+            "delta_da_nc": 5.506823598275083e-05,
+            "insensibile": true
+          },
+          "b": {
+            "media": 0.009096755965160543,
+            "ic_con_nodi": [
+              0.006610908772585635,
+              0.011891048818265207
+            ],
+            "include_zero": false,
+            "segno": "+",
+            "delta_da_nc": 0.000949660266377942,
+            "insensibile": true
+          },
+          "c": {
+            "media": 0.008970540038843754,
+            "ic_con_nodi": [
+              0.006301420904708947,
+              0.01200939825828697
+            ],
+            "include_zero": false,
+            "segno": "+",
+            "delta_da_nc": 0.0008234443400611524,
+            "insensibile": true
+          }
+        },
+        "Fp_672-C_eta>1sett": {
+          "nc": {
+            "media": -0.03162871500032763,
+            "ic_con_nodi": [
+              -0.03701146491234651,
+              -0.026805152808714244
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "a": {
+            "media": -0.03166588035442233,
+            "ic_con_nodi": [
+              -0.03710587292428859,
+              -0.026910218939213058
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -3.716535409470367e-05,
+            "insensibile": true
+          },
+          "b": {
+            "media": -0.0337202130207804,
+            "ic_con_nodi": [
+              -0.03903380097647189,
+              -0.029103909413882127
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -0.0020914980204527686,
+            "insensibile": false
+          },
+          "c": {
+            "media": -0.036077167984746694,
+            "ic_con_nodi": [
+              -0.04198833424361588,
+              -0.030925908648019862
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -0.004448452984419066,
+            "insensibile": false
+          }
+        },
+        "Fp_672-A_eta>1sett": {
+          "nc": {
+            "media": 0.00704644002698145,
+            "ic_con_nodi": [
+              0.003972134213113854,
+              0.010236598885955524
+            ],
+            "include_zero": false,
+            "segno": "+"
+          },
+          "a": {
+            "media": 0.006991539138384369,
+            "ic_con_nodi": [
+              0.003926975917776553,
+              0.010175286491820982
+            ],
+            "include_zero": false,
+            "segno": "+",
+            "delta_da_nc": -5.490088859708142e-05,
+            "insensibile": true
+          },
+          "b": {
+            "media": 0.006819735530250236,
+            "ic_con_nodi": [
+              0.003705616870866008,
+              0.010016672221122135
+            ],
+            "include_zero": false,
+            "segno": "+",
+            "delta_da_nc": -0.00022670449673121464,
+            "insensibile": true
+          },
+          "c": {
+            "media": 0.006769060952222334,
+            "ic_con_nodi": [
+              0.0036266538608986255,
+              0.010075708063017857
+            ],
+            "include_zero": false,
+            "segno": "+",
+            "delta_da_nc": -0.0002773790747591159,
+            "insensibile": true
+          }
+        },
+        "Rorig_672-Fp_672_eta>1sett": {
+          "nc": {
+            "media": -0.003335877563759082,
+            "ic_con_nodi": [
+              -0.005949316463069535,
+              -0.0010227373313449785
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "a": {
+            "media": -0.003458104025164166,
+            "ic_con_nodi": [
+              -0.006022177369720658,
+              -0.0011180190392205865
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -0.00012222646140508386,
+            "insensibile": true
+          },
+          "b": {
+            "media": -0.0030173538926617505,
+            "ic_con_nodi": [
+              -0.005406307575204076,
+              -0.0007871208514442123
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": 0.0003185236710973316,
+            "insensibile": true
+          },
+          "c": {
+            "media": -0.0025984446005794435,
+            "ic_con_nodi": [
+              -0.005177478979714212,
+              -0.0002226879142667887
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": 0.0007374329631796386,
+            "insensibile": true
+          }
+        },
+        "A-C": {
+          "nc": {
+            "media": -0.03908709144885013,
+            "ic_con_nodi": [
+              -0.04411992408475339,
+              -0.0341800595538551
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "a": {
+            "media": -0.03917970054371031,
+            "ic_con_nodi": [
+              -0.044179713813244495,
+              -0.03444233858855731
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -9.260909486018265e-05,
+            "insensibile": true
+          },
+          "b": {
+            "media": -0.040702504059238004,
+            "ic_con_nodi": [
+              -0.045393114738718154,
+              -0.036402018117098686
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -0.0016154126103878758,
+            "insensibile": true
+          },
+          "c": {
+            "media": -0.04304086483733962,
+            "ic_con_nodi": [
+              -0.04819735734804017,
+              -0.03825054396940872
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -0.003953773388489491,
+            "insensibile": false
+          }
+        }
+      },
+      "assolute": {
+        "wCE_C": {
+          "nc": {
+            "media": 0.9598171083811307,
+            "ic_con_nodi": [
+              0.9347742636081906,
+              0.9829870495305445
+            ],
+            "include_zero": false
+          },
+          "a": {
+            "media": 0.9600074340573741,
+            "ic_con_nodi": [
+              0.9349455899559469,
+              0.983249813620525
+            ],
+            "include_zero": false,
+            "delta_da_nc": 0.00019032567624344132
+          },
+          "b": {
+            "media": 0.9618667593341635,
+            "ic_con_nodi": [
+              0.9368703645558526,
+              0.9847114403362418
+            ],
+            "include_zero": false,
+            "delta_da_nc": 0.002049650953032889
+          },
+          "c": {
+            "media": 0.9643762513237684,
+            "ic_con_nodi": [
+              0.9396278095375658,
+              0.9868734285533964
+            ],
+            "include_zero": false,
+            "delta_da_nc": 0.004559142942637706
+          }
+        },
+        "wCE_A": {
+          "nc": {
+            "media": 0.9207300169322805,
+            "ic_con_nodi": [
+              0.8936525837446814,
+              0.9455466636538709
+            ],
+            "include_zero": false
+          },
+          "a": {
+            "media": 0.920827733513664,
+            "ic_con_nodi": [
+              0.8937396247615035,
+              0.9456997533441523
+            ],
+            "include_zero": false,
+            "delta_da_nc": 9.771658138346684e-05
+          },
+          "b": {
+            "media": 0.9211642552749255,
+            "ic_con_nodi": [
+              0.8940891824082005,
+              0.9460892383820563
+            ],
+            "include_zero": false,
+            "delta_da_nc": 0.00043423834264499916
+          },
+          "c": {
+            "media": 0.921335386486429,
+            "ic_con_nodi": [
+              0.894256453553915,
+              0.9463230362711578
+            ],
+            "include_zero": false,
+            "delta_da_nc": 0.0006053695541484716
+          }
+        }
+      },
+      "controllo_1": {
+        "Madrid_p0_s201": 3.3757196760819755e-08,
+        "Madrid_p0_s202": 5.138045990459207e-08,
+        "Madrid_p0_s203": 2.7602162185454566e-09
+      },
+      "tutte_insensibili": {
+        "a": true,
+        "b": false,
+        "c": false
+      }
+    },
+    "Melbourne": {
+      "celle": 36,
+      "confronti": {
+        "F0-C": {
+          "nc": {
+            "media": 0.07832186370743104,
+            "ic_con_nodi": [
+              0.05186660322972026,
+              0.10244771250700885
+            ],
+            "include_zero": false,
+            "segno": "+"
+          },
+          "a": {
+            "media": 0.07419240270157802,
+            "ic_con_nodi": [
+              0.04756487245496125,
+              0.09817110144560394
+            ],
+            "include_zero": false,
+            "segno": "+",
+            "delta_da_nc": -0.0041294610058530135,
+            "insensibile": false
+          },
+          "b": {
+            "media": 0.07967874432231842,
+            "ic_con_nodi": [
+              0.054625950426618754,
+              0.10251909402318204
+            ],
+            "include_zero": false,
+            "segno": "+",
+            "delta_da_nc": 0.0013568806148873819,
+            "insensibile": true
+          },
+          "c": {
+            "media": 0.07705663056004913,
+            "ic_con_nodi": [
+              0.051912995701615415,
+              0.10009637276486846
+            ],
+            "include_zero": false,
+            "segno": "+",
+            "delta_da_nc": -0.0012652331473819028,
+            "insensibile": true
+          }
+        },
+        "F0p-C": {
+          "nc": {
+            "media": 0.0014887479643314512,
+            "ic_con_nodi": [
+              -0.005189351027096385,
+              0.007510705195668
+            ],
+            "include_zero": true,
+            "segno": "0"
+          },
+          "a": {
+            "media": 0.0009942549037875725,
+            "ic_con_nodi": [
+              -0.005853653470238117,
+              0.007051460672777172
+            ],
+            "include_zero": true,
+            "segno": "0",
+            "delta_da_nc": -0.0004944930605438787,
+            "insensibile": true
+          },
+          "b": {
+            "media": 0.0028723148319443246,
+            "ic_con_nodi": [
+              -0.003446989467579747,
+              0.008362614159714071
+            ],
+            "include_zero": true,
+            "segno": "0",
+            "delta_da_nc": 0.0013835668676128734,
+            "insensibile": true
+          },
+          "c": {
+            "media": 0.0023949107594319462,
+            "ic_con_nodi": [
+              -0.0038451788379138454,
+              0.007938511921338811
+            ],
+            "include_zero": true,
+            "segno": "0",
+            "delta_da_nc": 0.0009061627951004951,
+            "insensibile": true
+          }
+        },
+        "Fp_672-C_eta>1sett": {
+          "nc": {
+            "media": -0.03640755593908268,
+            "ic_con_nodi": [
+              -0.0431961609761637,
+              -0.029653759920136663
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "a": {
+            "media": -0.04148206621004047,
+            "ic_con_nodi": [
+              -0.04887253612555301,
+              -0.03382309495953525
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -0.005074510270957788,
+            "insensibile": false
+          },
+          "b": {
+            "media": -0.037928089376164466,
+            "ic_con_nodi": [
+              -0.043925305900704766,
+              -0.031860835450123366
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -0.001520533437081785,
+            "insensibile": true
+          },
+          "c": {
+            "media": -0.04053680969899305,
+            "ic_con_nodi": [
+              -0.04682229155955484,
+              -0.034034574823019456
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -0.00412925375991037,
+            "insensibile": false
+          }
+        },
+        "Fp_672-A_eta>1sett": {
+          "nc": {
+            "media": -0.0026857745489767917,
+            "ic_con_nodi": [
+              -0.012907218682281611,
+              0.006219678992964727
+            ],
+            "include_zero": true,
+            "segno": "0"
+          },
+          "a": {
+            "media": -0.0022746189235950706,
+            "ic_con_nodi": [
+              -0.012766252195900323,
+              0.0068090534787131896
+            ],
+            "include_zero": true,
+            "segno": "0",
+            "delta_da_nc": 0.0004111556253817211,
+            "insensibile": true
+          },
+          "b": {
+            "media": -0.0017589780740378319,
+            "ic_con_nodi": [
+              -0.011789887741362658,
+              0.006952723628977343
+            ],
+            "include_zero": true,
+            "segno": "0",
+            "delta_da_nc": 0.0009267964749389598,
+            "insensibile": true
+          },
+          "c": {
+            "media": -0.0017271516946085197,
+            "ic_con_nodi": [
+              -0.011842411837895368,
+              0.007079122689346435
+            ],
+            "include_zero": true,
+            "segno": "0",
+            "delta_da_nc": 0.000958622854368272,
+            "insensibile": true
+          }
+        },
+        "Rorig_672-Fp_672_eta>1sett": {
+          "nc": {
+            "media": -0.013384702671234166,
+            "ic_con_nodi": [
+              -0.020013507545325753,
+              -0.007004253095510278
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "a": {
+            "media": -0.01444181728937797,
+            "ic_con_nodi": [
+              -0.021314409499987714,
+              -0.007746616556191947
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -0.0010571146181438049,
+            "insensibile": true
+          },
+          "b": {
+            "media": -0.013602127187450162,
+            "ic_con_nodi": [
+              -0.020044541574221288,
+              -0.007282820540080848
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -0.00021742451621599608,
+            "insensibile": true
+          },
+          "c": {
+            "media": -0.013670598320632594,
+            "ic_con_nodi": [
+              -0.02004630554774689,
+              -0.007327799756034164
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -0.0002858956493984287,
+            "insensibile": true
+          }
+        },
+        "A-C": {
+          "nc": {
+            "media": -0.03835925722998263,
+            "ic_con_nodi": [
+              -0.04820446638632996,
+              -0.02706808163517694
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "a": {
+            "media": -0.044920784213021925,
+            "ic_con_nodi": [
+              -0.05584936786854702,
+              -0.03267000960365139
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -0.006561526983039294,
+            "insensibile": false
+          },
+          "b": {
+            "media": -0.040241253772947946,
+            "ic_con_nodi": [
+              -0.049884567128887496,
+              -0.029048546582467583
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -0.0018819965429653154,
+            "insensibile": true
+          },
+          "c": {
+            "media": -0.043039794388361995,
+            "ic_con_nodi": [
+              -0.053116912741818956,
+              -0.03157908944469622
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -0.004680537158379364,
+            "insensibile": false
+          }
+        }
+      },
+      "assolute": {
+        "wCE_C": {
+          "nc": {
+            "media": 0.8143018128012375,
+            "ic_con_nodi": [
+              0.7795068752207733,
+              0.8474712642263929
+            ],
+            "include_zero": false
+          },
+          "a": {
+            "media": 0.8212458850175782,
+            "ic_con_nodi": [
+              0.785164309524961,
+              0.8557152018917962
+            ],
+            "include_zero": false,
+            "delta_da_nc": 0.0069440722163407465
+          },
+          "b": {
+            "media": 0.8156941218523295,
+            "ic_con_nodi": [
+              0.7822945203431502,
+              0.8474495030812342
+            ],
+            "include_zero": false,
+            "delta_da_nc": 0.001392309051092
+          },
+          "c": {
+            "media": 0.81865135763804,
+            "ic_con_nodi": [
+              0.7847279369116907,
+              0.8507983000018804
+            ],
+            "include_zero": false,
+            "delta_da_nc": 0.004349544836802499
+          }
+        },
+        "wCE_A": {
+          "nc": {
+            "media": 0.7759425555712549,
+            "ic_con_nodi": [
+              0.74071838213106,
+              0.8093979219216574
+            ],
+            "include_zero": false
+          },
+          "a": {
+            "media": 0.7763251008045563,
+            "ic_con_nodi": [
+              0.7409538802667809,
+              0.8097377999561216
+            ],
+            "include_zero": false,
+            "delta_da_nc": 0.0003825452333013901
+          },
+          "b": {
+            "media": 0.7754528680793816,
+            "ic_con_nodi": [
+              0.7403557262382539,
+              0.8086410108638548
+            ],
+            "include_zero": false,
+            "delta_da_nc": -0.0004896874918732808
+          },
+          "c": {
+            "media": 0.775611563249678,
+            "ic_con_nodi": [
+              0.7404921385420992,
+              0.8087875556676045
+            ],
+            "include_zero": false,
+            "delta_da_nc": -0.0003309923215769617
+          }
+        }
+      },
+      "controllo_1": {
+        "Melbourne_p0_s201": 1.8109923519153524e-08,
+        "Melbourne_p0_s202": 1.1575509627528478e-08,
+        "Melbourne_p0_s203": 9.279754953659037e-09
+      },
+      "tutte_insensibili": {
+        "a": false,
+        "b": true,
+        "c": false
+      }
+    },
+    "PEMS08": {
+      "celle": 36,
+      "confronti": {
+        "F0-C": {
+          "nc": {
+            "media": 0.1564909617167898,
+            "ic_con_nodi": [
+              0.05906507400684129,
+              0.2405280809256084
+            ],
+            "include_zero": false,
+            "segno": "+"
+          },
+          "a": {
+            "media": 0.15649094624804374,
+            "ic_con_nodi": [
+              0.05906503877292453,
+              0.24052806940500907
+            ],
+            "include_zero": false,
+            "segno": "+",
+            "delta_da_nc": -1.5468746061841898e-08,
+            "insensibile": true
+          },
+          "b": {
+            "media": 0.15649094624804374,
+            "ic_con_nodi": [
+              0.05906503877292453,
+              0.24052806940500907
+            ],
+            "include_zero": false,
+            "segno": "+",
+            "delta_da_nc": -1.5468746061841898e-08,
+            "insensibile": true
+          },
+          "c": {
+            "media": 0.15649094624804374,
+            "ic_con_nodi": [
+              0.05906503877292453,
+              0.24052806940500907
+            ],
+            "include_zero": false,
+            "segno": "+",
+            "delta_da_nc": -1.5468746061841898e-08,
+            "insensibile": true
+          }
+        },
+        "F0p-C": {
+          "nc": {
+            "media": -0.03943119600870017,
+            "ic_con_nodi": [
+              -0.07598181548573642,
+              -0.0036742616232915805
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "a": {
+            "media": -0.039431195931425106,
+            "ic_con_nodi": [
+              -0.07598181702404129,
+              -0.0036742675398903336
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": 7.727506134980189e-11,
+            "insensibile": true
+          },
+          "b": {
+            "media": -0.039431195931425106,
+            "ic_con_nodi": [
+              -0.07598181702404129,
+              -0.0036742675398903336
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": 7.727506134980189e-11,
+            "insensibile": true
+          },
+          "c": {
+            "media": -0.039431195931425106,
+            "ic_con_nodi": [
+              -0.07598181702404129,
+              -0.0036742675398903336
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": 7.727506134980189e-11,
+            "insensibile": true
+          }
+        },
+        "Fp_672-C_eta>1sett": {
+          "nc": {
+            "media": -0.09084929069187012,
+            "ic_con_nodi": [
+              -0.13126150710092538,
+              -0.04537666729745332
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "a": {
+            "media": -0.09084929865480666,
+            "ic_con_nodi": [
+              -0.1312615123507455,
+              -0.045376687893203586
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -7.96293654625746e-09,
+            "insensibile": true
+          },
+          "b": {
+            "media": -0.09084929865480666,
+            "ic_con_nodi": [
+              -0.1312615123507455,
+              -0.045376687893203586
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -7.96293654625746e-09,
+            "insensibile": true
+          },
+          "c": {
+            "media": -0.09084929865480666,
+            "ic_con_nodi": [
+              -0.1312615123507455,
+              -0.045376687893203586
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -7.96293654625746e-09,
+            "insensibile": true
+          }
+        },
+        "Fp_672-A_eta>1sett": {
+          "nc": {
+            "media": 0.039588628047137094,
+            "ic_con_nodi": [
+              -0.016480261421525463,
+              0.09058238290741935
+            ],
+            "include_zero": true,
+            "segno": "0"
+          },
+          "a": {
+            "media": 0.039588619906215615,
+            "ic_con_nodi": [
+              -0.016480264618089633,
+              0.09058238633172977
+            ],
+            "include_zero": true,
+            "segno": "0",
+            "delta_da_nc": -8.140921478605456e-09,
+            "insensibile": true
+          },
+          "b": {
+            "media": 0.039588619906215615,
+            "ic_con_nodi": [
+              -0.016480264618089633,
+              0.09058238633172977
+            ],
+            "include_zero": true,
+            "segno": "0",
+            "delta_da_nc": -8.140921478605456e-09,
+            "insensibile": true
+          },
+          "c": {
+            "media": 0.039588619906215615,
+            "ic_con_nodi": [
+              -0.016480264618089633,
+              0.09058238633172977
+            ],
+            "include_zero": true,
+            "segno": "0",
+            "delta_da_nc": -8.140921478605456e-09,
+            "insensibile": true
+          }
+        },
+        "Rorig_672-Fp_672_eta>1sett": {
+          "nc": {
+            "media": 0.009812870264789364,
+            "ic_con_nodi": [
+              -0.03955446843685011,
+              0.07752628096535201
+            ],
+            "include_zero": true,
+            "segno": "0"
+          },
+          "a": {
+            "media": 0.009812877485939087,
+            "ic_con_nodi": [
+              -0.03955446910523996,
+              0.0775262798129477
+            ],
+            "include_zero": true,
+            "segno": "0",
+            "delta_da_nc": 7.221149723318776e-09,
+            "insensibile": true
+          },
+          "b": {
+            "media": 0.009812877485939087,
+            "ic_con_nodi": [
+              -0.03955446910523996,
+              0.0775262798129477
+            ],
+            "include_zero": true,
+            "segno": "0",
+            "delta_da_nc": 7.221149723318776e-09,
+            "insensibile": true
+          },
+          "c": {
+            "media": 0.009812877485939087,
+            "ic_con_nodi": [
+              -0.03955446910523996,
+              0.0775262798129477
+            ],
+            "include_zero": true,
+            "segno": "0",
+            "delta_da_nc": 7.221149723318776e-09,
+            "insensibile": true
+          }
+        },
+        "A-C": {
+          "nc": {
+            "media": -0.1325255920001575,
+            "ic_con_nodi": [
+              -0.18799513169268964,
+              -0.06701508117142613
+            ],
+            "include_zero": false,
+            "segno": "-"
+          },
+          "a": {
+            "media": -0.13252559202081873,
+            "ic_con_nodi": [
+              -0.18799512513206443,
+              -0.06701508577746854
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -2.0661222732698548e-11,
+            "insensibile": true
+          },
+          "b": {
+            "media": -0.13252559202081873,
+            "ic_con_nodi": [
+              -0.18799512513206443,
+              -0.06701508577746854
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -2.0661222732698548e-11,
+            "insensibile": true
+          },
+          "c": {
+            "media": -0.13252559202081873,
+            "ic_con_nodi": [
+              -0.18799512513206443,
+              -0.06701508577746854
+            ],
+            "include_zero": false,
+            "segno": "-",
+            "delta_da_nc": -2.0661222732698548e-11,
+            "insensibile": true
+          }
+        }
+      },
+      "assolute": {
+        "wCE_C": {
+          "nc": {
+            "media": 0.6095952062888622,
+            "ic_con_nodi": [
+              0.498839936367435,
+              0.707737222080627
+            ],
+            "include_zero": false
+          },
+          "a": {
+            "media": 0.6095952034393147,
+            "ic_con_nodi": [
+              0.4988399285882401,
+              0.7077372233683736
+            ],
+            "include_zero": false,
+            "delta_da_nc": -2.8495474868606152e-09
+          },
+          "b": {
+            "media": 0.6095952034393147,
+            "ic_con_nodi": [
+              0.4988399285882401,
+              0.7077372233683736
+            ],
+            "include_zero": false,
+            "delta_da_nc": -2.8495474868606152e-09
+          },
+          "c": {
+            "media": 0.6095952034393147,
+            "ic_con_nodi": [
+              0.4988399285882401,
+              0.7077372233683736
+            ],
+            "include_zero": false,
+            "delta_da_nc": -2.8495474868606152e-09
+          }
+        },
+        "wCE_A": {
+          "nc": {
+            "media": 0.47706961428870476,
+            "ic_con_nodi": [
+              0.3847512294841861,
+              0.5670261371805729
+            ],
+            "include_zero": false
+          },
+          "a": {
+            "media": 0.47706961141849596,
+            "ic_con_nodi": [
+              0.38475122063854306,
+              0.5670261309803933
+            ],
+            "include_zero": false,
+            "delta_da_nc": -2.8702087928600406e-09
+          },
+          "b": {
+            "media": 0.47706961141849596,
+            "ic_con_nodi": [
+              0.38475122063854306,
+              0.5670261309803933
+            ],
+            "include_zero": false,
+            "delta_da_nc": -2.8702087928600406e-09
+          },
+          "c": {
+            "media": 0.47706961141849596,
+            "ic_con_nodi": [
+              0.38475122063854306,
+              0.5670261309803933
+            ],
+            "include_zero": false,
+            "delta_da_nc": -2.8702087928600406e-09
+          }
+        }
+      },
+      "controllo_1": {
+        "PEMS08_p0_p0_s201": 3.03112415258962e-08
+      },
+      "tutte_insensibili": {
+        "a": true,
+        "b": true,
+        "c": true
+      }
+    }
+  },
+  "verdetto": {
+    "a": false,
+    "b": false,
+    "c": false
+  },
+  "istante": "2026-10-13T17:04:17.558429+00:00"
+}
