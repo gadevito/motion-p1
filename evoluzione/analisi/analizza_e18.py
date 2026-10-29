@@ -33,7 +33,7 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from evoluzione.esperimenti.esegui_e16 import (  # noqa: E402
-    CALIBRAZIONI, _AB, _applica, _boot_vec, _log_p, _wce_ab)
+    CALIBRAZIONI, _AB, _applica, _boot_vec, _log_p, _metriche, _wce_ab)
 from evoluzione.esperimenti.esegui_e4 import FASCE_ETA  # noqa: E402
 
 SEME_BOOT = 20261028
@@ -84,7 +84,11 @@ def _wce_oriz(A, B):
 
 # ------------------------------------------------------------------- parte C --
 def parte_C(out: Path) -> dict:
-    """Correzione 27: F'(1 sett.) e C di E16 sulle origini con eta' > 1 settimana."""
+    """Correzione 27: F'(1 sett.) e C di E16 sulle origini con eta' > 1 settimana.
+
+    Oltre alla wCE con ricampionamento (F15), le metriche di F16 sulla stessa finestra: ECE per classe, log-loss
+    non pesata, Brier multiclasse, wCE, per cella e in media per gruppo (`medie_settimana`, come `medie_test` di E16).
+    """
     E16 = json.loads((out / "e16_risultati.json").read_text())
     file_p = sorted((out / "predizioni_e16").glob("prova_*_p*_s*.npz"))
     if not file_p:
@@ -99,15 +103,20 @@ def parte_C(out: Path) -> dict:
             raise RuntimeError(f"{fp.name}: nessuna origine con eta' > 1 settimana")
         Y, M, w = z["y"][sel], z["m"][sel].astype(bool), z["pesi"].astype("float64")
         par = E16["per_cella"][f"{gr}/{c}/p{p}/s{s}"]["parametri"]
-        cella = {"K": int(len(z["nodi"])), "A": {}, "B": {}, "wce": {}}
+        cella = {"K": int(len(z["nodi"])), "A": {}, "B": {}, "wce": {}, "metriche": {}, "contesto": c}
+
+        def _met(P_):
+            return {k_: v_ for k_, v_ in _metriche(P_, Y, M, w).items() if k_ != "affidabilita"}
         for nome in ("C", "Fp_672"):
             P = z[f"prob_{nome}"][sel].astype("float64"); lp = _log_p(P)
             cella["A"][f"{nome}/grezzo"], cella["B"][f"{nome}/grezzo"] = _AB(P, Y, M, w)
+            cella["metriche"][f"{nome}/grezzo"] = _met(P)
             for cal in CALIBRAZIONI:
                 tipo = cal.split("_")[0]
                 theta = np.asarray(par[f"{nome}/{cal}"]["theta"], dtype="float64")
                 Pc = _applica(lp, theta, tipo)
                 cella["A"][f"{nome}/{cal}"], cella["B"][f"{nome}/{cal}"] = _AB(Pc, Y, M, w)
+                cella["metriche"][f"{nome}/{cal}"] = _met(Pc)
         # CONTROLLO: wCE grezza per orizzonte sulla finestra == aggregato congelato (fascia eta' > 1 sett.)
         f_c = (out / "predizioni_e4" / f"prova_{c}_p{p}_s{s}.npz") if gr != "PEMS08" else \
               (out / "predizioni_e6" / f"prova_{c}_p{p}_s{s}.npz")
@@ -136,9 +145,14 @@ def parte_C(out: Path) -> dict:
         # BLOCCANTE, dopo aver esaminato tutte le celle: l'elenco completo serve a chi deve decidere
         raise RuntimeError(f"controllo C: {len(fuori)} celle oltre {TOLLERANZA_C:g} — E18-C si ferma:\n    " + "\n    ".join(fuori))
     R = {"definizione": "finestra: origini con eta' > 1 settimana per F'(1 sett.) E per C; parametri di calibrazione "
-                        "di e16_risultati.json (stimati sulla validazione della stessa cella), invariati",
+                        "di e16_risultati.json (stimati sulla validazione della stessa cella), invariati; metriche di F16 "
+                        "(ECE per classe a 10 intervalli, log-loss non pesata, Brier multiclasse, wCE) per cella sulla stessa "
+                        "finestra e in media sulle celle, come `medie_test` di E16",
          "finestra_passi": int(ETA_SETT), "tolleranza_controllo": TOLLERANZA_C, "repliche": None, "seme_bootstrap": SEME_BOOT,
-         "controllo": controllo, "gruppi": {}, "riferimento_intero_periodo": {}, "impronte_ingressi": {
+         "controllo": controllo, "gruppi": {}, "riferimento_intero_periodo": {},
+         "per_cella_settimana": {f"{k[0]}/{v['contesto']}/p{k[1]}/s{k[2]}": v["metriche"] for cc in celle_gr.values()
+                                 for k, v in cc.items()},
+         "impronte_ingressi": {
              "e16_risultati.json": imp(out / "e16_risultati.json"), "predizioni_e16": ingressi}}
     from evoluzione.esperimenti.esegui_e16 import B_BOOT
     R["repliche"] = B_BOOT
@@ -159,12 +173,20 @@ def parte_C(out: Path) -> dict:
             d = rep[:, pos[f"Fp_672/{var}"]] - rep[:, pos[f"C/{var}"]]; ic = _ic(d)
             G["differenze_settimana"][f"Fp_672-C/{var}"] = {"media": float(m0[pos[f"Fp_672/{var}"]] - m0[pos[f"C/{var}"]]),
                                                             "ic_con_nodi": ic, "segno": segno(ic), "categoria": categoria(ic)}
+        # medie sulle celle delle metriche di F16 sulla finestra (ECE per classe, log-loss, Brier, wCE)
+        G["medie_settimana"] = {}
+        for k in chiavi:
+            mm = [v["metriche"][k] for v in celle.values()]
+            G["medie_settimana"][k] = {"logloss": float(np.mean([m["logloss"] for m in mm])), "brier": float(np.mean([m["brier"] for m in mm])),
+                                       "wce": float(np.mean([m["wce"] for m in mm])),
+                                       "ece": {str(kk): float(np.mean([m["ece"][str(kk)] for m in mm])) for kk in range(3)}}
         R["gruppi"][gr] = G
-        # il riferimento: i valori di E16 sull'intero periodo (F15: Fp_672-C; F16: wCE di Fp_672 e C)
+        # il riferimento: i valori di E16 sull'intero periodo (F15: Fp_672-C; F16: wCE di Fp_672 e C; medie_test)
         g16 = E16["gruppi"][gr]
         R["riferimento_intero_periodo"][gr] = {
             "differenze": {k: g16["differenze"][k] for k in g16["differenze"] if k.startswith("Fp_672-C/")},
-            "wce": {k: g16["wce"][k] for k in chiavi if k in g16["wce"]}}
+            "wce": {k: g16["wce"][k] for k in chiavi if k in g16["wce"]},
+            "medie_test": {k: g16["medie_test"][k] for k in chiavi if k in g16.get("medie_test", {})}}
         print(f"  {gr:10s} {len(celle)} celle: F'(1 sett.) - C grezzo su eta' > 1 sett. "
               f"{G['differenze_settimana']['Fp_672-C/grezzo']['media']:+.4f} {G['differenze_settimana']['Fp_672-C/grezzo']['ic_con_nodi']} "
               f"(intero periodo, E16: {g16['differenze']['Fp_672-C/grezzo']['media']:+.4f})")

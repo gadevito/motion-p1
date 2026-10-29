@@ -1,10 +1,12 @@
 # CONGELAMENTO E18 — analisi di verifica dalla seconda revisione esterna
 
-Generato da `genera_congelamento_e18.py` al commit `0fe01d6`, 2026-10-29 08:58 UTC. Protocollo `protocol/E18.md` (impronta `42da14831a4e982c`; firma 28/10/2026, commit 964e4f5), letto per intero prima del codice; `e18_risultati.json` impronta `7a77b98705da6861`. Nessun addestramento: sola analisi da artefatti congelati. Parti presenti: C, A, B, D. Ordine di esecuzione: C → A → B → D.
+Generato da `genera_congelamento_e18.py` al commit `a0b595b`, 2026-10-29 09:41 UTC. Protocollo `protocol/E18.md` (impronta `42da14831a4e982c`; firma 28/10/2026, commit 964e4f5), letto per intero prima del codice; `e18_risultati.json` impronta `4f705ba30cd5946c`. Nessun addestramento: sola analisi da artefatti congelati. Parti presenti: C, A, B, D. Ordine di esecuzione: C → A → B → D.
+
+Rigenerato il 2026-10-29 (seconda versione; la prima, del 28/10, aveva impronta `b284661178a15d9c`): (i) la sostituzione delle affermazioni a 19 soglie e' la **voce 29** del registro delle correzioni, non la 28 scritta nel protocollo §1 r. 61 (la 28 era gia' stata assegnata ai nomi di ruolo nelle note sulle correzioni): deviazione dichiarata in §6; (ii) la parte C e' completata con le metriche di F16 (ECE per classe, log-loss, Brier) sulla stessa finestra, come il protocollo §3 richiede («righe F′(1wk) di F16 ricalcolate»): la prima versione riportava la sola wCE. Nessun numero gia' congelato cambia.
 
 ## 1. Parte C — E16: finestra di F′(1 sett.) (correzione 27)
 
-finestra: origini con eta' > 1 settimana per F'(1 sett.) E per C; parametri di calibrazione di e16_risultati.json (stimati sulla validazione della stessa cella), invariati. Finestra: origini con eta' > 672 passi. 4000 ricampionamenti congiunti (schema di E16), seme 20261028.
+finestra: origini con eta' > 1 settimana per F'(1 sett.) E per C; parametri di calibrazione di e16_risultati.json (stimati sulla validazione della stessa cella), invariati; metriche di F16 (ECE per classe a 10 intervalli, log-loss non pesata, Brier multiclasse, wCE) per cella sulla stessa finestra e in media sulle celle, come `medie_test` di E16. Finestra: origini con eta' > 672 passi. 4000 ricampionamenti congiunti (schema di E16), seme 20261028.
 
 **Controllo bloccante**: per ciascuna delle 144 celle di prova, la wCE grezza per orizzonte di F′(1 sett.) e di C sulla finestra, ricalcolata dalle probabilita' di E16, contro l'aggregato congelato della campagna (fascia eta' > 1 settimana di `predizioni_e4` per le citta', di `predizioni_e6` per PEMS08), nodi e origini identici: scarto relativo massimo **8.66e-07** (soglia 1e-06): superato.
 
@@ -30,6 +32,51 @@ finestra: origini con eta' > 1 settimana per F'(1 sett.) E per C; parametri di c
 |  | T (wCE) | 0.5205 | 0.5774 | -0.0570 [-0.0958, -0.0008] | superiorita' | -0.0719 [-0.1048, -0.0290] |
 |  | V (log-loss) | 1.0116 | 1.1006 | -0.0889 [-0.1779, +0.0213] | inconclusivo | -0.1114 [-0.1902, -0.0181] |
 |  | V (wCE) | 0.5212 | 0.5674 | -0.0462 [-0.0916, +0.0100] | inconclusivo | -0.0613 [-0.1000, -0.0205] |
+
+**Metriche di F16 sulla finestra > 1 settimana** (medie sulle celle, come `medie_test` di E16; ECE per classe a 10 intervalli, log-loss non pesata, Brier multiclasse, wCE; stesse probabilita', stessi parametri di calibrazione). Aggiunte il 2026-10-29 (vedi §6).
+
+| contesto | braccio | calibrazione | ECE cl. 0 | ECE cl. 1 | ECE cl. 2 | log-loss | Brier | wCE | log-loss / Brier intero periodo (E16) |
+|---|---|---|---|---|---|---|---|---|---|
+| Madrid | F′(1 sett.) | grezzo | 0.0946 | 0.1212 | 0.2153 | 0.9916 | 0.6107 | 0.9310 | 0.9869 / 0.6076 |
+|  | F′(1 sett.) | T (log-loss) | 0.0929 | 0.1206 | 0.2128 | 0.9809 | 0.6018 | 0.9316 | 0.9767 / 0.5990 |
+|  | F′(1 sett.) | T (wCE) | 0.0940 | 0.1209 | 0.2147 | 0.9889 | 0.6087 | 0.9303 | 0.9843 / 0.6056 |
+|  | F′(1 sett.) | V (log-loss) | 0.0125 | 0.0085 | 0.0124 | 0.8267 | 0.5105 | 1.0898 | 0.8293 / 0.5115 |
+|  | F′(1 sett.) | V (wCE) | 0.0964 | 0.1203 | 0.2164 | 0.9908 | 0.6095 | 0.9306 | 0.9861 / 0.6064 |
+|  | C | grezzo | 0.0856 | 0.1169 | 0.2020 | 0.9854 | 0.6026 | 0.9626 | 0.9885 / 0.6047 |
+|  | C | T (log-loss) | 0.0856 | 0.1175 | 0.2026 | 0.9835 | 0.6001 | 0.9644 | 0.9862 / 0.6018 |
+|  | C | T (wCE) | 0.0856 | 0.1170 | 0.2020 | 0.9856 | 0.6028 | 0.9625 | 0.9888 / 0.6049 |
+|  | C | V (log-loss) | 0.0074 | 0.0084 | 0.0030 | 0.8460 | 0.5212 | 1.1561 | 0.8527 / 0.5244 |
+|  | C | V (wCE) | 0.0928 | 0.1156 | 0.2082 | 0.9925 | 0.6068 | 0.9624 | 0.9956 / 0.6089 |
+| Londra | F′(1 sett.) | grezzo | 0.0263 | 0.0769 | 0.1030 | 0.8284 | 0.4992 | 0.8581 | 0.8189 / 0.4923 |
+|  | F′(1 sett.) | T (log-loss) | 0.0344 | 0.0758 | 0.1096 | 0.8316 | 0.5002 | 0.8576 | 0.8230 / 0.4939 |
+|  | F′(1 sett.) | T (wCE) | 0.0300 | 0.0762 | 0.1060 | 0.8293 | 0.4994 | 0.8572 | 0.8202 / 0.4927 |
+|  | F′(1 sett.) | V (log-loss) | 0.0448 | 0.0298 | 0.0166 | 0.7887 | 0.4764 | 0.9531 | 0.7772 / 0.4689 |
+|  | F′(1 sett.) | V (wCE) | 0.0135 | 0.0782 | 0.0853 | 0.8162 | 0.4920 | 0.8624 | 0.8064 / 0.4850 |
+|  | C | grezzo | 0.0666 | 0.0713 | 0.1379 | 0.8807 | 0.5287 | 0.8883 | 0.8738 / 0.5234 |
+|  | C | T (log-loss) | 0.0651 | 0.0717 | 0.1367 | 0.8802 | 0.5285 | 0.8881 | 0.8731 / 0.5231 |
+|  | C | T (wCE) | 0.0654 | 0.0715 | 0.1369 | 0.8803 | 0.5285 | 0.8881 | 0.8731 / 0.5231 |
+|  | C | V (log-loss) | 0.0095 | 0.0178 | 0.0159 | 0.8112 | 0.4893 | 0.9347 | 0.8049 / 0.4850 |
+|  | C | V (wCE) | 0.0611 | 0.0797 | 0.1408 | 0.8839 | 0.5316 | 0.8891 | 0.8764 / 0.5259 |
+| Melbourne | F′(1 sett.) | grezzo | 0.2498 | 0.0958 | 0.1540 | 0.7784 | 0.4422 | 0.7772 | 0.7777 / 0.4431 |
+|  | F′(1 sett.) | T (log-loss) | 0.2547 | 0.0979 | 0.1568 | 0.7767 | 0.4424 | 0.7766 | 0.7759 / 0.4432 |
+|  | F′(1 sett.) | T (wCE) | 0.2627 | 0.1014 | 0.1613 | 0.7779 | 0.4442 | 0.7779 | 0.7766 / 0.4447 |
+|  | F′(1 sett.) | V (log-loss) | 0.0321 | 0.0258 | 0.0097 | 0.5120 | 0.2980 | 1.0455 | 0.5233 / 0.3057 |
+|  | F′(1 sett.) | V (wCE) | 0.2844 | 0.1037 | 0.1807 | 0.8224 | 0.4687 | 0.7822 | 0.8198 / 0.4683 |
+|  | C | grezzo | 0.2341 | 0.0901 | 0.1440 | 0.7477 | 0.4266 | 0.8137 | 0.7553 / 0.4323 |
+|  | C | T (log-loss) | 0.2311 | 0.0886 | 0.1424 | 0.7467 | 0.4259 | 0.8142 | 0.7546 / 0.4318 |
+|  | C | T (wCE) | 0.2432 | 0.0941 | 0.1491 | 0.7512 | 0.4292 | 0.8130 | 0.7579 / 0.4345 |
+|  | C | V (log-loss) | 0.0083 | 0.0079 | 0.0047 | 0.5237 | 0.3025 | 1.1549 | 0.5399 / 0.3127 |
+|  | C | V (wCE) | 0.2530 | 0.0841 | 0.1688 | 0.7773 | 0.4412 | 0.8118 | 0.7838 / 0.4464 |
+| PEMS08 | F′(1 sett.) | grezzo | 0.1285 | 0.0787 | 0.0498 | 0.2999 | 0.1568 | 0.5186 | 0.2967 / 0.1552 |
+|  | F′(1 sett.) | T (log-loss) | 0.1290 | 0.0789 | 0.0501 | 0.3000 | 0.1568 | 0.5202 | 0.2969 / 0.1552 |
+|  | F′(1 sett.) | T (wCE) | 0.1285 | 0.0790 | 0.0495 | 0.3020 | 0.1573 | 0.5205 | 0.2988 / 0.1557 |
+|  | F′(1 sett.) | V (log-loss) | 0.0069 | 0.0071 | 0.0036 | 0.1257 | 0.0679 | 1.0117 | 0.1231 / 0.0668 |
+|  | F′(1 sett.) | V (wCE) | 0.1416 | 0.0832 | 0.0584 | 0.3252 | 0.1711 | 0.5212 | 0.3217 / 0.1692 |
+|  | C | grezzo | 0.1240 | 0.0800 | 0.0440 | 0.2971 | 0.1561 | 0.6094 | 0.2952 / 0.1549 |
+|  | C | T (log-loss) | 0.1256 | 0.0808 | 0.0448 | 0.2966 | 0.1558 | 0.6073 | 0.2946 / 0.1547 |
+|  | C | T (wCE) | 0.1573 | 0.0993 | 0.0581 | 0.3126 | 0.1616 | 0.5774 | 0.3107 / 0.1605 |
+|  | C | V (log-loss) | 0.0079 | 0.0093 | 0.0042 | 0.1343 | 0.0711 | 1.1006 | 0.1327 / 0.0702 |
+|  | C | V (wCE) | 0.1717 | 0.0771 | 0.0946 | 0.3678 | 0.1820 | 0.5674 | 0.3653 / 0.1806 |
 
 Le righe F′(1 sett.) di F15 (differenze) e di F16 (metriche per braccio) vanno sostituite con questi valori; in F16 si aggiunge la riga «C, origini > 1 settimana» per ogni calibrazione (colonna «wCE C, > 1 sett.»). I parametri di temperature e vector scaling sono quelli di E16 (stimati sulla validazione): cambia solo la finestra di valutazione.
 
@@ -109,7 +156,7 @@ Totale: 13.1 ore-macchina; sotto le 6 h per citta' del protocollo, quindi 4.000 
 | PEMS04 | F0p-C | intero | +0.0010 [-0.0010, +0.0030] 0 | +0.0063 [-0.0067, +0.0203] 0 | +1.2 [-0.2, +3.0] 0 | +1.6 [-0.1, +3.5] 0 | +1.2 [-0.8, +3.5] 0 | +0.5 [-1.3, +2.3] 0 | +0.1 [-0.8, +1.0] 0 |
 | PEMS04 | Fp_672-C | > 1 sett. | +0.0074 [+0.0041, +0.0115] + | +0.0459 [+0.0282, +0.0667] + | +2.8 [+0.9, +5.6] + | +4.5 [+2.1, +7.9] + | +6.3 [+3.5, +9.6] + | +5.1 [+2.8, +7.7] + | +3.0 [+1.3, +5.2] + |
 
-### 2c. Affermazioni ri-valutate (sostituiscono quelle a 19 soglie; voce 28 del registro)
+### 2c. Affermazioni ri-valutate (sostituiscono quelle a 19 soglie; voce 29 del registro — il protocollo §1 r. 61 scriveva 28, vedi §6)
 
 - **A1** ΔAUC(F₀ − C) < 0 nelle tre citta': Madrid sotto zero, Londra sotto zero, Melbourne sotto zero → **confermata**; PEMS08: include lo zero.
 - **A2** ΔAUC(F₀′ − F₀) > 0 nelle tre citta' e su PEMS08: Madrid sopra zero, Londra sopra zero, Melbourne sopra zero, PEMS08 include lo zero → citta' **confermata**, PEMS08 **NON confermata**.
@@ -291,9 +338,11 @@ I margini minimi usano gli estremi dell'intervallo al 95 % (`analizza_e17.py` r.
 - 28/10/2026, parte C: due celle di `predizioni_e16` (prova Madrid p1 s203, Melbourne p2 s212) avevano, sulla finestra > 1 settimana, scarto relativo 1,36e-6 e 1,56e-6 rispetto all'aggregato congelato (soglia 1e-6): rumore fra macchine (voce 22; le probabilita' erano state ricostruite sulla Spark, gli aggregati sul Mac). Rimedio gia' usato in E16: le due celle sono state ricostruite sul Mac con `esegui_e16.py --solo` (controllo interno di E16 a 1,1e-14 e 9,6e-16) e copiate sulla Spark; gli originali sono in `predizioni_e16_spark_sostituite/`. Tolleranza invariata.
 - 28/10/2026, A.6: PEMS04 ha solo C, F₀′ e F′(1 sett.) (nessun E ne' A): A1, A2, A4 not defined (no E, no A); A3 and F₀′ − C only — come da A.6, non e' una deviazione. La validazione di PEMS04 non viene ricostruita (non serve ad A).
 - 29/10/2026, parte B: per i contesti di PEMS04 i confronti con A ed R-orig non esistono (nessun A, nessun R-orig in E6-bis parte A); per le citta' R-orig(1 sett.) − F′(1 sett.) usa `predizioni_fase3_672` (R-orig per nodo sulle origini comuni) e la fascia > 1 settimana di `predizioni_e4`, come E3-bis.
+- 29/10/2026, numerazione: il protocollo §1 r. 61 assegnava alla sostituzione delle affermazioni a 19 soglie (ROC empirica) la voce 28 del registro delle correzioni; la voce 28 era gia' stata assegnata il 29/10 ai nomi di ruolo nelle note sulle correzioni, quindi la sostituzione e' la voce 29. Il protocollo non si modifica (firmato); §2c e il registro portano 29.
+- 29/10/2026, parte C: la prima versione del congelamento (28/10, `b284661178a15d9c`) riportava per la finestra > 1 settimana la sola wCE; il protocollo §3 richiede le righe F′(1wk) di F16 intere (ECE per classe, log-loss, Brier, wCE). Completate qui dalle stesse probabilita' e con gli stessi parametri di calibrazione (`analizza_e18.py --parte C` rieseguito; le parti A, B, D non sono state rieseguite e i loro numeri sono invariati).
 
 ## 7. Impronte
 
-- `results/evoluzione/e18_risultati.json` `7a77b98705da6861`; `protocol/E18.md` `42da14831a4e982c`; `results/evoluzione/congelamento_e18.json` `3e1409e19e7317e7`.
+- `results/evoluzione/e18_risultati.json` `4f705ba30cd5946c`; `protocol/E18.md` `42da14831a4e982c`; `results/evoluzione/congelamento_e18.json` `f054365ac1387dfd`.
 - Ingressi per parte (impronte dei file elencate in `e18_risultati.json` → `impronte_ingressi`): C: 2 file, insieme `9bfd450be26b80fc`; A: 180 file, insieme `1ebcd16ef54185b6`; B: 9 file, insieme `30cd1c11c5c7e48d`; D: 0 file, insieme `e3b0c44298fc1c14`.
-- `evoluzione/analisi/analizza_e18.py` `eec942ac326118ae`.
+- `evoluzione/analisi/analizza_e18.py` `99ae0206044e269d`.
