@@ -51,9 +51,9 @@ def _righe():
     for k, val in (("F0-C", "+0.156"), ("F0p-C", "-0.039")):
         R.append(("II", f"{k}, PEMS08", "E8", "e8_risultati.json",
                   ["gruppi", "PEMS08", "confronti", k, "wce", "media"], val, _f3))
-    for (c, _), st in zip(CITTA, ("-0.011", "+0.034", "-0.019")):
-        R.append(("II", f"F'(24 h) - C, {c}", "E2", "congelamento_e2.json",
-                  ["confronti", f"{c}/Fp-C", "media"], st, _f3))
+    for (c, _), st in zip(CITTA, ("-0.011", "+0.032", "-0.020")):     # sei semi, episodio 1 (tabella C3)
+        R.append(("III-B", f"F'(24 h) - C, {c} (sei semi, episodio 1)", "E5", "e5_risultati.json",
+                  ["affermazioni", f"{c}/ep1/d", "media"], st, _f3))
     # (i valori della curva di Fig. 4 per F'(1 wk) - C non sono piu' stampati nel testo: revisione di leggibilita')
     for k, st in (("d", "-0.074"), ("e", "+0.040")):
         R.append(("III-B", f"({k}) PEMS08", "E6", "e6_risultati.json", ["affermazioni", k, "media"], st, _f3))

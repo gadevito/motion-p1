@@ -504,7 +504,7 @@ def scrivi_E15(ris: Path, f: Path) -> None:
         "@{}l r r r@{}",
         f"E15: training cost per arm ({ES['completate']} trainings in {ES['ore_calendario']:.1f}\\,h of calendar "
         f"time, {ES['ore_macchina']:.1f} machine-hours, on {ES['ambiente']['piattaforma'].replace('_', chr(92) + '_')}, "
-        f"{ES['ambiente']['nuclei_logici']} cores, one thread per worker). Zero-difference control: cell "
+        f"{ES['ambiente']['nuclei_logici']} cores, one thread per worker). Zero-difference control: run "
         f"{CTX_EN[Z['cella']['contesto']]} p{Z['cella']['partizione']} seed {Z['cella']['seme']}, arm "
         f"{Z['cella']['braccio']}, retrained with the frozen scalar: wCE {Z['wce_congelata']:.12f} frozen, "
         f"{Z['wce_riprodotta']:.12f} reproduced, checkpoint identical to the bit." + fonte,
