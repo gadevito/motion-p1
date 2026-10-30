@@ -61,7 +61,7 @@ def scrivi_C3(ris: Path, f: Path) -> None:
     f.write_text(_longtable(
         "@{}l l l c c c c@{}",
         "Operational metrics on the congested class for every principal comparison (differences in percentage "
-        "points, mean over cells and 95\\% interval from 4{,}000 joint resamples), under three decision rules: "
+        "points, mean over runs and 95\\% interval from 4{,}000 joint resamples), under three decision rules: "
         "F1-optimal threshold per arm chosen on validation; threshold giving each arm the false-alarm rate of $C$ "
         "on validation; argmax. $^\\dagger$ origins older than one week.",
         "Context & Comparison & Rule & $\\Delta$ recall & $\\Delta$ false alarms & $\\Delta$ precision & "
@@ -130,7 +130,7 @@ def scrivi_C9(ris: Path, f: Path) -> None:
             righe.append("\\addlinespace")
     f.write_text(_longtable(
         "@{}l l c c c c@{}",
-        "Difference in weighted cross-entropy against $C$ per forecasting horizon (mean over cells and 95\\% "
+        "Difference in weighted cross-entropy against $C$ per forecasting horizon (mean over runs and 95\\% "
         "interval from 4{,}000 joint resamples of partitions, seeds and sensors). $^\\dagger$ origins older than "
         "one week; otherwise all origins after $t_1$.",
         "Context & Comparison & " + " & ".join(ORIZ), righe[:-1], "tab:suppC9"))
@@ -213,7 +213,7 @@ def scrivi_D(ris: Path, f: Path) -> None:
     out.append(_longtable(
         "@{}l c l c c c r c l@{}",
         "E14: the five pre-registered statements of the replication table of the paper, per context and installation episode, "
-        "frozen (non-causal coverage scalar) against each re-evaluation variant (" + VAR_DEF[:-1] + "). Mean over cells and 95\\% interval "
+        "frozen (non-causal coverage scalar) against each re-evaluation variant (" + VAR_DEF[:-1] + "). Mean over runs and 95\\% interval "
         "from 4{,}000 joint resamples. " + crit,
         "Context & Ep. & Statement & Frozen & Var. & Re-evaluated & $\\Delta$ & Sign & Reading", righe, "tab:suppD1"))
     # D2 -------------------------------------------------------------------------------------------
@@ -336,8 +336,8 @@ def scrivi_E(ris: Path, f: Path) -> None:
     out.append(_longtable(
         "@{}l c c c c@{}",
         "E16: calibration share $s=1-(F_0^{\\mathrm{cal}}-C^{\\mathrm{cal}})/(F_0-C)$ of the transfer cost, per context "
-        "and post-hoc calibration (temperature or vector scaling, fitted per arm and cell on the validation episode "
-        "alone, against the unweighted log-loss or against the campaign loss, wCE; T = temperature, V = vector), mean over cells and 95\\% interval "
+        "and post-hoc calibration (temperature or vector scaling, fitted per arm and run on the validation episode, objective pooled over origins, sensors and horizons, "
+        "alone, against the unweighted log-loss or against the campaign loss, wCE; T = temperature, V = vector), mean over runs and 95\\% interval "
         "from 4{,}000 joint resamples; cities: episode 1. The pre-registered criterion for ``calibration first'' "
         "is a lower limit above 0.5 in all three cities." + fonte,
         "Context & " + " & ".join(CAL_EN[c] for c in cal), righe, "tab:suppE1"))
@@ -370,7 +370,7 @@ def scrivi_E(ris: Path, f: Path) -> None:
     fonte_ter = (" wCE column: definition of the paper (per horizon $\\sum w_y(-\\log p_y)/\\sum w_y$ over valid origins and "
                  "sensors, then mean over the four horizons), recomputed on 2026-10-30 from the same probabilities (E18-ter; "
                  "record \\texttt{CONGELAMENTO\\_E18TER.md}, fingerprint \\texttt{" + imp(md_ter) + "}); the earlier column "
-                 "weighted jointly over horizons; the means over cells equal those behind the differences table."
+                 "weighted jointly over horizons; the means over runs equal those behind the differences table."
                  if W and md_ter.exists() else "")
     righe, prima = [], True
     for g in GRUPPI_E16:
@@ -409,7 +409,7 @@ def scrivi_E(ris: Path, f: Path) -> None:
     out.append(_longtable(
         "@{}l l l c c c c c c@{}",
         "E16: expected calibration error per class (10 reliability bins), unweighted log-loss, multiclass Brier score "
-        "and wCE on the test, per arm and calibration, means over cells. Calibrating against the unweighted log-loss "
+        "and wCE on the test, per arm and calibration, means over runs. Calibrating against the unweighted log-loss "
         "targets the natural class distribution, while the campaign loss is minimised by the class-reweighted "
         f"posterior: vector scaling against log-loss brings every class's ECE to at most {ece_v:.3f} but raises the wCE. "
         + ("For $F'(1\\,\\mathrm{wk})$ every metric is on its causal window; the row $C^\\dagger$ is $C$ on the same window."
@@ -478,9 +478,9 @@ def scrivi_E15(ris: Path, f: Path) -> None:
         "@{}l l c l l c l c@{}",
         "E15: the differences of the causal campaign (six seeds, 18 runs per city, episode 1), with the two reading scales "
         "of the paper — " + SCALE_EN + f"; {NOTA} — against the pre-registered campaign on the "
-        "same cells and resamples (frozen) and the published value on twelve seeds; $k$: update budget reselected on "
+        "same runs and resamples (frozen) and the published value on twelve seeds; $k$: update budget reselected on "
         "the causal validation episode. $^\\dagger$ origins older than one week; otherwise all origins after $t_1$."
-        + fonte, "City & Difference & Causal & Sign & Within $\\delta$ & Frozen, same cells & Verdict & Published (12 seeds)",
+        + fonte, "City & Difference & Causal & Sign & Within $\\delta$ & Frozen, same runs & Verdict & Published (12 seeds)",
         righe, "tab:suppE15a").replace("{\\footnotesize\\setlength{\\tabcolsep}{3pt}", "{\\scriptsize\\setlength{\\tabcolsep}{2pt}", 1))
     # E2
     righe = []
@@ -496,7 +496,7 @@ def scrivi_E15(ris: Path, f: Path) -> None:
     out.append(_longtable(
         "@{}l c c c c c c@{}",
         "E15: ratio of the transfer cost to the oracle's advantage, $(F_0-C)/(C-A)$, and to the value of identity, "
-        "$(F_0-C)/(C_A-A)$ (the frozen ratio, on the same cells, is in the E15 record); share of the oracle's advantage due to the additional data, "
+        "$(F_0-C)/(C_A-A)$ (the frozen ratio, on the same runs, is in the E15 record); share of the oracle's advantage due to the additional data, "
         "$(C_A-C)/(A-C)$; recovery of one week of adaptation, $(L_C-L_{F'})/(L_C-L_A)$, and recovery ($C_A$), the improvement of "
         "one-week adaptation over $C$ normalised by the value of identity, $(L_C-L_{F'})/(L_{C_A}-L_A)$ "
         "(origins older than one week); reduction of the transfer cost by the token, $1-(F_0'-C)/(F_0-C)$. Ratios of "
@@ -526,7 +526,7 @@ def scrivi_E15(ris: Path, f: Path) -> None:
                                     + [f"{L[f'{ins}/Fp_672/settimana']['media']:.4f}"]) + " \\\\")
     out.append(_longtable(
         "@{}l l c c c c c c@{}",
-        "E15: test wCE per arm, mean over cells, causal and frozen on the same cells (all origins after $t_1$; "
+        "E15: test wCE per arm, mean over runs, causal and frozen on the same runs (all origins after $t_1$; "
         "$F'(1\\,\\mathrm{wk})$ on origins older than one week)." + fonte,
         "City & Set & " + " & ".join(e for _, e in BR) + " & $F'(1\\,\\mathrm{wk})$", righe, "tab:suppE15d"))
     # E5
@@ -599,9 +599,9 @@ def scrivi_E18ter(ris: Path, f: Path) -> None:
         "and precision at the F1-optimal threshold and at the validation-FPR-matched threshold (both chosen on validation "
         "as in the operational-metrics experiment; gated$(\\tau,N)$ composes $F_0'$ and $F'$ with their own thresholds). "
         "Window: all origins after $t_1$ for $C$, $A$, $F_0$, $F_0'$, gated$(\\tau,N)$; origins older than one week for "
-        "$F'(1\\,\\mathrm{wk})$, $R$-orig$(1\\,\\mathrm{wk})$ and the $C$ they are compared with. Mean over cells and 95\\% "
+        "$F'(1\\,\\mathrm{wk})$, $R$-orig$(1\\,\\mathrm{wk})$ and the $C$ they are compared with. Mean over runs and 95\\% "
         "interval from 4{,}000 joint resamples (partitions, seeds, sensor positions); the pooled values (confusion matrices "
-        "summed over cells, identical to the frozen levels of the operational-metrics experiment on the full window) are in "
+        "summed over runs, identical to the frozen levels of the operational-metrics experiment on the full window) are in "
         "the record. The differences between arms are those frozen earlier; this table gives their levels." + fonte,
         "Context & Arm & Window & Threshold & Recall & FAR & Precision", righe, "tab:suppG7")
         .replace("{\\footnotesize\\setlength{\\tabcolsep}{3pt}", "{\\scriptsize\\setlength{\\tabcolsep}{2pt}", 1)]

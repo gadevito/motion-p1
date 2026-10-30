@@ -242,9 +242,9 @@ def scrivi_tabella_C1(ris: Path, f: Path) -> None:
         righe.append(r"\addlinespace")
     testa = (r"{\footnotesize\setlength{\tabcolsep}{3pt}" "\n" r"\begin{longtable}{@{}l l c c c c@{}}" "\n"
              r"\caption{Statements (a)--(e) of the replication (main paper, Table~V), per city and installation "
-             r"episode: mean $\Delta$wCE over cells and 95\% interval from 4{,}000 joint resamples; last column: "
+             r"episode: mean $\Delta$wCE over runs and 95\% interval from 4{,}000 joint resamples; last column: "
              r"sign per episode. Six seeds (201--206), pre-registered campaign; for the cities, the episode-1 values "
-             r"of the main text come from the causal campaign on the same cells (Section~E). PEMS04 and PEMS08: one "
+             r"of the main text come from the causal campaign on the same runs (Section~E). PEMS04 and PEMS08: one "
              r"installation date, pre-registered campaign; n.r.: not reportable ($A$ not trained on PEMS04).}\label{tab:suppC1}\\" "\n"
              r"\toprule" "\n" r"Statement & City & Episode 1 & Episode 2 & Episode 3 & Signs\\" "\n"
              r"\midrule" "\n" r"\endfirsthead" "\n" r"\toprule" "\n"
