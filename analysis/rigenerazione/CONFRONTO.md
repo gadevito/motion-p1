@@ -4,11 +4,11 @@ Generato da `analysis/main.py` (non modificare a mano). Ogni numero e' rigenerat
 
 - esito: **TUTTO COINCIDE**
 - ingressi di E18 (probabilita' per cella contro e18_risultati.json): attesi 180, trovati 180, mancanti 0, diversi 0
-- esperimenti: ARCH, E2, E3, E4, E3bis, E5, E6, E7, E8, E14, E16, E15, E18
+- esperimenti: ARCH, E2, E3, E4, E3bis, E5, E6, E7, E8, E14, E16, E15, E18, E18TER
 - tolleranza combinata: |Δ| ≤ 1e-10 + 1e-09·|congelato|
-- codice del confronto: `impronte.py` cafa4e13066b141f, `main.py` 30cfdaa1fade00d1, `tabelle_paper1.py` a885cf22a48b4923, `tabelle_suppl.py` 3d248940c319ac3a
+- codice del confronto: `impronte.py` cafa4e13066b141f, `main.py` d74aac166b42b7ac, `tabelle_paper1.py` 94fb006ef3841631, `tabelle_suppl.py` 0aaf02582f745a90
 - risultati reali dopo l'esecuzione: invariati
-- manoscritto (fuori dal repository): commit `bc2a425c597b1006e88e8a5bb002f4100f9b0760` (pulito); SHA-256 `main.tex` f3946e8d810e617cd73b3758133f077cecc3fd6eb07e3ac1556fc90b5e3118ee, `supplementary.tex` c03e8f6908e3ec159cfb63159e5a15fbd98ce2a8af6a0683eca0d478b7239098
+- manoscritto (fuori dal repository): commit `6bf5e2d6f40ae68b82e237b0ad44ee45a9cfd004` (pulito); SHA-256 `main.tex` ddac8aa25e22373534a1d14a6c41756ea366565181da97db919f8757d23258a1, `supplementary.tex` f4df91608bccabe8ce40c020136fed49c66a608b4bd4d320fbbff2f0fa729a8f
 - non coperto (ingressi, non rigenerati): addestramenti e valutazioni dei modelli sulle celle, adattamenti di E2, k della secondaria di E5, sensibilita' a rho, costi misurati (sessione unica, costi_tabella_sessione.json: letti e confrontati con il testo, non rimisurati), numeri del resoconto della campagna principale, dati di disegno (sensori, partizioni, semi)
 
 ## 1. Tabelle del Paper 1
@@ -39,17 +39,13 @@ Generato da `analysis/main.py` (non modificare a mano). Ogni numero e' rigenerat
 | II, §V | A-C_A, Madrid (causale) | -0.038 | -0.0381983736651 | -0.0381983736651 | 0 | ok |
 | II, §V | A-C_A, Londra (causale) | -0.033 | -0.0331789772472 | -0.0331789772472 | 0 | ok |
 | II, §V | A-C_A, Melbourne (causale) | -0.037 | -0.0366500996166 | -0.0366500996166 | 0 | ok |
-| §V-A | (F0 - C)/(A - C_A), Madrid (causale) | 1.95 | -1.95301416829 | -1.95301416829 | 0 | ok |
-| §V-A | (F0 - C)/(A - C_A), Londra (causale) | 1.47 | -1.46524607402 | -1.46524607402 | 0 | ok |
-| §V-A | (F0 - C)/(A - C_A), Melbourne (causale) | 2.13 | -2.13136047134 | -2.13136047134 | 0 | ok |
-| §V-A | (C_A - C)/(A - C), Madrid (causale) | 0.05 | 0.0478323749254 | 0.0478323749254 | 0 | ok |
-| §V-A | (C_A - C)/(A - C), Londra (causale) | 0.03 | 0.0346626868424 | 0.0346626868424 | 0 | ok |
-| §V-A | (C_A - C)/(A - C), Melbourne (causale) | 0.19 | 0.186030749492 | 0.186030749492 | 0 | ok |
+| §V-A | (F0 - C)/(A - C_A), minimo sulle citta' (causale) | 1.5 | -1.46524607402 | -1.46524607402 | 0 | ok |
+| §V-A | (F0 - C)/(A - C_A), massimo sulle citta' (causale) | 2.1 | -2.13136047134 | -2.13136047134 | 0 | ok |
 | II | F0-C, PEMS08 | +0.156 | 0.156490961717 | 0.156490961717 | 0 | ok |
 | II | F0p-C, PEMS08 | -0.039 | -0.0394311960087 | -0.0394311960087 | 0 | ok |
-| II | F'(24 h) - C, Madrid | -0.011 | -0.0113417063787 | -0.0113417063787 | 0 | ok |
-| II | F'(24 h) - C, Londra | +0.034 | 0.0336059154614 | 0.0336059154614 | 0 | ok |
-| II | F'(24 h) - C, Melbourne | -0.019 | -0.0192303273445 | -0.0192303273445 | 0 | ok |
+| III-B | F'(24 h) - C, Madrid (sei semi, episodio 1) | -0.011 | -0.0111972446731 | -0.0111972446731 | 0 | ok |
+| III-B | F'(24 h) - C, Londra (sei semi, episodio 1) | +0.032 | 0.031670135316 | 0.031670135316 | 0 | ok |
+| III-B | F'(24 h) - C, Melbourne (sei semi, episodio 1) | -0.020 | -0.0195346274074 | -0.0195346274074 | 0 | ok |
 | III-B | (d) PEMS08 | -0.074 | -0.0738236406527 | -0.0738236406527 | 0 | ok |
 | III-B | (e) PEMS08 | +0.040 | 0.0395886280471 | 0.0395886280471 | 0 | ok |
 | II, III | F'(1 wk) - C, PEMS08 | -0.091 | -0.0908492906919 | -0.0908492906919 | 0 | ok |
@@ -103,44 +99,16 @@ Generato da `analysis/main.py` (non modificare a mano). Ogni numero e' rigenerat
 | §III | corpo condiviso, 9 canali | 23712 | 23712 | 23712 | 0 | ok |
 | §III | corpo condiviso, 11 canali | 23776 | 23776 | 23776 | 0 | ok |
 | §III | dilatazioni | 1, 2, 4, 8 | [1, 2, 4, 8] | [1, 2, 4, 8] | = | ok |
-| III | (a) Mad. | ++0 | ['+', '+', '0'] | ['+', '+', '0'] | = | ok |
-| III | (a) Lon. | +++ | ['+', '+', '+'] | ['+', '+', '+'] | = | ok |
-| III | (a) Mel. | 0++ | ['0', '+', '+'] | ['0', '+', '+'] | = | ok |
-| III | (b) Mad. | --0 | ['-', '-', '0'] | ['-', '-', '0'] | = | ok |
-| III | (b) Lon. | --- | ['-', '-', '-'] | ['-', '-', '-'] | = | ok |
-| III | (b) Mel. | -0- | ['-', '0', '-'] | ['-', '0', '-'] | = | ok |
-| III | (c) Mad. | --- | ['-', '-', '-'] | ['-', '-', '-'] | = | ok |
-| III | (c) Lon. | --- | ['-', '-', '-'] | ['-', '-', '-'] | = | ok |
-| III | (c) Mel. | --- | ['-', '-', '-'] | ['-', '-', '-'] | = | ok |
-| III | (d) Mad. | --0 | ['-', '-', '0'] | ['-', '-', '0'] | = | ok |
-| III | (d) Lon. | +00 | ['+', '0', '0'] | ['+', '0', '0'] | = | ok |
-| III | (d) Mel. | -+- | ['-', '+', '-'] | ['-', '+', '-'] | = | ok |
-| III | (e) Mad. | +++ | ['+', '+', '+'] | ['+', '+', '+'] | = | ok |
-| III | (e) Lon. | +++ | ['+', '+', '+'] | ['+', '+', '+'] | = | ok |
-| III | (e) Mel. | 0++ | ['0', '+', '+'] | ['0', '+', '+'] | = | ok |
-| III | (a) PEMS04 | 0 | 0 | 0 | = | ok |
-| III | (a) PEMS08 | - | - | - | = | ok |
-| III | (b) PEMS04 | - | - | - | = | ok |
-| III | (b) PEMS08 | 0 | 0 | 0 | = | ok |
-| III | (c) PEMS04 | - | - | - | = | ok |
-| III | (c) PEMS08 | - | - | - | = | ok |
-| III | (d) PEMS04 | - | - | - | = | ok |
-| III | (d) PEMS08 | - | - | - | = | ok |
-| III | (e) PEMS08 | 0 | 0 | 0 | = | ok |
-| §V-A | dAUC F0-C, Madrid (E18) | -0.051 | -0.0513271746402 | -0.0513271746402 | 0 | ok |
-| §V-A | dAUC F0-C, Londra (E18) | -0.018 | -0.018221120357 | -0.018221120357 | 0 | ok |
-| §V-A | dAUC F0-C, Melbourne (E18) | -0.030 | -0.0299821374156 | -0.0299821374156 | 0 | ok |
 | §V-A | dAUC F0-C, PEMS08 (E18) | +0.008 | 0.00827906955777 | 0.00827906955777 | 0 | ok |
-| §V-A | dAUC F0p-F0, Madrid (E18) | +0.045 | 0.0454542734838 | 0.0454542734838 | 0 | ok |
-| §V-A | dAUC F0p-F0, Londra (E18) | +0.013 | 0.0134979332685 | 0.0134979332685 | 0 | ok |
-| §V-A | dAUC F0p-F0, Melbourne (E18) | +0.031 | 0.0308228823592 | 0.0308228823592 | 0 | ok |
 | §V-A | dAUC F0p-F0, PEMS08 (E18) | -0.004 | -0.00402102136357 | -0.00402102136357 | 0 | ok |
-| §V-A | dAUC A-C, Madrid (E18) | +0.036 | 0.0364881988723 | 0.0364881988723 | 0 | ok |
-| §V-A | dAUC A-C, Londra (E18) | +0.024 | 0.0241857788824 | 0.0241857788824 | 0 | ok |
-| §V-A | dAUC A-C, Melbourne (E18) | +0.017 | 0.0172459325915 | 0.0172459325915 | 0 | ok |
-| §V-A | richiamo a FA 5 % F0-C, Madrid (E18) | -3.9 | -0.0392320660738 | -0.0392320660738 | 0 | ok |
-| §V-A | richiamo a FA 5 % F0-C, Londra (E18) | -1.3 | -0.0132494524885 | -0.0132494524885 | 0 | ok |
-| §V-A | richiamo a FA 5 % F0-C, Melbourne (E18) | -4.5 | -0.0453481815884 | -0.0453481815884 | 0 | ok |
+| §V-A | dAUC F0-C, minimo sulle citta' (E18) | -0.051 | -0.0513271746402 | -0.0513271746402 | 0 | ok |
+| §V-A | dAUC F0-C, massimo sulle citta' (E18) | -0.018 | -0.018221120357 | -0.018221120357 | 0 | ok |
+| §V-A | dAUC F0p-F0, minimo sulle citta' (E18) | +0.013 | 0.0134979332685 | 0.0134979332685 | 0 | ok |
+| §V-A | dAUC F0p-F0, massimo sulle citta' (E18) | +0.045 | 0.0454542734838 | 0.0454542734838 | 0 | ok |
+| §V-A | dAUC A-C, minimo sulle citta' (E18) | +0.017 | 0.0172459325915 | 0.0172459325915 | 0 | ok |
+| §V-A | dAUC A-C, massimo sulle citta' (E18) | +0.036 | 0.0364881988723 | 0.0364881988723 | 0 | ok |
+| §V-A | richiamo a FA 5 % F0-C, perdita minima sulle citta' (E18) | 1.3 | -0.0132494524885 | -0.0132494524885 | 0 | ok |
+| §V-A | richiamo a FA 5 % F0-C, perdita massima sulle citta' (E18) | 4.5 | -0.0453481815884 | -0.0453481815884 | 0 | ok |
 | §V-A | richiamo a FA 5 % F0-C, PEMS08 (E18) | +5.3 | 0.05288878301 | 0.05288878301 | 0 | ok |
 | §V-A | quota recuperata a FA 5 %, Madrid (E18) | 92 | 0.917592159819 | 0.917592159819 | 0 | ok |
 | §V-A | quota recuperata a FA 5 %, Londra (E18) | 84 | 0.838731407105 | 0.838731407105 | 0 | ok |
@@ -211,6 +179,9 @@ Impronta = SHA-256 (16 cifre) dell'elenco ordinato (punto, valore a 12 cifre) di
 | `evoluzione/analisi/analizza_e18.py --parte tutte --lavoratori 16` | `e18_risultati.json` | ok | 12299 | 0 | +4.28e-16 | 402cc6753242f6f5 | e0b487dd917a0cdb |
 | `genera_congelamento_e18.py` | `congelamento_e18.json` | ok | 12299 | 0 | +4.28e-16 | c9a1c3a81b99c0da | 0ebc9a3666b225c2 |
 | `genera_congelamento_e18.py` | `CONGELAMENTO_E18.md` | ok | — | 0 righe | — | — | — |
+| `evoluzione/analisi/analizza_e18ter.py --parte tutte` | `e18ter_risultati.json` | ok | 7249 | 0 | 0 | b1227c468e287b50 | b1227c468e287b50 |
+| `genera_congelamento_e18ter.py` | `congelamento_e18ter.json` | ok | 7249 | 0 | 0 | e4c116a77f84e170 | e4c116a77f84e170 |
+| `genera_congelamento_e18ter.py` | `CONGELAMENTO_E18TER.md` | ok | — | 0 righe | — | — | — |
 | `evoluzione/analisi/figura_rete.py --lingua en` | (solo figure) | ok | — | — | — | — | — |
 | `evoluzione/analisi/figura_cronologia.py --lingua en` | (solo figure) | ok | — | — | — | — | — |
 | `evoluzione/analisi/analizza_e4.py --lingua en` | (solo figure) | ok | — | — | — | — | — |
@@ -353,7 +324,7 @@ Informativo. Per ogni file di codice con impronta citata diversa da quella attua
 | `evoluzione/esperimenti/esegui_e4.py` | `CONGELAMENTO_E4.md` | `b8fbdf050a27f487` | `dadd2dc2dcb5` 2026-10-03 | `4025ad91c480` 2026-10-13 E14 stadio B: statica_cella in inserimento.py (variante da OR3_STATICA, assente = bit per <br>`c3e6cb303823` 2026-10-15 Statica causale predefinita (correzione del difetto 21, dopo E14): OR3_STATICA assente = c |
 | `evoluzione/esperimenti/costi_e4.py` | `CONGELAMENTO_E4.md` | `c56d0883d7ca775c` | `5af016944005` 2026-10-04 | `c3e6cb303823` 2026-10-15 Statica causale predefinita (correzione del difetto 21, dopo E14): OR3_STATICA assente = c |
 | `evoluzione/analisi/analizza_e4.py` | `CONGELAMENTO_E4.md` | `1fb316ed0a0ae223` | `5af016944005` 2026-10-04 | `680b35ef7a1c` 2026-10-04 E5: F'(1 sett.) - A, calendario e potenza derivati; protocol/E5.md con le quattro righe de<br>`d8ef81299651` 2026-10-10 paper1: analysis/main.py, prima versione — **etichette**<br>`bfeea7f06b73` 2026-10-23 paper1: Fig. 4 (finestre di adattamento) a colonna singola, legenda comune sopra |
-| `analysis/main.py` | `CONGELAMENTO_E5.md` | `52cdd962ff9888f6` | non presente nella storia git (stato non committato al congelamento) | `d8ef81299651` 2026-10-10 paper1: analysis/main.py, prima versione — **etichette**<br>`acfc69dc0067` 2026-10-10 paper1: main.py — origini comuni di E6, storia del codice cambiato dopo i congelamenti<br>`b7fd4a96a09f` 2026-10-10 paper1: main.py — coerenza per contenuto di E3, cambi di sole etichette<br>`c8e60b99eebd` 2026-10-11 paper1: main.py — tempi di Tab. II dalla sessione unica<br>`109db629195b` 2026-10-11 paper1: main.py — figure PDF deterministiche (SOURCE_DATE_EPOCH)<br>`ea02d713e44f` 2026-10-12 paper1: impronta canonica dei file di scelta<br>`74c8cbf7d185` 2026-10-12 paper1: main.py — manoscritto fuori dal repo<br>`aef38eefb46a` 2026-10-12 paper1: main.py — tabelle C.3, C.8, C.9 del supplementare<br>`f79e61e6f178` 2026-10-13 paper1: main.py — tolleranza combinata; indice delle impronte deterministico<br>`f182f7e278a7` 2026-10-14 paper1: supplementare D (E14) da congelamento_e14b.json — scrivi_D in tabelle_suppl, chiam<br>`720e3b44fb49` 2026-10-15 paper1: main.py rigenera congelamento_e14b.json (fase E14) e scrive le tabelle D; D cita l<br>`ce247e0a1fd8` 2026-10-15 paper1: figura della rete (figura_rete.py) a colori dalle dimensioni di architettura_ck.js<br>`305aece6efb4` 2026-10-22 paper1: cronologia degli episodi (figura_cronologia.py) dalla tabella del punto 8 di paper<br>`d127a043e0be` 2026-10-23 paper1: supplementare E (E16, calibrazione) da congelamento_e16.json (scrivi_E: quota s, d<br>`484a08a6f89b` 2026-10-28 E15: addendum 28/10 (recupero causale, riduzione del token), fase E15 in main.py<br>`fb6f7b47d4b1` 2026-10-28 paper1: E15 nel manoscritto - verifiche dei numeri causali (tabelle_paper1), pannello supe<br>`a3400836808b` 2026-10-29 E18: generatore del congelamento e fase E18 in analysis/main.py<br>`a586cedd0281` 2026-10-29 paper1: E18 nel supplemento (sezione G da congelamento_e18.json: ROC empirica, bootstrap p<br>`b7daff826718` 2026-10-29 paper1: tabella delle politiche del testo da congelamento_e18.json (scrivi_tabella_politic<br>`364bcf88c0ed` 2026-10-29 main.py: la chiave tempi (registri d'orologio di E18) fra i metadati, come durata e second<br>`8f68ee202c77` 2026-10-29 paper1: main.py scrive sempre CONFRONTO.md e controlla gli ingressi di E18 prima del calco |
+| `analysis/main.py` | `CONGELAMENTO_E5.md` | `52cdd962ff9888f6` | non presente nella storia git (stato non committato al congelamento) | `d8ef81299651` 2026-10-10 paper1: analysis/main.py, prima versione — **etichette**<br>`acfc69dc0067` 2026-10-10 paper1: main.py — origini comuni di E6, storia del codice cambiato dopo i congelamenti<br>`b7fd4a96a09f` 2026-10-10 paper1: main.py — coerenza per contenuto di E3, cambi di sole etichette<br>`c8e60b99eebd` 2026-10-11 paper1: main.py — tempi di Tab. II dalla sessione unica<br>`109db629195b` 2026-10-11 paper1: main.py — figure PDF deterministiche (SOURCE_DATE_EPOCH)<br>`ea02d713e44f` 2026-10-12 paper1: impronta canonica dei file di scelta<br>`74c8cbf7d185` 2026-10-12 paper1: main.py — manoscritto fuori dal repo<br>`aef38eefb46a` 2026-10-12 paper1: main.py — tabelle C.3, C.8, C.9 del supplementare<br>`f79e61e6f178` 2026-10-13 paper1: main.py — tolleranza combinata; indice delle impronte deterministico<br>`f182f7e278a7` 2026-10-14 paper1: supplementare D (E14) da congelamento_e14b.json — scrivi_D in tabelle_suppl, chiam<br>`720e3b44fb49` 2026-10-15 paper1: main.py rigenera congelamento_e14b.json (fase E14) e scrive le tabelle D; D cita l<br>`ce247e0a1fd8` 2026-10-15 paper1: figura della rete (figura_rete.py) a colori dalle dimensioni di architettura_ck.js<br>`305aece6efb4` 2026-10-22 paper1: cronologia degli episodi (figura_cronologia.py) dalla tabella del punto 8 di paper<br>`d127a043e0be` 2026-10-23 paper1: supplementare E (E16, calibrazione) da congelamento_e16.json (scrivi_E: quota s, d<br>`484a08a6f89b` 2026-10-28 E15: addendum 28/10 (recupero causale, riduzione del token), fase E15 in main.py<br>`fb6f7b47d4b1` 2026-10-28 paper1: E15 nel manoscritto - verifiche dei numeri causali (tabelle_paper1), pannello supe<br>`a3400836808b` 2026-10-29 E18: generatore del congelamento e fase E18 in analysis/main.py<br>`a586cedd0281` 2026-10-29 paper1: E18 nel supplemento (sezione G da congelamento_e18.json: ROC empirica, bootstrap p<br>`b7daff826718` 2026-10-29 paper1: tabella delle politiche del testo da congelamento_e18.json (scrivi_tabella_politic<br>`364bcf88c0ed` 2026-10-29 main.py: la chiave tempi (registri d'orologio di E18) fra i metadati, come durata e second<br>`8f68ee202c77` 2026-10-29 paper1: main.py scrive sempre CONFRONTO.md e controlla gli ingressi di E18 prima del calco<br>`c15bbb200fab` 2026-10-30 E18-ter: livelli assoluti alle soglie operative (G7), colonna wCE di F17 con la definizion<br>`5c27283d466a` 2026-10-30 E18-ter: generatore della Tabella V (segni dagli intervalli, verificati contro i congelati<br>`3f7d8f479e77` 2026-10-30 main.py, fase E18TER: esegue tutte le parti, come il congelamento; riga scritta il 30/10 d |
 | `evoluzione/esperimenti/addestramento.py` | `CONGELAMENTO_E5.md` | `f5d69a789aadd479` | `fda754ec150f` 2026-10-07 | `c3e6cb303823` 2026-10-15 Statica causale predefinita (correzione del difetto 21, dopo E14): OR3_STATICA assente = c<br>`9a4517c1b9e2` 2026-10-27 E15: statica causale a finestra espansiva (predefinita), braccio C_A, preflight 15, esecut |
 | `evoluzione/esperimenti/esegui_e5.py` | `CONGELAMENTO_E5.md` | `f08dd758210319e2` | `820d419c9649` 2026-10-06 | `4025ad91c480` 2026-10-13 E14 stadio B: statica_cella in inserimento.py (variante da OR3_STATICA, assente = bit per <br>`c3e6cb303823` 2026-10-15 Statica causale predefinita (correzione del difetto 21, dopo E14): OR3_STATICA assente = c |
 | `protocol/E6.md` | `CONGELAMENTO_E6.md` | `c7a6583897215545` | `f5d7a8d394dd` 2026-10-07 | `13413a8fa71a` 2026-10-13 Difetto 23: frequenze_classi.py legge gli artefatti usati (pesi_griglia, pesi_pems04, pesi<br>`c1e921ea3b21` 2026-10-29 Voce 28: nomi di ruolo nelle note sulle correzioni (E6, E14, generatore E14-B, correzione  |
@@ -367,9 +338,13 @@ Informativo. Per ogni file di codice con impronta citata diversa da quella attua
 
 Informativo, non fa fallire: il file di codice e' cambiato dopo il congelamento, i numeri no (sezione 3). Date, commit e istanti non sono elencati.
 
-- `congelamento_e15.json` `/impronte/e15_risultati.json`: congelato 82df1d02792e330e, attuale 283ee3e13515f3ce
-- `congelamento_e15.json` `/risultati/pubblicate_fonti/e3bis_risultati.json/impronta`: congelato 2db2dd9ffece2072, attuale 38cd74787743b3bc
-- `congelamento_e18.json` `/impronte/e18_risultati.json`: congelato ddc86f7c534d44a2, attuale a1084a91507cdf7c
+- `congelamento_e15.json` `/impronte/e15_risultati.json`: congelato 82df1d02792e330e, attuale 7a96a79668ef9a5a
+- `congelamento_e15.json` `/risultati/pubblicate_fonti/e3bis_risultati.json/impronta`: congelato 2db2dd9ffece2072, attuale 93f7a647e561e351
+- `congelamento_e18.json` `/impronte/e18_risultati.json`: congelato ddc86f7c534d44a2, attuale 4dc325324383d242
+- `congelamento_e18ter.json` `/impronte/e18ter_risultati.json`: congelato 2a3bb86c1ba9c292, attuale b161b08de481945f
+- `congelamento_e18ter.json` `/impronte/ingressi/impronta_insieme`: congelato 7d5b6bf36c55fc6c, attuale a8547fcabee13fcd
+- `congelamento_e18ter.json` `/risultati/livelli/impronte_ingressi/e8_risultati.json`: congelato bf1d1f68d6bb9292, attuale 3af7ac8f436ae357
+- `congelamento_e18ter.json` `/risultati/wce16/impronte_ingressi/e18_risultati.json`: congelato ddc86f7c534d44a2, attuale 4dc325324383d242
 - `congelamento_e2.json` `/impronte/evoluzione/analisi/verifica_appaiamento.py`: congelato ab1857cde149e44c, attuale e8869fa4589e09f9
 - `congelamento_e2.json` `/impronte/evoluzione/componente/adattamento.py`: congelato 80e810978be4fff6, attuale ce88e086bcbdddba
 - `congelamento_e2.json` `/impronte/evoluzione/esperimenti/addestramento.py`: congelato d2d68544fc153371, attuale 7044f877b60d3a38
@@ -391,7 +366,9 @@ Informativo, non fa fallire: il file di codice e' cambiato dopo il congelamento,
 - `congelamento_e4.json` `/impronte/evoluzione/esperimenti/esegui_e4.py`: congelato b8fbdf050a27f487, attuale 71846e691df80e02
 - `congelamento_e5.json` `/impronte/evoluzione/esperimenti/addestramento.py`: congelato f5d69a789aadd479, attuale 7044f877b60d3a38
 - `congelamento_e5.json` `/impronte/evoluzione/esperimenti/esegui_e5.py`: congelato f08dd758210319e2, attuale 2b63ebe317c9e978
-- `e15_risultati.json` `/pubblicate_fonti/e3bis_risultati.json/impronta`: congelato 2db2dd9ffece2072, attuale 38cd74787743b3bc
+- `e15_risultati.json` `/pubblicate_fonti/e3bis_risultati.json/impronta`: congelato 2db2dd9ffece2072, attuale 93f7a647e561e351
+- `e18ter_risultati.json` `/livelli/impronte_ingressi/e8_risultati.json`: congelato bf1d1f68d6bb9292, attuale 3af7ac8f436ae357
+- `e18ter_risultati.json` `/wce16/impronte_ingressi/e18_risultati.json`: congelato ddc86f7c534d44a2, attuale 4dc325324383d242
 
 ## 9. Figure (script esistenti)
 
@@ -461,6 +438,7 @@ congelamento_e15.json  00f25406ca7604f8697e41b11429ad32fa0ef18c1bcf5bf1e49a4a958
 congelamento_e16.json  98877ae9afe62453fd82a004144fdd54bc4de17ca0ac7a19668677fb899af296
 congelamento_e17.json  e6748bef25ed2e1e5ed96787be6945dbc4091cdef35a3d9aee1d386a6523e1cf
 congelamento_e18.json  5f3138ca8f77ac9a8a0d2f2b94ee0166f4c4c66825d22fb4375a3636609e8cee
+congelamento_e18ter.json  1983aca248349c9bd4309c9fe29f82c679c4a454ee856bacf1164f01501a9acc
 congelamento_e2.json  356cec99f3af05e74c112f5067ccd6e2c76d73620c011a6a34efa17544e14e0a
 congelamento_e3.json  b594eb185369bbd87f45a02660deee3372101b98858495e1f4c1c3c117db434b
 congelamento_e3bis.json  0797a1b655cf7be72632df8dbe14a5c5ffd7aecd57a1e39a0864b81f54739260
@@ -497,6 +475,7 @@ e15_val.log  80175b41d88ef193d5d6c4fccef19e2e323c502ed323e6a0fbc19e4c3f8764f1
 e16_risultati.json  ee1d7e51f945a6108c5265e7a46d6330923cd81a68e2b16bb3d32b1634fe5538
 e17_risultati.json  d9c5f646191945dfd5b3bdbb7cb99a77ec2519808657ece7fc9e4e5c2e5179aa
 e18_risultati.json  ddc86f7c534d44a29de3d53154a50f1dff98189e3afeebeacf4a9272985fa0ac
+e18ter_risultati.json  2a3bb86c1ba9c292d82100a6155133a63a6bf313647eb7061c09c6344f1ab229
 e3bis_addestra.log  b3aa5305a662cb55642e535cb7965166afc0002313b540335221e5dd704689c4
 e3bis_analisi.log  21698cd47e20842715cfe093936cae1afce11b3ff8ba56aab0818498ea6f165a
 e3bis_isolato.log  6642bc75a38504a4049fc2200a3fd87a022320005ca7bdae9ed7bdc099207c49
