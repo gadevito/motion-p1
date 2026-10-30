@@ -6,9 +6,9 @@ Generato da `analysis/main.py` (non modificare a mano). Ogni numero e' rigenerat
 - ingressi di E18 (probabilita' per cella contro e18_risultati.json): attesi 180, trovati 180, mancanti 0, diversi 0
 - esperimenti: ARCH, E2, E3, E4, E3bis, E5, E6, E7, E8, E14, E16, E15, E18, E18TER
 - tolleranza combinata: |Δ| ≤ 1e-10 + 1e-09·|congelato|
-- codice del confronto: `impronte.py` cafa4e13066b141f, `main.py` d74aac166b42b7ac, `tabelle_paper1.py` 94fb006ef3841631, `tabelle_suppl.py` 0aaf02582f745a90
+- codice del confronto: `impronte.py` cafa4e13066b141f, `main.py` d74aac166b42b7ac, `tabelle_paper1.py` 4d9a5cea9e1c7198, `tabelle_suppl.py` 8618afdd3942c590
 - risultati reali dopo l'esecuzione: invariati
-- manoscritto (fuori dal repository): commit `6bf5e2d6f40ae68b82e237b0ad44ee45a9cfd004` (pulito); SHA-256 `main.tex` ddac8aa25e22373534a1d14a6c41756ea366565181da97db919f8757d23258a1, `supplementary.tex` f4df91608bccabe8ce40c020136fed49c66a608b4bd4d320fbbff2f0fa729a8f
+- manoscritto (fuori dal repository): commit `41c960b43984af0b4773e860f2029bae7b408ed1` (pulito); SHA-256 `main.tex` fd9d8f487c2effba37d36a6a937ac66c296224665544186c4144955e7ba0ec4b, `supplementary.tex` dc08c7d69d0fc35b082c1c2f341ce4961f4d0d4b66cdf18e488bad2386bbd028
 - non coperto (ingressi, non rigenerati): addestramenti e valutazioni dei modelli sulle celle, adattamenti di E2, k della secondaria di E5, sensibilita' a rho, costi misurati (sessione unica, costi_tabella_sessione.json: letti e confrontati con il testo, non rimisurati), numeri del resoconto della campagna principale, dati di disegno (sensori, partizioni, semi)
 
 ## 1. Tabelle del Paper 1
@@ -338,13 +338,13 @@ Informativo. Per ogni file di codice con impronta citata diversa da quella attua
 
 Informativo, non fa fallire: il file di codice e' cambiato dopo il congelamento, i numeri no (sezione 3). Date, commit e istanti non sono elencati.
 
-- `congelamento_e15.json` `/impronte/e15_risultati.json`: congelato 82df1d02792e330e, attuale 7a96a79668ef9a5a
-- `congelamento_e15.json` `/risultati/pubblicate_fonti/e3bis_risultati.json/impronta`: congelato 2db2dd9ffece2072, attuale 93f7a647e561e351
-- `congelamento_e18.json` `/impronte/e18_risultati.json`: congelato ddc86f7c534d44a2, attuale 4dc325324383d242
-- `congelamento_e18ter.json` `/impronte/e18ter_risultati.json`: congelato 2a3bb86c1ba9c292, attuale b161b08de481945f
-- `congelamento_e18ter.json` `/impronte/ingressi/impronta_insieme`: congelato 7d5b6bf36c55fc6c, attuale a8547fcabee13fcd
-- `congelamento_e18ter.json` `/risultati/livelli/impronte_ingressi/e8_risultati.json`: congelato bf1d1f68d6bb9292, attuale 3af7ac8f436ae357
-- `congelamento_e18ter.json` `/risultati/wce16/impronte_ingressi/e18_risultati.json`: congelato ddc86f7c534d44a2, attuale 4dc325324383d242
+- `congelamento_e15.json` `/impronte/e15_risultati.json`: congelato 82df1d02792e330e, attuale 372db98fc3184f71
+- `congelamento_e15.json` `/risultati/pubblicate_fonti/e3bis_risultati.json/impronta`: congelato 2db2dd9ffece2072, attuale fe45739797aae665
+- `congelamento_e18.json` `/impronte/e18_risultati.json`: congelato ddc86f7c534d44a2, attuale 9ee08196c5bd034c
+- `congelamento_e18ter.json` `/impronte/e18ter_risultati.json`: congelato 2a3bb86c1ba9c292, attuale bae320a43c157be7
+- `congelamento_e18ter.json` `/impronte/ingressi/impronta_insieme`: congelato 7d5b6bf36c55fc6c, attuale 9fd8b5da2892be7e
+- `congelamento_e18ter.json` `/risultati/livelli/impronte_ingressi/e8_risultati.json`: congelato bf1d1f68d6bb9292, attuale 31393cff29749a7c
+- `congelamento_e18ter.json` `/risultati/wce16/impronte_ingressi/e18_risultati.json`: congelato ddc86f7c534d44a2, attuale 9ee08196c5bd034c
 - `congelamento_e2.json` `/impronte/evoluzione/analisi/verifica_appaiamento.py`: congelato ab1857cde149e44c, attuale e8869fa4589e09f9
 - `congelamento_e2.json` `/impronte/evoluzione/componente/adattamento.py`: congelato 80e810978be4fff6, attuale ce88e086bcbdddba
 - `congelamento_e2.json` `/impronte/evoluzione/esperimenti/addestramento.py`: congelato d2d68544fc153371, attuale 7044f877b60d3a38
@@ -366,9 +366,9 @@ Informativo, non fa fallire: il file di codice e' cambiato dopo il congelamento,
 - `congelamento_e4.json` `/impronte/evoluzione/esperimenti/esegui_e4.py`: congelato b8fbdf050a27f487, attuale 71846e691df80e02
 - `congelamento_e5.json` `/impronte/evoluzione/esperimenti/addestramento.py`: congelato f5d69a789aadd479, attuale 7044f877b60d3a38
 - `congelamento_e5.json` `/impronte/evoluzione/esperimenti/esegui_e5.py`: congelato f08dd758210319e2, attuale 2b63ebe317c9e978
-- `e15_risultati.json` `/pubblicate_fonti/e3bis_risultati.json/impronta`: congelato 2db2dd9ffece2072, attuale 93f7a647e561e351
-- `e18ter_risultati.json` `/livelli/impronte_ingressi/e8_risultati.json`: congelato bf1d1f68d6bb9292, attuale 3af7ac8f436ae357
-- `e18ter_risultati.json` `/wce16/impronte_ingressi/e18_risultati.json`: congelato ddc86f7c534d44a2, attuale 4dc325324383d242
+- `e15_risultati.json` `/pubblicate_fonti/e3bis_risultati.json/impronta`: congelato 2db2dd9ffece2072, attuale fe45739797aae665
+- `e18ter_risultati.json` `/livelli/impronte_ingressi/e8_risultati.json`: congelato bf1d1f68d6bb9292, attuale 31393cff29749a7c
+- `e18ter_risultati.json` `/wce16/impronte_ingressi/e18_risultati.json`: congelato ddc86f7c534d44a2, attuale 9ee08196c5bd034c
 
 ## 9. Figure (script esistenti)
 
