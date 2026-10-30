@@ -554,6 +554,8 @@ BR_A_EN = {"A": "$A$", "C": "$C$", "F0": "$F_0$", "F0p": "$F_0'$", "Fp_672": r"$
 FIN_EN = {"intero": "all after $t_1$", "sett": r"$>1$\,wk"}
 LIV_E18 = ("0.005", "0.01", "0.02", "0.05", "0.1")
 GRUPPI_E18 = ("Madrid", "Londra", "Melbourne", "PEMS08", "PEMS04")
+UNITA_E18 = ("run (seed $\\times$ partition) = unit, mean over runs; the cell (seed $\\times$ partition $\\times$ sensor) "
+             "is the resampling unit")
 BR_TER_EN = {"C": "$C$", "A": "$A$", "F0": "$F_0$", "F0p": "$F_0'$", "Fp_672": r"$F'(1\,\mathrm{wk})$",
              "Rorig_672": r"$R$-orig$(1\,\mathrm{wk})$", "gated": r"gated$(\tau,N)$"}
 REG_TER_EN = {"prim": "F1-optimal", "par": "validation-FPR-matched"}
@@ -668,7 +670,7 @@ def scrivi_E18(ris: Path, f: Path) -> None:
         "@{}l l l c c@{}",
         "E18, part A: AUC and partial AUC on false-alarm rates 0--10\\% (area divided by 0.10) of the empirical ROC on "
         "the congested class, per arm; score $p(\\text{congested})$ per origin, sensor and horizon on valid targets, all "
-        "distinct scores of a cell as thresholds, cell = unit, mean over cells and 95\\% interval from 4{,}000 joint "
+        "distinct scores of a run as thresholds, " + UNITA_E18 + "; 95\\% interval from 4{,}000 joint "
         "resamples. Windows: all origins after $t_1$, or origins older than one week (for $F'(1\\,\\mathrm{wk})$ and the "
         "$C$ it is compared with). These replace the 19-threshold AUC of the operational-metrics experiment; the partial "
         "AUC is descriptive. Cities: episode 1, pre-registered campaign (36 runs); PEMS04 has neither $E$ nor $A$." + fonte,
@@ -688,7 +690,7 @@ def scrivi_E18(ris: Path, f: Path) -> None:
         prima = False
     out.append(_longtable(
         "@{}l l c c c c c c c@{}",
-        "E18, part A: differences between arms on the empirical ROC (same resampling indices for both arms): "
+        "E18, part A: differences between arms on the empirical ROC (same resampling indices for both arms; " + UNITA_E18 + "): "
         "$\\Delta$AUC, $\\Delta$pAUC (0--10\\%) and $\\Delta$recall on the congested class, in points, at fixed "
         "false-alarm rates 0.5, 1, 2, 5 and 10\\% (linear interpolation). Window: all origins after $t_1$, except "
         "$F'(1\\,\\mathrm{wk})-C$, on origins older than one week." + fonte,
@@ -709,7 +711,7 @@ def scrivi_E18(ris: Path, f: Path) -> None:
         "@{}l c c c c c@{}",
         "E18, part A: recall on the congested class lost by $F_0$ against $C$ under the argmax rule, and the share "
         "recovered at a fixed false-alarm rate of 5\\%: $1-(\\text{loss at 5\\%})/(\\text{loss under argmax})$, in points of "
-        "recall; all origins after $t_1$. A share above 1 (PEMS08) means that at 5\\% false alarms $F_0$ recalls more "
+        "recall; all origins after $t_1$; " + UNITA_E18 + ". A share above 1 (PEMS08) means that at 5\\% false alarms $F_0$ recalls more "
         "than $C$." + fonte,
         "Context & recall, $C$ (argmax) & recall, $F_0$ (argmax) & loss under argmax & loss at 5\\% & share recovered",
         righe, "tab:suppG3"))
@@ -732,7 +734,7 @@ def scrivi_E18(ris: Path, f: Path) -> None:
         "positions; pre-registered, primary) and from a resampling that preserves the physical sensor (sensitivity): "
         "physical sensor identifiers drawn with replacement among the distinct sensors of the context's partitions, "
         "each partition weighting its test sensors by the multiplicity of their identifier, weights shared across "
-        "arms, partitions and seeds; 4{,}000 replicates. Two reading scales as in the main paper: " + SCALE_EN + f"; {NOTA}. "
+        "arms, partitions and seeds; 4{,}000 replicates; " + UNITA_E18 + ". Two reading scales as in the main paper: " + SCALE_EN + f"; {NOTA}. "
         "Second column: distinct sensors / sensor--partition occurrences. Changes of category in bold. "
         "$^\\dagger$: origins older than one week." + fonte,
         "Context & sensors & Difference & mean & current interval & sign & $\\delta$ & sensor-level interval & sign & $\\delta$",
