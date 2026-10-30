@@ -22,7 +22,7 @@ CTX_EN = {"Madrid": "Madrid", "Londra": "London", "Melbourne": "Melbourne", "PEM
 CONF_EN = {"A-C": r"$A-C$", "F0-C": r"$F_0-C$", "F0p-C": r"$F_0'-C$", "Fp_96-C": r"$F'(24\,\mathrm{h})-C$",
            "Fp_672-C_eta>1sett": r"$F'(1\,\mathrm{wk})-C$$^\dagger$", "gated-F0p": r"gated$-F_0'$",
            "Rorig_672-Fp_672_eta>1sett": r"R-orig$(1\,\mathrm{wk})-F'(1\,\mathrm{wk})$$^\dagger$"}
-REGOLE_EN = {"prim": "F1-opt.", "par": "FA parity", "argmax": "argmax"}
+REGOLE_EN = {"prim": "F1-opt.", "par": "validation-FPR-matched", "argmax": "argmax"}
 MET = ("richiamo", "falsi_allarmi", "precisione", "f1_macro")
 TESTA = "% generato da OR3/analysis/main.py (tabelle_suppl): non modificare a mano\n"
 
@@ -250,7 +250,7 @@ def scrivi_D(ris: Path, f: Path) -> None:
                          + ("\\textbf{changes}" if z["cambia"] else "unchanged") + " \\\\")
     for v in V:
         n, t = R["sintesi"][v]["soglie_e8_cambiate"]
-        righe.append(f"E8 thresholds (F1-opt., FA parity) & all & {VAR_EN[v]} & -- & -- & {n} of {t} change \\\\")
+        righe.append(f"E8 thresholds (F1-opt., validation-FPR-matched) & all & {VAR_EN[v]} & -- & -- & {n} of {t} change \\\\")
         e7c, e7v = R["e7"]["congelato"]["decisione"], R["e7"][f"({v})"]["decisione"]
         righe.append(f"E7 stage 1: hypothesis holds; stage 2a run & all & {VAR_EN[v]} & "
                      f"{'yes' if e7c['ipotesi_vale'] else 'no'}; {'yes' if e7c['stadio_2a'] else 'no'} & "
@@ -389,12 +389,16 @@ def scrivi_E(ris: Path, f: Path) -> None:
                              + f" & {m['logloss']:.4f} & {m['brier']:.4f} & {m['wce']:.4f} \\\\")
                 primo = False
         prima = False
+    ece_v = max(max(float(m["ece"][k]) for k in ("0", "1", "2"))         # massimo ECE stampato, vector scaling (log-loss)
+                for g in GRUPPI_E16
+                for m in [G[g]["medie_test"].get(f"{b}/V_nll") for b, _ in BRACCI_E16 if b != "Fp_672"]
+                + [S[g].get("medie_settimana", {}).get(f"{b}/V_nll") for b in ("Fp_672", "C")] if m)
     out.append(_longtable(
         "@{}l l l c c c c c c@{}",
         "E16: expected calibration error per class (10 reliability bins), unweighted log-loss, multiclass Brier score "
         "and wCE on the test, per arm and calibration, means over cells. Calibrating against the unweighted log-loss "
         "targets the natural class distribution, while the campaign loss is minimised by the class-reweighted "
-        "posterior: vector scaling against log-loss brings every class's ECE below 0.04 but raises the wCE. "
+        f"posterior: vector scaling against log-loss brings every class's ECE to at most {ece_v:.3f} but raises the wCE. "
         + ("For $F'(1\\,\\mathrm{wk})$ every metric is on its causal window; the row $C^\\dagger$ is $C$ on the same window."
            if all("medie_settimana" in S[g] for g in GRUPPI_E16) else
            "For $F'(1\\,\\mathrm{wk})$ only the wCE is recomputed on its causal window (--: not recomputed); the row "
@@ -463,7 +467,8 @@ def scrivi_E15(ris: Path, f: Path) -> None:
         "@{}l c c c c c c@{}",
         "E15: ratio of the transfer cost to the oracle's advantage, $(F_0-C)/(C-A)$, and to the value of identity, "
         "$(F_0-C)/(C_A-A)$ (the frozen ratio, on the same cells, is in the E15 record); share of the oracle's advantage due to the additional data, "
-        "$(C_A-C)/(A-C)$; recovery of one week of adaptation, $(L_C-L_{F'})/(L_C-L_A)$ and $(L_C-L_{F'})/(L_{C_A}-L_A)$ "
+        "$(C_A-C)/(A-C)$; recovery of one week of adaptation, $(L_C-L_{F'})/(L_C-L_A)$, and recovery ($C_A$), the improvement of "
+        "one-week adaptation over $C$ normalised by the value of identity, $(L_C-L_{F'})/(L_{C_A}-L_A)$ "
         "(origins older than one week); reduction of the transfer cost by the token, $1-(F_0'-C)/(F_0-C)$. Ratios of "
         "means within each resample." + fonte,
         "City & $\\frac{F_0-C}{C-A}$ & $\\frac{F_0-C}{C_A-A}$ & $\\frac{C_A-C}{A-C}$ & "

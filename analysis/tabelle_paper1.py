@@ -242,7 +242,7 @@ def scrivi_tabella_C1(ris: Path, f: Path) -> None:
         for i, c in enumerate(en):
             rr = [R["affermazioni"][f"{c}/ep{e}/{k}"] for e in (1, 2, 3)]
             righe.append((tit[k] if i == 0 else "") + f" & {en[c]} & " + " & ".join(cella(r) for r in rr)
-                         + f" & {''.join(R['stesso_segno'][f'{c}/{k}']['segni'])} \\\\")
+                         + f" & $({', '.join(R['stesso_segno'][f'{c}/{k}']['segni'])})$ \\\\")
         for g in ("PEMS04", "PEMS08"):
             r = P[g].get(k)
             righe.append(f" & {g} & " + (cella(r) + f" & -- & -- & ${r['segno']}$" if r else
@@ -269,7 +269,8 @@ def scrivi_tabella_politiche(ris: Path, f: Path) -> None:
     da congelamento_e18.json (parte B per gated(tau,N) - F0', parte D per il resto)."""
     R = json.loads((ris / "congelamento_e18.json").read_text())["risultati"]
     B, D = R["B"]["contesti"], R["D"]["contesti"]
-    cat = {"superiorita'": "sup.", "non inferiorita'": "n.-i.", "inferiorita'": "inf.", "inconclusivo": "inc."}
+    # segno dell'intervallo (fav./unf./inc.) e, a parte, il margine: «inc.$^\\delta$» = inconclusivo con limite superiore entro delta
+    cat = {"superiorita'": "fav.", "non inferiorita'": "inc.$^\\delta$", "inferiorita'": "unf.", "inconclusivo": "inc."}
     en = {"Madrid": "Madrid", "Londra": "London", "Melbourne": "Melbourne", "PEMS08": "PEMS08", "PEMS04": "PEMS04"}
     nome = lambda c: (f"{en[c.split('/ep')[0]]} {c.split('/ep')[1]}" if "/ep" in c else en[c])
     righe = []
