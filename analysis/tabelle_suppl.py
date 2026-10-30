@@ -442,7 +442,7 @@ def scrivi_E15(ris: Path, f: Path) -> None:
         prima = False
     out.append(_longtable(
         "@{}l l c l c l c@{}",
-        "E15: the differences of the causal campaign (six seeds, 18 cells per city, episode 1), with the category of "
+        "E15: the differences of the causal campaign (six seeds, 18 runs per city, episode 1), with the category of "
         "Section~III of the paper (inferiority: interval above zero), against the pre-registered campaign on the "
         "same cells and resamples (frozen) and the published value on twelve seeds; $k$: update budget reselected on "
         "the causal validation episode. $^\\dagger$ origins older than one week; otherwise all origins after $t_1$."
@@ -585,7 +585,7 @@ def scrivi_E18(ris: Path, f: Path) -> None:
         "distinct scores of a cell as thresholds, cell = unit, mean over cells and 95\\% interval from 4{,}000 joint "
         "resamples. Windows: all origins after $t_1$, or origins older than one week (for $F'(1\\,\\mathrm{wk})$ and the "
         "$C$ it is compared with). These replace the 19-threshold AUC of the operational-metrics experiment; the partial "
-        "AUC is descriptive. Cities: episode 1, pre-registered campaign (36 cells); PEMS04 has neither $E$ nor $A$." + fonte,
+        "AUC is descriptive. Cities: episode 1, pre-registered campaign (36 runs); PEMS04 has neither $E$ nor $A$." + fonte,
         "Context & Arm & Window & AUC & pAUC (0--10\\%)", righe, "tab:suppG1"))
     # G2
     righe, prima = [], True

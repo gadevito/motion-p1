@@ -38,7 +38,7 @@ to the earlier deliverable campaign described in `README.it.md`.
 the checkpoints and the JSON versions of the frozen records. The small files whose fingerprints are
 cited by the protocols, the frozen records or the paper are in the repository at their original
 paths under `results/evoluzione/`; the per-cell predictions, aggregates and checkpoints are archived
-at **[Zenodo DOI]**, to be unpacked under `results/evoluzione/`. The SHA-256 of the external data
+at Zenodo, <https://doi.org/10.5281/zenodo.23796058> (tag `paper1-freeze-20261030l`), to be unpacked under `results/evoluzione/`. The SHA-256 of the external data
 files are recorded in `evoluzione/ADDENDUM_PEMS04.md` (PEMS04) and `protocol/E6.md` (PEMS08).
 
 ## Reproducing every number

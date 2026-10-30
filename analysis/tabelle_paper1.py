@@ -42,12 +42,12 @@ def _righe():
                    ("A-C_A", ("-0.038", "-0.033", "-0.037"))):   # C_A - C non piu' stampato (resta la quota)
         for (c, _), st in zip(CITTA, val):
             R.append(("II, §V", f"{k}, {c} (causale)", "E15", "congelamento_e15.json", E15(c, k), st, _f3))
-    for (c, _), st in zip(CITTA, ("1.95", "1.47", "2.13")):
-        R.append(("§V-A", f"(F0 - C)/(A - C_A), {c} (causale)", "E15", "congelamento_e15.json",
-                  ["risultati", "citta", c, "rapporti", "(F0-C)/(A-C_A)", "media"], st, lambda v: f"{-v:.2f}"))
-    for (c, _), st in zip(CITTA, ("0.05", "0.03", "0.19")):
-        R.append(("§V-A", f"(C_A - C)/(A - C), {c} (causale)", "E15", "congelamento_e15.json",
-                  ["risultati", "citta", c, "rapporti", "(C_A-C)/(A-C)", "media"], st, "{:.2f}".format))
+    # rapporto costo di trasferimento / valore dell'identita': nel testo come intervallo «1.5 to 2.1» (terza lettura)
+    RAP = [["risultati", "citta", c, "rapporti", "(F0-C)/(A-C_A)", "media"] for c, _ in CITTA]
+    R.append(("§V-A", "(F0 - C)/(A - C_A), minimo sulle citta' (causale)", "E15", "congelamento_e15.json",
+              ("max18", RAP), "1.5", lambda v: f"{-v:.1f}"))
+    R.append(("§V-A", "(F0 - C)/(A - C_A), massimo sulle citta' (causale)", "E15", "congelamento_e15.json",
+              ("min", RAP), "2.1", lambda v: f"{-v:.1f}"))
     for k, val in (("F0-C", "+0.156"), ("F0p-C", "-0.039")):
         R.append(("II", f"{k}, PEMS08", "E8", "e8_risultati.json",
                   ["gruppi", "PEMS08", "confronti", k, "wce", "media"], val, _f3))
@@ -121,15 +121,21 @@ def _righe():
     # ---- E18 (seconda revisione esterna): ROC empirica, bootstrap per sensore ---------------------------
     GA = lambda g, k, m: ["risultati", "A", "gruppi", g, "confronti", k, m, "media"]
     pt = lambda v: f"{100 * v:+.1f}"
-    for k, g, st in (("F0-C", "Madrid", "-0.051"), ("F0-C", "Londra", "-0.018"), ("F0-C", "Melbourne", "-0.030"),
-                     ("F0-C", "PEMS08", "+0.008"), ("F0p-F0", "Madrid", "+0.045"), ("F0p-F0", "Londra", "+0.013"),
-                     ("F0p-F0", "Melbourne", "+0.031"), ("F0p-F0", "PEMS08", "-0.004"),
-                     ("A-C", "Madrid", "+0.036"), ("A-C", "Londra", "+0.024"), ("A-C", "Melbourne", "+0.017")):
+    for k, g, st in (("F0-C", "PEMS08", "+0.008"), ("F0p-F0", "PEMS08", "-0.004")):
         R.append(("§V-A", f"dAUC {k}, {g} (E18)", "E18", "congelamento_e18.json", GA(g, k, "auc"), st, _f3))
-    for k, g, st in (("F0-C", "Madrid", "-3.9"), ("F0-C", "Londra", "-1.3"), ("F0-C", "Melbourne", "-4.5"),
-                     ("F0-C", "PEMS08", "+5.3")):
-        R.append(("§V-A", f"richiamo a FA 5 % {k}, {g} (E18)", "E18", "congelamento_e18.json",
-                  GA(g, k, "richiamo_fa_0.05"), st, pt))
+    # nelle citta' i Delta AUC sono nel testo come intervallo «da ... a ...»: minimo e massimo sulle tre citta'
+    CIT3 = ("Madrid", "Londra", "Melbourne")
+    for k, lo, hi in (("F0-C", "-0.051", "-0.018"), ("F0p-F0", "+0.013", "+0.045"), ("A-C", "+0.017", "+0.036")):
+        V = [GA(g, k, "auc") for g in CIT3]
+        R.append(("§V-A", f"dAUC {k}, minimo sulle citta' (E18)", "E18", "congelamento_e18.json", ("min", V), lo, _f3))
+        R.append(("§V-A", f"dAUC {k}, massimo sulle citta' (E18)", "E18", "congelamento_e18.json", ("max18", V), hi, _f3))
+    V = [GA(g, "F0-C", "richiamo_fa_0.05") for g in CIT3]       # perdita di richiamo a FA 5 %, «1.3 to 4.5 points»
+    R.append(("§V-A", "richiamo a FA 5 % F0-C, perdita minima sulle citta' (E18)", "E18", "congelamento_e18.json",
+              ("max18", V), "1.3", lambda v: f"{-100 * v:.1f}"))
+    R.append(("§V-A", "richiamo a FA 5 % F0-C, perdita massima sulle citta' (E18)", "E18", "congelamento_e18.json",
+              ("min", V), "4.5", lambda v: f"{-100 * v:.1f}"))
+    R.append(("§V-A", "richiamo a FA 5 % F0-C, PEMS08 (E18)", "E18", "congelamento_e18.json",
+              GA("PEMS08", "F0-C", "richiamo_fa_0.05"), "+5.3", pt))
     for g, st in (("Madrid", "92"), ("Londra", "84"), ("Melbourne", "80")):
         R.append(("§V-A", f"quota recuperata a FA 5 %, {g} (E18)", "E18", "congelamento_e18.json",
                   ["risultati", "A", "gruppi", g, "recupero_argmax", "quota_recuperata", "media"], st,
@@ -247,7 +253,7 @@ def scrivi_tabella_C1(ris: Path, f: Path) -> None:
              r"episode: mean $\Delta$wCE over cells and 95\% interval from 4{,}000 joint resamples; last column: "
              r"sign per episode. Six seeds (201--206), pre-registered campaign; for the cities, the episode-1 values "
              r"of the main text come from the causal campaign on the same cells (Section~E). PEMS04 and PEMS08: one "
-             r"installation date, pre-registered campaign; n.r.: not reportable ($A$ not trained on PEMS04).}\\" "\n"
+             r"installation date, pre-registered campaign; n.r.: not reportable ($A$ not trained on PEMS04).}\label{tab:suppC1}\\" "\n"
              r"\toprule" "\n" r"Statement & City & Episode 1 & Episode 2 & Episode 3 & Signs\\" "\n"
              r"\midrule" "\n" r"\endfirsthead" "\n" r"\toprule" "\n"
              r"Statement & City & Episode 1 & Episode 2 & Episode 3 & Signs\\" "\n" r"\midrule" "\n"
