@@ -755,9 +755,10 @@ def scrivi_E18(ris: Path, f: Path) -> None:
     for c, X in D["contesti"].items():
         a, b, o = X["gated0-F0p"], X["gated0-gated"], X["osservato"]
         camp = X["campagna"].replace("campagna principale", "main campaign").replace("parte A", "part A")
-        righe.append(f"{_ctx_e18(c)} & {camp} & " + _ic_lista(a["media"], a["ic_attuale"]) + f" & {' & '.join(_scale(a['ic_attuale']))} & "
-                     f"{{\\tiny$[{a['ic_per_sensore'][0]:+.4f},{a['ic_per_sensore'][1]:+.4f}]$}} & {' & '.join(_scale(a['ic_per_sensore']))} & "
-                     + _ic_lista(b["media"], b["ic_attuale"]) + f" & {' & '.join(_scale(b['ic_attuale']))} & {o['data']} \\\\")
+        br = lambda ic: "{} & {}".format(_scale(ic, breve=True)[0], "y" if _scale(ic, breve=True)[1] == "yes" else "n")   # abbreviato: la tabella e' larga
+        righe.append(f"{_ctx_e18(c)} & {camp} & " + _ic_lista(a["media"], a["ic_attuale"]) + f" & {br(a['ic_attuale'])} & "
+                     f"{{\\tiny$[{a['ic_per_sensore'][0]:+.4f},{a['ic_per_sensore'][1]:+.4f}]$}} & {br(a['ic_per_sensore'])} & "
+                     + _ic_lista(b["media"], b["ic_attuale"]) + f" & {br(b['ic_attuale'])} & {o['data']} \\\\")
     pf = D["prima_formulazione"]
     FONTE_EN = {"protocollo": "protocol", "manoscritto": "manuscript"}
     det = "; ".join(f"{FONTE_EN.get(t, t)}, {k} {v['data']} (commit {v['commit']})"
@@ -772,8 +773,8 @@ def scrivi_E18(ris: Path, f: Path) -> None:
         "first observed (first commit of its frozen record). First written formulation of the policy: "
         f"{pf['data']} ({det}). {E['osservati_prima_della_formulazione']} of {E['contesti']} contexts had been observed "
         "before it: the policy is a post hoc descriptive evaluation on the eleven contexts, without prospective "
-        "confirmation. Two reading scales: " + SCALE_EN + f"; {NOTA}." + fonte,
+        "confirmation. Two reading scales: " + SCALE_EN + f"; {NOTA}. Abbreviations: fav./unf./inc.; $\\delta$: y/n." + fonte,
         "Context & campaign & gated$(1\\,\\mathrm{wk},0)-F_0'$ & sign & $\\delta$ & sensor-level & sign & $\\delta$ & "
         "gated$(1\\,\\mathrm{wk},0)-$gated$(\\tau,N)$ & sign & $\\delta$ & first observed", righe, "tab:suppG6")
-               .replace("{\\footnotesize\\setlength{\\tabcolsep}{3pt}", "{\\scriptsize\\setlength{\\tabcolsep}{2pt}", 1))
+               .replace("{\\footnotesize\\setlength{\\tabcolsep}{3pt}", "{\\scriptsize\\setlength{\\tabcolsep}{1.5pt}", 1))
     f.write_text("\n".join(out))
