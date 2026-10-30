@@ -289,3 +289,39 @@ def scrivi_tabella_politiche(ris: Path, f: Path) -> None:
     f.parent.mkdir(parents=True, exist_ok=True)
     f.write_text("% generato da OR3/analysis/main.py (tabelle_paper1.scrivi_tabella_politiche): non modificare a mano\n"
                  + "\n".join(righe) + "\n\\bottomrule\n")       # \bottomrule qui: dopo \input darebbe Misplaced \noalign
+
+
+def scrivi_tabella_replica(ris: Path, f: Path) -> None:
+    """Tabella V del testo (`tab:replication`): le cinque dichiarazioni pre-registrate su ogni contesto, con le due
+    scale di lettura dagli stessi intervalli congelati — riga dei segni (−/+/0: intervallo sotto / sopra zero / lo
+    include; verificati contro il campo `segno` dei json, si ferma se differiscono) e riga «within delta» (y: limite
+    superiore sotto 0.005). Citta': E5, episodi 1–3; PEMS08: E6; PEMS04: E6-bis parte A ((e) non riportabile).
+    Presentazione cambiata il 2026-10-30, analisi invariata."""
+    e5 = json.loads((ris / "e5_risultati.json").read_text())["affermazioni"]
+    e6 = json.loads((ris / "e6_risultati.json").read_text())["affermazioni"]
+    e6a = json.loads((ris / "e6a_risultati.json").read_text())["affermazioni"]
+    ETIC = (("a", r"(a) $\Fzp-\C$"), ("b", r"(b) gated$-\Fzp$"), ("c", r"(c) $\Fp{\wk}-\C$"),
+            ("d", r"(d) $\Fp{24\,h}-\C$"), ("e", r"(e) $\Fp{\wk}-\A$"))
+
+    def scale(r, dove):
+        lo, hi = r["ic_con_nodi"]
+        s = "-" if hi < 0 else ("+" if lo > 0 else "0")
+        if r.get("segno") is not None and r["segno"] != s:
+            raise RuntimeError(f"Tabella V, {dove}: segno dall'intervallo {s!r} diverso dal campo congelato {r['segno']!r}")
+        return s, ("y" if hi < 0.005 else "n")
+    righe = []
+    for k, et in ETIC:
+        segni, delta = [], []
+        for c, _ in CITTA:
+            ss = [scale(e5[f"{c}/ep{n}/{k}"], f"{c}/ep{n}/{k}") for n in (1, 2, 3)]
+            segni.append("$" + "\\,".join(s for s, _ in ss) + "$"); delta.append("\\,".join(d for _, d in ss))
+        for src, nome in ((e6a, "PEMS04"), (e6, "PEMS08")):
+            if k in src:
+                s, d = scale(src[k], f"{nome}/{k}"); segni.append(f"${s}$" if s != "0" else "0"); delta.append(d)
+            else:
+                segni.append("n.r."); delta.append("n.r.")
+        righe.append(et + " & " + " & ".join(segni) + " \\\\")
+        righe.append("\\quad within $\\delta$ & " + " & ".join(delta) + " \\\\")
+    f.parent.mkdir(parents=True, exist_ok=True)
+    f.write_text("% generato da OR3/analysis/main.py (tabelle_paper1.scrivi_tabella_replica): non modificare a mano\n"
+                 + "\n".join(righe) + "\n\\bottomrule\n")

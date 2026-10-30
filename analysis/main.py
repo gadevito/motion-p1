@@ -770,6 +770,8 @@ def main() -> int:
                 from analysis.tabelle_suppl import scrivi_E18ter
                 print("[paper] tabella G7 del supplementare (E18-ter)", flush=True)
                 scrivi_E18ter(radice / RIS, dfig / "tableG_e18ter.tex")
+                from analysis.tabelle_paper1 import scrivi_tabella_replica
+                scrivi_tabella_replica(radice / RIS, dfig / "table_replication.tex")   # Tabella V del testo, due scale
     except Exception as exc:                # CONFRONTO.md si scrive comunque, con l'errore e «NON CONCLUSO»
         tb = traceback.extract_tb(exc.__traceback__)[-1]
         dove = Path(tb.filename).resolve()
