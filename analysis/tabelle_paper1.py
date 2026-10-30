@@ -286,8 +286,8 @@ def scrivi_tabella_politiche(ris: Path, f: Path) -> None:
 def scrivi_tabella_replica(ris: Path, f: Path) -> None:
     """Tabella V del testo (`tab:replication`): le cinque dichiarazioni pre-registrate su ogni contesto, con le due
     scale di lettura dagli stessi intervalli congelati — riga dei segni (−/+/0: intervallo sotto / sopra zero / lo
-    include; verificati contro il campo `segno` dei json, si ferma se differiscono) e riga «within delta» (y: limite
-    superiore sotto 0.005). Citta': E5, episodi 1–3; PEMS08: E6; PEMS04: E6-bis parte A ((e) non riportabile).
+    include; verificati contro il campo `segno` dei json, si ferma se differiscono; per episodio, separati da virgole
+    come la colonna «Signs» di C1) e riga «within delta» (y: limite superiore sotto 0.005). Citta': E5, episodi 1–3; PEMS08: E6; PEMS04: E6-bis parte A ((e) non riportabile).
     Presentazione cambiata il 2026-10-30, analisi invariata."""
     e5 = json.loads((ris / "e5_risultati.json").read_text())["affermazioni"]
     e6 = json.loads((ris / "e6_risultati.json").read_text())["affermazioni"]
@@ -306,7 +306,7 @@ def scrivi_tabella_replica(ris: Path, f: Path) -> None:
         segni, delta = [], []
         for c, _ in CITTA:
             ss = [scale(e5[f"{c}/ep{n}/{k}"], f"{c}/ep{n}/{k}") for n in (1, 2, 3)]
-            segni.append("$" + "\\,".join(s for s, _ in ss) + "$"); delta.append("\\,".join(d for _, d in ss))
+            segni.append("$(" + ", ".join(s for s, _ in ss) + ")$"); delta.append("(" + ", ".join(d for _, d in ss) + ")")
         for src, nome in ((e6a, "PEMS04"), (e6, "PEMS08")):
             if k in src:
                 s, d = scale(src[k], f"{nome}/{k}"); segni.append(f"${s}$" if s != "0" else "0"); delta.append(d)
