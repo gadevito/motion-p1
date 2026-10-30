@@ -158,6 +158,10 @@ FASI = [
     # pAUC, richiami a FA fissi: ~1 h a 16 lavoratori), B (bootstrap per sensore fisico), D (date da git log)
     F("E18", [A + "analizza_e18.py", "--parte", "tutte", "--lavoratori", "16"], [R_ + "e18_risultati.json"]),
     F("E18", ["genera_congelamento_e18.py"], [R_ + "congelamento_e18.json", "CONGELAMENTO_E18.md"]),
+    # E18-ter (terza revisione esterna, sola analisi): livelli assoluti alle soglie operative di E8 (controllo contro
+    # e8_risultati.json), poi il congelamento
+    F("E18TER", [A + "analizza_e18ter.py", "--parte", "livelli"], [R_ + "e18ter_risultati.json"]),
+    F("E18TER", ["genera_congelamento_e18ter.py"], [R_ + "congelamento_e18ter.json", "CONGELAMENTO_E18TER.md"]),
 ]
 # figure del manoscritto: gli stessi script, con --lingua en, verso <paper>/figures/
 FIGURE_PAPER = [("ARCH", A + "figura_rete.py", ["rete.pdf"]),
@@ -166,7 +170,7 @@ FIGURE_PAPER = [("ARCH", A + "figura_rete.py", ["rete.pdf"]),
                 ("E5", A + "analizza_e5.py", ["episodi_e5.pdf"]),
                 ("E8", A + "figura2_51.py", ["figura2_51.pdf"]),
                 ("E8", A + "figura_e8bis.py", ["curve_e8bis.pdf"])]
-ESPERIMENTI = ["ARCH", "E2", "E3", "E4", "E3bis", "E5", "E6", "E7", "E8", "E14", "E16", "E15", "E18"]
+ESPERIMENTI = ["ARCH", "E2", "E3", "E4", "E3bis", "E5", "E6", "E7", "E8", "E14", "E16", "E15", "E18", "E18TER"]
 
 
 # ---------------------------------------------------------------- impronte --
@@ -762,6 +766,10 @@ def main() -> int:
                 scrivi_E18(radice / RIS, dfig / "tableG_e18.tex")
                 from analysis.tabelle_paper1 import scrivi_tabella_politiche
                 scrivi_tabella_politiche(radice / RIS, dfig / "table_policies.tex")   # tabella del testo, da E18
+            if "E18TER" in a.solo:                  # supplementare G7 (E18-ter, livelli assoluti alle soglie operative)
+                from analysis.tabelle_suppl import scrivi_E18ter
+                print("[paper] tabella G7 del supplementare (E18-ter)", flush=True)
+                scrivi_E18ter(radice / RIS, dfig / "tableG_e18ter.tex")
     except Exception as exc:                # CONFRONTO.md si scrive comunque, con l'errore e «NON CONCLUSO»
         tb = traceback.extract_tb(exc.__traceback__)[-1]
         dove = Path(tb.filename).resolve()

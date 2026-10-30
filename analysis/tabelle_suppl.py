@@ -359,6 +359,19 @@ def scrivi_E(ris: Path, f: Path) -> None:
         "and the calibrated $C$ (declared deviation)." + fonte + fonte18,
         "Context & Difference & " + " & ".join(CAL_EN[c] for c in CAL_EN), righe, "tab:suppE2")
                .replace("{\\footnotesize\\setlength{\\tabcolsep}{3pt}", "{\\scriptsize\\setlength{\\tabcolsep}{2pt}", 1))
+    f_ter = ris / "congelamento_e18ter.json"
+    W = json.loads(f_ter.read_text())["risultati"].get("wce16", {}).get("gruppi", {}) if f_ter.exists() else {}
+    md_ter = rep / "CONGELAMENTO_E18TER.md"
+
+    def wce_di(g, k, fin, altrimenti):
+        """wCE con la definizione del manoscritto (E18-ter, `wce16`): per orizzonte, poi media sugli orizzonti."""
+        v = W.get(g, {}).get("wce_intero" if fin == "intero" else "wce_sett", {}).get(k)
+        return v["media"] if v else altrimenti
+    fonte_ter = (" wCE column: definition of the paper (per horizon $\\sum w_y(-\\log p_y)/\\sum w_y$ over valid origins and "
+                 "sensors, then mean over the four horizons), recomputed on 2026-10-30 from the same probabilities (E18-ter; "
+                 "record \\texttt{CONGELAMENTO\\_E18TER.md}, fingerprint \\texttt{" + imp(md_ter) + "}); the earlier column "
+                 "weighted jointly over horizons; the means over cells equal those behind the differences table."
+                 if W and md_ter.exists() else "")
     righe, prima = [], True
     for g in GRUPPI_E16:
         if not prima:
@@ -371,13 +384,13 @@ def scrivi_E(ris: Path, f: Path) -> None:
                     et_ = et + ("$^\\dagger$" if b == "Fp_672" else "")
                     m = S[g].get("medie_settimana", {}).get(k18)
                     if m is None:                   # E18 senza le metriche di F16 sulla finestra: solo la wCE
-                        w = S[g]["wce_settimana"][k18]["media"]
+                        w = wce_di(g, k18, "sett", S[g]["wce_settimana"][k18]["media"])
                         righe.append((CTX_EN[g] if primo else "") + f" & {et_} & {CAL_EN[c]} & -- & -- & -- & -- & -- & {w:.4f} \\\\")
                     else:
                         e = m["ece"]
                         righe.append((CTX_EN[g] if primo else "") + f" & {et_} & {CAL_EN[c]} & "
                                      + " & ".join(f"{e[k]:.4f}" for k in ("0", "1", "2"))
-                                     + f" & {m['logloss']:.4f} & {m['brier']:.4f} & {m['wce']:.4f} \\\\")
+                                     + f" & {m['logloss']:.4f} & {m['brier']:.4f} & {wce_di(g, k18, 'sett', m['wce']):.4f} \\\\")
                     primo = False
                     continue
                 m = G[g]["medie_test"].get(f"{b}/{c}")
@@ -386,7 +399,7 @@ def scrivi_E(ris: Path, f: Path) -> None:
                 e = m["ece"]
                 righe.append((CTX_EN[g] if primo else "") + f" & {et} & {CAL_EN[c]} & "
                              + " & ".join(f"{e[k]:.4f}" for k in ("0", "1", "2"))
-                             + f" & {m['logloss']:.4f} & {m['brier']:.4f} & {m['wce']:.4f} \\\\")
+                             + f" & {m['logloss']:.4f} & {m['brier']:.4f} & {wce_di(g, f'{b}/{c}', 'intero', m['wce']):.4f} \\\\")
                 primo = False
         prima = False
     ece_v = max(max(float(m["ece"][k]) for k in ("0", "1", "2"))         # massimo ECE stampato, vector scaling (log-loss)
@@ -402,7 +415,7 @@ def scrivi_E(ris: Path, f: Path) -> None:
         + ("For $F'(1\\,\\mathrm{wk})$ every metric is on its causal window; the row $C^\\dagger$ is $C$ on the same window."
            if all("medie_settimana" in S[g] for g in GRUPPI_E16) else
            "For $F'(1\\,\\mathrm{wk})$ only the wCE is recomputed on its causal window (--: not recomputed); the row "
-           "$C^\\dagger$ is $C$ on the same window.") + fonte + fonte18,
+           "$C^\\dagger$ is $C$ on the same window.") + fonte + fonte18 + fonte_ter,
         "Context & Arm & Calibration & \\multicolumn{3}{c}{ECE (free / mod. / cong.)} & log-loss & Brier & wCE", righe, "tab:suppE3"))
     f.write_text("\n".join(out))
 
@@ -414,6 +427,23 @@ DICH_E15 = (("F0-C", r"$F_0-C$"), ("F0p-C", r"$F_0'-C$"), ("Fp_672-C", r"$F'(1\,
             ("Fpk_672-A", r"$F'(1\,\mathrm{wk};k)-A$$^\dagger$"))
 CAT_EN = {"superiorita'": "superiority", "non inferiorita'": "non-inferiority", "inconclusivo": "inconclusive",
           "inferiorita'": "inferiority"}
+DELTA_CAT = 0.005
+
+
+def _scale(ic, breve=False):
+    """Le due scale di lettura dallo stesso intervallo [lo, hi] (negativo = favorevole alla prima strategia):
+    segno rispetto a zero (favourable / unfavourable / inconclusive) e margine (within delta: yes se hi < delta, la
+    regola della «non inferiorita'» di E17). Presentazione cambiata il 2026-10-30, analisi invariata."""
+    lo, hi = ic
+    segno = "favourable" if hi < 0 else ("unfavourable" if lo > 0 else "inconclusive")
+    if breve:
+        segno = {"favourable": "fav.", "unfavourable": "unf.", "inconclusive": "inc."}[segno]
+    return segno, ("yes" if hi < DELTA_CAT else "no")
+
+
+SCALE_EN = ("sign of the interval against zero (favourable: below; unfavourable: above; inconclusive: includes zero) "
+            "and margin (within $\\delta=0.005$ wCE: upper bound below $\\delta$)")
+NOTA = "presentation changed on 2026-10-30, analysis unchanged"
 CITTA_E15 = ("Madrid", "Londra", "Melbourne")
 
 
@@ -439,18 +469,18 @@ def scrivi_E15(ris: Path, f: Path) -> None:
             r = D[c]["dichiarazioni"][k]
             cg, pb = D[c]["congelate"].get(k), D[c]["pubblicate"].get(k)
             righe.append(" & ".join([CTX_EN[c] if i == 0 else "", et, _ic(r, scala=1.0, cifre=3),
-                                     CAT_EN.get(r["categoria"], r["categoria"]),
+                                     *_scale(r["ic_con_nodi"]),
                                      _ic(cg, scala=1.0, cifre=3) if cg else "--",
                                      ("confirmed" if r.get("confermata") else "\\textbf{changed}") if cg else "new",
                                      _ic(pb, scala=1.0, cifre=3) if pb else "--"]) + " \\\\")
         prima = False
     out.append(_longtable(
-        "@{}l l c l c l c@{}",
-        "E15: the differences of the causal campaign (six seeds, 18 runs per city, episode 1), with the category of "
-        "Section~III of the paper (inferiority: interval above zero), against the pre-registered campaign on the "
+        "@{}l l c l l c l c@{}",
+        "E15: the differences of the causal campaign (six seeds, 18 runs per city, episode 1), with the two reading scales "
+        "of the paper — " + SCALE_EN + f"; {NOTA} — against the pre-registered campaign on the "
         "same cells and resamples (frozen) and the published value on twelve seeds; $k$: update budget reselected on "
         "the causal validation episode. $^\\dagger$ origins older than one week; otherwise all origins after $t_1$."
-        + fonte, "City & Difference & Causal & Category & Frozen, same cells & Verdict & Published (12 seeds)",
+        + fonte, "City & Difference & Causal & Sign & Within $\\delta$ & Frozen, same cells & Verdict & Published (12 seeds)",
         righe, "tab:suppE15a").replace("{\\footnotesize\\setlength{\\tabcolsep}{3pt}", "{\\scriptsize\\setlength{\\tabcolsep}{2pt}", 1))
     # E2
     righe = []
@@ -524,6 +554,57 @@ BR_A_EN = {"A": "$A$", "C": "$C$", "F0": "$F_0$", "F0p": "$F_0'$", "Fp_672": r"$
 FIN_EN = {"intero": "all after $t_1$", "sett": r"$>1$\,wk"}
 LIV_E18 = ("0.005", "0.01", "0.02", "0.05", "0.1")
 GRUPPI_E18 = ("Madrid", "Londra", "Melbourne", "PEMS08", "PEMS04")
+BR_TER_EN = {"C": "$C$", "A": "$A$", "F0": "$F_0$", "F0p": "$F_0'$", "Fp_672": r"$F'(1\,\mathrm{wk})$",
+             "Rorig_672": r"$R$-orig$(1\,\mathrm{wk})$", "gated": r"gated$(\tau,N)$"}
+REG_TER_EN = {"prim": "F1-optimal", "par": "validation-FPR-matched"}
+
+
+def scrivi_E18ter(ris: Path, f: Path) -> None:
+    """Supplementare G7 (E18-ter): livelli assoluti — richiamo, tasso di falsi allarmi, precisione della classe
+    congestionata — alle soglie F1-ottima e appaiata sui falsi allarmi di C in validazione, per braccio e contesto,
+    media sulle celle con intervallo al 95 %, da congelamento_e18ter.json (file figures/tableG_e18ter.tex)."""
+    R = json.loads((ris / "congelamento_e18ter.json").read_text())["risultati"]["livelli"]
+    imp = lambda x: hashlib.sha256(x.read_bytes()).hexdigest()[:16]
+    rep = Path(__file__).resolve().parents[1]
+    md, js = rep / "CONGELAMENTO_E18TER.md", rep / "results" / "evoluzione" / "congelamento_e18ter.json"
+    fonte = " Source: record \\texttt{CONGELAMENTO\\_E18TER.md}, fingerprint \\texttt{" + imp(md) + "}; " \
+        "\\texttt{congelamento\\_e18ter.json}, fingerprint \\texttt{" + imp(js) + "}."
+    righe, prima = [], True
+    for g in GRUPPI_E18:
+        G = R["gruppi"].get(g)
+        if G is None:
+            continue
+        if not prima:
+            righe.append("\\addlinespace")
+        primo = True
+        for fin in ("intero", "sett"):
+            for r in ("prim", "par"):
+                for b in R["bracci"][fin]:
+                    v = G["livelli"].get(f"{fin}/{r}/{b}")
+                    if v is None:
+                        continue
+                    mc = v["media_celle"]
+                    righe.append((CTX_EN[g] if primo else "") + f" & {BR_TER_EN[b]} & {FIN_EN[fin]} & {REG_TER_EN[r]} & "
+                                 + _ic_lista(mc["richiamo"]["media"], mc["richiamo"]["ic_con_nodi"], 3).replace("$+", "$") + " & "
+                                 + _ic_lista(mc["falsi_allarmi"]["media"], mc["falsi_allarmi"]["ic_con_nodi"], 4).replace("$+", "$").replace("[+", "[").replace(",+", ",") + " & "
+                                 + _ic_lista(mc["precisione"]["media"], mc["precisione"]["ic_con_nodi"], 3).replace("$+", "$").replace("[+", "[").replace(",+", ",") + " \\\\")
+                    primo = False
+        prima = False
+    righe = [x.replace("[+", "[").replace(",+", ",") for x in righe]
+    out = [_longtable(
+        "@{}l l l l c c c@{}",
+        "E18-ter: absolute operating-point values of the congested class per arm and context: recall, false-alarm rate "
+        "and precision at the F1-optimal threshold and at the validation-FPR-matched threshold (both chosen on validation "
+        "as in the operational-metrics experiment; gated$(\\tau,N)$ composes $F_0'$ and $F'$ with their own thresholds). "
+        "Window: all origins after $t_1$ for $C$, $A$, $F_0$, $F_0'$, gated$(\\tau,N)$; origins older than one week for "
+        "$F'(1\\,\\mathrm{wk})$, $R$-orig$(1\\,\\mathrm{wk})$ and the $C$ they are compared with. Mean over cells and 95\\% "
+        "interval from 4{,}000 joint resamples (partitions, seeds, sensor positions); the pooled values (confusion matrices "
+        "summed over cells, identical to the frozen levels of the operational-metrics experiment on the full window) are in "
+        "the record. The differences between arms are those frozen earlier; this table gives their levels." + fonte,
+        "Context & Arm & Window & Threshold & Recall & FAR & Precision", righe, "tab:suppG7")
+        .replace("{\\footnotesize\\setlength{\\tabcolsep}{3pt}", "{\\scriptsize\\setlength{\\tabcolsep}{2pt}", 1)]
+    f.parent.mkdir(parents=True, exist_ok=True)
+    f.write_text("\n".join(out) + "\n")
 DIFF_B_EN = {"(a) F0p-C": r"(a) $F_0'-C$", "(b) gated-F0p": r"(b) gated$-F_0'$",
              "(c) Fp_672-C >1sett": r"(c) $F'(1\,\mathrm{wk})-C$$^\dagger$", "(d) Fp_96-C": r"(d) $F'(24\,\mathrm{h})-C$",
              "(e) Fp_672-A >1sett": r"(e) $F'(1\,\mathrm{wk})-A$$^\dagger$",
@@ -639,23 +720,22 @@ def scrivi_E18(ris: Path, f: Path) -> None:
             righe.append("\\addlinespace")
         for i, (k, d) in enumerate(X["differenze"].items()):
             cambia = d["categoria_attuale"] != d["categoria_per_sensore"]
-            cat = CAT_EN[d["categoria_per_sensore"]]
+            cat = " & ".join((f"\\textbf{{{x}}}" if cambia else x) for x in _scale(d["ic_per_sensore"]))
             righe.append((f"{_ctx_e18(c)} & {X['sensori_distinti']}/{X['occorrenze']}" if i == 0 else " & ")
                          + f" & {DIFF_B_EN[k]} & ${d['media_attuale']:+.4f}$ & "
-                         f"$[{d['ic_attuale'][0]:+.4f}, {d['ic_attuale'][1]:+.4f}]$ & {CAT_EN[d['categoria_attuale']]} & "
-                         f"$[{d['ic_per_sensore'][0]:+.4f}, {d['ic_per_sensore'][1]:+.4f}]$ & "
-                         + (f"\\textbf{{{cat}}}" if cambia else cat) + " \\\\")
+                         f"$[{d['ic_attuale'][0]:+.4f}, {d['ic_attuale'][1]:+.4f}]$ & {' & '.join(_scale(d['ic_attuale']))} & "
+                         f"$[{d['ic_per_sensore'][0]:+.4f}, {d['ic_per_sensore'][1]:+.4f}]$ & " + cat + " \\\\")
         prima = False
     out.append(_longtable(
-        "@{}l c l c c l c l@{}",
+        "@{}l c l c c l l c l l@{}",
         "E18, part B: intervals from the current joint resampling (partitions $\\times$ seeds $\\times$ sensor "
         "positions; pre-registered, primary) and from a resampling that preserves the physical sensor (sensitivity): "
         "physical sensor identifiers drawn with replacement among the distinct sensors of the context's partitions, "
         "each partition weighting its test sensors by the multiplicity of their identifier, weights shared across "
-        "arms, partitions and seeds; 4{,}000 replicates. Categories as in the main paper ($\\delta=0.005$ wCE). "
+        "arms, partitions and seeds; 4{,}000 replicates. Two reading scales as in the main paper: " + SCALE_EN + f"; {NOTA}. "
         "Second column: distinct sensors / sensor--partition occurrences. Changes of category in bold. "
         "$^\\dagger$: origins older than one week." + fonte,
-        "Context & sensors & Difference & mean & current interval & category & sensor-level interval & category",
+        "Context & sensors & Difference & mean & current interval & sign & $\\delta$ & sensor-level interval & sign & $\\delta$",
         righe, "tab:suppG4")
                .replace("{\\footnotesize\\setlength{\\tabcolsep}{3pt}", "{\\tiny\\setlength{\\tabcolsep}{2pt}", 1))
     # G5
@@ -675,9 +755,9 @@ def scrivi_E18(ris: Path, f: Path) -> None:
     for c, X in D["contesti"].items():
         a, b, o = X["gated0-F0p"], X["gated0-gated"], X["osservato"]
         camp = X["campagna"].replace("campagna principale", "main campaign").replace("parte A", "part A")
-        righe.append(f"{_ctx_e18(c)} & {camp} & " + _ic_lista(a["media"], a["ic_attuale"]) + f" & {CAT_EN[a['categoria_attuale']]} & "
-                     f"{{\\tiny$[{a['ic_per_sensore'][0]:+.4f},{a['ic_per_sensore'][1]:+.4f}]$}} & {CAT_EN[a['categoria_per_sensore']]} & "
-                     + _ic_lista(b["media"], b["ic_attuale"]) + f" & {CAT_EN[b['categoria_attuale']]} & {o['data']} \\\\")
+        righe.append(f"{_ctx_e18(c)} & {camp} & " + _ic_lista(a["media"], a["ic_attuale"]) + f" & {' & '.join(_scale(a['ic_attuale']))} & "
+                     f"{{\\tiny$[{a['ic_per_sensore'][0]:+.4f},{a['ic_per_sensore'][1]:+.4f}]$}} & {' & '.join(_scale(a['ic_per_sensore']))} & "
+                     + _ic_lista(b["media"], b["ic_attuale"]) + f" & {' & '.join(_scale(b['ic_attuale']))} & {o['data']} \\\\")
     pf = D["prima_formulazione"]
     FONTE_EN = {"protocollo": "protocol", "manoscritto": "manuscript"}
     det = "; ".join(f"{FONTE_EN.get(t, t)}, {k} {v['data']} (commit {v['commit']})"
@@ -685,15 +765,15 @@ def scrivi_E18(ris: Path, f: Path) -> None:
     det = det.replace("«", "``").replace("»", "''").replace("gated(1 sett., 0)", "gated(1 wk, 0)")
     E = D["esito"]
     out.append(_longtable(
-        "@{}l l c l c l c l c@{}",
+        "@{}l l c l l c l l c l l c@{}",
         "E18, part D: provenance of the policy gated$(1\\,\\mathrm{wk},0)$ (token until one week, then $F'(1\\,\\mathrm{wk})$ "
         "for every sensor). For each context: integrated wCE of the policy against $F_0'$ (current and sensor-level "
         "interval) and against the selected gated$(\\tau,N)$, and the date on which the results of that context were "
         "first observed (first commit of its frozen record). First written formulation of the policy: "
         f"{pf['data']} ({det}). {E['osservati_prima_della_formulazione']} of {E['contesti']} contexts had been observed "
         "before it: the policy is a post hoc descriptive evaluation on the eleven contexts, without prospective "
-        "confirmation." + fonte,
-        "Context & campaign & gated$(1\\,\\mathrm{wk},0)-F_0'$ & category & sensor-level & category & "
-        "gated$(1\\,\\mathrm{wk},0)-$gated$(\\tau,N)$ & category & first observed", righe, "tab:suppG6")
+        "confirmation. Two reading scales: " + SCALE_EN + f"; {NOTA}." + fonte,
+        "Context & campaign & gated$(1\\,\\mathrm{wk},0)-F_0'$ & sign & $\\delta$ & sensor-level & sign & $\\delta$ & "
+        "gated$(1\\,\\mathrm{wk},0)-$gated$(\\tau,N)$ & sign & $\\delta$ & first observed", righe, "tab:suppG6")
                .replace("{\\footnotesize\\setlength{\\tabcolsep}{3pt}", "{\\scriptsize\\setlength{\\tabcolsep}{2pt}", 1))
     f.write_text("\n".join(out))

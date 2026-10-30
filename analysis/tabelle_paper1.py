@@ -269,17 +269,22 @@ def scrivi_tabella_politiche(ris: Path, f: Path) -> None:
     da congelamento_e18.json (parte B per gated(tau,N) - F0', parte D per il resto)."""
     R = json.loads((ris / "congelamento_e18.json").read_text())["risultati"]
     B, D = R["B"]["contesti"], R["D"]["contesti"]
-    # segno dell'intervallo (fav./unf./inc.) e, a parte, il margine: «inc.$^\\delta$» = inconclusivo con limite superiore entro delta
-    cat = {"superiorita'": "fav.", "non inferiorita'": "inc.$^\\delta$", "inferiorita'": "unf.", "inconclusivo": "inc."}
+    # le due scale di lettura, in celle separate (presentazione cambiata il 2026-10-30, analisi invariata): segno
+    # dell'intervallo rispetto a zero (fav./unf./inc.) e margine (within delta = 0.005: yes se il limite superiore e'
+    # sotto delta, la regola della «non inferiorita'» di E17)
+    def scala(ic):
+        lo, hi = ic
+        return ("fav." if hi < 0 else ("unf." if lo > 0 else "inc.")), ("yes" if hi < 0.005 else "no")
     en = {"Madrid": "Madrid", "Londra": "London", "Melbourne": "Melbourne", "PEMS08": "PEMS08", "PEMS04": "PEMS04"}
     nome = lambda c: (f"{en[c.split('/ep')[0]]} {c.split('/ep')[1]}" if "/ep" in c else en[c])
     righe = []
     for c, X in D.items():
         g = B[c]["differenze"]["(b) gated-F0p"]
         a, b = X["gated0-F0p"], X["gated0-gated"]
-        righe.append(f"{nome(c)} & ${g['media_attuale']:+.3f}$ {cat[g['categoria_attuale']]} & "
-                     f"${a['media']:+.3f}$ {cat[a['categoria_attuale']]}/{cat[a['categoria_per_sensore']]} & "
-                     f"${b['media']:+.3f}$ {cat[b['categoria_attuale']]} \\\\".replace("$+0.000$", "$0.000$")
+        sg, dg = scala(g["ic_attuale"]); sa, da = scala(a["ic_attuale"]); sa2, da2 = scala(a["ic_per_sensore"]); sb, db = scala(b["ic_attuale"])
+        righe.append(f"{nome(c)} & ${g['media_attuale']:+.3f}$ & {sg} & {dg} & "
+                     f"${a['media']:+.3f}$ & {sa}/{sa2} & {da}/{da2} & "
+                     f"${b['media']:+.3f}$ & {sb} & {db} \\\\".replace("$+0.000$", "$0.000$")
                      .replace("$-0.000$", "$0.000$"))
     f.parent.mkdir(parents=True, exist_ok=True)
     f.write_text("% generato da OR3/analysis/main.py (tabelle_paper1.scrivi_tabella_politiche): non modificare a mano\n"
