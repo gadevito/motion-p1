@@ -106,16 +106,8 @@ def _righe():
     R.append(("§III", "dilatazioni", "ARCH", "architettura_ck.json", ["codice", "dilatazioni"],
               "1, 2, 4, 8", lambda v: ", ".join(map(str, v))))
     # ---- Tabella III (segni per episodio) e nota ------------------------------
-    stampati = {"a": ("++0", "+++", "0++"), "b": ("--0", "---", "-0-"), "c": ("---", "---", "---"),
-                "d": ("--0", "+00", "-+-"), "e": ("+++", "+++", "0++")}
-    for k, ss in stampati.items():
-        for (c, et), st in zip(CITTA, ss):
-            R.append(("III", f"({k}) {et}", "E5", "e5_risultati.json",
-                      ["stesso_segno", f"{c}/{k}", "segni"], st, "".join))
-    for k, s04, s08 in (("a", "0", "-"), ("b", "-", "0"), ("c", "-", "-"), ("d", "-", "-"), ("e", None, "0")):
-        if s04 is not None:
-            R.append(("III", f"({k}) PEMS04", "E6", "e6a_risultati.json", ["affermazioni", k, "segno"], s04, str))
-        R.append(("III", f"({k}) PEMS08", "E6", "e6_risultati.json", ["affermazioni", k, "segno"], s08, str))
+    # Tabella V (segni per episodio e «within delta»): generata da scrivi_tabella_replica, che legge i segni dai json
+    # e si ferma se non coincidono con il campo `segno`; nel testo non c'e' piu' trascrizione da verificare
     # i valori di PEMS04/PEMS08 della vecchia nota alla Tab. III sono righe della tabella C1 del supplemento
     # (scrivi_tabella_C1), generate dai json: non c'e' trascrizione da verificare
     # ---- E18 (seconda revisione esterna): ROC empirica, bootstrap per sensore ---------------------------
