@@ -160,7 +160,7 @@ FASI = [
     F("E18", ["genera_congelamento_e18.py"], [R_ + "congelamento_e18.json", "CONGELAMENTO_E18.md"]),
     # E18-ter (terza revisione esterna, sola analisi): livelli assoluti alle soglie operative di E8 (controllo contro
     # e8_risultati.json), poi il congelamento
-    F("E18TER", [A + "analizza_e18ter.py", "--parte", "livelli"], [R_ + "e18ter_risultati.json"]),
+    F("E18TER", [A + "analizza_e18ter.py", "--parte", "tutte"], [R_ + "e18ter_risultati.json"]),
     F("E18TER", ["genera_congelamento_e18ter.py"], [R_ + "congelamento_e18ter.json", "CONGELAMENTO_E18TER.md"]),
 ]
 # figure del manoscritto: gli stessi script, con --lingua en, verso <paper>/figures/
