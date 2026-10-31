@@ -15,6 +15,9 @@ Scrive `ARCHIVI.md` (predefinito `protocol/zenodo/ARCHIVI.md` sotto la radice). 
 verifica fallisce o se un file del manifesto manca sul disco.
 
     python3 archivi_zenodo.py --radice ~/OR3 --manifesto ~/zenodo_k/MANIFEST.txt --dest ~/zenodo_k
+
+`--esistenti`: non ricostruisce gli archivi gia' presenti in `--dest` (per un tag successivo con gli stessi file:
+li verifica contro il nuovo manifesto e riscrive ARCHIVI.md).
 """
 import argparse
 import hashlib
@@ -58,6 +61,8 @@ def main() -> int:
     ap.add_argument("--manifesto", type=Path, required=True)
     ap.add_argument("--dest", type=Path, required=True, help="cartella degli archivi, fuori dal repo")
     ap.add_argument("--md", type=Path, default=None, help="predefinito <radice>/protocol/zenodo/ARCHIVI.md")
+    ap.add_argument("--esistenti", action="store_true", help="verifica gli archivi gia' in --dest senza ricostruirli")
+    ap.add_argument("--nota", default=None, help="riga aggiuntiva in ARCHIVI.md (p.es. quali archivi sono identici a un tag precedente)")
     a = ap.parse_args()
     md = a.md or (a.radice / "protocol" / "zenodo" / "ARCHIVI.md")
     voci, testa = leggi_manifesto(a.manifesto)
@@ -72,10 +77,13 @@ def main() -> int:
         if mancanti_disco:
             print(f"FERMO: {len(mancanti_disco)} file del gruppo {gruppo} mancano sul disco, p.es. {mancanti_disco[:3]}"); return 1
         out = a.dest / nome
-        print(f"  {nome}: {len(attesi):,} file...", flush=True)
-        with tarfile.open(out, "w", format=tarfile.PAX_FORMAT) as tar:
-            for p in sorted(attesi):
-                tar.add(base / p, arcname=f"{PREFISSO}/{p}", recursive=False)
+        if a.esistenti and out.exists():
+            print(f"  {nome}: esistente, solo verifica", flush=True)
+        else:
+            print(f"  {nome}: {len(attesi):,} file...", flush=True)
+            with tarfile.open(out, "w", format=tarfile.PAX_FORMAT) as tar:
+                for p in sorted(attesi):
+                    tar.add(base / p, arcname=f"{PREFISSO}/{p}", recursive=False)
         # verifica: membri (nome e dimensione) contro il manifesto
         with tarfile.open(out, "r") as tar:
             membri = {m.name[len(PREFISSO) + 1:]: m.size for m in tar.getmembers() if m.isfile()}
@@ -93,7 +101,8 @@ def main() -> int:
          f"`{platform.node()}`, dal manifesto `protocol/zenodo/MANIFEST.txt` (tag `{testa.get('tag', '?')}`, commit "
          f"`{testa.get('commit', '?')}`, sha256 del manifesto `{sha_file(a.manifesto)[:16]}`). Tre archivi tar **non compressi**, "
          "membri in ordine di percorso, percorsi relativi alla radice di OR3 (`results/evoluzione/...`): si estraggono nella "
-         "radice con `tar -xf <archivio> -C <radice OR3>` e `analysis/main.py` li legge dove li attende.", "",
+         "radice con `tar -xf <archivio> -C <radice OR3>` e `analysis/main.py` li legge dove li attende."
+         + (" Archivi gia' presenti in --dest, non ricostruiti: verificati contro questo manifesto." if a.esistenti else ""), "",
          "| archivio | gruppo | byte | SHA-256 | file | mancanti rispetto al manifesto | in piu' | dimensioni diverse |",
          "|---|---|---:|---|---:|---:|---:|---:|"]
     for nome, gruppo, byte, sha, n, mm, ip, dd in righe:
@@ -101,6 +110,7 @@ def main() -> int:
     L += [f"| **totale** | | **{tot_b:,}** ({tot_b / 2**30:.2f} GiB) | | **{tot_n:,}** | | | |", "",
           "Verifica: l'elenco dei membri di ciascun archivio (nome e dimensione) coincide con le righe del gruppo nel manifesto"
           + (" — **superata** per i tre archivi." if not errori else " — **FALLITA**: " + "; ".join(errori) + "."),
+          *(["", a.nota] if a.nota else []),
           "", "Controllo dopo la copia: `shasum -a 256 zenodo_*.tar` deve dare gli SHA-256 della tabella."]
     md.parent.mkdir(parents=True, exist_ok=True); md.write_text("\n".join(L) + "\n")
     print(f"  -> {md}")

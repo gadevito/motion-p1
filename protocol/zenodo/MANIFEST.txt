@@ -1,12 +1,12 @@
 # MANIFEST del record Zenodo — OR3, results/evoluzione/
-# tag: paper1-freeze-20261030k  commit: 6ebac229592928d8c9212321a88fb4dbb3456b16  generato: 2026-10-30 07:04 UTC  macchina: spark-9809
+# tag: paper1-freeze-20261030l  commit: 8986779e0ed233b885a9db8c222a0a11fa09c296  generato: 2026-10-31 07:21 UTC  macchina: spark-9809
 # gruppi inclusi: rigenerazione, probabilita, punti (regola di evoluzione/audit/ripartizione_results.py); escluso: altro
 # formato: sha256  byte  gruppo  percorso (relativo a results/evoluzione/)
-# rigenerazione: 4,163 file, 10,902,357,300 byte (10.15 GiB)
+# rigenerazione: 4,165 file, 10,903,136,502 byte (10.15 GiB)
 # probabilita: 326 file, 7,679,514,497 byte (7.15 GiB)
 # punti: 8,185 file, 647,958,735 byte (0.60 GiB)
-# totale: 12,674 file, 19,229,830,532 byte (17.91 GiB)
-# sha256 dell'elenco (solo le righe dei file): bb17a7c699830eabfd2ad04cc70a1447cdbde042526c2a581dceff7ce3aa4059
+# totale: 12,676 file, 19,230,609,734 byte (17.91 GiB)
+# sha256 dell'elenco (solo le righe dei file): e41365ff2c0e12bbb7befaafda00055e4edbbdf7c2969c6f1e33ffd5e50bbe7a
 dc35a15bf8191c3b41f9b7ac26427e96963aa78d330872696d70e09013aec8a1  136693  punti  E1_costi_sessione/ck_E1_Londra_p0_s399595374.pt
 55c1277e688fae09964f47609adc23526bba37879eb1f8a9ac24d73f26c013c7  531  punti  E1_costi_sessione/ck_E1_Londra_p0_s399595374.pt.fatto
 3be832fbf3924de1596ffbddd20c97ecf09ad714e09e7b371e0079cc9d3d751a  136693  punti  E1_costi_sessione/ck_E1_Londra_p0_s643310434.pt
@@ -1277,6 +1277,7 @@ d2da40fd5fc699b608a459699163e6eeaf99560c5fb9a950b2f98004b67d5833  4733  punti  c
 98877ae9afe62453fd82a004144fdd54bc4de17ca0ac7a19668677fb899af296  53604  rigenerazione  congelamento_e16.json
 e6748bef25ed2e1e5ed96787be6945dbc4091cdef35a3d9aee1d386a6523e1cf  22862  rigenerazione  congelamento_e17.json
 5f3138ca8f77ac9a8a0d2f2b94ee0166f4c4c66825d22fb4375a3636609e8cee  630361  rigenerazione  congelamento_e18.json
+1983aca248349c9bd4309c9fe29f82c679c4a454ee856bacf1164f01501a9acc  396026  rigenerazione  congelamento_e18ter.json
 356cec99f3af05e74c112f5067ccd6e2c76d73620c011a6a34efa17544e14e0a  20646  rigenerazione  congelamento_e2.json
 b594eb185369bbd87f45a02660deee3372101b98858495e1f4c1c3c117db434b  127031  rigenerazione  congelamento_e3.json
 0797a1b655cf7be72632df8dbe14a5c5ffd7aecd57a1e39a0864b81f54739260  18427  rigenerazione  congelamento_e3bis.json
@@ -2094,6 +2095,7 @@ f8eb0c6c21f401d96d96e4516de54c73654cef1dced712d965d3fbd8bbe76a31  1047  rigenera
 ee1d7e51f945a6108c5265e7a46d6330923cd81a68e2b16bb3d32b1634fe5538  8837766  rigenerazione  e16_risultati.json
 d9c5f646191945dfd5b3bdbb7cb99a77ec2519808657ece7fc9e4e5c2e5179aa  25951  rigenerazione  e17_risultati.json
 ddc86f7c534d44a29de3d53154a50f1dff98189e3afeebeacf4a9272985fa0ac  605838  rigenerazione  e18_risultati.json
+2a3bb86c1ba9c292d82100a6155133a63a6bf313647eb7061c09c6344f1ab229  383176  rigenerazione  e18ter_risultati.json
 2db2dd9ffece20726e5fb95fc3b2a7a9ae43b878e91c035140e5acdd889d715e  5231  rigenerazione  e3bis_risultati.json
 ec5216a1206d1454283baf48fbe8c008d8ef69c892a811c9585d25460fa652f8  2602  rigenerazione  e4_griglia_test.json
 bfd2b52b3d7440fe536061d49ca15328d6eaae1e65c2040189fb6b0152b93b2a  37167  rigenerazione  e4_risultati.json
