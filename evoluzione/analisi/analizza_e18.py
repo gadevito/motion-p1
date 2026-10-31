@@ -40,7 +40,8 @@ SEME_BOOT = 20261028
 TOLLERANZA_C = 1e-6
 # parte D: la ricerca storica (git log) e' limitata ai commit raggiungibili dalla firma del protocollo E18 (28/10/2026),
 # cosi' la ricostruzione non dipende dalle modifiche successive (richiesta del revisore, 29/10/2026)
-LIMITE_D = {"OR3": "964e4f5", "manoscritto": "ae12921"}
+LIMITE_D = {"OR3": "923c02e", "manoscritto": "ae12921"}   # OR3: era 964e4f5 prima della riscrittura della storia (voce 30,
+#                                                            protocol/RISCRITTURA_STORIA.md); il manoscritto non e' riscritto
 DELTA_NI = 0.005
 GRUPPI = ("Madrid", "Londra", "Melbourne", "PEMS08")
 ETA_SETT = FASCE_ETA[1]                       # 672 passi: una settimana

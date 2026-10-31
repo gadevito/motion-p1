@@ -285,7 +285,8 @@ def main() -> int:
           "tempi misurati della parte A (diversi a ogni esecuzione). Come per E15, i tempi della prima esecuzione (28/10) sono "
           "copiati nel registro `protocol/e18/tempi_parte_A.json` e il documento li legge da li'; `main.py` tratta `A/tempi` del "
           "json come metadati.",
-          "- 29/10/2026, parte D: ricerca storica limitata ai commit fino alla firma del protocollo (OR3 `964e4f5`, manoscritto "
+          "- 29/10/2026, parte D: ricerca storica limitata ai commit fino alla firma del protocollo (OR3 `964e4f5`, = `923c02e` "
+          "dopo la riscrittura della storia del 31/10/2026, voce 30; manoscritto "
           "`ae12921` = `manoscritto-20261028j`), su richiesta del revisore; il protocollo §4 non fissava un limite. Stesso esito "
           "(prima formulazione 2026-10-22, 11 contesti su 11 osservati prima); `analizza_e18.py --parte D` rieseguito, parti A, B, C "
           "invariate.", ""]
