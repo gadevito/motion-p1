@@ -49,14 +49,24 @@ def main() -> int:
             continue
         for v, cf in z["varianti"].items():
             agg(v, "dichiarazioni", key, cf.get("delta"))
-    for key, z in R["livelli"].items():
-        if "/delta_" not in key:
+    # livelli e differenze: tutti i bracci di D8 (`livelli`: C, A, F0, F0p, Fp_96) e tutte le `differenze` del
+    # congelamento, Δ = variante − congelato sulle medie; il dizionario `delta_<v>` copre solo C, A, F0, A-C, F0-C e
+    # serve da controllo (fino al 2026-11-01 lo script leggeva solo quello: F0' e F'(24 h) mancavano).
+    bracci, differ = [], []
+    for key, x in R["livelli"].items():
+        if not key.endswith("/congelato"):
             continue
-        c, v = key.split("/delta_")
-        for n in ("C", "A", "F0"):
-            agg(v, "livelli_assoluti", f"{c}/{n}", z.get(n))
-        for n in ("A-C", "F0-C"):
-            agg(v, "livelli_diff", f"{c}/{n}", z.get(n))
+        c = key.split("/")[0]
+        for v in vv:
+            y, ctrl = R["livelli"][f"{c}/({v})"], R["livelli"].get(f"{c}/delta_{v}", {})
+            for fam_n, campo, elenco in (("livelli_assoluti", "livelli", bracci), ("livelli_diff", "differenze", differ)):
+                for n, z in y[campo].items():
+                    d = z["media"] - x[campo][n]["media"]
+                    if n in ctrl and abs(d - ctrl[n]) > 1e-9:
+                        raise SystemExit(f"FERMO: {c}/{v}/{n}: Δ dalle medie {d:+.6f} ≠ delta_{v} {ctrl[n]:+.6f}")
+                    agg(v, fam_n, f"{c}/{n}", d)
+                    if n not in elenco:
+                        elenco.append(n)
     for key, cf in R.get("altre", {}).items():
         if not isinstance(cf, dict) or "delta" not in cf:
             continue
@@ -76,6 +86,13 @@ def main() -> int:
          + "; ".join(f"({v}) = {NOMI_VAR[v]}" for v in vv) + ". **Nota del 2026-11-01**: nella versione del 30/10 le etichette "
          "«permutata» e «causale» erano invertite rispetto al protocollo E14 (emendamento 12/10: (c) permutata, (a) causale); "
          "le cifre e i «dove» erano gia' corretti.", "",
+         "Famiglie: `dichiarazioni` = le cinque dichiarazioni (a)–(e) per contesto ed episodio; `livelli_assoluti` = wCE "
+         "assoluta dei bracci " + ", ".join(f"`{b}`" for b in bracci) + " (episodio 1, i bracci della tabella D8); "
+         "`livelli_diff` = differenze " + ", ".join(f"`{b}`" for b in differ) + "; `altre` = altre dichiarazioni (E3, "
+         "E3-bis, E4, E8, E8-bis) con Δ in wCE; `e8_wce` = wCE delle soglie E8. Δ dei livelli e delle differenze = media "
+         "della variante − media congelata (`<città>/(v)` contro `<città>/congelato`), controllata contro `delta_<v>` "
+         "dove questo esiste. **Nota del 2026-11-01 (seconda)**: fino a questa data `livelli_assoluti` e `livelli_diff` "
+         "leggevano solo `delta_<v>` (C, A, F0; A-C, F0-C): mancavano F0' e F'(24 h).", "",
          "| variante | famiglia | n | max \\|Δ\\| | Δ | dove |", "|---|---|---:|---:|---:|---|"]
     for v in vv:
         for f in FAM:
