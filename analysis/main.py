@@ -48,6 +48,10 @@ Uso (dalla radice OR3/):
     poetry run python analysis/main.py --solo E4 E5     # solo alcuni esperimenti
     poetry run python analysis/main.py --elenco         # fasi, senza eseguire
     poetry run python analysis/main.py --senza-paper    # solo il confronto con i congelamenti
+    poetry run python analysis/main.py --solo-testo     # verifica di testo, nessuna rigenerazione: trascrizioni,
+                                                        # tabelle, figure e rimandi del manoscritto contro l'ultimo
+                                                        # giro completo conservato (--rif); vale solo se gli
+                                                        # ingressi hanno le impronte di quel giro
 
 Uscita: `analysis/rigenerazione/<istante>/rapporto.md` e `rapporto.json`, un
 log per fase in `log/`, le figure in `radice/figure/`. Codice d'uscita 0 solo
@@ -634,6 +638,201 @@ def rapporto(lavoro: Path, meta: dict, esiti: list, paper: list) -> bool:
     return ok
 
 
+# ------------------------------------------------------------- solo testo --
+# Verifica di testo: nessuna fase eseguita, nessun numero rigenerato. Vale solo appoggiata a un giro
+# completo concluso con TUTTO COINCIDE sugli stessi ingressi: la sua cartella di lavoro conservata
+# (rapporto.json) o il suo CONFRONTO registrato (per esempio protocol/spark/CONFRONTO_<tag>.md, di un giro
+# su un'altra macchina). Gli ingressi devono avere le impronte registrate da quel giro; i numeri stampati si
+# confrontano con i valori rigenerati in quel giro; tabelle e figure del manoscritto sono quelle scritte da
+# quel giro (solo testo cambiato, numeri identici); i rimandi del manoscritto si risolvono.
+def leggi_riferimento(rif: Path) -> dict:
+    git = lambda *c: subprocess.run(["git", *c], cwd=RADICE, capture_output=True, text=True).stdout.strip()
+    if rif.is_dir():
+        R = json.loads((rif / "rapporto.json").read_text())
+        m = R["meta"]
+        return {"nome": rif.name, "commit": m["commit"], "ok": bool(R.get("ok")), "esperimenti": m["esperimenti"],
+                "integrita": m.get("integrita_risultati"), "errore": m.get("errore"),
+                "manoscritto": m["manoscritto"]["commit"], "impronte": m["impronte_ingressi"],
+                "paper": R["paper"], "data": m["istante"]}
+    t = rif.read_text()
+    riga = lambda k: next((l.split(k, 1)[1].strip() for l in t.splitlines() if l.startswith(k)), None)
+    imp = {}
+    for l in t.split("## 10.", 1)[1].split("```")[1].strip().splitlines():
+        k, v = l.split(None, 1)
+        imp[k] = v.strip()
+    paper = []
+    for l in t.split("## 1. Tabelle del Paper 1", 1)[1].split("\n## ", 1)[0].splitlines():
+        c = [x.strip() for x in l.strip().strip("|").split("|")]
+        if len(c) == 7 and c[0] not in ("tabella",) and not c[0].startswith("---"):
+            paper.append({"tabella": c[0], "voce": c[1], "rigenerato_valore": c[4], "scarto": c[5], "esito": c[6]})
+    tag = re.fullmatch(r"CONFRONTO_(.+)\.md", rif.name)
+    commit = git("rev-parse", f"{tag.group(1)}^{{commit}}") if tag else ""
+    ms = re.search(r"commit `([0-9a-f]{40})`", riga("- manoscritto") or "")
+    return {"nome": str(rif.relative_to(RADICE)) if rif.is_relative_to(RADICE) else rif.name, "commit": commit,
+            "ok": riga("- esito:") == "**TUTTO COINCIDE**",
+            "esperimenti": [x.strip() for x in (riga("- esperimenti:") or "").split(",")],
+            "integrita": riga("- risultati reali dopo l'esecuzione:"), "errore": riga("- errore:"),
+            "manoscritto": ms.group(1) if ms else "", "impronte": imp, "paper": paper,
+            "data": git("log", "-1", "--format=%cI", "--", str(rif))}
+
+
+def giro_di_riferimento(rif: Path | None, ora: dict) -> dict:
+    """Il giro indicato o, altrimenti, il piu' recente giro completo concluso con TUTTO COINCIDE sugli stessi
+    ingressi, fra le cartelle di analysis/rigenerazione e i CONFRONTO registrati in protocol/spark."""
+    if rif is not None:
+        return leggi_riferimento(rif.resolve())
+    cand = [d for d in (RADICE / "analysis" / "rigenerazione").iterdir() if (d / "rapporto.json").is_file()]
+    cand += sorted((RADICE / "protocol" / "spark").glob("CONFRONTO_*.md"))
+    validi = []
+    for c in cand:
+        try:
+            g = leggi_riferimento(c)
+        except (KeyError, IndexError, ValueError):
+            continue
+        if g["ok"] and sorted(g["esperimenti"]) == sorted(ESPERIMENTI) and g["impronte"] == ora:
+            validi.append(g)
+    if not validi:
+        raise SystemExit("nessun giro completo concluso sugli stessi ingressi: indicarlo con --rif")
+    data = lambda g: g["data"] if "-" in g["data"] else datetime.strptime(g["data"], "%Y%m%dT%H%M%SZ").replace(
+        tzinfo=timezone.utc).isoformat()
+    return max(validi, key=lambda g: datetime.fromisoformat(data(g)))
+
+
+def numeri_tex(s: str):
+    from collections import Counter
+    return Counter(re.findall(r"\d+(?:\.\d+)?", s))
+
+
+def rimandi(paper: Path) -> list:
+    """Etichette citate e non definite, etichette duplicate, citazioni senza voce in bibliografia.
+    Il testo principale risolve \\ref nel proprio insieme e \\Sref nel supplemento (xr-hyper)."""
+    from collections import Counter
+
+    def insieme(radice: str) -> str:
+        s = (paper / radice).read_text()
+        s = re.sub(r"(?<!\\)%.*", "", s)
+        return re.sub(r"\\input\{([^}]+)\}",
+                      lambda m: re.sub(r"(?<!\\)%.*", "", (paper / (m.group(1) if m.group(1).endswith(".tex")
+                                                                   else m.group(1) + ".tex")).read_text()), s)
+    M, S = insieme("main.tex"), insieme("supplementary.tex")
+    lab = lambda s: re.findall(r"\\label\{([^}]+)\}", s)
+    M, S = (re.sub(r"\\(?:re)?newcommand.*", "", x) for x in (M, S))       # definizioni di macro (#1)
+    LM, LS = lab(M), lab(S)
+    out = []
+    for nome, L in (("main.tex", LM), ("supplementary.tex", LS)):
+        out += [f"{nome}: etichetta definita due volte `{k}`" for k, n in Counter(L).items() if n > 1]
+    for nome, s, L in (("main.tex", M, set(LM)), ("supplementary.tex", S, set(LS))):
+        out += [f"{nome}: \\ref{{{k}}} senza etichetta" for k in sorted(set(re.findall(r"\\ref\{([^}]+)\}", s))) if k not in L]
+    out += [f"main.tex: \\Sref{{{k}}} senza etichetta nel supplemento"
+            for k in sorted(set(re.findall(r"\\Sref\{([^}]+)\}", M))) if k not in set(LS)]
+    voci = set(re.findall(r"\\bibitem\{([^}]+)\}", M))
+    for nome, s in (("main.tex", M), ("supplementary.tex", S)):
+        chiavi = {k.strip() for g in re.findall(r"\\cite\{([^}]+)\}", s) for k in g.split(",")}
+        out += [f"{nome}: \\cite{{{k}}} senza \\bibitem" for k in sorted(chiavi - voci)]
+    return out
+
+
+def solo_testo(a) -> int:
+    from analysis.impronte import verifica as verifica_impronte
+    from analysis.tabelle_paper1 import verifica
+    if a.paper is None:
+        raise SystemExit("--solo-testo verifica il manoscritto: serve --paper")
+    git = lambda *c: subprocess.run(["git", *c], cwd=RADICE, capture_output=True, text=True)
+    ora = impronte_ingressi(RADICE / RIS, False)
+    g = giro_di_riferimento(a.rif, ora)
+    if a.rif_commit:
+        g["commit"] = a.rif_commit
+    meta = {"commit": git("rev-parse", "HEAD").stdout.strip(), "git_status": git("status", "--porcelain").stdout.strip()}
+    problemi = []
+    if not g["ok"] or sorted(g["esperimenti"]) != sorted(ESPERIMENTI) or g["errore"] or g["integrita"] != "invariati":
+        problemi.append("il giro di riferimento non e' un giro completo concluso con TUTTO COINCIDE")
+    if not g["commit"] or git("cat-file", "-e", g["commit"] + "^{commit}").returncode != 0:
+        problemi.append(f"commit OR3 del giro di riferimento non trovato nella storia ({g['commit'] or 'non registrato'}): "
+                        "indicarlo con --rif-commit (storia riscritta: protocol/RISCRITTURA_STORIA.md)")
+    print(f"verifica di testo su giro completo {g['nome']}, OR3 {g['commit'][:7]}", flush=True)
+    diversi = sorted(k for k in set(ora) | set(g["impronte"]) if ora.get(k) != g["impronte"].get(k))
+    meta["ingressi"] = (len(ora), diversi)
+    problemi += [f"ingresso diverso dal giro di riferimento: `{k}`" for k in diversi]
+    citate = verifica_impronte(RADICE)
+    meta["citate"] = (len(citate), sum(r["esito"] in ("DIVERSO", "file non trovato") for r in citate))
+    if meta["citate"][1]:
+        problemi.append(f"impronte citate nei congelamenti: {meta['citate'][1]} diverse")
+    meta["manoscritto"] = manoscritto(RADICE / a.paper)
+    # 1. trascrizioni: i valori stampati contro il congelato e contro il rigenerato del giro di riferimento
+    paper = verifica(RADICE / RIS, RADICE / RIS, a.tex, ESPERIMENTI)
+    prima = {(p["tabella"], p["voce"]): p for p in g["paper"]}
+    for p in paper:
+        q = prima.get((p["tabella"], p["voce"]))
+        if q is None:
+            p["rigenerato_valore"], p["scarto"] = "—", "—"
+            p["esito"] += " (voce nuova: solo congelato)"
+            continue
+        p["rigenerato_valore"], p["scarto"] = q.get("rigenerato_valore", "—"), q.get("scarto", "—")
+        if not q["esito"].startswith(("ok", "non rigenerato")):
+            p["esito"] = f"DIVERSO nel giro di riferimento ({q['esito']})"
+    problemi += [f"trascrizione: {p['tabella']} {p['voce']}: {p['esito']}"
+                 for p in paper if not p["esito"].startswith(("ok", "non rigenerato"))]
+    # 2. tabelle e figure del manoscritto: quelle scritte dal giro di riferimento, numeri invariati
+    dfig = (RADICE / a.paper).resolve() / "figures"
+    tabelle = []
+    for f in sorted(dfig.iterdir()):
+        if f.suffix not in (".tex", ".pdf"):
+            continue
+        v = subprocess.run(["git", "-C", str(RADICE / a.paper), "show", f"{g['manoscritto']}:figures/{f.name}"],
+                           capture_output=True)
+        if v.returncode != 0:
+            st = "assente nel giro di riferimento"
+        elif f.suffix == ".pdf":
+            st = "identica" if hashlib.sha256(v.stdout).hexdigest() == sha256(f) else "DIVERSA"
+        else:
+            nuovo, vecchio = f.read_text(), v.stdout.decode()
+            st = "identica" if nuovo == vecchio else \
+                ("solo testo (numeri identici)" if numeri_tex(nuovo) == numeri_tex(vecchio) else "NUMERI DIVERSI")
+        tabelle.append((f.name, st))
+        if st not in ("identica", "solo testo (numeri identici)"):
+            problemi.append(f"figures/{f.name}: {st}")
+    # 3. rimandi
+    rim = rimandi((RADICE / a.paper).resolve())
+    problemi += rim
+    ok = not problemi
+    L = ["# Paper 1 — verifica di testo (`--solo-testo`)", "",
+         "Generato da `analysis/main.py --solo-testo` (non modificare a mano). Nessuna fase eseguita e nessun "
+         "numero rigenerato: i valori rigenerati sono quelli del giro completo di riferimento, valido per questi "
+         "ingressi se le loro impronte coincidono con quelle registrate da quel giro.", "",
+         f"- esito: **{'TUTTO COINCIDE' if ok else 'DIFFERENZE O ERRORI'}**",
+         f"- verifica di testo su giro completo {g['nome']}, OR3 {g['commit'][:7]}; esito di quel giro: "
+         f"{'TUTTO COINCIDE' if g['ok'] else 'NON VALIDO'}; manoscritto di quel giro: commit `{g['manoscritto']}`",
+         f"- OR3 di questa verifica: commit `{meta['commit']}` "
+         f"({'pulito' if not meta['git_status'] else 'con modifiche non committate'})",
+         f"- ingressi (`results/evoluzione`): {meta['ingressi'][0]} impronte, diverse dal giro di riferimento: "
+         f"{len(meta['ingressi'][1])}",
+         f"- impronte citate nei congelamenti: {meta['citate'][0]}, diverse: {meta['citate'][1]}",
+         f"- manoscritto (fuori dal repository): commit `{meta['manoscritto']['commit']}` "
+         f"({meta['manoscritto']['stato']}); SHA-256 `main.tex` {meta['manoscritto']['main.tex']}, "
+         f"`supplementary.tex` {meta['manoscritto']['supplementary.tex']}", "",
+         "## 1. Trascrizioni dei numeri nel testo", "",
+         "| tabella | voce | stampato | congelato | rigenerato (giro di riferimento) | scarto | esito |",
+         "|---|---|---|---:|---:|---:|---|"]
+    L += [f"| {p['tabella']} | {p['voce']} | {p['stampato']} | {fmt(p.get('congelato_valore', '—'))} | "
+          f"{fmt(p.get('rigenerato_valore', '—'))} | {p.get('scarto', '—')} | {p['esito']} |" for p in paper]
+    L += ["", "## 2. Tabelle e figure del manoscritto (riusate dal giro di riferimento)", "",
+          "Confronto con la versione del manoscritto del giro di riferimento: identica, o con il solo testo "
+          "cambiato e gli stessi numeri (stesso multinsieme di valori numerici); figure PDF identiche al byte.", "",
+          "| file | stato |", "|---|---|", *[f"| `{n}` | {s} |" for n, s in tabelle],
+          "", "## 3. Rimandi", "",
+          "Ogni \\ref e \\Sref ha la sua etichetta (\\Sref nel supplemento), nessuna etichetta e' duplicata, "
+          "ogni \\cite ha la sua voce in bibliografia.", "",
+          *([f"- {r}" for r in rim] or ["Nessun problema."]),
+          "", "## 4. Problemi", "", *([f"- {p}" for p in problemi] or ["Nessuno."]), ""]
+    confronto = RADICE / "analysis" / "rigenerazione" / "CONFRONTO.md"
+    confronto.write_text("\n".join(L))
+    print(f"\n{'TUTTO COINCIDE' if ok else 'DIFFERENZE O ERRORI'} — {confronto.relative_to(RADICE)}"
+          f" (verifica di testo su giro completo {g['nome']}, OR3 {g['commit'][:7]})")
+    for p in problemi:
+        print(f"  {p}")
+    return 0 if ok else 1
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[1])
     ap.add_argument("--solo", nargs="*", choices=ESPERIMENTI, default=ESPERIMENTI)
@@ -653,6 +852,15 @@ def main() -> int:
                     help="non leggere ne' scrivere il manoscritto (solo il confronto con i congelamenti)")
     ap.add_argument("--elenco", action="store_true")
     ap.add_argument("--tieni", action="store_true", help="non cancellare il clone dei risultati alla fine")
+    ap.add_argument("--solo-testo", action="store_true",
+                    help="nessuna rigenerazione: verifica trascrizioni, tabelle, figure e rimandi del manoscritto "
+                         "contro l'ultimo giro completo conservato (--rif) e scrive CONFRONTO.md")
+    ap.add_argument("--rif", type=Path, default=None,
+                    help="con --solo-testo: giro completo di riferimento, cartella di lavoro conservata o CONFRONTO "
+                         "registrato (predefinito: il piu' recente concluso con TUTTO COINCIDE sugli stessi ingressi)")
+    ap.add_argument("--rif-commit", default=None,
+                    help="con --solo-testo: commit OR3 del giro di riferimento, se non e' registrato o precede la "
+                         "riscrittura della storia (protocol/RISCRITTURA_STORIA.md)")
     a = ap.parse_args()
     fasi = [f for f in FASI if f["esperimento"] in a.solo]
     if a.elenco:
@@ -670,7 +878,9 @@ def main() -> int:
         a.tex = a.paper / "main.tex"
     if a.paper is not None and (RADICE / a.paper).resolve().is_relative_to(RADICE):
         raise SystemExit("il manoscritto deve stare fuori dal repository (OR3 diventera' pubblico)")
-    ist = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    if a.solo_testo:
+        return solo_testo(a)
+    ist =datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     lavoro = (a.lavoro or RADICE / "analysis" / "rigenerazione" / ist).resolve()
     (lavoro / "log").mkdir(parents=True, exist_ok=False)
     print(f"cartella di lavoro {lavoro}")
