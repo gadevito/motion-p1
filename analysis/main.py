@@ -732,7 +732,7 @@ def rimandi(paper: Path) -> list:
     return out
 
 
-def solo_testo(a) -> int:
+def verifica_testo(a) -> int:   # nome diverso da solo_testo(righe) del confronto delle fasi (corretto il 2026-11-01)
     from analysis.impronte import verifica as verifica_impronte
     from analysis.tabelle_paper1 import verifica
     if a.paper is None:
@@ -879,7 +879,7 @@ def main() -> int:
     if a.paper is not None and (RADICE / a.paper).resolve().is_relative_to(RADICE):
         raise SystemExit("il manoscritto deve stare fuori dal repository (OR3 diventera' pubblico)")
     if a.solo_testo:
-        return solo_testo(a)
+        return verifica_testo(a)
     ist =datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     lavoro = (a.lavoro or RADICE / "analysis" / "rigenerazione" / ist).resolve()
     (lavoro / "log").mkdir(parents=True, exist_ok=False)
