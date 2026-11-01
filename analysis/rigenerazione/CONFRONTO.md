@@ -4,10 +4,10 @@ Generato da `analysis/main.py --solo-testo` (non modificare a mano). Nessuna fas
 
 - esito: **TUTTO COINCIDE**
 - verifica di testo su giro completo protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub3.md, OR3 ae50a25; esito di quel giro: TUTTO COINCIDE; manoscritto di quel giro: commit `41c960b43984af0b4773e860f2029bae7b408ed1`
-- OR3 di questa verifica: commit `94d8807537f6f0270e7ed6b959721d1bc3b29bd1` (pulito)
+- OR3 di questa verifica: commit `b45be69fa14945d7d5cb749efe8b158beb8839a7` (pulito)
 - ingressi (`results/evoluzione`): 289 impronte, diverse dal giro di riferimento: 0
 - impronte citate nei congelamenti: 68, diverse: 0
-- manoscritto (fuori dal repository): commit `d28e7effdeaf33ca76253c9bf894fadae61d0db1` (pulito); SHA-256 `main.tex` f0f29363a443d50eccaeab9d45d6bcc83c9d604ad8eb0f604155b02444187335, `supplementary.tex` 7f0c48a1e8a025c5a534f51caa9971107f063faf77637289a627b78d19b42224
+- manoscritto (fuori dal repository): commit `0494ac35bbc453011c971d14d50b432778d03dd3` (pulito); SHA-256 `main.tex` ccf2bc48e0956c4bb19f4a3c23177f763148844979ddce06a767d67ff94cca23, `supplementary.tex` 7f0c48a1e8a025c5a534f51caa9971107f063faf77637289a627b78d19b42224
 
 ## 1. Trascrizioni dei numeri nel testo
 
