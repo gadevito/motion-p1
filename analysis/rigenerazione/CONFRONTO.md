@@ -4,7 +4,7 @@ Generato da `analysis/main.py --solo-testo` (non modificare a mano). Nessuna fas
 
 - esito: **TUTTO COINCIDE**
 - verifica di testo su giro completo protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub3.md, OR3 ae50a25; esito di quel giro: TUTTO COINCIDE; manoscritto di quel giro: commit `41c960b43984af0b4773e860f2029bae7b408ed1`
-- OR3 di questa verifica: commit `9618dfe48b37926181b105b5d3d2f29007edaa8a` (pulito)
+- OR3 di questa verifica: commit `cf352e12104b19e1da1a45eda03c4d5a580ed66e` (pulito)
 - ingressi (`results/evoluzione`): 289 impronte, diverse dal giro di riferimento: 0
 - impronte citate nei congelamenti: 68, diverse: 0
 - manoscritto (fuori dal repository): commit `807ca8524300fc6948bedd8f1882ed6021ddbd54` (pulito); SHA-256 `main.tex` 9b7ccd500b83dc07cfc6b32acb24ca9208fa3057794f6302a61e82e4510fd789, `supplementary.tex` e71ee29bed3a970b1085c54afd21457f6c648ac6a4fe49cc7eb021eb232238d1
