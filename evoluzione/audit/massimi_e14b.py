@@ -18,7 +18,13 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
-NOMI_VAR = {"a": "permutata", "c": "causale", "b": "b"}
+# etichette delle varianti dalla STESSA fonte del generatore di D7/D8 (analysis/tabelle_suppl.VAR_EN):
+# (c) = copertura permutata fra sensori, (a) = statica causale, (b) = causale-b (protocol/E14.md, emendamento 12/10).
+# Nella versione del 30/10 le etichette erano invertite (le cifre no): corretto il 2026-11-01.
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from analysis.tabelle_suppl import VAR_EN  # noqa: E402
+NOMI_VAR = {v: {"permuted": "permutata", "causal": "causale", "causal-b": "causale-b"}.get(e, e) for v, e in VAR_EN.items()}
 
 
 def main() -> int:
@@ -65,7 +71,11 @@ def main() -> int:
     L = ["# E14-B — massimo |Δ| per variante e per famiglia", "",
          f"Derivato da `evoluzione/audit/massimi_e14b.py` da `results/evoluzione/congelamento_e14b.json` (impronta "
          f"`{hashlib.sha256(fj.read_bytes()).hexdigest()[:16]}`) il {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}. "
-         "Δ = variante − congelato, in wCE (il rapporto (F₀ − C)/(A − C) e le AUC di E8-bis sono esclusi: non sono wCE).", "",
+         "Δ = variante − congelato, in wCE (il rapporto (F₀ − C)/(A − C) e le AUC di E8-bis sono esclusi: non sono wCE). "
+         "Etichette delle varianti da `analysis/tabelle_suppl.py` (`VAR_EN`, la stessa fonte delle tabelle D7/D8): "
+         + "; ".join(f"({v}) = {NOMI_VAR[v]}" for v in vv) + ". **Nota del 2026-11-01**: nella versione del 30/10 le etichette "
+         "«permutata» e «causale» erano invertite rispetto al protocollo E14 (emendamento 12/10: (c) permutata, (a) causale); "
+         "le cifre e i «dove» erano gia' corretti.", "",
          "| variante | famiglia | n | max \\|Δ\\| | Δ | dove |", "|---|---|---:|---:|---:|---|"]
     for v in vv:
         for f in FAM:

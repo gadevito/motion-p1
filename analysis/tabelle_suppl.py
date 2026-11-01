@@ -554,8 +554,8 @@ BR_A_EN = {"A": "$A$", "C": "$C$", "F0": "$F_0$", "F0p": "$F_0'$", "Fp_672": r"$
 FIN_EN = {"intero": "all after $t_1$", "sett": r"$>1$\,wk"}
 LIV_E18 = ("0.005", "0.01", "0.02", "0.05", "0.1")
 GRUPPI_E18 = ("Madrid", "Londra", "Melbourne", "PEMS08", "PEMS04")
-UNITA_E18 = ("run (seed $\\times$ partition) = unit, mean over runs; the cell (seed $\\times$ partition $\\times$ sensor) "
-             "is the resampling unit")
+UNITA_E18 = ("run (seed $\\times$ partition) = unit, mean over runs. Intervals use the crossed resampling of partitions, "
+             "seeds and sensor positions described in Section G")
 BR_TER_EN = {"C": "$C$", "A": "$A$", "F0": "$F_0$", "F0p": "$F_0'$", "Fp_672": r"$F'(1\,\mathrm{wk})$",
              "Rorig_672": r"$R$-orig$(1\,\mathrm{wk})$", "gated": r"gated$(\tau,N)$"}
 REG_TER_EN = {"prim": "F1-optimal", "par": "validation-FPR-matched"}
