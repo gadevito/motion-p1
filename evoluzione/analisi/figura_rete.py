@@ -44,10 +44,10 @@ TESTI = {
            "bracci": (("$C$", "riga di zeri"), ("$F_0$", "media di $E$"), ("$F_0'$", "token"), ("$F'$", "token adattato"))},
     "en": {"titolo_b": "temporal backbone: {} gated blocks, kernel {},\ndilations {}, receptive field {} steps",
            "ingresso": "{} steps × $C$", "canali": "$C$ = {}", "conv": "conv\n1×1", "somma": "Σ skips,\nlast step",
-           "tabella": "$E$: $K\\times{}$", "token": "+ token ($E'$)", "veterano": "initial sensor: its own row",
+           "tabella": "$B$: $K\\times{}$", "token": "+ token ($E'$)", "veterano": "initial sensor: its own row",
            "nuovo": "new sensor: one of the four rows below", "statica_in": "coverage\n+ 4 consts", "statica": "static branch",
            "concat": "concat", "fusione": "fusion\n1×1", "uscita": "{} horizons × {} classes",
-           "bracci": (("$C$", "zero row"), ("$F_0$", "mean of $E$"), ("$F_0'$", "token"), ("$F'$", "adapted token"))},
+           "bracci": (("$C$", "zero row"), ("$F_0$", "mean of $B$"), ("$F_0'$", "token"), ("$F'$", "adapted token"))},
 }
 
 

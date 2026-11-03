@@ -12,6 +12,7 @@ giorni), R - C del resoconto, R-orig(24 h) e l'addestramento iniziale (in
 attesa dei tempi per citta').
 """
 import json
+import re
 from pathlib import Path
 
 CITTA = (("Madrid", "Mad."), ("Londra", "Lon."), ("Melbourne", "Mel."))
@@ -104,7 +105,7 @@ def _righe():
                           ("corpo condiviso, 11 canali", ("corpo", P08, 0), "23776")):
         R.append(("§III", voce, "ARCH", "architettura_ck.json", via, st, lambda v: str(int(v))))
     R.append(("§III", "dilatazioni", "ARCH", "architettura_ck.json", ["codice", "dilatazioni"],
-              "1, 2, 4, 8", lambda v: ", ".join(map(str, v))))
+              "1, 2, 4 and 8", lambda v: ", ".join(map(str, v[:-1])) + " and " + str(v[-1])))
     # ---- Tabella III (segni per episodio) e nota ------------------------------
     # Tabella V (segni per episodio e «within delta»): generata da scrivi_tabella_replica, che legge i segni dai json
     # e si ferma se non coincidono con il campo `segno`; nel testo non c'e' piu' trascrizione da verificare
@@ -176,12 +177,24 @@ def _nel_tex(stampato: str, tex: str) -> bool:
     return _norm(stampato) in tex
 
 
+def testo_del_manoscritto(tex: Path) -> str:
+    """Il testo di `tex` con i file di sezione richiamati da \\input espansi, ricorsivamente (dal 2026-11-03 il
+    manoscritto e' diviso in sections/ e supplement/). Gli \\input di figures/ restano non espansi, come prima:
+    sono tabelle generate, non testo trascritto."""
+    def espandi(m):
+        nome = m.group(1)
+        if nome.startswith("figures/"):
+            return m.group(0)
+        return testo_del_manoscritto(tex.parent / (nome if nome.endswith(".tex") else nome + ".tex"))
+    return re.sub(r"\\input\{([^}]+)\}", espandi, tex.read_text())
+
+
 def verifica(ris: Path, ris_congelati: Path, tex: Path | None, esperimenti) -> list:
     """Per ogni cella: valore rigenerato (da `ris`), congelato (da `ris_congelati`),
     scarto, e confronto con il valore stampato (stesso arrotondamento del testo)."""
     t = None
     if tex is not None:
-        t = _norm(tex.read_text())
+        t = _norm(testo_del_manoscritto(tex))
     cache, out = {}, []
 
     def carica(d, f):
