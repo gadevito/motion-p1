@@ -1,0 +1,775 @@
+{
+  "protocollo": "protocol/E18quater.md",
+  "braccio": "C_A",
+  "statica_valutazione_nuovi": "espansiva",
+  "statica_e15": "espansiva",
+  "repliche": 4000,
+  "seme_bootstrap": 20261023,
+  "delta_non_inferiorita": 0.005,
+  "istante": "2026-11-03T11:38:37+00:00",
+  "impronte": {
+    "e15_risultati.json": "82df1d02792e330e",
+    "celle_e15": {
+      "Londra/p0/s201": "1b3285a71509daf1",
+      "Londra/p0/s202": "730854864caa9e3e",
+      "Londra/p0/s203": "060d153d250b5681",
+      "Londra/p0/s204": "4cd98a8c4d2b99a5",
+      "Londra/p0/s205": "72e0c88299c2b34c",
+      "Londra/p0/s206": "b311b19e8fa62ce4",
+      "Londra/p1/s201": "13b00aa98ae85690",
+      "Londra/p1/s202": "b95a4973a3817f9d",
+      "Londra/p1/s203": "31797c09a052afe5",
+      "Londra/p1/s204": "d8eda4757270113b",
+      "Londra/p1/s205": "cb59529390f43c97",
+      "Londra/p1/s206": "cfe4deceae563110",
+      "Londra/p2/s201": "1ade2f9358f87ba4",
+      "Londra/p2/s202": "4411b6a721d258cb",
+      "Londra/p2/s203": "a00122d27a4ab219",
+      "Londra/p2/s204": "1df0847d81d40a50",
+      "Londra/p2/s205": "9f4371a9ca4adabf",
+      "Londra/p2/s206": "e84da12252ac56bd",
+      "Madrid/p0/s201": "4e457f90ae345ad5",
+      "Madrid/p0/s202": "e4e0c0b292a37e4f",
+      "Madrid/p0/s203": "ffd6b4fddcc847dd",
+      "Madrid/p0/s204": "d139e4326aa381ab",
+      "Madrid/p0/s205": "e51be6de1431cb26",
+      "Madrid/p0/s206": "1a4268e446d8b6ff",
+      "Madrid/p1/s201": "924485a461f03a88",
+      "Madrid/p1/s202": "57c255eef164f95e",
+      "Madrid/p1/s203": "688f7603933183bc",
+      "Madrid/p1/s204": "73c4f94878d3993a",
+      "Madrid/p1/s205": "a8ff3662cb4eeb80",
+      "Madrid/p1/s206": "5a499d957ca2fae5",
+      "Madrid/p2/s201": "86dadedc3d5f114d",
+      "Madrid/p2/s202": "fa779400b72ed537",
+      "Madrid/p2/s203": "b75e5b35109e8077",
+      "Madrid/p2/s204": "8cb0ba600ef73a7a",
+      "Madrid/p2/s205": "76e612369a6eeed2",
+      "Madrid/p2/s206": "a87140b089e6c09d",
+      "Melbourne/p0/s201": "d014c49761783a0e",
+      "Melbourne/p0/s202": "86a630be41a4704f",
+      "Melbourne/p0/s203": "99718a537aff1d57",
+      "Melbourne/p0/s204": "1e0206687acd3408",
+      "Melbourne/p0/s205": "04100687a5f8136d",
+      "Melbourne/p0/s206": "b42ffddb19497943",
+      "Melbourne/p1/s201": "dbcbb69f52678b36",
+      "Melbourne/p1/s202": "12062d4373daa0b3",
+      "Melbourne/p1/s203": "d3544b9e5d4dd8e1",
+      "Melbourne/p1/s204": "06e14dbf66adb164",
+      "Melbourne/p1/s205": "4d9259956fce29f8",
+      "Melbourne/p1/s206": "38f19cf4ac499e35",
+      "Melbourne/p2/s201": "986f133058577048",
+      "Melbourne/p2/s202": "b66b4b9cc02cabd6",
+      "Melbourne/p2/s203": "a88b1700c4034d35",
+      "Melbourne/p2/s204": "9e9403fd4007d588",
+      "Melbourne/p2/s205": "6e586548e545ed95",
+      "Melbourne/p2/s206": "67bf566efdb4a9ea"
+    },
+    "ck_C_A": {
+      "Londra/p0/s201": "59aed6f94260d32e",
+      "Londra/p0/s202": "7d0fab97e0195b8c",
+      "Londra/p0/s203": "8822c20a9ca50c57",
+      "Londra/p0/s204": "b6aaa3b7cc1cb139",
+      "Londra/p0/s205": "119ca56d84941352",
+      "Londra/p0/s206": "e0b7997bc89d00a1",
+      "Londra/p1/s201": "fc1596ec9b13e3c0",
+      "Londra/p1/s202": "ea7013fd4266d37f",
+      "Londra/p1/s203": "1d9bbb69fe0f9f0a",
+      "Londra/p1/s204": "19b7a5be4d58f2cc",
+      "Londra/p1/s205": "6410000605e35c40",
+      "Londra/p1/s206": "5fac77e99ac8c937",
+      "Londra/p2/s201": "a896a5ac264ed7dc",
+      "Londra/p2/s202": "cc0be70ffbef2792",
+      "Londra/p2/s203": "a732bd685e1a1be6",
+      "Londra/p2/s204": "da5078b4cb5ba5e1",
+      "Londra/p2/s205": "30d9b68e610261fd",
+      "Londra/p2/s206": "607679fd289df539",
+      "Madrid/p0/s201": "b45ef60781bebcf9",
+      "Madrid/p0/s202": "0a6ee63177d769dd",
+      "Madrid/p0/s203": "40432421af679bcd",
+      "Madrid/p0/s204": "179c8ba028ce0597",
+      "Madrid/p0/s205": "1bbda0d399b3ced7",
+      "Madrid/p0/s206": "1a02c7083a1f165d",
+      "Madrid/p1/s201": "aec8fba8a5eb52f3",
+      "Madrid/p1/s202": "d3f8670e299071c7",
+      "Madrid/p1/s203": "f3adc8fa5240f68b",
+      "Madrid/p1/s204": "2217227414c0c8d7",
+      "Madrid/p1/s205": "71b1d44c7f38d076",
+      "Madrid/p1/s206": "ec6ebb1f55f79de2",
+      "Madrid/p2/s201": "f6c029617d847db7",
+      "Madrid/p2/s202": "6b486a3bf294b94c",
+      "Madrid/p2/s203": "29cd40b27744a109",
+      "Madrid/p2/s204": "f8765838bb778523",
+      "Madrid/p2/s205": "3e56b9eb7f7c0c33",
+      "Madrid/p2/s206": "2c3fb439363b1393",
+      "Melbourne/p0/s201": "19aa8c307963cc1e",
+      "Melbourne/p0/s202": "1196f1a6175a1988",
+      "Melbourne/p0/s203": "90eed998995ecacd",
+      "Melbourne/p0/s204": "896d4af0b507bd6b",
+      "Melbourne/p0/s205": "c06bb92097122e1c",
+      "Melbourne/p0/s206": "fa140a7f3c586a38",
+      "Melbourne/p1/s201": "bc29080edf93081a",
+      "Melbourne/p1/s202": "836a9b441f066866",
+      "Melbourne/p1/s203": "f3602190601582bc",
+      "Melbourne/p1/s204": "afb8aaf475650ecd",
+      "Melbourne/p1/s205": "bd1496f568a2605f",
+      "Melbourne/p1/s206": "06c36fbe108f3248",
+      "Melbourne/p2/s201": "15d359f8678d7e5c",
+      "Melbourne/p2/s202": "12589b04a29abfba",
+      "Melbourne/p2/s203": "d261d0da4919b06e",
+      "Melbourne/p2/s204": "bc145ada054505e2",
+      "Melbourne/p2/s205": "1cf766d713a36dc1",
+      "Melbourne/p2/s206": "8d31c5a72076a77a"
+    }
+  },
+  "controlli": {
+    "aggregati_C_A_riprodotti": "ogni cella: ri-valutazione con la statica di E15 identica bit per bit agli aggregati di E15",
+    "medie_riferimento_vs_e15": {
+      "Madrid/A-C": "scarto 0.0e+00",
+      "Madrid/A-C_A": "scarto 0.0e+00",
+      "Madrid/C_A-C": "scarto 0.0e+00",
+      "Londra/A-C": "scarto 0.0e+00",
+      "Londra/A-C_A": "scarto 0.0e+00",
+      "Londra/C_A-C": "scarto 0.0e+00",
+      "Melbourne/A-C": "scarto 0.0e+00",
+      "Melbourne/A-C_A": "scarto 0.0e+00",
+      "Melbourne/C_A-C": "scarto 0.0e+00"
+    }
+  },
+  "perimetro": {
+    "principale": "origini comuni dopo t1 (fasce d'eta' 1-3)",
+    "settimana": "origini con eta' > 1 settimana (fascia 3)"
+  },
+  "citta": {
+    "Madrid": {
+      "celle": 18,
+      "nodi": 135,
+      "livelli": {
+        "C": {
+          "media": 0.9610230515718885,
+          "ic_con_nodi": [
+            0.9366393073191525,
+            0.9841199598751883
+          ]
+        },
+        "A": {
+          "media": 0.9209057732070731,
+          "ic_con_nodi": [
+            0.8941794175234439,
+            0.945832989289749
+          ]
+        },
+        "C_A": {
+          "media": 0.9591041468721555,
+          "ic_con_nodi": [
+            0.9343310800869734,
+            0.9826481740427974
+          ]
+        },
+        "C_A_esp": {
+          "media": 0.960072434857073,
+          "ic_con_nodi": [
+            0.9354964211000486,
+            0.9835150766277083
+          ]
+        },
+        "C/settimana": {
+          "media": 0.9631771862941293,
+          "ic_con_nodi": [
+            0.9393076383768176,
+            0.9860249274844481
+          ]
+        },
+        "A/settimana": {
+          "media": 0.9240704441430749,
+          "ic_con_nodi": [
+            0.8988694918770004,
+            0.9482144339157731
+          ]
+        },
+        "C_A/settimana": {
+          "media": 0.9619272950291321,
+          "ic_con_nodi": [
+            0.9377773203336526,
+            0.9850840392059923
+          ]
+        },
+        "C_A_esp/settimana": {
+          "media": 0.9623877823617142,
+          "ic_con_nodi": [
+            0.9384622481119786,
+            0.9854177515118923
+          ]
+        }
+      },
+      "differenze": {
+        "C_A_esp-C_A": {
+          "media": 0.0009682879849175485,
+          "ic_con_nodi": [
+            0.0003120324251061457,
+            0.0016584539152508324
+          ],
+          "segno": "+",
+          "categoria": "non inferiorita'",
+          "lettura": "effetto della coverage di valutazione (stesso modello)"
+        },
+        "C_A_esp-C": {
+          "media": -0.0009506167148154443,
+          "ic_con_nodi": [
+            -0.0015800036322266564,
+            -0.00041991201927508434
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "lettura": "effetto dei dati anteriori a t0 nell'addestramento, a pari coverage"
+        },
+        "A-C_A_esp": {
+          "media": -0.039166661649999934,
+          "ic_con_nodi": [
+            -0.04405672319980661,
+            -0.03448563144454406
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "lettura": "valore dell'identita' a pari coverage"
+        },
+        "A-C": {
+          "media": -0.04011727836481538,
+          "ic_con_nodi": [
+            -0.04527648502950729,
+            -0.035284772010946035
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "lettura": "riferimento E15 (stessa media e stesso intervallo)",
+          "e15": {
+            "media": -0.04011727836481538,
+            "ic_con_nodi": [
+              -0.04527648502950729,
+              -0.035284772010946035
+            ]
+          }
+        },
+        "A-C_A": {
+          "media": -0.038198373665082386,
+          "ic_con_nodi": [
+            -0.04310923922675657,
+            -0.033491420199336805
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "lettura": "riferimento E15",
+          "e15": {
+            "media": -0.038198373665082386,
+            "ic_con_nodi": [
+              -0.04310923922675657,
+              -0.033491420199336805
+            ]
+          }
+        },
+        "C_A-C": {
+          "media": -0.0019189046997329928,
+          "ic_con_nodi": [
+            -0.0029134458229834017,
+            -0.0010395997581333913
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "lettura": "riferimento E15",
+          "e15": {
+            "media": -0.0019189046997329928,
+            "ic_con_nodi": [
+              -0.0029134458229834017,
+              -0.0010395997581333913
+            ]
+          }
+        }
+      },
+      "settimana": {
+        "C_A_esp-C_A": {
+          "media": 0.0004604873325820824,
+          "ic_con_nodi": [
+            -0.0001040501241921593,
+            0.0010254637331314571
+          ],
+          "segno": "0",
+          "categoria": "non inferiorita'"
+        },
+        "C_A_esp-C": {
+          "media": -0.0007894039324151114,
+          "ic_con_nodi": [
+            -0.0013488305017862023,
+            -0.00022370488046696553
+          ],
+          "segno": "-",
+          "categoria": "superiorita'"
+        },
+        "A-C_A_esp": {
+          "media": -0.03831733821863925,
+          "ic_con_nodi": [
+            -0.04301876973246652,
+            -0.033736191676123295
+          ],
+          "segno": "-",
+          "categoria": "superiorita'"
+        },
+        "A-C": {
+          "media": -0.03910674215105436,
+          "ic_con_nodi": [
+            -0.04404409239866356,
+            -0.03447349911735894
+          ],
+          "segno": "-",
+          "categoria": "superiorita'"
+        },
+        "A-C_A": {
+          "media": -0.03785685088605717,
+          "ic_con_nodi": [
+            -0.04258225609923526,
+            -0.033161696322139195
+          ],
+          "segno": "-",
+          "categoria": "superiorita'"
+        },
+        "C_A-C": {
+          "media": -0.0012498912649971938,
+          "ic_con_nodi": [
+            -0.002071291579377438,
+            -0.000423786022465028
+          ],
+          "segno": "-",
+          "categoria": "superiorita'"
+        }
+      },
+      "quota_coverage": {
+        "definizione": "(C_A - C_A_esp) / (C_A - C): quota del divario C_A - C dovuta alla coverage di valutazione; il resto, (C_A_esp - C) / (C_A - C), ai dati anteriori a t0 nell'addestramento",
+        "media": 0.5046045199911604,
+        "ic_con_nodi": [
+          0.2415229996519847,
+          0.7249926683118797
+        ],
+        "repliche_den_senza_divario": 0
+      }
+    },
+    "Londra": {
+      "celle": 18,
+      "nodi": 135,
+      "livelli": {
+        "C": {
+          "media": 0.890244059032505,
+          "ic_con_nodi": [
+            0.8633072175023991,
+            0.9163015579181122
+          ]
+        },
+        "A": {
+          "media": 0.8558737132529278,
+          "ic_con_nodi": [
+            0.8270908828216043,
+            0.8830765581645614
+          ]
+        },
+        "C_A": {
+          "media": 0.8890526905000825,
+          "ic_con_nodi": [
+            0.861910156651704,
+            0.9151870204934198
+          ]
+        },
+        "C_A_esp": {
+          "media": 0.8890069620972361,
+          "ic_con_nodi": [
+            0.8618994080403508,
+            0.9151260015718223
+          ]
+        },
+        "C/settimana": {
+          "media": 0.8885929761813138,
+          "ic_con_nodi": [
+            0.8614672995104897,
+            0.9150123641986306
+          ]
+        },
+        "A/settimana": {
+          "media": 0.8493368205554164,
+          "ic_con_nodi": [
+            0.8200194965165882,
+            0.8784683048953934
+          ]
+        },
+        "C_A/settimana": {
+          "media": 0.8873048962054413,
+          "ic_con_nodi": [
+            0.8596916228661412,
+            0.9136875988505098
+          ]
+        },
+        "C_A_esp/settimana": {
+          "media": 0.8872964203518539,
+          "ic_con_nodi": [
+            0.8597034921275049,
+            0.9136711555334756
+          ]
+        }
+      },
+      "differenze": {
+        "C_A_esp-C_A": {
+          "media": -4.5728402846445526e-05,
+          "ic_con_nodi": [
+            -0.00013301763336598382,
+            3.580561390373053e-05
+          ],
+          "segno": "0",
+          "categoria": "non inferiorita'",
+          "lettura": "effetto della coverage di valutazione (stesso modello)"
+        },
+        "C_A_esp-C": {
+          "media": -0.0012370969352689665,
+          "ic_con_nodi": [
+            -0.0025792437859229996,
+            -0.00018504123485248118
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "lettura": "effetto dei dati anteriori a t0 nell'addestramento, a pari coverage"
+        },
+        "A-C_A_esp": {
+          "media": -0.03313324884430824,
+          "ic_con_nodi": [
+            -0.03730356283523862,
+            -0.02888398697948904
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "lettura": "valore dell'identita' a pari coverage"
+        },
+        "A-C": {
+          "media": -0.034370345779577205,
+          "ic_con_nodi": [
+            -0.03897471261662638,
+            -0.029871021136418926
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "lettura": "riferimento E15 (stessa media e stesso intervallo)",
+          "e15": {
+            "media": -0.034370345779577205,
+            "ic_con_nodi": [
+              -0.03897471261662638,
+              -0.029871021136418926
+            ]
+          }
+        },
+        "A-C_A": {
+          "media": -0.033178977247154684,
+          "ic_con_nodi": [
+            -0.03737747399778153,
+            -0.028974936137569088
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "lettura": "riferimento E15",
+          "e15": {
+            "media": -0.033178977247154684,
+            "ic_con_nodi": [
+              -0.03737747399778153,
+              -0.028974936137569088
+            ]
+          }
+        },
+        "C_A-C": {
+          "media": -0.001191368532422521,
+          "ic_con_nodi": [
+            -0.002552814472231471,
+            -0.00010532839383906839
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "lettura": "riferimento E15",
+          "e15": {
+            "media": -0.001191368532422521,
+            "ic_con_nodi": [
+              -0.002552814472231471,
+              -0.00010532839383906839
+            ]
+          }
+        }
+      },
+      "settimana": {
+        "C_A_esp-C_A": {
+          "media": -8.475853587430748e-06,
+          "ic_con_nodi": [
+            -5.6141608602305884e-05,
+            3.950356612854592e-05
+          ],
+          "segno": "0",
+          "categoria": "non inferiorita'"
+        },
+        "C_A_esp-C": {
+          "media": -0.0012965558294599777,
+          "ic_con_nodi": [
+            -0.002556726943733481,
+            -0.0002930057735594566
+          ],
+          "segno": "-",
+          "categoria": "superiorita'"
+        },
+        "A-C_A_esp": {
+          "media": -0.03795959979643748,
+          "ic_con_nodi": [
+            -0.04200416540635755,
+            -0.03364455123840291
+          ],
+          "segno": "-",
+          "categoria": "superiorita'"
+        },
+        "A-C": {
+          "media": -0.03925615562589746,
+          "ic_con_nodi": [
+            -0.04387235417469905,
+            -0.03457875226946999
+          ],
+          "segno": "-",
+          "categoria": "superiorita'"
+        },
+        "A-C_A": {
+          "media": -0.03796807565002491,
+          "ic_con_nodi": [
+            -0.042012534958305196,
+            -0.03368343266394249
+          ],
+          "segno": "-",
+          "categoria": "superiorita'"
+        },
+        "C_A-C": {
+          "media": -0.001288079975872547,
+          "ic_con_nodi": [
+            -0.002565453786542685,
+            -0.0002716607311317473
+          ],
+          "segno": "-",
+          "categoria": "superiorita'"
+        }
+      },
+      "quota_coverage": {
+        "definizione": "(C_A - C_A_esp) / (C_A - C): quota del divario C_A - C dovuta alla coverage di valutazione; il resto, (C_A_esp - C) / (C_A - C), ai dati anteriori a t0 nell'addestramento",
+        "media": -0.03838308768610976,
+        "ic_con_nodi": [
+          -0.3051481717064244,
+          0.04769558007935107
+        ],
+        "repliche_den_senza_divario": 68
+      }
+    },
+    "Melbourne": {
+      "celle": 18,
+      "nodi": 90,
+      "livelli": {
+        "C": {
+          "media": 0.8206159454253156,
+          "ic_con_nodi": [
+            0.7846670286946551,
+            0.8531332350055827
+          ]
+        },
+        "A": {
+          "media": 0.7755895521141135,
+          "ic_con_nodi": [
+            0.7403513056301424,
+            0.8073733165722045
+          ]
+        },
+        "C_A": {
+          "media": 0.8122396517307116,
+          "ic_con_nodi": [
+            0.7777864542411336,
+            0.8442309735639365
+          ]
+        },
+        "C_A_esp": {
+          "media": 0.8186168449463997,
+          "ic_con_nodi": [
+            0.7828150615460676,
+            0.8510482489880855
+          ]
+        },
+        "C/settimana": {
+          "media": 0.8187041019064486,
+          "ic_con_nodi": [
+            0.7784373240771418,
+            0.8558523572533756
+          ]
+        },
+        "A/settimana": {
+          "media": 0.7803535359891041,
+          "ic_con_nodi": [
+            0.7414179350409732,
+            0.8148200136891179
+          ]
+        },
+        "C_A/settimana": {
+          "media": 0.8121410480345613,
+          "ic_con_nodi": [
+            0.7732529546300768,
+            0.8486768137647086
+          ]
+        },
+        "C_A_esp/settimana": {
+          "media": 0.8170224325184755,
+          "ic_con_nodi": [
+            0.7771549001926339,
+            0.8539132513095269
+          ]
+        }
+      },
+      "differenze": {
+        "C_A_esp-C_A": {
+          "media": 0.006377193215688193,
+          "ic_con_nodi": [
+            0.003782759405302441,
+            0.009539982701401202
+          ],
+          "segno": "+",
+          "categoria": "inferiorita'",
+          "lettura": "effetto della coverage di valutazione (stesso modello)"
+        },
+        "C_A_esp-C": {
+          "media": -0.0019991004789158273,
+          "ic_con_nodi": [
+            -0.004125861213079956,
+            -0.0004674566893852808
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "lettura": "effetto dei dati anteriori a t0 nell'addestramento, a pari coverage"
+        },
+        "A-C_A_esp": {
+          "media": -0.043027292832286235,
+          "ic_con_nodi": [
+            -0.05365937650397229,
+            -0.031720702698691636
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "lettura": "valore dell'identita' a pari coverage"
+        },
+        "A-C": {
+          "media": -0.04502639331120206,
+          "ic_con_nodi": [
+            -0.056586272350682774,
+            -0.033049023749562326
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "lettura": "riferimento E15 (stessa media e stesso intervallo)",
+          "e15": {
+            "media": -0.04502639331120206,
+            "ic_con_nodi": [
+              -0.056586272350682774,
+              -0.033049023749562326
+            ]
+          }
+        },
+        "A-C_A": {
+          "media": -0.03665009961659804,
+          "ic_con_nodi": [
+            -0.04669934351914347,
+            -0.025639666614534398
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "lettura": "riferimento E15",
+          "e15": {
+            "media": -0.03665009961659804,
+            "ic_con_nodi": [
+              -0.04669934351914347,
+              -0.025639666614534398
+            ]
+          }
+        },
+        "C_A-C": {
+          "media": -0.00837629369460402,
+          "ic_con_nodi": [
+            -0.012443359842443085,
+            -0.005188012770145239
+          ],
+          "segno": "-",
+          "categoria": "superiorita'",
+          "lettura": "riferimento E15",
+          "e15": {
+            "media": -0.00837629369460402,
+            "ic_con_nodi": [
+              -0.012443359842443085,
+              -0.005188012770145239
+            ]
+          }
+        }
+      },
+      "settimana": {
+        "C_A_esp-C_A": {
+          "media": 0.004881384483914175,
+          "ic_con_nodi": [
+            0.002647835450396788,
+            0.007583690477102368
+          ],
+          "segno": "+",
+          "categoria": "inferiorita'"
+        },
+        "C_A_esp-C": {
+          "media": -0.0016816693879730948,
+          "ic_con_nodi": [
+            -0.0037362818951475474,
+            -0.00019825125038628534
+          ],
+          "segno": "-",
+          "categoria": "superiorita'"
+        },
+        "A-C_A_esp": {
+          "media": -0.03666889652937144,
+          "ic_con_nodi": [
+            -0.048587863481882196,
+            -0.02386833257014714
+          ],
+          "segno": "-",
+          "categoria": "superiorita'"
+        },
+        "A-C": {
+          "media": -0.03835056591734454,
+          "ic_con_nodi": [
+            -0.051092848102137794,
+            -0.024966450602480948
+          ],
+          "segno": "-",
+          "categoria": "superiorita'"
+        },
+        "A-C_A": {
+          "media": -0.03178751204545727,
+          "ic_con_nodi": [
+            -0.043184913497921064,
+            -0.01950300949261875
+          ],
+          "segno": "-",
+          "categoria": "superiorita'"
+        },
+        "C_A-C": {
+          "media": -0.00656305387188727,
+          "ic_con_nodi": [
+            -0.01026721319399351,
+            -0.003750087006918903
+          ],
+          "segno": "-",
+          "categoria": "superiorita'"
+        }
+      },
+      "quota_coverage": {
+        "definizione": "(C_A - C_A_esp) / (C_A - C): quota del divario C_A - C dovuta alla coverage di valutazione; il resto, (C_A_esp - C) / (C_A - C), ai dati anteriori a t0 nell'addestramento",
+        "media": 0.7613383016639399,
+        "ic_con_nodi": [
+          0.5895128694224994,
+          0.9346723674946379
+        ],
+        "repliche_den_senza_divario": 0
+      }
+    }
+  }
+}

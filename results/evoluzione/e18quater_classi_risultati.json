@@ -1,0 +1,423 @@
+{
+ "definizione": "per sensore, quota di bersagli nella classe congestionata (3) fra le celle (origine, orizzonte) valide (classe > 0) del periodo di prova: origini dopo t1 fino alla fine del periodo (origini_dopo, come le valutazioni), quattro orizzonti; statistiche sulle coppie (partizione, sensore) per gruppo",
+ "istante": "2026-11-03T11:38:34+00:00",
+ "contesti": {
+  "Madrid": {
+   "partizioni": [
+    "Madrid/p0",
+    "Madrid/p1",
+    "Madrid/p2"
+   ],
+   "sensori_per_partizione": 900,
+   "origini_per_partizione": [
+    1426,
+    1426,
+    1426
+   ],
+   "finestra": {
+    "t0": 8887,
+    "t1": 8983,
+    "fine": 10456,
+    "orizzonti": [
+     1,
+     2,
+     4,
+     8
+    ]
+   },
+   "gruppi": {
+    "iniziali": {
+     "n": 1890,
+     "senza_bersagli": 0,
+     "min": 0.0,
+     "q1": 0.031923541434411,
+     "mediana": 0.08565697091273822,
+     "q3": 0.1580146614952404,
+     "max": 0.6976479514415781,
+     "media": 0.11012237425981611,
+     "zero_congestionati": 11,
+     "frequenze_classi": [
+      4032788,
+      4315175,
+      969091
+     ],
+     "quota_congestionati_aggregata": 0.10401259883220597
+    },
+    "nuovi": {
+     "n": 405,
+     "senza_bersagli": 0,
+     "min": 0.0,
+     "q1": 0.03299327110918168,
+     "mediana": 0.08338226658837346,
+     "q3": 0.15605318404478657,
+     "max": 0.45046620046620045,
+     "media": 0.10585622526762835,
+     "zero_congestionati": 4,
+     "frequenze_classi": [
+      867963,
+      923255,
+      200619
+     ],
+     "quota_congestionati_aggregata": 0.10072059109254422
+    },
+    "validazione": {
+     "n": 405,
+     "senza_bersagli": 0,
+     "min": 0.0014032625855113139,
+     "q1": 0.028830462375339982,
+     "mediana": 0.07370478983382209,
+     "q3": 0.1454713493530499,
+     "max": 0.41335978835978837,
+     "media": 0.10475835937770468,
+     "zero_congestionati": 0,
+     "frequenze_classi": [
+      888286,
+      918233,
+      198947
+     ],
+     "quota_congestionati_aggregata": 0.09920237989574493
+    }
+   }
+  },
+  "Londra": {
+   "partizioni": [
+    "Londra/p0",
+    "Londra/p1",
+    "Londra/p2"
+   ],
+   "sensori_per_partizione": 900,
+   "origini_per_partizione": [
+    1440,
+    1440,
+    1440
+   ],
+   "finestra": {
+    "t0": 8966,
+    "t1": 9062,
+    "fine": 10549,
+    "orizzonti": [
+     1,
+     2,
+     4,
+     8
+    ]
+   },
+   "gruppi": {
+    "iniziali": {
+     "n": 1890,
+     "senza_bersagli": 0,
+     "min": 0.0009737098344693282,
+     "q1": 0.04534524218481621,
+     "mediana": 0.09882542291623861,
+     "q3": 0.1781891611906211,
+     "max": 0.8356384044898777,
+     "media": 0.13188630083863848,
+     "zero_congestionati": 0,
+     "frequenze_classi": [
+      3150821,
+      2696499,
+      890859
+     ],
+     "quota_congestionati_aggregata": 0.13221064622949316
+    },
+    "nuovi": {
+     "n": 405,
+     "senza_bersagli": 0,
+     "min": 0.0013513513513513514,
+     "q1": 0.04369682907965971,
+     "mediana": 0.0876068376068376,
+     "q3": 0.16503604531410918,
+     "max": 0.6800090456806874,
+     "media": 0.12008373017843624,
+     "zero_congestionati": 0,
+     "frequenze_classi": [
+      687230,
+      594183,
+      175464
+     ],
+     "quota_congestionati_aggregata": 0.12043844470054782
+    },
+    "validazione": {
+     "n": 405,
+     "senza_bersagli": 0,
+     "min": 0.0013513513513513514,
+     "q1": 0.0411522633744856,
+     "mediana": 0.09224730127576054,
+     "q3": 0.17667619955513186,
+     "max": 0.8356384044898777,
+     "media": 0.13302604471330262,
+     "zero_congestionati": 0,
+     "frequenze_classi": [
+      665753,
+      578727,
+      197520
+     ],
+     "quota_congestionati_aggregata": 0.1369764216366158
+    }
+   }
+  },
+  "Melbourne": {
+   "partizioni": [
+    "Melbourne/p0",
+    "Melbourne/p1",
+    "Melbourne/p2"
+   ],
+   "sensori_per_partizione": 594,
+   "origini_per_partizione": [
+    1411,
+    1411,
+    1411
+   ],
+   "finestra": {
+    "t0": 8806,
+    "t1": 8902,
+    "fine": 10360,
+    "orizzonti": [
+     1,
+     2,
+     4,
+     8
+    ]
+   },
+   "gruppi": {
+    "iniziali": {
+     "n": 1245,
+     "senza_bersagli": 0,
+     "min": 0.0,
+     "q1": 0.007686764352630314,
+     "mediana": 0.033075486796479064,
+     "q3": 0.0768199233716475,
+     "max": 0.6677058976357495,
+     "media": 0.05762061920528554,
+     "zero_congestionati": 87,
+     "frequenze_classi": [
+      4100877,
+      1285928,
+      310617
+     ],
+     "quota_congestionati_aggregata": 0.05451886835835576
+    },
+    "nuovi": {
+     "n": 270,
+     "senza_bersagli": 0,
+     "min": 0.0,
+     "q1": 0.006755488834678176,
+     "mediana": 0.030146007272696902,
+     "q3": 0.07730486637386753,
+     "max": 0.5326826382727003,
+     "media": 0.05908945167249952,
+     "zero_congestionati": 11,
+     "frequenze_classi": [
+      894751,
+      269766,
+      69245
+     ],
+     "quota_congestionati_aggregata": 0.05612508733451022
+    },
+    "validazione": {
+     "n": 267,
+     "senza_bersagli": 0,
+     "min": 0.0,
+     "q1": 0.006371963361210673,
+     "mediana": 0.03414161008729389,
+     "q3": 0.07814056010000875,
+     "max": 0.5326826382727003,
+     "media": 0.0588116348081561,
+     "zero_congestionati": 16,
+     "frequenze_classi": [
+      866324,
+      290875,
+      68014
+     ],
+     "quota_congestionati_aggregata": 0.05551198036586291
+    }
+   }
+  },
+  "PEMS08": {
+   "partizioni": [
+    "PEMS08_p0/p0",
+    "PEMS08_p1/p1",
+    "PEMS08_p2/p2",
+    "PEMS08_p3/p3",
+    "PEMS08_p4/p4",
+    "PEMS08_p5/p5"
+   ],
+   "sensori_per_partizione": 170,
+   "origini_per_partizione": [
+    1999,
+    1999,
+    1999,
+    1999,
+    1999,
+    1999
+   ],
+   "finestra": {
+    "t0": 3840,
+    "t1": 3936,
+    "fine": 5944,
+    "orizzonti": [
+     1,
+     2,
+     4,
+     8
+    ]
+   },
+   "gruppi": {
+    "iniziali": {
+     "n": 708,
+     "senza_bersagli": 0,
+     "min": 0.0,
+     "q1": 0.0,
+     "mediana": 0.0005002501250625312,
+     "q3": 0.008504252126063032,
+     "max": 0.28714357178589295,
+     "media": 0.014197600212535647,
+     "zero_congestionati": 327,
+     "frequenze_classi": [
+      5298858,
+      281935,
+      80375
+     ],
+     "quota_congestionati_aggregata": 0.014197600212535647
+    },
+    "nuovi": {
+     "n": 156,
+     "senza_bersagli": 0,
+     "min": 0.0,
+     "q1": 0.0,
+     "mediana": 0.0005002501250625312,
+     "q3": 0.012631315657828913,
+     "max": 0.2866433216608304,
+     "media": 0.015551044753145806,
+     "zero_congestionati": 74,
+     "frequenze_classi": [
+      1159427,
+      68551,
+      19398
+     ],
+     "quota_congestionati_aggregata": 0.015551044753145804
+    },
+    "validazione": {
+     "n": 156,
+     "senza_bersagli": 0,
+     "min": 0.0,
+     "q1": 0.0,
+     "mediana": 0.0005002501250625312,
+     "q3": 0.013006503251625813,
+     "max": 0.2866433216608304,
+     "media": 0.01815891920319134,
+     "zero_congestionati": 72,
+     "frequenze_classi": [
+      1156419,
+      68306,
+      22651
+     ],
+     "quota_congestionati_aggregata": 0.018158919203191338
+    }
+   }
+  },
+  "PEMS04": {
+   "partizioni": [
+    "PEMS04_p0/p0",
+    "PEMS04_p1/p1",
+    "PEMS04_p2/p2"
+   ],
+   "sensori_per_partizione": 307,
+   "origini_per_partizione": [
+    744,
+    744,
+    744
+   ],
+   "finestra": {
+    "t0": 4807,
+    "t1": 4903,
+    "fine": 5656,
+    "orizzonti": [
+     1,
+     2,
+     4,
+     8
+    ]
+   },
+   "gruppi": {
+    "iniziali": {
+     "n": 642,
+     "senza_bersagli": 0,
+     "min": 0.0,
+     "q1": 0.0,
+     "mediana": 0.006720430107526882,
+     "q3": 0.04435483870967742,
+     "max": 0.42338709677419356,
+     "media": 0.030207391216963114,
+     "zero_congestionati": 246,
+     "frequenze_classi": [
+      1731826,
+      121052,
+      57714
+     ],
+     "quota_congestionati_aggregata": 0.030207391216963118
+    },
+    "nuovi": {
+     "n": 141,
+     "senza_bersagli": 0,
+     "min": 0.0,
+     "q1": 0.0,
+     "mediana": 0.006720430107526882,
+     "q3": 0.033602150537634407,
+     "max": 0.1975806451612903,
+     "media": 0.02662910851826432,
+     "zero_congestionati": 46,
+     "frequenze_classi": [
+      383393,
+      25049,
+      11174
+     ],
+     "quota_congestionati_aggregata": 0.02662910851826432
+    },
+    "validazione": {
+     "n": 138,
+     "senza_bersagli": 0,
+     "min": 0.0,
+     "q1": 0.0,
+     "mediana": 0.002688172043010753,
+     "q3": 0.03461021505376344,
+     "max": 0.20833333333333334,
+     "media": 0.023136785102072618,
+     "zero_congestionati": 53,
+     "frequenze_classi": [
+      379276,
+      21910,
+      9502
+     ],
+     "quota_congestionati_aggregata": 0.02313678510207262
+    }
+   }
+  }
+ },
+ "impronte_ingressi": {
+  "Londra/bersagli": "8b379b9bb980f5a8",
+  "Londra/maschere": "a7b4d41866f9640d",
+  "Madrid/bersagli": "4d75bd9ef37e99b4",
+  "Madrid/maschere": "fec8f2e0fea0d582",
+  "Melbourne/bersagli": "a4dc848843c5b92f",
+  "Melbourne/maschere": "53256f7f5428534c",
+  "PEMS08_p0/bersagli": "bf6fddd26bee5ed0",
+  "PEMS08_p0/maschere": "563e7aed6e1e7b89",
+  "PEMS08_p1/bersagli": "5ca6670b5278166d",
+  "PEMS08_p1/maschere": "2e6f5c04ee81dd77",
+  "PEMS08_p2/bersagli": "1565856ee62dc00e",
+  "PEMS08_p2/maschere": "011b1953ed1cb851",
+  "PEMS08_p3/bersagli": "1a8ebd2370c4b800",
+  "PEMS08_p3/maschere": "e098d693792bad47",
+  "PEMS08_p4/bersagli": "e34dc010c33e35e4",
+  "PEMS08_p4/maschere": "2216d5e8b6d8f0a5",
+  "PEMS08_p5/bersagli": "8a290577dc728d72",
+  "PEMS08_p5/maschere": "7b80af42a1cb9d6f",
+  "PEMS04_p0/bersagli": "98f53854aa2dc31f",
+  "PEMS04_p0/maschere": "c5f9485ff7b47589",
+  "PEMS04_p1/bersagli": "4170f02f5dfd6a19",
+  "PEMS04_p1/maschere": "77208e1805206b21",
+  "PEMS04_p2/bersagli": "4170f02f5dfd6a19",
+  "PEMS04_p2/maschere": "77208e1805206b21"
+ }
+}
