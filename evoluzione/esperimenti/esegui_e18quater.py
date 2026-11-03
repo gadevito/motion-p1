@@ -139,7 +139,7 @@ DIFFERENZE = [  # (nome, minuendo, sottraendo, lettura)
     ("C_A_esp-C_A", "C_A_esp", "C_A", "effetto della coverage di valutazione (stesso modello)"),
     ("C_A_esp-C", "C_A_esp", "C", "effetto dei dati anteriori a t0 nell'addestramento, a pari coverage"),
     ("A-C_A_esp", "A", "C_A_esp", "valore dell'identita' a pari coverage"),
-    ("A-C", "A", "C", "riferimento E15 (stessa media; intervallo con estrazioni proprie)"),
+    ("A-C", "A", "C", "riferimento E15 (stessa media e stesso intervallo)"),
     ("A-C_A", "A", "C_A", "riferimento E15"),
     ("C_A-C", "C_A", "C", "riferimento E15")]
 RIFERIMENTI_E15 = ("A-C", "A-C_A", "C_A-C")
@@ -242,7 +242,7 @@ def fase_analizza(out: Path) -> int:
         L.append(f"| {c} | " + " | ".join(f"{lv[n]['media']:.4f}" for n in ("C", "A", "C_A", "C_A_esp")) + " |")
     L += ["", "Controlli: in ogni cella la ri-valutazione di C_A con la statica di E15 riproduce bit per bit gli aggregati salvati da E15; "
           "le medie di A − C, A − C_A, C_A − C coincidono con `e15_risultati.json` (scarto ≤ 1e-12); gli intervalli dei riferimenti "
-          "qui hanno estrazioni proprie (stesso seme, vettore di statistiche diverso) e differiscono da quelli di E15 solo per questo.", ""]
+          "coincidono con quelli di E15: stesso seme e stesse estrazioni (il ricampionamento di partizioni, semi e posizioni dei nodi non dipende dal vettore delle statistiche).", ""]
     fm = RADICE / "protocol" / "e18quater" / "RISULTATI.md"
     fm.parent.mkdir(parents=True, exist_ok=True); fm.write_text("\n".join(L))
     print("\n".join(L)); print(f"  -> {fj} ({_sha(fj)}), {fm.relative_to(RADICE)}")
