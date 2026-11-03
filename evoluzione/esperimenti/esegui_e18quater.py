@@ -217,10 +217,9 @@ def fase_analizza(out: Path) -> int:
         R["citta"][c] = Rc
     fj = out / "e18quater_risultati.json"
     fj.write_text(json.dumps(R, indent=2, ensure_ascii=False))
-    # il resoconto derivato
+    # il resoconto, a video (3/11: il documento derivato e' CONGELAMENTO_E18QUATER.md, dal generatore)
     L = ["# E18-quater — C_A con la coverage di valutazione dei sensori nuovi uguale a quella di C", "",
-         f"Derivato da `evoluzione/esperimenti/esegui_e18quater.py --fase analizza` da `results/evoluzione/e18quater_risultati.json` "
-         f"(impronta `{_sha(fj)}`) il {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}; ingresso "
+         f"Da `results/evoluzione/e18quater_risultati.json` (impronta `{_sha(fj)}`); ingresso "
          f"`e15_risultati.json` (impronta `{R['impronte']['e15_risultati.json']}`). Modelli congelati di E15; statica dei nuovi "
          f"in valutazione: «{statiche_q[0]}» (E15 dava a C_A la coverage su [0, t0)). Medie sulle 18 celle per citta'; intervalli al 95 % "
          f"da {B_BOOT} ricampionamenti congiunti (partizioni, semi, posizioni dei nodi), seme {SEME_BOOT}. wCE, tutte le origini dopo t1.", "",
@@ -243,9 +242,7 @@ def fase_analizza(out: Path) -> int:
     L += ["", "Controlli: in ogni cella la ri-valutazione di C_A con la statica di E15 riproduce bit per bit gli aggregati salvati da E15; "
           "le medie di A − C, A − C_A, C_A − C coincidono con `e15_risultati.json` (scarto ≤ 1e-12); gli intervalli dei riferimenti "
           "coincidono con quelli di E15: stesso seme e stesse estrazioni (il ricampionamento di partizioni, semi e posizioni dei nodi non dipende dal vettore delle statistiche).", ""]
-    fm = RADICE / "protocol" / "e18quater" / "RISULTATI.md"
-    fm.parent.mkdir(parents=True, exist_ok=True); fm.write_text("\n".join(L))
-    print("\n".join(L)); print(f"  -> {fj} ({_sha(fj)}), {fm.relative_to(RADICE)}")
+    print("\n".join(L)); print(f"  -> {fj} ({_sha(fj)})")      # il resoconto va a video; il record e' CONGELAMENTO_E18QUATER.md
     return 0
 
 

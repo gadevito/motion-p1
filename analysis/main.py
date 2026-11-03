@@ -166,6 +166,11 @@ FASI = [
     # e8_risultati.json), poi il congelamento
     F("E18TER", [A + "analizza_e18ter.py", "--parte", "tutte"], [R_ + "e18ter_risultati.json"]),
     F("E18TER", ["genera_congelamento_e18ter.py"], [R_ + "congelamento_e18ter.json", "CONGELAMENTO_E18TER.md"]),
+    # E18-quater (3/11/2026): parte A, C_A ri-valutato con la coverage dei nuovi uguale a quella di C (le celle
+    # predizioni_e18quater/ sono un ingresso, come predizioni_e15/); parte B, classi per sensore nei bersagli; congelamento
+    F("E18QUATER", [E + "esegui_e18quater.py", "--fase", "analizza"], [R_ + "e18quater_risultati.json"]),
+    F("E18QUATER", [A + "classi_per_sensore.py"], [R_ + "e18quater_classi_risultati.json"]),
+    F("E18QUATER", ["genera_congelamento_e18quater.py"], [R_ + "congelamento_e18quater.json", "CONGELAMENTO_E18QUATER.md"]),
 ]
 # figure del manoscritto: gli stessi script, con --lingua en, verso <paper>/figures/
 FIGURE_PAPER = [("ARCH", A + "figura_rete.py", ["rete.pdf"]),
@@ -174,7 +179,7 @@ FIGURE_PAPER = [("ARCH", A + "figura_rete.py", ["rete.pdf"]),
                 ("E5", A + "analizza_e5.py", ["episodi_e5.pdf"]),
                 ("E8", A + "figura2_51.py", ["figura2_51.pdf"]),
                 ("E8", A + "figura_e8bis.py", ["curve_e8bis.pdf"])]
-ESPERIMENTI = ["ARCH", "E2", "E3", "E4", "E3bis", "E5", "E6", "E7", "E8", "E14", "E16", "E15", "E18", "E18TER"]
+ESPERIMENTI = ["ARCH", "E2", "E3", "E4", "E3bis", "E5", "E6", "E7", "E8", "E14", "E16", "E15", "E18", "E18TER", "E18QUATER"]
 
 
 # ---------------------------------------------------------------- impronte --
@@ -980,6 +985,11 @@ def main() -> int:
                 from analysis.tabelle_suppl import scrivi_E18ter
                 print("[paper] tabella G7 del supplementare (E18-ter)", flush=True)
                 scrivi_E18ter(radice / RIS, dfig / "tableG_e18ter.tex")
+            if "E18QUATER" in a.solo:               # supplementare: sezione E dopo E10 (parte A) e accanto a C5 (parte B)
+                from analysis.tabelle_suppl import scrivi_E18quater, scrivi_classi_sensori
+                print("[paper] tabelle E18-quater del supplementare (coverage di C_A; classi per sensore)", flush=True)
+                scrivi_E18quater(radice / RIS, dfig / "tableE_e18quater.tex")
+                scrivi_classi_sensori(radice / RIS, dfig / "tableC_classi_sensori.tex")
                 from analysis.tabelle_paper1 import scrivi_tabella_replica
                 scrivi_tabella_replica(radice / RIS, dfig / "table_replication.tex")   # Tabella V del testo, due scale
     except Exception as exc:                # CONFRONTO.md si scrive comunque, con l'errore e «NON CONCLUSO»
