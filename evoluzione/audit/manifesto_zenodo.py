@@ -51,6 +51,7 @@ def main() -> int:
     ap.add_argument("--out", type=Path, default=Path("results/evoluzione"))
     ap.add_argument("--md", type=Path, default=Path("protocol/zenodo/MANIFEST.txt"))
     ap.add_argument("--lavoratori", type=int, default=8)
+    ap.add_argument("--nota", default=None, help="riga aggiuntiva in testa al manifesto (dopo quella del tag)")
     a = ap.parse_args()
     radice = Path(__file__).resolve().parents[2]
     testa = git("rev-parse", "HEAD", radice=radice)
@@ -83,6 +84,7 @@ def main() -> int:
     tb, tn = sum(v[0] for v in tot.values()), sum(v[1] for v in tot.values())
     L = ["# MANIFEST del record Zenodo — OR3, results/evoluzione/",
          f"# tag: {a.tag}  commit: {testa}  generato: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}  macchina: {platform.node()}",
+         *([f"# nota: {a.nota}"] if a.nota else []),
          "# gruppi inclusi: " + ", ".join(INCLUSI) + " (regola di evoluzione/audit/ripartizione_results.py); escluso: altro",
          "# formato: sha256  byte  gruppo  percorso (relativo a results/evoluzione/)",
          *(f"# {g}: {tot[g][1]:,} file, {tot[g][0]:,} byte ({tot[g][0] / 2**30:.2f} GiB)" for g in INCLUSI),
