@@ -1,14 +1,14 @@
 # Ripartizione di `results/evoluzione/` per il deposito
 
-Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 13:24 UTC; gruppo «rigenerazione» deciso dai nomi (nessun giro di `main.py` trovato in `analysis/rigenerazione/`).
+Generata da `evoluzione/audit/ripartizione_results.py` il 2026-11-04 10:27 UTC; gruppo «rigenerazione» deciso dai nomi (nessun giro di `main.py` trovato in `analysis/rigenerazione/`).
 
 | gruppo | MB | file |
 |---|---:|---:|
-| rigenerazione | 10,397 | 4,163 |
+| rigenerazione | 10,400 | 4,222 |
 | probabilita | 7,324 | 326 |
-| punti | 570 | 7,808 |
-| altro | 11,134 | 4,944 |
-| **totale** | **29,424** | **17,241** |
+| punti | 618 | 8,185 |
+| altro | 11,138 | 5,193 |
+| **totale** | **29,479** | **17,926** |
 
 | cartella / file | gruppo | MB | file |
 |---|---|---:|---:|
@@ -33,8 +33,9 @@ Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 13:24 UTC; 
 | `predizioni_e14` | rigenerazione | 59.9 | 442 |
 | `rmon_punti` | punti | 52.7 | 442 |
 | `predizioni_e5` | rigenerazione | 45.5 | 162 |
-| `registro` | altro | 41.0 | 2,779 |
+| `registro` | altro | 45.3 | 3,048 |
 | `predizioni_veterani_e3` | rigenerazione | 20.8 | 540 |
+| `stati_completi_e15_inserimento_griglia` | punti | 20.0 | 162 |
 | `e15_inserimento_griglia` | punti | 19.6 | 488 |
 | `stati_completi_inserimento_griglia_672` | punti | 14.9 | 108 |
 | `inserimento_griglia_672` | punti | 14.6 | 326 |
@@ -59,8 +60,12 @@ Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 13:24 UTC; 
 | `pems04` | punti | 8.2 | 145 |
 | `stati_completi_E1_inserimento_griglia_ep2` | punti | 7.3 | 54 |
 | `stati_completi_E1_inserimento_griglia_ep3` | punti | 7.3 | 54 |
+| `stati_completi_e15_E1_inserimento_griglia` | punti | 7.3 | 54 |
+| `stati_completi_e15_E_inserimento_griglia` | punti | 7.2 | 54 |
+| `e15_E1_inserimento_griglia` | punti | 6.9 | 108 |
 | `E1_inserimento_griglia_ep2` | punti | 6.9 | 108 |
 | `E1_inserimento_griglia_ep3` | punti | 6.9 | 108 |
+| `e15_E_inserimento_griglia` | punti | 6.9 | 108 |
 | `_quarantena_e3_falso_20260930` | altro | 5.1 | 650 |
 | `stati_completi_rmon_punti` | punti | 4.6 | 34 |
 | `stati_E1_e6_pems04` | punti | 4.5 | 36 |
@@ -78,9 +83,10 @@ Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 13:24 UTC; 
 | `stati_completi_inserimento_griglia_sessione` | punti | 2.3 | 18 |
 | `inserimento_griglia_sessione` | punti | 2.2 | 54 |
 | `stati_completi_E_pilota_e15` | altro | 2.2 | 16 |
-| `E_pilota_e15` | altro | 2.1 | 34 |
+| `E_pilota_e15` | altro | 2.1 | 33 |
 | `stati_completi` | altro | 1.6 | 12 |
-| `registro_prova` | altro | 1.4 | 148 |
+| `predizioni_e18quater` | rigenerazione | 1.5 | 54 |
+| `registro_prova` | altro | 1.3 | 138 |
 | `stati_completi_inserimento_griglia_672_sessione` | punti | 1.2 | 9 |
 | `inserimento_griglia_672_sessione` | punti | 1.2 | 27 |
 | `stati_completi_E1_costi_sessione` | punti | 1.2 | 9 |
@@ -101,9 +107,11 @@ Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 13:24 UTC; 
 | `selezione_F_griglia` | rigenerazione | 0.5 | 109 |
 | `prova_inserimento` | altro | 0.5 | 4 |
 | `selezione_F` | rigenerazione | 0.5 | 109 |
-| `registro_collaudo` | altro | 0.5 | 73 |
+| `registro_collaudo` | altro | 0.4 | 66 |
+| `congelamento_e18ter.json` | rigenerazione | 0.4 | 1 |
 | `stati_e6_costi_e6_pems08_672` | punti | 0.4 | 3 |
 | `stati_e6_sessione_e6_pems08_672` | punti | 0.4 | 3 |
+| `e18ter_risultati.json` | rigenerazione | 0.4 | 1 |
 | `stati_e6_costi_E1_e6_pems08` | punti | 0.4 | 3 |
 | `stati_e6_sessione_E1_e6_pems08` | punti | 0.4 | 3 |
 | `e6_sessione_e6_pems08_672` | punti | 0.3 | 6 |
@@ -128,7 +136,6 @@ Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 13:24 UTC; 
 | `e15_preflight.json` | rigenerazione | 0.1 | 1 |
 | `copertura_e4.json` | rigenerazione | 0.1 | 1 |
 | `stati_e6_pilota` | altro | 0.1 | 1 |
-| `stati_completi_e15_controllo_congelata` | punti | 0.1 | 1 |
 | `e15_controllo_congelata` | rigenerazione | 0.1 | 4 |
 | `e6_pilota` | altro | 0.1 | 2 |
 | `congelamento_e14.json` | rigenerazione | 0.1 | 1 |
@@ -155,16 +162,16 @@ Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 13:24 UTC; 
 | `e7_stadio1.json` | rigenerazione | 0.0 | 1 |
 | `e4_risultati.json` | rigenerazione | 0.0 | 1 |
 | `curve_e8bis_punti.json` | rigenerazione | 0.0 | 1 |
+| `congelamento_e18quater.json` | rigenerazione | 0.0 | 1 |
 | `e5_addestra.log` | altro | 0.0 | 1 |
 | `lancio_F.log` | altro | 0.0 | 1 |
-| `e15_E1_inserimento_griglia` | punti | 0.0 | 54 |
-| `e15_E_inserimento_griglia` | punti | 0.0 | 54 |
 | `lancio_adeguatezza.log` | altro | 0.0 | 1 |
 | `e15_addestra.log` | altro | 0.0 | 1 |
 | `e17_risultati.json` | rigenerazione | 0.0 | 1 |
 | `lancio_e2.log` | altro | 0.0 | 1 |
 | `e4_valuta.log` | altro | 0.0 | 1 |
 | `e5_risultati.json` | rigenerazione | 0.0 | 1 |
+| `e18quater_risultati.json` | rigenerazione | 0.0 | 1 |
 | `congelamento_e17.json` | rigenerazione | 0.0 | 1 |
 | `lancio_conferma.log` | altro | 0.0 | 1 |
 | `congelamento_e2.json` | rigenerazione | 0.0 | 1 |
@@ -189,6 +196,7 @@ Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 13:24 UTC; 
 | `costi_e4.json` | rigenerazione | 0.0 | 1 |
 | `audit_ciclo.json` | rigenerazione | 0.0 | 1 |
 | `e8_soglie.json` | rigenerazione | 0.0 | 1 |
+| `e18quater_classi_risultati.json` | rigenerazione | 0.0 | 1 |
 | `ricostruzione_e3bis.log` | altro | 0.0 | 1 |
 | `pesi_pems04` | rigenerazione | 0.0 | 4 |
 | `ricostruzione_A.log` | altro | 0.0 | 1 |
@@ -243,13 +251,12 @@ Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 13:24 UTC; 
 | `costi_tabella_sessione.json` | rigenerazione | 0.0 | 1 |
 | `provenienza_pems04.log` | altro | 0.0 | 1 |
 | `e6bis_addestra.log` | altro | 0.0 | 1 |
-| `e15_preflight.log` | altro | 0.0 | 1 |
 | `e6a_addestra.log` | altro | 0.0 | 1 |
 | `collaudo_pems04.log` | altro | 0.0 | 1 |
 | `analisi_e2.log` | altro | 0.0 | 1 |
 | `e3bis_analisi.log` | altro | 0.0 | 1 |
-| `preflight.json` | rigenerazione | 0.0 | 1 |
 | `e4_test.log` | altro | 0.0 | 1 |
+| `preflight.json` | rigenerazione | 0.0 | 1 |
 | `riselezione_rmon_test.json` | rigenerazione | 0.0 | 1 |
 | `e7_posthoc.log` | altro | 0.0 | 1 |
 | `ricostruzione_pems04_C.log` | altro | 0.0 | 1 |
@@ -282,7 +289,6 @@ Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 13:24 UTC; 
 | `estrazione_pems04.log` | altro | 0.0 | 1 |
 | `pesi_pems04.log` | altro | 0.0 | 1 |
 | `e6bis_test.log` | altro | 0.0 | 1 |
-| `e15_controllo.log` | altro | 0.0 | 1 |
 | `e6_origini_comuni.json` | rigenerazione | 0.0 | 1 |
 | `e6a_scegli.log` | altro | 0.0 | 1 |
 | `e6_scegli.log` | altro | 0.0 | 1 |

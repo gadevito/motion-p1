@@ -1,14 +1,14 @@
 # Ripartizione di `results/evoluzione/` per il deposito
 
-Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 09:26 UTC; gruppo «rigenerazione» deciso dai nomi (nessun giro di `main.py` trovato in `analysis/rigenerazione/`).
+Generata da `evoluzione/audit/ripartizione_results.py` il 2026-11-04 10:27 UTC; gruppo «rigenerazione» deciso dai nomi (nessun giro di `main.py` trovato in `analysis/rigenerazione/`).
 
 | gruppo | MB | file |
 |---|---:|---:|
-| rigenerazione | 10,397 | 4,163 |
+| rigenerazione | 10,400 | 4,222 |
 | probabilita | 7,324 | 326 |
 | punti | 618 | 8,185 |
 | altro | 11,138 | 5,193 |
-| **totale** | **29,476** | **17,867** |
+| **totale** | **29,479** | **17,926** |
 
 | cartella / file | gruppo | MB | file |
 |---|---|---:|---:|
@@ -85,6 +85,7 @@ Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 09:26 UTC; 
 | `stati_completi_E_pilota_e15` | altro | 2.2 | 16 |
 | `E_pilota_e15` | altro | 2.1 | 33 |
 | `stati_completi` | altro | 1.6 | 12 |
+| `predizioni_e18quater` | rigenerazione | 1.5 | 54 |
 | `registro_prova` | altro | 1.3 | 138 |
 | `stati_completi_inserimento_griglia_672_sessione` | punti | 1.2 | 9 |
 | `inserimento_griglia_672_sessione` | punti | 1.2 | 27 |
@@ -95,6 +96,8 @@ Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 09:26 UTC; 
 | `e6_sessione_e6_pems08` | punti | 1.0 | 18 |
 | `e6_costi_e6_pems08` | punti | 1.0 | 18 |
 | `predizioni_e6bis` | rigenerazione | 1.0 | 36 |
+| `congelamento_e18.json` | rigenerazione | 0.6 | 1 |
+| `e18_risultati.json` | rigenerazione | 0.6 | 1 |
 | `stati_completi_E1_rho005_inserimento_griglia` | punti | 0.5 | 4 |
 | `stati_completi_E1_rho030_inserimento_griglia` | punti | 0.5 | 4 |
 | `stati_prova_inserimento` | altro | 0.5 | 4 |
@@ -105,8 +108,10 @@ Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 09:26 UTC; 
 | `prova_inserimento` | altro | 0.5 | 4 |
 | `selezione_F` | rigenerazione | 0.5 | 109 |
 | `registro_collaudo` | altro | 0.4 | 66 |
+| `congelamento_e18ter.json` | rigenerazione | 0.4 | 1 |
 | `stati_e6_costi_e6_pems08_672` | punti | 0.4 | 3 |
 | `stati_e6_sessione_e6_pems08_672` | punti | 0.4 | 3 |
+| `e18ter_risultati.json` | rigenerazione | 0.4 | 1 |
 | `stati_e6_costi_E1_e6_pems08` | punti | 0.4 | 3 |
 | `stati_e6_sessione_E1_e6_pems08` | punti | 0.4 | 3 |
 | `e6_sessione_e6_pems08_672` | punti | 0.3 | 6 |
@@ -118,8 +123,6 @@ Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 09:26 UTC; 
 | `stati_completi_collaudo` | altro | 0.3 | 2 |
 | `prova_e3` | altro | 0.3 | 2 |
 | `adeguatezza_E1` | altro | 0.3 | 2 |
-| `congelamento_e18.json` | rigenerazione | 0.2 | 1 |
-| `e18_risultati.json` | rigenerazione | 0.2 | 1 |
 | `congelamento_e4.json` | rigenerazione | 0.2 | 1 |
 | `registro_ricostruzione` | altro | 0.2 | 108 |
 | `e8_risultati.json` | rigenerazione | 0.1 | 1 |
@@ -159,6 +162,7 @@ Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 09:26 UTC; 
 | `e7_stadio1.json` | rigenerazione | 0.0 | 1 |
 | `e4_risultati.json` | rigenerazione | 0.0 | 1 |
 | `curve_e8bis_punti.json` | rigenerazione | 0.0 | 1 |
+| `congelamento_e18quater.json` | rigenerazione | 0.0 | 1 |
 | `e5_addestra.log` | altro | 0.0 | 1 |
 | `lancio_F.log` | altro | 0.0 | 1 |
 | `lancio_adeguatezza.log` | altro | 0.0 | 1 |
@@ -167,6 +171,7 @@ Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 09:26 UTC; 
 | `lancio_e2.log` | altro | 0.0 | 1 |
 | `e4_valuta.log` | altro | 0.0 | 1 |
 | `e5_risultati.json` | rigenerazione | 0.0 | 1 |
+| `e18quater_risultati.json` | rigenerazione | 0.0 | 1 |
 | `congelamento_e17.json` | rigenerazione | 0.0 | 1 |
 | `lancio_conferma.log` | altro | 0.0 | 1 |
 | `congelamento_e2.json` | rigenerazione | 0.0 | 1 |
@@ -191,6 +196,7 @@ Generata da `evoluzione/audit/ripartizione_results.py` il 2026-10-29 09:26 UTC; 
 | `costi_e4.json` | rigenerazione | 0.0 | 1 |
 | `audit_ciclo.json` | rigenerazione | 0.0 | 1 |
 | `e8_soglie.json` | rigenerazione | 0.0 | 1 |
+| `e18quater_classi_risultati.json` | rigenerazione | 0.0 | 1 |
 | `ricostruzione_e3bis.log` | altro | 0.0 | 1 |
 | `pesi_pems04` | rigenerazione | 0.0 | 4 |
 | `ricostruzione_A.log` | altro | 0.0 | 1 |

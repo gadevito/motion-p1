@@ -18,6 +18,9 @@ Quattro gruppi, decisi per cartella di primo livello (o file):
 Scrive una tabella Markdown (cartella, gruppo, MB, file) e i totali per gruppo; `--md` per il percorso.
 
 Dalla radice OR3/:  python3 evoluzione/audit/ripartizione_results.py [--md protocol/zenodo/RIPARTIZIONE_RESULTS.md]
+
+Nota del 2026-11-04: `predizioni_e18quater` (celle di E18-quater, ingresso del giro come `predizioni_e15`) aggiunta
+al gruppo «rigenerazione»; al tag p era classificata «altro» e il manifesto la escludeva.
 """
 import argparse
 import json
@@ -29,7 +32,7 @@ PROB = ("predizioni_e16", "predizioni_e16_spark_sostituite", "predizioni_e18_pem
 ALTRO = re.compile(r"^(.*collaudo.*|.*pilota.*|.*prova_e3|.*adeguatezza.*|stati_completi|prova_inserimento|stati_prova_inserimento|"
                    r"_quarantena.*|registro.*|raccordo.*|predizioni_refresh|predizioni_sensibilita_rho|predizioni_pems04|audit.*|predizioni)$")  # solo cartelle
 PUNTI = re.compile(r"^(stati_.*|.*inserimento.*|E1?_e6_.*|e6_pems08.*|e6_(costi|sessione)_.*|E1_costi_sessione|rmon_punti|pems04|canonico|stati_iniziali|e14b)$")
-RIGEN = re.compile(r"^(predizioni_(fase3|fase3_672|e2|f0|e4|e5|e6|e6a|e6bis|e8|e14|e15|veterani_e3)|maschere|pesi(_[a-z0-9]+)*|selezione_F.*|e15_controllo_congelata|"
+RIGEN = re.compile(r"^(predizioni_(fase3|fase3_672|e2|f0|e4|e5|e6|e6a|e6bis|e8|e14|e15|e18quater|veterani_e3)|maschere|pesi(_[a-z0-9]+)*|selezione_F.*|e15_controllo_congelata|"
                    r"frequenze_classi\.json|.*_risultati\.json|.*_scelta_gated\.json|congelamento_.*\.json|e15_k_secondaria\.json|"
                    r"e15_preflight\.json|e5_k_secondaria\.json|preparazione_e5\.json|costi_.*\.json|architettura_ck\.json|.*\.json)$")
 
