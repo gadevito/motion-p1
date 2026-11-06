@@ -32,6 +32,7 @@ Usage (from the worktree root):
 
     $PY paper4/code/genera_congelamento_e11.py --selftest     # synthetic data with a known effect
     $PY paper4/code/genera_congelamento_e11.py --check-inputs # campaign files, without reading predictions
+    $PY paper4/code/genera_congelamento_e11.py --selftest-e2e /tmp/e11_e2e   # whole pipeline, random p
     $PY paper4/code/genera_congelamento_e11.py                # the frozen record from paper4/runs/e11/
 """
 import argparse
@@ -77,6 +78,18 @@ def wce_from(S, Wn, mult=None):
         return float(np.mean(S.sum(0) / Wn.sum(0)))
     num = mult @ S; den = mult @ Wn                          # (..., H)
     return (num / den).mean(-1)
+
+
+def red_recall(vp, vy, vnodes, tp, ty, tnodes, fa=0.05):
+    """Red recall on test at the threshold that gives `fa` false alarms on validation (pooled over horizons).
+    p: (origins, K, H, 3), y: (origins, K, H). Node selection first, then the class: indexing p[:, nodes, :, 2]
+    in one step would move the node axis to the front (numpy advanced indexing)."""
+    pv = vp[:, vnodes][..., 2]; yv = vy[:, vnodes]
+    neg = pv[(yv >= 0) & (yv != 2)]
+    t = float(np.quantile(neg, 1 - fa)) if neg.size else 1.0
+    pt = tp[:, tnodes][..., 2]; yt = ty[:, tnodes]
+    pos = pt[yt == 2]
+    return (float((pos >= t).mean()) if pos.size else float("nan")), t
 
 
 # ---------------------------------------------------------------- readings ----------------------------
@@ -274,12 +287,9 @@ def load_campaign():
                 keep = Wn.sum(1) > 0
                 entry["arms"][a] = (S[keep], Wn[keep]); entry["blocks"] = cells[z["nodes"]][keep]
                 per_h.setdefault((city, tag, a), []).append((S.sum(0) / Wn.sum(0)).tolist())
-                v = np.load(d / "val_hidden.npz"); vy = v["y"][:, v["nodes"]]; vp = v["p"][:, v["nodes"], :, 2]
-                neg = vp[(vy >= 0) & (vy != 2)]
-                t = float(np.quantile(neg, 0.95)) if neg.size else 1.0
-                ty = z["y"][:, z["nodes"]]; tp = z["p"][:, z["nodes"], :, 2]
-                pos = tp[ty == 2]
-                red.setdefault((city, tag, a), []).append(float((pos >= t).mean()) if pos.size else float("nan"))
+                v = np.load(d / "val_hidden.npz")
+                rec_, _ = red_recall(v["p"], v["y"], v["nodes"], z["p"], z["y"], z["nodes"])
+                red.setdefault((city, tag, a), []).append(rec_)
                 if a == "G1":
                     o = np.load(d / "test_observed.npz")
                     So, Wo, mo, to, _ = node_sums(o["p"], o["y"], o["nodes"], r["class_weights"])
@@ -384,6 +394,10 @@ def write(rows, reg, extra, statement, counts):
              "positive control (E11.md, Pilot).")
     L.append(f"6. With about {np.median([r['test_blocks_median'] for r in rows]):.0f} test blocks per configuration the "
              f"intervals are wide (median half-width of I_c {hw:.2f} points), as declared in E11.md.")
+    L.append("7. Defect of this generator, found at its first run on 2026-11-06 and corrected before any output was "
+             "written: the red-recall step indexed `p[:, nodes, :, 2]` in one step, which numpy reorders to "
+             "(nodes, origins, horizons) and which stopped with an IndexError. Node selection and class selection are "
+             "now separate (`red_recall`), covered by the self-test with origins != nodes.")
     mp = OUT / "CONGELAMENTO_E11.md"; mp.write_text("\n".join(L) + "\n")
     print(f"frozen record -> {mp} ({p4b.sha256(mp, 16)}); numbers -> {jp} ({p4b.sha256(jp, 16)})")
 
@@ -448,6 +462,18 @@ def selftest():
     ref = p4b.wce_np(pr, yv, Wc)
     print(f"node_sums aggregate {agg:.12f} vs p4b.wce_np {ref:.12f}; missing {miss} of {tot}")
     ok &= abs(agg - ref) < 1e-9 and miss == int((yv < 0).sum())
+    # red recall: shapes with origins != nodes, and a known answer. Validation: non-red probabilities uniform
+    # on [0, 1); test: red cells with p(red) = 0.97 (above the 5%-false-alarm threshold ~0.95) for half of
+    # them and 0.5 for the other half -> recall 0.5
+    K, Ov, Ot, H = 20, 997, 400, 4
+    vnodes = np.arange(3, 17); tnodes = np.array([0, 1, 2, 17, 18, 19])
+    vp = np.zeros((Ov, K, H, 3), "float32"); vp[..., 2] = g.uniform(0, 1, (Ov, K, H))
+    vy = np.full((Ov, K, H), -1, "int8"); vy[:, vnodes] = 0
+    tp = np.zeros((Ot, K, H, 3), "float32"); ty = np.full((Ot, K, H), -1, "int8")
+    ty[:, tnodes] = 2; tp[:Ot // 2, :, :, 2] = 0.97; tp[Ot // 2:, :, :, 2] = 0.5
+    rr, t = red_recall(vp, vy, vnodes, tp, ty, tnodes)
+    print(f"red recall: {rr:.4f} (expected 0.5000), threshold {t:.4f} (expected ~0.95)")
+    ok &= abs(rr - 0.5) < 1e-9 and 0.94 < t < 0.96
     print("SELFTEST:", "PASS" if ok else "FAIL")
     return 0 if ok else 1
 
@@ -489,13 +515,50 @@ def check_inputs():
     return 0 if bad == 0 and len(recs) == 240 else 1
 
 
+def selftest_e2e(tmp):
+    """End-to-end run of load_campaign, analyse, regressions and write on a synthetic copy of the campaign:
+    same run.json, labels, nodes and origins, but random probabilities, in a temporary folder outside the
+    repository. No real prediction is read; the synthetic numbers are meaningless and are not kept."""
+    global RUNS, OUT
+    import shutil
+    tmp = Path(tmp); runs = tmp / "e11"; out = tmp / "congelamenti"
+    if tmp.exists():
+        shutil.rmtree(tmp)
+    runs.mkdir(parents=True)
+    g = np.random.default_rng(1)
+    for f in sorted(glob.glob(str(RUNS / "*" / "run.json"))):
+        r = json.loads(Path(f).read_text()); src = Path(f).parent; dst = runs / src.name; dst.mkdir()
+        for k, fi in r["files"].items():
+            with np.load(src / fi["file"]) as z:
+                y, nodes, origins = z["y"], z["nodes"], z["origins"]
+                shape = z["p"].shape
+            p = g.dirichlet(np.ones(3), size=shape[:-1]).astype("float32")
+            np.savez_compressed(dst / fi["file"], p=p, y=y, origins=origins, nodes=nodes)
+            fi["sha256"] = p4b.sha256(dst / fi["file"], 16)
+        (dst / "run.json").write_text(json.dumps(r))
+    RUNS, OUT = runs, out
+    configs, extra = load_campaign()
+    rows, reps = analyse(configs, lambda ci: np.random.default_rng([BOOT, ci]))
+    statement, counts = summary_statement(rows)
+    reg = regressions(rows, reps)
+    write(rows, reg, extra, statement, counts)
+    ok = (out / "CONGELAMENTO_E11.md").exists() and (out / "e11_risultati.json").exists() and len(rows) == 12
+    print(f"synthetic statement (meaningless): {statement} {counts}; files written in {out}")
+    shutil.rmtree(tmp)
+    print("SELFTEST-E2E:", "PASS" if ok else "FAIL", "(temporary copy removed)")
+    return 0 if ok else 1
+
+
 def main():
     ap = argparse.ArgumentParser(description="E11 frozen record")
+    ap.add_argument("--selftest-e2e", metavar="TMPDIR", help="end-to-end run on a synthetic copy (random p)")
     ap.add_argument("--selftest", action="store_true")
     ap.add_argument("--check-inputs", action="store_true", help="checks that read no prediction")
     a = ap.parse_args()
     if a.selftest:
         return selftest()
+    if a.selftest_e2e:
+        return selftest_e2e(a.selftest_e2e)
     if a.check_inputs:
         return check_inputs()
     if (OUT / "CONGELAMENTO_E11.md").exists():
