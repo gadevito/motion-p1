@@ -15,7 +15,15 @@ over the E11 configurations. Two versions: "unscaled" (u as in E11, conservative
 (u × nodes per E11 block / nodes per E9 block, if node-level noise were independent). The number of test blocks
 of E9 is computed from the node sets of the E9 design (no training). Order of magnitude, not a criterion.
 
-Usage: $PY paper4/code/e9_potenza.py      (writes paper4/runs/e9_potenza.json)
+Revision of 2026-11-06 (internal review, 22:15): the E9 grid is, per city, the smallest G >= 6 with at least
+40 occupied cells (--min-occupied 40); the node-set check also asserts at least 8 test blocks per (city, f,
+seed), and the covariates cell side and median distance test-hidden -> observed are reported per (city, f).
+
+Proposed rule (2026-11-06, after the check above): --min-test-blocks 8 takes, per city, the smallest G >= 6 for
+which every (f, seed) has no empty set, shares within ±15 points and at least 8 test blocks.
+
+Usage: $PY paper4/code/e9_potenza.py [--min-occupied 40 | --min-test-blocks 8]
+       (writes paper4/runs/e9_potenza.json, or e9_potenza_g40.json with --min-occupied 40)
 """
 import json
 import sys
@@ -73,26 +81,59 @@ def e11_components():
     return out
 
 
-def e9_blocks():
-    res = {}
-    for city in CITIES:
-        al = p4b.align_graph(city, ROADS[city]); cells = p4b.grid_cells(al["coords"], 6)
+def grid_for_blocks(coords, min_blocks):
+    """Smallest G >= 6 such that every (f, seed) has no empty set, shares within ±15 points and at least
+    `min_blocks` test blocks."""
+    for G in range(6, 60):
+        cells = p4b.grid_cells(coords, G); ok = True
         for f in LEVELS:
-            nb, npb = [], []
+            t = np.array([f, 0.2, 0.8 - f])
             for s in range(5):
-                lab = p4b.node_sets(cells, s, targets=(f, 0.2, 0.8 - f))
-                tb = np.unique(cells[lab == 2]); nb.append(len(tb)); npb.append((lab == 2).sum() / len(tb))
-            res[f"{city} {f:.1f}"] = {"test_blocks_median": float(np.median(nb)), "test_blocks_min": int(min(nb)),
+                lab = p4b.node_sets(cells, s, targets=tuple(t)); n = np.bincount(lab, minlength=3)
+                ok &= bool((n > 0).all() and np.abs(n / n.sum() - t).max() <= 0.15
+                            and len(np.unique(cells[lab == 2])) >= min_blocks)
+        if ok:
+            return G
+    raise SystemExit("STOP: no grid up to 59x59 satisfies the rule")
+
+
+def e9_blocks(min_occupied=None, min_blocks=None):
+    res, check = {}, {"pairs": 0, "empty": 0, "outside_15": 0, "fewer_than_8_test_blocks": 0, "worst_deviation": 0.0}
+    for city in CITIES:
+        al = p4b.align_graph(city, ROADS[city])
+        G = (grid_for_blocks(al["coords"], min_blocks) if min_blocks else
+             6 if min_occupied is None else p4b.adaptive_grid(al["coords"], 6, min_occupied))
+        cells = p4b.grid_cells(al["coords"], G)
+        for f in LEVELS:
+            nb, npb, dist, sides = [], [], [], []
+            tgt = np.array([f, 0.2, 0.8 - f])
+            for s in range(5):
+                lab = p4b.node_sets(cells, s, targets=tuple(tgt))
+                n = np.bincount(lab, minlength=3); sh = n / n.sum()
+                dev = float(np.abs(sh - tgt).max())
+                tb = np.unique(cells[lab == 2]); nb.append(len(tb)); npb.append((lab == 2).sum() / max(len(tb), 1))
+                gr = p4b.geometry_record(al["coords"], cells, G, lab)
+                dist.append(gr["test_to_nearest_observed_m"]["median"]); sides.append(gr["cell_side_m"])
+                check["pairs"] += 1; check["empty"] += int((n == 0).any()); check["outside_15"] += int(dev > 0.15)
+                check["fewer_than_8_test_blocks"] += int(len(tb) < 8); check["worst_deviation"] = max(check["worst_deviation"], dev)
+            res[f"{city} {f:.1f}"] = {"G": int(G), "test_blocks_median": float(np.median(nb)), "test_blocks_min": int(min(nb)),
                                       "nodes_per_block": float(np.mean(npb)), "K": len(al["kept"]),
-                                      "occupied_cells": int(len(np.unique(cells)))}
-    return res
+                                      "occupied_cells": int(len(np.unique(cells))), "cell_side_m": float(np.mean(sides)),
+                                      "median_distance_test_to_observed_m": float(np.median(dist)),
+                                      "distance_by_seed_m": [round(x, 1) for x in dist]}
+    return res, check
 
 
 def main():
+    mo = mb = None
+    if "--min-occupied" in sys.argv:
+        mo = int(sys.argv[sys.argv.index("--min-occupied") + 1])
+    if "--min-test-blocks" in sys.argv:
+        mb = int(sys.argv[sys.argv.index("--min-test-blocks") + 1])
     comp = e11_components()
     s2 = float(np.median([c["seed_variance"] for c in comp])); u = float(np.median([c["block_unit_variance"] for c in comp]))
     npb11 = float(np.median([c["nodes_per_block"] for c in comp]))
-    blocks = e9_blocks()
+    blocks, check = e9_blocks(mo, mb)
     proj = {}
     for k, b in blocks.items():
         for ns in (5, 8, 12):
@@ -103,12 +144,18 @@ def main():
                                        "test_blocks_min": nb}
     out = {"source": "E11 campaign, test-hidden G0 and G1 (frozen record ba8b19a)", "seed_variance_median": s2,
            "block_unit_variance_median": u, "e11_nodes_per_block_median": npb11, "e11_components": comp,
-           "e9_blocks": blocks, "projection": proj, "written": datetime.now(timezone.utc).isoformat(),
+           "grid_rule": (f"smallest G >= 6 with >= {mb} test blocks, no empty set and shares within ±15 for every (f, seed)"
+                         if mb else "6x6" if mo is None else f"smallest G >= 6 with >= {mo} occupied cells"),
+           "node_set_check": check, "e9_blocks": blocks, "projection": proj, "written": datetime.now(timezone.utc).isoformat(),
            "commit": p4b.git_commit()[0]}
-    path = e11.RUNS / "e9_potenza.json"; path.write_text(json.dumps(out, indent=1))
+    path = e11.RUNS / (f"e9_potenza_b{mb}.json" if mb else "e9_potenza.json" if mo is None else f"e9_potenza_g{mo}.json")
+    if path.exists():
+        raise SystemExit(f"STOP: {path} exists")
+    path.write_text(json.dumps(out, indent=1))
+    print("node-set check:", check)
     print(f"E11: median seed variance {s2:.3f}, median per-block unit {u:.3f}, nodes per block {npb11:.1f}")
     for k, b in blocks.items():
-        print(f"{k}: K {b['K']}, occupied {b['occupied_cells']}, test blocks median {b['test_blocks_median']:.0f} (min {b['test_blocks_min']}), "
+        print(f"{k}: G {b['G']}, side {b['cell_side_m']:.0f} m, median distance test->observed {b['median_distance_test_to_observed_m']:.0f} m, K {b['K']}, occupied {b['occupied_cells']}, test blocks median {b['test_blocks_median']:.0f} (min {b['test_blocks_min']}), "
               f"nodes/block {b['nodes_per_block']:.0f} | half-width 5 seeds: unscaled {proj[k + ' seeds 5']['halfwidth_unscaled']}, "
               f"scaled {proj[k + ' seeds 5']['halfwidth_scaled']}; 8 seeds {proj[k + ' seeds 8']['halfwidth_unscaled']}/"
               f"{proj[k + ' seeds 8']['halfwidth_scaled']}; 12 seeds {proj[k + ' seeds 12']['halfwidth_unscaled']}/{proj[k + ' seeds 12']['halfwidth_scaled']}")

@@ -35,7 +35,7 @@ E11 repeats, under protocol, the deliverable's negative control of the geometry:
   connectivity-preserving edge swaps with G1's weights permuted (G1-rand(deg)), plus the deliverable's
   edge-count-only randomisation (secondary).
 
-The 240 trainings took 1.12 h on a Mac M3.
+The 240 trainings took 1.12 h of machine time on a Mac M3, not isolated (cost table: isolated times only).
 
 **The negative control does not decide.** For D = V(G1) − V(G1-rand(deg)), no configuration shows proximity
 prevailing (D ≥ 3 with an interval above zero). An advantage of 3 points or more is excluded in 7 of 12, and 5
@@ -54,7 +54,8 @@ gives none.
 nearest observed one, the declared sensitivity analysis, gives −0.003 points/m [−0.008; +0.007].
 
 **Operational reading.** At 5% false alarms (threshold chosen on validation-hidden nodes), red recall on hidden
-nodes is 0.04–0.08 in Madrid, close to the false-alarm rate itself. In Melbourne it is 0.07–0.25, with no arm
+nodes is 0.04–0.08 in Madrid, against a realised false-alarm rate on test of _______ (frozen record,
+regenerated version): close to the false-alarm rate itself. In Melbourne it is 0.07–0.25, with no arm
 consistently ahead. On segments never seen, none of the arms separates congestion from free flow in Madrid.
 
 > **On compact sub-networks, with the hidden nodes never in input, propagation from instrumented neighbours

@@ -92,6 +92,13 @@ def red_recall(vp, vy, vnodes, tp, ty, tnodes, fa=0.05):
     return (float((pos >= t).mean()) if pos.size else float("nan")), t
 
 
+def realised_false_alarms(tp, ty, tnodes, t):
+    """Share of valid non-red test cells with p(red) >= t, at the threshold t chosen on validation."""
+    pt = tp[:, tnodes][..., 2]; yt = ty[:, tnodes]
+    neg = pt[(yt >= 0) & (yt != 2)]
+    return float((neg >= t).mean()) if neg.size else float("nan")
+
+
 # ---------------------------------------------------------------- readings ----------------------------
 
 def readings(D, L, U):
@@ -263,6 +270,7 @@ def load_campaign():
         key = (cfg["city"], cfg["configuration"], cfg["seed"])
         by.setdefault(key, {})[cfg["arm"]] = (r, d)
     configs, red, cost, per_h, hours = [], {}, {}, {}, 0.0
+    fa_t = {}
     ctrl = {"setups": 0, "setups_with_nonfinite_HA": 0, "empty_rows_min": None, "empty_rows_max": None,
             "empty_rows_equal_hidden": True, "observed_without_training_data": 0,
             "runs_with_nonfinite_p_on_targets": 0, "files_checked": 0}
@@ -308,8 +316,9 @@ def load_campaign():
                 entry["arms"][a] = (S[keep], Wn[keep]); entry["blocks"] = cells[z["nodes"]][keep]
                 per_h.setdefault((city, tag, a), []).append((S.sum(0) / Wn.sum(0)).tolist())
                 v = np.load(d / "val_hidden.npz")
-                rec_, _ = red_recall(v["p"], v["y"], v["nodes"], z["p"], z["y"], z["nodes"])
+                rec_, thr = red_recall(v["p"], v["y"], v["nodes"], z["p"], z["y"], z["nodes"])
                 red.setdefault((city, tag, a), []).append(rec_)
+                fa_t.setdefault((city, tag, a), []).append(realised_false_alarms(z["p"], z["y"], z["nodes"], thr))
                 if a == "G1":
                     o = np.load(d / "test_observed.npz")
                     So, Wo, mo, to, _ = node_sums(o["p"], o["y"], o["nodes"], r["class_weights"])
@@ -324,6 +333,7 @@ def load_campaign():
         configs.append(c)
     extra = {"empty_slice_control": ctrl, "counts_test_hidden": counts, "counts_test_observed_G1": obs_counts, "machine_hours": hours,
              "red_recall_5pct": {f"{k[0]} {k[1]} {k[2]}": float(np.nanmean(v)) for k, v in red.items()},
+             "false_alarm_rate_test_5pct": {f"{k[0]} {k[1]} {k[2]}": float(np.nanmean(v)) for k, v in fa_t.items()},
              "cost_of_not_having_the_sensor": {f"{k[0]} {k[1]}": float(np.mean(v)) for k, v in cost.items()},
              "per_horizon_wce": {f"{k[0]} {k[1]} {k[2]}": np.mean(v, 0).tolist() for k, v in per_h.items()},
              "n_runs": len(recs), "run_index_fingerprint": p4b.fingerprint(sorted(r["config_fingerprint"] for r in recs))}
@@ -388,12 +398,13 @@ def write(rows, reg, extra, statement, counts):
              f"{t['slope_difference']:+.5f} [{t['slope_difference_L']:+.5f}; {t['slope_difference_U']:+.5f}]; threshold form wins: "
              f"**{t['wins']}**" + ("; breakpoint in the unsampled 130–380 m range: not identifiable." if t["breakpoint_in_unsampled_130_380"] else ".") + "\n")
     L.append("## Reported without a criterion\n")
-    L.append("| City | Configuration | Cost of not having the sensor, wCE(G1, test-hidden) − wCE(G1, test-observed) | Red recall at 5% false alarms, G0 / G1 / rand(deg) / rand(edges) |")
-    L.append("|---|---|---|---|")
+    L.append("| City | Configuration | Cost of not having the sensor, wCE(G1, test-hidden) − wCE(G1, test-observed) | Red recall at 5% false alarms (threshold on validation), G0 / G1 / rand(deg) / rand(edges) | Realised false-alarm rate on test, same order |")
+    L.append("|---|---|---|---|---|")
     for r in rows:
         k = f"{r['city']} {r['configuration']}"
         rr = " / ".join(f"{extra['red_recall_5pct'][k + ' ' + a]:.3f}" for a in ARMS)
-        L.append(f"| {r['city']} | {r['configuration']} | {extra['cost_of_not_having_the_sensor'][k]:+.4f} | {rr} |")
+        ff = " / ".join(f"{extra['false_alarm_rate_test_5pct'][k + ' ' + a]:.3f}" for a in ARMS)
+        L.append(f"| {r['city']} | {r['configuration']} | {extra['cost_of_not_having_the_sensor'][k]:+.4f} | {rr} | {ff} |")
     L.append("\nPer-horizon wCE (15/30/60/120 min) per configuration and arm: `e11_risultati.json`, key `per_horizon_wce`.\n")
     ct, co = extra["counts_test_hidden"], extra["counts_test_observed_G1"]
     L.append("## Deviations and defects\n")
@@ -502,6 +513,11 @@ def selftest():
     rr, t = red_recall(vp, vy, vnodes, tp, ty, tnodes)
     print(f"red recall: {rr:.4f} (expected 0.5000), threshold {t:.4f} (expected ~0.95)")
     ok &= abs(rr - 0.5) < 1e-9 and 0.94 < t < 0.96
+    # realised false alarms: non-red test cells with p(red) uniform on [0, 1) -> about 1 - t
+    ty2 = ty.copy(); ty2[:, tnodes] = 0; tp2 = tp.copy(); tp2[..., 2] = g.uniform(0, 1, tp2.shape[:-1])
+    fa = realised_false_alarms(tp2, ty2, tnodes, t)
+    print(f"realised false alarms: {fa:.4f} (expected ~{1 - t:.4f})")
+    ok &= abs(fa - (1 - t)) < 0.01
     print("SELFTEST:", "PASS" if ok else "FAIL")
     return 0 if ok else 1
 
