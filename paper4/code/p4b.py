@@ -400,9 +400,9 @@ class Setup:
                 "test_hidden": float(s.test.mean())}
 
     # ---------------------------------------------------------- batches ---------------------------------
-    def batch(s, origins, inp, tgt):
+    def batch(s, origins, inp, tgt, static=True):
         """inp, tgt: boolean node masks (numpy). Input channels are zero outside `inp`; the loss mask is
-        Cm restricted to `tgt`."""
+        Cm restricted to `tgt`. static=False zeroes the max_speed channel (diagnostic only)."""
         bt = torch.as_tensor(np.asarray(origins), device=s.dev); B = len(bt); K = s.K
         om = torch.as_tensor(inp.astype("float32"), device=s.dev).view(1, K, 1)
 
@@ -413,7 +413,7 @@ class Setup:
             return torch.stack([g[bt - k] for k in reversed(range(T_IN))], -1).unsqueeze(1).expand(-1, K, -1)
         st = lambda v: v.view(1, K, 1).expand(B, K, T_IN)  # noqa: E731
         ch = [wn(s.Rf) * om, wn(s.FL) * om, wn(s.OC) * om, wn(s.HAs) * om] + [wg(g) for g in s.TIME] + \
-             [st(s.MAXSP), om.expand(B, K, T_IN)]
+             [st(s.MAXSP if static else torch.zeros_like(s.MAXSP)), om.expand(B, K, T_IN)]
         x = torch.stack(ch, 1)
         y = torch.stack([s.Cy[bt + h] for h in HORIZONS], -1)
         tm = torch.as_tensor(tgt.astype("float32"), device=s.dev).view(1, K, 1)
@@ -446,26 +446,33 @@ def wce_np(P, Y, W):
 
 # ---------------------------------------------------------------- training ---------------------------
 
-def predict(net, su, A, origins, inp, tgt, bs=256):
+def predict(net, su, A, origins, inp, tgt, bs=256, static=True):
     """Probabilities (n_orig, K, H, 3) and labels (-1 where not a target)."""
     net.eval(); P, Y = [], []
     with torch.no_grad():
         for i in range(0, len(origins), bs):
-            x, y, m = su.batch(origins[i:i + bs], inp, tgt)
+            x, y, m = su.batch(origins[i:i + bs], inp, tgt, static)
             P.append(F.softmax(net(x, A), -1).float().cpu().numpy())
             Y.append(np.where(m.cpu().numpy() > 0, y.cpu().numpy(), -1))
     return np.concatenate(P), np.concatenate(Y)
 
 
-def train(su, arm, A, U, checkpoints, log=None):
+def train(su, arm, A, U, checkpoints, log=None, lr=1e-3, static=True, input_extra=None, target_extra=None):
     """Fixed number of updates U; `checkpoints` = sorted update counts at which validation-hidden wCE is
     computed (input = all observed nodes). Returns the selected state (min validation wCE among the
-    checkpoints), the trajectory and counters. Never touches test origins."""
+    checkpoints), the trajectory and counters. Never touches test origins.
+
+    Diagnostic options (pilot only, never in the campaign): lr; static=False drops max_speed;
+    input_extra = nodes always in input and never targets; target_extra = nodes always targets in training
+    and never input. The trajectory also records the mean training loss since the previous checkpoint."""
     graph = arm != "G0"
     s6 = int(rng(su.seed, K_INIT).integers(2 ** 31))
     torch.manual_seed(s6)
     net = GWN(su.c_in, graph).to(su.dev)
-    opt = torch.optim.Adam(net.parameters(), lr=1e-3)
+    opt = torch.optim.Adam(net.parameters(), lr=lr)
+    xin = np.zeros(su.K, bool) if input_extra is None else input_extra
+    xtg = np.zeros(su.K, bool) if target_extra is None else target_extra
+    run_loss = []
     At = torch.tensor(A, device=su.dev) if graph else None
     r_mask, r_order = rng(su.seed, K_MASKS), rng(su.seed, K_ORDER)
     perm, pi = r_order.permutation(su.tr), 0
@@ -474,9 +481,11 @@ def train(su, arm, A, U, checkpoints, log=None):
     seen_hidden = 0
 
     def checkpoint():
-        P, Y = predict(net, su, At, su.va, su.obs, su.val)
+        P, Y = predict(net, su, At, su.va, su.obs | xin, su.val, static=static)
         v = wce_np(P, Y, su.W)
-        traj.append({"update": steps, "val_wce": v, "seconds": time.perf_counter() - t0})
+        tl = float(np.mean(run_loss)) if run_loss else None
+        run_loss.clear()
+        traj.append({"update": steps, "val_wce": v, "train_loss": tl, "seconds": time.perf_counter() - t0})
         states[steps] = {k: t.detach().cpu().clone() for k, t in net.state_dict().items()}
         if log:
             log(f"[{arm}] update {steps:6d}  val wCE {v:.5f}")
@@ -488,9 +497,10 @@ def train(su, arm, A, U, checkpoints, log=None):
         bt = perm[pi:pi + 32]; pi += 32
         inp, tgt, _ = su.batch_mask(r_mask)
         seen_hidden += int(inp[~su.obs].sum() + tgt[~su.obs].sum())
-        x, y, m = su.batch(bt, inp, tgt)
+        x, y, m = su.batch(bt, inp | xin, tgt | xtg, static)
         net.train(); opt.zero_grad()
-        loss_fn(net(x, At), y, m, su.Wt).backward(); opt.step(); steps += 1
+        loss = loss_fn(net(x, At), y, m, su.Wt); loss.backward(); opt.step(); steps += 1
+        run_loss.append(float(loss.item()))
         if steps in cks:
             checkpoint()
     best = min(traj, key=lambda d: d["val_wce"])
