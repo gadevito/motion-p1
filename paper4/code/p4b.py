@@ -285,24 +285,24 @@ class GCN(nn.Module):
 
 
 class Block(nn.Module):
-    def __init__(s, c, d, graph):
+    def __init__(s, c, d, graph, dropout=0.0):
         super().__init__(); s.tcn = GTCN(c, 2, d); s.gcn = GCN(c) if graph else None
-        s.skip = nn.Conv2d(c, c, (1, 1)); s.bn = nn.BatchNorm2d(c)
+        s.skip = nn.Conv2d(c, c, (1, 1)); s.bn = nn.BatchNorm2d(c); s.drop = nn.Dropout(dropout)
 
     def forward(s, x, A):
         res = x; x = s.tcn(x); sk = s.skip(x)
         if s.gcn is not None:
             x = s.gcn(x, A)
-        return s.bn(x + res), sk
+        return s.drop(s.bn(x + res)), sk
 
 
 class GWN(nn.Module):
     """`gomo_sparse.py` GWN, inductive, without coordinates: `none` (G0) or `fixed` (G1 and G1-rand)."""
 
-    def __init__(s, c_in, graph, hidden=32, blocks=4):
+    def __init__(s, c_in, graph, hidden=32, blocks=4, dropout=0.0):
         super().__init__(); s.graph = graph
         s.start = nn.Conv2d(c_in, hidden, (1, 1))
-        s.blocks = nn.ModuleList([Block(hidden, 2 ** i, graph) for i in range(blocks)])
+        s.blocks = nn.ModuleList([Block(hidden, 2 ** i, graph, dropout) for i in range(blocks)])
         s.e1 = nn.Conv2d(hidden, hidden, (1, 1)); s.e2 = nn.Conv2d(hidden, len(HORIZONS) * 3, (1, 1))
 
     def forward(s, x, A):
@@ -457,7 +457,8 @@ def predict(net, su, A, origins, inp, tgt, bs=256, static=True):
     return np.concatenate(P), np.concatenate(Y)
 
 
-def train(su, arm, A, U, checkpoints, log=None, lr=1e-3, static=True, input_extra=None, target_extra=None):
+def train(su, arm, A, U, checkpoints, log=None, lr=1e-3, static=True, input_extra=None, target_extra=None,
+          dropout=0.0):
     """Fixed number of updates U; `checkpoints` = sorted update counts at which validation-hidden wCE is
     computed (input = all observed nodes). Returns the selected state (min validation wCE among the
     checkpoints), the trajectory and counters. Never touches test origins.
@@ -468,7 +469,7 @@ def train(su, arm, A, U, checkpoints, log=None, lr=1e-3, static=True, input_extr
     graph = arm != "G0"
     s6 = int(rng(su.seed, K_INIT).integers(2 ** 31))
     torch.manual_seed(s6)
-    net = GWN(su.c_in, graph).to(su.dev)
+    net = GWN(su.c_in, graph, dropout=dropout).to(su.dev)
     opt = torch.optim.Adam(net.parameters(), lr=lr)
     xin = np.zeros(su.K, bool) if input_extra is None else input_extra
     xtg = np.zeros(su.K, bool) if target_extra is None else target_extra
