@@ -114,3 +114,8 @@ evoluzione/Archivio.zip
 # --- rigenerazione del Paper 1 (analysis/main.py) ---------------------------
 analysis/rigenerazione/*
 !analysis/rigenerazione/CONFRONTO.md
+
+# --- paper4: heavy data and checkpoints out of git ---------------------------
+paper4/runs/*
+!paper4/runs/MANIFEST.tsv
+paper4/data_cache/
