@@ -16,7 +16,7 @@ neighbours and from the calendar alone.
 
 In this regime the forecast is close to the uniform predictor. On the pilot configuration of E11 (Madrid,
 compact sub-network of 95 nodes, validation-hidden nodes), the best validation wCE of the no-graph model and of
-the graph model was 1.066–1.073, about 3% below ln 3 = 1.099 (E11.md, pilot, variants D1 and D3). The given
+the graph model was 1.066–1.071, about 3% below ln 3 = 1.099 (E11.md, pilot, variants D1 and D3). The given
 graph did not improve on the no-graph model there.
 
 The pipeline is not what limits it. In a positive control, the hidden nodes of the same configuration entered
