@@ -6,8 +6,9 @@ Derived from `models/gomo_sparse.py` (main `abbe5a6`, SHA-256 c82ca3fa74f805ab).
 
   * admissible origins only (15-min cadence over window and targets), split 70/10/20 in time order,
     with a purge so that no target of one period overlaps an input of the next (RC 1);
-  * three disjoint node sets made of whole 6x6 grid cells: observed, validation-hidden, test-hidden.
-    Hidden nodes never enter input, loss, normalisation, historical average or class weights (D1);
+  * three disjoint node sets made of whole grid cells: observed, validation-hidden, test-hidden, assigned
+    by deficit on 40/20/40. Hidden nodes never enter input, loss, normalisation, historical average or
+    class weights (D1). E11 sub-networks use the smallest grid G >= 6 with >= 20 occupied cells;
   * per-batch masks drawn among observed cells only, share u ~ U(0.6, 0.95) in whole cells;
   * fixed number of updates, no early stopping, 11 checkpoints, selection on validation-hidden nodes;
   * static feature max_speed only (lanes and capacity dropped);
@@ -154,30 +155,52 @@ def split_origins(orig):
     return tr2, va2, te, {"train": int(len(tr) - len(tr2)), "val": int(len(va) - len(va2))}
 
 
-def grid_cells(coords):
+def grid_cells(coords, G=GRID):
+    """`gomo_sparse.py:100-104`: a G x G grid on the extent of the nodes' UTM coordinates."""
     xs, ys = coords[:, 0], coords[:, 1]
-    gx = np.clip(((xs - xs.min()) / (np.ptp(xs) + 1e-9) * GRID).astype(int), 0, GRID - 1)
-    gy = np.clip(((ys - ys.min()) / (np.ptp(ys) + 1e-9) * GRID).astype(int), 0, GRID - 1)
-    return gx * GRID + gy
+    gx = np.clip(((xs - xs.min()) / (np.ptp(xs) + 1e-9) * G).astype(int), 0, G - 1)
+    gy = np.clip(((ys - ys.min()) / (np.ptp(ys) + 1e-9) * G).astype(int), 0, G - 1)
+    return gx * G + gy
 
 
-def node_sets(cells, seed, obs_share=0.4, val_share=0.2):
-    """Whole cells shuffled with stream K_SETS: observed until >= obs_share of nodes, then validation-hidden
-    until >= obs_share + val_share, then test-hidden. Returns a label per node: 0 obs, 1 val, 2 test."""
+def adaptive_grid(coords, g0=GRID, min_occupied=20):
+    """E11: the smallest G >= g0 with at least `min_occupied` occupied cells (review, 2026-11-06)."""
+    G = g0
+    while len(np.unique(grid_cells(coords, G))) < min_occupied:
+        G += 1
+    return G
+
+
+def node_sets(cells, seed, targets=(0.4, 0.2, 0.4)):
+    """Whole cells in the order of stream K_SETS; each cell goes to the set with the largest deficit
+    (target share x K minus nodes already assigned). Label per node: 0 observed, 1 validation-hidden,
+    2 test-hidden."""
     K = len(cells)
     order = rng(seed, K_SETS).permutation(np.unique(cells))
-    lab = np.full(K, 2, dtype=np.int8)
-    cnt = 0
+    lab = np.zeros(K, dtype=np.int8)
+    cur = np.zeros(3)
     for c in order:
         sel = cells == c
-        if cnt < obs_share * K:
-            lab[sel] = 0
-        elif cnt < (obs_share + val_share) * K:
-            lab[sel] = 1
-        else:
-            break
-        cnt += int(sel.sum())
+        j = int(np.argmax(np.asarray(targets) * K - cur))
+        lab[sel] = j
+        cur[j] += sel.sum()
     return lab
+
+
+def geometry_record(coords, cells, G, lab):
+    """Covariates registered for every (configuration, seed): grid, occupancy, cell side and the distance of
+    each test-hidden node from the nearest observed node."""
+    n_per = np.bincount(np.unique(cells, return_inverse=True)[1])
+    sx, sy = np.ptp(coords[:, 0]) / G, np.ptp(coords[:, 1]) / G
+    obs, test = coords[lab == 0], coords[lab == 2]
+    d = cKDTree(obs).query(test, k=1)[0] if len(obs) and len(test) else np.array([np.nan])
+    q1, med, q3 = np.percentile(d, [25, 50, 75])
+    return {"G": int(G), "occupied_cells": int(len(n_per)), "nodes_per_cell_min": int(n_per.min()),
+            "nodes_per_cell_median": float(np.median(n_per)), "nodes_per_cell_max": int(n_per.max()),
+            "cell_side_x_m": float(sx), "cell_side_y_m": float(sy), "cell_side_m": float(np.sqrt(sx * sy)),
+            "test_to_nearest_observed_m": {"median": float(med), "q1": float(q1), "q3": float(q3)},
+            "counts": {k: int((lab == i).sum()) for i, k in enumerate(("observed", "validation_hidden",
+                                                                        "test_hidden"))}}
 
 
 # ---------------------------------------------------------------- graphs -----------------------------
@@ -297,7 +320,7 @@ class Setup:
     """Everything an arm needs for one (configuration, seed): tensors, node sets, origins, weights.
     Built only from observed nodes in the training period; arm-independent by construction."""
 
-    def __init__(s, city, graph_path, seed, obs_share=0.4, val_share=0.2, device=None):
+    def __init__(s, city, graph_path, seed, grid="adaptive", targets=(0.4, 0.2, 0.4), device=None):
         s.city, s.graph_path, s.seed = city, str(graph_path), int(seed)
         s.dev = torch.device(device or ("mps" if torch.backends.mps.is_available() else "cpu"))
         z = load_targets(city)
@@ -307,8 +330,9 @@ class Setup:
         k = al["kidx"]
         s.r = z["r_emp"][:, k].astype("float32"); s.flow = z["flow"][:, k].astype("float32")
         s.occ = z["occupancy"][:, k].astype("float32"); s.C = z["congestion_emp"][:, k].astype("int64")
-        s.cells = grid_cells(al["coords"])
-        s.lab = node_sets(s.cells, seed, obs_share, val_share)
+        s.G = adaptive_grid(al["coords"]) if grid == "adaptive" else int(grid)
+        s.cells = grid_cells(al["coords"], s.G)
+        s.lab = node_sets(s.cells, seed, targets)
         s.obs, s.val, s.test = (s.lab == 0), (s.lab == 1), (s.lab == 2)
         s.obs_cells = np.unique(s.cells[s.obs])
         orig = admissible_origins(s.ts)
@@ -367,6 +391,9 @@ class Setup:
         return {"node_sets": fingerprint(s.lab), "origins": fingerprint(np.concatenate([s.tr, s.va, s.te])),
                 "class_weights": fingerprint(s.W), "normalisation": fingerprint([s.fmu, s.fsd, s.omu, s.osd]),
                 "historical_average": fingerprint(s.HA)}
+
+    def geometry(s):
+        return geometry_record(s.al["coords"], s.cells, s.G, s.lab)
 
     def shares(s):
         return {"observed": float(s.obs.mean()), "validation_hidden": float(s.val.mean()),

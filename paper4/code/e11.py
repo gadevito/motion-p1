@@ -103,7 +103,7 @@ def preflight(args):
         f"torch {torch.__version__} · mps {torch.backends.mps.is_available()}")
     city, tag = PILOT
     su = p4b.Setup(city, graph_path(city, tag), seed=0)
-    log(f"configuration {city} {tag}, seed 0: K = {su.K}, shares {json.dumps(su.shares())}, "
+    log(f"configuration {city} {tag}, seed 0: K = {su.K}, grid {su.G}x{su.G}, shares {json.dumps(su.shares())}, "
         f"origins nominal {su.n_nominal} admissible {su.n_admissible} → train {len(su.tr)} val {len(su.va)} "
         f"test {len(su.te)}, purged {su.purged}")
 
@@ -206,22 +206,30 @@ def preflight(args):
     log.check("5-bis", "randomised weights a permutation of G1's: sorted multisets and sums identical, "
               "σ identical (12 × 5 × 2 graphs)", bool(w_ok))
 
-    # node-set shares over the whole campaign -----------------------------------------------------------
-    empty, table = 0, []
+    # node-set shares and geometry covariates over the whole campaign -----------------------------------
+    bad, table, geo = 0, [], {}
     for city_c, tag_c, _ in CONFIGS:
         al = p4b.align_graph(city_c, graph_path(city_c, tag_c))
-        cells = p4b.grid_cells(al["coords"])
+        G = p4b.adaptive_grid(al["coords"]); cells = p4b.grid_cells(al["coords"], G)
         sh = []
         for seed in SEEDS:
-            n = np.bincount(p4b.node_sets(cells, seed), minlength=3)
-            empty += int((n == 0).any()); sh.append("/".join(f"{100 * x / n.sum():.0f}" for x in n))
-        table.append(f"{city_c:9s} {tag_c:10s} occupied cells {len(np.unique(cells)):2d}, largest "
-                     f"{np.bincount(np.unique(cells, return_inverse=True)[1]).max():2d} | shares obs/val/test by seed: "
-                     + "  ".join(sh))
+            lab = p4b.node_sets(cells, seed)
+            n = np.bincount(lab, minlength=3); share = n / n.sum()
+            bad += int((n == 0).any() or np.abs(share - np.array([.4, .2, .4])).max() > 0.15)
+            gr = p4b.geometry_record(al["coords"], cells, G, lab)
+            geo[f"{city_c} {tag_c} seed {seed}"] = gr
+            sh.append("/".join(f"{100 * x:.0f}" for x in share) +
+                      f" ({gr['test_to_nearest_observed_m']['median']:.0f} m)")
+        gr0 = geo[f"{city_c} {tag_c} seed 0"]
+        table.append(f"{city_c:9s} {tag_c:10s} G {G:2d} cells {gr0['occupied_cells']:2d} nodes/cell "
+                     f"{gr0['nodes_per_cell_min']}/{gr0['nodes_per_cell_median']:g}/{gr0['nodes_per_cell_max']} "
+                     f"side {gr0['cell_side_m']:6.0f} m | obs/val/test (median test→observed) by seed: " + "  ".join(sh))
     for line in table:
         log("        " + line)
-    log.check("sets", "observed, validation-hidden and test-hidden non-empty in all 12 configurations × 5 seeds",
-              empty == 0, f"{empty} of 60 (configuration, seed) pairs with an empty set")
+    (RUNS / "e11_insiemi_geometria.json").write_text(json.dumps(geo, indent=1))
+    log.check("sets", "no empty set and every share within ±15 points of 40/20/40, 12 configurations × 5 seeds "
+              "(smallest grid G ≥ 6 with ≥ 20 occupied cells, balanced assignment)", bad == 0,
+              f"{bad} of 60 pairs outside; covariates in e11_insiemi_geometria.json")
 
     # 6 ------------------------------------------------------------------------------------------------
     fps = []
@@ -336,7 +344,7 @@ def pilot(args):
     hw, nb = block_halfwidth(preds["G1"][0], preds["G0"][0], preds["G0"][1], su.cells, su.val, su.W)
     out = {"protocol": "protocol/paper4/E11.md", "prereg_fingerprint": p4b.sha256(PREREG, 16),
            "configuration": f"{city} {tag}", "seed": 0, "length": L, "evaluation_every": 250,
-           "K": su.K, "shares": su.shares(), "fingerprints": su.fingerprints(),
+           "K": su.K, "grid": su.G, "shares": su.shares(), "geometry": su.geometry(), "fingerprints": su.fingerprints(),
            "first_within_1pct": first, "U": U, "U_doubled": doubled, "adequacy_order_same_at_U_and_2U": adequate,
            "expected_halfwidth_points": round(hw, 3), "halfwidth_blocks": nb,
            "halfwidth_note": "D(G1, G0) on validation-hidden nodes at update U, block resample of one seed; "
@@ -361,10 +369,11 @@ def pilot(args):
 def cost(args):
     U = args.updates; cks = [round(U * i / 11) for i in range(1, 12)]
     rows = []
-    su_m = p4b.Setup("madrid", p4b.CITY["madrid"]["roads"], seed=0)
+    su_m = p4b.Setup("madrid", p4b.CITY["madrid"]["roads"], seed=0, grid=6)
     A, _ = p4b.kernel_adjacency(su_m.al["graph"], su_m.kept)
     o = p4b.train(su_m, "G1", A, U=U, checkpoints=cks)
-    rows.append({"what": "cost unit: G1, Madrid whole city (road graph), f = 40%", "K": su_m.K, "updates": U,
+    rows.append({"what": "cost unit: G1, Madrid whole city (road graph, 6x6 grid), f = 40%", "K": su_m.K,
+                 "shares": su_m.shares(), "updates": U,
                  "seconds": round(o["seconds"], 1), "seconds_per_update": o["seconds"] / U})
     print(rows[-1], flush=True)
     city, tag = PILOT
