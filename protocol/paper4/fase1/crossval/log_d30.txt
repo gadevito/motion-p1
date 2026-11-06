@@ -1,0 +1,46 @@
+$ t4c_crossval.py --max-dist 30 --gomo-targets go-mo/gomo/targets_2021_urb_d8.npz --gomo-sensors go-mo/gomo/traffic_sensors.csv --t4c-nodes traffic4cast/MADRID_2022/road_graph_nodes_osm.parquet --t4c-edges traffic4cast/MADRID_2022/road_graph_edges_district.parquet --speed-dir traffic4cast/MADRID_2022/speed_classes/madrid --out /Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/protocol/paper4/fase1/crossval/crossval_results_d30.csv
+GO-MO: 432 sensori 2021 (432 con coordinate)
+t4c: 8,357 segmenti geolocalizzati
+coppie sensore-segmento entro 30 m: 184 (distanza mediana 18 m)
+t4c: 917,457 righe misurate | 10,464 quarti d'ora distinti (giu-dic 2021)
+  scostamento  -8 ( -120 min): mediana +0.0229
+  scostamento  -7 ( -105 min): mediana +0.0212
+  scostamento  -6 (  -90 min): mediana +0.0227
+  scostamento  -5 (  -75 min): mediana +0.0258
+  scostamento  -4 (  -60 min): mediana +0.0307
+  scostamento  -3 (  -45 min): mediana +0.0272
+  scostamento  -2 (  -30 min): mediana +0.0316
+  scostamento  -1 (  -15 min): mediana +0.0306
+  scostamento  +0 (   +0 min): mediana +0.0369
+  scostamento  +1 (  +15 min): mediana +0.0452
+  scostamento  +2 (  +30 min): mediana +0.0350
+  scostamento  +3 (  +45 min): mediana +0.0299
+  scostamento  +4 (  +60 min): mediana +0.0282
+  scostamento  +5 (  +75 min): mediana +0.0244
+  scostamento  +6 (  +90 min): mediana +0.0226
+  scostamento  +7 ( +105 min): mediana +0.0214
+  scostamento  +8 ( +120 min): mediana +0.0185
+
+scostamento temporale ottimo: 1 quarti d'ora (+15 min) -> probabile differenza di fuso/convenzione
+
+=== correlazione di rango: sonde contro ciascun ingresso grezzo ===
+  [maschera] celle vuote: 10,105,137 (66.8%) | applicata: False
+  r ricostruito    scost. ottimo +1 ( +15 min) | Pearson +0.0452 | Spearman +0.0463 | coppie 181
+  occupazione      scost. ottimo +1 ( +15 min) | Pearson -0.1238 | Spearman -0.1447 | coppie 181
+  flusso           scost. ottimo +1 ( +15 min) | Pearson -0.1482 | Spearman -0.1462 | coppie 181
+
+=== VALIDAZIONE INCROCIATA (ricostruito vs misurato) ===
+coppie valide: 181 | correlazione r: mediana 0.045, media 0.066
+concordanza di classe (3 classi): 42.9%
+recall della congestione ricostruita (giallo+rosso): 18.7% (quanta congestione misurata le spire 'vedono')
+
+distribuzione classi sui punti allineati:
+  ricostruito (spire) verde/giallo/rosso = 83.6% / 13.5% / 2.9%
+  misurato   (sonde)  verde/giallo/rosso = 40.8% / 46.1% / 13.0%
+
+correlazione del profilo settimanale medio (672 momenti-tipo): mediana 0.130, media 0.174  (su 181 coppie)
+  -> alta = il proxy coglie il pattern tipico anche se non l'istante; bassa = non coglie nemmeno la stagionalita'
+
+salvato -> /Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/protocol/paper4/fase1/crossval/crossval_results_d30.csv
+
+[codice di uscita 0]

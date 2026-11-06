@@ -87,6 +87,15 @@ def vantaggio(csv_glob, semi):
     return v
 
 
+def _csv_tag(geo_dir, citta, grafo, semi):
+    """Nome dei CSV di un grafo: `geo_<citta>_<grafo>_s<s>.csv` (README §7.7, tag = nome del pkl); ripiego sul
+    nome senza citta'. Corretto il 2026-11-06 (Paper 4, fase 1): prima si cercava solo il nome senza citta'."""
+    for tag in (f"{citta}_{grafo}", grafo):
+        if vantaggio(str(geo_dir / f"geo_{tag}_s{{s}}.csv"), semi) is not None:
+            return tag
+    return f"{citta}_{grafo}"
+
+
 def regressione(x, y, gruppo=None):
     """Minimi quadrati con termine additivo opzionale di gruppo.
     Restituisce pendenza, errore standard, valore p bilaterale."""
@@ -139,7 +148,7 @@ def main() -> int:
         if r.get("frac_gigante", 1.0) < 0.999:      # solo connettivita' piena
             continue
         tag = r["grafo"]
-        v = vantaggio(str(a.geo_dir / f"geo_{tag}_s{{s}}.csv"), a.semi)
+        v = vantaggio(str(a.geo_dir / f"geo_{_csv_tag(a.geo_dir, r['citta'], tag, a.semi)}_s{{s}}.csv"), a.semi)
         if v is None:
             continue
         m, sd = st(v)
@@ -199,26 +208,29 @@ def main() -> int:
 
     # criterio 4 --------------------------------------------------------------
     print()
-    coppie = [(r["grafo"], r["grafo"].replace("knn", "rand"))
-              for _, r in cov.iterrows() if "knn" in str(r["grafo"])]
+    # coppie vero/randomizzato: `comp_q<xy>` (modo knn) e `neg_rand_q<xy>` della stessa citta' (make_geo_sweep.py);
+    # fino al 2026-11-06 si cercava «knn» nel nome del grafo, che sta invece nella colonna `modo`: nessuna coppia
+    # (la riga di covariate del randomizzato puo' mancare: make_geo_sweep.py ne scrive uno solo per citta')
+    coppie = [(r["citta"], r["grafo"], "neg_rand_" + str(r["grafo"]).split("_", 1)[1])
+              for _, r in cov.iterrows() if str(r["grafo"]).startswith("comp_q")]
     trovata = False
-    for vero, casuale in coppie:
-        vv = vantaggio(str(a.geo_dir / f"geo_{vero}_s{{s}}.csv"), a.semi)
-        vc = vantaggio(str(a.geo_dir / f"geo_{casuale}_s{{s}}.csv"), a.semi)
+    for citta, vero, casuale in coppie:
+        vv = vantaggio(str(a.geo_dir / f"geo_{_csv_tag(a.geo_dir, citta, vero, a.semi)}_s{{s}}.csv"), a.semi)
+        vc = vantaggio(str(a.geo_dir / f"geo_{_csv_tag(a.geo_dir, citta, casuale, a.semi)}_s{{s}}.csv"), a.semi)
         if vv is None or vc is None:
             continue
         trovata = True
         diff = [vv[i] - vc[i] for i in range(a.semi)]
         m, sd = st(diff)
         hw = 2.776 * sd / math.sqrt(a.semi)
-        arco_v = float(cov.loc[cov.grafo == vero, "arco_medio"].iloc[0])
-        arco_c = float(cov.loc[cov.grafo == casuale, "arco_medio"].iloc[0]) \
-            if (cov.grafo == casuale).any() else float("nan")
+        arco_v = float(cov.loc[(cov.citta == citta) & (cov.grafo == vero), "arco_medio"].iloc[0])
+        arco_c = float(cov.loc[(cov.citta == citta) & (cov.grafo == casuale), "arco_medio"].iloc[0]) \
+            if ((cov.citta == citta) & (cov.grafo == casuale)).any() else float("nan")
         margine = st(vv)[0]
         esito = ("REFUTAZIONE" if m <= 0 else
                  "attribuibile alla prossimita'" if m - hw > 1.68 else
                  "non distinguibili")
-        print(f"4 controllo negativo  {vero} contro {casuale}")
+        print(f"4 controllo negativo  {citta} {vero} contro {casuale}")
         print(f"{'':22s} vero {st(vv)[0]:+6.2f}% ± {st(vv)[1]:4.2f} (arco {arco_v:.1f} m) | "
               f"casuale {st(vc)[0]:+6.2f}% ± {st(vc)[1]:4.2f} (arco {arco_c:.1f} m)")
         print(f"{'':22s} differenza appaiata {m:+.2f} punti, IC [{m - hw:+.2f}; {m + hw:+.2f}], "
@@ -229,7 +241,7 @@ def main() -> int:
             print(f"{'':22s} conclusiva, qualunque sia la differenza (§7.3, sesto caso)")
         print()
     if not trovata:
-        print("4 controllo negativo  nessuna coppia knn/rand trovata in", a.geo_dir)
+        print("4 controllo negativo  nessuna coppia comp_q/neg_rand_q trovata in", a.geo_dir)
 
     print("Nota sul criterio 4. Il grafo randomizzato NON e' «lo stesso grafo senza")
     print("geometria»: ha arco medio molto maggiore e proprieta' di mescolamento diverse.")
