@@ -5,7 +5,8 @@ E11 — campaign (`protocol/paper4/E11.md`, signed 2026-11-06, commit 22e7fe8).
 Written after the signature, as the pre-registration requires. It imports the frozen pipeline without
 changing it: `p4b.py` (SHA-256 926061038a7472a3) and `e11.py` (f68952c3095cf335), both as at commit 4b298d1.
 The script refuses to start if either fingerprint differs, if the pre-registration is not signed, or if the
-preflight log given with --preflight-log does not report 0 failures on a clean tree.
+preflight log given with --preflight-log has any failure on a clean tree other than the one expected after the
+signature (the guard that refuses test metrics while the signature line is blank).
 
 For each of the 12 configurations x 5 seeds x 4 arms (240 trainings), in a fixed order:
 
@@ -30,7 +31,8 @@ to catch a run routed to the wrong branch. Concurrent processes (--shard i/n) ar
 
 Usage (from the worktree root, after the preflight on the signed commit):
 
-    $PY paper4/code/e11.py preflight            # writes paper4/runs/e11_preflight.log
+    $PY paper4/code/e11.py preflight            # writes paper4/runs/e11_preflight.log (keep a copy of the
+                                                #   signed one first: its fingerprint is in the signature line)
     $PY paper4/code/e11_campagna.py --preflight-log paper4/runs/e11_preflight.log
     $PY paper4/code/e11_campagna.py --preflight-log ... --shard 1/2     # optional, one shard per process
     $PY paper4/code/e11_campagna.py --preflight-log ... --check-only    # start checks only, no training
@@ -78,8 +80,14 @@ def checks(preflight_log):
     if dirty:
         fail(f"uncommitted changes in the code or the pre-registration:\n{dirty}")
     txt = Path(preflight_log).read_text()
-    if "PREFLIGHT: 0 failure(s)" not in txt or "(code dirty: False)" not in txt:
-        fail(f"{preflight_log}: preflight not passed on a clean tree")
+    # After the signature the frozen preflight reports one expected failure: its guard asserts that test
+    # metrics are refused while the signature line is blank, and the line is now complete (require_signed
+    # passed above). Every other assertion must pass.
+    fails = [ln for ln in txt.splitlines() if ln.startswith("[FAIL]")]
+    expected = [ln for ln in fails if "test metrics refused while the E11 signature line is blank" in ln]
+    if "(code dirty: False)" not in txt or len(fails) != len(expected) or len(expected) > 1 \
+            or not re.search(r"PREFLIGHT: [01] failure\(s\)", txt):
+        fail(f"{preflight_log}: preflight not passed on a clean tree ({len(fails)} failure(s))")
     m = re.search(r"code p4b\.py (\w+) · e11\.py (\w+)", txt)
     if not m or (m.group(1), m.group(2)) != (FROZEN["p4b.py"], FROZEN["e11.py"]):
         fail(f"{preflight_log}: preflight not run on the frozen code")
