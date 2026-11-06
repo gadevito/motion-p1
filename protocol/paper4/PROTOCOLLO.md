@@ -32,8 +32,10 @@ These rules apply to both parts unchanged.
    at the end.
 3. Per-cell predictions (node × origin × horizon × class) are saved for every run (Part B). Every number of the
    paper is recomputable by one script, `paper4/analysis/main.py`, which prints the input fingerprints.
-4. Every reported interval comes from a resample. "Excludes zero" is the only decision formula; equivalence is
-   tested by TOST at ±3% relative, declared as a convention.
+4. Every reported interval comes from a resample. Results are read on two scales, as in Paper 1 §III-B: the
+   sign of the interval (favourable / unfavourable / inconclusive) and the margin (whether an effect of the
+   declared size is reached or excluded). The margin is ±3% relative, declared as a convention. Each
+   E<n>.md states the unit, the direction and the derivation of its verdicts from the two scales.
 5. Selection (thresholds, hyper-parameters, checkpoints) is made on validation only and written to a
    fingerprinted file before any test metric is computed.
 6. Preflight assertions run before every campaign. A failing test is fixed, not commented.
@@ -102,8 +104,9 @@ Table 66 is out of the perimeter.
    the forecast on the uncovered ones, weighted by traffic? How much of an oracle's advantage do rules that need
    no data recover?
 
-Reading rule, as in Paper 1: a result counts only if its interval excludes zero. In Part B the interval is
-resampled jointly over seeds and corridor blocks; in Part A, over sensors or sections.
+Reading rule, as in Paper 1 §III-B: every result is read on the sign of its interval and on the margin (§0,
+rule 4). In Part B the interval is resampled jointly over seeds and corridor blocks; in Part A, over sensors or
+sections.
 
 ### 1.3 Sequence, dependencies, cost
 
@@ -141,7 +144,7 @@ section. Provenance labels:
 |---|---|---|---|
 | Classes | congestion factor *r* ≥ 0.8 green, 0.4 ≤ *r* < 0.8 yellow, *r* < 0.4 red | deliverable; `OR3/data_collection/go-mo/2_gomo_targets.py:24`, `OR3/data_collection/traffic4cast/t4c22_adapter.py:42–43`; D5 | the brief's 0.5 is wrong (R0 §0.6) |
 | Free-flow reference | cities: per-segment median of the provider's `free_flow_kph`; loops in forecasting: 85th percentile on the training period only | `OR3/data_collection/traffic4cast/t4c22_adapter.py:115`; review 6/11 | the existing loop targets use the whole year (RC 2) |
-| Decision | "excludes zero"; equivalence by TOST at ±3% | Paper 1 §12 | — |
+| Decision | two scales: sign of the interval and margin of ±3% relative | Paper 1 §III-B; review 6/11 | verdicts derived from the two scales in each E<n>.md |
 
 ### 2.2 Part A — what to measure
 
@@ -179,12 +182,13 @@ section. Provenance labels:
 | Masks in training | per batch, a share *u* ~ U(0.6, 0.95) of the observed cells, drawn in whole cells, is input; the other observed nodes stay loss targets (inductive training); hidden nodes never do. At evaluation all observed nodes are input. The preflight asserts that no hidden index appears in the loss tensor | D1 (§9b); review 6/11 | the training/evaluation shift (60–95% against 100% of the observed set) is declared here and in the paper; the same rule holds at every *f* |
 | Arm G0 | GWN without spatial exchange (`none`) | D2 (§9b) | — |
 | Arm G1 | GWN with a given adjacency and learned convolution weights (`fixed`). Given graph: road graph in E9/E10; kNN with k = 4 in E11 only | D2 (§9b) | — |
-| Arm G1-rand | G1 on a randomisation of the same adjacency that preserves the degree sequence (edge swaps, 10·\|E\|, seed recorded) | D2 (§9b) | E11 adds the deliverable's edge-count-only randomisation as a secondary arm |
+| Arm G1-rand | G1 on a randomisation of the same adjacency that preserves the degree sequence and connectivity (edge swaps, 10·\|E\|, seed recorded). The randomised graph receives the multiset of G1's edge weights, permuted over its edges: only the topology changes | D2 (§9b); review 6/11 | E11 adds the deliverable's edge-count-only randomisation as a secondary arm, with the same weight rule |
 | Excluded arm | adaptive adjacency | D2 | it needs per-node parameters that a never-instrumented segment does not have |
 | Node information | inductive: no coordinates, no per-node vectors; static feature `max_speed` only, everywhere | `--inductive --no-coords`; review 6/11 | `lanes` and `max_capacity` are dropped because they are all missing in Madrid and London (R0 §6); declared |
 | Architecture | hidden 32; 4 blocks (dilations 1, 2, 4, 8); graph convolution of order 2; Adam lr 1e-3; batch 32 | `gomo_sparse.py` defaults | inherited, not tuned; fingerprint of the configuration in every run |
 | Training budget | fixed number of updates, no early stopping, 11 checkpoints, selection on the validation-hidden set. The number of updates is fixed by a pilot before the signature; adequacy is checked at twice the budget (order of arms unchanged) | Paper 1 §2 rule 6, §13; review 6/11 | replaces the deliverable's 35 epochs with patience 8 |
 | Class weights | Σfreq / (3·freq_k), on training-period cells of observed nodes only | review 6/11 (follows from D1) | — |
+| Random streams | one generator per stream, `default_rng([seed, k])` with fixed *k*: node sets, per-batch masks, batch order, graph randomisation, weight permutation, network initialisation | review 6/11 | changing an arm never changes node sets, masks or batch order; *k* values in each E<n>.md |
 | Seeds | 5 per cell; the seed determines the node sets. A power calculation from the E11 dispersion comes before E9 is signed | brief | if the expected half-width is too large, seeds go up before the launch, never after |
 | Code base | `models/gomo_sparse.py` at `abbe5a6` (SHA-256 `c82ca3fa…`), copied and changed under `paper4/` | brief §2 | changes outside `paper4/` are recorded in `paper4/MODIFICHE_AL_CODICE.md`; `train_gwn` already loops over all batches (R0 §1) |
 
