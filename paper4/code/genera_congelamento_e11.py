@@ -263,6 +263,9 @@ def load_campaign():
         key = (cfg["city"], cfg["configuration"], cfg["seed"])
         by.setdefault(key, {})[cfg["arm"]] = (r, d)
     configs, red, cost, per_h, hours = [], {}, {}, {}, 0.0
+    ctrl = {"setups": 0, "setups_with_nonfinite_HA": 0, "empty_rows_min": None, "empty_rows_max": None,
+            "empty_rows_equal_hidden": True, "observed_without_training_data": 0,
+            "runs_with_nonfinite_p_on_targets": 0, "files_checked": 0}
     for city, tag, _ in e11.CONFIGS:
         al = p4b.align_graph(city, e11.graph_path(city, tag))
         G = p4b.adaptive_grid(al["coords"]); cells = p4b.grid_cells(al["coords"], G)
@@ -276,9 +279,26 @@ def load_campaign():
             if len(fps) != 1:
                 raise SystemExit(f"STOP: {city} {tag} seed {s}: setup fingerprints differ between arms")
             lab = p4b.node_sets(cells, s)
+            # control of the `p4b.py:367` warning (dated note, 2026-11-06): rebuild the Setup of this
+            # (configuration, seed) and check which rows of the historical-average table are empty
+            su = p4b.Setup(city, e11.graph_path(city, tag), seed=s, device="cpu")
+            has = np.isfinite(su.r[:su.reg_end]).any(0)
+            empty = int((~(su.obs & has)).sum()); hidden = int((~su.obs).sum())
+            ctrl["setups"] += 1; ctrl["setups_with_nonfinite_HA"] += int(not np.isfinite(su.HA).all())
+            ctrl["empty_rows_min"] = empty if ctrl["empty_rows_min"] is None else min(ctrl["empty_rows_min"], empty)
+            ctrl["empty_rows_max"] = empty if ctrl["empty_rows_max"] is None else max(ctrl["empty_rows_max"], empty)
+            ctrl["empty_rows_equal_hidden"] &= empty == hidden
+            ctrl["observed_without_training_data"] += int((su.obs & ~has).sum())
+            if not np.array_equal(su.lab, lab):
+                raise SystemExit(f"STOP: {city} {tag} seed {s}: node sets of the rebuilt Setup differ")
             entry = {"arms": {}}
             for a in ARMS:
                 r, d = arms[a]; hours += r["train_seconds"] / 3600
+                bad = 0
+                for fname in ("val_hidden", "test_hidden", "test_observed"):
+                    with np.load(d / f"{fname}.npz") as q:
+                        bad += int(not np.isfinite(q["p"][:, q["nodes"]]).all()); ctrl["files_checked"] += 1
+                ctrl["runs_with_nonfinite_p_on_targets"] += int(bad > 0)
                 z = np.load(d / "test_hidden.npz")
                 if not np.array_equal(z["nodes"], np.where(lab == 2)[0]):
                     raise SystemExit(f"STOP: {d}: test-hidden nodes differ from the recomputed node sets")
@@ -302,7 +322,7 @@ def load_campaign():
         c.update({"spacing": float(np.mean(sp)), "distance": float(np.mean(di)), "cell_side": float(np.mean(side)),
                   "test_blocks": float(np.median(nb))})
         configs.append(c)
-    extra = {"counts_test_hidden": counts, "counts_test_observed_G1": obs_counts, "machine_hours": hours,
+    extra = {"empty_slice_control": ctrl, "counts_test_hidden": counts, "counts_test_observed_G1": obs_counts, "machine_hours": hours,
              "red_recall_5pct": {f"{k[0]} {k[1]} {k[2]}": float(np.nanmean(v)) for k, v in red.items()},
              "cost_of_not_having_the_sensor": {f"{k[0]} {k[1]}": float(np.mean(v)) for k, v in cost.items()},
              "per_horizon_wce": {f"{k[0]} {k[1]} {k[2]}": np.mean(v, 0).tolist() for k, v in per_h.items()},
@@ -380,10 +400,18 @@ def write(rows, reg, extra, statement, counts):
     L.append(f"1. Cells without a valid target (label −1) are excluded from every mean: test-hidden {ct['missing_cells']:,} of "
              f"{ct['cells']:,} cells ({100 * ct['missing_cells'] / ct['cells']:.2f}%); test-observed (G1) {co['missing_cells']:,} of "
              f"{co['cells']:,}. Test-hidden node-runs without any valid target, excluded: {ct['nodes_without_target']}.")
-    L.append("2. Dated note, 2026-11-06: the warning `p4b.py:367: Mean of empty slice`, printed once per run (240), comes from "
-             "the historical-average table built on observed nodes only; its rows are empty for every hidden node by "
-             "construction (D1). The empty mean is replaced by the global mean and hidden rows are set to zero before any "
-             "input is built: no NaN reaches inputs, predictions or targets.")
+    k = extra["empty_slice_control"]
+    L.append("2. Control of the warning `p4b.py:367: Mean of empty slice` (dated note, 2026-11-06), printed once per run "
+             "(240 of 240). It comes from the historical-average table (node × weekly slot), built on observed nodes "
+             "only (D1); the empty rows lie on the node axis. Checked by this generator on the "
+             f"{k['setups']} rebuilt setups (configuration × seed; the four arms of a seed share them): empty rows "
+             f"{k['empty_rows_min']}–{k['empty_rows_max']} per setup, equal to the hidden nodes in every setup: "
+             f"{k['empty_rows_equal_hidden']}; observed nodes without training data: {k['observed_without_training_data']}; "
+             f"setups with a non-finite value in the historical average: {k['setups_with_nonfinite_HA']}. The empty mean is "
+             "replaced by the global mean and hidden rows are set to zero before any input is built. Per-cell files "
+             f"with a non-finite probability on target nodes: {k['runs_with_nonfinite_p_on_targets']} runs of 240 "
+             f"({k['files_checked']} files checked). No NaN enters the means or the resample, which use per-node sums "
+             "over valid cells only (item 1).")
     L.append("3. The frozen preflight, re-run on the signed version, reports one expected failure: its guard asserts that "
              "test metrics are refused while the signature line is blank. The campaign accepted that line only "
              "(`e11_campagna.py`, commit 885cc40).")
@@ -554,6 +582,7 @@ def main():
     ap.add_argument("--selftest-e2e", metavar="TMPDIR", help="end-to-end run on a synthetic copy (random p)")
     ap.add_argument("--selftest", action="store_true")
     ap.add_argument("--check-inputs", action="store_true", help="checks that read no prediction")
+    ap.add_argument("--compare-with", metavar="JSON", help="previous e11_risultati.json: every number must be identical")
     a = ap.parse_args()
     if a.selftest:
         return selftest()
@@ -561,6 +590,7 @@ def main():
         return selftest_e2e(a.selftest_e2e)
     if a.check_inputs:
         return check_inputs()
+    ap_prev = a.compare_with
     if (OUT / "CONGELAMENTO_E11.md").exists():
         raise SystemExit("STOP: CONGELAMENTO_E11.md exists; regenerate only on purpose, after moving it")
     configs, extra = load_campaign()
@@ -568,6 +598,12 @@ def main():
     statement, counts = summary_statement(rows)
     reg = regressions(rows, reps)
     write(rows, reg, extra, statement, counts)
+    if ap_prev:
+        old = json.loads(Path(ap_prev).read_text()); new = json.loads((OUT / "e11_risultati.json").read_text())
+        keys = [k for k in old if k not in ("commit", "code_dirty", "generator_fingerprint", "written")]
+        diff = [k for k in keys if old[k] != new.get(k)]
+        print("comparison with", ap_prev, ":", "every number identical" if not diff else f"DIFFERENT keys: {diff}")
+        return 0 if not diff else 3
     return 0
 
 
