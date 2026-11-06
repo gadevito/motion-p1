@@ -11,7 +11,8 @@ Derived from `models/gomo_sparse.py` (main `abbe5a6`, SHA-256 c82ca3fa74f805ab).
     class weights (D1). E11 sub-networks use the smallest grid G >= 6 with >= 20 occupied cells;
   * per-batch masks drawn among observed cells only, share u ~ U(0.6, 0.95) in whole cells;
   * fixed number of updates, no early stopping, 11 checkpoints, selection on validation-hidden nodes;
-  * static feature max_speed only (lanes and capacity dropped);
+  * no static attribute: lanes and capacity dropped (missing in Madrid and London) and max_speed dropped
+    after the diagnostic pilot (it acted as a node identifier); its channel is kept at zero;
   * one random stream per purpose, default_rng([seed, k]);
   * randomised graphs change the topology only: they receive G1's weight multiset, permuted.
 
@@ -400,9 +401,9 @@ class Setup:
                 "test_hidden": float(s.test.mean())}
 
     # ---------------------------------------------------------- batches ---------------------------------
-    def batch(s, origins, inp, tgt, static=True):
+    def batch(s, origins, inp, tgt, static=False):
         """inp, tgt: boolean node masks (numpy). Input channels are zero outside `inp`; the loss mask is
-        Cm restricted to `tgt`. static=False zeroes the max_speed channel (diagnostic only)."""
+        Cm restricted to `tgt`. The max_speed channel is zero unless static=True (D0 of the diagnostic pilot)."""
         bt = torch.as_tensor(np.asarray(origins), device=s.dev); B = len(bt); K = s.K
         om = torch.as_tensor(inp.astype("float32"), device=s.dev).view(1, K, 1)
 
@@ -446,7 +447,7 @@ def wce_np(P, Y, W):
 
 # ---------------------------------------------------------------- training ---------------------------
 
-def predict(net, su, A, origins, inp, tgt, bs=256, static=True):
+def predict(net, su, A, origins, inp, tgt, bs=256, static=False):
     """Probabilities (n_orig, K, H, 3) and labels (-1 where not a target)."""
     net.eval(); P, Y = [], []
     with torch.no_grad():
@@ -457,13 +458,13 @@ def predict(net, su, A, origins, inp, tgt, bs=256, static=True):
     return np.concatenate(P), np.concatenate(Y)
 
 
-def train(su, arm, A, U, checkpoints, log=None, lr=1e-3, static=True, input_extra=None, target_extra=None,
+def train(su, arm, A, U, checkpoints, log=None, lr=1e-3, static=False, input_extra=None, target_extra=None,
           dropout=0.0):
     """Fixed number of updates U; `checkpoints` = sorted update counts at which validation-hidden wCE is
     computed (input = all observed nodes). Returns the selected state (min validation wCE among the
     checkpoints), the trajectory and counters. Never touches test origins.
 
-    Diagnostic options (pilot only, never in the campaign): lr; static=False drops max_speed;
+    Diagnostic options (pilot only, never in the campaign): lr; static=True restores max_speed; dropout;
     input_extra = nodes always in input and never targets; target_extra = nodes always targets in training
     and never input. The trajectory also records the mean training loss since the previous checkpoint."""
     graph = arm != "G0"

@@ -364,6 +364,50 @@ def pilot(args):
     return 0
 
 
+def pilot_perimeter(args):
+    """Pilot on the adopted perimeter (no static attribute, lr 1e-3, no dropout; review 2026-11-06 17:00):
+    G0 and G1, 2,000 updates, validation every 250. Confirms U from the mechanical rule and estimates the
+    order of magnitude of the half-width of I_c at U. Validation only."""
+    city, tag = PILOT
+    su = p4b.Setup(city, graph_path(city, tag), seed=0)
+    L = 2000; cks = list(range(0, L + 1, 250)); res = {}
+    for arm in ("G0", "G1"):
+        res[arm] = p4b.train(su, arm, adjacency(su, arm)[0], U=L, checkpoints=cks, log=print)
+    first = {}
+    for arm, o in res.items():
+        v = np.array([d["val_wce"] for d in o["trajectory"]]); u = np.array([d["update"] for d in o["trajectory"]])
+        first[arm] = int(u[np.argmax(v <= 1.01 * v.min())])
+    U = int(np.ceil(max(first.values()) / 500) * 500)
+    def order(k):
+        a = next(d["val_wce"] for d in res["G0"]["trajectory"] if d["update"] == k)
+        b = next(d["val_wce"] for d in res["G1"]["trajectory"] if d["update"] == k)
+        return "G0<G1" if a < b else "G1<=G0"
+    doubled = order(U) != order(2 * U)
+    if doubled:
+        U *= 2
+    adequate = 2 * U <= L and order(U) == order(2 * U)
+    preds = {}
+    for arm, o in res.items():
+        o["net"].load_state_dict(o["states"][U])
+        preds[arm] = p4b.predict(o["net"], su, o["A"], su.va, su.obs, su.val)
+    hw, nb = block_halfwidth(preds["G1"][0], preds["G0"][0], preds["G0"][1], su.cells, su.val, su.W)
+    out = {"protocol": "protocol/paper4/E11.md", "configuration": f"{city} {tag}", "seed": 0, "length": L,
+           "perimeter": "no static attribute, lr 1e-3, no dropout", "first_within_1pct": first, "U": U,
+           "U_doubled": doubled, "adequacy_order_same_at_U_and_2U": adequate,
+           "expected_halfwidth_points": round(hw, 3), "halfwidth_blocks": nb,
+           "trajectories": {a: o["trajectory"] for a, o in res.items()}}
+    c, dirty = p4b.git_commit(); out.update({"commit": c, "code_dirty": dirty,
+                                             "written": datetime.now(timezone.utc).isoformat()})
+    path = RUNS / "e11_pilota_perimetro.json"
+    if path.exists():
+        raise FileExistsError(f"{path} exists")
+    path.write_text(json.dumps(out, indent=1))
+    print(json.dumps({k: out[k] for k in ("first_within_1pct", "U", "U_doubled", "adequacy_order_same_at_U_and_2U",
+                                          "expected_halfwidth_points", "halfwidth_blocks")}, indent=1))
+    print(f"pilot (perimeter) -> {path} ({p4b.sha256(path, 16)})")
+    return 0
+
+
 # ---------------------------------------------------------------- cost -------------------------------
 
 def cost(args):
@@ -403,9 +447,10 @@ def main():
     sp = ap.add_subparsers(dest="cmd", required=True)
     sp.add_parser("preflight")
     p = sp.add_parser("pilot"); p.add_argument("--length", type=int, default=8000)
+    sp.add_parser("pilot-perimeter")
     c = sp.add_parser("cost"); c.add_argument("--updates", type=int, required=True)
     a = ap.parse_args()
-    return {"preflight": preflight, "pilot": pilot, "cost": cost}[a.cmd](a)
+    return {"preflight": preflight, "pilot": pilot, "pilot-perimeter": pilot_perimeter, "cost": cost}[a.cmd](a)
 
 
 if __name__ == "__main__":

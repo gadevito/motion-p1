@@ -31,11 +31,11 @@ import p4b  # noqa: E402
 from e11 import PILOT, PREREG, RUNS, adjacency, graph_path  # noqa: E402
 
 VARIANTS = [
-    ("D0", "G0", {}), ("D0", "G1", {}),
-    ("D1", "G0", {"static": False}), ("D1", "G1", {"static": False}),
-    ("D2", "G1", {"input_extra": "val"}),
-    ("D2-bis", "G1", {"target_extra": "val"}),
-    ("D3", "G0", {"lr": 1e-4}), ("D3", "G1", {"lr": 1e-4}),
+    ("D0", "G0", {"static": True}), ("D0", "G1", {"static": True}),
+    ("D1", "G0", {"static": False}), ("D1", "G1", {"static": False}),   # as run on 2026-11-06 (default then True)
+    ("D2", "G1", {"static": True, "input_extra": "val"}),
+    ("D2-bis", "G1", {"static": True, "target_extra": "val"}),
+    ("D3", "G0", {"static": True, "lr": 1e-4}), ("D3", "G1", {"static": True, "lr": 1e-4}),
 ]
 D4 = [("D4", "G0", {"static": False, "dropout": 0.3}), ("D4", "G1", {"static": False, "dropout": 0.3})]
 D1_G1_MIN = 1.0706
