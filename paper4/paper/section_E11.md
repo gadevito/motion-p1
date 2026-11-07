@@ -1,7 +1,7 @@
 # Paper 4 — draft of the E11 section (geometry under protocol)
 
 Draft of 2026-11-06. Every number comes from `paper4/congelamenti/CONGELAMENTO_E11.md` (frozen record of
-E11; regenerated version, commit _______) or from the pilot of `protocol/paper4/E11.md`. Validation numbers are
+E11; regenerated version, commit 4e04ba7, fingerprint 459b43ee3e649a31) or from the pilot of `protocol/paper4/E11.md`. Validation numbers are
 labelled as such. Numbers are in points of the G0 wCE, positive when the first arm is better, with 95%
 intervals from a joint resample of seeds and corridor blocks.
 
@@ -54,9 +54,9 @@ gives none.
 nearest observed one, the declared sensitivity analysis, gives −0.003 points/m [−0.008; +0.007].
 
 **Operational reading.** At 5% false alarms (threshold chosen on validation-hidden nodes), red recall on hidden
-nodes is 0.04–0.08 in Madrid, against a realised false-alarm rate on test of _______ (frozen record,
-regenerated version): close to the false-alarm rate itself. In Melbourne it is 0.07–0.25, with no arm
-consistently ahead. On segments never seen, none of the arms separates congestion from free flow in Madrid.
+nodes is 0.04–0.08 in Madrid, against a realised false-alarm rate on test of 0.03–0.06: close to the
+false-alarm rate itself. In Melbourne recall is 0.07–0.25 against a realised false-alarm rate of 0.05–0.11,
+with no arm consistently ahead. On segments never seen, none of the arms separates congestion from free flow in Madrid.
 
 > **On compact sub-networks, with the hidden nodes never in input, propagation from instrumented neighbours
 > gives no measurable gain, and which neighbours the graph connects cannot matter where the graph itself does
