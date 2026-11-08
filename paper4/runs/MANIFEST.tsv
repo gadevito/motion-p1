@@ -60,3 +60,5 @@ OR3/data_collection/go-mo/gomo/targets_2024_m30.npz	b41779dd51923c31d1f2ffce0f4c
 OLD/austin/radar/radar_completo.json	46f68813cf8a48397ec50a3d336faff69ee836c874f53f9fb30c141b1979036a	2449862982	2026-11-08T13:55:40Z
 OR3/data_collection/t4c_crossval.py	0320018785d5658dfe6c0de4ddf08aec6b54b99e0ffe01eddac92a66d95d15d1	10617	2026-11-08T13:55:40Z
 OR3/data_collection/traffic4cast/MADRID_2022/speed_classes/madrid/ (listing of 109 files)	7eb5fcf855edae1f21c13e4357991d580dfc20339ac22e67526bce73be5f9284	10791	2026-11-08T13:55:40Z
+paper4/runs/p4a_preflight.log	4060b7b02a082c592d41fa80d17f6f41c7fe2f4a1ab2da6a5e5ed12699c66226	1579	2026-11-08T13:57:06Z
+paper4/runs/p4a_costo.json	a2256466d8fe5b699135981908ba7c5fde184901449614450c8a3da8b629253f	201	2026-11-08T13:57:06Z

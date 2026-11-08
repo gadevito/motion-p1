@@ -1,7 +1,9 @@
 # P4A — What does a loop detector measure of congestion?
 
-**Pre-registration.** Date _______ · commit _______ (code `p4a.py` _______; preflight log `p4a_preflight.log`
-_______) · launched by Fabio Palomba (Mac M3 Max, CPU) · preflight _/_ · cost _______.
+**Pre-registration.** Date _______ · commit f99b765 (code `p4a.py` ff3204dee7064a27, `p4b.py` 926061038a7472a3;
+preflight log `p4a_preflight.log` 4060b7b02a082c59) · launched by Fabio Palomba (Mac M3 Max, CPU) · preflight 9/9 ·
+cost ≤ 2 h (0.21 s per replicate of a 4.2-million-cell figure × 17 figures × 2,000 replicates, an upper bound;
+Austin loaded in 43 s, peak memory 11.0 GB; `p4a_costo.json` a2256466d8fe5b69).
 
 Draft of 2026-11-08, on the decisions of the internal review of 2026-11-08 (14:50 and 15:00). No training: data analyses
 only. **No number of Tables 67–69 or of the three corrections is computed before the signature**, except the
@@ -129,7 +131,8 @@ its text says the data found no threshold.
   section's area under the curve (aggregated reconstructed factor against "at least one lane red").
 - **Interval:** bootstrap over sections, 2,000 replicates, `default_rng([20261109, 300])`.
 - One-lane sections are excluded, since nothing is aggregated there, as in the deliverable. The brief counts 31
-  sections; the count of each level is reported by the preflight, and any difference is explained.
+  sections. The preflight counts 40 sections after the script's filters: 10 with one lane and 30 with at least
+  2 (22, 6 and 2, as in Table 69). The 31 is not reproduced, and the analysis uses the 30 counted sections.
 - The per-level areas are reported as descriptive, not as estimates.
 
 ## Reading rules (declared; descriptive, not confirmatory)
