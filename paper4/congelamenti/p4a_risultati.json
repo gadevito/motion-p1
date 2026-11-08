@@ -1,0 +1,1080 @@
+{
+ "results_sha256": "abffc5fb5527cd66",
+ "results": {
+  "started": "2026-11-08T14:03:31.124496+00:00",
+  "crossval": {
+   "base": {
+    "pairs_valid": 399,
+    "corr_median": 0.041,
+    "class_agreement": 44.0,
+    "recall_yellow_red": 16.7,
+    "profile_median": 0.13,
+    "classes_reconstructed": [
+     85.4,
+     11.4,
+     3.2
+    ],
+    "classes_measured": null,
+    "spearman_r": 0.0397,
+    "pairs_r": 399,
+    "spearman_occupancy": -0.1252,
+    "pairs_occupancy": 399,
+    "spearman_flow": -0.141,
+    "pairs_flow": 399,
+    "corr_median_csv": 0.0405191647215822
+   },
+   "noempty": {
+    "pairs_valid": 275,
+    "corr_median": 0.011,
+    "class_agreement": 39.0,
+    "recall_yellow_red": 54.3,
+    "profile_median": -0.103,
+    "classes_reconstructed": [
+     45.7,
+     42.4,
+     11.9
+    ],
+    "classes_measured": null,
+    "spearman_r": 0.0157,
+    "pairs_r": 276,
+    "spearman_occupancy": -0.0689,
+    "pairs_occupancy": 276,
+    "spearman_flow": -0.0712,
+    "pairs_flow": 276,
+    "corr_median_csv": 0.0113564762404963
+   },
+   "d30": {
+    "pairs_valid": 181,
+    "corr_median": 0.045,
+    "class_agreement": 42.9,
+    "recall_yellow_red": 18.7,
+    "profile_median": 0.13,
+    "classes_reconstructed": [
+     83.6,
+     13.5,
+     2.9
+    ],
+    "classes_measured": null,
+    "spearman_r": 0.0463,
+    "pairs_r": 181,
+    "spearman_occupancy": -0.1447,
+    "pairs_occupancy": 181,
+    "spearman_flow": -0.1462,
+    "pairs_flow": 181,
+    "corr_median_csv": 0.0451525893431064
+   }
+  },
+  "m30_counts": {
+   "sensors": 279,
+   "timestamps": 35093,
+   "valid_cells": 9194402,
+   "imputed_share": 0.543304719545654,
+   "non_imputed_cells": 4199040
+  },
+  "table67": {
+   "overall": {
+    "value": 0.2491208045055669,
+    "lo": 0.207642903160158,
+    "hi": 0.2901098434688482,
+    "n": 4199040
+   },
+   "band 5-10%": {
+    "value": -0.11181284194215632,
+    "lo": -0.1364408364918286,
+    "hi": -0.08561106046687117,
+    "n": 2677304
+   },
+   "band 10-20%": {
+    "value": 0.06750577257524698,
+    "lo": -0.029565915403538524,
+    "hi": 0.16878373583070858,
+    "n": 1179952
+   },
+   "band 20-40%": {
+    "value": 0.2656588620111609,
+    "lo": 0.1189168569773252,
+    "hi": 0.4088406252797399,
+    "n": 269809
+   },
+   "band 40-100%": {
+    "value": 0.4626618039818017,
+    "lo": 0.2837793395999866,
+    "hi": 0.6200809126435417,
+    "n": 71949
+   },
+   "class green": {
+    "value": 0.0124783511448204,
+    "lo": -0.018681017732141165,
+    "hi": 0.04392203717196984,
+    "n": 3432842
+   },
+   "class yellow": {
+    "value": 0.45781703828210407,
+    "lo": 0.3202104935951538,
+    "hi": 0.6168861507099996,
+    "n": 622758
+   },
+   "class red": {
+    "value": 0.632056681483396,
+    "lo": 0.5433528160557244,
+    "hi": 0.7175685823695384,
+    "n": 143440
+   },
+   "auc red": {
+    "value": 0.983825489653486,
+    "lo": 0.9793448684785832,
+    "hi": 0.9878170763133662
+   },
+   "auc yellow+red": {
+    "value": 0.7516143603732764,
+    "lo": 0.705656946249799,
+    "hi": 0.803731907288344
+   },
+   "deliverable rule, in sample": {
+    "0.20": {
+     "precision": 0.5514938907680625,
+     "recall": 0.6126603457891802,
+     "F1": 0.5804702284429092
+    },
+    "0.30": {
+     "precision": 0.49756000747174745,
+     "recall": 0.8913622420524261,
+     "F1": 0.6386335937343909
+    },
+    "0.40": {
+     "precision": 0.4156320003288228,
+     "recall": 0.9869492470719464,
+     "F1": 0.5849325171625187
+    },
+    "0.50": {
+     "precision": 0.33892650866361285,
+     "recall": 0.9965630228667038,
+     "F1": 0.5058244456868671
+    }
+   },
+   "random precision": 0.03416018899557994
+  },
+  "table68": {
+   "same sensor": {
+    "median_distance_m": 0.0,
+    "sensors": 279,
+    "spearman": {
+     "value": 0.2491208045055669,
+     "lo": 0.20716427260261927,
+     "hi": 0.2922156603983884
+    },
+    "auc": {
+     "value": 0.983825489653486,
+     "lo": 0.9789054330431376,
+     "hi": 0.987809897497816
+    },
+    "gini": {
+     "value": 0.9676509793069721,
+     "lo": 0.9578108660862751,
+     "hi": 0.975619794995632
+    }
+   },
+   "neighbour 0-20 m": {
+    "median_distance_m": 14.483999827104807,
+    "sensors": 191,
+    "spearman": {
+     "value": 0.09036678281396614,
+     "lo": 0.0442161735203978,
+     "hi": 0.14009643871758012
+    },
+    "auc": {
+     "value": 0.7893315311498519,
+     "lo": 0.7234625963819576,
+     "hi": 0.8533359354453821
+    },
+    "gini": {
+     "value": 0.5786630622997038,
+     "lo": 0.4469251927639152,
+     "hi": 0.7066718708907641
+    }
+   },
+   "neighbour 19-72 m": {
+    "median_distance_m": 31.132289102265027,
+    "sensors": 181,
+    "spearman": {
+     "value": 0.08167397159280756,
+     "lo": 0.032627334954346485,
+     "hi": 0.12827138687889222
+    },
+    "auc": {
+     "value": 0.724143691766886,
+     "lo": 0.6602936977523597,
+     "hi": 0.7954073878321221
+    },
+    "gini": {
+     "value": 0.44828738353377195,
+     "lo": 0.32058739550471926,
+     "hi": 0.5908147756642441
+    }
+   },
+   "neighbour 20-60 m": {
+    "median_distance_m": 31.132289102265027,
+    "sensors": 156,
+    "spearman": {
+     "value": 0.087255505091479,
+     "lo": 0.03397499167526187,
+     "hi": 0.13924867534025362
+    },
+    "auc": {
+     "value": 0.7637816978099189,
+     "lo": 0.699194532321791,
+     "hi": 0.8263415265089511
+    },
+    "gini": {
+     "value": 0.5275633956198378,
+     "lo": 0.39838906464358187,
+     "hi": 0.6526830530179022
+    }
+   },
+   "neighbour 60-200 m": {
+    "median_distance_m": 95.76045677321103,
+    "sensors": 165,
+    "spearman": {
+     "value": 0.03293240667269746,
+     "lo": -0.00446553725685286,
+     "hi": 0.07405630507761911
+    },
+    "auc": {
+     "value": 0.593354820252423,
+     "lo": 0.5394083206120466,
+     "hi": 0.6552070034666414
+    },
+    "gini": {
+     "value": 0.18670964050484606,
+     "lo": 0.0788166412240931,
+     "hi": 0.31041400693328286
+    }
+   }
+  },
+  "arterials": {
+   "shift_quarter_hours": 1,
+   "pairs": 404,
+   "pairs_with_auc": 394,
+   "pairs_with_spearman": 399,
+   "auc_median": {
+    "value": 0.5060824505467925,
+    "lo": 0.5043491598476852,
+    "hi": 0.5079630999409893
+   },
+   "spearman_median": {
+    "value": 0.03970355679499391,
+    "lo": 0.03189941293821049,
+    "hi": 0.048245603221266614
+   },
+   "auc_pooled": {
+    "value": 0.5251009715035689,
+    "lo": 0.5168929487766791,
+    "hi": 0.5341416156964869
+   },
+   "spearman_pooled": {
+    "value": 0.07246688103642937,
+    "lo": 0.05726698204716316,
+    "hi": 0.08938746252634303
+   },
+   "cells": 2069177
+  },
+  "gini_split": {
+   "primary": {
+    "G_same": 0.9676509793069721,
+    "G_19_72": 0.44828738353377195,
+    "G_arterials": 0.012164901093584923,
+    "share_matching": {
+     "value": 0.5435595636770874,
+     "lo": 0.3949734733759523,
+     "hi": 0.6755125195439554
+    }
+   },
+   "secondary": {
+    "G_same": 0.9676509793069721,
+    "G_19_72": 0.44828738353377195,
+    "G_arterials": 0.05020194300713787,
+    "share_matching": {
+     "value": 0.566095309084248,
+     "lo": 0.4113917590837637,
+     "hi": 0.7049158196206218
+    }
+   }
+  },
+  "correction1": {
+   "between_sensors": {
+    "per_split": [
+     {
+      "threshold_F1": 0.28,
+      "F1": 0.6518718970403359,
+      "precision": 0.5325801229044445,
+      "recall": 0.8400285565226941,
+      "threshold_FA": 0.4,
+      "recall_FA": 0.9882341634860924,
+      "fa_FA": 0.04856954249974826
+     },
+     {
+      "threshold_F1": 0.29,
+      "F1": 0.6650285986412479,
+      "precision": 0.5390440210249672,
+      "recall": 0.8678646515133485,
+      "threshold_FA": 0.38,
+      "recall_FA": 0.9850582463934838,
+      "fa_FA": 0.04214201142809625
+     },
+     {
+      "threshold_F1": 0.28,
+      "F1": 0.6224101938457367,
+      "precision": 0.4982161303483537,
+      "recall": 0.8290815589518389,
+      "threshold_FA": 0.39,
+      "recall_FA": 0.9740415450842169,
+      "fa_FA": 0.04477405232391508
+     },
+     {
+      "threshold_F1": 0.29,
+      "F1": 0.6339011975750841,
+      "precision": 0.5050793324531793,
+      "recall": 0.8509343242631292,
+      "threshold_FA": 0.39,
+      "recall_FA": 0.9738415844221574,
+      "fa_FA": 0.04566966642084654
+     },
+     {
+      "threshold_F1": 0.28,
+      "F1": 0.6264301899460095,
+      "precision": 0.4867373332657098,
+      "recall": 0.8785817977322365,
+      "threshold_FA": 0.46,
+      "recall_FA": 0.9933301073721931,
+      "fa_FA": 0.07116493238098691
+     }
+    ],
+    "F1": {
+     "value": 0.6399284154096828,
+     "lo": 0.539278864955333,
+     "hi": 0.7254450279579913
+    },
+    "precision": {
+     "value": 0.5123313879993309,
+     "lo": 0.39667672798681014,
+     "hi": 0.6211697753822126
+    },
+    "recall": {
+     "value": 0.8532981777966494,
+     "lo": 0.7596650157327738,
+     "hi": 0.9263568412900824
+    },
+    "recall_FA": {
+     "value": 0.9829011293516288,
+     "lo": 0.9491247724898364,
+     "hi": 0.9991567372591708
+    },
+    "fa_FA": {
+     "value": 0.05046404101071861,
+     "lo": 0.03359915154502151,
+     "hi": 0.08255325677364653
+    }
+   },
+   "in_time": {
+    "per_split": [
+     {
+      "threshold_F1": 0.23,
+      "F1": 0.6231213595723771,
+      "precision": 0.5695964007654216,
+      "recall": 0.6877491269533317,
+      "threshold_FA": 0.36,
+      "recall_FA": 0.9735264030477265,
+      "fa_FA": 0.041447339830296706
+     },
+     {
+      "threshold_F1": 0.26,
+      "F1": 0.6812410432788765,
+      "precision": 0.592250669656762,
+      "recall": 0.8017033476684374,
+      "threshold_FA": 0.36,
+      "recall_FA": 0.9762880512690784,
+      "fa_FA": 0.037920124541585505
+     },
+     {
+      "threshold_F1": 0.27,
+      "F1": 0.6259389157886152,
+      "precision": 0.5159776044595487,
+      "recall": 0.7954618269538832,
+      "threshold_FA": 0.37,
+      "recall_FA": 0.9632686907521532,
+      "fa_FA": 0.0403357039827295
+     },
+     {
+      "threshold_F1": 0.27,
+      "F1": 0.6569661444896218,
+      "precision": 0.5484200732819517,
+      "recall": 0.8190832361215947,
+      "threshold_FA": 0.39,
+      "recall_FA": 0.9752453166815344,
+      "fa_FA": 0.043595115534846934
+     },
+     {
+      "threshold_F1": 0.32,
+      "F1": 0.6333542171122813,
+      "precision": 0.4763748439848188,
+      "recall": 0.9446408728154359,
+      "threshold_FA": 0.45,
+      "recall_FA": 0.9931642926894972,
+      "fa_FA": 0.06590347593289447
+     }
+    ],
+    "F1": {
+     "value": 0.6441243360483544,
+     "lo": 0.5386257446007612,
+     "hi": 0.7328960969294717
+    },
+    "precision": {
+     "value": 0.5405239184297005,
+     "lo": 0.4039716037301496,
+     "hi": 0.6657363887161415
+    },
+    "recall": {
+     "value": 0.8097276821025365,
+     "lo": 0.6160883238601519,
+     "hi": 0.9595865993494725
+    },
+    "recall_FA": {
+     "value": 0.9762985508879979,
+     "lo": 0.9385232013229007,
+     "hi": 0.9989050108187202
+    },
+    "fa_FA": {
+     "value": 0.04584035196447063,
+     "lo": 0.02994399244372034,
+     "hi": 0.07530537578307486
+    }
+   }
+  },
+  "thresholds_sha256": "02b1c3316d44ecec",
+  "austin": {
+   "counts": {
+    "cells": 4554698,
+    "lanes": 76,
+    "sections": 40,
+    "sections_by_lanes": {
+     "1": 10,
+     "2": 22,
+     "3": 6,
+     "4": 2
+    }
+   },
+   "within_lane_spearman_median": {
+    "value": 0.705792158224973,
+    "lo": 0.6662375129225282,
+    "hi": 0.7640357981418547,
+    "n": 76
+   },
+   "within_lane_spearman_iqr": [
+    0.6054924380701199,
+    0.8003126273907664
+   ],
+   "within_lane_auc_median": {
+    "value": 0.9906213447808648,
+    "lo": 0.9834231813181251,
+    "hi": 0.9977301717058479,
+    "n": 69
+   },
+   "within_lane_auc_iqr": [
+    0.96467392998556,
+    0.9983978337863142
+   ],
+   "volume_occupancy_lane": {
+    "value": 0.7353019960706343,
+    "lo": 0.6780784505072649,
+    "hi": 0.8289738956578973,
+    "n": 1559706
+   },
+   "volume_occupancy_section": {
+    "value": 0.7391970873053514,
+    "lo": 0.5824153504912762,
+    "hi": 0.9020570854279704,
+    "n": 588040
+   },
+   "sections_3plus_lanes": 8,
+   "table69": {
+    "2": {
+     "sections": 22,
+     "cells": 1432457,
+     "listed_by_script": true,
+     "auc_median": {
+      "value": 0.9900552789265358,
+      "lo": 0.9849314962712428,
+      "hi": 0.9973435556465392,
+      "n": 21
+     },
+     "auc_iqr": [
+      0.9823604631656094,
+      0.9973785906162169
+     ],
+     "prevalence_difference_points": {
+      "value": 0.19260613058542073,
+      "lo": 0.08377748198430836,
+      "hi": 0.33253859961790544
+     }
+    },
+    "3": {
+     "sections": 6,
+     "cells": 433660,
+     "listed_by_script": true,
+     "auc_median": {
+      "value": 0.7546229030190865,
+      "lo": 0.4614350087007558,
+      "hi": 0.9965923968995767,
+      "n": 6
+     },
+     "auc_iqr": [
+      0.48949525869410065,
+      0.9948575695501405
+     ],
+     "prevalence_difference_points": {
+      "value": 18.61988654706452,
+      "lo": 3.8676496260188804,
+      "hi": 33.34991894451311
+     }
+    },
+    "4": {
+     "sections": 2,
+     "cells": 154380,
+     "listed_by_script": true,
+     "auc_median": {
+      "value": 0.6643554872505218,
+      "n": 2,
+      "note": "fewer than 5 sections: no interval"
+     },
+     "auc_iqr": [
+      0.5330890079417953,
+      0.7956219665592483
+     ],
+     "prevalence_difference_points": {
+      "value": 9.88275683378676,
+      "note": "fewer than 5 sections: no interval"
+     }
+    }
+   }
+  },
+  "correction3": {
+   "sections": 29,
+   "spearman_lanes_auc": {
+    "value": -0.4405334618476922,
+    "lo": -0.7142348058258515,
+    "hi": -0.07177479503739748
+   },
+   "by_lanes": {
+    "2": 21,
+    "3": 6,
+    "4": 2
+   }
+  },
+  "screen_outputs": {
+   "crossval_base.txt": "5cb8d502d5fa05c8",
+   "crossval_d30.txt": "f6d1ef46d6109df9",
+   "crossval_noempty.txt": "b6be27194fefbc91",
+   "script_accoppiamento.txt": "60af743fb1675cb0",
+   "script_anello.txt": "2aede29b7f7b1ef6",
+   "script_austin.txt": "929069c2cbef71df"
+  },
+  "inputs": {
+   "OR3/data_collection/go-mo/gomo/targets_2021_urb_d8.npz": "b5db8261fd295077",
+   "OR3/data_collection/go-mo/gomo/traffic_sensors.csv": "63cf54c05e4b380e",
+   "OR3/data_collection/traffic4cast/MADRID_2022/road_graph_nodes_osm.parquet": "26045de9b9b22b68",
+   "OR3/data_collection/traffic4cast/MADRID_2022/road_graph_edges_district.parquet": "f2027534873a5715",
+   "OR3/data_collection/go-mo/gomo/tensors_2024_m30.npz": "3780d3aa589c51f5",
+   "OR3/data_collection/go-mo/gomo/targets_2024_m30.npz": "b41779dd51923c31",
+   "OR3_vecchia_storia/austin/radar/radar_completo.json": "46f68813cf8a4839",
+   "OR3/data_collection/traffic4cast/MADRID_2022/speed_classes/madrid": "7eb5fcf855edae1f"
+  },
+  "code": {
+   "p4a.py": "ff3204dee7064a27",
+   "p4b.py": "926061038a7472a3"
+  },
+  "commit": "e53d3cb235c0984a0b86996aeb7a60380d7cc221",
+  "code_dirty": false,
+  "finished": "2026-11-08T14:29:05.601205+00:00",
+  "seconds": 1534.4262723755091
+ },
+ "comparison": {
+  "T64 pairs": [
+   "p. 127, Table 64",
+   "399",
+   "399.0",
+   "identical"
+  ],
+  "T64 corr median": [
+   "p. 127, Table 64",
+   "0,04",
+   "0.041",
+   "identical"
+  ],
+  "T64 profile median": [
+   "p. 127, Table 64",
+   "0,13",
+   "0.130",
+   "identical"
+  ],
+  "T64 class agreement %": [
+   "p. 127, Table 64",
+   "44",
+   "44.0",
+   "identical"
+  ],
+  "T64 recall yellow+red %": [
+   "p. 127, Table 64",
+   "16,7",
+   "16.70",
+   "identical"
+  ],
+  "T65 Spearman r": [
+   "p. 128, Table 65",
+   "+0,0397",
+   "0.03970",
+   "identical"
+  ],
+  "T65 Spearman occupancy": [
+   "p. 128, Table 65",
+   "-0,1252",
+   "-0.12520",
+   "identical"
+  ],
+  "T65 Spearman flow": [
+   "p. 128, Table 65",
+   "-0,1410",
+   "-0.14100",
+   "identical"
+  ],
+  "T65 Spearman r, trafficked": [
+   "p. 128, Table 65",
+   "+0,0157",
+   "0.01570",
+   "identical"
+  ],
+  "T65 pairs, trafficked": [
+   "p. 128, Table 65",
+   "276",
+   "276.0",
+   "identical"
+  ],
+  "T65 Spearman occupancy, trafficked": [
+   "p. 128, Table 65",
+   "-0,0689",
+   "-0.06890",
+   "identical"
+  ],
+  "T65 Spearman flow, trafficked": [
+   "p. 128, Table 65",
+   "-0,0712",
+   "-0.07120",
+   "identical"
+  ],
+  "T64 corr median, 30 m": [
+   "p. 127, text",
+   "0,0452",
+   "0.04515",
+   "identical"
+  ],
+  "T64 pairs, 30 m": [
+   "p. 127, text",
+   "181",
+   "181.0",
+   "identical"
+  ],
+  "M30 sensors": [
+   "p. 130, text",
+   "279",
+   "279.0",
+   "identical"
+  ],
+  "M30 imputed %": [
+   "p. 130, text",
+   "54,33",
+   "54.330",
+   "identical"
+  ],
+  "T67 overall": [
+   "p. 130, text",
+   "+0,255",
+   "0.2491",
+   "differs (-0.006)"
+  ],
+  "T67 band 5-10%": [
+   "p. 130, Table 67",
+   "-0,112",
+   "-0.1118",
+   "identical"
+  ],
+  "T67 band 10-20%": [
+   "p. 130, Table 67",
+   "+0,068",
+   "0.0675",
+   "identical"
+  ],
+  "T67 band 20-40%": [
+   "p. 130, Table 67",
+   "+0,266",
+   "0.2657",
+   "identical"
+  ],
+  "T67 band 40-100%": [
+   "p. 130, Table 67",
+   "+0,463",
+   "0.4627",
+   "identical"
+  ],
+  "T67 class green": [
+   "p. 130, Table 67",
+   "+0,033",
+   "0.0125",
+   "differs (-0.021)"
+  ],
+  "T67 class yellow": [
+   "p. 130, Table 67",
+   "+0,458",
+   "0.4578",
+   "identical"
+  ],
+  "T67 class red": [
+   "p. 130, Table 67",
+   "+0,632",
+   "0.6321",
+   "identical"
+  ],
+  "T67 cells band 5-10%": [
+   "p. 130, Table 67",
+   "2677304",
+   "2677304.0",
+   "identical"
+  ],
+  "T67 cells band 10-20%": [
+   "p. 130, Table 67",
+   "1179952",
+   "1179952.0",
+   "identical"
+  ],
+  "T67 cells band 20-40%": [
+   "p. 130, Table 67",
+   "269809",
+   "269809.0",
+   "identical"
+  ],
+  "T67 cells band 40-100%": [
+   "p. 130, Table 67",
+   "71949",
+   "71949.0",
+   "identical"
+  ],
+  "T67 cells class green": [
+   "p. 130, Table 67",
+   "2989877",
+   "3432842.0",
+   "differs (+442965)"
+  ],
+  "T67 cells class yellow": [
+   "p. 130, Table 67",
+   "622758",
+   "622758.0",
+   "identical"
+  ],
+  "T67 cells class red": [
+   "p. 130, Table 67",
+   "143440",
+   "143440.0",
+   "identical"
+  ],
+  "T67 auc red": [
+   "p. 131, text",
+   "0,984",
+   "0.9838",
+   "identical"
+  ],
+  "T67 auc yellow+red": [
+   "p. 131, text",
+   "0,752",
+   "0.7516",
+   "identical"
+  ],
+  "T67 precision at 0.30": [
+   "p. 131, text",
+   "0,498",
+   "0.4976",
+   "identical"
+  ],
+  "T67 recall at 0.30": [
+   "p. 131, text",
+   "0,891",
+   "0.8914",
+   "identical"
+  ],
+  "T67 random precision": [
+   "p. 131, text",
+   "0,034",
+   "0.0342",
+   "identical"
+  ],
+  "T68 same spearman": [
+   "p. 132, Table 68",
+   "+0,255",
+   "0.2491",
+   "differs (-0.006)"
+  ],
+  "T68 same auc": [
+   "p. 132, Table 68",
+   "0,984",
+   "0.9838",
+   "identical"
+  ],
+  "T68 same gini": [
+   "p. 132, Table 68",
+   "0,968",
+   "0.9677",
+   "identical"
+  ],
+  "T68 0-20 distance": [
+   "p. 132, Table 68",
+   "14",
+   "14.5",
+   "identical"
+  ],
+  "T68 0-20 spearman": [
+   "p. 132, Table 68",
+   "+0,086",
+   "0.0904",
+   "differs (+0.004)"
+  ],
+  "T68 0-20 auc": [
+   "p. 132, Table 68",
+   "0,789",
+   "0.7893",
+   "identical"
+  ],
+  "T68 0-20 gini": [
+   "p. 132, Table 68",
+   "0,578",
+   "0.5787",
+   "differs (+0.001)"
+  ],
+  "T68 19-72 distance": [
+   "p. 132, Table 68",
+   "31",
+   "31.1",
+   "identical"
+  ],
+  "T68 19-72 spearman": [
+   "p. 132, Table 68",
+   "+0,076",
+   "0.0817",
+   "differs (+0.006)"
+  ],
+  "T68 19-72 auc": [
+   "p. 132, Table 68",
+   "0,726",
+   "0.7241",
+   "differs (-0.002)"
+  ],
+  "T68 19-72 gini": [
+   "p. 132, Table 68",
+   "0,452",
+   "0.4483",
+   "differs (-0.004)"
+  ],
+  "T68 20-60 distance": [
+   "p. 132, Table 68",
+   "31",
+   "31.1",
+   "identical"
+  ],
+  "T68 20-60 spearman": [
+   "p. 132, Table 68",
+   "+0,080",
+   "0.0873",
+   "differs (+0.007)"
+  ],
+  "T68 20-60 auc": [
+   "p. 132, Table 68",
+   "0,761",
+   "0.7638",
+   "differs (+0.003)"
+  ],
+  "T68 20-60 gini": [
+   "p. 132, Table 68",
+   "0,522",
+   "0.5276",
+   "differs (+0.006)"
+  ],
+  "T68 60-200 distance": [
+   "p. 132, Table 68",
+   "96",
+   "95.8",
+   "identical"
+  ],
+  "T68 60-200 spearman": [
+   "p. 132, Table 68",
+   "+0,037",
+   "0.0329",
+   "differs (-0.004)"
+  ],
+  "T68 60-200 auc": [
+   "p. 132, Table 68",
+   "0,598",
+   "0.5934",
+   "differs (-0.005)"
+  ],
+  "T68 60-200 gini": [
+   "p. 132, Table 68",
+   "0,196",
+   "0.1867",
+   "differs (-0.009)"
+  ],
+  "T68 arterials spearman (table)": [
+   "p. 132, Table 68",
+   "+0,001",
+   "0.0397",
+   "differs (+0.039)"
+  ],
+  "T68 arterials spearman (text)": [
+   "p. 131, text",
+   "+0,071",
+   "0.0397",
+   "differs (-0.031)"
+  ],
+  "T68 arterials auc": [
+   "p. 132, Table 68",
+   "0,542",
+   "0.5061",
+   "differs (-0.036)"
+  ],
+  "T68 arterials gini": [
+   "p. 132, Table 68",
+   "0,084",
+   "0.0122",
+   "differs (-0.072)"
+  ],
+  "T68 share matching %": [
+   "p. 132, text",
+   "58",
+   "54.4",
+   "differs (-4)"
+  ],
+  "Austin within-lane spearman": [
+   "p. 131, text",
+   "+0,7066",
+   "0.70579",
+   "differs (-0.0008)"
+  ],
+  "Austin within-lane auc": [
+   "p. 131, text",
+   "0,990",
+   "0.9906",
+   "differs (+0.001)"
+  ],
+  "Austin within-lane auc q1": [
+   "p. 131, text",
+   "0,959",
+   "0.9647",
+   "differs (+0.006)"
+  ],
+  "Austin within-lane auc q3": [
+   "p. 131, text",
+   "0,999",
+   "0.9984",
+   "differs (-0.001)"
+  ],
+  "Austin volume-occupancy lane": [
+   "p. 133, text",
+   "+0,7241",
+   "0.73530",
+   "differs (+0.0112)"
+  ],
+  "Austin volume-occupancy section": [
+   "p. 133, text",
+   "+0,2999",
+   "0.73920",
+   "differs (+0.4393)"
+  ],
+  "T69 2 sections": [
+   "p. 133, Table 69",
+   "22",
+   "22.0",
+   "identical"
+  ],
+  "T69 2 cells": [
+   "p. 133, Table 69",
+   "1432457",
+   "1432457.0",
+   "identical"
+  ],
+  "T69 2 auc": [
+   "p. 133, Table 69",
+   "0,990",
+   "0.9901",
+   "identical"
+  ],
+  "T69 2 prevalence": [
+   "p. 133, Table 69",
+   "+0,19",
+   "0.193",
+   "identical"
+  ],
+  "T69 3 sections": [
+   "p. 133, Table 69",
+   "6",
+   "6.0",
+   "identical"
+  ],
+  "T69 3 cells": [
+   "p. 133, Table 69",
+   "433660",
+   "433660.0",
+   "identical"
+  ],
+  "T69 3 auc": [
+   "p. 133, Table 69",
+   "0,755",
+   "0.7546",
+   "identical"
+  ],
+  "T69 3 prevalence": [
+   "p. 133, Table 69",
+   "+18,35",
+   "18.620",
+   "differs (+0.27)"
+  ],
+  "T69 4 sections": [
+   "p. 133, Table 69",
+   "2",
+   "2.0",
+   "identical"
+  ],
+  "T69 4 cells": [
+   "p. 133, Table 69",
+   "154380",
+   "154380.0",
+   "identical"
+  ],
+  "T69 4 auc": [
+   "p. 133, Table 69",
+   "0,664",
+   "0.6644",
+   "identical"
+  ],
+  "T69 4 prevalence": [
+   "p. 133, Table 69",
+   "+9,93",
+   "9.883",
+   "differs (-0.05)"
+  ]
+ },
+ "readings": {
+  "dissociation": "reconstruction measures occurrence, not level",
+  "matching": "undetermined",
+  "lanes": "aggregating lanes hides single-lane episodes"
+ },
+ "commit": "e53d3cb235c0984a0b86996aeb7a60380d7cc221",
+ "code_dirty": false,
+ "prereg_fingerprint": "6086d07909d1c494",
+ "generator_fingerprint": "ff3204dee7064a27",
+ "written": "2026-11-08T14:31:17.896388+00:00"
+}
