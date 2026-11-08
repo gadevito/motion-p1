@@ -36,8 +36,13 @@ Numbers come from the six frozen records of Part B (`paper4/paper/paper_order.md
 
 **The analyses without training.**
 
-- They condition on the class of the nearest instrumented neighbour at one instant, not on several neighbours
-  or on trajectories. The richer input is what the graph model had.
+- **Perimeter of the negative result.** Two ways of using the neighbours were tested, and neither gained over
+  the model without spatial exchange:
+  - the calibrated class of a single neighbour (E12-bis, E12-ter);
+  - a learned aggregation of several neighbours over three hours (G1, E9).
+
+  Both concern labels in three classes at 15–120 minutes. Continuous speeds, incidents and events were not
+  tested.
 - The calendar is the hour of the week. Holidays and events are not modelled.
 - The agreement of nearby labels was measured at the same instant, and its value net of the calendar was
   measured as a forecast at 15–120 minutes. The reading "shared calendar" is a reading of the forecasts, not a

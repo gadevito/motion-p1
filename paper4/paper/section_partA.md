@@ -27,7 +27,7 @@ what does lane aggregation hide?
 
 **What remains, in order.**
 
-1. Draft `protocol/paper4/P4A.md`: the regeneration of Tables 67–69 with fingerprints, and the three
+1. `protocol/paper4/P4A.md`, drafted on 2026-11-08, waiting for four choices: the regeneration of Tables 67–69 with fingerprints, and the three
    corrections of protocol §2.2:
    - M30 threshold chosen on one half of the sensors and reported on the other, over 5 random splits;
    - block bootstrap over sensors for every figure of Tables 67–69, and an interval on the Gini split;

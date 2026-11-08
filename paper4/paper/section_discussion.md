@@ -23,10 +23,12 @@ a sensor and its neighbours, net of the calendar, is measured here as zero withi
 labels agree. A second learned model would have to find a signal that neither the learned propagation (E9,
 E11) nor the calibrated tables (E12-bis, E12-ter) found. We therefore did not train one.
 
-The argument has a boundary. E12-ter reads one neighbour's class at one instant, while a graph model reads
-several neighbours over three hours. That richer input is exactly what the graph model of E9 had, and it
-gained nothing either. What remains untested is a model with inputs that neither had: speeds instead of
-classes, or information about incidents and events.
+The argument has a stated perimeter. Two uses of the neighbours were tested:
+- the calibrated class of a single neighbour (E12-bis, E12-ter);
+- a learned aggregation of several neighbours over three hours (G1 in E9).
+
+Neither gained over the model without spatial exchange, on labels in three classes at 15–120 minutes.
+Continuous speeds, incidents and events were not tested.
 
 **What the agreement of nearby labels is.** Two segments within 250 m share a class more often than chance.
 The natural reading is that congestion spreads along a corridor, so a sensor tells about its unmeasured

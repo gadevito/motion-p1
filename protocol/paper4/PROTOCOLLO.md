@@ -179,7 +179,7 @@ Part B is redone from that unit.
 
 | # | Status | Frozen record |
 |---|---|---|
-| 4A | to be run: pre-registration `P4A.md` not yet drafted; Tables 64–65 regenerated in Phase 1 (RC 5) | — |
+| 4A | to be run: pre-registration `P4A.md` drafted on 2026-11-08 (14:50 decision), not signed; Tables 64–65 regenerated in Phase 1 (RC 5) | — |
 | E11 | done; "undetermined" (prevails 0, excluded 7, not discriminating 5 of 12) | 4e04ba7 |
 | E9 | done; "undetermined" (helps in 0 of 12; 3-point advantage excluded in 11 of 12) | 1d97a94 |
 | E10 | closed by E9 (note of 10:15), not run | — |
@@ -344,7 +344,10 @@ the trained experiments. Every value is fixed in the signed pre-registration cit
 
 Open at this revision:
 
-- **Part A.** The pre-registration `protocol/paper4/P4A.md` (Tables 67–69 with corrections 1–3 of §2.2) is not
-  drafted. The paper's RQ1 and the second clause of the thesis wait for it.
+- **Part A.** The pre-registration `protocol/paper4/P4A.md` (Tables 64–69 regenerated, corrections 1–3 of §2.2)
+  is drafted and waits for four choices (P4A.md, *Choices to confirm*), then code, preflight and signature. The
+  paper's RQ1 and the second clause of the thesis wait for it.
+- **2026-11-08, 14:50.** Perimeter of the negative result stated in the limits; Phase 1 records kept in Italian,
+  summarised in `protocol/paper4/SUMMARIES.en.md`.
 - **Reference run.** `paper4/analysis/main.py` is to be run by the executor on the frozen version, and its
   report committed.
