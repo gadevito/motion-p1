@@ -3,7 +3,7 @@
 **Pre-registration.** Date _______ · commit _______ (code `p4a.py` _______; preflight log `p4a_preflight.log`
 _______) · launched by Fabio Palomba (Mac M3 Max, CPU) · preflight _/_ · cost _______.
 
-Draft of 2026-11-08, on the decision of the internal review of 2026-11-08 (14:50). No training: data analyses
+Draft of 2026-11-08, on the decisions of the internal review of 2026-11-08 (14:50 and 15:00). No training: data analyses
 only. **No number of Tables 67–69 or of the three corrections is computed before the signature**, except the
 preflight, which reads no measured class: it checks inputs, alignment, counts and costs.
 
@@ -75,10 +75,10 @@ the same functions (`carica_m30`, `carica_austin` and the cell rules of the scri
 
 | Number | Where it appears | Rule |
 |---|---|---|
-| **0.542** (area under the curve on the Madrid arterials) | hard-coded at line 195 of `validazione_colocalizzata.py`; Table 68 and text p. 131; Gini 0.084 | not traced: no script, log or output contains it (search of `OR3/` and `OLD/`, 2026-11-08). **Recomputed** with a declared definition: area under the curve of red against the rest, with −r (reconstructed) as the score and the probe class as the label. It uses all valid cells of the 399 base pairs, at the +15-minute shift used for Table 64. The 0.542 is reported next to it as the deliverable's value |
-| **+0.001** and **+0.071** (rank correlation on the arterials) | Table 68 prints +0.001 (hard-coded at line 195); the text of p. 131 and the script's docstring say +0.071 | the two values disagree. **Recomputed** as the pooled rank correlation on the same cells as the 0.542. Both deliverable values are reported |
-| **+0.7241** and **+0.2999** (Austin, volume–occupancy rank correlation at lane and section level) | text p. 133 | no line of the script computes them. **Out of the perimeter**, unless the review asks for a declared recomputation |
-| **0.990 [0.959; 0.999]** (Austin, within-lane area under the curve) | text p. 131 | the bracket is the interquartile range across lanes printed by the script, not an interval. Reported as such, with the bootstrap interval of correction 2 next to it |
+| **0.542** (area under the curve on the Madrid arterials) | hard-coded at line 195 of `validazione_colocalizzata.py`; Table 68 and text p. 131; Gini 0.084 | not traced: no script, log or output contains it (search of `OR3/` and `OLD/`, 2026-11-08; register of corrections, item 14). **Recomputed.** Primary: the median over pairs of the per-pair area under the curve. The unit is the pair, consistent with the bootstrap by loop. Red is the probe class, the score is −r (reconstructed), and a pair needs at least 20 red and 20 non-red cells. Secondary: the same on the pooled cells of the pairs. Both use the 399 base pairs at the shift chosen by `t4c_crossval.py` for Table 64. Both are reported, with the 0.542 next to them |
+| **+0.001** and **+0.071** (rank correlation on the arterials) | Table 68 prints +0.001 (hard-coded at line 195); the text of p. 131 and the script's docstring say +0.071 | the two values disagree (item 15). **Recomputed** in the same two ways: the median over pairs of the per-pair rank correlation (at least 200 common cells, as in `t4c_crossval.py`), and the pooled value. Both deliverable values are reported |
+| **+0.7241** and **+0.2999** (Austin, volume–occupancy rank correlation at lane and at section level, sections with at least 3 lanes) | text p. 133 | no line of the script computes them (item 16). **Recomputed from the data** with a declared definition, over the sections with at least 3 lanes, after the script's filters. Lane level: pooled rank correlation of volume and occupancy over the lane cells. Section level: the same over the aggregated cells (volume summed, occupancy averaged, as in the script) |
+| **0.990 [0.959; 0.999]** (Austin, within-lane area under the curve) | text p. 131 | the bracket is the interquartile range across lanes printed by the script, presented as an interval (item 17). Reported as an interquartile range, with the bootstrap interval of correction 2 next to it |
 
 The 19–72 m band of Table 68 was built a posteriori by the deliverable, to match the median distance of the
 urban pairs. It is kept, because the Gini split uses it, and declared as such.
@@ -91,12 +91,12 @@ The deliverable chose the threshold 0.30 on the same cells on which it reported 
 | Element | Rule |
 |---|---|
 | Score and label | score: reconstructed factor *r*_pr (flow / occupancy over its 85th percentile per sensor), on non-imputed cells (occupancy ≥ 5%); label: red if the measured factor *r*_tr = speed / free-flow speed < 0.4. As in the script |
-| Sensor split | the 279 sensors split into two halves A and B at random, 5 times: `numpy.random.default_rng([20261109, split])`, split = 0…4 |
-| Period split | **validation period** 2024-01-01 to 2024-03-31; **test period** 2024-04-01 to 2024-12-31 (proposal, see *Choices to confirm*) |
-| Primary | threshold *t* on a grid 0.01, 0.02, …, 1.00 maximising F1 on the red class, chosen on half A × validation period, then reported on half B × test period: F1, precision, recall |
-| Secondary | the largest *t* with false-alarm rate ≤ 5% on half A × validation; recall on half B × test, always with the realised false-alarm rate next to it |
+| Sensor split | the 279 sensors split into two halves A (139) and B (140) at random, 5 times: `numpy.random.default_rng([20261109, split])`, split = 0…4 |
+| **Primary: transfer between sensors** (protocol §2.2) | the threshold is chosen on half A over the **whole year** and reported on half B over the whole year. The question is whether a threshold transfers between sensors |
+| **Secondary: transfer in time** (declared) | the same splits, with the threshold chosen on half A over **2024-01-01 to 2024-03-31** and reported on half B over **2024-04-01 to 2024-12-31**. Seasonality is a limit of this reading. Alternate weeks are not used: neighbouring periods would leak into each other |
+| Threshold rules | (F1) the *t* on the grid 0.01, 0.02, …, 1.00 maximising F1 on the red class; reported: F1, precision, recall. (FA) the largest *t* on the grid with false-alarm rate ≤ 5%; reported: recall, always with the realised false-alarm rate next to it. Both rules in both readings |
 | Selection record | the five chosen thresholds of each rule are written to a fingerprinted file before any test cell is read; the run refuses to compute a test metric without it |
-| Reported | per split and as the mean over the 5 splits; interval from correction 2 (bootstrap over the sensors of half B, 2,000 replicates per split, pooled 10,000) |
+| Reported | per split and as the mean over the 5 splits. Interval: bootstrap over the sensors of half B, 2,000 replicates per split (`default_rng([20261109, 200 + split, reading])`, reading 0 = between sensors, 1 = in time), the 10,000 replicates of the 5 splits pooled |
 | Also reported | the deliverable's rule on all cells (threshold 0.30) and the random precision, for comparison |
 
 The free-flow references (85th percentile of *r*_pr per sensor, `ff_emp` of the targets) are computed on the
@@ -105,8 +105,12 @@ of causality (protocol §2.2). It is declared.
 
 ### Correction 2 — block bootstrap over sensors
 
-For every figure of Tables 67–69: 2,000 replicates, unit = sensor (Austin: section), 95% percentile interval.
-Generators: `default_rng([20261109, 100 + table, figure index])`.
+For every figure of Tables 67–69: 2,000 replicates, unit = sensor (arterials: loop; Austin: section), 95%
+percentile interval. One draw of units per replicate is shared by all figures of the same table and dataset, so
+that differences and shares are computed within a replicate. Generators: `default_rng([20261109, table])` for the
+M30 figures of Tables 67 and 68; `default_rng([20261109, 268])` for the arterials; `default_rng([20261109, 169])`
+for Austin (sections, within lane level for the per-level figures). Weighted ranks and areas under the curve on
+the resampled multiplicities equal the same quantities on the expanded data (checked by the self-test).
 
 | Table | Figures | Resampled unit |
 |---|---|---|
@@ -128,16 +132,19 @@ its text says the data found no threshold.
   sections; the count of each level is reported by the preflight, and any difference is explained.
 - The per-level areas are reported as descriptive, not as estimates.
 
-## Statements, with thresholds (proposal, see *Choices to confirm*)
+## Reading rules (declared; descriptive, not confirmatory)
 
-Read on the two scales of the protocol: the sign of the interval, and a declared margin.
+The thresholds below were fixed knowing the deliverable's in-sample values (rank correlation +0.255, F1 about
+0.64 at the threshold 0.30, area under the curve 0.984). The statements of Part A are therefore **descriptive,
+with intervals**: the thresholds are declared reading rules, and the paper labels them so. No statement of
+Part A is presented as confirmatory (internal review, 2026-11-08, 15:00).
 
 | Statement | Condition |
 |---|---|
-| **"reconstruction measures occurrence, not level"** (the dissociation) | on M30 non-imputed cells: overall rank correlation with U < 0.5, **and** out-of-sample F1 on red (correction 1, primary) with L ≥ 0.5, **and** area under the curve red against rest with L ≥ 0.9 |
-| "reconstruction measures neither" | out-of-sample F1 U < 0.5 or area under the curve U < 0.75 |
+| **"reconstruction measures occurrence, not level"** (the dissociation) | on M30 non-imputed cells: overall rank correlation with U < 0.5, **and** F1 on red transferred between sensors (correction 1, primary, rule F1) with L ≥ 0.5, **and** area under the curve red against rest with L ≥ 0.9 |
+| "reconstruction measures neither" | transferred F1 with U < 0.5, or area under the curve with U < 0.75 |
 | "it measures both" | rank correlation L ≥ 0.5 and the detection conditions above |
-| **"matching explains most of the arterial gap"** | share of correction 2 with L > 0.5; "less than half" if U < 0.5; otherwise "undetermined" |
+| **"matching explains most of the arterial gap"** | share of correction 2 (primary arterial value) with L > 0.5; "less than half" if U < 0.5; otherwise "undetermined" |
 | **"aggregating lanes hides single-lane episodes"** | Spearman of correction 3 with U < 0; "no relation detected" otherwise, reported with the section counts |
 
 Every other combination is "undetermined", reported with the numbers.
@@ -148,17 +155,21 @@ Every other combination is "undetermined", reported with the numbers.
 2. M30: 279 sensors aligned between `tensors_2024_m30.npz` and `targets_2024_m30.npz`, 35,093 timestamps.
    Counts of valid and imputed cells, compared with the deliverable's 9.2 million and 54.33%, without reading any
    measured class.
-3. Arterials: the base run of `t4c_crossval.py` gives 404 pairs and a CSV identical to
-   `fase1/crossval/crossval_results.csv` (57e7b139cca39693).
+3. Arterials: the fingerprinted copy of `t4c_crossval.py` is identical to the original, and the Phase 1 CSV
+   `fase1/crossval/crossval_results.csv` (57e7b139cca39693) is present. The script prints Table 64 when it
+   runs, so it is run only by `run`, which stops if its base CSV differs from that one.
 4. Austin: counts of cells, lanes and sections per lane level after the script's filters (three sections without
-   a direction field excluded), compared with Table 69 (22, 6, 2 sections; 1,432,457, 433,660, 154,380 cells).
+   a direction field excluded), compared with Table 69 (22, 6, 2 sections). Counts only: no class is read.
 5. Sensor and period splits of correction 1: halves disjoint and covering the 279 sensors; validation and test
    periods disjoint; the same splits on two runs (determinism).
-6. Bootstrap: with all multiplicities equal to 1, every figure equals its point estimate (synthetic data and one
-   real figure that reads no class: counts of cells).
-7. Guard: no test metric of correction 1 without the fingerprinted threshold file, and none while the signature
-   line is blank.
-8. Cost: time and memory of loading Austin and of 100 bootstrap replicates of Table 67, scaled to 2,000.
+6. Bootstrap: on synthetic data, the weighted rank correlation and area under the curve equal those of the
+   expanded data (`scipy`, `sklearn`), and with all multiplicities equal to 1 every figure equals its point
+   estimate. Threshold selection on a synthetic sensor set recovers the planted threshold.
+7. No deliverable number is copied: every value compared with the deliverable is read from a regenerated output,
+   and the deliverable values are typed only in the comparison table of the frozen-record generator.
+8. Guard: no test metric of correction 1 without the fingerprinted threshold file, saved before any metric of
+   half B is computed; nothing while the signature line is blank.
+9. Cost: time and memory of loading Austin and of 100 bootstrap replicates of Table 67, scaled to 2,000.
 
 ## What invalidates it
 
@@ -170,38 +181,42 @@ Every other combination is "undetermined", reported with the numbers.
 
 ## What changes in the paper
 
-- **Dissociation confirmed out of sample:** the second clause of the thesis stands. A loop says whether a
-  segment is congested, not how much. What an operator buys with a loop is the detection of episodes.
-- **Detection not confirmed out of sample:** the clause narrows to what survives, and the paper says that the
-  deliverable's 0.498 / 0.891 was an in-sample figure.
-- **Matching:** the arterial gap is split with an interval. If matching explains most of it, the low agreement
-  of loops and probes on arterials says little about the loops.
-- **Lanes:** a rank correlation with an interval replaces the three levels. If no relation is detected, the paper
-  says that the data do not found a lane threshold, as the deliverable did.
+Every reading below is descriptive, with its interval, under the declared reading rules.
+
+- **The dissociation holds under the reading rules:** the second clause of the thesis stands, labelled as
+  descriptive. A loop tells whether a segment is congested, not how much, and a threshold chosen on some
+  sensors transfers to others. What an operator buys with a loop is the detection of episodes.
+- **It does not hold:** the clause narrows to what survives. The paper says that the deliverable's
+  0.498 / 0.891 was an in-sample figure.
+- **Matching:** the arterial gap is split with an interval. If matching accounts for most of it, the low
+  agreement of loops and probes on arterials says little about the loops themselves.
+- **Lanes:** a rank correlation with an interval replaces the three levels. If no relation is detected, the
+  paper says that the data do not support a lane threshold, as the deliverable did.
 
 ## Cost
 
 No training. Expected: minutes for M30 and the arterials. Austin's 2.45 GB JSON is loaded once. The bootstrap of
 Table 67 recomputes rank correlations on up to 4.2 million cells per replicate and is the dominant cost. All of
-it is measured in the preflight (control 8) before the signature.
+it is measured in the preflight (control 9) before the signature.
 
-## Choices to confirm before the code
+## Decisions of the internal review (2026-11-08, 15:00)
 
-1. **Validation period of correction 1.** Proposed: January–March 2024 for the choice, April–December for the
-   report. The alternative is alternate weeks, which balances seasons but interleaves the two periods.
-2. **Thresholds of the statements.** Proposed: rank correlation 0.5, F1 0.5, area under the curve 0.9 and 0.75,
-   share 0.5. They are set **knowing the deliverable's in-sample values** (rank correlation +0.255, F1 about 0.64
-   at 0.30, area under the curve 0.984). The test lies in out-of-sample selection and in the intervals, and this
-   is declared.
-3. **Austin volume–occupancy correlations (+0.7241, +0.2999):** out of the perimeter, or recomputed with a
-   declared definition.
-4. **Definition of the recomputed 0.542:** pooled cells of the 399 base pairs at +15 minutes, as above, or per
-   pair and then the median, like the correlations of Table 64.
+1. Correction 1: primary as in protocol §2.2 (between sensors, whole year); the split in time
+   (January–March / April–December) is secondary and declared; no alternate weeks.
+2. The thresholds of the statements are declared reading rules. Part A is descriptive with intervals, and no
+   statement of Part A is confirmatory.
+3. The Austin volume–occupancy correlations are recomputed from the data.
+4. The 0.542: the median per pair is primary, the pooled value secondary; both reported. The deliverable's
+   untraced or inconsistent numbers enter the register of corrections, items 14–17.
 
 ## Files
 
 - **Code:** `paper4/code/p4a.py`, written after the approval of this draft. It imports
-  `analisi/validazione_colocalizzata.py` unchanged and runs `t4c_crossval.py` from its fingerprinted copy.
+  `analisi/validazione_colocalizzata.py` unchanged and runs `t4c_crossval.py` from its fingerprinted copy
+  (`paper4/code/deliverable/t4c_crossval.py`). Commands: `selftest`, `selftest-e2e` (every step after the
+  deliverable scripts, and the frozen-record generator, on synthetic data), `preflight`, `cost`, `run`, `freeze`.
+- **Environment:** the one of the root `poetry.lock` (scikit-learn 1.9.0, pandas 3.0.3, scipy 1.18.0, numpy
+  2.5.1), in which the deliverable's scripts run; the models environment of Part B has no scikit-learn.
 - **Outputs:** `paper4/runs/p4a/` (screen outputs, thresholds, replicates); CSV under `paper4/analysis/4A/`;
   `CONGELAMENTO_4A.md` generated by script.
 

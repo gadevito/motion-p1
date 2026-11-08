@@ -51,3 +51,12 @@ paper4/runs/e12bis_costo.json	c09b9d8efd497008f0d732b5b53890bb83a27b4bb32ff64942
 paper4/runs/e10geo_preflight.log	9aa759d94b0e16f8907a80c554e06bab9994824aecd67fd6453f79eadf27a7bc	1055	2026-11-08T10:31:32Z
 paper4/runs/e12ter_preflight.log	4cba9954231e2f51b983287790f0aef26a44ca25cbbdf34c4294813c8793d5f8	2257	2026-11-08T11:55:56Z
 paper4/runs/e12ter_costo.json	72f41691dc0eb9708b4c16789f6e9bc08feb1bcf109a9dc210a2df167ddc8817	464	2026-11-08T11:55:56Z
+OR3/data_collection/go-mo/gomo/targets_2021_urb_d8.npz	b5db8261fd295077a96523a8ea53ff05f723510564ba5ac7fed71bbfcb504c56	65974401	2026-11-08T13:55:40Z
+OR3/data_collection/go-mo/gomo/traffic_sensors.csv	63cf54c05e4b380ec6001f99e9fc924be9eae4e5d122484e99670ab6c1ffc4d5	944327	2026-11-08T13:55:40Z
+OR3/data_collection/traffic4cast/MADRID_2022/road_graph_nodes_osm.parquet	26045de9b9b22b68359d881c9cac5061faf960fd2dc5f11f56d419d811448390	117453	2026-11-08T13:55:40Z
+OR3/data_collection/traffic4cast/MADRID_2022/road_graph_edges_district.parquet	f2027534873a57151797398d829166586bef8a1b310f58e88069423edf0e3446	121527	2026-11-08T13:55:40Z
+OR3/data_collection/go-mo/gomo/tensors_2024_m30.npz	3780d3aa589c51f5f20ff262de7e8929a4a9c2eb9806166fbfea9c0e2c79f029	37482708	2026-11-08T13:55:40Z
+OR3/data_collection/go-mo/gomo/targets_2024_m30.npz	b41779dd51923c31d1f2ffce0f4c56b556fb6e128cf6695ec96390988b15a275	46701118	2026-11-08T13:55:40Z
+OLD/austin/radar/radar_completo.json	46f68813cf8a48397ec50a3d336faff69ee836c874f53f9fb30c141b1979036a	2449862982	2026-11-08T13:55:40Z
+OR3/data_collection/t4c_crossval.py	0320018785d5658dfe6c0de4ddf08aec6b54b99e0ffe01eddac92a66d95d15d1	10617	2026-11-08T13:55:40Z
+OR3/data_collection/traffic4cast/MADRID_2022/speed_classes/madrid/ (listing of 109 files)	7eb5fcf855edae1f21c13e4357991d580dfc20339ac22e67526bce73be5f9284	10791	2026-11-08T13:55:40Z
