@@ -14,7 +14,7 @@ after degree- and connectivity-preserving edge swaps with its weights permuted (
 edge-count-only randomisation (secondary).
 
 **The graph does not beat no graph.** V(G1) is favourable in none of the 12 configurations, and unfavourable in
-3 (for example Madrid `comp_q5080`, −2.42 [−6.13; −0.00]). Which neighbours the graph connects cannot matter
+3 (for example one Madrid sub-network with a spacing of 84 m, −2.42 [−6.13; −0.00]). Which neighbours the graph connects cannot matter
 where the graph itself gives nothing.
 
 **The geometry control does not decide.** For D = V(G1) − V(G1-rand(deg)), no configuration shows the true

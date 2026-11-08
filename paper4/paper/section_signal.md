@@ -39,8 +39,8 @@ comes within 1–3 points of G0, with no interval above +0.8 and a 3-point gain 
 
 **Step 3: once the calendar is known, the neighbour adds nothing (E12-ter).** Two tables are built from the same
 pairs: the own class given the hour of the week of *t* + *h* alone (calendar only), and given the hour of the
-week, the neighbour's class and the distance bin. The calendar-only table is G0: within 1.62 points of it in
-Madrid and London, with no interval excluding zero. The difference between the two tables is the value of the
+week, the neighbour's class and the distance bin. The calendar-only table forecasts as well as G0: within 1.62 points of it in
+Madrid and London, with no interval excluding zero, and ahead of it in Melbourne. The difference between the two tables is the value of the
 neighbour net of the calendar. Within 250 m it lies between −0.63 and +1.26 points, and all eight intervals
 contain zero; between 250 and 500 m it removes 6.41 to 19.34 points.
 

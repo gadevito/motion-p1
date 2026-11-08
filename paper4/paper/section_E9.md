@@ -24,11 +24,13 @@ intervals that exclude zero are unfavourable to the graph (Madrid 10%, −0.39 [
 −14.06) and better than a step (−12.25). Coverage changes the median distance from a hidden segment to the
 nearest instrumented one from 794 m at 10% to 171 m at 60% in Madrid, without moving V.
 
-| City | wCE of G1 on test-hidden segments | Below ln 3 = 1.0986 |
-|---|---|---|
-| Madrid | 1.075–1.087 | 1.1–2.2% |
-| London | 1.050–1.059 | 3.6–4.4% |
-| Melbourne | 1.081–1.134 | from −3.2% to +1.6% |
+| City | wCE of G0 on test-hidden segments | wCE of G1 on test-hidden segments | G1 below ln 3 = 1.0986 |
+|---|---|---|---|
+| Madrid | 1.075–1.083 | 1.075–1.087 | 1.1–2.2% |
+| London | 1.051–1.055 | 1.050–1.059 | 3.6–4.4% |
+| Melbourne | 1.083–1.140 | 1.081–1.134 | from −3.2% to +1.6% |
+
+*Range over the four coverage levels.*
 
 On segments without a sensor the forecast stays close to the uniform predictor at every coverage, and red recall
 at 5% false alarms is 0.05–0.08 in Madrid and London, against realised false-alarm rates of 0.04–0.06. The

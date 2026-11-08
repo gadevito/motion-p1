@@ -108,6 +108,7 @@ PROVENANCE = {
     ("section_E11.md", "43"): "E11.md, design (realised spacing 43-397 m)",
     ("section_E11.md", "397"): "E11.md, design (realised spacing 43-397 m)",
     ("section_E9.md", "1.0986"): "ln 3, the uniform predictor",
+    ("section_partA.md", "0.002"): "p4a_risultati.json, correction1: F1 between sensors 0.6399 minus F1 in sample at 0.30 0.6386 (0.0013), bounded",
     ("section_partA.md", "0.30"): "the deliverable's threshold, text p. 131 (rule reproduced in sample in CONGELAMENTO_4A)",
 }
 

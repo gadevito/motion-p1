@@ -43,11 +43,14 @@ are wide; the statements of E9, E12, E12-bis and E12-ter are "undetermined" only
 verdict of this paper is read on that city alone.
 
 **Relation to the literature.** Graph models for traffic are usually evaluated on sensors whose own history is
-in training or in the input [wu2019gwnet]. Kriging methods estimate unobserved locations from simultaneous
-observations, and are trained by masking nodes that remain in the network, so the masked locations shape the
-learned weights [wu2021ignnk]. Our regime is that of an installation: a segment that has never had a sensor never
+in training or in the input [wu2019gwnet], and models built on per-node identity embeddings [shao2022stid],
+[liu2023staeformer] have no parameters for a segment they have never seen. Kriging and inductive methods estimate
+or forecast unobserved locations [wu2021ignnk], [zhou2026track], [prabowo2024scpt], [zhou2025mogernn]; most are
+trained by masking nodes that remain in the network, so the masked locations shape the learned weights. Our regime is that of an installation: a segment that has never had a sensor never
 enters the loss, the input or the normalisation, and the forecast is 15–120 minutes ahead. The project report
 that preceded this work [motion2026uc04] found propagation gains with hidden segments that were training
 targets; our positive control reproduces that condition and the gain that comes with it. The negative result
-does not contradict those findings: it concerns a stricter regime. [ref: placement and coverage studies, to be
-chosen.]
+does not contradict those findings: it concerns a stricter regime. The sensor location literature chooses how
+many sensors to install and where so that flows become observable, fully or partially [viti2014partial],
+[owais2022tslp]. Our placement result concerns a different objective, the forecast at segments that stay
+unmeasured, and on these data proximity buys none of it.

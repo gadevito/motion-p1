@@ -27,7 +27,8 @@ per city; one line per rule (blocks, uniform, density-stratified); mean over 20 
 | Melbourne | 10% | 0.012 [0.002; 0.023] | 0.429 [0.343; 0.494] | 0.436 [0.375; 0.515] |
 | Melbourne | 60% | 0.063 [0.027; 0.104] | 0.821 [0.757; 0.862] | 0.773 [0.739; 0.804] |
 
-*Share of uncovered segments within 250 m of a sensor: mean over 20 draws, with the 2.5–97.5% range.*
+*Share of uncovered segments within 250 m of a sensor: mean over 20 draws, with the 2.5–97.5% range. 10% and
+60% shown; all levels in the frozen record and in Fig. 1.*
 
 **Placement changes proximity by a large factor.** In Madrid and London, uniform placement at 10% coverage puts
 85–87% of the uncovered segments within 250 m of a sensor, more than block placement reaches at 60% (62–66%);

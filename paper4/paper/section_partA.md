@@ -36,7 +36,7 @@ against free flow.
 
 **The threshold transfers between sensors.** A threshold of 0.30 on the reconstructed factor, chosen in sample,
 gives precision 0.498, recall 0.891 and F1 0.639 on the same cells. Chosen on half of the sensors and reported on
-the other half, over 5 random splits, it gives the same F1:
+the other half, over 5 random splits, it gives an F1 within 0.002 of the in-sample one (0.640 against 0.639):
 
 | Reading | Thresholds chosen (5 splits) | F1 | Precision | Recall |
 |---|---|---|---|---|

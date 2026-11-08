@@ -32,7 +32,8 @@ learning curve, against 1.07 when they are truly unseen. Propagation gains repor
 are training targets measure that condition, not an installation.
 
 **Scales of reading.** V is the difference in wCE from G0, in points of the G0 wCE (percent), positive when the
-compared arm is better. Intervals are 95%, from a joint resample of seeds and blocks of the network. Each
-pre-registration reads two scales: the sign of the interval, and a margin of 3 points. A statement is
+compared arm is better. Intervals are 95%, from a joint bootstrap resample of seeds and blocks of the network [efron1993bootstrap]. Each
+pre-registration reads two scales: the sign of the interval, and a margin of 3 points (±3% relative, the
+convention inherited from the earlier study [devito2026identity] and the earlier report; not a power calculation). A statement is
 "undetermined" when the pre-registered condition can be neither met nor excluded everywhere. All experiments
 were run on one machine (Mac M3 Max) and signed before any test metric was computed.
