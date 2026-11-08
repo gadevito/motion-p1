@@ -129,6 +129,17 @@ Part B is redone from that unit.
 | E12 | Non-learned spatial predictors (nearest observed neighbour, inverse-distance weighting of current classes and of weekly-slot frequencies) against G0 of E9, on the same hidden segments, origins and node sets | E9 (frozen record 1d97a94) | no training; CPU, measured in the preflight | a spatial signal exists that the learned propagation does not use: a limit of the models | no spatial signal at 10–60% coverage: "placement cannot buy accuracy" holds for learned and non-learned predictors |
 | E12-bis | Calibrated neighbour: p(y given the nearest observed class, distance bin and horizon) from observed→observed pairs in training, applied to the hidden segments of E9 | E12 (frozen record 085bda7) | no training; CPU, measured in the preflight | the short-range label signal buys wCE once calibrated | the label signal is not a forecasting resource |
 | E10-geo | Where, geometric: share of uncovered segments within 250 m / 500 m of a sensor and median distance, for blocks, uniform and density-stratified placement, 20 draws | E12 (radius of the signal) | seconds; coordinates only | placement changes how many uncovered segments lie near a sensor | placement cannot change it: "where" closes on geometry |
+| E12-ter | Calibrated neighbour with the calendar: p(y given the hour of the week of t + h, the nearest observed class, distance bin and horizon), against a calendar-only table from the same pairs | E12-bis (frozen record 40adfc9) | no training; CPU, measured in the preflight | neighbour and calendar together buy wCE within 250 m | the neighbour adds nothing usable once the calendar is known |
+
+*Note of 2026-11-08 (internal review, 13:00).* E12-bis (frozen record 40adfc9) and E10-geo (frozen record 85cd9e8)
+are accepted. One last analysis without training is added, pre-registered in `protocol/paper4/E12ter.md`. It is
+E12-bis with the hour of the week of the target in the table, against a calendar-only table from the same pairs.
+Order of Part B, as run: E11 → E9 → E12 → E12-bis and E10-geo → E12-ter. Order of reading in the paper:
+
+- E11 and E9: the models gain nothing from the graph;
+- E12: the labels carry a signal, short and weak;
+- E12-bis and E12-ter: what that signal is worth in wCE at best, without a model;
+- E10-geo: how far placement brings uncovered segments within the radius of the signal.
 
 *Note of 2026-11-08 (internal review, 11:40).* E12 is accepted (frozen record 085bda7, 0be136a3886173bc). The
 labels agree with the nearest instrumented segment above chance only within about 250 m, and the uncalibrated
