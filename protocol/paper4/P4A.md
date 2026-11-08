@@ -225,4 +225,9 @@ it is measured in the preflight (control 9) before the signature.
 
 ## Deviations
 
-None.
+1. *2026-11-08, after the signature, before the run.* The signed `p4a.py` (ff3204dee7064a27) writes every
+   regenerated figure to `paper4/runs/p4a/results.json` and the deliverable scripts' screen outputs next to it.
+   It does not write the per-figure CSVs under `paper4/analysis/4A/` announced in *Files*; the folder stays
+   empty. No number is affected: `freeze` reads `results.json` only. The input check after the run, which E9,
+   E11, E12-bis and E12-ter have, is added outside the frozen code in `paper4/code/verifica_p4a.py`, as for E12
+   (register of corrections, item 13). It imports `p4a.py` unchanged and reads no metric.
