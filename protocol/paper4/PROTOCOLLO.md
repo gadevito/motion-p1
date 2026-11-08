@@ -114,7 +114,7 @@ sections.
 ### 1.3 Sequence, dependencies, cost
 
 Part A runs now, in parallel with the protocols of Part B. Part B follows the order of the brief §9b:
-E11 → E9 → E10.
+E11 → E9 → E10; since 2026-11-08, E11 → E9 → E12 (note below the table).
 
 Costs are **upper bounds from output-file dates on the M3 Max** (R0 §7), not measurements. The cost unit is
 measured isolated on the M3 before E11 is signed: one training of G1 on Madrid at *f* = 40%. Every estimate of
@@ -125,10 +125,21 @@ Part B is redone from that unit.
 | 4A | What a loop detector measures: Tables 64–65 (regenerated) and 67–69, plus three corrections; Table 66 out | Phase 0 only | no training; CPU hours (includes reading the 2.45 GB Austin file) | the level/detection dissociation and the Gini decomposition stand, with intervals | a number does not reproduce: reported as such, and the claim narrows |
 | E11 | Geometry vs degree-preserving randomised graph, 12 configurations, real N | cost unit; adequacy pilot | 240 trainings ≈ 0.9 h (measured, isolated) | geometry matters at some spacing: a new result against the deliverable | "having neighbours matters, not which" stands under protocol |
 | E9 | Coverage curve V(f) and absolute wCE: *f* ∈ {10, 20, 40, 60}% × 5 seeds × 3 models × 3 cities | E11 (graph generator, preflight and pipeline shared); power calculation from the E11 dispersion before the signature | 180 trainings; from the cost unit (142.5 s for G1 on Madrid at 1,000 updates) ≈ 7 h if E9's own pilot also gives 1,000 updates | threshold located with an interval; minimum coverage stated | no threshold in the range: said so; constant or linear curve reported |
-| E10 | Placement rules vs uniform random, traffic-weighted wCE, two levels of *f* | E9 (the levels of *f* depend on the curve) | design fixed after E9 | a rule that needs no data "counts": a recommendation for the operator | placement cannot buy accuracy: the thesis holds |
+| ~~E10~~ | ~~Placement rules vs uniform random, traffic-weighted wCE, two levels of *f*~~ | closed by E9 (note below) | — | — | — |
+| E12 | Non-learned spatial predictors (nearest observed neighbour, inverse-distance weighting of current classes and of weekly-slot frequencies) against G0 of E9, on the same hidden segments, origins and node sets | E9 (frozen record 1d97a94) | no training; CPU, measured in the preflight | a spatial signal exists that the learned propagation does not use: a limit of the models | no spatial signal at 10–60% coverage: "placement cannot buy accuracy" holds for learned and non-learned predictors |
 
-If E10 must be cut, the rules go from 5 to 3 (random, best heuristic, oracle). Never cut: the seeds, the two
-levels of *f*, or G1-rand on the corridor rule.
+*Note of 2026-11-08 (internal review, 10:15).*
+
+- **E10 is not launched as designed.** E9 found V(G1) ≈ 0 at every coverage: the 3-point advantage is excluded
+  in 11 of 12 (city, *f*) pairs, and propagation helps in none. With no propagation gain to distribute, every
+  placement rule would measure noise. "Placement cannot buy accuracy" follows from E9 for the learned
+  propagation.
+- **E12 is added in its place** (`protocol/paper4/E12.md`): an analysis without training, pre-registered
+  before any computation. It asks whether a spatial signal exists that non-learned predictors can recover.
+- **Order of Part B**, as run: E11 → E9 → E12.
+
+The rule for cutting E10 written earlier (rules from 5 to 3, never the seeds, the two levels of *f* or G1-rand
+on the corridor rule) no longer applies.
 
 ---
 
