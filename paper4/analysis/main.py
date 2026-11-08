@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Paper 4 — regeneration of every number from the six frozen records, and check of the text.
-==========================================================================================
+Paper 4 — regeneration of every number from the seven frozen records, and check of the text.
+===========================================================================================
 One script, three steps (method standard of `protocol/paper4/PROTOCOLLO.md` §0, rule 3):
 
   1. fingerprints   every frozen record (Markdown, JSON, figure) and every generator against the fingerprints
@@ -32,6 +32,8 @@ the work folder `paper4/analysis/regeneration/<instant>/` is ignored by git.
 """
 import argparse
 import hashlib
+import os
+import subprocess
 import json
 import re
 import sys
@@ -46,7 +48,7 @@ WORK = ROOT / "paper4" / "analysis" / "regeneration"
 sys.path.insert(0, str(CODE))
 
 # Fingerprints accepted by the internal review (frozen-record commits 4e04ba7, 1d97a94, 085bda7, 40adfc9, 85cd9e8,
-# dda3b8f); first 16 hex digits of SHA-256.
+# dda3b8f, a0b76dc); first 16 hex digits of SHA-256.
 EXPERIMENTS = {
     "E11": {"generator": "genera_congelamento_e11.py", "generator_fp": "05b321ed3f946141", "commit": "4e04ba7",
             "files": {"CONGELAMENTO_E11.md": "459b43ee3e649a31", "e11_risultati.json": "b34730ee04e43895"}},
@@ -61,12 +63,16 @@ EXPERIMENTS = {
                          "e10geo_curva.svg": "a4edbde30583b455"}},
     "E12ter": {"generator": "e12ter.py", "generator_fp": "e8c8d17e99e4008b", "commit": "dda3b8f",
                "files": {"CONGELAMENTO_E12ter.md": "ec03ebf339d7deb4", "e12ter_risultati.json": "8cd490bcff8bcad5"}},
+    "P4A": {"generator": "p4a.py", "generator_fp": "ff3204dee7064a27", "commit": "a0b76dc",
+            "files": {"CONGELAMENTO_4A.md": "7304d9639f91ec81", "p4a_risultati.json": "cbf52e3c811f05a0"}},
 }
+# P4A runs in the environment of the root poetry.lock (scikit-learn); its generator is called in a subprocess.
+PYA = os.environ.get("P4A_PYTHON", str(Path.home() / "Library/Caches/pypoetry/virtualenvs/or3-yRrehV9--py3.12/bin/python"))
 SHARED_CODE = {"p4b.py": "926061038a7472a3", "e9.py": "4dd5628af8879511", "e11.py": "f68952c3095cf335"}
 VOLATILE = {"commit", "code_dirty", "generator_fingerprint", "written"}
 
 # Sources of each section of the paper: the frozen records whose numbers it may cite.
-ALL = ["e11", "e9", "e12", "e12bis", "e10geo", "e12ter"]
+ALL = ["e11", "e9", "e12", "e12bis", "e10geo", "e12ter", "p4a"]
 SOURCES = {
     "section_E11.md": ["e11"],
     "section_E9.md": ["e9", "e11"],
@@ -74,6 +80,7 @@ SOURCES = {
     "section_E12bis.md": ["e12bis", "e12"],
     "section_E10geo.md": ["e10geo", "e12bis"],
     "section_E12ter.md": ["e12ter", "e12bis", "e12"],
+    "section_partA.md": ["p4a"],
 }
 DEFAULT_SOURCES = ALL           # introduction, discussion, limits, conclusion, order files
 
@@ -97,6 +104,7 @@ PROVENANCE = {
     ("section_E11.md", "397"): "E11.md, design (realised spacing 43-397 m)",
     ("section_E9.md", "1.0986"): "ln 3, the uniform predictor",
     ("section_E12.md", "51,000"): "e12_risultati.json, concordance, pairs beyond 1,000 m in Madrid at 40% (50,451), rounded up",
+    ("section_partA.md", "0.30"): "the deliverable's threshold, text p. 131 (rule reproduced in sample in CONGELAMENTO_4A)",
     ("section_E12ter.md", "0.1"): "e12ter_preflight.log (4cba9954231e2f51), validation lookups, no target",
     ("section_E12ter.md", "6.6"): "e12ter_preflight.log (4cba9954231e2f51), validation lookups, no target",
 }
@@ -147,6 +155,10 @@ def run_generator(name, out):
         cells_by, extra = g.load_campaign()
         rows, c, st, info = g.analyse_all(cells_by)
         g.write(rows, c, st, info, extra, out_dir=out)
+    elif name == "P4A":
+        code = (f"import sys, argparse; from pathlib import Path; sys.path.insert(0, {str(CODE)!r}); import p4a; "
+                f"p4a.OUT = Path({str(out)!r}); p4a.freeze(argparse.Namespace())")
+        subprocess.run([PYA, "-c", code], check=True, cwd=ROOT)
     else:
         mod = {"E12": "e12", "E12bis": "e12bis", "E10geo": "e10geo", "E12ter": "e12ter"}[name]
         g = __import__(mod)
@@ -228,6 +240,11 @@ def leaves(x):
             yield float(sum(nums) / len(nums))
         for v in x:
             yield from leaves(v)
+    elif isinstance(x, str):
+        # deliverable values and differences in the comparison table of CONGELAMENTO_4A ("0,542", "differs (-0.009)")
+        m = re.fullmatch(r"[+-]?\d+(?:,\d+)?", x) or re.fullmatch(r"differs \(([+-]?\d+(?:\.\d+)?)\)", x)
+        if m:
+            yield float((m.group(1) if m.groups() else m.group(0)).replace(",", "."))
     elif isinstance(x, bool):
         return
     elif isinstance(x, (int, float)):
@@ -244,7 +261,7 @@ def candidates(keys):
         for x in {v, abs(v), 100 * v, abs(100 * v), abs(v) / 1e6, abs(v) / 1e3}:
             if abs(x) > 1e12:
                 continue
-            for d in range(4):
+            for d in range(5):
                 s = f"{x:.{d}f}"
                 out.add(s); out.add(f"{x:,.{d}f}")
             if x >= 10000:
@@ -264,6 +281,7 @@ def strip_markup(text):
     text = re.sub(r"\b(?:RQ|E|G|D|P|RC|R|Q|U|L|V|C|N|S|W|k|h|f|q|t)\d+\w*", " ", text)  # labels and symbols
     text = re.sub(r"\b[0-9a-f]{7,16}\b", " ", text)                        # commit hashes
     text = re.sub(r"§\s?\d+(?:\.\d+)*", " ", text)                          # section references
+    text = re.sub(r"\bitems? \d+(?:[–-]\d+)?", " ", text)                    # items of the register
     text = re.sub(r"\bTables? \d+(?:[–-]\d+)?", " ", text)                  # deliverable tables
     text = re.sub(r"\bp\. \d+", " ", text)
     return text
