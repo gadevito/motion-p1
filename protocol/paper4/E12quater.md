@@ -1,8 +1,10 @@
 # E12-quater — The neighbour net of the calendar, with a symmetric fallback
 
-**Pre-registration.** Date ____ · commit ____ (code `e12quater.py` ____, `e12ter.py` e8c8d17e99e4008b,
+**Pre-registration.** Date ____ · commit 656c409 (code `e12quater.py` 461899633f189f8a, `e12ter.py` e8c8d17e99e4008b,
 `e12bis.py` 27adfe03f24647e8, `e12.py` 3ec453d15372b217, `p4b.py` 926061038a7472a3, `e9.py` 4dd5628af8879511;
-preflight log `e12quater_preflight.log` ____) · launched by ____ (Mac M3 Max, CPU) · preflight ____ · cost ____.
+preflight log `e12quater_preflight.log` e537ad3752ef9299) · launched by Fabio Palomba (Mac M3 Max, CPU) · preflight
+8/8 · cost ≤ 7.2 s per (city, *f*, seed), ≈ 0.12 h for the 60 pairs (`e12quater_costo.json` 99821e3bc2028e60; load
+average 3.1–3.7: an upper bound).
 
 Draft of 2026-11-08, on the decision of the internal review of 2026-11-08 (21:45, item 2); approved at 22:00 with
 the full fallback chain and a control for each link. No training. **No
@@ -45,6 +47,10 @@ Alternative considered and not chosen: shrinkage of every row towards the calend
 *q* = (*n*·*q*_row + κ·*q*_cal)/(*n* + κ). It adds a parameter κ that would have to be fixed without test data; the
 fallback keeps the threshold of E12-ter and changes only its target. Choice confirmed by the internal review
 (2026-11-08).
+
+**Shares of the links before the signature** (preflight, validation lookups, seed 0, no target read): in the
+0–250 m bin the neighbour row serves 93–100% of the lookups and the calendar row the rest; in the outer bins of
+Madrid and London the calendar row serves up to 95%; the prior is never reached (0.000 everywhere).
 
 **Fallback shares, reported.** For every (city, *f*), overall and per distance bin: the share of test lookups
 served by each link of the chain (neighbour row, calendar row, prior). The same shares for E12-ter are reported beside them, from

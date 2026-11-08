@@ -1,8 +1,11 @@
 # E10-pred — Does placement change what is forecastable on the uncovered segments?
 
-**Pre-registration.** Date ____ · commit ____ (code `e10pred.py` ____, `p4b.py` 926061038a7472a3, `e9.py`
-4dd5628af8879511; preflight log `e10pred_preflight.log` ____) · launched by ____ (Mac M3 Max, MPS) · preflight
-____ · cost ____.
+**Pre-registration.** Date ____ · commit 53911d0 (code `e10pred.py` c1575d5f166b980e, `p4b.py` 926061038a7472a3,
+`e9.py` 4dd5628af8879511, `genera_congelamento_e9.py` 6b9a0552efea3af6, `genera_congelamento_e11.py`
+05b321ed3f946141; preflight log `e10pred_preflight.log` 6f3427abe71b7543) · launched by Fabio Palomba (Mac M3 Max,
+MPS) · preflight 8/8 · cost: measured by the executor before the signature with `e10pred.py cost` (G0 and G1
+isolated, Madrid, *f* = 20%, uniform placement, uptime before and after in `e10pred_costo.json` ____); upper bound
+from the isolated costs of E9, ≈ 1.1 h.
 
 Draft of 2026-11-08, on the decision of the internal review of 2026-11-08 (21:45, item 4); approved at 22:00 with
 the declaration of the input masks and their realised share. **30 trainings. No
@@ -41,6 +44,12 @@ seeds × 2 arms = **30 trainings**.
 
 Everything else is `p4b.py` and `e9.py` unchanged: inputs, class weights and normalisation from observed segments
 in the training period, origins, model, training, wCE.
+
+**Before the signature** (preflight, seed 0, no target read): with uniform placement the median distance from a
+test-hidden segment to the nearest observed one is 57, 76 and 162 m in Madrid, London and Melbourne, against 461,
+327 and 2,213 m with the blocks of E9; observed segments occupy 41, 35 and 33 grid cells against 11, 9 and 12. The
+mean share of observed segments in input per batch is the same in the two designs (0.76–0.78; 5–95% range 0.57–0.95
+uniform, 0.49–0.97 blocks). The common test-hidden segments are 344, 332 and 221, in 21, 25 and 29 blocks.
 
 **References from E9.** The E9 runs at *f* = 20% (blocks), same cities and seeds, arms G0 and G1, with their
 per-cell predictions.

@@ -1,8 +1,10 @@
 # E12-quinquies — How much of the same-instant agreement remains once the hour is known? (descriptive)
 
-**Pre-registration.** Date ____ · commit ____ (code `e12quinquies.py` ____, `e12.py` 3ec453d15372b217,
-`p4b.py` 926061038a7472a3, `e9.py` 4dd5628af8879511; preflight log `e12quinquies_preflight.log` ____) · launched
-by ____ (Mac M3 Max, CPU) · preflight ____ · cost ____.
+**Pre-registration.** Date ____ · commit 656c409 (code `e12quinquies.py` f26030d81d8bbadd, `e12ter.py`
+e8c8d17e99e4008b, `e12.py` 3ec453d15372b217, `p4b.py` 926061038a7472a3, `e9.py` 4dd5628af8879511; preflight log
+`e12quinquies_preflight.log` 4077631d46f6500b) · launched by Fabio Palomba (Mac M3 Max, CPU) · preflight 6/6 · cost
+≤ 0.4 s per (city, *f*, seed), ≈ 0.005 h for the 60 pairs (`e12quinquies_costo.json` d0303ac7f341d2f9; load average
+3.1–3.7: an upper bound).
 
 Draft of 2026-11-08, on the decision of the internal review of 2026-11-08 (21:45, item 3); approved at 22:00 with
 N_min per slot and the readable bins declared in advance. No training,
@@ -37,6 +39,9 @@ E12-ter.
 | E | Σ_k π_k², with π_k the class frequencies of the observed segments over the training period (E12's reference) |
 | E_slot | Σ_s w_s Σ_k π_k(s)², with π_k(s) the class frequencies of the observed segments over the training period in slot *s*, and w_s the share of the bin's pairs in slot *s*. A slot with fewer than **N_min = 20** valid observed cells in the training period uses π_k instead of π_k(s) (counted and reported) |
 | R | (A − E_slot) / (A − E): the share of the excess agreement that remains once the hour is known |
+
+**Slots below N_min before the signature** (preflight, seed 0, no target read): none of the 168 slots has fewer
+than 20 valid observed training cells, in any (city, *f*).
 
 **Secondary reference** (preserves both marginals): E′_slot = Σ_s w_s Σ_k π_k(s)·ρ_k(s), with ρ_k(s) the class
 frequencies of the hidden segments themselves in slot *s* over the test period. It uses test labels of hidden
