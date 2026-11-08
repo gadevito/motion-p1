@@ -4,7 +4,8 @@
 `e12bis.py` 27adfe03f24647e8, `e12.py` 3ec453d15372b217, `p4b.py` 926061038a7472a3, `e9.py` 4dd5628af8879511;
 preflight log `e12quater_preflight.log` ____) · launched by ____ (Mac M3 Max, CPU) · preflight ____ · cost ____.
 
-Draft of 2026-11-08, on the decision of the internal review of 2026-11-08 (21:45, item 2). No training. **No
+Draft of 2026-11-08, on the decision of the internal review of 2026-11-08 (21:45, item 2); approved at 22:00 with
+the full fallback chain and a control for each link. No training. **No
 computation on test before the signature**, except the preflight, which reads no test target. E12-ter stays as it
 is (frozen record dda3b8f); E12-quater is a new, declared analysis.
 
@@ -28,10 +29,17 @@ the outer bins of Madrid and London (E12-ter preflight). E12-quater removes that
 ε = 0.05, transformation *q*′ = 0.95·*q* + 0.05·prior and *p* ∝ W·*q*′, metrics, resample, replicate indices),
 with one change, chosen before the signature:
 
-**Fallback (the one change).** A row of the table with the neighbour with fewer than N_min pairs falls back to the
-**calendar-only row** (slot, *h*), not to the E12-bis row. A calendar row with fewer than N_min pairs falls back
-to the prior, as in E12-ter. Where the fallback applies, E12-quater and the calendar-only table give the same
-forecast, so their difference comes only from rows that carry the neighbour.
+**Fallback (the one change): the full chain.** For a hidden segment at origin *t* and horizon *h*:
+
+1. **neighbour row** (slot(*t* + *h*), *b*, bin(*d*), *h*), if a neighbour with a valid class exists and the row
+   holds at least N_min pairs;
+2. otherwise the **calendar row** (slot(*t* + *h*), *h*), if it holds at least N_min pairs (this includes the case
+   with no valid neighbour, which in E12-ter went to the prior);
+3. otherwise the **prior**.
+
+The calendar-only table uses links 2 and 3 only. Wherever link 1 is not used, E12-quater and the calendar-only
+table therefore give the same forecast, whether the calendar row is used or itself falls back to the prior; their
+difference comes only from rows that carry the neighbour.
 
 Alternative considered and not chosen: shrinkage of every row towards the calendar-only row,
 *q* = (*n*·*q*_row + κ·*q*_cal)/(*n* + κ). It adds a parameter κ that would have to be fixed without test data; the
@@ -39,7 +47,7 @@ fallback keeps the threshold of E12-ter and changes only its target. Choice conf
 (2026-11-08).
 
 **Fallback shares, reported.** For every (city, *f*), overall and per distance bin: the share of test lookups
-that fall back to the calendar row, and to the prior. The same shares for E12-ter are reported beside them, from
+served by each link of the chain (neighbour row, calendar row, prior). The same shares for E12-ter are reported beside them, from
 its run records.
 
 ## Metrics and resample
@@ -64,11 +72,15 @@ realised false-alarm rate (descriptive, thresholds on validation-hidden segments
 
 1. Node sets, origins, class weights and the two tables identical to the E12-ter run records for the 60
    (city, *f*, seed) pairs (fingerprints).
-2. Where a row falls back, the E12-quater forecast equals the calendar forecast to the bit (on validation cells).
-3. Where no row falls back, the E12-quater forecast equals the E12-ter forecast to the bit (on validation cells).
-4. The fallback shares on validation lookups, per bin, are logged before the signature.
-5. Causality and probabilities as in E12-ter (controls 3–5).
-6. Red-recall thresholds chosen on validation-hidden segments and saved with fingerprint before any test metric.
+2. **Link 1:** where the neighbour row is used, the E12-quater forecast equals the E12-ter forecast to the bit
+   (E12-ter uses the same row there).
+3. **Link 2:** where the neighbour row is not used and the calendar row is, the E12-quater forecast equals the
+   calendar forecast to the bit.
+4. **Link 3:** where neither is used, both E12-quater and the calendar forecast equal the prior to the bit.
+   Controls 2–4 run on validation cells, and the three links together cover every lookup.
+5. The shares of each link on validation lookups, per bin, are logged before the signature.
+6. Causality and probabilities as in E12-ter (controls 3–5).
+7. Red-recall thresholds chosen on validation-hidden segments and saved with fingerprint before any test metric.
 
 ## What invalidates the experiment
 
@@ -83,6 +95,9 @@ No training; as E12-ter (≈ 0.11 h for the 60 pairs, an upper bound). Measured 
 ## What changes in the paper
 
 - **D′ within 250 m as D:** the reading of E12-ter within 250 m stands; the text reports the fallbacks.
+- **D′ within 250 m better than D** (paired D′ − D with L > 0): the fallback of E12-ter was masking a value of the
+  neighbour within 250 m; this is stated, with D′, and the sentences on the neighbour net of the calendar are
+  revised accordingly.
 - **D′ beyond 250 m close to zero:** the losses of E12-ter beyond 250 m came from the fallback, not from the
   neighbour; the sentence on the outer bins is withdrawn.
 - **D′ beyond 250 m below zero:** a thin conditioning on a distant neighbour costs wCE even against the calendar;

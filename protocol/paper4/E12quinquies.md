@@ -4,7 +4,8 @@
 `p4b.py` 926061038a7472a3, `e9.py` 4dd5628af8879511; preflight log `e12quinquies_preflight.log` ____) · launched
 by ____ (Mac M3 Max, CPU) · preflight ____ · cost ____.
 
-Draft of 2026-11-08, on the decision of the internal review of 2026-11-08 (21:45, item 3). No training,
+Draft of 2026-11-08, on the decision of the internal review of 2026-11-08 (21:45, item 3); approved at 22:00 with
+N_min per slot and the readable bins declared in advance. No training,
 **descriptive**: no criterion and no statement of the paper depends on a threshold. **No computation on test
 before the signature**, except the preflight, which reads no test target.
 
@@ -34,7 +35,7 @@ E12-ter.
 |---|---|
 | A | share of pairs with *y_i*(*t*) = *y_j*(*t*) (E12's agreement, recomputed and checked against E12) |
 | E | Σ_k π_k², with π_k the class frequencies of the observed segments over the training period (E12's reference) |
-| E_slot | Σ_s w_s Σ_k π_k(s)², with π_k(s) the class frequencies of the observed segments over the training period in slot *s*, and w_s the share of the bin's pairs in slot *s* |
+| E_slot | Σ_s w_s Σ_k π_k(s)², with π_k(s) the class frequencies of the observed segments over the training period in slot *s*, and w_s the share of the bin's pairs in slot *s*. A slot with fewer than **N_min = 20** valid observed cells in the training period uses π_k instead of π_k(s) (counted and reported) |
 | R | (A − E_slot) / (A − E): the share of the excess agreement that remains once the hour is known |
 
 **Secondary reference** (preserves both marginals): E′_slot = Σ_s w_s Σ_k π_k(s)·ρ_k(s), with ρ_k(s) the class
@@ -45,6 +46,9 @@ beside E_slot, never in place of it. R′ is defined as R with E′_slot.
 **Interval.** 4,000 replicates, seeds × corridor blocks, with E12's replicate indices; A, E_slot and R are
 recomputed on each replicate (E from the training period is fixed). A bin with fewer than 3 blocks in some seed
 is reported without interval and marked; R is not reported where A − E < 0.02.
+
+**Declared in advance:** in the outer bins A − E is often 1–3 points (E12), so R will be read almost only within
+250 m in Madrid and London, and up to 1,000 m in Melbourne, where A − E stays larger.
 
 ## Reading rules (declared, descriptive)
 
@@ -63,7 +67,7 @@ changes the reading.
 ## Mandatory controls (preflight, reading no test target)
 
 1. Node sets, origins and nearest-neighbour pairs identical to E12's on validation origins (fingerprints).
-2. With one slot only, E_slot = E to the bit.
+2. With one slot only, E_slot = E to the bit; the slots below N_min are logged per (city, *f*).
 3. π_k(s) from observed segments and training-period origins only; noise on hidden segments and after the last
    training origin leaves them identical.
 4. Synthetic test: a planted calendar with no spatial copy must give R close to 0; a planted copy with no calendar

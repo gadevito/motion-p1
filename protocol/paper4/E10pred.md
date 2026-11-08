@@ -4,7 +4,8 @@
 4dd5628af8879511; preflight log `e10pred_preflight.log` ____) · launched by ____ (Mac M3 Max, MPS) · preflight
 ____ · cost ____.
 
-Draft of 2026-11-08, on the decision of the internal review of 2026-11-08 (21:45, item 4). **30 trainings. No
+Draft of 2026-11-08, on the decision of the internal review of 2026-11-08 (21:45, item 4); approved at 22:00 with
+the declaration of the input masks and their realised share. **30 trainings. No
 computation on test before the signature**, except the preflight, which reads no test target.
 
 signed: ____
@@ -32,7 +33,11 @@ seeds × 2 arms = **30 trainings**.
    (11 × 11, 11 × 11, 15 × 15) by E9's deficit rule, with targets 0.2 and 0.6 of K (E9 at *f* = 20%), in the
    order of stream 1.
 3. Per-batch input masks as in E9: a share *u* ~ U(0.6, 0.95) of the cells that hold observed segments, in whole
-   cells, restricted to observed segments.
+   cells, restricted to observed segments. **Declared:** with uniform observed segments most cells hold 1–3 of
+   them, so this mask is close to a uniform draw of observed segments, while in E9 it draws whole corridors. The
+   realised share of observed segments in input is recorded for every batch of every run, and the same quantity is
+   recomputed for the E9 runs at *f* = 20% by replaying their mask stream (`default_rng([seed, 2])`, no training),
+   so that the comparison with E9 has no hidden factor.
 
 Everything else is `p4b.py` and `e9.py` unchanged: inputs, class weights and normalisation from observed segments
 in the training period, origins, model, training, wCE.
@@ -66,9 +71,10 @@ points in at least 2 of the 3 cities.
 No correction for multiple comparisons, declared. Δ on the common segments is read on the two scales (sign of the
 interval; 3-point margin) without a derived statement.
 
-**Reported without a criterion:** wCE of G0 and G1 per design; V per horizon; the median distance from a
-test-hidden segment to the nearest observed one per design (to set against E10-geo); red recall at 5% false
-alarms with the realised false-alarm rate.
+**Reported without a criterion:** wCE of G0 and G1 per design; V per horizon; per design, the median distance
+from a test-hidden segment to the nearest observed one (to set against E10-geo), the number of grid cells with at
+least one observed segment, and the realised share of observed segments in input per batch (mean and 5–95%
+range); red recall at 5% false alarms with the realised false-alarm rate.
 
 ## Mandatory controls (preflight, reading no test target)
 
