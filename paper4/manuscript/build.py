@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""
+r"""
 Paper 4 — typeset the full draft (text and supplement) into one PDF, for the reading of the internal review.
 =========================================================================================================
 The Markdown files of `paper4/paper/` remain the text of record: their numbers are the ones checked by
@@ -10,8 +10,12 @@ The Markdown files of `paper4/paper/` remain the text of record: their numbers a
   - the draft header of each file (everything above its first `---` line) is dropped;
   - the figure of E10-geo is the frozen SVG (`paper4/congelamenti/e10geo_curva.svg`), rasterised by headless
     Chrome into `paper4/manuscript/figures/e10geo_curva.png`;
-  - supplement: the register of corrections (`protocol/paper4/REGISTRO_CORREZIONI.md`), which the text cites by
-    item number, in one column after the references of the main text.
+  - citations: [key] becomes \cite{key} for the keys of `references.tex` (hand-written bibliography);
+  - authors, affiliations and grant as in Paper 1; biographies after the references;
+  - supplement, in one column after the biographies: S1, the register of corrections restricted to the items
+    on which numbers of the paper depend (`protocol/paper4/REGISTRO_CORREZIONI.md`, items in SUPPLEMENT_ITEMS;
+    the items on the traceability of the earlier report stay in the repository); S2, the frozen records and the
+    provenance of the numbers (`paper4/paper/supplement_records.md`).
 
 Usage, from the repository root:  python3 paper4/manuscript/build.py   (writes main.tex, main.pdf)
 The LaTeX is generated: edit the Markdown, not main.tex. On Overleaf, main.tex compiles with XeLaTeX.
@@ -30,10 +34,15 @@ REGISTER = ROOT / "protocol" / "paper4" / "REGISTRO_CORREZIONI.md"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 # (file, level shift): level shift 0 maps "##" to \section, 1 maps "##" to \subsection (sections of Part B).
-SECTIONS = [("section_introduction.md", 0), ("section_partA.md", 0), ("section_partB.md", 0),
-            ("section_E11.md", 1), ("section_E9.md", 1), ("section_E12.md", 1), ("section_E12bis.md", 1),
-            ("section_E12ter.md", 1), ("section_E10geo.md", 1), ("section_discussion.md", 0),
-            ("section_limits.md", 0), ("section_conclusion.md", 0)]
+SECTIONS = [("section_introduction.md", 0), ("section_setting.md", 0), ("section_partB.md", 0),
+            ("section_E11.md", 1), ("section_E9.md", 1), ("section_signal.md", 1), ("section_E10geo.md", 1),
+            ("section_partA.md", 0), ("section_discussion.md", 0), ("section_limits.md", 0),
+            ("section_conclusion.md", 0), ("section_availability.md", 0)]
+UNNUMBERED = {"Data and Code Availability"}
+SUPPLEMENT_ITEMS = {"1", "2", "3", "8", "9", "10", "11", "12", "13"}
+BIBKEYS = set(re.findall(r"\\bibitem\{([^}]+)\}", (Path(__file__).resolve().parent / "references.tex").read_text()))
+AUTHORS = ["Gabriele De Vito", "Gemma Catolino", "Dario Di Nucci", "Fabio Palomba", "Carmine Gravino",
+           "Andrea De Lucia", "Filomena Ferrucci"]
 LEVELS = ["section", "subsection", "subsubsection", "paragraph"]
 
 # Characters outside the text font, set in math.
@@ -76,6 +85,8 @@ def inline(t):
         s = re.sub(r"\*\*(.+?)\*\*", r"\\textbf{\1}", s)
         s = re.sub(r"(?<![\w*])\*(?!\s)(.+?)(?<!\s)\*(?![\w*])", r"\\emph{\1}", s)
         s = re.sub(r'"(\S[^"]*?)"', r"``\1''", s)
+        s = re.sub(r"\[([a-z]+\d{4}[a-z0-9]*)\]", lambda m: r"~\cite{" + m.group(1) + "}" if m.group(1) in BIBKEYS
+                   else m.group(0), s)
         out.append(s)
     return "".join(out)
 
@@ -102,11 +113,16 @@ def split_row(r):
     return cells + [cur.strip()]
 
 
+FLOATING = True          # False in the supplement (one column): tables are set in place
+
+
 def table(rows, caption=None):
     cells = [split_row(r) for r in rows]
     head, data = cells[0], [r for r in cells[2:]]
     n = len(head)
-    width = [max(len(r[j]) if j < len(r) else 0 for r in [head] + data) for j in range(n)]
+    # width of a column: its longest data cell, or the longest word of its header (headers wrap)
+    width = [max([len(r[j]) for r in data if j < len(r)] + [max(len(w) for w in head[j].split() or [""])])
+             + 2 for j in range(n)]
     total = sum(width)
     wide = total > 70 or n > 4
     env = "table*" if wide else "table"
@@ -115,9 +131,13 @@ def table(rows, caption=None):
     w = [max(0.06, min(0.6, x / total)) for x in width]
     k = sum(w); w = [x / k for x in w]
     spec = "".join(r">{\raggedright\arraybackslash\hsize=" + f"{x * n:.3f}" + r"\hsize}X" for x in w)
-    out = [rf"\begin{{{env}}}[!t]", r"\centering\footnotesize", r"\renewcommand{\arraystretch}{1.15}"]
-    if caption:
+    if not FLOATING:
+        env, tw = "center", r"\textwidth"
+    out = ([rf"\begin{{{env}}}[!t]"] if FLOATING else [r"\begin{center}"]) + \
+          [r"\centering\footnotesize", r"\renewcommand{\arraystretch}{1.15}"]
+    if caption and FLOATING:
         out.append(r"\caption{" + inline(caption) + "}")
+    # in place (supplement): the section heading is the caption
     out += [rf"\begin{{tabularx}}{{{tw}}}{{{spec}}}", r"\toprule",
             " & ".join(r"\textbf{" + inline(h) + "}" for h in head) + r" \\", r"\midrule"]
     for r in data:
@@ -182,7 +202,8 @@ def convert(lines, shift):
         m = re.match(r"^(#{2,5}) (.*)$", ln)
         if m:
             lvl = len(m.group(1)) - 2 + shift
-            out.append(rf"\{LEVELS[min(lvl, 3)]}{{{inline(m.group(2))}}}")
+            star = "*" if m.group(2).strip() in UNNUMBERED else ""
+            out.append(rf"\{LEVELS[min(lvl, 3)]}{star}{{{inline(m.group(2))}}}")
             heading = m.group(2); i += 1; continue
         block = []
         LIST = r"^\s*(- |\d+\. )"
@@ -201,7 +222,18 @@ def convert(lines, shift):
             if block[0].startswith("|") and not (i < len(lines) and lines[i].startswith("|")):
                 break
         if block[0].startswith("|"):
-            out += table(block, pending_caption or heading); pending_caption = None
+            cap = pending_caption or heading; pending_caption = None
+            j = i
+            while j < len(lines) and not lines[j].strip():
+                j += 1
+            note = []
+            if j < len(lines) and lines[j].startswith("*") and not lines[j].startswith("**"):
+                while j < len(lines) and lines[j].strip():
+                    note.append(lines[j].strip()); j += 1
+                note = " ".join(note)
+                if note.endswith("*") and not note.endswith("**"):
+                    cap = cap + ". " + note[1:-1]; i = j
+            out += table(block, cap)
         elif block[0].startswith(">"):
             out += [r"\begin{quote}", inline(" ".join(b.lstrip("> ").strip() for b in block)), r"\end{quote}"]
         elif re.match(r"^\s*(- |\d+\. )", block[0]):
@@ -240,15 +272,17 @@ def supplement():
         if ln.startswith("|"):
             break
         intro.append(ln)
-    out = [r"\clearpage", r"\onecolumn", r"\appendices", r"\renewcommand{\thesection}{S\arabic{section}}",
-           r"\section*{Supplementary material: register of corrections}",
-           r"\addcontentsline{toc}{section}{Supplementary material}",
-           inline("Source: `protocol/paper4/REGISTRO_CORREZIONI.md` (" + sha(REGISTER) + "). The main text refers "
-                  "to these items by number."), ""]
-    # the introductory paragraphs and lists of the register
-    out += convert(intro, 0)
+    out = [r"\clearpage", r"\onecolumn",
+           r"\begin{center}\Large Supplementary material\end{center}",
+           r"\section*{S1. Register of corrections}",
+           inline("Corrections made during the study on which numbers of the paper depend: defects of the earlier "
+                  "pipeline corrected in this one (items 1–3) and defects of the pipeline of this study found and "
+                  "corrected before any accepted number (items 8–13). Items 4–7 and 14–20 concern the traceability "
+                  "of the earlier report [motion2026uc04]: no number of this paper depends on them, and they are "
+                  "listed in the register in the repository. Source: `protocol/paper4/REGISTRO_CORREZIONI.md` (" +
+                  sha(REGISTER) + ")."), ""]
     cells = [split_row(r) for r in rows]
-    head, data = cells[0], cells[2:]
+    head, data = cells[0], [r for r in cells[2:] if r[0] in SUPPLEMENT_ITEMS]
     spec = (r">{\raggedright\arraybackslash}p{0.03\textwidth}>{\raggedright\arraybackslash}p{0.27\textwidth}"
             r">{\raggedright\arraybackslash}p{0.38\textwidth}>{\raggedright\arraybackslash}p{0.11\textwidth}"
             r">{\raggedright\arraybackslash}p{0.13\textwidth}")
@@ -258,6 +292,12 @@ def supplement():
         r = (r + [""] * 5)[:5]
         out.append(" & ".join(inline(c) for c in r) + r" \\ \addlinespace")
     out += [r"\bottomrule", r"\end{longtable}", "}"]
+    global FLOATING
+    FLOATING = False
+    rec = body((PAPER / "supplement_records.md").read_text())
+    rec = [ln.replace("## Frozen records and provenance", "## S2. Frozen records and provenance") for ln in rec]
+    UNNUMBERED.add("S2. Frozen records and provenance")
+    out += convert(rec, 0)
     return out
 
 
@@ -288,16 +328,39 @@ def main():
                    capture_output=True)
     title, abstract, keywords = front()
     tex = [PREAMBLE, r"\begin{document}", r"\title{" + inline(title) + "}",
-           r"\author{Draft of the internal review, " + inline("2026-11-08") + r". Authors to be confirmed.%" + "\n"
-           r"\thanks{Full draft typeset from \texttt{paper4/paper/*.md} by \texttt{paper4/manuscript/build.py}. "
-           r"Every number is checked against the frozen records by \texttt{paper4/analysis/main.py}. "
-           r"Citations are marked [key] or [ref:~\ldots] where a reference is still to be chosen.}}",
-           r"\markboth{Paper 4 --- full draft for the internal review}{Paper 4 --- full draft}",
-           r"\maketitle", r"\begin{abstract}", inline(abstract), r"\end{abstract}",
+           r"\author{" + ", ".join(AUTHORS[:-1]) + ", and " + AUTHORS[-1] + "%\n"
+           r"\thanks{Manuscript received Month DD, 2026. This work was supported by the MOTION project, funded by the "
+           r"Fondo per la Crescita Sostenibile -- Accordi per l'innovazione (D.M. 31 December 2021, D.M. 11 May 2023 "
+           r"and D.D. 11 August 2023), project F/350228/01-05/X60, CUP B99J23006570007.}%" + "\n"
+           r"\thanks{The authors are with the Department of Computer Science, University of Salerno, Fisciano (SA), "
+           r"Italy (e-mail: \{gadevito, gcatolino, ddinucci, fpalomba, gravino, adelucia, fferrucci\}@unisa.it). "
+           r"Corresponding author: Gabriele De Vito.}%" + "\n"
+           r"\thanks{Draft of 2026-11-08 for the internal review, typeset from \texttt{paper4/paper/*.md}; every "
+           r"number is checked against the frozen records. [ref:~\ldots] marks a reference still to be chosen.}}",
+           r"\markboth{IEEE Transactions on Intelligent Transportation Systems}"
+           r"{De Vito \MakeLowercase{\textit{et al.}}: What a Traffic Sensor Buys}",
+           r"\maketitle", r"\begin{abstract}", r"\input{sections/abstract}", r"\end{abstract}",
            r"\begin{IEEEkeywords}", inline(keywords), r"\end{IEEEkeywords}", ""]
+    # one LaTeX file per section, as in Paper 1 (sections/<name>.tex), all generated from the Markdown
+    sec = OUT / "sections"; sec.mkdir(exist_ok=True)
+    for old in sec.glob("*.tex"):
+        old.unlink()
+    head = "% Generated by paper4/manuscript/build.py from paper4/paper/{} ({}): edit the Markdown, not this file.\n"
+    (sec / "abstract.tex").write_text(head.format("section_abstract.md", sha(PAPER / "section_abstract.md"))
+                                      + inline(abstract) + "\n")
     for fn, shift in SECTIONS:
-        tex += [f"% ---- {fn} ({sha(PAPER / fn)})"] + convert(body((PAPER / fn).read_text()), shift)
-    tex += supplement() + [r"\end{document}"]
+        name = fn.removeprefix("section_").removesuffix(".md")
+        (sec / f"{name}.tex").write_text(head.format(fn, sha(PAPER / fn))
+                                         + "\n".join(convert(body((PAPER / fn).read_text()), shift)) + "\n")
+        tex.append(r"\input{sections/" + name + "}")
+    tex += ["", r"\begin{thebibliography}{99}", r"\footnotesize", r"\input{references}", r"\end{thebibliography}", ""]
+    (sec / "biographies.tex").write_text("\n".join(
+        r"\begin{IEEEbiographynophoto}{" + a + "}\nBiography to be supplied.\n\\end{IEEEbiographynophoto}"
+        for a in AUTHORS) + "\n")
+    tex.append(r"\input{sections/biographies}")
+    (sec / "supplement.tex").write_text(head.format("supplement_records.md and the register", "-")
+                                        + "\n".join(supplement()) + "\n")
+    tex += [r"\input{sections/supplement}", r"\end{document}"]
     (OUT / "main.tex").write_text("\n".join(tex) + "\n")
     r = subprocess.run(["tectonic", "-X", "compile", "--keep-logs", "main.tex"], cwd=OUT, capture_output=True,
                        text=True)
@@ -306,7 +369,24 @@ def main():
     print(log[-1500:] if r.returncode else "compiled: paper4/manuscript/main.pdf")
     if missing:
         print("missing glyphs:", " ".join(missing))
+    if r.returncode == 0:
+        overleaf()
     return r.returncode
+
+
+def overleaf():
+    """paper4/manuscript/paper4_overleaf.zip: what Overleaf needs to compile main.tex (compiler: XeLaTeX)."""
+    import zipfile
+    (OUT / "latexmkrc").write_text("# Overleaf and latexmk: the manuscript uses fontspec and unicode-math, "
+                                   "so it compiles with XeLaTeX\n$pdf_mode = 5;\n")
+    files = ["main.tex", "references.tex", "latexmkrc", "IEEEtran.cls"] + \
+            [f"sections/{f.name}" for f in sorted((OUT / "sections").glob("*.tex"))] + \
+            [f"figures/{f.name}" for f in sorted((OUT / "figures").glob("*.png"))]
+    z = OUT / "paper4_overleaf.zip"
+    with zipfile.ZipFile(z, "w", zipfile.ZIP_DEFLATED) as zf:
+        for f in files:
+            zf.write(OUT / f, f)
+    print(f"overleaf package: {z.relative_to(ROOT)} ({len(files)} files)")
 
 
 if __name__ == "__main__":

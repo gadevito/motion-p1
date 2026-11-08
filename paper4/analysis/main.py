@@ -82,10 +82,9 @@ ALL = ["e11", "e9", "e12", "e12bis", "e10geo", "e12ter", "p4a"]
 SOURCES = {
     "section_E11.md": ["e11"],
     "section_E9.md": ["e9", "e11"],
-    "section_E12.md": ["e12", "e9"],
-    "section_E12bis.md": ["e12bis", "e12"],
-    "section_E10geo.md": ["e10geo", "e12bis"],
-    "section_E12ter.md": ["e12ter", "e12bis", "e12"],
+    "section_setting.md": ["e11", "e9"],
+    "section_signal.md": ["e12", "e12bis", "e12ter", "e9"],     # E12, E12-bis, E12-ter in one section (review)
+    "section_E10geo.md": ["e10geo", "e12bis", "e12ter"],
     "section_partA.md": ["p4a"],
 }
 DEFAULT_SOURCES = ALL           # introduction, discussion, limits, conclusion, order files
@@ -98,22 +97,18 @@ DESIGN = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "1
 
 # Numbers whose source is not one of the six frozen records: one entry per (file, number), with its provenance.
 PROVENANCE = {
-    ("section_E11.md", "1.066"): "E11.md, pilot, variants D1 and D3 (validation)",
-    ("section_E11.md", "1.071"): "E11.md, pilot, variants D1 and D3 (validation)",
-    ("section_E11.md", "1.099"): "ln 3, the uniform predictor",
-    ("section_E11.md", "1.07"): "E11.md, pilot (validation)",
-    ("section_E11.md", "0.94"): "E11.md, pilot, D2-bis (validation)",
-    ("section_E11.md", "95"): "E11.md, pilot configuration (95 nodes)",
+    ("section_setting.md", "1.066"): "E11.md, pilot, variants D1 and D3 (validation)",
+    ("section_setting.md", "1.071"): "E11.md, pilot, variants D1 and D3 (validation)",
+    ("section_setting.md", "1.099"): "ln 3, the uniform predictor",
+    ("section_setting.md", "1.07"): "E11.md, pilot (validation)",
+    ("section_setting.md", "0.94"): "E11.md, pilot, D2-bis (validation)",
+    ("section_setting.md", "95"): "E11.md, pilot configuration (95 nodes)",
     ("section_E11.md", "81"): "E11.md, design (sub-networks of 81-99 nodes)",
     ("section_E11.md", "99"): "E11.md, design (sub-networks of 81-99 nodes)",
     ("section_E11.md", "43"): "E11.md, design (realised spacing 43-397 m)",
     ("section_E11.md", "397"): "E11.md, design (realised spacing 43-397 m)",
     ("section_E9.md", "1.0986"): "ln 3, the uniform predictor",
-    ("section_E12.md", "51,000"): "e12_risultati.json, concordance, pairs beyond 1,000 m in Madrid at 40% (50,451), rounded up",
     ("section_partA.md", "0.30"): "the deliverable's threshold, text p. 131 (rule reproduced in sample in CONGELAMENTO_4A)",
-    ("section_partA.md", "45.1"): "the deliverable's excluded section, text p. 133; no generator (CONGELAMENTO_4A, dated note; item 20)",
-    ("section_E12ter.md", "0.1"): "e12ter_preflight.log (4cba9954231e2f51), validation lookups, no target",
-    ("section_E12ter.md", "6.6"): "e12ter_preflight.log (4cba9954231e2f51), validation lookups, no target",
 }
 
 

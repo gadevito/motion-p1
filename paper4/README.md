@@ -32,7 +32,7 @@ deliverable), `paper4/DOMANDE.md` (open questions) and `paper4/MODIFICHE_AL_CODI
 | `paper4/analysis/CONFRONTO.md` | report of the last complete regeneration (committed) |
 | `paper4/analysis/reports/` | report of every run of `main.py` (committed) |
 | `paper4/paper/` | the paper's text, one Markdown file per section; `paper_order.md` gives the order and the source of each |
-| `paper4/manuscript/` | `build.py` typesets `paper4/paper/*.md` into `main.tex` and `main.pdf` (draft of the full paper with the register of corrections as supplement) |
+| `paper4/manuscript/` | `build.py` typesets `paper4/paper/*.md` into `main.tex` with one file per section under `sections/`, compiles `main.pdf`, and writes the Overleaf package `paper4_overleaf.zip` (XeLaTeX); `references.tex` is the bibliography |
 | `paper4/ENV.txt` | environment of Part B (`models/poetry.lock`) |
 
 ## Map of the experiments
@@ -101,9 +101,11 @@ repository; `paper4/runs/MANIFEST.tsv` lists them. Part A also reads the deliver
 python3 paper4/manuscript/build.py
 ```
 
-It converts `paper4/paper/*.md`, in the order of `paper_order.md`, into `paper4/manuscript/main.tex`
-(IEEEtran journal class, XeLaTeX, the fonts of Paper 1) and compiles `main.pdf` with Tectonic; the register of
-corrections is typeset as the supplement. `main.tex` is generated: the Markdown files are the text of record,
+It converts `paper4/paper/*.md`, in the order of `paper_order.md`, into `paper4/manuscript/main.tex` and one
+file per section in `paper4/manuscript/sections/` (IEEEtran journal class, XeLaTeX, the fonts of Paper 1),
+compiles `main.pdf` with Tectonic, and writes `paper4_overleaf.zip` for Overleaf. The supplement holds the items
+of the register of corrections on which numbers of the paper depend, and the frozen records with their
+provenance. `main.tex` is generated: the Markdown files are the text of record,
 and their numbers are the ones `main.py` checks.
 
 ## Protocol, records and corrections
