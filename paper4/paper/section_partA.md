@@ -8,8 +8,9 @@ Austin: sections).
 **Every statement of this section is descriptive.** The reading rules of the pre-registration were fixed knowing
 the in-sample values of the deliverable, so they are declared rules for reading the intervals, not tests.
 
-Open points, waiting for the executor's causes (register of corrections, items 18–20): the green class of
-Table 67, the neighbour bands of Table 68, and the Austin section counts. They are marked **[cause: item n]**.
+Three discrepancies with the deliverable's printed tables (the green class of Table 67, the neighbour bands of
+Table 68, the Austin section counts) are traced in the register of corrections, items 18–20, from the executor's
+read-only measurements (`protocol/paper4/fase2/CAUSE_4A.md`, commit 03fd226). No number of this section changes.
 
 ---
 
@@ -42,8 +43,10 @@ measured congestion agree poorly in level:
 - it changes sign with occupancy, from −0.112 [−0.136; −0.086] at 5–10% occupancy to +0.463 [+0.284; +0.620]
   above 40%;
 - within the measured classes it is +0.012 [−0.019; +0.044] on free flow, +0.458 [+0.320; +0.617] on slowed
-  traffic and +0.632 [+0.543; +0.718] on congestion. **[cause: item 18]** The deliverable's +0.033 on free flow
-  counts 2,989,877 cells, where we count 3,432,842. The conserved script, on the same inputs, prints our value.
+  traffic and +0.632 [+0.543; +0.718] on congestion. The deliverable's +0.033 on free flow counts 2,989,877
+  cells, where we count 3,432,842: its free-flow class left out the 442,965 cells whose measured factor is
+  clipped at its ceiling, and that version of the script is not conserved. Its overall value has no generator
+  (item 18).
 
 The same reconstruction separates congested cells from the others almost perfectly. The area under the curve
 for congestion against the rest is 0.984 [0.979; 0.988]. For slowed or congested against free flow it is
@@ -93,8 +96,9 @@ taken from a neighbouring sensor, discrimination falls with distance:
 | a neighbour within 20–60 m | 156 | 31 m | 0.764 [0.699; 0.826] | 0.528 [0.398; 0.653] |
 | a neighbour within 60–200 m | 165 | 96 m | 0.593 [0.539; 0.655] | 0.187 [0.079; 0.310] |
 
-**[cause: item 19]** The neighbour rows differ from the deliverable's by 0.001–0.009. The conserved script, on
-the same inputs, prints our values.
+The neighbour rows differ from the deliverable's by 0.001–0.009, with the same median distances. The conserved
+script, on the same inputs, prints our values, and no variant of the cell filter reproduces the deliverable's
+(item 19).
 
 The Gini scale (twice the area under the curve, minus one) is additive, so the arterial gap can be split. A
 reference 31 m away removes 0.968 − 0.448 of the Gini on the ring. Against the gap down to the arterials
@@ -123,11 +127,11 @@ When the lanes of a section are aggregated, the reconstructed factor must detect
 | 3 | 6 | 433,660 | 0.755 [0.461; 0.997] | 0.489–0.995 | +18.62 [+3.87; +33.35] |
 | 4 | 2 | 154,380 | 0.664 (2 sections, no interval) | 0.533–0.796 | +9.88 (no interval) |
 
-*Sections with ≥ 2 lanes: 30 (22/6/2); rank correlation over 29.* One two-lane section has 20 or fewer
-aggregated cells either with or without a congested lane. Its area under the curve is undefined under the
-script's rule, which requires more than 20 of each. **[cause: item 20]** The section is to be named. After the
-script's filters there are 40 sections, 10 of them with one lane, where nothing is aggregated. The brief counted
-31; its criterion of inclusion is to be stated.
+*Sections with ≥ 2 lanes: 30 (22/6/2); rank correlation over 29.* One two-lane section, `LAMARZENNIA|SB`, has
+only 11 aggregated cells with a congested lane. Its area under the curve is undefined under the script's rule,
+which requires more than 20 cells of each kind. After the script's filters there are 40 sections, 10 of them with
+one lane, where nothing is aggregated. The deliverable's 31 are the sections with a defined area under the
+curve whatever the number of lanes: these 29, plus 2 with one lane (item 20).
 
 The difference of prevalence is the share of cells in which at least one lane is congested but the section as a
 whole is not. It is the part of the episodes that the aggregated target itself hides, whatever the device.
@@ -138,6 +142,10 @@ under the curve is −0.441 [−0.714; −0.072]. Under the reading rule (interv
 > **The more lanes are aggregated, the worse the reconstructed factor detects an episode on one of them.**
 
 The data still found no lane threshold. Three and four lanes rest on 6 and 2 sections.
+
+The deliverable reported −0.541 over its 31 sections, and excluded one section for a prevalence difference of
+−45.1 points. Neither value has a generator, and under the conserved code every prevalence difference is
+non-negative by construction (item 20).
 
 The deliverable also stated that aggregation lowers the rank correlation between volume and occupancy, from
 +0.7241 to +0.2999 (item 16; no generator). With a declared definition, over the 8 sections with at least 3

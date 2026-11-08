@@ -15,3 +15,14 @@ deliverable checks they hold enter the paper only through the register of correc
 | `fase1/crossval/crossval_results_noempty.csv` | Same, `--exclude-empty` | 404 pairs, correlations on trafficked cells | d958ff99f618437f |
 | `fase1/crossval/crossval_results_d30.csv` | Same, `--max-dist 30` | 184 pairs within 30 m | 6c2f37dbb4c20d89 |
 | `fase1/crossval/log_base.txt`, `log_noempty.txt`, `log_d30.txt` | Full screen output of the three runs, the only place where the script prints its indicators | Read by `CROSSVAL_rigenerato.md` | cf97a3c7e0335704, e58782b00fbefc34, 004513bdcfd10a36 |
+
+## Part A records kept in Italian
+
+The executor's measurement of the causes of three discrepancies of Part A (register of corrections, items 18–20)
+was committed in Italian on the branch `esecutore/p4a-cause` (commit 03fd226, 2026-11-08). It is kept as a record
+and not edited. Like the files above, it is not a source of a number of Paper 4.
+
+| File | What it is | Outcome | Fingerprint |
+|---|---|---|---|
+| `analisi/p4a_cause.py` | Read-only script. It imports the deliverable's conserved module `analisi/validazione_colocalizzata.py` (f1f6340779b612d5) unchanged and measures, on the M30 and Austin data, the cell sets and section definitions that could explain the discrepancies of Tables 67–69 | Writes `fase2/CAUSE_4A.md` | 0136b0262bc044f1 |
+| `fase2/CAUSE_4A.md` | Output of the script, 2026-11-08 18:46 UTC: candidate green classes and overall cell sets (T67), filter variants per neighbour band (T68), section counts under nine definitions, per-section areas under the curve and prevalence differences (Austin) | Green class [0.8, 1.5) reproduces the deliverable exactly; the overall T67 value, the T68 differences, the lane–AUC −0.541 and the section at −45.1 points have no generator; the 31 are the sections with a defined area under the curve; the section that leaves correction 3 is `LAMARZENNIA|SB`. Summarised in the dated note of `CONGELAMENTO_4A.md` | db005d0afccfa938 |
