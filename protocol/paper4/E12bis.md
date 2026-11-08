@@ -83,9 +83,9 @@ There is no correction for multiple comparisons; this is declared, as in E12.
 - the share of test-hidden segments in each bin;
 - V per horizon;
 - the unweighted column;
-- red recall at 5% false alarms with the realised false-alarm rate. Because the prediction takes at most
-  3 × 4 × 4 distinct values per segment, the 5% target may not be met, as in E12; the realised rate is reported
-  next to it and recall is not read as discrimination when the two coincide.
+- red recall at 5% false alarms, **descriptive only**, always with the realised false-alarm rate next to it.
+  The prediction takes at most 3 × 4 × 4 distinct values per segment, so the 5% target may not be met, as in E12
+  (realised 3–100%). Recall is not read as discrimination.
 
 ## Mandatory controls (preflight, reading no test target)
 

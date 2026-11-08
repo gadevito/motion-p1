@@ -50,15 +50,19 @@ short.
 - two inverse-distance averages of the neighbours' current classes (4 nearest; all within 500 m);
 - the neighbours' class frequencies by weekly slot.
 
-The class estimate is mixed with the class prior (ε = 0.05) and reweighted by the class weights. None of the four
-beats G0 in any (city, *f*) pair:
+The class estimate is mixed with the class prior (ε = 0.05) and reweighted by the class weights. **No
+non-learned predictor beats G0**: V favourable and ≥ 3 points in 0 of 12 (city, *f*) pairs for every predictor.
 
 | Predictor | V range against G0 |
 |---|---|
-| P-nn | −110 to −144 points |
-| P-idw4 | −58 to −101 points |
-| P-hist4 | −9 to −61 points |
-| P-idw500 | −49 to +2.3 points |
+| P-nn and P-idw4 | −58 to −144 points |
+| P-hist4 | −9 to −21 points in Madrid and London; −32 to −61 in Melbourne |
+| P-idw500 | close to the prior wherever it falls back on it (−49 to +2.3 points) |
+
+P-nn and P-idw4 copy a class with probability close to 0.95 and are right about half the time.
+
+The class prior itself lies 1.4–4.5 points below G0 in Madrid and London: what G0 adds over the prior is the
+calendar. In Melbourne the prior is within ±3.4 points of G0.
 
 The pre-registered statement is "undetermined" only because the interval of P-idw500 in Melbourne at 10%
 reaches +7.2 (+2.28 [−3.10; +7.20]). There, 98% of hidden segments have no instrumented segment within 500 m,
@@ -77,6 +81,10 @@ These recall figures are not read as discrimination.
 > **The labels of segments without a sensor agree with their nearest instrumented neighbour more often than
 > chance, but only within about 250 m; used as they are, the neighbours' classes make the forecast worse than
 > the model without spatial exchange.**
+
+**With block placement, almost no hidden segment lies within the radius of the signal.** The share of hidden
+segments with no instrumented segment within 500 m is 65% at 10% coverage and 24% at 40% in Madrid; in
+Melbourne it is 85–98% at every coverage.
 
 Whether a calibrated use of the same signal buys wCE is the question of E12-bis. How far placement can bring
 uncovered segments within that radius is the question of E10-geo.

@@ -27,8 +27,10 @@ the 20 m alignment). UTM coordinates of the segments come from the sensor tables
 | **Uniform** | that number of segments drawn uniformly without replacement |
 | **Density-stratified** | segments split into five strata by local density (number of segments within 500 m, quintiles); the same number of instrumented segments allocated equally across the five strata (remainder to the densest strata), drawn uniformly within each stratum. This oversamples sparse areas |
 
-Random generators: `numpy.random.default_rng([20261108, rule index, draw])`, rule index 0, 1, 2. The blocks rule
-uses the E9 node-set rule with seed = draw.
+Random generators: `numpy.random.default_rng([20261108, rule index, city index, level index, draw])`, with rule
+index 1 (uniform) and 2 (density-stratified), city and level indices in the order of E9. The blocks rule uses the
+E9 node-set rule with seed = draw. If a stratum holds fewer segments than its allocation, it is filled
+completely and the excess goes to the next densest stratum.
 
 ## Quantities (for every city, *f*, rule; mean and 2.5–97.5% range over the 20 draws)
 
