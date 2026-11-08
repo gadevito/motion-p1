@@ -349,5 +349,7 @@ Open at this revision:
   paper's RQ1 and the second clause of the thesis wait for it.
 - **2026-11-08, 14:50.** Perimeter of the negative result stated in the limits; Phase 1 records kept in Italian,
   summarised in `protocol/paper4/SUMMARIES.en.md`.
-- **Reference run.** `paper4/analysis/main.py` is to be run by the executor on the frozen version, and its
-  report committed.
+- **Reference run: done.** The executor ran `paper4/analysis/main.py` at 61367a0 (2026-11-08, 13:38–13:47 UTC):
+  fingerprints, regeneration and text PASS; report committed at d4ca006
+  (`paper4/analysis/regeneration/20261108T133849Z/report.md`). From the next run, reports go to the tracked
+  folder `paper4/analysis/reports/`.

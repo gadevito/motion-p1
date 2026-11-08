@@ -27,7 +27,8 @@ Usage, from the repository root, with the interpreter of the experiments:
     $PY paper4/analysis/main.py --text-only     # steps 1 and 3 (no run folders needed)
     $PY paper4/analysis/main.py --only E12bis E12ter
 
-Exit code 0 only if every step passes. Report: `paper4/analysis/regeneration/<instant>/report.md`.
+Exit code 0 only if every step passes. Report: `paper4/analysis/reports/<instant>.md` (tracked, to be committed);
+the work folder `paper4/analysis/regeneration/<instant>/` is ignored by git.
 """
 import argparse
 import hashlib
@@ -327,7 +328,9 @@ def main():
     res["text"] = step_text(report)
     report.append("## Outcome\n\n" + "\n".join(f"- {k}: {'PASS' if v else 'FAIL'}" for k, v in res.items()))
     rp = work / "report.md"; rp.write_text("\n".join(report) + "\n")
-    print("\n".join(report)); print(f"\nreport -> {rp.relative_to(ROOT)}")
+    tracked = ROOT / "paper4" / "analysis" / "reports" / f"{stamp}.md"      # tracked copy, to be committed
+    tracked.parent.mkdir(parents=True, exist_ok=True); tracked.write_text("\n".join(report) + "\n")
+    print("\n".join(report)); print(f"\nreport -> {tracked.relative_to(ROOT)} (tracked; work folder {rp.relative_to(ROOT)} ignored)")
     return 0 if all(res.values()) else 1
 
 
