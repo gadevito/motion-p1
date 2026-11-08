@@ -355,6 +355,9 @@ def main():
     work = WORK / stamp; work.mkdir(parents=True)
     report = [f"# Paper 4 — regeneration report {stamp}\n",
               f"Script `paper4/analysis/main.py` ({sha(Path(__file__))}). Work folder `{work.relative_to(ROOT)}`.\n"]
+    git = lambda *c: subprocess.run(["git", *c], cwd=ROOT, capture_output=True, text=True).stdout.strip()
+    start = (git("rev-parse", "HEAD"), bool(git("status", "--porcelain", "--", "paper4/code", "paper4/analysis/main.py",
+                                                "paper4/congelamenti", "paper4/paper")))     # identity at the start
     res = {"fingerprints": step_fingerprints(report)}
     if not a.text_only:
         res["regeneration"] = step_regenerate(report, a.only or list(EXPERIMENTS), work)
@@ -365,18 +368,21 @@ def main():
     tracked.parent.mkdir(parents=True, exist_ok=True); tracked.write_text("\n".join(report) + "\n")
     print("\n".join(report)); print(f"\nreport -> {tracked.relative_to(ROOT)} (tracked; work folder {rp.relative_to(ROOT)} ignored)")
     if not a.text_only and not a.only:
-        write_confronto(report, res, stamp)
+        write_confronto(report, res, stamp, start)
     return 0 if all(res.values()) else 1
 
 
-def write_confronto(report, res, stamp):
-    """CONFRONTO.md: the report of the last complete run, with the identity of the code and of the text."""
+def write_confronto(report, res, stamp, start):
+    """CONFRONTO.md: the report of the last complete run, with the identity of the code and of the text, read at
+    the start of the run; if HEAD or the files changed during the run, the outcome says so."""
     git = lambda *c: subprocess.run(["git", *c], cwd=ROOT, capture_output=True, text=True).stdout.strip()
-    dirty = git("status", "--porcelain", "--", "paper4/code", "paper4/analysis/main.py", "paper4/congelamenti",
-                "paper4/paper")
+    end = git("rev-parse", "HEAD")
+    commit, dirty = start
+    if end != commit:
+        res = dict(res, unchanged_during_run=False)
     outcome = "EVERYTHING COINCIDES" if all(res.values()) else "DIFFERENCES OR ERRORS"
     head = [f"# Paper 4 — comparison of the last complete regeneration\n",
-            f"**Outcome: {outcome}.** Run {stamp}, commit {git('rev-parse', 'HEAD')} (code, frozen records or text "
+            f"**Outcome: {outcome}.** Run {stamp}, commit {commit}{'' if end == commit else f' (HEAD moved to {end} during the run)'} (code, frozen records or text "
             f"uncommitted: {'yes' if dirty else 'no'}). Experiments: {', '.join(EXPERIMENTS)}. Copy of "
             f"`paper4/analysis/reports/{stamp}.md`; this file is overwritten by each complete run.\n",
             "Text files of the paper (fingerprints at the run):\n", "| File | Fingerprint |", "|---|---|"]
