@@ -108,6 +108,11 @@ PROVENANCE = {
     ("section_E11.md", "43"): "E11.md, design (realised spacing 43-397 m)",
     ("section_E11.md", "397"): "E11.md, design (realised spacing 43-397 m)",
     ("section_E9.md", "1.0986"): "ln 3, the uniform predictor",
+    ("section_limits.md", "7.5"): "isolated training costs: E9 at most 6.6 h (E9.md, cost table), E11 about 0.9 h (E11.md); declared provenance, review 2026-11-08",
+    ("section_availability.md", "7.5"): "isolated training costs: E9 at most 6.6 h (E9.md, cost table), E11 about 0.9 h (E11.md); declared provenance, review 2026-11-08",
+    ("section_availability.md", "61"): "RIPARTIZIONE_RUNS.md (c9222f224441b6b2): regeneration 25.7 MB + pilot 35.0 MB",
+    ("section_availability.md", "19.5"): "RIPARTIZIONE_RUNS.md (c9222f224441b6b2): predictions of E9, 19.53 GiB",
+    ("section_availability.md", "3.7"): "RIPARTIZIONE_RUNS.md (c9222f224441b6b2): predictions of E11, 3.72 GiB",
     ("section_partA.md", "0.002"): "p4a_risultati.json, correction1: F1 between sensors 0.6399 minus F1 in sample at 0.30 0.6386 (0.0013), bounded",
     ("section_partA.md", "0.30"): "the deliverable's threshold, text p. 131 (rule reproduced in sample in CONGELAMENTO_4A)",
 }

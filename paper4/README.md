@@ -22,12 +22,12 @@ deliverable), `paper4/DOMANDE.md` (open questions) and `paper4/MODIFICHE_AL_CODI
 |---|---|
 | `protocol/paper4/PROTOCOLLO.md` | thesis, questions, method standard, frozen perimeter, sequence and status of the experiments |
 | `protocol/paper4/<experiment>.md` | signed pre-registration of each experiment (design, reading rules, preflight, signature line with fingerprints) |
-| `protocol/paper4/REGISTRO_CORREZIONI.md` | register of corrections, items 1–20 (in English; the paper cites it by item number) |
+| `protocol/paper4/REGISTRO_CORREZIONI.md` | register of corrections, items 1–21 (in English; the paper cites it by item number) |
 | `protocol/paper4/SUMMARIES.en.md` | English summaries of the records kept in Italian |
 | `paper4/code/` | code of the experiments; each file is frozen at the commit of its signature (table below) |
 | `paper4/code/deliverable/` | fingerprinted copies of the deliverable scripts that Part A runs unchanged |
 | `paper4/congelamenti/` | frozen records: `CONGELAMENTO_<experiment>.md` and `<experiment>_risultati.json` (and the E10-geo figure) |
-| `paper4/runs/` | run folders: per-cell predictions, checkpoints, logs, preflight outputs (about 23 GB, **not under version control**; `MANIFEST.tsv` lists them) |
+| `paper4/runs/` | run folders: per-cell predictions, logs, preflight outputs (model states are not saved; register item 21) (about 23 GB, **not under version control**; `MANIFEST.tsv` lists them) |
 | `paper4/analysis/main.py` | regeneration of every number and check of the text (below) |
 | `paper4/analysis/CONFRONTO.md` | report of the last complete regeneration (committed) |
 | `paper4/analysis/reports/` | report of every run of `main.py` (committed) |
@@ -90,8 +90,8 @@ fingerprints are checked by the generators. The exit code is 0 only if every ste
 outcome ("EVERYTHING COINCIDES" or "DIFFERENCES OR ERRORS"), the commit of the code and the fingerprints of the
 text files.
 
-The run folders under `paper4/runs/` (per-cell predictions and checkpoints, about 23 GB) are not in the
-repository; `paper4/runs/MANIFEST.tsv` lists them. Part A also reads the deliverable's data:
+The run folders under `paper4/runs/` (per-cell predictions, about 23 GB) are not in the
+repository; `paper4/runs/MANIFEST.tsv` lists them. They are archived at Zenodo, https://doi.org/10.5281/zenodo.24059573, in three archives (regeneration inputs and pilot runs; per-cell predictions of E9; per-cell predictions of E11), as partitioned in `protocol/paper4/zenodo/RIPARTIZIONE_RUNS.md`. Model states are not saved: the frozen code keeps checkpoints in memory for validation-based selection and writes only per-cell predictions; every number regenerates from those, while re-evaluating the models on other data requires retraining (180 + 240 trainings, about 7.5 h on the Mac M3). Part A also reads the deliverable's data:
 `OR3/data_collection/go-mo/gomo` (Madrid loops), the Traffic4cast speed classes, and the Austin radar file
 `radar_completo.json` (2.45 GB), all fingerprinted in `P4A.md`.
 

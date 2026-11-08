@@ -1,6 +1,6 @@
 # Paper 4 — draft of the limits
 
-Draft of 2026-11-08, revised after the internal review of the full draft (items 2 and 10): the limits stated
+Draft of 2026-11-08, revised after the internal review of the full draft (items 2 and 10) and of 2026-11-08 (Reproducibility): the limits stated
 with each result are collected here. Numbers come from the frozen records of `paper4/paper/paper_order.md`.
 
 ---
@@ -39,3 +39,5 @@ ring is observed in 2024, the arterials in 2021). The free-flow references use t
 measurements, it does not forecast. The 19–72 m band was built a posteriori, and the matching share depends on
 it. The result on lanes rests on 8 sections with three or four lanes, and the rank correlation on 29 sections;
 no lane threshold is identified. Every statement of Part A is descriptive.
+
+**Reproducibility.** Model states are not saved: the frozen code keeps checkpoints in memory for validation-based selection and writes only per-cell predictions; every number regenerates from those, while re-evaluating the models on other data requires retraining (180 + 240 trainings, about 7.5 h on the Mac M3).
