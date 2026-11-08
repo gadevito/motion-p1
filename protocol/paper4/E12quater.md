@@ -35,7 +35,8 @@ forecast, so their difference comes only from rows that carry the neighbour.
 
 Alternative considered and not chosen: shrinkage of every row towards the calendar-only row,
 *q* = (*n*·*q*_row + κ·*q*_cal)/(*n* + κ). It adds a parameter κ that would have to be fixed without test data; the
-fallback keeps the threshold of E12-ter and changes only its target.
+fallback keeps the threshold of E12-ter and changes only its target. Choice confirmed by the internal review
+(2026-11-08).
 
 **Fallback shares, reported.** For every (city, *f*), overall and per distance bin: the share of test lookups
 that fall back to the calendar row, and to the prior. The same shares for E12-ter are reported beside them, from

@@ -56,7 +56,9 @@ In the 0–250 m bin, for Madrid and London:
 | "most of the excess agreement is not calendar" | L(R) > 0.5 |
 | "undetermined" | otherwise |
 
-These rules are fixed knowing E12 and E12-ter; every statement is descriptive.
+The threshold 0.5 is a declared convention (internal review, 2026-11-08), not a test; the rules are fixed
+knowing E12 and E12-ter, and every statement is descriptive. R′ (marginals preserved) is secondary and never
+changes the reading.
 
 ## Mandatory controls (preflight, reading no test target)
 
