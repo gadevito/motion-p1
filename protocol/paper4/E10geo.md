@@ -1,11 +1,13 @@
 # E10-geo — Where: how close can placement bring uncovered segments to a sensor?
 
-**Pre-registration.** Date _______ · commit 3d7aa41 (code `e10geo.py` 0b2c81fd65a67c20, `p4b.py` 926061038a7472a3,
+**Pre-registration.** Date 2026-11-08 · commit 3d7aa41 (code `e10geo.py` 0b2c81fd65a67c20, `p4b.py` 926061038a7472a3,
 `e9.py` 4dd5628af8879511; preflight log `e10geo_preflight.log` 9aa759d94b0e16f8) · launched by Fabio Palomba (Mac M3 Max,
 CPU) · preflight 5/5 · cost: seconds (the preflight, which builds every placement for every draw, took 2 s).
 
 Draft of 2026-11-08, on the decision of the internal review of 2026-11-08 (11:40). No training and no traffic
 data: only the segments' coordinates. Descriptive, **no criterion**.
+
+signed: Gabriele De Vito; internal review, 2026-11-08
 
 ## Question
 
