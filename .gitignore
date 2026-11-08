@@ -120,3 +120,7 @@ paper4/runs/*
 !paper4/runs/MANIFEST.tsv
 paper4/data_cache/
 paper4/analysis/regeneration/
+
+# --- paper4: the manuscript is in the private repository paper4-manuscript (as for Paper 1) ---
+paper4/manuscript/
+paper4/paper/

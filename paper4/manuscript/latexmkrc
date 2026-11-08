@@ -1,2 +1,0 @@
-# Overleaf and latexmk: the manuscript uses fontspec and unicode-math, so it compiles with XeLaTeX
-$pdf_mode = 5;
