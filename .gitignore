@@ -119,3 +119,4 @@ analysis/rigenerazione/*
 paper4/runs/*
 !paper4/runs/MANIFEST.tsv
 paper4/data_cache/
+paper4/analysis/regeneration/

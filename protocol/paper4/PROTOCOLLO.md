@@ -51,7 +51,32 @@ These rules apply to both parts unchanged.
 
 ### 1.1 Thesis
 
-The paper defends one claim, to be put to the test:
+*Note of 2026-11-08 (internal review, 14:30).* Part B is closed (E11, E9, E12, E12-bis, E10-geo, E12-ter; frozen
+records 4e04ba7, 1d97a94, 085bda7, 40adfc9, 85cd9e8, dda3b8f). The thesis is rewritten on its results:
+
+> **On segments without a sensor, these data carry no forecastable spatial information beyond the calendar at
+> 15–120 min; what an operator buys with a sensor is the measurement at that segment, and the choice of what to
+> measure (Part A).**
+
+What supports each part of it:
+
+- *No gain from propagation.* The learned graph model gains nothing over the model without spatial exchange
+  on compact sub-networks at 43–397 m spacing (E11) or on whole cities at 10–60% coverage (E9).
+- *A short signal in the labels.* Nearby labels agree above chance only within about 250 m (E12).
+- *Not usable as it is.* Calibrated on the instrumented segments, that agreement does not beat the model
+  without spatial exchange (E12-bis).
+- *Shared calendar.* A table of the hour of the week alone forecasts at least as well as that model. Net of the
+  calendar, the nearest neighbour's class is worth nothing within 250 m and less than nothing beyond (E12-ter).
+- *Placement.* It decides how many uncovered segments lie within 250 m of a sensor (E10-geo). Given the above,
+  it does not decide how well they are forecast.
+- *What to measure.* The second clause rests on Part A, which is still to be run (§1.3).
+
+No E13 is added. The value of the neighbour net of the calendar is measured as zero without a model. A second
+learned model would have to extract from the neighbours a signal that the calendar does not carry. Neither
+the learned propagation (E9, E11) nor the calibrated tables (E12-bis, E12-ter) found one. The paper argues
+this in its discussion.
+
+**Thesis as drafted on 2026-11-06, superseded.** It is kept for the record, with what became of each part:
 
 > **For congestion classification on road segments that have no sensor, what an operator can buy is coverage
 > and the right measurement, not a clever placement.**
@@ -64,7 +89,15 @@ The paper defends one claim, to be put to the test:
 > - What the sensor measures matters more: speed reconstructed from loop flow and occupancy detects critical
 >   episodes but not their level, and averaging across lanes hides single-lane episodes.
 
-Every part of the claim can fail, and each failure is a publishable result stated as such:
+What became of it:
+
+- the bounded gain above a minimum coverage was not found (E9: no level of coverage makes propagation pay);
+- the independence from *which* neighbours could not be tested where the graph itself adds nothing (E11);
+- the comparison of placement rules was closed before it was run (note of 2026-11-08, 10:15) and replaced by
+  E10-geo;
+- the clause on what the sensor measures is Part A, unchanged.
+
+Every part of the 2026-11-06 claim could fail, and each failure was declared in advance as a publishable result:
 
 - a coverage curve with no threshold;
 - a geometry that matters when the network is sparse;
@@ -107,6 +140,16 @@ Table 66 is out of the perimeter.
    the forecast on the uncovered ones, weighted by traffic? How much of an oracle's advantage do rules that need
    no data recover?
 
+*Note of 2026-11-08 (internal review, 14:30).* Questions 2–4 are answered by Part B:
+
+- question 2 by E11: undetermined, with no geometry effect where the graph adds nothing;
+- question 3 by E9: no coverage threshold in 10–60%;
+- question 4 by E12, E12-bis, E12-ter and E10-geo in place of E10. Placement changes proximity to a sensor,
+  and proximity carries no forecast beyond the calendar.
+
+Question 1 is Part A, still to be run. In the paper the questions are stated as RQ1–RQ4 in this order
+(`paper4/paper/section_introduction.md`).
+
 Reading rule, as in Paper 1 §III-B: every result is read on the sign of its interval and on the margin (§0,
 rule 4). In Part B the interval is resampled jointly over seeds and corridor blocks; in Part A, over sensors or
 sections.
@@ -130,6 +173,23 @@ Part B is redone from that unit.
 | E12-bis | Calibrated neighbour: p(y given the nearest observed class, distance bin and horizon) from observed→observed pairs in training, applied to the hidden segments of E9 | E12 (frozen record 085bda7) | no training; CPU, measured in the preflight | the short-range label signal buys wCE once calibrated | the label signal is not a forecasting resource |
 | E10-geo | Where, geometric: share of uncovered segments within 250 m / 500 m of a sensor and median distance, for blocks, uniform and density-stratified placement, 20 draws | E12 (radius of the signal) | seconds; coordinates only | placement changes how many uncovered segments lie near a sensor | placement cannot change it: "where" closes on geometry |
 | E12-ter | Calibrated neighbour with the calendar: p(y given the hour of the week of t + h, the nearest observed class, distance bin and horizon), against a calendar-only table from the same pairs | E12-bis (frozen record 40adfc9) | no training; CPU, measured in the preflight | neighbour and calendar together buy wCE within 250 m | the neighbour adds nothing usable once the calendar is known |
+
+*Note of 2026-11-08 (internal review, 14:30).* E12-ter is accepted (frozen record dda3b8f, ec03ebf339d7deb4).
+**Part B is closed**, and no E13 is added (§1.1). Status of the rows above:
+
+| # | Status | Frozen record |
+|---|---|---|
+| 4A | to be run: pre-registration `P4A.md` not yet drafted; Tables 64–65 regenerated in Phase 1 (RC 5) | — |
+| E11 | done; "undetermined" (prevails 0, excluded 7, not discriminating 5 of 12) | 4e04ba7 |
+| E9 | done; "undetermined" (helps in 0 of 12; 3-point advantage excluded in 11 of 12) | 1d97a94 |
+| E10 | closed by E9 (note of 10:15), not run | — |
+| E12 | done; "undetermined" (no predictor beats G0) | 085bda7 |
+| E12-bis | done; "undetermined" (0 of 12 within 250 m) | 40adfc9 |
+| E10-geo | done; descriptive | 85cd9e8 |
+| E12-ter | done; "undetermined" (0 of 12 within 250 m); neighbour net of the calendar ≈ 0 within 250 m | dda3b8f |
+
+Order of writing: Part A → Part B in the order of `paper4/paper/part_B_order.md` → discussion → limits →
+conclusion. Every number of the paper is regenerated by `paper4/analysis/main.py` from the six frozen records.
 
 *Note of 2026-11-08 (internal review, 13:00).* E12-bis (frozen record 40adfc9) and E10-geo (frozen record 85cd9e8)
 are accepted. One last analysis without training is added, pre-registered in `protocol/paper4/E12ter.md`. It is
@@ -246,6 +306,23 @@ section. Provenance labels:
 | Data fingerprints | SHA-256 of every input in `paper4/runs/MANIFEST.tsv` before the first run or analysis | brief §2; §9b | — |
 | Regeneration | `paper4/analysis/main.py` from per-cell predictions and frozen records, compared automatically; one tag per version, created by the author | Paper 1 §12 | — |
 
+### 2.6 Part B — analyses without training (E12, E12-bis, E12-ter, E10-geo)
+
+Added on 2026-11-08 after Part B was closed, so that the choices of the four analyses stand next to those of
+the trained experiments. Every value is fixed in the signed pre-registration cited.
+
+| Parameter | Value | Provenance | Note |
+|---|---|---|---|
+| Perimeter | node sets, origins, split, test-hidden segments and G0/G1 references of E9, checked against the E9 fingerprints | E12.md; review 8/11 (10:15) | — |
+| Mixing with the prior | *q*′ = 0.95·*q* + 0.05·prior (ε = 0.05), then *p* ∝ W·*q*′ | E12.md | the unweighted *q*′ is a secondary column |
+| Distance bins | 0–250, 250–500, 500–1,000, > 1,000 m; a hidden segment's bin is the distance to its nearest observed segment | E12.md (concordance); E12bis.md | 250 m is the radius found by E12 |
+| Calibration pairs | each observed segment with its nearest other observed segment that has a valid class at *t*; training origins only | E12bis.md; review 8/11 (11:40) | — |
+| Calendar slot | hour of the week of *t* + *h*, 168 slots, from the timestamp alone | E12ter.md; review 8/11 (13:00) | the review asked for the choice to be declared |
+| Minimum row count | N_min = 20 pairs; below it, the E12-ter row falls back to the E12-bis row and the calendar row to the prior | E12ter.md | set from training counts and validation lookups that read no target (`e12ter_preflight.log`) |
+| Criterion | V favourable and ≥ 3 points in the 0–250 m bin, in at least 2 of 3 cities at some *f* | E12bis.md, E12ter.md | no correction for multiple comparisons, declared |
+| Per-bin resample | `default_rng([20261106, index of (city, f), 1 + bin])`; a bin with fewer than 3 blocks in some seed is reported without interval | E12bis.md | — |
+| Placement rules | blocks (E9 node sets), uniform, density-stratified (five quintiles of segments within 500 m); 20 draws; same number of sensors | E10geo.md; review 8/11 (11:40) | coordinates only; straight-line distances |
+
 ---
 
 ## 3. Points closed by the internal review
@@ -256,4 +333,18 @@ section. Provenance labels:
   metric before the signature.
 - **2026-11-06.** The executor closed D7–D9 (branch `p4-fase1`). The Phase 1 verdict is final (§1.1).
 
-No point is open at this revision.
+- **2026-11-06, 17:00.** No static attribute in the models (E11 diagnostic pilot, D1). Positive control D2-bis.
+- **2026-11-07.** E9 grid rule: at least 8 test blocks for every *f* and seed; corridor blocks are the grid
+  cells. U = 1,000 for E9 from its pilot. Cost of G1-rand(deg) measured with Spotlight idle (E9.md, Deviations 1).
+- **2026-11-08, 10:15.** E10 closed by E9; E12 added.
+- **2026-11-08, 11:40.** E12 accepted; E12-bis and E10-geo added.
+- **2026-11-08, 13:00.** E12-bis and E10-geo accepted; E12-ter added (168 slots, N_min = 20); order of reading of
+  Part B.
+- **2026-11-08, 14:30.** E12-ter accepted; Part B closed, no E13; thesis rewritten (§1.1); order of writing (§1.3).
+
+Open at this revision:
+
+- **Part A.** The pre-registration `protocol/paper4/P4A.md` (Tables 67–69 with corrections 1–3 of §2.2) is not
+  drafted. The paper's RQ1 and the second clause of the thesis wait for it.
+- **Reference run.** `paper4/analysis/main.py` is to be run by the executor on the frozen version, and its
+  report committed.
