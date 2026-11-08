@@ -7,8 +7,7 @@ the frozen records listed in `paper4/paper/paper_order.md`. The title is a worki
 
 ## Title
 
-What a Traffic Sensor Buys: No Forecastable Spatial Signal Beyond the Calendar on Uninstrumented Segments, and
-What a Loop Detector Measures of Congestion
+What a Traffic Sensor Buys: Measurement at Its Segment, Not Forecasts Beyond It
 
 ## Abstract
 
