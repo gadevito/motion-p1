@@ -16,7 +16,8 @@ p4b unchanged), and recomputed for the E9 runs by replaying their mask stream (d
 
     selftest      uniform node-set rule on synthetic cells; mask-share replay equals the recorded shares
     preflight     controls 1-7 of E10pred.md, reading no test target
-    cost          one isolated run per arm (G0, G1) on Madrid, seed 0, uniform placement, U = 1,000
+    cost          one isolated run per arm (G0, G1) on Madrid, f = 20%, seed 0, uniform placement, U = 1,000;
+                  uptime before and after in the output (run by the executor on an idle machine)
     run           after the signature: 3 cities × 5 seeds × (G0, G1), U = 1,000, E9's checkpoints and selection;
                   thresholds on validation saved with fingerprint; per-cell predictions as in E9
     check-inputs  after run: 30 folders, fingerprints, code, keys (no metric read)
@@ -221,12 +222,15 @@ def cost(args):
     path = e9.RUNS / "e10pred_costo.json"
     if path.exists():
         raise SystemExit(f"STOP: {path} exists")
-    rows = []; load0 = os.getloadavg()
+    rows = []; load0 = os.getloadavg(); up0 = subprocess.check_output(["uptime"], text=True).strip()
+    print("uptime before:", up0, flush=True)
     for arm in ARMS:
         su = uniform_setup("madrid", 0)
         o = p4b.train(su, arm, e9.adjacency(su, arm)[0], U=U, checkpoints=CHECKPOINTS)
         rows.append({"arm": arm, "K": su.K, "updates": U, "seconds": round(o["seconds"], 1)}); print(rows[-1], flush=True)
-    out = {"machine": "Mac M3 Max, MPS, one process", "load_average_at_start": load0, "load_average_at_end": os.getloadavg(),
+    up1 = subprocess.check_output(["uptime"], text=True).strip(); print("uptime after:", up1, flush=True)
+    out = {"machine": "Mac M3 Max, MPS, one process", "uptime_before": up0, "uptime_after": up1,
+           "load_average_at_start": load0, "load_average_at_end": os.getloadavg(),
            "rows": rows, "campaign_estimate_hours_upper": round(sum(r["seconds"] for r in rows) * 15 / 3600, 2),
            "commit": p4b.git_commit()[0], "written": datetime.now(timezone.utc).isoformat()}
     path.write_text(json.dumps(out, indent=1)); print(json.dumps(out, indent=1)); print(f"-> {path} ({p4b.sha256(path, 16)})")
