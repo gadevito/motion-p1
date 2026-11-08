@@ -1,12 +1,14 @@
 # E12-bis — Does the label signal buy wCE once it is calibrated?
 
-**Pre-registration.** Date _______ · commit 3d7aa41 (code `e12bis.py` 27adfe03f24647e8, `e12.py` 3ec453d15372b217,
+**Pre-registration.** Date 2026-11-08 · commit 3d7aa41 (code `e12bis.py` 27adfe03f24647e8, `e12.py` 3ec453d15372b217,
 `p4b.py` 926061038a7472a3, `e9.py` 4dd5628af8879511; preflight log `e12bis_preflight.log` 17a419da4de65e4a) · launched by
 Fabio Palomba (Mac M3 Max, CPU) · preflight 7/7 · cost ≤ 6.6 s per (city, *f*, seed), ≈ 0.11 h for the 60 pairs
 (`e12bis_costo.json` c09b9d8efd497008; measured with Spotlight indexing active, load average 5–6: an upper bound).
 
 Draft of 2026-11-08, on the decision of the internal review of 2026-11-08 (11:40). No training. **No computation
 on test before the signature**, except the preflight, which reads no test target.
+
+signed: Gabriele De Vito; internal review. 2026-11-08
 
 ## Question
 
