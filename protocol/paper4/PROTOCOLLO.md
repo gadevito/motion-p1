@@ -128,6 +128,15 @@ Part B is redone from that unit.
 | ~~E10~~ | ~~Placement rules vs uniform random, traffic-weighted wCE, two levels of *f*~~ | closed by E9 (note below) | — | — | — |
 | E12 | Non-learned spatial predictors (nearest observed neighbour, inverse-distance weighting of current classes and of weekly-slot frequencies) against G0 of E9, on the same hidden segments, origins and node sets | E9 (frozen record 1d97a94) | no training; CPU, measured in the preflight | a spatial signal exists that the learned propagation does not use: a limit of the models | no spatial signal at 10–60% coverage: "placement cannot buy accuracy" holds for learned and non-learned predictors |
 
+| E12-bis | Calibrated neighbour: p(y | nearest observed class, distance bin, horizon) from observed→observed pairs in training, applied to the hidden segments of E9 | E12 (frozen record 085bda7) | no training; CPU, measured in the preflight | the short-range label signal buys wCE once calibrated | the label signal is not a forecasting resource |
+| E10-geo | Where, geometric: share of uncovered segments within 250 m / 500 m of a sensor and median distance, for blocks, uniform and density-stratified placement, 20 draws | E12 (radius of the signal) | seconds; coordinates only | placement changes how many uncovered segments lie near a sensor | placement cannot change it: "where" closes on geometry |
+
+*Note of 2026-11-08 (internal review, 11:40).* E12 is accepted (frozen record 085bda7, 0be136a3886173bc). The
+labels agree with the nearest instrumented segment above chance only within about 250 m, and the uncalibrated
+predictors lose to G0. Two analyses without training are added, each pre-registered in its own file:
+`protocol/paper4/E12bis.md` and `protocol/paper4/E10geo.md`. Order of Part B, as run: E11 → E9 → E12 →
+E12-bis, with E10-geo in parallel.
+
 *Note of 2026-11-08 (internal review, 10:15).*
 
 - **E10 is not launched as designed.** E9 found V(G1) ≈ 0 at every coverage: the 3-point advantage is excluded
