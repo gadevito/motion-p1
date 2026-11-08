@@ -1,8 +1,9 @@
 # E12-ter — Does the neighbour add to the calendar?
 
-**Pre-registration.** Date _______ · commit _______ (code `e12ter.py` _______, `e12bis.py` 27adfe03f24647e8,
+**Pre-registration.** Date _______ · commit df240e6 (code `e12ter.py` e8c8d17e99e4008b, `e12bis.py` 27adfe03f24647e8,
 `e12.py` 3ec453d15372b217, `p4b.py` 926061038a7472a3, `e9.py` 4dd5628af8879511; preflight log `e12ter_preflight.log`
-_______) · launched by Fabio Palomba (Mac M3 Max, CPU) · preflight _/_ · cost _______.
+4cba9954231e2f51) · launched by Fabio Palomba (Mac M3 Max, CPU) · preflight 8/8 · cost ≤ 6.9 s per (city, *f*, seed),
+≈ 0.11 h for the 60 pairs (`e12ter_costo.json` 72f41691dc0eb970; load average 4.5–4.9: an upper bound).
 
 Draft of 2026-11-08, on the decision of the internal review of 2026-11-08 (13:00). No training. **No computation
 on test before the signature**, except the preflight, which reads no test target.
@@ -64,10 +65,12 @@ neighbour's class and distance bin.
 Every fallback is counted and reported, overall and in the 0–250 m bin.
 
 N_min was set before the signature, from the counts of the training tables and the lookups made by the
-validation-hidden segments. These read only the classes of observed segments. In the 0–250 m bin, 1–6% of the
-validation lookups fall below 20 pairs, and the median row holds 160–5,000 pairs. In the outer bins of Madrid
-and London most rows hold fewer than 20 pairs, so the outer bins of E12-ter mostly reproduce E12-bis there. The
-preflight log reports these shares for every (city, *f*), seed 0.
+validation-hidden segments. These read only the classes of observed segments. The preflight log reports the
+shares for every (city, *f*), seed 0:
+
+- in the 0–250 m bin, 0.1–6.6% of the validation lookups fall back to the E12-bis row;
+- in the outer bins of Madrid and London, up to 94% do, so there E12-ter mostly reproduces E12-bis;
+- in Melbourne, at most 14% below 1,000 m, and up to 44% beyond.
 
 **Prediction for a hidden segment.** At origin *t* and horizon *h*:
 
