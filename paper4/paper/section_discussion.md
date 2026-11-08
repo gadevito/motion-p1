@@ -1,7 +1,7 @@
 # Paper 4 — draft of the discussion
 
 Draft of 2026-11-08, on the decision of the internal review of 2026-11-08 (14:30). Every number comes from
-one of the six frozen records of Part B (`paper4/paper/paper_order.md`). Part A is marked **[Part A]**.
+one of the six frozen records of Part B or from the frozen record of Part A (`paper4/paper/paper_order.md`).
 
 ---
 
@@ -50,9 +50,15 @@ needed for control, enforcement or detection. It should not be made for what the
 elsewhere.
 
 **The operator's decision.** What a sensor buys is the measurement at its own segment. The question of what
-that measurement should be therefore becomes the main one, and it is the subject of Part A. **[Part A]** How
-much a loop detector's reconstructed speed tells about the level of congestion, how much about its occurrence,
-and what lane aggregation hides, to be summarised once Part A is frozen.
+that measurement should be therefore becomes the main one, and it is the subject of Part A.
+
+For the most common urban sensor, Part A gives a consistent answer. A loop detector says whether a segment is
+congested, not how congested it is: its reconstruction ranks levels poorly and separates congested cells almost
+perfectly, with a threshold that transfers between sensors. Its low agreement with probe speeds on arterials is
+about half a matter of matching a loop to a segment some 30 m away, so it says less about the loop than it
+seems. Per lane, detection is as good as on the ring; averaged over the lanes of a section, it loses the
+episodes that occur on one lane only, whatever the device. A target defined on the section mean therefore
+discards part of what the sensor measures. The definition of the target matters as much as the device.
 
 **Relation to propagation results in the literature.** Graph models for traffic are usually evaluated on
 sensors whose own history is in training or in the input [wu2019gwnet]. Kriging methods estimate unobserved

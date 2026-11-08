@@ -28,7 +28,9 @@ Usage, from the repository root, with the interpreter of the experiments:
     $PY paper4/analysis/main.py --only E12bis E12ter
 
 Exit code 0 only if every step passes. Report: `paper4/analysis/reports/<instant>.md` (tracked, to be committed);
-the work folder `paper4/analysis/regeneration/<instant>/` is ignored by git.
+the work folder `paper4/analysis/regeneration/<instant>/` is ignored by git. A complete run (no --only, no
+--text-only) also writes `paper4/analysis/CONFRONTO.md`, the report of the last complete run, as in Paper 1:
+outcome ("EVERYTHING COINCIDES" or "DIFFERENCES OR ERRORS"), commit of the code, fingerprints of the text files.
 """
 import argparse
 import hashlib
@@ -362,7 +364,26 @@ def main():
     tracked = ROOT / "paper4" / "analysis" / "reports" / f"{stamp}.md"      # tracked copy, to be committed
     tracked.parent.mkdir(parents=True, exist_ok=True); tracked.write_text("\n".join(report) + "\n")
     print("\n".join(report)); print(f"\nreport -> {tracked.relative_to(ROOT)} (tracked; work folder {rp.relative_to(ROOT)} ignored)")
+    if not a.text_only and not a.only:
+        write_confronto(report, res, stamp)
     return 0 if all(res.values()) else 1
+
+
+def write_confronto(report, res, stamp):
+    """CONFRONTO.md: the report of the last complete run, with the identity of the code and of the text."""
+    git = lambda *c: subprocess.run(["git", *c], cwd=ROOT, capture_output=True, text=True).stdout.strip()
+    dirty = git("status", "--porcelain", "--", "paper4/code", "paper4/analysis/main.py", "paper4/congelamenti",
+                "paper4/paper")
+    outcome = "EVERYTHING COINCIDES" if all(res.values()) else "DIFFERENCES OR ERRORS"
+    head = [f"# Paper 4 — comparison of the last complete regeneration\n",
+            f"**Outcome: {outcome}.** Run {stamp}, commit {git('rev-parse', 'HEAD')} (code, frozen records or text "
+            f"uncommitted: {'yes' if dirty else 'no'}). Experiments: {', '.join(EXPERIMENTS)}. Copy of "
+            f"`paper4/analysis/reports/{stamp}.md`; this file is overwritten by each complete run.\n",
+            "Text files of the paper (fingerprints at the run):\n", "| File | Fingerprint |", "|---|---|"]
+    head += [f"| `paper4/paper/{f.name}` | {sha(f)} |" for f in sorted((ROOT / "paper4" / "paper").glob("*.md"))]
+    out = ROOT / "paper4" / "analysis" / "CONFRONTO.md"
+    out.write_text("\n".join(head) + "\n\n" + "\n".join(report[1:]) + "\n")
+    print(f"comparison -> {out.relative_to(ROOT)} ({outcome})")
 
 
 if __name__ == "__main__":

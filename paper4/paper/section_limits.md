@@ -1,7 +1,7 @@
 # Paper 4 — draft of the limits
 
-Draft of 2026-11-08. The limits stated with each result in the sections of Part B are collected here.
-Numbers come from the six frozen records of Part B (`paper4/paper/paper_order.md`).
+Draft of 2026-11-08. The limits stated with each result in the sections of Part A and Part B are collected
+here. Numbers come from the frozen records listed in `paper4/paper/paper_order.md`.
 
 ---
 
@@ -56,7 +56,18 @@ Numbers come from the six frozen records of Part B (`paper4/paper/paper_order.md
 - Placement rules that use traffic data (for example, instrumenting the most congested segments) are not
   compared. With no forecasting value in proximity, they could only change which segments are measured.
 
-**Part A.** **[Part A]** Limits of the measurement analyses, to be stated once Part A is frozen.
+**Part A.**
+
+- The three datasets do not overlap in time or space. Regime and technology cannot be separated: the ring is
+  observed in 2024, the arterials in 2021.
+- The reading rules were fixed knowing the deliverable's in-sample values, so every statement of Part A is
+  descriptive.
+- The free-flow references use the whole year, as built in the deliverable's targets. Part A compares
+  measurements; it does not forecast.
+- The 19–72 m band was built a posteriori by the deliverable, and the matching share depends on it.
+- Austin has 6 three-lane and 2 four-lane sections; no lane threshold is identified.
+- Several printed values of the deliverable have no conserved generator (register of corrections, items 14–20).
+  They are reported as such; every number of Part A is regenerated.
 
 **Reproducibility.** Costs are measured on one machine (Mac M3 Max); the campaign times are from concurrent
 processes and are not isolated costs. The regeneration script reruns every analysis from the per-cell

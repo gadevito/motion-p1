@@ -1,7 +1,7 @@
 # Paper 4 — draft of the conclusion
 
-Draft of 2026-11-08. Numbers come from the six frozen records of Part B (`paper4/paper/paper_order.md`).
-Part A is marked **[Part A]**.
+Draft of 2026-11-08. Numbers come from the six frozen records of Part B and the frozen record of Part A
+(`paper4/paper/paper_order.md`).
 
 ---
 
@@ -23,7 +23,13 @@ seven with contiguous blocks and six in seven with uniform placement. It does no
 forecast.
 
 What a sensor buys is the measurement at its own segment. The choice that matters is therefore what to
-measure. **[Part A]** What a loop detector measures of congestion, to be stated once Part A is frozen.
+measure. For the loop detector, Part A finds that:
+
+- it measures the occurrence of congestion rather than its level, with a threshold that transfers between
+  sensors;
+- about half of its disagreement with probe speeds on arterials comes from matching it to a segment some 30 m
+  away;
+- averaging its lanes hides the episodes that occur on one of them.
 
 Two directions remain open:
 
