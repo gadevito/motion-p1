@@ -1,6 +1,6 @@
 # P4A — What does a loop detector measure of congestion?
 
-**Pre-registration.** Date _______ · commit f99b765 (code `p4a.py` ff3204dee7064a27, `p4b.py` 926061038a7472a3;
+**Pre-registration.** Date 2026-11-08 · commit f99b765 (code `p4a.py` ff3204dee7064a27, `p4b.py` 926061038a7472a3;
 preflight log `p4a_preflight.log` 4060b7b02a082c59) · launched by Fabio Palomba (Mac M3 Max, CPU) · preflight 9/9 ·
 cost ≤ 2 h (0.21 s per replicate of a 4.2-million-cell figure × 17 figures × 2,000 replicates, an upper bound;
 Austin loaded in 43 s, peak memory 11.0 GB; `p4a_costo.json` a2256466d8fe5b69).
@@ -9,7 +9,7 @@ Draft of 2026-11-08, on the decisions of the internal review of 2026-11-08 (14:5
 only. **No number of Tables 67–69 or of the three corrections is computed before the signature**, except the
 preflight, which reads no measured class: it checks inputs, alignment, counts and costs.
 
-signed: _______
+signed: Gabriele De Vito; internal review, 2026-11-08
 
 ## Question
 
