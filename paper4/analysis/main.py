@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Paper 4 — regeneration of every number from the eleven frozen records and the figure of E12-sexies, and check of the text.
-========================================================================================================================
+Paper 4 — regeneration of every number from the thirteen frozen records and the figure of E12-sexies, and check of the text.
+===========================================================================================================================
 One script, three steps (method standard of `protocol/paper4/PROTOCOLLO.md` §0, rule 3):
 
   1. fingerprints   every frozen record (Markdown, JSON, figure) and every generator against the fingerprints
@@ -54,7 +54,7 @@ WORK = ROOT / "paper4" / "analysis" / "regeneration"
 sys.path.insert(0, str(CODE))
 
 # Fingerprints accepted by the internal review (frozen-record commits 4e04ba7, 1d97a94, 085bda7, 40adfc9, 85cd9e8,
-# dda3b8f, a0b76dc; 21fc58f, 231d009, f111186, 334ac3d accepted on 2026-11-09); first 16 hex digits of SHA-256.
+# dda3b8f, a0b76dc; 21fc58f, 231d009, f111186, 334ac3d, e9ce6c2, 9431501 accepted on 2026-11-09); first 16 hex digits of SHA-256.
 # An entry with "dir" has its generator and files in paper4/analysis/<dir> instead of paper4/code and congelamenti.
 EXPERIMENTS = {
     "E11": {"generator": "genera_congelamento_e11.py", "generator_fp": "05b321ed3f946141", "commit": "4e04ba7",
@@ -79,6 +79,11 @@ EXPERIMENTS = {
                 "files": {"CONGELAMENTO_E10pred.md": "408240d2b5a72c10", "e10pred_risultati.json": "ef291525d82f56d5"}},
     "E12sexies": {"generator": "e12sexies.py", "generator_fp": "b63818d20231b388", "commit": "334ac3d",
                   "files": {"CONGELAMENTO_E12sexies.md": "500b389066921146", "e12sexies_risultati.json": "099c9753c870feda"}},
+    "E10predbis": {"generator": "e10predbis.py", "generator_fp": "a44a24bf84fe56c8", "commit": "e9ce6c2",
+                   "files": {"CONGELAMENTO_E10predbis.md": "30ef7b7182aadede", "e10predbis_risultati.json": "e20e82e8646290f7"}},
+    "E12sexiesbis": {"generator": "e12sexiesbis.py", "generator_fp": "ae848017cfed4ecd", "commit": "9431501",
+                     "files": {"CONGELAMENTO_E12sexiesbis.md": "6b34cf2ed1e9f0a6",
+                               "e12sexiesbis_risultati.json": "d519bb13279154f2"}},
     "FigE12sexies": {"generator": "figure_e12sexies.py", "generator_fp": "8a469477c2003b68", "commit": "—", "dir": "figures",
                      "files": {"e12sexies_persistence.svg": "8a00272d6a2b031b"}},
     "P4A": {"generator": "p4a.py", "generator_fp": "ff3204dee7064a27", "commit": "a0b76dc",
@@ -94,13 +99,14 @@ SHARED_CODE = {"p4b.py": "926061038a7472a3", "e9.py": "4dd5628af8879511", "e11.p
 VOLATILE = {"commit", "code_dirty", "generator_fingerprint", "written"}
 
 # Sources of each section of the paper: the frozen records whose numbers it may cite.
-ALL = ["e11", "e9", "e12", "e12bis", "e10geo", "e12ter", "e12quater", "e12quinquies", "e12sexies", "e10pred", "p4a"]
+ALL = ["e11", "e9", "e12", "e12bis", "e10geo", "e12ter", "e12quater", "e12quinquies", "e12sexies", "e12sexiesbis", "e10pred",
+       "e10predbis", "p4a"]
 SOURCES = {
     "section_E11.md": ["e11"],
     "section_E9.md": ["e9", "e11"],
     "section_setting.md": ["e11", "e9"],
-    "section_signal.md": ["e12", "e12bis", "e12ter", "e12quater", "e12quinquies", "e12sexies", "e9"],  # one section (review)
-    "section_E10geo.md": ["e10geo", "e10pred", "e12bis", "e12ter", "e12quater"],
+    "section_signal.md": ["e12", "e12bis", "e12ter", "e12quater", "e12quinquies", "e12sexies", "e12sexiesbis", "e9"],  # one section (review)
+    "section_E10geo.md": ["e10geo", "e10pred", "e10predbis", "e12bis", "e12ter", "e12quater"],
     "section_partA.md": ["p4a"],
 }
 DEFAULT_SOURCES = ALL           # introduction, discussion, limits, conclusion, order files
@@ -126,6 +132,10 @@ PROVENANCE = {
     ("section_E9.md", "1.0986"): "ln 3, the uniform predictor",
     ("section_limits.md", "7.5"): "isolated training costs: E9 at most 6.6 h (E9.md, cost table), E11 about 0.9 h (E11.md); declared provenance, review 2026-11-08",
     ("section_availability.md", "7.5"): "isolated training costs: E9 at most 6.6 h (E9.md, cost table), E11 about 0.9 h (E11.md); declared provenance, review 2026-11-08",
+    ("section_availability.md", "8.4"): "isolated training costs: 7.5 h for E9 and E11 (above) + E10-pred at most 0.89 h (E10pred.md, e10pred_costo.json 910c64ba433f40ae)",
+    ("section_limits.md", "8.4"): "isolated training costs: 7.5 h for E9 and E11 (above) + E10-pred at most 0.89 h (E10pred.md, e10pred_costo.json 910c64ba433f40ae)",
+    ("section_availability.md", "14"): "du -sk -L of paper4/runs/e12quater, e12quinquies, e12sexies, e12sexiesbis on 2026-11-09: 14.27 MiB",
+    ("section_availability.md", "2.6"): "du -sk -L of paper4/runs/e10pred on 2026-11-09: 2.57 GiB",
     ("section_availability.md", "61"): "RIPARTIZIONE_RUNS.md (c9222f224441b6b2): regeneration 25.7 MB + pilot 35.0 MB",
     ("section_availability.md", "19.5"): "RIPARTIZIONE_RUNS.md (c9222f224441b6b2): predictions of E9, 19.53 GiB",
     ("section_availability.md", "3.7"): "RIPARTIZIONE_RUNS.md (c9222f224441b6b2): predictions of E11, 3.72 GiB",
@@ -221,7 +231,8 @@ def run_generator(name, out):
         g.main()
     else:
         mod = {"E12": "e12", "E12bis": "e12bis", "E10geo": "e10geo", "E12ter": "e12ter", "E12quater": "e12quater",
-               "E12quinquies": "e12quinquies", "E12sexies": "e12sexies", "E10pred": "e10pred"}[name]
+               "E12quinquies": "e12quinquies", "E12sexies": "e12sexies", "E10pred": "e10pred",
+               "E10predbis": "e10predbis", "E12sexiesbis": "e12sexiesbis"}[name]
         g = __import__(mod)
         g.OUT = out
         g.freeze(ap.Namespace(compare_with=None))
