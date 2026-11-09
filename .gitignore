@@ -114,3 +114,7 @@ evoluzione/Archivio.zip
 # --- rigenerazione del Paper 1 (analysis/main.py) ---------------------------
 analysis/rigenerazione/*
 !analysis/rigenerazione/CONFRONTO.md
+
+# link ai dati condivisi
+/data_collection
+/paper4/runs
