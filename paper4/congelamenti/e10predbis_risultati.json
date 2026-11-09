@@ -1,0 +1,327 @@
+{
+ "rows": {
+  "madrid": {
+   "weights_common": [
+    0.7191276083845798,
+    0.7444249708682993,
+    3.757879888056879
+   ],
+   "training_cells_by_class": [
+    2302926.0,
+    2224667.0,
+    440700.0
+   ],
+   "weights_design_seed0": {
+    "uniform": [
+     0.7085766196250916,
+     0.7550262212753296,
+     3.784114122390747
+    ],
+    "blocks": [
+     0.6877797842025757,
+     0.7782182693481445,
+     3.830540657043457
+    ]
+   },
+   "common_weights": {
+    "V_uniform": {
+     "V": -0.009400078984200668,
+     "L": -0.074582082238657,
+     "U": 0.037186951740563016,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    },
+    "V_blocks": {
+     "V": 0.05223450679048103,
+     "L": -0.03709539161503309,
+     "U": 0.15907691267708793,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    },
+    "delta_G1": {
+     "V": 0.07495230447164196,
+     "L": -0.08680101202644831,
+     "U": 0.25477001134571553,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    },
+    "delta_G0": {
+     "V": 0.1511609245365147,
+     "L": -0.002908954533574753,
+     "U": 0.31613503073612903,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    },
+    "min_blocks": 18
+   },
+   "design_weights": {
+    "V_uniform": {
+     "V": -0.009602817496493941,
+     "L": -0.07388723257588617,
+     "U": 0.03989112450750883,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    },
+    "V_blocks": {
+     "V": 0.08671470353383204,
+     "L": -0.04011572729035737,
+     "U": 0.26206126821753284,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    },
+    "delta_G1": {
+     "V": -0.1055647838443818,
+     "L": -0.43864746774525554,
+     "U": 0.18817357612963567,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    },
+    "delta_G0": {
+     "V": 0.005965945261710725,
+     "L": -0.282996740677448,
+     "U": 0.2529343216749759,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    },
+    "min_blocks": 18
+   },
+   "readings": {
+    "G0": "no difference detected",
+    "G1": "no difference detected"
+   }
+  },
+  "london": {
+   "weights_common": [
+    0.7574520360651466,
+    0.8225789117010479,
+    2.1547286695079273
+   ],
+   "training_cells_by_class": [
+    1532523.0,
+    1411187.0,
+    538728.0
+   ],
+   "weights_design_seed0": {
+    "uniform": [
+     0.7699975967407227,
+     0.8178738355636597,
+     2.089374303817749
+    ],
+    "blocks": [
+     0.8238937258720398,
+     0.7654123306274414,
+     2.084350109100342
+    ]
+   },
+   "common_weights": {
+    "V_uniform": {
+     "V": -0.19819597547182094,
+     "L": -0.6022908836010347,
+     "U": 0.18217713584328638,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    },
+    "V_blocks": {
+     "V": -0.11095676393592771,
+     "L": -0.45806297768697923,
+     "U": 0.14009770346343928,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    },
+    "delta_G1": {
+     "V": -0.31471295528543297,
+     "L": -1.690019673912045,
+     "U": 0.7851820044289398,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    },
+    "delta_G0": {
+     "V": -0.163439007046287,
+     "L": -1.2707567524126377,
+     "U": 0.7168644923873648,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    },
+    "min_blocks": 19
+   },
+   "design_weights": {
+    "V_uniform": {
+     "V": -0.19457978776293436,
+     "L": -0.6076169280361856,
+     "U": 0.19000114651875505,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    },
+    "V_blocks": {
+     "V": -0.2600900113826878,
+     "L": -0.5414707458200066,
+     "U": -0.009134856041504994,
+     "readings": [
+      "unfavourable",
+      "effect >= 3 excluded in either direction"
+     ]
+    },
+    "delta_G1": {
+     "V": -0.2782317238232016,
+     "L": -1.7999772597105983,
+     "U": 0.9826464152142795,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    },
+    "delta_G0": {
+     "V": -0.28943966205730487,
+     "L": -1.5180889652421488,
+     "U": 0.6831115193824833,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    },
+    "min_blocks": 19
+   },
+   "readings": {
+    "G0": "no difference detected",
+    "G1": "no difference detected"
+   }
+  },
+  "melbourne": {
+   "weights_common": [
+    0.4458918631775874,
+    1.6201778473024142,
+    7.1383915696062115
+   ],
+   "training_cells_by_class": [
+    2164850.0,
+    595792.0,
+    135225.0
+   ],
+   "weights_design_seed0": {
+    "uniform": [
+     0.45461341738700867,
+     1.543921709060669,
+     6.5518951416015625
+    ],
+    "blocks": [
+     0.47418397665023804,
+     1.4495220184326172,
+     4.969404697418213
+    ]
+   },
+   "common_weights": {
+    "V_uniform": {
+     "V": -1.7542661301680624,
+     "L": -3.573078949557147,
+     "U": -0.06390330137759474,
+     "readings": [
+      "unfavourable",
+      "advantage >= 3 excluded"
+     ]
+    },
+    "V_blocks": {
+     "V": -0.9544488911922006,
+     "L": -2.7248062033109233,
+     "U": 0.4238816925166921,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    },
+    "delta_G1": {
+     "V": 3.787905880194611,
+     "L": -0.6410922040274827,
+     "U": 8.073886817061533,
+     "readings": [
+      "inconclusive",
+      "not excluded"
+     ]
+    },
+    "delta_G0": {
+     "V": 5.097848086537198,
+     "L": 3.100552271110976,
+     "U": 6.374767658575442,
+     "readings": [
+      "favourable",
+      "reached"
+     ]
+    },
+    "min_blocks": 20
+   },
+   "design_weights": {
+    "V_uniform": {
+     "V": -1.8498978590310666,
+     "L": -3.9596133986046196,
+     "U": 0.07187277685761378,
+     "readings": [
+      "inconclusive",
+      "advantage >= 3 excluded"
+     ]
+    },
+    "V_blocks": {
+     "V": -0.549572551917017,
+     "L": -1.6754472525173156,
+     "U": 0.4291853796438841,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    },
+    "delta_G1": {
+     "V": 1.0473965593102623,
+     "L": -1.7735736803809021,
+     "U": 3.881926995534025,
+     "readings": [
+      "inconclusive",
+      "not excluded"
+     ]
+    },
+    "delta_G0": {
+     "V": 2.779966684287959,
+     "L": -0.01537530526349832,
+     "U": 4.79859359194844,
+     "readings": [
+      "inconclusive",
+      "not excluded"
+     ]
+    },
+    "min_blocks": 20
+   },
+   "readings": {
+    "G0": "uniform placement forecasts the common segments better",
+    "G1": "no difference detected"
+   }
+  }
+ },
+ "commit": "7be1a1b6b1f41ac6ad8700eed353eb5965fbd0a8",
+ "code_dirty": false,
+ "prereg_fingerprint": "d0431d61d7c2adb8",
+ "generator_fingerprint": "a44a24bf84fe56c8",
+ "written": "2026-11-09T14:05:36.680945+00:00"
+}
