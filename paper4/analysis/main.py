@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Paper 4 — regeneration of every number from the seven frozen records, and check of the text.
-===========================================================================================
+Paper 4 — regeneration of every number from the eleven frozen records and the figure of E12-sexies, and check of the text.
+========================================================================================================================
 One script, three steps (method standard of `protocol/paper4/PROTOCOLLO.md` §0, rule 3):
 
   1. fingerprints   every frozen record (Markdown, JSON, figure) and every generator against the fingerprints
@@ -54,7 +54,8 @@ WORK = ROOT / "paper4" / "analysis" / "regeneration"
 sys.path.insert(0, str(CODE))
 
 # Fingerprints accepted by the internal review (frozen-record commits 4e04ba7, 1d97a94, 085bda7, 40adfc9, 85cd9e8,
-# dda3b8f, a0b76dc); first 16 hex digits of SHA-256.
+# dda3b8f, a0b76dc; 21fc58f, 231d009, f111186, 334ac3d accepted on 2026-11-09); first 16 hex digits of SHA-256.
+# An entry with "dir" has its generator and files in paper4/analysis/<dir> instead of paper4/code and congelamenti.
 EXPERIMENTS = {
     "E11": {"generator": "genera_congelamento_e11.py", "generator_fp": "05b321ed3f946141", "commit": "4e04ba7",
             "files": {"CONGELAMENTO_E11.md": "459b43ee3e649a31", "e11_risultati.json": "b34730ee04e43895"}},
@@ -69,6 +70,17 @@ EXPERIMENTS = {
                          "e10geo_curva.svg": "a4edbde30583b455"}},
     "E12ter": {"generator": "e12ter.py", "generator_fp": "e8c8d17e99e4008b", "commit": "dda3b8f",
                "files": {"CONGELAMENTO_E12ter.md": "ec03ebf339d7deb4", "e12ter_risultati.json": "8cd490bcff8bcad5"}},
+    "E12quater": {"generator": "e12quater.py", "generator_fp": "461899633f189f8a", "commit": "21fc58f",
+                  "files": {"CONGELAMENTO_E12quater.md": "971f0bdb951b17f1", "e12quater_risultati.json": "111b9980124676e3"}},
+    "E12quinquies": {"generator": "e12quinquies.py", "generator_fp": "f26030d81d8bbadd", "commit": "231d009",
+                     "files": {"CONGELAMENTO_E12quinquies.md": "09ccb7ca25decb9f",
+                               "e12quinquies_risultati.json": "d685d84158218791"}},
+    "E10pred": {"generator": "e10pred.py", "generator_fp": "c1575d5f166b980e", "commit": "f111186",
+                "files": {"CONGELAMENTO_E10pred.md": "408240d2b5a72c10", "e10pred_risultati.json": "ef291525d82f56d5"}},
+    "E12sexies": {"generator": "e12sexies.py", "generator_fp": "b63818d20231b388", "commit": "334ac3d",
+                  "files": {"CONGELAMENTO_E12sexies.md": "500b389066921146", "e12sexies_risultati.json": "099c9753c870feda"}},
+    "FigE12sexies": {"generator": "figure_e12sexies.py", "generator_fp": "8a469477c2003b68", "commit": "—", "dir": "figures",
+                     "files": {"e12sexies_persistence.svg": "8a00272d6a2b031b"}},
     "P4A": {"generator": "p4a.py", "generator_fp": "ff3204dee7064a27", "commit": "a0b76dc",
             "files": {"CONGELAMENTO_4A.md": "f8f093436de33d99", "p4a_risultati.json": "cbf52e3c811f05a0"},
             "generated": {"CONGELAMENTO_4A.md": "7304d9639f91ec81"}},
@@ -82,13 +94,13 @@ SHARED_CODE = {"p4b.py": "926061038a7472a3", "e9.py": "4dd5628af8879511", "e11.p
 VOLATILE = {"commit", "code_dirty", "generator_fingerprint", "written"}
 
 # Sources of each section of the paper: the frozen records whose numbers it may cite.
-ALL = ["e11", "e9", "e12", "e12bis", "e10geo", "e12ter", "p4a"]
+ALL = ["e11", "e9", "e12", "e12bis", "e10geo", "e12ter", "e12quater", "e12quinquies", "e12sexies", "e10pred", "p4a"]
 SOURCES = {
     "section_E11.md": ["e11"],
     "section_E9.md": ["e9", "e11"],
     "section_setting.md": ["e11", "e9"],
-    "section_signal.md": ["e12", "e12bis", "e12ter", "e9"],     # E12, E12-bis, E12-ter in one section (review)
-    "section_E10geo.md": ["e10geo", "e12bis", "e12ter"],
+    "section_signal.md": ["e12", "e12bis", "e12ter", "e12quater", "e12quinquies", "e12sexies", "e9"],  # one section (review)
+    "section_E10geo.md": ["e10geo", "e10pred", "e12bis", "e12ter", "e12quater"],
     "section_partA.md": ["p4a"],
 }
 DEFAULT_SOURCES = ALL           # introduction, discussion, limits, conclusion, order files
@@ -144,21 +156,34 @@ def sha(path, n=16):
 
 # ---------------------------------------------------------------- step 1 -----------------------------------
 
+def frozen_dir(e):
+    return ROOT / "paper4" / "analysis" / e["dir"] if "dir" in e else FROZEN
+
+
+def gen_dir(e):
+    return ROOT / "paper4" / "analysis" if "dir" in e else CODE
+
+
+def rel(p):
+    return str(p.relative_to(ROOT))
+
+
 def step_fingerprints(report):
     ok = True
     report.append("## 1. Fingerprints\n\n| File | Expected | Found | |\n|---|---|---|---|")
     for name, e in EXPERIMENTS.items():
+        fdir, gdir, frel, grel = frozen_dir(e), gen_dir(e), rel(frozen_dir(e)), rel(gen_dir(e))
         for fn, fp in e["files"].items():
-            got = sha(FROZEN / fn); ok &= got == fp
-            report.append(f"| `paper4/congelamenti/{fn}` | {fp} | {got} | {'ok' if got == fp else 'DIFFERENT'} |")
+            got = sha(fdir / fn); ok &= got == fp
+            report.append(f"| `{frel}/{fn}` | {fp} | {got} | {'ok' if got == fp else 'DIFFERENT'} |")
             if fn in e.get("generated", {}):
                 gen = e["generated"][fn]; t = (FROZEN / fn).read_text()
                 got = hashlib.sha256(t[:t.find(NOTE_MARK)].encode()).hexdigest()[:16] if NOTE_MARK in t else sha(FROZEN / fn)
                 ok &= got == gen
                 report.append(f"| `paper4/congelamenti/{fn}`, generated text before the dated note | {gen} | {got} | "
                               f"{'ok' if got == gen else 'DIFFERENT'} |")
-        got = sha(CODE / e["generator"]); ok &= got == e["generator_fp"]
-        report.append(f"| `paper4/code/{e['generator']}` | {e['generator_fp']} | {got} | {'ok' if got == e['generator_fp'] else 'DIFFERENT'} |")
+        got = sha(gdir / e["generator"]); ok &= got == e["generator_fp"]
+        report.append(f"| `{grel}/{e['generator']}` | {e['generator_fp']} | {got} | {'ok' if got == e['generator_fp'] else 'DIFFERENT'} |")
     for fn, fp in SHARED_CODE.items():
         got = sha(CODE / fn); ok &= got == fp
         report.append(f"| `paper4/code/{fn}` | {fp} | {got} | {'ok' if got == fp else 'DIFFERENT'} |")
@@ -189,8 +214,14 @@ def run_generator(name, out):
         code = (f"import sys, argparse; from pathlib import Path; sys.path.insert(0, {str(CODE)!r}); import p4a; "
                 f"p4a.OUT = Path({str(out)!r}); p4a.freeze(argparse.Namespace())")
         subprocess.run([PYA, "-c", code], check=True, cwd=ROOT)
+    elif name == "FigE12sexies":
+        sys.path.insert(0, str(ROOT / "paper4" / "analysis"))
+        import figure_e12sexies as g
+        g.OUT = out / "e12sexies_persistence.svg"
+        g.main()
     else:
-        mod = {"E12": "e12", "E12bis": "e12bis", "E10geo": "e10geo", "E12ter": "e12ter"}[name]
+        mod = {"E12": "e12", "E12bis": "e12bis", "E10geo": "e10geo", "E12ter": "e12ter", "E12quater": "e12quater",
+               "E12quinquies": "e12quinquies", "E12sexies": "e12sexies", "E10pred": "e10pred"}[name]
         g = __import__(mod)
         g.OUT = out
         g.freeze(ap.Namespace(compare_with=None))
@@ -231,7 +262,7 @@ def step_regenerate(report, names, work):
             ok = False; report.append(f"| {name} | generator stopped: {exc!r} | | |"); continue
         cells = []
         for fn in e["files"]:
-            new, old = out / fn, FROZEN / fn
+            new, old = out / fn, frozen_dir(e) / fn
             if not new.exists():
                 cells.append("missing"); ok = False; continue
             if fn.endswith(".json"):
