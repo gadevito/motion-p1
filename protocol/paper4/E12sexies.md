@@ -1,9 +1,10 @@
 # E12-sexies — How long does the same-instant signal last? (descriptive)
 
-**Pre-registration.** Date ____ · commit ____ (code `e12sexies.py` ____, `e12quinquies.py` f26030d81d8bbadd,
-`e12ter.py` e8c8d17e99e4008b, `e12.py` 3ec453d15372b217, `p4b.py` 926061038a7472a3, `e9.py` 4dd5628af8879511;
-preflight log `e12sexies_preflight.log` ____) · launched by Fabio Palomba (Mac M3 Max, CPU) · preflight ____ ·
-cost ____ (`e12sexies_costo.json` ____).
+**Pre-registration.** Date ____ · commit 4d6e7a0 (code `e12sexies.py` 129a481e987ac43d, `e12quinquies.py`
+f26030d81d8bbadd, `e12ter.py` e8c8d17e99e4008b, `e12.py` 3ec453d15372b217, `p4b.py` 926061038a7472a3, `e9.py`
+4dd5628af8879511; preflight log `e12sexies_preflight.log` f9945fc6bf99a720) · launched by Fabio Palomba (Mac M3 Max,
+CPU) · preflight 6/6 · cost ≤ 0.4 s per (city, *f*, seed), ≈ 0.006 h for the 60 pairs (`e12sexies_costo.json`
+48256fd6fbb82090; load average 3.2–3.4: an upper bound).
 
 Draft of 2026-11-09, on the decision of the internal review of 2026-11-09 (12:15), after the frozen records of
 E12-quater, E12-quinquies and E10-pred. No training, **descriptive**: no criterion and no statement of the paper
@@ -73,6 +74,10 @@ In the 0–250 m bin, for Madrid and London (8 cells), on R(15):
 The threshold 0.5 is a declared convention (internal review, 2026-11-09), as in E12-quinquies, not a test; the
 rule is fixed knowing E12, E12-ter, E12-quater, E12-quinquies and E10-pred. R(30), R(60), R(120), R×(*h*), R′(*h*)
 and R_own(*h*) are reported without a reading.
+
+**Before the signature** (preflight, seed 0, validation origins, no test target read): valid pairs fall by 1–9%
+from *h* = 0 to *h* = 120 min (Madrid 1–2%, London 3–9%, Melbourne 4–5%), so the five lags are computed on nearly
+the same pairs.
 
 ## Mandatory controls (preflight, reading no test target)
 
