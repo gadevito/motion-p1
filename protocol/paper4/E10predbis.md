@@ -1,6 +1,6 @@
 # E10-pred-bis — The placement comparison of E10-pred under common class weights (correction)
 
-**Pre-registration.** Date ____ · commit 89a0cb7 (code `e10predbis.py` a44a24bf84fe56c8, `e10pred.py` c1575d5f166b980e, `e12bis.py`
+**Pre-registration.** Date 2026-11-09 · commit 89a0cb7 (code `e10predbis.py` a44a24bf84fe56c8, `e10pred.py` c1575d5f166b980e, `e12bis.py`
 27adfe03f24647e8, `genera_congelamento_e11.py` 05b321ed3f946141, `genera_congelamento_e9.py` 6b9a0552efea3af6,
 `p4b.py` 926061038a7472a3, `e9.py` 4dd5628af8879511; preflight log `e10predbis_preflight.log` d0893bb1c7a5b178) ·
 launched by Fabio Palomba (Mac M3 Max, CPU) · preflight 5/5 · cost: no training, one scoring pass over the 60 saved
@@ -10,7 +10,7 @@ Draft of 2026-11-09, on the decision of the internal review of 2026-11-09 (15:15
 item 23). No training: the saved per-cell predictions of E10-pred and of E9 at *f* = 20% are scored again. **No
 computation on test before the signature**, except the preflight, which reads no test target.
 
-signed: ____
+signed: Gabriele De Vito; internal review, 2026-11-09
 
 ## Why
 
