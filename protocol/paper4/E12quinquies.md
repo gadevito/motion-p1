@@ -1,6 +1,6 @@
 # E12-quinquies — How much of the same-instant agreement remains once the hour is known? (descriptive)
 
-**Pre-registration.** Date ____ · commit 656c409 (code `e12quinquies.py` f26030d81d8bbadd, `e12ter.py`
+**Pre-registration.** Date 2026-11-09 · commit 656c409 (code `e12quinquies.py` f26030d81d8bbadd, `e12ter.py`
 e8c8d17e99e4008b, `e12.py` 3ec453d15372b217, `p4b.py` 926061038a7472a3, `e9.py` 4dd5628af8879511; preflight log
 `e12quinquies_preflight.log` 4077631d46f6500b) · launched by Fabio Palomba (Mac M3 Max, CPU) · preflight 6/6 · cost
 ≤ 0.4 s per (city, *f*, seed), ≈ 0.005 h for the 60 pairs (`e12quinquies_costo.json` d0303ac7f341d2f9; load average
@@ -11,7 +11,7 @@ N_min per slot and the readable bins declared in advance. No training,
 **descriptive**: no criterion and no statement of the paper depends on a threshold. **No computation on test
 before the signature**, except the preflight, which reads no test target.
 
-signed: ____
+signed: Gabriele De Vito; internal review, 2026-11-09
 
 ## Question
 
