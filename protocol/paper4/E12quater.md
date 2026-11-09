@@ -1,6 +1,6 @@
 # E12-quater — The neighbour net of the calendar, with a symmetric fallback
 
-**Pre-registration.** Date ____ · commit 656c409 (code `e12quater.py` 461899633f189f8a, `e12ter.py` e8c8d17e99e4008b,
+**Pre-registration.** Date 2026-11-09 · commit 656c409 (code `e12quater.py` 461899633f189f8a, `e12ter.py` e8c8d17e99e4008b,
 `e12bis.py` 27adfe03f24647e8, `e12.py` 3ec453d15372b217, `p4b.py` 926061038a7472a3, `e9.py` 4dd5628af8879511;
 preflight log `e12quater_preflight.log` e537ad3752ef9299) · launched by Fabio Palomba (Mac M3 Max, CPU) · preflight
 8/8 · cost ≤ 7.2 s per (city, *f*, seed), ≈ 0.12 h for the 60 pairs (`e12quater_costo.json` 99821e3bc2028e60; load
@@ -11,7 +11,7 @@ the full fallback chain and a control for each link. No training. **No
 computation on test before the signature**, except the preflight, which reads no test target. E12-ter stays as it
 is (frozen record dda3b8f); E12-quater is a new, declared analysis.
 
-signed: ____
+signed: Gabriele De Vito; internal review, 2026-11-09
 
 ## Question
 
