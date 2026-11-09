@@ -3,9 +3,10 @@
 **Pre-registration.** Date ____ · commit 53911d0 (code `e10pred.py` c1575d5f166b980e, `p4b.py` 926061038a7472a3,
 `e9.py` 4dd5628af8879511, `genera_congelamento_e9.py` 6b9a0552efea3af6, `genera_congelamento_e11.py`
 05b321ed3f946141; preflight log `e10pred_preflight.log` 6f3427abe71b7543) · launched by Fabio Palomba (Mac M3 Max,
-MPS) · preflight 8/8 · cost: measured by the executor before the signature with `e10pred.py cost` (G0 and G1
-isolated, Madrid, *f* = 20%, uniform placement, uptime before and after in `e10pred_costo.json` ____); upper bound
-from the isolated costs of E9, ≈ 1.1 h.
+MPS) · preflight 8/8 · cost measured by the executor before the signature with `e10pred.py cost` (HEAD a3fa13e;
+G0 and G1 isolated, Madrid, *f* = 20%, uniform placement, 1,000 updates each: G0 62.6 s, G1 150.7 s; uptime before
+and after in `e10pred_costo.json` 910c64ba433f40ae, load averages 3.28 at the start, 5.82 at the end); upper bound
+15 × (62.6 + 150.7) s ≈ 0.89 h.
 
 Draft of 2026-11-08, on the decision of the internal review of 2026-11-08 (21:45, item 4); approved at 22:00 with
 the declaration of the input masks and their realised share. **30 trainings. No
@@ -104,8 +105,9 @@ segment in input, loss or statistics; references other than the E9 runs of the s
 
 ## Cost
 
-30 trainings; from the isolated costs of E9 on Madrid (G0 ≈ 89 s, G1 ≈ 169 s), at most 15 × (89 + 169) s ≈ 1.1 h.
-Measured again in the preflight.
+30 trainings. Before the measurement, from the isolated costs of E9 on Madrid (G0 ≈ 89 s, G1 ≈ 169 s), at most
+15 × (89 + 169) s ≈ 1.1 h. Measured by the executor with `e10pred.py cost` (`e10pred_costo.json` 910c64ba433f40ae):
+G0 62.6 s, G1 150.7 s, at most 15 × (62.6 + 150.7) s ≈ 0.89 h.
 
 ## What changes in the paper
 
