@@ -9,13 +9,14 @@ Pairs as E12's concordance: test-hidden segment i, nearest observed segment j (s
 bin of d(i, j). Lags h ∈ {0, 1, 2, 4, 8} steps (0, 15, 30, 60, 120 min). Per (city, f, bin, h), pooled over seeds:
 
   A(h)       share of pairs with y_i(t + h) = y_j(t), over pairs where both are valid (A(0) = E12's agreement)
-  E_slot(h)  Σ_k π_k(s)², s = hour of the week of t + h, averaged over the same pairs (E_slot(0) = E12-quinquies')
-  E×(h)      reported: Σ_k π_k(s_t)·π_k(s_{t+h}), independence with the slots of both times (E×(0) = E_slot(0))
-  E'(h)      secondary: Σ_k π_k(s_t)·ρ_k(s_{t+h}), ρ from the test-hidden segments over the test period
-  R(h)       (A(h) − E_slot(h)) / (A(0) − E_slot(0)); R×(h), R'(h) likewise with E×, E'. Not reported where
-             A(0) − E_slot(0) < 0.02
+  E×(h)      PRIMARY reference: Σ_k π_k(s_t)·π_k(s_{t+h}), slot of t for the neighbour and of t + h for the hidden
+             segment, averaged over the same pairs (E×(0) = E12-quinquies' E_slot)
+  R×(h)      PRIMARY: (A(h) − E×(h)) / (A(0) − E×(0)); reading on R×(15). Not reported where A(0) − E×(0) < 0.02
+  E_slot(h)  secondary: Σ_k π_k(s_{t+h})², one slot for both classes; R(h) likewise. It ignores the change of calendar
+             between t and t + h: in the synthetic world without signal R(120 min) = −0.22 (R× −0.00)
+  E'(h)      secondary: Σ_k π_k(s_t)·ρ_k(s_{t+h}), ρ from the test-hidden segments over the test period; R'(h) likewise
   P(h)       own persistence of the hidden segment, share of (i, t) with y_i(t + h) = y_i(t)
-  R_own(h)   (P(h) − E_slot(h)) / (1 − E_slot(0)), E_slot on the own-persistence cells
+  R_own(h)   (P(h) − E×_own(h)) / (1 − E×_own(0)), E× on the own-persistence cells
 
 Intervals: 4,000 replicates, seeds × corridor blocks of the test-hidden segments, E12's replicate indices
 (default_rng([20261106, index of (city, f), 1 + bin])), the same draws for every h.
@@ -62,7 +63,7 @@ OUT = p4b.ROOT / "paper4" / "congelamenti"
 NB = len(BIN_LABELS)
 LAGS = (0,) + tuple(p4b.HORIZONS)                     # steps: 0, 1, 2, 4, 8
 MIN_SIGNAL = 0.02
-PER_LAG = ("pairs", "agree", "e_slot", "e_cross", "e_sec", "own_cells", "own_agree", "own_e_slot")
+PER_LAG = ("pairs", "agree", "e_cross", "e_slot", "e_sec", "own_cells", "own_agree", "own_e_cross")
 KEYS = tuple(f"{k}_{h}" for h in LAGS for k in PER_LAG)
 
 
@@ -73,8 +74,8 @@ def minutes(h):
 # ---------------------------------------------------------------- quantities ---------------------------
 
 def node_sums(C, origins, obs, tgt, coords, sl, pi_s, rho_s):
-    """Per target segment and lag: pairs and agreements (y_i(t+h) vs y_j(t)), Σ π(s_{t+h})², Σ π(s_t)·ρ(s_{t+h});
-    own-persistence cells and agreements (y_i(t+h) vs y_i(t)) and Σ π(s_{t+h})² on them. Static distance bin of the
+    """Per target segment and lag: pairs and agreements (y_i(t+h) vs y_j(t)), Σ π(s_t)·π(s_{t+h}), Σ π(s_{t+h})²,
+    Σ π(s_t)·ρ(s_{t+h}); own-persistence cells and agreements (y_i(t+h) vs y_i(t)) and Σ π(s_t)·π(s_{t+h}) on them. Static distance bin of the
     nearest observed segment (E12's concordance rule)."""
     obs_idx = np.where(obs)[0]; tgt_idx = np.where(tgt)[0]
     order, dist = neighbours(coords, obs_idx, tgt_idx)
@@ -91,7 +92,7 @@ def node_sums(C, origins, obs, tgt, coords, sl, pi_s, rho_s):
                     f"e_slot_{h}": (v * es[:, None]).sum(0), f"e_cross_{h}": (v * ex[:, None]).sum(0),
                     f"e_sec_{h}": (v * ee[:, None]).sum(0),
                     f"own_cells_{h}": w.sum(0).astype(np.int64), f"own_agree_{h}": own.sum(0).astype(np.int64),
-                    f"own_e_slot_{h}": (w * es[:, None]).sum(0)})
+                    f"own_e_cross_{h}": (w * ex[:, None]).sum(0)})
     sbin = np.zeros(len(tgt_idx), np.int64)
     for k, (lo, hi) in enumerate(zip(BINS[:-1], BINS[1:])):
         sbin[(d >= lo) & (d < hi)] = k
@@ -99,7 +100,7 @@ def node_sums(C, origins, obs, tgt, coords, sl, pi_s, rho_s):
 
 
 def ratios(t):
-    """A(h), E_slot(h), E'(h), P(h), R(h), R'(h), R_own(h) from pooled sums (scalars or replicate arrays)."""
+    """A(h), E×(h), E_slot(h), E'(h), P(h), R×(h), R(h), R'(h), R_own(h) from pooled sums (scalars or replicates)."""
     r = {}
     for h in LAGS:
         r[f"A_{h}"] = t[f"agree_{h}"] / t[f"pairs_{h}"]
@@ -107,7 +108,7 @@ def ratios(t):
         r[f"Ex_{h}"] = t[f"e_cross_{h}"] / t[f"pairs_{h}"]
         r[f"Ee_{h}"] = t[f"e_sec_{h}"] / t[f"pairs_{h}"]
         r[f"P_{h}"] = t[f"own_agree_{h}"] / t[f"own_cells_{h}"]
-        r[f"Eo_{h}"] = t[f"own_e_slot_{h}"] / t[f"own_cells_{h}"]
+        r[f"Eo_{h}"] = t[f"own_e_cross_{h}"] / t[f"own_cells_{h}"]
     with np.errstate(divide="ignore", invalid="ignore"):
         for h in LAGS:
             r[f"R_{h}"] = (r[f"A_{h}"] - r[f"Es_{h}"]) / (r["A_0"] - r["Es_0"])
@@ -179,11 +180,12 @@ def selftest():
     ok = True; res = {}
     for name, stay in (("memoryless neighbour", 0.0), ("persistent neighbour", 0.95)):
         q, inner = synth_ratios(stay); res[name] = q; ok &= inner
-        ok &= q["R_0"] == 1.0 and q["P_0"] == 1.0
+        ok &= q["R_0"] == 1.0 and q["Rx_0"] == 1.0 and q["P_0"] == 1.0
         print(f"{name}: " + ", ".join(f"R({minutes(h)}) {q[f'R_{h}']:.3f}" for h in LAGS)
               + "; " + ", ".join(f"R×({minutes(h)}) {q[f'Rx_{h}']:.3f}" for h in LAGS[1:])
               + "; " + ", ".join(f"R_own({minutes(h)}) {q[f'Rown_{h}']:.3f}" for h in LAGS[1:]))
-    ok &= abs(res["memoryless neighbour"]["R_1"]) < 0.1 and res["persistent neighbour"]["R_1"] > 0.8
+    ok &= abs(res["memoryless neighbour"]["Rx_1"]) < 0.05 and res["persistent neighbour"]["Rx_1"] > 0.8
+    ok &= all(abs(res["memoryless neighbour"][f"Rx_{h}"]) < 0.05 for h in LAGS[1:])
     print("SELFTEST:", "PASS" if ok else "FAIL")
     return 0 if ok else 1
 
@@ -245,8 +247,8 @@ def preflight(args):
               "the hour of the week of t + h (timestamps only; 60 pairs)", lag_ok)
     log.check("4", "π_k(s) from observed segments and training-period cells only: noise on hidden segments and after the "
               "last training cell leaves it identical (12 city × f, seed 0)", noise_ok)
-    log.check("5", "synthetic: memoryless neighbour gives R(15) near 0, persistent neighbour (stay 0.95) R(15) > 0.8; "
-              "R(0) = P(0) = 1 exactly (selftest)", selftest() == 0)
+    log.check("5", "synthetic: memoryless neighbour gives R×(h) near 0 at every lag, persistent neighbour (stay 0.95) "
+              "R×(15) > 0.8; R×(0) = R(0) = P(0) = 1 exactly (selftest)", selftest() == 0)
     try:
         p4b.require_signed(PREREG); guard = False
     except PermissionError:
@@ -355,18 +357,18 @@ def freeze(args):
             q = ratios(pt); qr = ratios(rep)
             e_ = {k: float(v) for k, v in q.items()}
             e_["pairs"] = [int(pt[f"pairs_{h}"]) for h in LAGS]; e_["min_blocks"] = int(min(nblocks))
-            e_["signal"] = e_["A_0"] - e_["Es_0"]
+            e_["signal"] = e_["A_0"] - e_["Ex_0"]
             if e_["signal"] < MIN_SIGNAL:
                 for h in LAGS:
                     e_[f"R_{h}"] = e_[f"Rx_{h}"] = e_[f"Rsec_{h}"] = None
-                e_["note"] = f"A(0) − E_slot(0) < {MIN_SIGNAL}: R not reported"
+                e_["note"] = f"A(0) − E×(0) < {MIN_SIGNAL}: R not reported"
             elif min(nblocks) < 3:
                 e_["note"] = "fewer than 3 blocks in some seed: no interval read"
             if "note" not in e_:
                 for h in LAGS[1:]:
                     for k in ("R", "Rx", "Rsec", "Rown", "A", "P"):
                         e_[f"{k}_{h}_L"], e_[f"{k}_{h}_U"] = interval(qr[f"{k}_{h}"])
-            e_["reading"] = reading(e_.get("R_1_L"), e_.get("R_1_U")) if "note" not in e_ else "not read"
+            e_["reading"] = reading(e_.get("Rx_1_L"), e_.get("Rx_1_U")) if "note" not in e_ else "not read"
             row[lab] = e_
         rows[(city, f)] = row
     write(rows)
@@ -397,17 +399,18 @@ def write(rows):
          f"Generated by `paper4/code/e12sexies.py freeze` ({res['generator_fingerprint']}) on {res['written'][:19]} UTC, commit {c} "
          f"(code dirty: {dirty}). Pre-registration `protocol/paper4/E12sexies.md` ({res['prereg_fingerprint']}). Inputs: 60 "
          f"(city, f, seed) runs under `paper4/runs/e12sexies/`, h = 0 checked against the E12 and E12-quinquies run records. "
-         f"Lags h = {', '.join(map(str, mins))} min. R(h) = (A(h) − E_slot(h))/(A(0) − E_slot(0)), slot of t + h, N_min = {N_MIN}; "
-         f"not reported where A(0) − E_slot(0) < {MIN_SIGNAL}. Intervals: 95%, {B} replicates, seeds × corridor blocks, the same "
-         f"draws for every h. **Descriptive**: the reading threshold 0.5 on R(15) is a declared convention.\n",
-         "## Readings in the 0–250 m bin (Madrid and London), on R(15)\n", "| City | f | Reading |", "|---|---|---|"]
+         f"Lags h = {', '.join(map(str, mins))} min. Primary R×(h) = (A(h) − E×(h))/(A(0) − E×(0)), E× = Σ_k π_k(s_t)·π_k(s_t+h), "
+         f"N_min = {N_MIN}; not reported where A(0) − E×(0) < {MIN_SIGNAL}. Secondary R(h) with one slot (t + h) for both classes: "
+         f"in the synthetic world without signal it gives −0.22 at 120 min. Intervals: 95%, {B} replicates, seeds × corridor "
+         f"blocks, the same draws for every h. **Descriptive**: the reading threshold 0.5 on R×(15) is a declared convention.\n",
+         "## Readings in the 0–250 m bin (Madrid and London), on R×(15)\n", "| City | f | Reading |", "|---|---|---|"]
     for k, v in readings.items():
         city, f = k.split(); L.append(f"| {city} | {int(float(f) * 100)}% | {v} |")
-    for title, key in (("R(h): share of the same-instant signal surviving at lag h", "R"),
-                       ("R×(h), reference with the slots of both t and t + h", "Rx"),
+    for title, key in (("R×(h): share of the same-instant signal surviving at lag h (primary)", "Rx"),
+                       ("R(h), secondary reference with one slot (t + h) for both classes", "R"),
                        ("R′(h), secondary reference with both marginals preserved", "Rsec"),
                        ("R_own(h): own persistence of the hidden segment beyond the calendar", "Rown"),
-                       ("A(h) = P(y_i(t + h) = y_j(t))", "A"), ("E_slot(h)", "Es"), ("P(h) = P(y_i(t + h) = y_i(t))", "P")):
+                       ("A(h) = P(y_i(t + h) = y_j(t))", "A"), ("E×(h)", "Ex"), ("E_slot(h)", "Es"), ("P(h) = P(y_i(t + h) = y_i(t))", "P")):
         L += [f"\n## {title}\n", "| City | f | Bin | " + " | ".join(f"{m} min" for m in mins) + " |",
               "|---|---|---|" + "---|" * len(mins)]
         for (city, f), r in rows.items():
@@ -456,9 +459,9 @@ def check_inputs(args):
 
 
 def selftest_e2e(args):
-    """freeze end to end on 60 synthetic folders. 0-250 m: A(0) = 0.60, E_slot = 0.40 at every lag; A(15 min) = 0.45 in
-    Madrid (R(15) = 0.25, "decays") and 0.56 in London (R(15) = 0.80, "persists"); outer bins A(0) − E_slot(0) = 0.01
-    (not reported)."""
+    """freeze end to end on 60 synthetic folders. 0-250 m: A(0) = 0.60, E× = 0.40 at every lag, E_slot(15 min) = 0.45;
+    A(15 min) = 0.45 in Madrid (R×(15) = 0.25, "decays"; R(15) = 0) and 0.56 in London (R×(15) = 0.80, "persists";
+    R(15) = 0.55): the reading follows R×. Outer bins A(0) − E×(0) = 0.01 (not reported)."""
     import shutil
     global RUNS, OUT
     tmp = Path(args.tmpdir)
@@ -472,9 +475,10 @@ def selftest_e2e(args):
         sm = {}
         for h in LAGS:
             a = {0: 600, 1: a15}.get(h, 420)
-            sm.update({f"pairs_{h}": pairs, f"agree_{h}": np.where(inner, a, 410), f"e_slot_{h}": pairs * 0.40,
+            es = np.where(inner, 0.45, 0.40) if h == 1 else 0.40
+            sm.update({f"pairs_{h}": pairs, f"agree_{h}": np.where(inner, a, 410), f"e_slot_{h}": pairs * es,
                        f"e_cross_{h}": pairs * 0.40, f"e_sec_{h}": pairs * 0.40, f"own_cells_{h}": pairs,
-                       f"own_agree_{h}": pairs if h == 0 else np.full(n, 700), f"own_e_slot_{h}": pairs * 0.40})
+                       f"own_agree_{h}": pairs if h == 0 else np.full(n, 700), f"own_e_cross_{h}": pairs * 0.40})
         np.savez_compressed(d / "sums.npz", blocks=blocks, static_bin=sb, **sm)
         (d / "run.json").write_text(json.dumps({"sums_sha256": p4b.sha256(d / "sums.npz", 16)}))
     RUNS, OUT = runs, tmp / "congelamenti"
@@ -482,12 +486,14 @@ def selftest_e2e(args):
     res = json.loads((OUT / "e12sexies_risultati.json").read_text())
     m = res["rows"]["madrid 0.4"][BIN_LABELS[0]]; lo = res["rows"]["london 0.4"][BIN_LABELS[0]]
     out = res["rows"]["madrid 0.4"][BIN_LABELS[1]]
-    print(f"synthetic: Madrid R(15) = {m['R_1']:.4f} ({m['reading']}), London R(15) = {lo['R_1']:.4f} ({lo['reading']}), "
-          f"R_own(15) = {m['Rown_1']:.4f}, outer bin R(15) = {out['R_1']} ({out.get('note')})")
-    ok = (abs(m["R_1"] - 0.25) < 1e-9 and m["reading"] == "the same-instant signal decays within 15 minutes"
-          and abs(lo["R_1"] - 0.80) < 1e-9
+    print(f"synthetic: Madrid R×(15) = {m['Rx_1']:.4f}, R(15) = {m['R_1']:.4f} ({m['reading']}), London R×(15) = "
+          f"{lo['Rx_1']:.4f}, R(15) = {lo['R_1']:.4f} ({lo['reading']}), R_own(15) = {m['Rown_1']:.4f}, outer bin R×(15) = "
+          f"{out['Rx_1']} ({out.get('note')})")
+    ok = (abs(m["Rx_1"] - 0.25) < 1e-9 and abs(m["R_1"]) < 1e-9
+          and m["reading"] == "the same-instant signal decays within 15 minutes"
+          and abs(lo["Rx_1"] - 0.80) < 1e-9 and abs(lo["R_1"] - 0.55) < 1e-9
           and lo["reading"] == "the signal persists at 15 minutes and the methods evaluated do not use it"
-          and abs(m["Rown_1"] - 0.5) < 1e-9 and out["R_1"] is None)
+          and abs(m["Rown_1"] - 0.5) < 1e-9 and out["Rx_1"] is None)
     shutil.rmtree(tmp)
     print("SELFTEST-E2E:", "PASS" if ok else "FAIL", "(temporary folder removed)")
     return 0 if ok else 1
