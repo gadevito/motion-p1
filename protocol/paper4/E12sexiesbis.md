@@ -1,9 +1,10 @@
 # E12-sexies-bis — Unnormalised excesses of the neighbour's and the segment's own agreement (descriptive)
 
-**Pre-registration.** Date ____ · commit ____ (code `e12sexiesbis.py` ____, `e12sexies.py` b63818d20231b388,
+**Pre-registration.** Date ____ · commit 89a0cb7 (code `e12sexiesbis.py` ae848017cfed4ecd, `e12sexies.py` b63818d20231b388,
 `e12quinquies.py` f26030d81d8bbadd, `e12ter.py` e8c8d17e99e4008b, `e12.py` 3ec453d15372b217, `p4b.py`
-926061038a7472a3, `e9.py` 4dd5628af8879511; preflight log `e12sexiesbis_preflight.log` ____) · launched by Fabio
-Palomba (Mac M3 Max, CPU) · preflight ____ · cost ____.
+926061038a7472a3, `e9.py` 4dd5628af8879511; preflight log `e12sexiesbis_preflight.log` 8b4d07997b8e4b78) ·
+launched by Fabio Palomba (Mac M3 Max, CPU) · preflight 6/6 · cost ≈ 0.006 h for the 60 pairs
+(`e12sexiesbis_costo.json` 27a4e2709e868ff2).
 
 Draft of 2026-11-09, on the decision of the internal review of 2026-11-09 (15:15, item 3). No training,
 **descriptive**: no reading rule, no criterion. **No computation on test before the signature**, except the
@@ -43,6 +44,10 @@ At *h* = 0, P = 1 and X_own(0) = 1 − E×(0). Reported with 95% intervals withi
 without intervals where the bin has fewer than 3 blocks in some seed), and for the other bins in the record.
 **No reading rule**: the paper states the values; any interpretation of a common component or of propagation stays
 a hypothesis.
+
+**Before the signature** (preflight, seed 0, validation origins, no target read): requiring the three classes
+valid keeps, at 15 minutes, 89–93% of the cells of *h* = 0 in Madrid, 78–80% in London and 81–84% in Melbourne;
+from 15 to 120 minutes the count falls by a further 1–4%.
 
 ## Mandatory controls (preflight, reading no test target)
 

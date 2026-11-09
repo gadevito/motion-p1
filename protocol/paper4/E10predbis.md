@@ -1,9 +1,10 @@
 # E10-pred-bis — The placement comparison of E10-pred under common class weights (correction)
 
-**Pre-registration.** Date ____ · commit ____ (code `e10predbis.py` ____, `e10pred.py` c1575d5f166b980e, `e12bis.py`
+**Pre-registration.** Date ____ · commit 89a0cb7 (code `e10predbis.py` a44a24bf84fe56c8, `e10pred.py` c1575d5f166b980e, `e12bis.py`
 27adfe03f24647e8, `genera_congelamento_e11.py` 05b321ed3f946141, `genera_congelamento_e9.py` 6b9a0552efea3af6,
-`p4b.py` 926061038a7472a3, `e9.py` 4dd5628af8879511; preflight log `e10predbis_preflight.log` ____) · launched by
-Fabio Palomba (Mac M3 Max, CPU) · preflight ____ · cost ____.
+`p4b.py` 926061038a7472a3, `e9.py` 4dd5628af8879511; preflight log `e10predbis_preflight.log` d0893bb1c7a5b178) ·
+launched by Fabio Palomba (Mac M3 Max, CPU) · preflight 5/5 · cost: no training, one scoring pass over the 60 saved
+prediction files, as the freeze of E10-pred (minutes).
 
 Draft of 2026-11-09, on the decision of the internal review of 2026-11-09 (15:15, item 1; register of corrections,
 item 23). No training: the saved per-cell predictions of E10-pred and of E9 at *f* = 20% are scored again. **No
@@ -43,6 +44,12 @@ cell; the training period is the same in both designs and every seed (checked).
 **Reading (declared, descriptive), per city and model on Δ:** "uniform placement forecasts the common segments
 better" if L > 0; "worse" if U < 0; "no difference detected" otherwise. No threshold, no criterion; the 3-point
 scale of E10-pred is reported as in E10-pred for V(G1).
+
+**Before the signature** (preflight, no target read): the common weights (free flow, slowed, congested) are
+(0.719, 0.744, 3.758) in Madrid, (0.757, 0.823, 2.155) in London and (0.446, 1.620, 7.138) in Melbourne; at seed 0
+the design weights are (0.709, 0.755, 3.784) / (0.688, 0.778, 3.831), (0.770, 0.818, 2.089) / (0.824, 0.765, 2.084)
+and (0.455, 1.544, 6.552) / (0.474, 1.450, 4.969), uniform / blocks. The difference is largest on the congested
+class in Melbourne.
 
 ## Mandatory controls (preflight, reading no test target)
 
