@@ -1,6 +1,6 @@
 # E12-sexies — How long does the same-instant signal last? (descriptive)
 
-**Pre-registration.** Date ____ · commit 51405aa (code `e12sexies.py` b63818d20231b388, `e12quinquies.py`
+**Pre-registration.** Date 2026-11-09 · commit 51405aa (code `e12sexies.py` b63818d20231b388, `e12quinquies.py`
 f26030d81d8bbadd, `e12ter.py` e8c8d17e99e4008b, `e12.py` 3ec453d15372b217, `p4b.py` 926061038a7472a3, `e9.py`
 4dd5628af8879511; preflight log `e12sexies_preflight.log` 0466f504c339c15a; the earlier preflight on 4d6e7a0, with R primary, kept
 as `e12sexies_preflight_4d6e7a0.log`) · launched by Fabio Palomba (Mac M3 Max, CPU) · preflight 6/6 · cost ≤ 0.4 s per (city, *f*, seed), ≈ 0.006 h for the 60 pairs (`e12sexies_costo.json`
@@ -13,7 +13,7 @@ primary, R secondary). No training, **descriptive**: no criterion and no stateme
 depends on a threshold. **No computation on test before the signature**, except the preflight, which reads no
 test target.
 
-signed: ____
+signed: Gabriele De Vito; internal review, 2026-11-09
 
 ## Question
 
