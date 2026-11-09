@@ -1,28 +1,31 @@
 # Paper 4 — comparison of the last complete regeneration
 
-**Outcome: EVERYTHING COINCIDES.** Run 20261108T190815Z, commit 0ada4e653723b16c962b4a9b783e6681ab8ea80e (code, frozen records or text uncommitted: no). Experiments: E11, E9, E12, E12bis, E10geo, E12ter, P4A. Copy of `paper4/analysis/reports/20261108T190815Z.md`; this file is overwritten by each complete run.
+**Outcome: EVERYTHING COINCIDES.** Run 20261109T144737Z, commit 19f0e6242619a0735b8cc3be3cff5bfe81540f4a (code, frozen records or text uncommitted: no). Experiments: E11, E9, E12, E12bis, E10geo, E12ter, E12quater, E12quinquies, E10pred, E12sexies, E10predbis, E12sexiesbis, FigE12sexies, P4A. Copy of `paper4/analysis/reports/20261109T144737Z.md`; this file is overwritten by each complete run.
 
-Text files of the paper (fingerprints at the run):
+Text files of the paper, in the manuscript repository (commit d889743cc58d6532a436e118ccddbb3e68e9585d; uncommitted: no), fingerprints at the run:
 
 | File | Fingerprint |
 |---|---|
-| `paper4/paper/paper_order.md` | d9f9e64d29cff9d6 |
-| `paper4/paper/part_B_order.md` | b135596aa77fa3c7 |
-| `paper4/paper/section_E10geo.md` | 5e093a66932c8fa4 |
-| `paper4/paper/section_E11.md` | 9dbc158d52dfbac8 |
-| `paper4/paper/section_E12.md` | 65da8be1832eecfb |
-| `paper4/paper/section_E12bis.md` | 59c0567265097334 |
-| `paper4/paper/section_E12ter.md` | 2d5ac668a559d5f6 |
-| `paper4/paper/section_E9.md` | fb3e050cdc0ad3c0 |
-| `paper4/paper/section_abstract.md` | 2f6be2affdc2b30f |
-| `paper4/paper/section_conclusion.md` | c41ec8a744e6f4a9 |
-| `paper4/paper/section_discussion.md` | 297444621a421db8 |
-| `paper4/paper/section_introduction.md` | 10e7fb77296ecb1a |
-| `paper4/paper/section_limits.md` | e319de6a2db17c62 |
-| `paper4/paper/section_partA.md` | 42e5b802063f7832 |
-| `paper4/paper/section_partB.md` | 0b3b4a72426149f5 |
+| `paper/paper_order.md` | 58672967a46c51b0 |
+| `paper/part_B_order.md` | c8fe8fde4280ca8e |
+| `paper/section_E10geo.md` | 62f2ee1507ed7b00 |
+| `paper/section_E11.md` | 094882d064550df2 |
+| `paper/section_E9.md` | 8899f0c8276dd766 |
+| `paper/section_abstract.md` | d3b49ba807963d30 |
+| `paper/section_availability.md` | 07f67859d396402c |
+| `paper/section_conclusion.md` | 4e90d9f873a63eef |
+| `paper/section_discussion.md` | 7b9017e1bffa732c |
+| `paper/section_introduction.md` | da7d6e9caf47f4f7 |
+| `paper/section_limits.md` | 1deb3eba73561d47 |
+| `paper/section_partA.md` | 473f06a7ed736969 |
+| `paper/section_partB.md` | e1ed0c58d36a5b04 |
+| `paper/section_setting.md` | 33ebe124f89b8027 |
+| `paper/section_signal.md` | a9dc2839438220cf |
+| `paper/supplement_records.md` | 2cee4900b3225f2a |
 
-Script `paper4/analysis/main.py` (10ca597c7a5a48c1). Work folder `paper4/analysis/regeneration/20261108T190815Z`.
+Script `paper4/analysis/main.py` (9caecabb57fe948b). Work folder `paper4/analysis/regeneration/20261109T144737Z`.
+
+Text checked: manuscript repository `/Users/gabrieledevito/Personal/MOTION/deliverables/paper4-manuscript`, commit d889743cc58d6532a436e118ccddbb3e68e9585d (`paper/` uncommitted: no).
 
 ## 1. Fingerprints
 
@@ -47,6 +50,26 @@ Script `paper4/analysis/main.py` (10ca597c7a5a48c1). Work folder `paper4/analysi
 | `paper4/congelamenti/CONGELAMENTO_E12ter.md` | ec03ebf339d7deb4 | ec03ebf339d7deb4 | ok |
 | `paper4/congelamenti/e12ter_risultati.json` | 8cd490bcff8bcad5 | 8cd490bcff8bcad5 | ok |
 | `paper4/code/e12ter.py` | e8c8d17e99e4008b | e8c8d17e99e4008b | ok |
+| `paper4/congelamenti/CONGELAMENTO_E12quater.md` | 971f0bdb951b17f1 | 971f0bdb951b17f1 | ok |
+| `paper4/congelamenti/e12quater_risultati.json` | 111b9980124676e3 | 111b9980124676e3 | ok |
+| `paper4/code/e12quater.py` | 461899633f189f8a | 461899633f189f8a | ok |
+| `paper4/congelamenti/CONGELAMENTO_E12quinquies.md` | 09ccb7ca25decb9f | 09ccb7ca25decb9f | ok |
+| `paper4/congelamenti/e12quinquies_risultati.json` | d685d84158218791 | d685d84158218791 | ok |
+| `paper4/code/e12quinquies.py` | f26030d81d8bbadd | f26030d81d8bbadd | ok |
+| `paper4/congelamenti/CONGELAMENTO_E10pred.md` | 408240d2b5a72c10 | 408240d2b5a72c10 | ok |
+| `paper4/congelamenti/e10pred_risultati.json` | ef291525d82f56d5 | ef291525d82f56d5 | ok |
+| `paper4/code/e10pred.py` | c1575d5f166b980e | c1575d5f166b980e | ok |
+| `paper4/congelamenti/CONGELAMENTO_E12sexies.md` | 500b389066921146 | 500b389066921146 | ok |
+| `paper4/congelamenti/e12sexies_risultati.json` | 099c9753c870feda | 099c9753c870feda | ok |
+| `paper4/code/e12sexies.py` | b63818d20231b388 | b63818d20231b388 | ok |
+| `paper4/congelamenti/CONGELAMENTO_E10predbis.md` | 30ef7b7182aadede | 30ef7b7182aadede | ok |
+| `paper4/congelamenti/e10predbis_risultati.json` | e20e82e8646290f7 | e20e82e8646290f7 | ok |
+| `paper4/code/e10predbis.py` | a44a24bf84fe56c8 | a44a24bf84fe56c8 | ok |
+| `paper4/congelamenti/CONGELAMENTO_E12sexiesbis.md` | 6b34cf2ed1e9f0a6 | 6b34cf2ed1e9f0a6 | ok |
+| `paper4/congelamenti/e12sexiesbis_risultati.json` | d519bb13279154f2 | d519bb13279154f2 | ok |
+| `paper4/code/e12sexiesbis.py` | ae848017cfed4ecd | ae848017cfed4ecd | ok |
+| `paper4/analysis/figures/e12sexies_persistence.svg` | 8a00272d6a2b031b | 8a00272d6a2b031b | ok |
+| `paper4/analysis/figure_e12sexies.py` | 8a469477c2003b68 | 8a469477c2003b68 | ok |
 | `paper4/congelamenti/CONGELAMENTO_4A.md` | f8f093436de33d99 | f8f093436de33d99 | ok |
 | `paper4/congelamenti/CONGELAMENTO_4A.md`, generated text before the dated note | 7304d9639f91ec81 | 7304d9639f91ec81 | ok |
 | `paper4/congelamenti/p4a_risultati.json` | cbf52e3c811f05a0 | cbf52e3c811f05a0 | ok |
@@ -65,46 +88,72 @@ Script `paper4/analysis/main.py` (10ca597c7a5a48c1). Work folder `paper4/analysi
 | E12bis | identical (Generated line masked) | every number identical | — |
 | E10geo | identical (Generated line masked) | every number identical | identical bytes |
 | E12ter | identical (Generated line masked) | every number identical | — |
+| E12quater | identical (Generated line masked) | every number identical | — |
+| E12quinquies | identical (Generated line masked) | every number identical | — |
+| E10pred | identical (Generated line masked) | every number identical | — |
+| E12sexies | identical (Generated line masked) | every number identical | — |
+| E10predbis | identical (Generated line masked) | every number identical | — |
+| E12sexiesbis | identical (Generated line masked) | every number identical | — |
+| FigE12sexies | identical bytes | — | — |
 | P4A | identical (Generated line masked) | every number identical | — |
 
 ## 3. Numbers in the text
 
 | File | Numbers | From the frozen records | Design constants | Declared provenance | Unmatched |
 |---|---|---|---|---|---|
-| `paper_order.md` | 14 | 14 | 0 | 0 | 0 |
-| `part_B_order.md` | 9 | 9 | 0 | 0 | 0 |
-| `section_E10geo.md` | 161 | 161 | 0 | 0 | 0 |
-| `section_E11.md` | 63 | 59 | 3 | 1 | 0 |
-| `section_E12.md` | 136 | 136 | 0 | 0 | 0 |
-| `section_E12bis.md` | 111 | 111 | 0 | 0 | 0 |
-| `section_E12ter.md` | 155 | 155 | 0 | 0 | 0 |
-| `section_E9.md` | 100 | 96 | 4 | 0 | 0 |
-| `section_abstract.md` | 11 | 11 | 0 | 0 | 0 |
-| `section_conclusion.md` | 5 | 5 | 0 | 0 | 0 |
-| `section_discussion.md` | 15 | 15 | 0 | 0 | 0 |
-| `section_introduction.md` | 32 | 29 | 3 | 0 | 0 |
-| `section_limits.md` | 22 | 21 | 1 | 0 | 0 |
-| `section_partA.md` | 232 | 227 | 4 | 1 | 0 |
+| `paper_order.md` | 7 | 7 | 0 | 0 | 0 |
+| `part_B_order.md` | 11 | 11 | 0 | 0 | 0 |
+| `section_E10geo.md` | 155 | 155 | 0 | 0 | 0 |
+| `section_E11.md` | 31 | 30 | 0 | 1 | 0 |
+| `section_E9.md` | 62 | 62 | 0 | 0 | 0 |
+| `section_abstract.md` | 5 | 5 | 0 | 0 | 0 |
+| `section_availability.md` | 9 | 9 | 0 | 0 | 0 |
+| `section_conclusion.md` | 9 | 9 | 0 | 0 | 0 |
+| `section_discussion.md` | 68 | 68 | 0 | 0 | 0 |
+| `section_introduction.md` | 24 | 24 | 0 | 0 | 0 |
+| `section_limits.md` | 31 | 30 | 1 | 0 | 0 |
+| `section_partA.md` | 243 | 235 | 2 | 6 | 0 |
 | `section_partB.md` | 0 | 0 | 0 | 0 | 0 |
+| `section_setting.md` | 66 | 57 | 9 | 0 | 0 |
+| `section_signal.md` | 347 | 347 | 0 | 0 | 0 |
+| `supplement_records.md` | 2 | 2 | 0 | 0 | 0 |
 
 Declared provenance:
 
-- `section_E11.md` 0.94: E11.md, pilot, D2-bis (validation)
-- `section_E11.md` 1.066: E11.md, pilot, variants D1 and D3 (validation)
-- `section_E11.md` 1.07: E11.md, pilot (validation)
-- `section_E11.md` 1.071: E11.md, pilot, variants D1 and D3 (validation)
-- `section_E11.md` 1.099: ln 3, the uniform predictor
 - `section_E11.md` 397: E11.md, design (realised spacing 43-397 m)
 - `section_E11.md` 43: E11.md, design (realised spacing 43-397 m)
 - `section_E11.md` 81: E11.md, design (sub-networks of 81-99 nodes)
-- `section_E11.md` 95: E11.md, pilot configuration (95 nodes)
 - `section_E11.md` 99: E11.md, design (sub-networks of 81-99 nodes)
-- `section_E12.md` 51,000: e12_risultati.json, concordance, pairs beyond 1,000 m in Madrid at 40% (50,451), rounded up
-- `section_E12ter.md` 0.1: e12ter_preflight.log (4cba9954231e2f51), validation lookups, no target
-- `section_E12ter.md` 6.6: e12ter_preflight.log (4cba9954231e2f51), validation lookups, no target
 - `section_E9.md` 1.0986: ln 3, the uniform predictor
+- `section_availability.md` 14: du -sk -L of paper4/runs/e12quater, e12quinquies, e12sexies, e12sexiesbis on 2026-11-09: 14.27 MiB
+- `section_availability.md` 19.5: RIPARTIZIONE_RUNS.md (c9222f224441b6b2): predictions of E9, 19.53 GiB
+- `section_availability.md` 2.6: du -sk -L of paper4/runs/e10pred on 2026-11-09: 2.57 GiB
+- `section_availability.md` 3.7: RIPARTIZIONE_RUNS.md (c9222f224441b6b2): predictions of E11, 3.72 GiB
+- `section_availability.md` 61: RIPARTIZIONE_RUNS.md (c9222f224441b6b2): regeneration 25.7 MB + pilot 35.0 MB
+- `section_availability.md` 7.5: isolated training costs: E9 at most 6.6 h (E9.md, cost table), E11 about 0.9 h (E11.md); declared provenance, review 2026-11-08
+- `section_availability.md` 8.4: isolated training costs: 7.5 h for E9 and E11 (above) + E10-pred at most 0.89 h (E10pred.md, e10pred_costo.json 910c64ba433f40ae)
+- `section_limits.md` 7.5: isolated training costs: E9 at most 6.6 h (E9.md, cost table), E11 about 0.9 h (E11.md); declared provenance, review 2026-11-08
+- `section_limits.md` 8.4: isolated training costs: 7.5 h for E9 and E11 (above) + E10-pred at most 0.89 h (E10pred.md, e10pred_costo.json 910c64ba433f40ae)
+- `section_partA.md` 0.002: p4a_risultati.json, correction1: F1 between sensors 0.6399 minus F1 in sample at 0.30 0.6386 (0.0013), bounded
+- `section_partA.md` 0.141: protocol/paper4/fase2/FASCE_APPAIATE.md (8ada8d3d6628fb4f, executor, post hoc): Gini 60-200 m on the 54 sensors, 0.1407
+- `section_partA.md` 0.298: protocol/paper4/fase2/FASCE_APPAIATE.md (8ada8d3d6628fb4f, executor, post hoc): Gini 19-72 and 20-60 m on the 54 sensors, 0.2984
 - `section_partA.md` 0.30: the deliverable's threshold, text p. 131 (rule reproduced in sample in CONGELAMENTO_4A)
-- `section_partA.md` 45.1: the deliverable's excluded section, text p. 133; no generator (CONGELAMENTO_4A, dated note; item 20)
+- `section_partA.md` 0.407: p4a_risultati.json, table68 and gini_split: (G_same - G_0-20) / (G_same - G_arterials), band 0-20 m, point value (review 21:45, item 5)
+- `section_partA.md` 0.461: p4a_risultati.json, table68 and gini_split: (G_same - G_20-60) / (G_same - G_arterials), band 20-60 m, point value (review 21:45, item 5)
+- `section_partA.md` 0.465: protocol/paper4/fase2/FASCE_APPAIATE.md (8ada8d3d6628fb4f, executor, post hoc): Delta Gini 60-200 minus 0-20 m on the 105 sensors, -0.4649
+- `section_partA.md` 0.708: protocol/paper4/fase2/FASCE_APPAIATE.md (8ada8d3d6628fb4f, executor, post hoc): Gini 0-20 m on the 54 sensors in all bands, 0.7081
+- `section_partA.md` 0.817: p4a_risultati.json, table68 and gini_split: (G_same - G_60-200) / (G_same - G_arterials), band 60-200 m, point value (review 21:45, item 5)
+- `section_partA.md` 105: protocol/paper4/fase2/FASCE_APPAIATE.md (8ada8d3d6628fb4f, executor, post hoc): sensors in both 0-20 and 60-200 m
+- `section_partA.md` 156: protocol/paper4/fase2/FASCE_APPAIATE.md (8ada8d3d6628fb4f, executor, post hoc): sensors shared by 19-72 and 20-60 m, same Gini 0.5276
+- `section_partA.md` 25: protocol/paper4/fase2/FASCE_APPAIATE.md (8ada8d3d6628fb4f, executor, post hoc): sensors in 19-72 m only, against 20-60 m
+- `section_partA.md` 54: protocol/paper4/fase2/FASCE_APPAIATE.md (8ada8d3d6628fb4f, executor, post hoc): sensors with a neighbour in all four bands
+- `section_partA.md` 88: protocol/paper4/fase2/FASCE_APPAIATE.md (8ada8d3d6628fb4f, executor, post hoc): median distance 60-200 m on the 54 sensors
+- `section_setting.md` 0.94: E11.md, pilot, D2-bis (validation)
+- `section_setting.md` 1.066: E11.md, pilot, variants D1 and D3 (validation)
+- `section_setting.md` 1.07: E11.md, pilot (validation)
+- `section_setting.md` 1.071: E11.md, pilot, variants D1 and D3 (validation)
+- `section_setting.md` 1.099: ln 3, the uniform predictor
+- `section_setting.md` 95: E11.md, pilot configuration (95 nodes)
 
 ## Outcome
 
