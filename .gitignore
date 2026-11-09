@@ -124,3 +124,5 @@ paper4/analysis/regeneration/
 # --- paper4: the manuscript is in the private repository paper4-manuscript (as for Paper 1) ---
 paper4/manuscript/
 paper4/paper/
+# link ai dati condivisi
+/data_collection
