@@ -1,0 +1,341 @@
+{
+ "rows": {
+  "madrid": {
+   "V_uniform": {
+    "V": -0.009602817496493941,
+    "L": -0.07388723257588617,
+    "U": 0.03989112450750883,
+    "readings": [
+     "inconclusive",
+     "effect >= 3 excluded in either direction"
+    ]
+   },
+   "V_blocks": {
+    "V": 0.08671470353383204,
+    "L": -0.04011572729035737,
+    "U": 0.26206126821753284,
+    "readings": [
+     "inconclusive",
+     "effect >= 3 excluded in either direction"
+    ]
+   },
+   "V_uniform_per_horizon": {
+    "15 min": {
+     "V": 0.005726014205433142,
+     "L": -0.05986811375151156,
+     "U": 0.07840054629127353,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    },
+    "30 min": {
+     "V": -0.010602639695468746,
+     "L": -0.07656632786289724,
+     "U": 0.047449816541607494,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    },
+    "60 min": {
+     "V": -0.03736383819502522,
+     "L": -0.15202774692259208,
+     "U": 0.042730194159193984,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    },
+    "120 min": {
+     "V": 0.0037804929901441146,
+     "L": -0.07581482450372116,
+     "U": 0.06842316215315561,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    }
+   },
+   "wce": {
+    "uniform": {
+     "G0": 1.0762719798593408,
+     "G1": 1.0763755548128076
+    },
+    "blocks": {
+     "G0": 1.0786521796740904,
+     "G1": 1.0777173048359718
+    }
+   },
+   "common": {
+    "segments": [
+     344,
+     293,
+     282,
+     328,
+     339
+    ],
+    "min_blocks": 18,
+    "delta_G1": {
+     "V": -0.1055647838443818,
+     "L": -0.43864746774525554,
+     "U": 0.18817357612963567,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    },
+    "delta_G0": {
+     "V": 0.005965945261710725,
+     "L": -0.282996740677448,
+     "U": 0.2529343216749759,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    }
+   },
+   "design": {
+    "uniform": {
+     "median_test_to_observed_m": 60.90747805470748,
+     "cells_with_observed": 38.6,
+     "test_blocks": 32.0
+    },
+    "blocks": {
+     "median_test_to_observed_m": 511.83801279126226,
+     "cells_with_observed": 9.8,
+     "test_blocks": 26.6
+    },
+    "mask_share_uniform": 0.772922891566265,
+    "mask_share_blocks": 0.7712949228120897
+   }
+  },
+  "london": {
+   "V_uniform": {
+    "V": -0.19457978776293436,
+    "L": -0.6076169280361856,
+    "U": 0.19000114651875505,
+    "readings": [
+     "inconclusive",
+     "effect >= 3 excluded in either direction"
+    ]
+   },
+   "V_blocks": {
+    "V": -0.2600900113826878,
+    "L": -0.5414707458200066,
+    "U": -0.009134856041504994,
+    "readings": [
+     "unfavourable",
+     "effect >= 3 excluded in either direction"
+    ]
+   },
+   "V_uniform_per_horizon": {
+    "15 min": {
+     "V": -0.18739441880551713,
+     "L": -0.5616125693153107,
+     "U": 0.14797659624718365,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    },
+    "30 min": {
+     "V": -0.19085955055389664,
+     "L": -0.5587852594556265,
+     "U": 0.14420094168383463,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    },
+    "60 min": {
+     "V": -0.14961992285312492,
+     "L": -0.5621115086964773,
+     "U": 0.2576982645058966,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    },
+    "120 min": {
+     "V": -0.25043754897905146,
+     "L": -0.7685059152616731,
+     "U": 0.24533537726939483,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    }
+   },
+   "wce": {
+    "uniform": {
+     "G0": 1.0580916971466325,
+     "G1": 1.0601496706789075
+    },
+    "blocks": {
+     "G0": 1.051280723801183,
+     "G1": 1.0540129597708188
+    }
+   },
+   "common": {
+    "segments": [
+     332,
+     323,
+     301,
+     315,
+     297
+    ],
+    "min_blocks": 19,
+    "delta_G1": {
+     "V": -0.2782317238232016,
+     "L": -1.7999772597105983,
+     "U": 0.9826464152142795,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    },
+    "delta_G0": {
+     "V": -0.28943966205730487,
+     "L": -1.5180889652421488,
+     "U": 0.6831115193824833,
+     "readings": [
+      "inconclusive",
+      "effect >= 3 excluded in either direction"
+     ]
+    }
+   },
+   "design": {
+    "uniform": {
+     "median_test_to_observed_m": 70.8280129385195,
+     "cells_with_observed": 36.6,
+     "test_blocks": 34.0
+    },
+    "blocks": {
+     "median_test_to_observed_m": 391.2564161503065,
+     "cells_with_observed": 9.8,
+     "test_blocks": 26.2
+    },
+    "mask_share_uniform": 0.7742361290322581,
+    "mask_share_blocks": 0.7740426567210502
+   }
+  },
+  "melbourne": {
+   "V_uniform": {
+    "V": -1.8498978590310666,
+    "L": -3.9596133986046196,
+    "U": 0.07187277685761378,
+    "readings": [
+     "inconclusive",
+     "advantage >= 3 excluded"
+    ]
+   },
+   "V_blocks": {
+    "V": -0.549572551917017,
+    "L": -1.6754472525173156,
+    "U": 0.4291853796438841,
+    "readings": [
+     "inconclusive",
+     "effect >= 3 excluded in either direction"
+    ]
+   },
+   "V_uniform_per_horizon": {
+    "15 min": {
+     "V": -1.9054947135161513,
+     "L": -4.3636354509069735,
+     "U": 0.1918103553167903,
+     "readings": [
+      "inconclusive",
+      "advantage >= 3 excluded"
+     ]
+    },
+    "30 min": {
+     "V": -2.41057566059452,
+     "L": -4.538929317035564,
+     "U": -0.41839885593890186,
+     "readings": [
+      "unfavourable",
+      "advantage >= 3 excluded"
+     ]
+    },
+    "60 min": {
+     "V": -1.5081899311126,
+     "L": -3.3177666696272055,
+     "U": 0.1586789553859109,
+     "readings": [
+      "inconclusive",
+      "advantage >= 3 excluded"
+     ]
+    },
+    "120 min": {
+     "V": -1.5810517386280387,
+     "L": -3.793726617941461,
+     "U": 0.4708587126979911,
+     "readings": [
+      "inconclusive",
+      "advantage >= 3 excluded"
+     ]
+    }
+   },
+   "wce": {
+    "uniform": {
+     "G0": 1.0844109379801667,
+     "G1": 1.104446749024655
+    },
+    "blocks": {
+     "G0": 1.1151104103933176,
+     "G1": 1.1211600157465746
+    }
+   },
+   "common": {
+    "segments": [
+     221,
+     228,
+     243,
+     229,
+     232
+    ],
+    "min_blocks": 20,
+    "delta_G1": {
+     "V": 1.0473965593102623,
+     "L": -1.7735736803809021,
+     "U": 3.881926995534025,
+     "readings": [
+      "inconclusive",
+      "not excluded"
+     ]
+    },
+    "delta_G0": {
+     "V": 2.779966684287959,
+     "L": -0.01537530526349832,
+     "U": 4.79859359194844,
+     "readings": [
+      "inconclusive",
+      "not excluded"
+     ]
+    }
+   },
+   "design": {
+    "uniform": {
+     "median_test_to_observed_m": 155.3173546498539,
+     "cells_with_observed": 37.2,
+     "test_blocks": 39.6
+    },
+    "blocks": {
+     "median_test_to_observed_m": 2835.2491037486498,
+     "cells_with_observed": 11.2,
+     "test_blocks": 31.6
+    },
+    "mask_share_uniform": 0.7749606837606839,
+    "mask_share_blocks": 0.7729209380678371
+   }
+  }
+ },
+ "summary_statement": "placement does not change what is forecastable",
+ "cities_hit": [],
+ "commit": "231d0091ddc273c02e024e9f363b4a7ca1759068",
+ "code_dirty": false,
+ "prereg_fingerprint": "be25adc4a455d1ec",
+ "generator_fingerprint": "c1575d5f166b980e",
+ "written": "2026-11-09T10:47:23.822795+00:00"
+}
