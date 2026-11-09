@@ -1,6 +1,6 @@
 # E10-pred — Does placement change what is forecastable on the uncovered segments?
 
-**Pre-registration.** Date ____ · commit 53911d0 (code `e10pred.py` c1575d5f166b980e, `p4b.py` 926061038a7472a3,
+**Pre-registration.** Date 2026-11-09 · commit 53911d0 (code `e10pred.py` c1575d5f166b980e, `p4b.py` 926061038a7472a3,
 `e9.py` 4dd5628af8879511, `genera_congelamento_e9.py` 6b9a0552efea3af6, `genera_congelamento_e11.py`
 05b321ed3f946141; preflight log `e10pred_preflight.log` 6f3427abe71b7543) · launched by Fabio Palomba (Mac M3 Max,
 MPS) · preflight 8/8 · cost measured by the executor before the signature with `e10pred.py cost` (HEAD a3fa13e;
@@ -12,7 +12,7 @@ Draft of 2026-11-08, on the decision of the internal review of 2026-11-08 (21:45
 the declaration of the input masks and their realised share. **30 trainings. No
 computation on test before the signature**, except the preflight, which reads no test target.
 
-signed: ____
+signed: Gabriele De Vito; internal review, 2026-11-09
 
 ## Question
 
