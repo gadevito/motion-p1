@@ -1,8 +1,8 @@
 # Paper 4 — comparison of the last complete regeneration
 
-**Outcome: EVERYTHING COINCIDES.** Run 20261110T105246Z, commit 251527052d4ce48bf0ee70a3bfc3c94d7d0ed4c2 (code, frozen records or text uncommitted: no). Experiments: E11, E9, E12, E12bis, E10geo, E12ter, E12quater, E12quinquies, E10pred, E12sexies, E10predbis, E12sexiesbis, FigE12sexies, P4A. Copy of `paper4/analysis/reports/20261110T105246Z.md`; this file is overwritten by each complete run.
+**Outcome: EVERYTHING COINCIDES.** Run 20261110T121236Z, commit 3dc8afa198e2cb220b7fe84a4ac6f599b04323b8 (code, frozen records or text uncommitted: no). Experiments: E11, E9, E12, E12bis, E10geo, E12ter, E12quater, E12quinquies, E10pred, E12sexies, E10predbis, E12sexiesbis, FigE12sexies, P4A. Copy of `paper4/analysis/reports/20261110T121236Z.md`; this file is overwritten by each complete run.
 
-Text files of the paper, in the manuscript repository (commit ffe0b364eac44cfd29aa9353940e0870a7a80f5a; uncommitted: no), fingerprints at the run:
+Text files of the paper, in the manuscript repository (commit 007b3055f49e67d47695aad419562dea36f3bdd4; uncommitted: no), fingerprints at the run:
 
 | File | Fingerprint |
 |---|---|
@@ -12,7 +12,7 @@ Text files of the paper, in the manuscript repository (commit ffe0b364eac44cfd29
 | `paper/section_E11.md` | 3ef10134e7944d1f |
 | `paper/section_E9.md` | 173a07ec6adc6781 |
 | `paper/section_abstract.md` | 3176de322b0a2390 |
-| `paper/section_availability.md` | 6d2dd35f22e123e1 |
+| `paper/section_availability.md` | ea11ec8c0fc37dda |
 | `paper/section_conclusion.md` | a4f7d0365ed2acbb |
 | `paper/section_discussion.md` | 88881103c6111445 |
 | `paper/section_introduction.md` | 662b0b6110fc432a |
@@ -21,11 +21,11 @@ Text files of the paper, in the manuscript repository (commit ffe0b364eac44cfd29
 | `paper/section_partB.md` | e03ba137393b7540 |
 | `paper/section_setting.md` | 137cfa9de37557a3 |
 | `paper/section_signal.md` | 76c90d6df11bc980 |
-| `paper/supplement_records.md` | ed538346ee46fa87 |
+| `paper/supplement_records.md` | 1334fe62cbaa4689 |
 
-Script `paper4/analysis/main.py` (cb2fab8032e4dc2b). Work folder `paper4/analysis/regeneration/20261110T105246Z`.
+Script `paper4/analysis/main.py` (012cb37b5363dc2a). Work folder `paper4/analysis/regeneration/20261110T121236Z`.
 
-Text checked: manuscript repository `/Users/gabrieledevito/Personal/MOTION/deliverables/paper4-manuscript`, commit ffe0b364eac44cfd29aa9353940e0870a7a80f5a (`paper/` uncommitted: no).
+Text checked: manuscript repository `/Users/gabrieledevito/Personal/MOTION/deliverables/paper4-manuscript`, commit 007b3055f49e67d47695aad419562dea36f3bdd4 (`paper/` uncommitted: no).
 
 ## 1. Fingerprints
 
@@ -107,7 +107,7 @@ Text checked: manuscript repository `/Users/gabrieledevito/Personal/MOTION/deliv
 | `section_E11.md` | 31 | 30 | 0 | 1 | 0 |
 | `section_E9.md` | 62 | 62 | 0 | 0 | 0 |
 | `section_abstract.md` | 5 | 5 | 0 | 0 | 0 |
-| `section_availability.md` | 9 | 9 | 0 | 0 | 0 |
+| `section_availability.md` | 9 | 6 | 0 | 3 | 0 |
 | `section_conclusion.md` | 9 | 9 | 0 | 0 | 0 |
 | `section_discussion.md` | 3 | 3 | 0 | 0 | 0 |
 | `section_introduction.md` | 2 | 2 | 0 | 0 | 0 |
@@ -125,11 +125,6 @@ Declared provenance:
 - `section_E11.md` 81: E11.md, design (sub-networks of 81-99 nodes)
 - `section_E11.md` 99: E11.md, design (sub-networks of 81-99 nodes)
 - `section_E9.md` 1.0986: ln 3, the uniform predictor
-- `section_availability.md` 14: du -sk -L of paper4/runs/e12quater, e12quinquies, e12sexies, e12sexiesbis on 2026-11-09: 14.27 MiB
-- `section_availability.md` 19.5: RIPARTIZIONE_RUNS.md (c9222f224441b6b2): predictions of E9, 19.53 GiB
-- `section_availability.md` 2.6: du -sk -L of paper4/runs/e10pred on 2026-11-09: 2.57 GiB
-- `section_availability.md` 3.7: RIPARTIZIONE_RUNS.md (c9222f224441b6b2): predictions of E11, 3.72 GiB
-- `section_availability.md` 61: RIPARTIZIONE_RUNS.md (c9222f224441b6b2): regeneration 25.7 MB + pilot 35.0 MB
 - `section_availability.md` 7.5: isolated training costs: E9 at most 6.6 h (E9.md, cost table), E11 about 0.9 h (E11.md); declared provenance, review 2026-11-08
 - `section_availability.md` 8.4: isolated training costs: 7.5 h for E9 and E11 (above) + E10-pred at most 0.89 h (E10pred.md, e10pred_costo.json 910c64ba433f40ae)
 - `section_limits.md` 7.5: isolated training costs: E9 at most 6.6 h (E9.md, cost table), E11 about 0.9 h (E11.md); declared provenance, review 2026-11-08
@@ -154,6 +149,9 @@ Declared provenance:
 - `section_setting.md` 1.071: E11.md, pilot, variants D1 and D3 (validation)
 - `section_setting.md` 1.099: ln 3, the uniform predictor
 - `section_setting.md` 95: E11.md, pilot configuration (95 nodes)
+- `section_availability.md` 2.85 MB: manifest (ea8cbfd104fa2fff), paper4_code_records.tar, 2,846,720 B
+- `section_availability.md` 6.82 GB: manifest (ea8cbfd104fa2fff), paper4_runs_part1.tar, 6,819,696,640 B
+- `section_availability.md` 20.97 GB: manifest (ea8cbfd104fa2fff), paper4_runs_part2.tar, 20,972,800,000 B
 
 ## 3b. The two LaTeX projects
 
@@ -187,8 +185,9 @@ Every generated file is regenerated by the manuscript's own `build.py` (figures 
 
 LaTeX references across the two projects (each must resolve inside its own project): none.
 
-Fixed-text references between the two projects, to be checked by hand when numbering changes (17):
+Fixed-text references between the two projects, to be checked by hand when numbering changes (19):
 
+- `supplementary/sections/supplement.tex`:3 → paper: §VI
 - `supplementary/sections/supplement.tex`:5 → paper: Table II
 - `supplementary/sections/supplement.tex`:5 → paper: Table III
 - `supplementary/sections/supplement.tex`:22 → paper: §VI
@@ -196,10 +195,11 @@ Fixed-text references between the two projects, to be checked by hand when numbe
 - `supplementary/sections/supplement.tex`:23 → paper: §III-C
 - `supplementary/sections/supplement.tex`:24 → paper: Table V
 - `supplementary/sections/supplement.tex`:24 → paper: §III-D
-- `supplementary/sections/supplement.tex`:33 → paper: §II
-- `supplementary/sections/supplement.tex`:33 → paper: §III-C
-- `supplementary/sections/supplement.tex`:33 → paper: §III-D
-- `supplementary/sections/supplement.tex`:35 → paper: §IV-B
+- `supplementary/sections/supplement.tex`:25 → paper: §VI
+- `supplementary/sections/supplement.tex`:35 → paper: §II
+- `supplementary/sections/supplement.tex`:35 → paper: §III-C
+- `supplementary/sections/supplement.tex`:35 → paper: §III-D
+- `supplementary/sections/supplement.tex`:37 → paper: §IV-B
 - `sections/limits.tex`:5 → supplement: supplement S2
 - `sections/limits.tex`:7 → supplement: supplement S2
 - `sections/limits.tex`:11 → supplement: supplement S2
@@ -211,7 +211,7 @@ Fixed-text references between the two projects, to be checked by hand when numbe
 
 File names in the typeset paper: none.
 
-File names in the supplementary material (allowed there; required in S2, step 3d): 55.
+File names in the supplementary material (allowed there; required in S2, step 3d): 60.
 
 ## 3d. Provenance in the supplementary material
 
@@ -231,7 +231,7 @@ File names in the supplementary material (allowed there; required in S2, step 3d
 | E12sexiesbis | protocol/paper4/E12sexiesbis.md (7be1a1b) | 9431501 / 9431501 | ok |
 | P4A | protocol/paper4/P4A.md (b633f53) | a0b76dc / a0b76dc | ok |
 
-S1, Source column: 12 items, 11 without protocol/paper4/<file> (<commit>) (reported, not checked):
+S1, Source column: 14 items, 13 without protocol/paper4/<file> (<commit>) (reported, not checked):
 
 - item 1: protocol/paper4/PROTOCOLLO.md §2.3
 - item 2: protocol/paper4/PROTOCOLLO.md §2.1
@@ -244,10 +244,39 @@ S1, Source column: 12 items, 11 without protocol/paper4/<file> (<commit>) (repor
 - item 13: paper4/code/verifica_e12.py
 - item 22: protocol/paper4/E12quater.md; paper4/congelamenti/CONGELAMENTO_E12quater.md (21fc58f, 971f0bdb951b17f1)
 - item 23: protocol/paper4/E10predbis.md; paper4/congelamenti/CONGELAMENTO_E10predbis.md (e9ce6c2, 30ef7b7182aadede)
+- item 24: protocol/paper4/fase2/LIMITI_FONTI.json
+- item 25: evoluzione/MoGERNN-main/ORIGINE.md; LICENSE; register of Paper 1, item 32
 
 ## 3e. Data and Code Availability against the Zenodo manifest
 
-`/Users/gabrieledevito/Personal/MOTION/deliverables/OR3-esecutore/paper4/zenodo/MANIFEST_ZENODO.tsv` not found: not checked (PASS until the package is built at the tag).
+Manifest `paper4/zenodo/MANIFEST_ZENODO.tsv` (ea8cbfd104fa2fff): 3,409 rows, 3 archives; tag paper4-freeze-20261110a.
+
+| Archive | Groups (manifest) | Size (manifest) | Size stated | |
+|---|---|---|---|---|
+| paper4_code_records.tar | code | 2,846,720 B (archive) | 2.85 MB | ok |
+| paper4_runs_part1.tar | pilota, predizioni_e10pred, predizioni_e11, rigenerazione | 6,819,696,640 B (archive) | 6.82 GB | ok |
+| paper4_runs_part2.tar | predizioni_e9 | 20,972,800,000 B (archive) | 20.97 GB | ok |
+
+## 3f. Files supporting section VI (LIMITI_FONTI.json) in the archive of the tag
+
+`protocol/paper4/fase2/LIMITI_FONTI.json` at 3dc8afa (inspected head 8dbd68e); code archive of the manifest, commit 2515270.
+
+| File | Recorded SHA-256 | In the code archive | |
+|---|---|---|---|
+| `protocol/paper4/PROTOCOLLO.md` | a745fea6511caf81 | a745fea6511caf81 | ok |
+| `protocol/paper4/E11.md` | 1eca5076f48c03e4 | 1eca5076f48c03e4 | ok |
+| `protocol/paper4/E9.md` | 745dd58c039814b6 | 745dd58c039814b6 | ok |
+| `protocol/paper4/E12quater.md` | d07e09d4b775a2f2 | d07e09d4b775a2f2 | ok |
+| `protocol/paper4/E12sexies.md` | ca365680191433e4 | ca365680191433e4 | ok |
+| `protocol/paper4/E12sexiesbis.md` | e9494be86fc2d742 | e9494be86fc2d742 | ok |
+| `protocol/paper4/E10geo.md` | c5e4904ca5c2b554 | c5e4904ca5c2b554 | ok |
+| `protocol/paper4/E10pred.md` | be25adc4a455d1ec | be25adc4a455d1ec | ok |
+| `protocol/paper4/E10predbis.md` | d0431d61d7c2adb8 | d0431d61d7c2adb8 | ok |
+| `protocol/paper4/P4A.md` | 6086d07909d1c494 | 6086d07909d1c494 | ok |
+| `protocol/paper4/fase2/FASCE_APPAIATE.md` | 8ada8d3d6628fb4f | 8ada8d3d6628fb4f | ok |
+| `protocol/paper4/REGISTRO_CORREZIONI.md` | 3ed212df9b58f668 | 3ed212df9b58f668 | ok |
+| `paper4/code/p4b.py` | 926061038a7472a3 | 926061038a7472a3 | ok |
+| `paper4/analysis/main.py` | cb2fab8032e4dc2b | cb2fab8032e4dc2b | ok |
 
 ## Outcome
 
@@ -258,3 +287,4 @@ S1, Source column: 12 items, 11 without protocol/paper4/<file> (<commit>) (repor
 - no_file_names: PASS
 - supplement_provenance: PASS
 - zenodo: PASS
+- limiti_fonti: PASS
