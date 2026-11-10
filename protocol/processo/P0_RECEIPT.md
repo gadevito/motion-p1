@@ -26,3 +26,5 @@ The confirmation of 17:26:19 recorded above was issued by the responsible author
 | Receipt confirmed by DEP-01 | 2026-11-10 17:36 (Europe/Rome, UTC+01:00); fingerprint verification by the depositary: as stated in their confirmation, kept in the confidential register |
 
 From this receipt on, the activities restricted by P0 (corpus construction, classification, counts, invitation for P2) may begin.
+
+*Precision, 2026-11-10.* The depositary's confirmation states 17:35:09 (Europe/Rome, UTC+01:00) and the SHA-256 `9c448ef792fcbd2c2ac36fdfeba2668cf6ef5f9fa26671704e6ef94e898bfea6` as verified; «17:36» above is the time at which the confirmation was relayed to the coordination role. The confirmation is kept, with the depositary's name, in the confidential register; the depositary is not an author and not P2-03.
