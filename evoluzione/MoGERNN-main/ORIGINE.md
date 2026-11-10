@@ -5,3 +5,5 @@ The copy used by the audits is identical to upstream commit e80f6ca5818d80ebdf4e
 The upstream repository declares no licence, so its code is not redistributed here.
 
 The audits in `evoluzione/audit/` (`audit_mogernn_runtime.py`, `benchmark_mogernn.py`, `profila_mogernn.py`) expect the upstream tree unpacked in this folder. Their outputs are the three files of `results/evoluzione/audit_mogernn/`. No number of Paper 1 or Paper 4 is regenerated from this code.
+
+The audit of 2026-09-22 (supplement of Paper 1, section B) used upstream commit 86b153fb of 2025-05-29; commit e80f6ca of 2026-10-29 changes only the README, the code is identical.
