@@ -1,0 +1,161 @@
+{
+  "inspected_head": "284988787c9978c4c33a93e389a6268c95faf389",
+  "tag_at_head": [],
+  "files": [
+    {
+      "path": "protocol/paper4/PROTOCOLLO.md",
+      "last_change_commit": "4b5d7b4fb2e22b19368685abba8b97e1fa8018d6",
+      "blob": "fb8487fd111604d5788312e81c2ca7863a669e31",
+      "sha256": "a745fea6511caf81a33882af46f7b96e522e8434161c7e15e8858e03f8ac4117",
+      "section_vi_support": [
+        "Information and masking"
+      ],
+      "required_for_section_vi_zip_check": true
+    },
+    {
+      "path": "protocol/paper4/E11.md",
+      "last_change_commit": "22e7fe839919b8f21759963a30c744d93451ccf5",
+      "blob": "08f3b040afa48f086ccce2ca5b9db20d2e2a5cd2",
+      "sha256": "1eca5076f48c03e4b300ed139d437b86c52b942d1d6f56e75ffeada2b55ac9ef",
+      "section_vi_support": [
+        "Architecture and optimisation",
+        "Training budget"
+      ],
+      "required_for_section_vi_zip_check": true
+    },
+    {
+      "path": "protocol/paper4/E9.md",
+      "last_change_commit": "efbecae4a7024b3389581b270db66ce798f519df",
+      "blob": "8bee0b63f1c7d98ad16c56a499c472fa57f84ed4",
+      "sha256": "745dd58c039814b6dcbee32b85aeeb9535e58eb267951afa3058fa092b57f199",
+      "section_vi_support": [
+        "Training budget",
+        "Design"
+      ],
+      "required_for_section_vi_zip_check": true
+    },
+    {
+      "path": "protocol/paper4/E12quater.md",
+      "last_change_commit": "370fed7f1bcf1c36e9f5f12c5c735179bb72dc82",
+      "blob": "e024d8fc1bb25ac3b4cbe79c8407d943fffee6d2",
+      "sha256": "d07e09d4b775a2f204eec72e7d4071ff9d15cc3277c5ca0cdb8a87bbc9cbf989",
+      "section_vi_support": [
+        "Analyses without training"
+      ],
+      "required_for_section_vi_zip_check": true
+    },
+    {
+      "path": "protocol/paper4/E12sexies.md",
+      "last_change_commit": "22a9440dff64067ea3d7daa47ae2947dbc8b0fac",
+      "blob": "0377e81d0d8f75e2b286e3181ac009d0f210a6d2",
+      "sha256": "ca365680191433e45723793478d0559cf9218d012cce3fdef031ff1f7730bd89",
+      "section_vi_support": [
+        "Analyses without training (supporting persistence protocol)"
+      ],
+      "required_for_section_vi_zip_check": true
+    },
+    {
+      "path": "protocol/paper4/E12sexiesbis.md",
+      "last_change_commit": "7be1a1b6b1f41ac6ad8700eed353eb5965fbd0a8",
+      "blob": "16913db6ea4c40ea7adc08f033af8c81c7f38846",
+      "sha256": "e9494be86fc2d742defef9ab15c5aea692cc1c2a344c42d8074f5eaf62947ec2",
+      "section_vi_support": [
+        "Analyses without training"
+      ],
+      "required_for_section_vi_zip_check": true
+    },
+    {
+      "path": "protocol/paper4/E10geo.md",
+      "last_change_commit": "a42cfa9e6c1e37b133d025f165f68779241fa66f",
+      "blob": "55f7430ce301e9141c9d90b0e661a7c6b6c51249",
+      "sha256": "c5e4904ca5c2b5548f7d1c6d2f735e05cad8d2d54d17db56d59351cef3d4e8aa",
+      "section_vi_support": [
+        "Placement (supporting geometry protocol)"
+      ],
+      "required_for_section_vi_zip_check": true
+    },
+    {
+      "path": "protocol/paper4/E10pred.md",
+      "last_change_commit": "b498862fc87cc4c4fe8732f8e2c1753ca1d1d9a7",
+      "blob": "fb3f12b144cc72f9562550d54b05b9618926b079",
+      "sha256": "be25adc4a455d1ec1bf2e17a52d0e73d7d1651046020eaf80e00e8207d648798",
+      "section_vi_support": [
+        "Placement"
+      ],
+      "required_for_section_vi_zip_check": true
+    },
+    {
+      "path": "protocol/paper4/E10predbis.md",
+      "last_change_commit": "b489ff9f66b77daa4e0fc280d7d9f241d955854c",
+      "blob": "6054731d9c47655eeadfe79f308b93023bb05096",
+      "sha256": "d0431d61d7c2adb8a76eeb644c113710234ff68ddd6040e34cbd6f99654e7fe7",
+      "section_vi_support": [
+        "Placement"
+      ],
+      "required_for_section_vi_zip_check": true
+    },
+    {
+      "path": "protocol/paper4/P4A.md",
+      "last_change_commit": "e53d3cb235c0984a0b86996aeb7a60380d7cc221",
+      "blob": "b9e8ec31b42eb540f9d8e964fa47b28640a759d5",
+      "sha256": "6086d07909d1c4945e2e2c88bc6ed4f00edc61d3efe9e93abde89cb2dfe2896f",
+      "preregistration_commit": "b633f53c53ca90cb6ea54a4b396bbac88609b7c3",
+      "preregistration_sha256": "0e0dcefba8732a9cf308938560c6cd8495f78e9c4bfd0af3ec62a3becb4d23d7",
+      "preregistration_blob": "3ce4f2146f6fd4f973f40b6edf962c51f184c7e6",
+      "version_note": "The paper cites b633f53 as the signed pre-registration. The archived file includes the later dated deviation added in e53d3cb; sha256 and blob refer to that archived file.",
+      "section_vi_support": [
+        "Measurement analysis"
+      ],
+      "required_for_section_vi_zip_check": true
+    },
+    {
+      "path": "protocol/paper4/fase2/FASCE_APPAIATE.md",
+      "last_change_commit": "80345401ddc8384014806ea542ae5c8fecb036b1",
+      "blob": "0efc827342f133a07f58cd7fb713be38ae4018c9",
+      "sha256": "8ada8d3d6628fb4fcf4df974bbf4c27a7764d99ee35c3f228177fbde6f752cf7",
+      "section_vi_support": [
+        "Measurement analysis"
+      ],
+      "required_for_section_vi_zip_check": true
+    },
+    {
+      "path": "protocol/paper4/REGISTRO_CORREZIONI.md",
+      "last_change_commit": "b05df6edf9dd00123e2578a210734dbf2b9f1909",
+      "blob": "feb4b578154aa8cbcd7f17bf4bd5e4443af3b0ee",
+      "sha256": "d0a8319901c8b28a530cf83fa535eac088f72660b4869c56869a0edd93eafd7b",
+      "section_vi_support": [],
+      "required_for_section_vi_zip_check": false,
+      "role": "audit-only snapshot; not cited in section VI"
+    },
+    {
+      "path": "paper4/code/p4b.py",
+      "last_change_commit": "40460d60d8f044e8fa1d19f5fdc0706d608f4cf9",
+      "blob": "ea2624aeb403765dd54d740866dc59851a1573b3",
+      "sha256": "926061038a7472a3085a30c5c7139f80d25a3171e7ce8482c15d26bc0682de2f",
+      "section_vi_support": [
+        "Reproducibility"
+      ],
+      "required_for_section_vi_zip_check": true
+    },
+    {
+      "path": "paper4/analysis/main.py",
+      "last_change_commit": "b05df6edf9dd00123e2578a210734dbf2b9f1909",
+      "blob": "b49215bd2d54209e402e250edd17f75cf1f41556",
+      "sha256": "9caecabb57fe948b1d525b86421701ec6afc2ff7931c78af5fec247fad17b71d",
+      "section_vi_support": [
+        "Reproducibility"
+      ],
+      "required_for_section_vi_zip_check": true
+    }
+  ],
+  "verification_note": "The recorded SHA-256 values identify inspected file contents, not a completed release-tag verification. P4 must check cited and supporting files against the ZIP. P4A preregistration_commit identifies the signed text; its archive SHA-256 identifies the version including the dated deviation. REGISTRO_CORREZIONI.md is an audit-only snapshot, not a file cited in section VI; adding the manifest registration will change its whole-file hash.",
+  "intended_destination": "protocol/paper4/fase2/LIMITI_FONTI.json",
+  "paper_cross_references": [
+    "\u00a7II Setting and protocol",
+    "\u00a7III-C Spatial agreement and forecasting value",
+    "\u00a7III-D Sensor placement and forecasting",
+    "\u00a7IV Local congestion measurement",
+    "Supplement S2 Frozen records and provenance",
+    "Data and Code Availability"
+  ]
+}
