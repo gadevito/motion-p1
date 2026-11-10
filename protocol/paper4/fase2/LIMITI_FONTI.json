@@ -1,5 +1,5 @@
 {
-  "inspected_head": "284988787c9978c4c33a93e389a6268c95faf389",
+  "inspected_head": "8dbd68e8f49959d99ddd60b5e1f425207985199c",
   "tag_at_head": [],
   "files": [
     {
@@ -120,9 +120,9 @@
     },
     {
       "path": "protocol/paper4/REGISTRO_CORREZIONI.md",
-      "last_change_commit": "b05df6edf9dd00123e2578a210734dbf2b9f1909",
-      "blob": "feb4b578154aa8cbcd7f17bf4bd5e4443af3b0ee",
-      "sha256": "d0a8319901c8b28a530cf83fa535eac088f72660b4869c56869a0edd93eafd7b",
+      "last_change_commit": "17ad609cd0e9ddd4d102cb7b37cb7b14d9ee69cb",
+      "blob": "6c243f81ee4c5815ee48c206790b5fc721d6d6ea",
+      "sha256": "3ed212df9b58f668b4109a347eda703c96ec3a7f875108c355d54c045802ca13",
       "section_vi_support": [],
       "required_for_section_vi_zip_check": false,
       "role": "audit-only snapshot; not cited in section VI"
@@ -139,9 +139,9 @@
     },
     {
       "path": "paper4/analysis/main.py",
-      "last_change_commit": "b05df6edf9dd00123e2578a210734dbf2b9f1909",
-      "blob": "b49215bd2d54209e402e250edd17f75cf1f41556",
-      "sha256": "9caecabb57fe948b1d525b86421701ec6afc2ff7931c78af5fec247fad17b71d",
+      "last_change_commit": "c5b06e7b57311b99bf0390ad1c742195c2def53c",
+      "blob": "c1b99a419d33836c4b379971b954621b4193d967",
+      "sha256": "cb2fab8032e4dc2bfaa284aa9e38e5293fa2dba5a09b4395ed53ce34c260e72f",
       "section_vi_support": [
         "Reproducibility"
       ],
