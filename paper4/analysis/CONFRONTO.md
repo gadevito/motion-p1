@@ -1,31 +1,31 @@
 # Paper 4 — comparison of the last complete regeneration
 
-**Outcome: EVERYTHING COINCIDES.** Run 20261109T144737Z, commit 19f0e6242619a0735b8cc3be3cff5bfe81540f4a (code, frozen records or text uncommitted: no). Experiments: E11, E9, E12, E12bis, E10geo, E12ter, E12quater, E12quinquies, E10pred, E12sexies, E10predbis, E12sexiesbis, FigE12sexies, P4A. Copy of `paper4/analysis/reports/20261109T144737Z.md`; this file is overwritten by each complete run.
+**Outcome: EVERYTHING COINCIDES.** Run 20261110T084452Z, commit d2f6220ba9129ba0e3a88392d636e087ad8ba157 (code, frozen records or text uncommitted: no). Experiments: E11, E9, E12, E12bis, E10geo, E12ter, E12quater, E12quinquies, E10pred, E12sexies, E10predbis, E12sexiesbis, FigE12sexies, P4A. Copy of `paper4/analysis/reports/20261110T084452Z.md`; this file is overwritten by each complete run.
 
-Text files of the paper, in the manuscript repository (commit d889743cc58d6532a436e118ccddbb3e68e9585d; uncommitted: no), fingerprints at the run:
+Text files of the paper, in the manuscript repository (commit ffe0b364eac44cfd29aa9353940e0870a7a80f5a; uncommitted: no), fingerprints at the run:
 
 | File | Fingerprint |
 |---|---|
 | `paper/paper_order.md` | 58672967a46c51b0 |
 | `paper/part_B_order.md` | c8fe8fde4280ca8e |
-| `paper/section_E10geo.md` | 62f2ee1507ed7b00 |
-| `paper/section_E11.md` | 094882d064550df2 |
-| `paper/section_E9.md` | 8899f0c8276dd766 |
-| `paper/section_abstract.md` | d3b49ba807963d30 |
-| `paper/section_availability.md` | 07f67859d396402c |
-| `paper/section_conclusion.md` | 4e90d9f873a63eef |
-| `paper/section_discussion.md` | 7b9017e1bffa732c |
-| `paper/section_introduction.md` | da7d6e9caf47f4f7 |
-| `paper/section_limits.md` | 1deb3eba73561d47 |
-| `paper/section_partA.md` | 473f06a7ed736969 |
-| `paper/section_partB.md` | e1ed0c58d36a5b04 |
-| `paper/section_setting.md` | 33ebe124f89b8027 |
-| `paper/section_signal.md` | a9dc2839438220cf |
-| `paper/supplement_records.md` | 2cee4900b3225f2a |
+| `paper/section_E10geo.md` | 8a058c1a2947f8dd |
+| `paper/section_E11.md` | 3ef10134e7944d1f |
+| `paper/section_E9.md` | 173a07ec6adc6781 |
+| `paper/section_abstract.md` | 3176de322b0a2390 |
+| `paper/section_availability.md` | 6d2dd35f22e123e1 |
+| `paper/section_conclusion.md` | a4f7d0365ed2acbb |
+| `paper/section_discussion.md` | 88881103c6111445 |
+| `paper/section_introduction.md` | 662b0b6110fc432a |
+| `paper/section_limits.md` | 04f1f411ec37babc |
+| `paper/section_partA.md` | 358683504ab264b0 |
+| `paper/section_partB.md` | e03ba137393b7540 |
+| `paper/section_setting.md` | 137cfa9de37557a3 |
+| `paper/section_signal.md` | 76c90d6df11bc980 |
+| `paper/supplement_records.md` | ed538346ee46fa87 |
 
-Script `paper4/analysis/main.py` (9caecabb57fe948b). Work folder `paper4/analysis/regeneration/20261109T144737Z`.
+Script `paper4/analysis/main.py` (22d352c88d3dc414). Work folder `paper4/analysis/regeneration/20261110T084452Z`.
 
-Text checked: manuscript repository `/Users/gabrieledevito/Personal/MOTION/deliverables/paper4-manuscript`, commit d889743cc58d6532a436e118ccddbb3e68e9585d (`paper/` uncommitted: no).
+Text checked: manuscript repository `/Users/gabrieledevito/Personal/MOTION/deliverables/paper4-manuscript`, commit ffe0b364eac44cfd29aa9353940e0870a7a80f5a (`paper/` uncommitted: no).
 
 ## 1. Fingerprints
 
@@ -109,9 +109,9 @@ Text checked: manuscript repository `/Users/gabrieledevito/Personal/MOTION/deliv
 | `section_abstract.md` | 5 | 5 | 0 | 0 | 0 |
 | `section_availability.md` | 9 | 9 | 0 | 0 | 0 |
 | `section_conclusion.md` | 9 | 9 | 0 | 0 | 0 |
-| `section_discussion.md` | 68 | 68 | 0 | 0 | 0 |
-| `section_introduction.md` | 24 | 24 | 0 | 0 | 0 |
-| `section_limits.md` | 31 | 30 | 1 | 0 | 0 |
+| `section_discussion.md` | 3 | 3 | 0 | 0 | 0 |
+| `section_introduction.md` | 2 | 2 | 0 | 0 | 0 |
+| `section_limits.md` | 17 | 17 | 0 | 0 | 0 |
 | `section_partA.md` | 243 | 235 | 2 | 6 | 0 |
 | `section_partB.md` | 0 | 0 | 0 | 0 | 0 |
 | `section_setting.md` | 66 | 57 | 9 | 0 | 0 |
@@ -155,8 +155,57 @@ Declared provenance:
 - `section_setting.md` 1.099: ln 3, the uniform predictor
 - `section_setting.md` 95: E11.md, pilot configuration (95 nodes)
 
+## 3b. The two LaTeX projects
+
+| Project | File | Source, fingerprint in the header / now | |
+|---|---|---|---|
+| paper | `E10geo.tex` | paper/section_E10geo.md 8a058c1a2947f8dd / now 8a058c1a2947f8dd | ok |
+| paper | `E11.tex` | paper/section_E11.md 3ef10134e7944d1f / now 3ef10134e7944d1f | ok |
+| paper | `E9.tex` | paper/section_E9.md 173a07ec6adc6781 / now 173a07ec6adc6781 | ok |
+| paper | `abstract.tex` | paper/section_abstract.md 3176de322b0a2390 / now 3176de322b0a2390 | ok |
+| paper | `availability.tex` | paper/section_availability.md 6d2dd35f22e123e1 / now 6d2dd35f22e123e1 | ok |
+| paper | `biographies.tex` | hand-written (no generated header), not checked | ok |
+| paper | `conclusion.tex` | paper/section_conclusion.md a4f7d0365ed2acbb / now a4f7d0365ed2acbb | ok |
+| paper | `discussion.tex` | paper/section_discussion.md 88881103c6111445 / now 88881103c6111445 | ok |
+| paper | `introduction.tex` | paper/section_introduction.md 662b0b6110fc432a / now 662b0b6110fc432a | ok |
+| paper | `limits.tex` | paper/section_limits.md 04f1f411ec37babc / now 04f1f411ec37babc | ok |
+| paper | `partA.tex` | paper/section_partA.md 358683504ab264b0 / now 358683504ab264b0 | ok |
+| paper | `partB.tex` | paper/section_partB.md e03ba137393b7540 / now e03ba137393b7540 | ok |
+| paper | `setting.tex` | paper/section_setting.md 137cfa9de37557a3 / now 137cfa9de37557a3 | ok |
+| paper | `signal.tex` | paper/section_signal.md 76c90d6df11bc980 / now 76c90d6df11bc980 | ok |
+| supplementary | `supplement.tex` | paper/supplement_records.md and the register (no single fingerprint) | ok |
+
+LaTeX references across the two projects (each must resolve inside its own project): none.
+
+Fixed-text references between the two projects, to be checked by hand when numbering changes (17):
+
+- `supplementary/sections/supplement.tex`:5 → paper: Table II
+- `supplementary/sections/supplement.tex`:5 → paper: Table III
+- `supplementary/sections/supplement.tex`:22 → paper: §VI
+- `supplementary/sections/supplement.tex`:23 → paper: Table II
+- `supplementary/sections/supplement.tex`:23 → paper: §III-C
+- `supplementary/sections/supplement.tex`:24 → paper: Table V
+- `supplementary/sections/supplement.tex`:24 → paper: §III-D
+- `supplementary/sections/supplement.tex`:33 → paper: §II
+- `supplementary/sections/supplement.tex`:33 → paper: §III-C
+- `supplementary/sections/supplement.tex`:33 → paper: §III-D
+- `supplementary/sections/supplement.tex`:35 → paper: §IV-B
+- `sections/limits.tex`:5 → supplement: supplement S2
+- `sections/limits.tex`:7 → supplement: supplement S2
+- `sections/limits.tex`:11 → supplement: supplement S2
+- `sections/limits.tex`:17 → supplement: supplement S2
+- `sections/limits.tex`:19 → supplement: supplement S1
+- `sections/partA.tex`:58 → supplement: supplement S2
+
+## 3c. Files named in §VI against `protocol/paper4/fase2/LIMITI_FONTI.json`
+
+Manifest `protocol/paper4/fase2/LIMITI_FONTI.json` (efc0091cbcdbfda8), 14 files. Named in §VI: none.
+Not in the manifest: none.
+
 ## Outcome
 
 - fingerprints: PASS
 - regeneration: PASS
 - text: PASS
+- projects: PASS
+- limits_sources: PASS
