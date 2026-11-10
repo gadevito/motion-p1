@@ -139,9 +139,6 @@ PROVENANCE = {
     ("section_availability.md", "7.5"): "isolated training costs: E9 at most 6.6 h (E9.md, cost table), E11 about 0.9 h (E11.md); declared provenance, review 2026-11-08",
     ("section_availability.md", "8.4"): "isolated training costs: 7.5 h for E9 and E11 (above) + E10-pred at most 0.89 h (E10pred.md, e10pred_costo.json 910c64ba433f40ae)",
     ("section_limits.md", "8.4"): "isolated training costs: 7.5 h for E9 and E11 (above) + E10-pred at most 0.89 h (E10pred.md, e10pred_costo.json 910c64ba433f40ae)",
-    ("section_availability.md", "2.85"): "paper4/zenodo/MANIFEST_ZENODO.tsv (ea8cbfd104fa2fff, tag paper4-freeze-20261110a): code archive, 2,846,720 B",
-    ("section_availability.md", "6.82"): "paper4/zenodo/MANIFEST_ZENODO.tsv (ea8cbfd104fa2fff, tag paper4-freeze-20261110a): run folders, predictions of E11 and E10-pred, 6,819,696,640 B",
-    ("section_availability.md", "20.97"): "paper4/zenodo/MANIFEST_ZENODO.tsv (ea8cbfd104fa2fff, tag paper4-freeze-20261110a): predictions of E9, 20,972,800,000 B",
     ("section_partA.md", "0.407"): "p4a_risultati.json, table68 and gini_split: (G_same - G_0-20) / (G_same - G_arterials), band 0-20 m, point value (review 21:45, item 5)",
     ("section_partA.md", "0.461"): "p4a_risultati.json, table68 and gini_split: (G_same - G_20-60) / (G_same - G_arterials), band 20-60 m, point value (review 21:45, item 5)",
     ("section_partA.md", "0.817"): "p4a_risultati.json, table68 and gini_split: (G_same - G_60-200) / (G_same - G_arterials), band 60-200 m, point value (review 21:45, item 5)",
@@ -368,12 +365,13 @@ def step_text(report):
     ok = True; cache = {}
     report.append("## 3. Numbers in the text\n")
     report.append("| File | Numbers | From the frozen records | Design constants | Declared provenance | Unmatched |\n|---|---|---|---|---|---|")
-    unmatched_all = []
+    unmatched_all = []; size_notes = []
     for path in sorted(PAPER.glob("*.md")):
         srcs = tuple(SOURCES.get(path.name, DEFAULT_SOURCES))
         if srcs not in cache:
             cache[srcs] = candidates(srcs)
         cand = cache[srcs]; n = m = dsg = prv = 0; um = []
+        sizes = path.name == AVAILABILITY_MD
         lines = path.read_text().splitlines()
         body = not any(ln.startswith("---") for ln in lines)   # files without a header rule are checked whole
         for i, ln in enumerate(lines, 1):
@@ -382,7 +380,16 @@ def step_text(report):
                 continue
             if not body:
                 continue
-            for tok in NUM.findall(strip_markup(ln)):
+            ln = strip_markup(ln)
+            if sizes:                             # sizes: the manifest first, never the frozen records
+                for mt in SIZE.finditer(ln):
+                    n += 1; got = manifest_size(mt.group(1), mt.group(2))
+                    if got:
+                        prv += 1; size_notes.append(f"- `{path.name}` {mt.group(0)}: {got}")
+                    else:
+                        um.append(f"{path.name}:{i}: {mt.group(0)} (no archive of the manifest has this size)")
+                ln = SIZE.sub(" ", ln)
+            for tok in NUM.findall(ln):
                 t = norm(tok); n += 1
                 bare = t.lstrip("-")
                 if t in cand or bare in cand:
@@ -402,6 +409,7 @@ def step_text(report):
         report.append("")
     report.append("Declared provenance:\n")
     report += [f"- `{f}` {num}: {p}" for (f, num), p in sorted(PROVENANCE.items())]
+    report += size_notes
     report.append("")
     return ok
 
@@ -571,6 +579,47 @@ UNIT = {"KiB": 2 ** 10, "MiB": 2 ** 20, "GiB": 2 ** 30, "TiB": 2 ** 40, "kB": 10
         "GB": 10 ** 9, "TB": 10 ** 12}
 
 
+AVAILABILITY_MD = "section_availability.md"
+MANIFEST_IN_USE = MANIFEST                        # set by main() from --manifest
+
+
+def manifest_archives(manifest):
+    """{archive: {"groups", "files" (sum of bytes), "archive" (bytes of the archive row or None), "sha" {path: sha256}}}
+    from MANIFEST_ZENODO.tsv; the groups are those of crea_pacchetto.py, the code archive being code throughout."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("crea_pacchetto", ROOT / "paper4" / "zenodo" / "crea_pacchetto.py")
+    cp = importlib.util.module_from_spec(spec); spec.loader.exec_module(cp)
+    rows = [ln.split("\t") for ln in manifest.read_text().splitlines()[1:] if ln.strip()]
+    arch = {}
+    for a, path, b, h, *_ in rows:
+        e = arch.setdefault(a, {"groups": set(), "files": 0, "archive": None, "sha": {}})
+        if path == "(archive)":
+            e["archive"] = int(b); continue
+        e["files"] += int(b); e["sha"][path] = h
+        if a == cp.ARCHIVES["code"]:          # git archive of the commit: code, even the tracked paper4/runs/MANIFEST.tsv
+            e["groups"].add("code"); continue
+        e["groups"].add(cp.group(path.removeprefix(cp.RUNS_REL + "/")))
+    return arch, rows, cp
+
+
+def size_of(e):
+    return e["archive"] if e["archive"] is not None else e["files"]
+
+
+def same_size(n, u, size):
+    """A stated size n u equals `size` bytes at the precision written."""
+    return round(size / UNIT[u], len(n.split(".")[1]) if "." in n else 0) == float(n)
+
+
+def manifest_size(n, u):
+    """The archive of the manifest in use whose size is n u at the precision written, or None."""
+    if not MANIFEST_IN_USE.exists():
+        return None
+    arch, _, _ = manifest_archives(MANIFEST_IN_USE)
+    hit = [a for a, e in arch.items() if same_size(n, u, size_of(e))]
+    return (f"manifest ({sha(MANIFEST_IN_USE)}), {hit[0]}, {size_of(arch[hit[0]]):,} B" if len(hit) == 1 else None)
+
+
 def step_zenodo(report, manifest):
     """Data and Code Availability against the Zenodo manifest, if it exists (absent: reported, PASS). The archives
     are described without their file names (decision of 2026-11-10): no tar name may appear. Each archive is found
@@ -582,19 +631,7 @@ def step_zenodo(report, manifest):
     if not manifest.exists():
         report.append(f"`{manifest}` not found: not checked (PASS until the package is built at the tag).\n")
         return True
-    import importlib.util
-    spec = importlib.util.spec_from_file_location("crea_pacchetto", ROOT / "paper4" / "zenodo" / "crea_pacchetto.py")
-    cp = importlib.util.module_from_spec(spec); spec.loader.exec_module(cp)
-    rows = [ln.split("\t") for ln in manifest.read_text().splitlines()[1:] if ln.strip()]
-    arch = {}
-    for a, path, b, *_ in rows:
-        e = arch.setdefault(a, {"groups": set(), "files": 0, "archive": None})
-        if path == "(archive)":
-            e["archive"] = int(b); continue
-        e["files"] += int(b)
-        if a == cp.ARCHIVES["code"]:          # git archive of the commit: code, even the tracked paper4/runs/MANIFEST.tsv
-            e["groups"].add("code"); continue
-        e["groups"].add(cp.group(path.removeprefix(cp.RUNS_REL + "/")))
+    arch, rows, cp = manifest_archives(manifest)
     tags = {r[5] for r in rows if len(r) > 5}
     shown = manifest.relative_to(ROOT) if manifest.is_relative_to(ROOT) else manifest
     report.append(f"Manifest `{shown}` ({sha(manifest)}): {len(rows):,} rows, {len(arch)} archives; tag "
@@ -617,7 +654,7 @@ def step_zenodo(report, manifest):
         hits = []
         for k, c in enumerate(clauses):
             for n, u in SIZE.findall(c):
-                if round(size / UNIT[u], len(n.split(".")[1]) if "." in n else 0) == float(n):
+                if same_size(n, u, size):
                     hits.append((k, f"{n} {u}"))
         why = []
         if len({k for k, _ in hits}) != 1:
@@ -636,6 +673,50 @@ def step_zenodo(report, manifest):
         ok &= not why
         report.append(f"| {a} | {', '.join(sorted(e['groups']))} | {size:,} B ({kind}) | "
                       f"{', '.join(sorted({h for _, h in hits})) or '—'} | {'; '.join(why) or 'ok'} |")
+    report.append("")
+    return ok
+
+
+LIMITI = "protocol/paper4/fase2/LIMITI_FONTI.json"
+
+
+def step_limiti_fonti(report, manifest):
+    """LIMITI_FONTI.json is read from this repository at the commit in use (HEAD), never from a copy. Each of its
+    files must be in the code archive of the Zenodo manifest with the SHA-256 it records (presence and identity in
+    the archive of the tag); for P4A the signed text is also checked at its pre-registration commit. Manifest
+    absent: the identity at HEAD is checked and the archive check is reported as not done (PASS)."""
+    report.append("## 3f. Files supporting section VI (LIMITI_FONTI.json) in the archive of the tag\n")
+    git = lambda *c: subprocess.run(["git", *c], cwd=ROOT, capture_output=True)
+    head = git("rev-parse", "HEAD").stdout.decode().strip()
+    r = git("show", f"HEAD:{LIMITI}")
+    if r.returncode:
+        report.append(f"`{LIMITI}` not in this repository at {head[:7]}: FAIL\n"); return False
+    lf = json.loads(r.stdout)
+    have = manifest.exists()
+    if have:
+        arch, rows, cp = manifest_archives(manifest)
+        code = arch.get(cp.ARCHIVES["code"], {"sha": {}})["sha"]
+        mcommit = {x[4] for x in rows if len(x) > 4}
+    report.append(f"`{LIMITI}` at {head[:7]} (inspected head {lf['inspected_head'][:7]}); "
+                  + (f"code archive of the manifest, commit {', '.join(c[:7] for c in sorted(mcommit))}.\n" if have
+                     else "manifest absent: archive check not done.\n"))
+    ok = True
+    report.append("| File | Recorded SHA-256 | In the code archive | |\n|---|---|---|---|")
+    for e in lf["files"]:
+        why = []
+        if have:
+            got = code.get(e["path"])
+            if got is None:
+                why.append("absent from the code archive")
+            elif got != e["sha256"]:
+                why.append(f"archive {got[:16]}, differs")
+        if "preregistration_commit" in e:
+            b = git("show", f"{e['preregistration_commit']}:{e['path']}")
+            if b.returncode or hashlib.sha256(b.stdout).hexdigest() != e["preregistration_sha256"]:
+                why.append("signed text differs at its pre-registration commit")
+        ok &= not why
+        report.append(f"| `{e['path']}` | {e['sha256'][:16]} | {(code.get(e['path']) or '—')[:16] if have else 'not checked'} | "
+                      f"{'; '.join(why) or 'ok'} |")
     report.append("")
     return ok
 
@@ -712,8 +793,9 @@ def main():
                     help="Zenodo manifest checked against Data and Code Availability (default paper4/zenodo/MANIFEST_ZENODO.tsv; "
                          "absent: not checked)")
     a = ap.parse_args()
-    global PAPER
+    global PAPER, MANIFEST_IN_USE
     PAPER = a.manoscritto.resolve() / "paper"
+    MANIFEST_IN_USE = a.manifest.resolve()
     if not PAPER.is_dir():
         print(f"manuscript text not found: {PAPER} (use --manoscritto)"); return 1
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
@@ -735,6 +817,7 @@ def main():
     res["no_file_names"] = step_no_file_names(report)
     res["supplement_provenance"] = step_supplement_provenance(report)
     res["zenodo"] = step_zenodo(report, a.manifest.resolve())
+    res["limiti_fonti"] = step_limiti_fonti(report, a.manifest.resolve())
     report.append("## Outcome\n\n" + "\n".join(f"- {k}: {'PASS' if v else 'FAIL'}" for k, v in res.items()))
     rp = work / "report.md"; rp.write_text("\n".join(report) + "\n")
     tracked = ROOT / "paper4" / "analysis" / "reports" / f"{stamp}.md"      # tracked copy, to be committed
