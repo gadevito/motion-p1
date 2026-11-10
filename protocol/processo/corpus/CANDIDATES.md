@@ -1,18 +1,18 @@
 # Candidate items (P0 §8, phase 2)
 
-Extracted from the frozen inventory (`inventory.json` sha256 `187f7cde9b1858b67494d44aaa4a41cc2172a31b5bfd9cbc5fddd2573c45dfd6`) at `main` aa9f478b3fa8, `paper4` ef31396c28cf. `candidates.json` sha256 `08f3bba5c3911924d0830a48d4627c9c4001bd77fed360c94e5460ce0c8a5817`. Verbatim text; no type, phase or status: those are decided in phases 3 and 5. A candidate is not a problem.
+Extracted from the frozen inventory (`inventory.json` sha256 `187f7cde9b1858b67494d44aaa4a41cc2172a31b5bfd9cbc5fddd2573c45dfd6`) at `main` aa9f478b3fa8, `paper4` ef31396c28cf. `candidates.json` sha256 `ca536a86ef157201923bf80010348c662057785044922a32aedb532420b30173`. Verbatim text; no type, phase or status: those are decided in phases 3 and 5. A candidate is not a problem.
 
 ## Counts
 
 - `main`, deviation: 5
 - `main`, git commit: 50
-- `main`, record note: 40
+- `main`, record note: 17
 - `main`, register row: 35
-- `main`, report flag: 79
-- `main`, tag diff: 569
+- `main`, report flag: 1
+- `main`, tag diff: 501
 - `paper4`, deviation: 3
 - `paper4`, git commit: 25
-- `paper4`, record note: 24
+- `paper4`, record note: 8
 - `paper4`, register row: 26
 - `paper4`, report flag: 1
 
@@ -583,244 +583,106 @@ Schema invariato alla 1.2; disegno del raccordo invariato alla 4.
 
 ## `main` — record note
 
-**C-main-REC-001** · `CONGELAMENTO_APPAIAMENTO.md` · line 105
-
-```
-tocca la sola BASE-CORRECTED, e il controllo non si è mosso.
-```
-
-**C-main-REC-002** · `CONGELAMENTO_APPAIAMENTO.md` · line 128
-
-```
-| città | LEGACY | BASE-CORRECTED | differenza |
-```
-
-**C-main-REC-003** · `CONGELAMENTO_APPAIAMENTO.md` · line 134
-
-```
-## 8. Una correzione da registrare
-```
-
-**C-main-REC-004** · `CONGELAMENTO_APPAIAMENTO.md` · line 162
-
-```
-| `BASE-CORRECTED_seme2029167940_c9_h32_b4_s5_d26` | `53f694125b859a667bc8c7b05b14a36b39b7997dadece0025eacd1b969c4feab` |
-```
-
-**C-main-REC-005** · `CONGELAMENTO_APPAIAMENTO.md` · line 163
-
-```
-| `BASE-CORRECTED_seme2029167940_c9_h32_b4_s5_d26_allineato` | `46abcf2919808209bec44037bc588b0aef72ddbc71d08fcd08d837afb916d301` |
-```
-
-**C-main-REC-006** · `CONGELAMENTO_APPAIAMENTO.md` · line 165
-
-```
-| `BASE-CORRECTED_seme1918988776_c9_h32_b4_s5_d26` | `4ac80675e6eeb97761d758b010239983087a3a5dc5ff37f2a2c53137c0b7dff4` |
-```
-
-**C-main-REC-007** · `CONGELAMENTO_APPAIAMENTO.md` · line 166
-
-```
-| `BASE-CORRECTED_seme1918988776_c9_h32_b4_s5_d26_allineato` | `517100256a86c3d02cca1c553f3e6cd30e3955dfc6df6f921ecfb984b181213f` |
-```
-
-**C-main-REC-008** · `CONGELAMENTO_APPAIAMENTO.md` · line 168
-
-```
-| `BASE-CORRECTED_seme2007055255_c9_h32_b4_s5_d26` | `8eb24b2ffa14fd1dc2c6e3f2215a757cccd3fb60b8936ddca39fce249b006b4f` |
-```
-
-**C-main-REC-009** · `CONGELAMENTO_APPAIAMENTO.md` · line 169
-
-```
-| `BASE-CORRECTED_seme2007055255_c9_h32_b4_s5_d26_allineato` | `d81808054d6c174e0dbfe7b5c4d3bcde5c842886278aa6278ca09a663ae6f9ab` |
-```
-
-**C-main-REC-010** · `CONGELAMENTO_APPAIAMENTO.md` · line 191
+**C-main-REC-001** · `CONGELAMENTO_APPAIAMENTO.md` · line 191
 
 ```
 misurano la correzione. Serve una conferma su inizializzazioni nuove.
 ```
 
-**C-main-REC-011** · `CONGELAMENTO_CONFERMA.md` · line 8
-
-```
-> BASE-CORRECTED rispetto a LEGACY è sostenuta a Londra e Melbourne, ma
-```
-
-**C-main-REC-012** · `CONGELAMENTO_CONFERMA.md` · line 104
-
-```
-| città | LEGACY | BASE-CORRECTED | differenza |
-```
-
-**C-main-REC-013** · `CONGELAMENTO_CONFERMA.md` · line 121
-
-```
-| BASE-CORRECTED — completata | 108 |
-```
-
-**C-main-REC-014** · `CONGELAMENTO_CONFERMA.md` · line 162
-
-```
-**Si adotta BASE-CORRECTED come base ingegneristica**, motivandola con la
-```
-
-**C-main-REC-015** · `CONGELAMENTO_CONFERMA.md` · line 177
-
-```
-> **BASE-CORRECTED può essere studiata come soluzione ingegneristica
-```
-
-**C-main-REC-016** · `CONGELAMENTO_E14.md` · line 118
+**C-main-REC-002** · `CONGELAMENTO_E14.md` · line 118
 
 ```
 - Preflight n. 8 (perturbazione di `m_r` dopo t₀ → `static_inputs` invariato): da aggiungere con la correzione del codice, qualunque sia l'esito (pre-registro, controlli, punto 2).
 ```
 
-**C-main-REC-017** · `CONGELAMENTO_E14B.md` · line 5
+**C-main-REC-003** · `CONGELAMENTO_E14B.md` · line 5
 
 ```
 Rigenerato il 2026-10-29 (registro, voce 28): nelle note sulle correzioni chi aveva trovato un difetto e' indicato con il ruolo («durante la stesura del manoscritto»), non con il nome di uno strumento di lavoro; nessun numero cambia.
 ```
 
-**C-main-REC-018** · `CONGELAMENTO_E14B.md` · line 342
+**C-main-REC-004** · `CONGELAMENTO_E14B.md` · line 342
 
 ```
 Correzione 2026-10-15 (registro, voce 26, trovata durante la stesura del manoscritto): la prima versione di questa sezione confrontava l'intero record della scelta, compresa la wCE di validazione (che fra Mac e Spark differisce di ~1e-9), e marcava «DIVERSA» scelte con (τ, N) identici; ora si confrontano (τ, N) e la Δ della wCE si riporta a parte.
 ```
 
-**C-main-REC-019** · `CONGELAMENTO_E15.md` · line 3
-
-```
-Generato da `genera_congelamento_e15.py` al commit `1b5a4bb`, 2026-10-28 16:03 UTC. Protocollo `protocol/E15.md` (impronta `31d731567da30bb4`), firmato prima di ogni numero; `e15_risultati.json` impronta `82df1d02792e330e`. Statica «espansiva»: iniziali con copertura media su [0, t₀); nuovo sensore con finestra espansiva da t₀ all'origine corrente, minimo 24 h. Tre citta', episodio 1, partizioni [0, 1, 2], semi [201, 202, 203, 204, 205, 206]: 54 celle; 4000 ricampionamenti congiunti (partizioni × semi × sensori, schema di E4), seme 20261023, le STESSE estrazioni per le differenze causali e per quelle congelate. Letture del protocollo del 27/10 (in `protocol/E15.md`): per A e C_A i sensori di prova sono iniziali a tutti gli effetti, copertura su [0, t₀) in addestramento, selezione e valutazione; la finestra minima di 24 h e l'espansione valgono per C, F₀, F₀′, F′ e per la selezione di k sui nodi di validazione. **Rigenerato il 28/10/2026** con l'addendum di sola analisi del revisore (sezione 7-bis) e, nello stesso giorno, con i registri dei tempi come ingresso congelato in `protocol/e15/tempi/` (sezione 7-ter) e con il pilota letto da `protocol/e15/tempi/pilota_tempi_16.json` (terza rigenerazione): nuove impronte, numeri precedenti invariati.
-```
-
-**C-main-REC-020** · `CONGELAMENTO_E15.md` · line 119
-
-```
-## 7-bis. Addendum del 28/10/2026 (revisore, sola analisi; correzione datata)
-```
-
-**C-main-REC-021** · `CONGELAMENTO_E16.md` · line 5
+**C-main-REC-005** · `CONGELAMENTO_E16.md` · line 5
 
 ```
 **Deviazione dichiarata**: A non ha embedding per i sensori di validazione (E8 la esclude dalla validazione): senza calibrazione post-hoc; le differenze «A − C» dopo calibrazione usano A grezza e C calibrata.
 ```
 
-**C-main-REC-022** · `CONGELAMENTO_E18.md` · line 5
+**C-main-REC-006** · `CONGELAMENTO_E18.md` · line 5
 
 ```
 Rigenerato il 2026-10-29 (seconda versione; la prima, del 28/10, aveva impronta `b284661178a15d9c`): (i) la sostituzione delle affermazioni a 19 soglie e' la **voce 29** del registro delle correzioni, non la 28 scritta nel protocollo §1 r. 61 (la 28 era gia' stata assegnata ai nomi di ruolo nelle note sulle correzioni): deviazione dichiarata in §6; (ii) la parte C e' completata con le metriche di F16 (ECE per classe, log-loss, Brier) sulla stessa finestra, come il protocollo §3 richiede («righe F′(1wk) di F16 ricalcolate»): la prima versione riportava la sola wCE. Nessun numero gia' congelato cambia.
 ```
 
-**C-main-REC-023** · `CONGELAMENTO_E18.md` · line 7
-
-```
-## 1. Parte C — E16: finestra di F′(1 sett.) (correzione 27)
-```
-
-**C-main-REC-024** · `CONGELAMENTO_E18.md` · line 338
-
-```
-## 6. Deviazioni (con data e motivo)
-```
-
-**C-main-REC-025** · `CONGELAMENTO_E18.md` · line 341
+**C-main-REC-007** · `CONGELAMENTO_E18.md` · line 341
 
 ```
 - 28/10/2026, A.6: PEMS04 ha solo C, F₀′ e F′(1 sett.) (nessun E ne' A): A1, A2, A4 not defined (no E, no A); A3 and F₀′ − C only — come da A.6, non e' una deviazione. La validazione di PEMS04 non viene ricostruita (non serve ad A).
 ```
 
-**C-main-REC-026** · `CONGELAMENTO_E18.md` · line 343
+**C-main-REC-008** · `CONGELAMENTO_E18.md` · line 343
 
 ```
 - 29/10/2026, numerazione: il protocollo §1 r. 61 assegnava alla sostituzione delle affermazioni a 19 soglie (ROC empirica) la voce 28 del registro delle correzioni; la voce 28 era gia' stata assegnata il 29/10 ai nomi di ruolo nelle note sulle correzioni, quindi la sostituzione e' la voce 29. Il protocollo non si modifica (firmato); §2c e il registro portano 29.
 ```
 
-**C-main-REC-027** · `CONGELAMENTO_E18QUATER.md` · line 3
-
-```
-Generato da `genera_congelamento_e18quater.py` al commit `b4ab62a`, 2026-11-03 11:39 UTC. Protocollo `protocol/E18quater.md` (nota datata del 3/11/2026; impronta `56046a7784a5169e`); `e18quater_risultati.json` impronta `316f1f9a3b0fa29e`; `e18quater_classi_risultati.json` impronta `020fea6939297a96`. Nessun addestramento: parte A a modelli congelati di E15, parte B sola lettura dei bersagli.
-```
-
-**C-main-REC-028** · `CONGELAMENTO_E18TER.md` · line 161
-
-```
-## 4. Deviazioni e note datate
-```
-
-**C-main-REC-029** · `CONGELAMENTO_E3.md` · line 102
+**C-main-REC-009** · `CONGELAMENTO_E3.md` · line 102
 
 ```
 - **Correzione del 2026-10-10 (difetto 19 del registro)**: il conteggio delle riviste prendeva dal registro ogni esecuzione completata di R, R-orig e R-mon, comprese le 9 rimisure isolate di R-orig e R-mon fatte per la tabella dei costi (117 invece di 108). Ora il lancio di E3 e' definito dai 108 manifesti per braccio di `inserimento_griglia/`, elencati per impronta in `analisi_e3.json` (`riviste/<braccio>/lancio`), e di ogni cella conta la sola esecuzione che ha prodotto la wCE registrata; le rimisure future hanno etichetta propria nel registro (`…/rimisura`). Documento rigenerato, non modificato a mano.
 ```
 
-**C-main-REC-030** · `CONGELAMENTO_E3bis.md` · line 47
+**C-main-REC-010** · `CONGELAMENTO_E3bis.md` · line 47
 
 ```
 - **Correzione del 2026-10-10 (difetto 17 del registro)**: la prima versione della sezione 3 scriveva «almeno 6×» dividendo la mediana di R-orig(1 sett.) sulle nove celle delle tre citta' per il solo F′(1 sett.) misurato in isolamento (Melbourne, la configurazione F piu' costosa nella citta' piu' piccola). Lo script ora riporta R-orig(1 sett.) per citta' dai manifesti isolati e il rapporto solo nella stessa citta'; il documento e' rigenerato, non modificato a mano.
 ```
 
-**C-main-REC-031** · `CONGELAMENTO_E4.md` · line 121
+**C-main-REC-011** · `CONGELAMENTO_E4.md` · line 121
 
 ```
 - **Deviazione dal §8 del protocollo, dichiarata prima del lancio in E4.md**: curva a {6 h, 12 h, 24 h, 48 h, 1 settimana} invece di {1 h, 4 h, …}: sotto le 5 ore la regola delle origini non ne contiene alcuna.
 ```
 
-**C-main-REC-032** · `CONGELAMENTO_E4.md` · line 122
+**C-main-REC-012** · `CONGELAMENTO_E4.md` · line 122
 
 ```
 - **Stima di costo del protocollo sbagliata, non deviazione**: «< 10 ore-processo» contava gli adattamenti; le 13 valutazioni per cella sull'intero periodo piu' le 12 intermedie della traiettoria hanno portato il lancio a 11.3 ore con 8 processi. Nessun parametro e' cambiato.
 ```
 
-**C-main-REC-033** · `CONGELAMENTO_E5.md` · line 129
+**C-main-REC-013** · `CONGELAMENTO_E5.md` · line 129
 
 ```
 - **Sei semi invece di otto**: deviazione dalla lettera del §9 confermata dal revisore; la semiampiezza cambia di ±0,0003 fra 12 e 6 semi (sezione 3).
 ```
 
-**C-main-REC-034** · `CONGELAMENTO_E5.md` · line 136
+**C-main-REC-014** · `CONGELAMENTO_E5.md` · line 136
 
 ```
 - **Correzione del 2026-10-11 (voce 20 del registro, documentazione)**: la frase precedente su E3-bis dipendeva da quali esperimenti esistevano al momento della generazione; `analysis/main.py` l'ha trovata diversa rigenerando (numeri identici, impronta dei numeri `52cdd962ff9888f6` da entrambe le parti). Resa stabile nel tempo; documento rigenerato, non modificato a mano.
 ```
 
-**C-main-REC-035** · `CONGELAMENTO_E8.md` · line 3
+**C-main-REC-015** · `CONGELAMENTO_E8.md` · line 3
 
 ```
 **Congelato il 2026-10-10**, commit `853c8474b7ce`. Protocollo `protocol/E8.md` (impronta `611d3541a6086e19`), firmato al commit `1185d9ecceb39bdf` prima di ricostruire; deviazione del 9/10 dichiarata nel file (A eredita le soglie di C). **Nessun criterio**: è descrittivo. **Ogni numero e' calcolato da `genera_congelamento_e8.py`** da `e8_risultati.json` e `e8_soglie.json`. Va in appendice C; la frase derivata (§4) nel testo della sezione 5.1.
 ```
 
-**C-main-REC-036** · `CONGELAMENTO_E8.md` · line 274
+**C-main-REC-016** · `CONGELAMENTO_E8.md` · line 274
 
 ```
 - Protocollo E8: A previsto in validazione, non valutabile (ha i nodi di prova): eredita le soglie di C — deviazione del 9/10.
 ```
 
-**C-main-REC-037** · `CONGELAMENTO_E_F_PIPELINE_PRECEDENTE.md` · line 3
+**C-main-REC-017** · `CONGELAMENTO_E_F_PIPELINE_PRECEDENTE.md` · line 3
 
 ```
 > **Risultati della pipeline precedente alla correzione della griglia temporale.** Le origini erano costruite per indice di riga: circa il 2,6% attraversava un salto della serie, con orizzonti che non corrispondevano al tempo reale. **Questi punti E e questa selezione di F non sono gli artefatti preparatori definitivi**: si rigenerano con la regola approvata. Le configurazioni scelte qui **non si trasferiscono** alla selezione corretta.
-```
-
-**C-main-REC-038** · `CONGELAMENTO_RACCORDO.md` · line 1
-
-```
-# Congelamento dei risultati del raccordo LEGACY ↔ BASE-CORRECTED
-```
-
-**C-main-REC-039** · `CONGELAMENTO_RACCORDO.md` · line 11
-
-```
-> BASE-CORRECTED, ma l'incertezza non consente conclusioni robuste rispetto
-```
-
-**C-main-REC-040** · `CONGELAMENTO_RACCORDO.md` · line 153
-
-```
-maschere: BASE-CORRECTED cambia insieme imputazione, dimensionalità e
 ```
 
 
@@ -1039,3895 +901,3588 @@ maschere: BASE-CORRECTED cambia insieme imputazione, dimensionalità e
 
 ## `main` — report flag
 
-**C-main-RPT-001** · `analysis/rigenerazione/CONFRONTO.md` · line 3
-
-```
-Generato da `analysis/main.py` (non modificare a mano). Ogni numero e' rigenerato dalle predizioni per cella con il codice del repository e confrontato con il file congelato omonimo. Valori a 12 cifre significative; scarto = rigenerato − congelato.
-```
-
-**C-main-RPT-002** · `analysis/rigenerazione/CONFRONTO.md` · line 16
-
-```
-| tabella | voce | stampato | congelato | rigenerato | scarto | esito |
-```
-
-**C-main-RPT-003** · `analysis/rigenerazione/CONFRONTO.md` · line 127
-
-```
-| fase | file | esito | numeri | diversi | scarto massimo | impronta congelato | impronta rigenerato |
-```
-
-**C-main-RPT-004** · `analysis/rigenerazione/CONFRONTO.md` · line 196
-
-```
-Impronte canoniche dei file di scelta (istante di generazione e campo impronta mascherati; una differenza fa fallire):
-```
-
-**C-main-RPT-005** · `analysis/rigenerazione/CONFRONTO.md` · line 285
-
-```
-## 5. Documenti: differenze di sola prosa (stessi numeri)
-```
-
-**C-main-RPT-006** · `analysis/rigenerazione/CONFRONTO.md` · line 293
-
-```
-Dove il generatore incorpora il json di analisi nel proprio, i due devono coincidere per contenuto (non per impronta del file). Una divergenza fa fallire.
-```
-
-**C-main-RPT-007** · `protocol/spark/CONFRONTO_paper1-freeze-20261028i.md` · line 3
-
-```
-Generato da `analysis/main.py` (non modificare a mano). Ogni numero e' rigenerato dalle predizioni per cella con il codice del repository e confrontato con il file congelato omonimo. Valori a 12 cifre significative; scarto = rigenerato − congelato.
-```
-
-**C-main-RPT-008** · `protocol/spark/CONFRONTO_paper1-freeze-20261028i.md` · line 15
-
-```
-| tabella | voce | stampato | congelato | rigenerato | scarto | esito |
-```
-
-**C-main-RPT-009** · `protocol/spark/CONFRONTO_paper1-freeze-20261028i.md` · line 138
-
-```
-| fase | file | esito | numeri | diversi | scarto massimo | impronta congelato | impronta rigenerato |
-```
-
-**C-main-RPT-010** · `protocol/spark/CONFRONTO_paper1-freeze-20261028i.md` · line 197
-
-```
-Impronte canoniche dei file di scelta (istante di generazione e campo impronta mascherati; una differenza fa fallire):
-```
-
-**C-main-RPT-011** · `protocol/spark/CONFRONTO_paper1-freeze-20261028i.md` · line 286
-
-```
-## 5. Documenti: differenze di sola prosa (stessi numeri)
-```
-
-**C-main-RPT-012** · `protocol/spark/CONFRONTO_paper1-freeze-20261028i.md` · line 290
-
-```
-- `CONGELAMENTO_E3bis.md`: `-| verifica interna | C aggregato dalle predizioni di E3 = C di E4, scarto massimo Madrid 0.0e+00, Londra 0.0e+00, Melbourne 0.0e+00 |`
-```
-
-**C-main-RPT-013** · `protocol/spark/CONFRONTO_paper1-freeze-20261028i.md` · line 291
-
-```
-- `CONGELAMENTO_E3bis.md`: `+| verifica interna | C aggregato dalle predizioni di E3 = C di E4, scarto massimo Madrid 2.1e-11, Londra 2.2e-11, Melbourne 3.6e-11 |`
-```
-
-**C-main-RPT-014** · `protocol/spark/CONFRONTO_paper1-freeze-20261028i.md` · line 295
-
-```
-Dove il generatore incorpora il json di analisi nel proprio, i due devono coincidere per contenuto (non per impronta del file). Una divergenza fa fallire.
-```
-
-**C-main-RPT-015** · `protocol/spark/CONFRONTO_paper1-freeze-20261028j.md` · line 3
-
-```
-Generato da `analysis/main.py` (non modificare a mano). Ogni numero e' rigenerato dalle predizioni per cella con il codice del repository e confrontato con il file congelato omonimo. Valori a 12 cifre significative; scarto = rigenerato − congelato.
-```
-
-**C-main-RPT-016** · `protocol/spark/CONFRONTO_paper1-freeze-20261028j.md` · line 15
-
-```
-| tabella | voce | stampato | congelato | rigenerato | scarto | esito |
-```
-
-**C-main-RPT-017** · `protocol/spark/CONFRONTO_paper1-freeze-20261028j.md` · line 138
-
-```
-| fase | file | esito | numeri | diversi | scarto massimo | impronta congelato | impronta rigenerato |
-```
-
-**C-main-RPT-018** · `protocol/spark/CONFRONTO_paper1-freeze-20261028j.md` · line 197
-
-```
-Impronte canoniche dei file di scelta (istante di generazione e campo impronta mascherati; una differenza fa fallire):
-```
-
-**C-main-RPT-019** · `protocol/spark/CONFRONTO_paper1-freeze-20261028j.md` · line 286
-
-```
-## 5. Documenti: differenze di sola prosa (stessi numeri)
-```
-
-**C-main-RPT-020** · `protocol/spark/CONFRONTO_paper1-freeze-20261028j.md` · line 290
-
-```
-- `CONGELAMENTO_E3bis.md`: `-| verifica interna | C aggregato dalle predizioni di E3 = C di E4, scarto massimo Madrid 0.0e+00, Londra 0.0e+00, Melbourne 0.0e+00 |`
-```
-
-**C-main-RPT-021** · `protocol/spark/CONFRONTO_paper1-freeze-20261028j.md` · line 291
-
-```
-- `CONGELAMENTO_E3bis.md`: `+| verifica interna | C aggregato dalle predizioni di E3 = C di E4, scarto massimo Madrid 2.1e-11, Londra 2.2e-11, Melbourne 3.6e-11 |`
-```
-
-**C-main-RPT-022** · `protocol/spark/CONFRONTO_paper1-freeze-20261028j.md` · line 295
-
-```
-Dove il generatore incorpora il json di analisi nel proprio, i due devono coincidere per contenuto (non per impronta del file). Una divergenza fa fallire.
-```
-
-**C-main-RPT-023** · `protocol/spark/CONFRONTO_paper1-freeze-20261030k.md` · line 3
-
-```
-Generato da `analysis/main.py` (non modificare a mano). Ogni numero e' rigenerato dalle predizioni per cella con il codice del repository e confrontato con il file congelato omonimo. Valori a 12 cifre significative; scarto = rigenerato − congelato.
-```
-
-**C-main-RPT-024** · `protocol/spark/CONFRONTO_paper1-freeze-20261030k.md` · line 16
-
-```
-| tabella | voce | stampato | congelato | rigenerato | scarto | esito |
-```
-
-**C-main-RPT-025** · `protocol/spark/CONFRONTO_paper1-freeze-20261030k.md` · line 159
-
-```
-| fase | file | esito | numeri | diversi | scarto massimo | impronta congelato | impronta rigenerato |
-```
-
-**C-main-RPT-026** · `protocol/spark/CONFRONTO_paper1-freeze-20261030k.md` · line 221
-
-```
-Impronte canoniche dei file di scelta (istante di generazione e campo impronta mascherati; una differenza fa fallire):
-```
-
-**C-main-RPT-027** · `protocol/spark/CONFRONTO_paper1-freeze-20261030k.md` · line 310
-
-```
-## 5. Documenti: differenze di sola prosa (stessi numeri)
-```
-
-**C-main-RPT-028** · `protocol/spark/CONFRONTO_paper1-freeze-20261030k.md` · line 314
-
-```
-- `CONGELAMENTO_E3bis.md`: `-| verifica interna | C aggregato dalle predizioni di E3 = C di E4, scarto massimo Madrid 0.0e+00, Londra 0.0e+00, Melbourne 0.0e+00 |`
-```
-
-**C-main-RPT-029** · `protocol/spark/CONFRONTO_paper1-freeze-20261030k.md` · line 315
-
-```
-- `CONGELAMENTO_E3bis.md`: `+| verifica interna | C aggregato dalle predizioni di E3 = C di E4, scarto massimo Madrid 2.1e-11, Londra 2.2e-11, Melbourne 3.6e-11 |`
-```
-
-**C-main-RPT-030** · `protocol/spark/CONFRONTO_paper1-freeze-20261030k.md` · line 319
-
-```
-Dove il generatore incorpora il json di analisi nel proprio, i due devono coincidere per contenuto (non per impronta del file). Una divergenza fa fallire.
-```
-
-**C-main-RPT-031** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub2.md` · line 3
-
-```
-Generato da `analysis/main.py` (non modificare a mano). Ogni numero e' rigenerato dalle predizioni per cella con il codice del repository e confrontato con il file congelato omonimo. Valori a 12 cifre significative; scarto = rigenerato − congelato.
-```
-
-**C-main-RPT-032** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub2.md` · line 5
+**C-main-RPT-001** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub2.md` · line 5
 
 ```
 - esito: **DIFFERENZE O ERRORI**
 ```
 
-**C-main-RPT-033** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub2.md` · line 16
-
-```
-| tabella | voce | stampato | congelato | rigenerato | scarto | esito |
-```
-
-**C-main-RPT-034** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub2.md` · line 127
-
-```
-| fase | file | esito | numeri | diversi | scarto massimo | impronta congelato | impronta rigenerato |
-```
-
-**C-main-RPT-035** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub2.md` · line 192
-
-```
-Impronte canoniche dei file di scelta (istante di generazione e campo impronta mascherati; una differenza fa fallire):
-```
-
-**C-main-RPT-036** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub2.md` · line 282
-
-```
-## 5. Documenti: differenze di sola prosa (stessi numeri)
-```
-
-**C-main-RPT-037** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub2.md` · line 286
-
-```
-- `CONGELAMENTO_E3bis.md`: `-| verifica interna | C aggregato dalle predizioni di E3 = C di E4, scarto massimo Madrid 0.0e+00, Londra 0.0e+00, Melbourne 0.0e+00 |`
-```
-
-**C-main-RPT-038** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub2.md` · line 287
-
-```
-- `CONGELAMENTO_E3bis.md`: `+| verifica interna | C aggregato dalle predizioni di E3 = C di E4, scarto massimo Madrid 2.1e-11, Londra 2.2e-11, Melbourne 3.6e-11 |`
-```
-
-**C-main-RPT-039** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub2.md` · line 291
-
-```
-Dove il generatore incorpora il json di analisi nel proprio, i due devono coincidere per contenuto (non per impronta del file). Una divergenza fa fallire.
-```
-
-**C-main-RPT-040** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub3.md` · line 3
-
-```
-Generato da `analysis/main.py` (non modificare a mano). Ogni numero e' rigenerato dalle predizioni per cella con il codice del repository e confrontato con il file congelato omonimo. Valori a 12 cifre significative; scarto = rigenerato − congelato.
-```
-
-**C-main-RPT-041** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub3.md` · line 16
-
-```
-| tabella | voce | stampato | congelato | rigenerato | scarto | esito |
-```
-
-**C-main-RPT-042** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub3.md` · line 127
-
-```
-| fase | file | esito | numeri | diversi | scarto massimo | impronta congelato | impronta rigenerato |
-```
-
-**C-main-RPT-043** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub3.md` · line 192
-
-```
-Impronte canoniche dei file di scelta (istante di generazione e campo impronta mascherati; una differenza fa fallire):
-```
-
-**C-main-RPT-044** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub3.md` · line 281
-
-```
-## 5. Documenti: differenze di sola prosa (stessi numeri)
-```
-
-**C-main-RPT-045** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub3.md` · line 285
-
-```
-- `CONGELAMENTO_E3bis.md`: `-| verifica interna | C aggregato dalle predizioni di E3 = C di E4, scarto massimo Madrid 0.0e+00, Londra 0.0e+00, Melbourne 0.0e+00 |`
-```
-
-**C-main-RPT-046** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub3.md` · line 286
-
-```
-- `CONGELAMENTO_E3bis.md`: `+| verifica interna | C aggregato dalle predizioni di E3 = C di E4, scarto massimo Madrid 2.1e-11, Londra 2.2e-11, Melbourne 3.6e-11 |`
-```
-
-**C-main-RPT-047** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub3.md` · line 290
-
-```
-Dove il generatore incorpora il json di analisi nel proprio, i due devono coincidere per contenuto (non per impronta del file). Una divergenza fa fallire.
-```
-
-**C-main-RPT-048** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l.md` · line 3
-
-```
-Generato da `analysis/main.py` (non modificare a mano). Ogni numero e' rigenerato dalle predizioni per cella con il codice del repository e confrontato con il file congelato omonimo. Valori a 12 cifre significative; scarto = rigenerato − congelato.
-```
-
-**C-main-RPT-049** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l.md` · line 16
-
-```
-| tabella | voce | stampato | congelato | rigenerato | scarto | esito |
-```
-
-**C-main-RPT-050** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l.md` · line 127
-
-```
-| fase | file | esito | numeri | diversi | scarto massimo | impronta congelato | impronta rigenerato |
-```
-
-**C-main-RPT-051** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l.md` · line 192
-
-```
-Impronte canoniche dei file di scelta (istante di generazione e campo impronta mascherati; una differenza fa fallire):
-```
-
-**C-main-RPT-052** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l.md` · line 281
-
-```
-## 5. Documenti: differenze di sola prosa (stessi numeri)
-```
-
-**C-main-RPT-053** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l.md` · line 285
-
-```
-- `CONGELAMENTO_E3bis.md`: `-| verifica interna | C aggregato dalle predizioni di E3 = C di E4, scarto massimo Madrid 0.0e+00, Londra 0.0e+00, Melbourne 0.0e+00 |`
-```
-
-**C-main-RPT-054** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l.md` · line 286
-
-```
-- `CONGELAMENTO_E3bis.md`: `+| verifica interna | C aggregato dalle predizioni di E3 = C di E4, scarto massimo Madrid 2.1e-11, Londra 2.2e-11, Melbourne 3.6e-11 |`
-```
-
-**C-main-RPT-055** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l.md` · line 290
-
-```
-Dove il generatore incorpora il json di analisi nel proprio, i due devono coincidere per contenuto (non per impronta del file). Una divergenza fa fallire.
-```
-
-**C-main-RPT-056** · `protocol/spark/CONFRONTO_paper1-freeze-20261101n.md` · line 3
-
-```
-Generato da `analysis/main.py` (non modificare a mano). Ogni numero e' rigenerato dalle predizioni per cella con il codice del repository e confrontato con il file congelato omonimo. Valori a 12 cifre significative; scarto = rigenerato − congelato.
-```
-
-**C-main-RPT-057** · `protocol/spark/CONFRONTO_paper1-freeze-20261101n.md` · line 16
-
-```
-| tabella | voce | stampato | congelato | rigenerato | scarto | esito |
-```
-
-**C-main-RPT-058** · `protocol/spark/CONFRONTO_paper1-freeze-20261101n.md` · line 127
-
-```
-| fase | file | esito | numeri | diversi | scarto massimo | impronta congelato | impronta rigenerato |
-```
-
-**C-main-RPT-059** · `protocol/spark/CONFRONTO_paper1-freeze-20261101n.md` · line 192
-
-```
-Impronte canoniche dei file di scelta (istante di generazione e campo impronta mascherati; una differenza fa fallire):
-```
-
-**C-main-RPT-060** · `protocol/spark/CONFRONTO_paper1-freeze-20261101n.md` · line 281
-
-```
-## 5. Documenti: differenze di sola prosa (stessi numeri)
-```
-
-**C-main-RPT-061** · `protocol/spark/CONFRONTO_paper1-freeze-20261101n.md` · line 285
-
-```
-- `CONGELAMENTO_E3bis.md`: `-| verifica interna | C aggregato dalle predizioni di E3 = C di E4, scarto massimo Madrid 0.0e+00, Londra 0.0e+00, Melbourne 0.0e+00 |`
-```
-
-**C-main-RPT-062** · `protocol/spark/CONFRONTO_paper1-freeze-20261101n.md` · line 286
-
-```
-- `CONGELAMENTO_E3bis.md`: `+| verifica interna | C aggregato dalle predizioni di E3 = C di E4, scarto massimo Madrid 2.1e-11, Londra 2.2e-11, Melbourne 3.6e-11 |`
-```
-
-**C-main-RPT-063** · `protocol/spark/CONFRONTO_paper1-freeze-20261101n.md` · line 290
-
-```
-Dove il generatore incorpora il json di analisi nel proprio, i due devono coincidere per contenuto (non per impronta del file). Una divergenza fa fallire.
-```
-
-**C-main-RPT-064** · `protocol/spark/CONFRONTO_paper1-freeze-20261101o.md` · line 3
-
-```
-Generato da `analysis/main.py` (non modificare a mano). Ogni numero e' rigenerato dalle predizioni per cella con il codice del repository e confrontato con il file congelato omonimo. Valori a 12 cifre significative; scarto = rigenerato − congelato.
-```
-
-**C-main-RPT-065** · `protocol/spark/CONFRONTO_paper1-freeze-20261101o.md` · line 16
-
-```
-| tabella | voce | stampato | congelato | rigenerato | scarto | esito |
-```
-
-**C-main-RPT-066** · `protocol/spark/CONFRONTO_paper1-freeze-20261101o.md` · line 127
-
-```
-| fase | file | esito | numeri | diversi | scarto massimo | impronta congelato | impronta rigenerato |
-```
-
-**C-main-RPT-067** · `protocol/spark/CONFRONTO_paper1-freeze-20261101o.md` · line 192
-
-```
-Impronte canoniche dei file di scelta (istante di generazione e campo impronta mascherati; una differenza fa fallire):
-```
-
-**C-main-RPT-068** · `protocol/spark/CONFRONTO_paper1-freeze-20261101o.md` · line 281
-
-```
-## 5. Documenti: differenze di sola prosa (stessi numeri)
-```
-
-**C-main-RPT-069** · `protocol/spark/CONFRONTO_paper1-freeze-20261101o.md` · line 285
-
-```
-- `CONGELAMENTO_E3bis.md`: `-| verifica interna | C aggregato dalle predizioni di E3 = C di E4, scarto massimo Madrid 0.0e+00, Londra 0.0e+00, Melbourne 0.0e+00 |`
-```
-
-**C-main-RPT-070** · `protocol/spark/CONFRONTO_paper1-freeze-20261101o.md` · line 286
-
-```
-- `CONGELAMENTO_E3bis.md`: `+| verifica interna | C aggregato dalle predizioni di E3 = C di E4, scarto massimo Madrid 2.1e-11, Londra 2.2e-11, Melbourne 3.6e-11 |`
-```
-
-**C-main-RPT-071** · `protocol/spark/CONFRONTO_paper1-freeze-20261101o.md` · line 290
-
-```
-Dove il generatore incorpora il json di analisi nel proprio, i due devono coincidere per contenuto (non per impronta del file). Una divergenza fa fallire.
-```
-
-**C-main-RPT-072** · `protocol/spark/CONFRONTO_paper1-freeze-20261103p.md` · line 3
-
-```
-Generato da `analysis/main.py` (non modificare a mano). Ogni numero e' rigenerato dalle predizioni per cella con il codice del repository e confrontato con il file congelato omonimo. Valori a 12 cifre significative; scarto = rigenerato − congelato.
-```
-
-**C-main-RPT-073** · `protocol/spark/CONFRONTO_paper1-freeze-20261103p.md` · line 16
-
-```
-| tabella | voce | stampato | congelato | rigenerato | scarto | esito |
-```
-
-**C-main-RPT-074** · `protocol/spark/CONFRONTO_paper1-freeze-20261103p.md` · line 127
-
-```
-| fase | file | esito | numeri | diversi | scarto massimo | impronta congelato | impronta rigenerato |
-```
-
-**C-main-RPT-075** · `protocol/spark/CONFRONTO_paper1-freeze-20261103p.md` · line 196
-
-```
-Impronte canoniche dei file di scelta (istante di generazione e campo impronta mascherati; una differenza fa fallire):
-```
-
-**C-main-RPT-076** · `protocol/spark/CONFRONTO_paper1-freeze-20261103p.md` · line 285
-
-```
-## 5. Documenti: differenze di sola prosa (stessi numeri)
-```
-
-**C-main-RPT-077** · `protocol/spark/CONFRONTO_paper1-freeze-20261103p.md` · line 289
-
-```
-- `CONGELAMENTO_E3bis.md`: `-| verifica interna | C aggregato dalle predizioni di E3 = C di E4, scarto massimo Madrid 0.0e+00, Londra 0.0e+00, Melbourne 0.0e+00 |`
-```
-
-**C-main-RPT-078** · `protocol/spark/CONFRONTO_paper1-freeze-20261103p.md` · line 290
-
-```
-- `CONGELAMENTO_E3bis.md`: `+| verifica interna | C aggregato dalle predizioni di E3 = C di E4, scarto massimo Madrid 2.1e-11, Londra 2.2e-11, Melbourne 3.6e-11 |`
-```
-
-**C-main-RPT-079** · `protocol/spark/CONFRONTO_paper1-freeze-20261103p.md` · line 294
-
-```
-Dove il generatore incorpora il json di analisi nel proprio, i due devono coincidere per contenuto (non per impronta del file). Una divergenza fa fallire.
-```
-
 
 ## `main` — tag diff
 
-**C-main-TAG-001** · `CONGELAMENTO_E3bis.md` · paper1-freeze-20261010..paper1-freeze-20261010b
+**C-main-TAG-001** · `CONGELAMENTO_E14.md` · 1 tag pair(s)
 
 ```
-CONGELAMENTO_E3bis.md: numstat 7	3	CONGELAMENTO_E3bis.md
+CONGELAMENTO_E14.md
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-002** · `evoluzione/analisi/architettura_ck.py` · paper1-freeze-20261010..paper1-freeze-20261010b
+**C-main-TAG-002** · `CONGELAMENTO_E14B.md` · 2 tag pair(s)
 
 ```
-evoluzione/analisi/architettura_ck.py: numstat 111	0	evoluzione/analisi/architettura_ck.py
+CONGELAMENTO_E14B.md
+paper1-freeze-20261012e..paper1-freeze-20261015f A
+paper1-freeze-20261028j..paper1-freeze-20261030k M
 ```
 
-**C-main-TAG-003** · `evoluzione/audit/METADATI_AUDIT.md` · paper1-freeze-20261010..paper1-freeze-20261010b
+**C-main-TAG-003** · `CONGELAMENTO_E15.md` · 1 tag pair(s)
 
 ```
-evoluzione/audit/METADATI_AUDIT.md: numstat 21	0	evoluzione/audit/METADATI_AUDIT.md
+CONGELAMENTO_E15.md
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-004** · `evoluzione/audit/metadati_audit.py` · paper1-freeze-20261010..paper1-freeze-20261010b
+**C-main-TAG-004** · `CONGELAMENTO_E16.md` · 1 tag pair(s)
 
 ```
-evoluzione/audit/metadati_audit.py: numstat 83	0	evoluzione/audit/metadati_audit.py
+CONGELAMENTO_E16.md
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-005** · `evoluzione/esperimenti/costi_appaiati.py` · paper1-freeze-20261010..paper1-freeze-20261010b
+**C-main-TAG-005** · `CONGELAMENTO_E17.md` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/costi_appaiati.py: numstat 159	0	evoluzione/esperimenti/costi_appaiati.py
+CONGELAMENTO_E17.md
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-006** · `evoluzione/esperimenti/ricognizione_paper4.sh` · paper1-freeze-20261010..paper1-freeze-20261010b
+**C-main-TAG-006** · `CONGELAMENTO_E18.md` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/ricognizione_paper4.sh: numstat 48	0	evoluzione/esperimenti/ricognizione_paper4.sh
+CONGELAMENTO_E18.md
+paper1-freeze-20261028j..paper1-freeze-20261030k A
 ```
 
-**C-main-TAG-007** · `evoluzione/esperimenti/ricognizione_paper4_log.sh` · paper1-freeze-20261010..paper1-freeze-20261010b
+**C-main-TAG-007** · `CONGELAMENTO_E18QUATER.md` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/ricognizione_paper4_log.sh: numstat 44	0	evoluzione/esperimenti/ricognizione_paper4_log.sh
+CONGELAMENTO_E18QUATER.md
+paper1-freeze-20261101o..paper1-freeze-20261103p A
 ```
 
-**C-main-TAG-008** · `evoluzione/esperimenti/costi_appaiati.py` · paper1-freeze-20261010b..paper1-freeze-20261010c
+**C-main-TAG-008** · `CONGELAMENTO_E18TER.md` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/costi_appaiati.py: numstat 43	4	evoluzione/esperimenti/costi_appaiati.py
+CONGELAMENTO_E18TER.md
+paper1-freeze-20261030k..paper1-freeze-20261030l A
 ```
 
-**C-main-TAG-009** · `CONGELAMENTO_E3.md` · paper1-freeze-20261010c..paper1-freeze-20261010d
+**C-main-TAG-009** · `CONGELAMENTO_E3.md` · 1 tag pair(s)
 
 ```
-CONGELAMENTO_E3.md: numstat 7	7	CONGELAMENTO_E3.md
+CONGELAMENTO_E3.md
+paper1-freeze-20261010c..paper1-freeze-20261010d M
 ```
 
-**C-main-TAG-010** · `analysis/impronte.py` · paper1-freeze-20261010c..paper1-freeze-20261010d
+**C-main-TAG-010** · `CONGELAMENTO_E3bis.md` · 1 tag pair(s)
 
 ```
-analysis/impronte.py: numstat 133	0	analysis/impronte.py
+CONGELAMENTO_E3bis.md
+paper1-freeze-20261010..paper1-freeze-20261010b M
 ```
 
-**C-main-TAG-011** · `analysis/main.py` · paper1-freeze-20261010c..paper1-freeze-20261010d
+**C-main-TAG-011** · `CONGELAMENTO_E5.md` · 1 tag pair(s)
 
 ```
-analysis/main.py: numstat 586	0	analysis/main.py
+CONGELAMENTO_E5.md
+paper1-freeze-20261011..paper1-freeze-20261011b M
 ```
 
-**C-main-TAG-012** · `analysis/tabelle_paper1.py` · paper1-freeze-20261010c..paper1-freeze-20261010d
+**C-main-TAG-012** · `CONGELAMENTO_E6.md` · 1 tag pair(s)
 
 ```
-analysis/tabelle_paper1.py: numstat 192	0	analysis/tabelle_paper1.py
+CONGELAMENTO_E6.md
+paper1-freeze-20261010d..paper1-freeze-20261010e M
 ```
 
-**C-main-TAG-013** · `evoluzione/analisi/analizza_e3.py` · paper1-freeze-20261010c..paper1-freeze-20261010d
+**C-main-TAG-013** · `analysis/impronte.py` · 4 tag pair(s)
 
 ```
-evoluzione/analisi/analizza_e3.py: numstat 48	6	evoluzione/analisi/analizza_e3.py
+analysis/impronte.py
+paper1-freeze-20261010c..paper1-freeze-20261010d A
+paper1-freeze-20261010e..paper1-freeze-20261011 M
+paper1-freeze-20261011b..paper1-freeze-20261011c M
+paper1-freeze-20261012e..paper1-freeze-20261015f M
 ```
 
-**C-main-TAG-014** · `evoluzione/analisi/analizza_e4.py` · paper1-freeze-20261010c..paper1-freeze-20261010d
+**C-main-TAG-014** · `analysis/main.py` · 13 tag pair(s)
 
 ```
-evoluzione/analisi/analizza_e4.py: numstat 56	0	evoluzione/analisi/analizza_e4.py
+analysis/main.py
+paper1-freeze-20261010c..paper1-freeze-20261010d A
+paper1-freeze-20261010e..paper1-freeze-20261011 M
+paper1-freeze-20261011b..paper1-freeze-20261011c M
+paper1-freeze-20261011c..paper1-freeze-20261012d M
+paper1-freeze-20261012d..paper1-freeze-20261012e M
+paper1-freeze-20261012e..paper1-freeze-20261015f M
+paper1-freeze-20261015g..paper1-freeze-20261015h M
+paper1-freeze-20261015h..paper1-freeze-20261028i M
+paper1-freeze-20261028j..paper1-freeze-20261030k M
+paper1-freeze-20261030k..paper1-freeze-20261030l M
+paper1-freeze-20261030l-pub3..paper1-freeze-20261101m M
+paper1-freeze-20261101m..paper1-freeze-20261101m2 M
+paper1-freeze-20261101o..paper1-freeze-20261103p M
 ```
 
-**C-main-TAG-015** · `evoluzione/analisi/analizza_e5.py` · paper1-freeze-20261010c..paper1-freeze-20261010d
+**C-main-TAG-015** · `analysis/rigenerazione/CONFRONTO.md` · 15 tag pair(s)
 
 ```
-evoluzione/analisi/analizza_e5.py: numstat 42	0	evoluzione/analisi/analizza_e5.py
+analysis/rigenerazione/CONFRONTO.md
+paper1-freeze-20261011..paper1-freeze-20261011b A
+paper1-freeze-20261011b..paper1-freeze-20261011c M
+paper1-freeze-20261011c..paper1-freeze-20261012d M
+paper1-freeze-20261012d..paper1-freeze-20261012e M
+paper1-freeze-20261012e..paper1-freeze-20261015f M
+paper1-freeze-20261015f..paper1-freeze-20261015g M
+paper1-freeze-20261015g..paper1-freeze-20261015h M
+paper1-freeze-20261028i..paper1-freeze-20261028j M
+paper1-freeze-20261028j..paper1-freeze-20261030k M
+paper1-freeze-20261030k..paper1-freeze-20261030l M
+paper1-freeze-20261030l-pub3..paper1-freeze-20261101m M
+paper1-freeze-20261101m..paper1-freeze-20261101m2 M
+paper1-freeze-20261101m2..paper1-freeze-20261101n M
+paper1-freeze-20261101n..paper1-freeze-20261101o M
+paper1-freeze-20261101o..paper1-freeze-20261103p M
 ```
 
-**C-main-TAG-016** · `evoluzione/analisi/figura2_51.py` · paper1-freeze-20261010c..paper1-freeze-20261010d
+**C-main-TAG-016** · `analysis/tabelle_paper1.py` · 8 tag pair(s)
 
 ```
-evoluzione/analisi/figura2_51.py: numstat 40	17	evoluzione/analisi/figura2_51.py
+analysis/tabelle_paper1.py
+paper1-freeze-20261010c..paper1-freeze-20261010d A
+paper1-freeze-20261010e..paper1-freeze-20261011 M
+paper1-freeze-20261011b..paper1-freeze-20261011c M
+paper1-freeze-20261012d..paper1-freeze-20261012e M
+paper1-freeze-20261015h..paper1-freeze-20261028i M
+paper1-freeze-20261028j..paper1-freeze-20261030k M
+paper1-freeze-20261030k..paper1-freeze-20261030l M
+paper1-freeze-20261101o..paper1-freeze-20261103p M
 ```
 
-**C-main-TAG-017** · `evoluzione/analisi/figura_e8bis.py` · paper1-freeze-20261010c..paper1-freeze-20261010d
+**C-main-TAG-017** · `analysis/tabelle_suppl.py` · 7 tag pair(s)
 
 ```
-evoluzione/analisi/figura_e8bis.py: numstat 28	11	evoluzione/analisi/figura_e8bis.py
+analysis/tabelle_suppl.py
+paper1-freeze-20261012d..paper1-freeze-20261012e A
+paper1-freeze-20261012e..paper1-freeze-20261015f M
+paper1-freeze-20261015h..paper1-freeze-20261028i M
+paper1-freeze-20261028j..paper1-freeze-20261030k M
+paper1-freeze-20261030k..paper1-freeze-20261030l M
+paper1-freeze-20261030l-pub3..paper1-freeze-20261101m M
+paper1-freeze-20261101o..paper1-freeze-20261103p M
 ```
 
-**C-main-TAG-018** · `evoluzione/analisi/stile_paper.py` · paper1-freeze-20261010c..paper1-freeze-20261010d
+**C-main-TAG-018** · `evoluzione/ADDENDUM_PEMS04.md` · 1 tag pair(s)
 
 ```
-evoluzione/analisi/stile_paper.py: numstat 27	0	evoluzione/analisi/stile_paper.py
+evoluzione/ADDENDUM_PEMS04.md
+paper1-freeze-20261028j..paper1-freeze-20261030k M
 ```
 
-**C-main-TAG-019** · `evoluzione/esperimenti/esegui_inserimento.py` · paper1-freeze-20261010c..paper1-freeze-20261010d
+**C-main-TAG-019** · `evoluzione/analisi/analizza_e17.py` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/esegui_inserimento.py: numstat 3	1	evoluzione/esperimenti/esegui_inserimento.py
+evoluzione/analisi/analizza_e17.py
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-020** · `CONGELAMENTO_E6.md` · paper1-freeze-20261010d..paper1-freeze-20261010e
+**C-main-TAG-020** · `evoluzione/analisi/analizza_e18.py` · 2 tag pair(s)
 
 ```
-CONGELAMENTO_E6.md: numstat 4	4	CONGELAMENTO_E6.md
+evoluzione/analisi/analizza_e18.py
+paper1-freeze-20261028j..paper1-freeze-20261030k A
+paper1-freeze-20261030l-pub..paper1-freeze-20261030l-pub2 M
 ```
 
-**C-main-TAG-021** · `evoluzione/esperimenti/esegui_e6.py` · paper1-freeze-20261010d..paper1-freeze-20261010e
+**C-main-TAG-021** · `evoluzione/analisi/analizza_e18ter.py` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/esegui_e6.py: numstat 34	1	evoluzione/esperimenti/esegui_e6.py
+evoluzione/analisi/analizza_e18ter.py
+paper1-freeze-20261030k..paper1-freeze-20261030l A
 ```
 
-**C-main-TAG-022** · `analysis/impronte.py` · paper1-freeze-20261010e..paper1-freeze-20261011
+**C-main-TAG-022** · `evoluzione/analisi/analizza_e3.py` · 1 tag pair(s)
 
 ```
-analysis/impronte.py: numstat 56	0	analysis/impronte.py
+evoluzione/analisi/analizza_e3.py
+paper1-freeze-20261010c..paper1-freeze-20261010d M
 ```
 
-**C-main-TAG-023** · `analysis/main.py` · paper1-freeze-20261010e..paper1-freeze-20261011
+**C-main-TAG-023** · `evoluzione/analisi/analizza_e4.py` · 2 tag pair(s)
 
 ```
-analysis/main.py: numstat 35	4	analysis/main.py
+evoluzione/analisi/analizza_e4.py
+paper1-freeze-20261010c..paper1-freeze-20261010d M
+paper1-freeze-20261015h..paper1-freeze-20261028i M
 ```
 
-**C-main-TAG-024** · `analysis/tabelle_paper1.py` · paper1-freeze-20261010e..paper1-freeze-20261011
+**C-main-TAG-024** · `evoluzione/analisi/analizza_e5.py` · 1 tag pair(s)
 
 ```
-analysis/tabelle_paper1.py: numstat 4	2	analysis/tabelle_paper1.py
+evoluzione/analisi/analizza_e5.py
+paper1-freeze-20261010c..paper1-freeze-20261010d M
 ```
 
-**C-main-TAG-025** · `evoluzione/esperimenti/costi_appaiati.py` · paper1-freeze-20261010e..paper1-freeze-20261011
+**C-main-TAG-025** · `evoluzione/analisi/architettura_ck.py` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/costi_appaiati.py: numstat 85	1	evoluzione/esperimenti/costi_appaiati.py
+evoluzione/analisi/architettura_ck.py
+paper1-freeze-20261010..paper1-freeze-20261010b A
 ```
 
-**C-main-TAG-026** · `evoluzione/esperimenti/costi_sessione.py` · paper1-freeze-20261010e..paper1-freeze-20261011
+**C-main-TAG-026** · `evoluzione/analisi/classi_per_sensore.py` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/costi_sessione.py: numstat 267	0	evoluzione/esperimenti/costi_sessione.py
+evoluzione/analisi/classi_per_sensore.py
+paper1-freeze-20261101o..paper1-freeze-20261103p A
 ```
 
-**C-main-TAG-027** · `CONGELAMENTO_E5.md` · paper1-freeze-20261011..paper1-freeze-20261011b
+**C-main-TAG-027** · `evoluzione/analisi/correzione_difetto_23.py` · 1 tag pair(s)
 
 ```
-CONGELAMENTO_E5.md: numstat 5	4	CONGELAMENTO_E5.md
+evoluzione/analisi/correzione_difetto_23.py
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-028** · `analysis/rigenerazione/CONFRONTO.md` · paper1-freeze-20261011..paper1-freeze-20261011b
+**C-main-TAG-028** · `evoluzione/analisi/e14_stadio0.py` · 1 tag pair(s)
 
 ```
-analysis/rigenerazione/CONFRONTO.md: numstat 582	0	analysis/rigenerazione/CONFRONTO.md
+evoluzione/analisi/e14_stadio0.py
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-029** · `analysis/impronte.py` · paper1-freeze-20261011b..paper1-freeze-20261011c
+**C-main-TAG-029** · `evoluzione/analisi/e14b_fascio.py` · 1 tag pair(s)
 
 ```
-analysis/impronte.py: numstat 2	3	analysis/impronte.py
+evoluzione/analisi/e14b_fascio.py
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-030** · `analysis/main.py` · paper1-freeze-20261011b..paper1-freeze-20261011c
+**C-main-TAG-030** · `evoluzione/analisi/e14b_livelli.py` · 1 tag pair(s)
 
 ```
-analysis/main.py: numstat 5	3	analysis/main.py
+evoluzione/analisi/e14b_livelli.py
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-031** · `analysis/rigenerazione/CONFRONTO.md` · paper1-freeze-20261011b..paper1-freeze-20261011c
+**C-main-TAG-031** · `evoluzione/analisi/figura2_51.py` · 3 tag pair(s)
 
 ```
-analysis/rigenerazione/CONFRONTO.md: numstat 43	39	analysis/rigenerazione/CONFRONTO.md
+evoluzione/analisi/figura2_51.py
+paper1-freeze-20261010c..paper1-freeze-20261010d M
+paper1-freeze-20261015h..paper1-freeze-20261028i M
+paper1-freeze-20261028i..paper1-freeze-20261028j M
 ```
 
-**C-main-TAG-032** · `analysis/tabelle_paper1.py` · paper1-freeze-20261011b..paper1-freeze-20261011c
+**C-main-TAG-032** · `evoluzione/analisi/figura_cronologia.py` · 1 tag pair(s)
 
 ```
-analysis/tabelle_paper1.py: numstat 21	11	analysis/tabelle_paper1.py
+evoluzione/analisi/figura_cronologia.py
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-033** · `analysis/main.py` · paper1-freeze-20261011c..paper1-freeze-20261012d
+**C-main-TAG-033** · `evoluzione/analisi/figura_e8bis.py` · 1 tag pair(s)
 
 ```
-analysis/main.py: numstat 64	6	analysis/main.py
+evoluzione/analisi/figura_e8bis.py
+paper1-freeze-20261010c..paper1-freeze-20261010d M
 ```
 
-**C-main-TAG-034** · `analysis/rigenerazione/CONFRONTO.md` · paper1-freeze-20261011c..paper1-freeze-20261012d
+**C-main-TAG-034** · `evoluzione/analisi/figura_rete.py` · 2 tag pair(s)
 
 ```
-analysis/rigenerazione/CONFRONTO.md: numstat 12	5	analysis/rigenerazione/CONFRONTO.md
+evoluzione/analisi/figura_rete.py
+paper1-freeze-20261015g..paper1-freeze-20261015h A
+paper1-freeze-20261101o..paper1-freeze-20261103p M
 ```
 
-**C-main-TAG-035** · `analysis/main.py` · paper1-freeze-20261012d..paper1-freeze-20261012e
+**C-main-TAG-035** · `evoluzione/analisi/frequenze_classi.py` · 1 tag pair(s)
 
 ```
-analysis/main.py: numstat 6	0	analysis/main.py
+evoluzione/analisi/frequenze_classi.py
+paper1-freeze-20261012e..paper1-freeze-20261015f M
 ```
 
-**C-main-TAG-036** · `analysis/rigenerazione/CONFRONTO.md` · paper1-freeze-20261012d..paper1-freeze-20261012e
+**C-main-TAG-036** · `evoluzione/analisi/riproducibilita_spark.py` · 1 tag pair(s)
 
 ```
-analysis/rigenerazione/CONFRONTO.md: numstat 15	3	analysis/rigenerazione/CONFRONTO.md
+evoluzione/analisi/riproducibilita_spark.py
+paper1-freeze-20261012d..paper1-freeze-20261012e A
 ```
 
-**C-main-TAG-037** · `analysis/tabelle_paper1.py` · paper1-freeze-20261012d..paper1-freeze-20261012e
+**C-main-TAG-037** · `evoluzione/analisi/scheda_fatti.py` · 1 tag pair(s)
 
 ```
-analysis/tabelle_paper1.py: numstat 12	0	analysis/tabelle_paper1.py
+evoluzione/analisi/scheda_fatti.py
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-038** · `analysis/tabelle_suppl.py` · paper1-freeze-20261012d..paper1-freeze-20261012e
+**C-main-TAG-038** · `evoluzione/analisi/stile_paper.py` · 1 tag pair(s)
 
 ```
-analysis/tabelle_suppl.py: numstat 133	0	analysis/tabelle_suppl.py
+evoluzione/analisi/stile_paper.py
+paper1-freeze-20261010c..paper1-freeze-20261010d A
 ```
 
-**C-main-TAG-039** · `evoluzione/analisi/riproducibilita_spark.py` · paper1-freeze-20261012d..paper1-freeze-20261012e
+**C-main-TAG-039** · `evoluzione/analisi/verifica_appaiamento.py` · 1 tag pair(s)
 
 ```
-evoluzione/analisi/riproducibilita_spark.py: numstat 86	0	evoluzione/analisi/riproducibilita_spark.py
+evoluzione/analisi/verifica_appaiamento.py
+paper1-freeze-20261012d..paper1-freeze-20261012e M
 ```
 
-**C-main-TAG-040** · `evoluzione/analisi/verifica_appaiamento.py` · paper1-freeze-20261012d..paper1-freeze-20261012e
+**C-main-TAG-040** · `evoluzione/audit/METADATI_AUDIT.md` · 1 tag pair(s)
 
 ```
-evoluzione/analisi/verifica_appaiamento.py: numstat 9	1	evoluzione/analisi/verifica_appaiamento.py
+evoluzione/audit/METADATI_AUDIT.md
+paper1-freeze-20261010..paper1-freeze-20261010b A
 ```
 
-**C-main-TAG-041** · `CONGELAMENTO_E14.md` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-041** · `evoluzione/audit/archivi_zenodo.py` · 2 tag pair(s)
 
 ```
-CONGELAMENTO_E14.md: numstat 131	0	CONGELAMENTO_E14.md
+evoluzione/audit/archivi_zenodo.py
+paper1-freeze-20261030k..paper1-freeze-20261030l A
+paper1-freeze-20261030l..paper1-freeze-20261030l-pub M
 ```
 
-**C-main-TAG-042** · `CONGELAMENTO_E14B.md` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-042** · `evoluzione/audit/manifesto_zenodo.py` · 2 tag pair(s)
 
 ```
-CONGELAMENTO_E14B.md: numstat 354	0	CONGELAMENTO_E14B.md
+evoluzione/audit/manifesto_zenodo.py
+paper1-freeze-20261028j..paper1-freeze-20261030k A
+paper1-freeze-20261103p..paper1-freeze-20261103q M
 ```
 
-**C-main-TAG-043** · `analysis/impronte.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-043** · `evoluzione/audit/massimi_e14b.py` · 3 tag pair(s)
 
 ```
-analysis/impronte.py: numstat 25	12	analysis/impronte.py
+evoluzione/audit/massimi_e14b.py
+paper1-freeze-20261030k..paper1-freeze-20261030l A
+paper1-freeze-20261030l-pub3..paper1-freeze-20261101m M
+paper1-freeze-20261101n..paper1-freeze-20261101o M
 ```
 
-**C-main-TAG-044** · `analysis/main.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-044** · `evoluzione/audit/metadati_audit.py` · 1 tag pair(s)
 
 ```
-analysis/main.py: numstat 33	5	analysis/main.py
+evoluzione/audit/metadati_audit.py
+paper1-freeze-20261010..paper1-freeze-20261010b A
 ```
 
-**C-main-TAG-045** · `analysis/rigenerazione/CONFRONTO.md` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-045** · `evoluzione/audit/patch/README.md` · 1 tag pair(s)
 
 ```
-analysis/rigenerazione/CONFRONTO.md: numstat 84	41	analysis/rigenerazione/CONFRONTO.md
+evoluzione/audit/patch/README.md
+paper1-freeze-20261030k..paper1-freeze-20261030l A
 ```
 
-**C-main-TAG-046** · `analysis/tabelle_suppl.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-046** · `evoluzione/audit/patch/patch_attributo_distanza.py` · 1 tag pair(s)
 
 ```
-analysis/tabelle_suppl.py: numstat 166	0	analysis/tabelle_suppl.py
+evoluzione/audit/patch/patch_attributo_distanza.py
+paper1-freeze-20261030k..paper1-freeze-20261030l R
 ```
 
-**C-main-TAG-047** · `evoluzione/analisi/correzione_difetto_23.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-047** · `evoluzione/audit/patch/patch_e14_massimi.py` · 1 tag pair(s)
 
 ```
-evoluzione/analisi/correzione_difetto_23.py: numstat 95	0	evoluzione/analisi/correzione_difetto_23.py
+evoluzione/audit/patch/patch_e14_massimi.py
+paper1-freeze-20261030l-pub3..paper1-freeze-20261101m A
 ```
 
-**C-main-TAG-048** · `evoluzione/analisi/e14_stadio0.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-048** · `evoluzione/audit/patch/patch_e14_massimi_2.py` · 1 tag pair(s)
 
 ```
-evoluzione/analisi/e14_stadio0.py: numstat 163	0	evoluzione/analisi/e14_stadio0.py
+evoluzione/audit/patch/patch_e14_massimi_2.py
+paper1-freeze-20261101n..paper1-freeze-20261101o A
 ```
 
-**C-main-TAG-049** · `evoluzione/analisi/e14b_fascio.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-049** · `evoluzione/audit/patch/patch_e14b_adatta_F.py` · 1 tag pair(s)
 
 ```
-evoluzione/analisi/e14b_fascio.py: numstat 85	0	evoluzione/analisi/e14b_fascio.py
+evoluzione/audit/patch/patch_e14b_adatta_F.py
+paper1-freeze-20261030k..paper1-freeze-20261030l R
 ```
 
-**C-main-TAG-050** · `evoluzione/analisi/e14b_livelli.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-050** · `evoluzione/audit/patch/patch_e14b_ricostruzione.py` · 1 tag pair(s)
 
 ```
-evoluzione/analisi/e14b_livelli.py: numstat 130	0	evoluzione/analisi/e14b_livelli.py
+evoluzione/audit/patch/patch_e14b_ricostruzione.py
+paper1-freeze-20261030k..paper1-freeze-20261030l R
 ```
 
-**C-main-TAG-051** · `evoluzione/analisi/frequenze_classi.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-051** · `evoluzione/audit/patch/patch_e15.py` · 1 tag pair(s)
 
 ```
-evoluzione/analisi/frequenze_classi.py: numstat 41	17	evoluzione/analisi/frequenze_classi.py
+evoluzione/audit/patch/patch_e15.py
+paper1-freeze-20261030k..paper1-freeze-20261030l R
 ```
 
-**C-main-TAG-052** · `evoluzione/esperimenti/addestramento.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-052** · `evoluzione/audit/patch/patch_e15_main.py` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/addestramento.py: numstat 2	3	evoluzione/esperimenti/addestramento.py
+evoluzione/audit/patch/patch_e15_main.py
+paper1-freeze-20261030k..paper1-freeze-20261030l R
 ```
 
-**C-main-TAG-053** · `evoluzione/esperimenti/collauda_protocolli.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-053** · `evoluzione/audit/patch/patch_e18_e16.py` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/collauda_protocolli.py: numstat 5	0	evoluzione/esperimenti/collauda_protocolli.py
+evoluzione/audit/patch/patch_e18_e16.py
+paper1-freeze-20261030k..paper1-freeze-20261030l R
 ```
 
-**C-main-TAG-054** · `evoluzione/esperimenti/costi_e4.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-054** · `evoluzione/audit/patch/patch_e18_main.py` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/costi_e4.py: numstat 5	1	evoluzione/esperimenti/costi_e4.py
+evoluzione/audit/patch/patch_e18_main.py
+paper1-freeze-20261030k..paper1-freeze-20261030l R
 ```
 
-**C-main-TAG-055** · `evoluzione/esperimenti/e14b_prepara_copia.sh` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-055** · `evoluzione/audit/patch/patch_e18quater_cat.py` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/e14b_prepara_copia.sh: numstat 67	0	evoluzione/esperimenti/e14b_prepara_copia.sh
+evoluzione/audit/patch/patch_e18quater_cat.py
+paper1-freeze-20261101o..paper1-freeze-20261103p A
 ```
 
-**C-main-TAG-056** · `evoluzione/esperimenti/esegui_E.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-056** · `evoluzione/audit/patch/patch_e18quater_main.py` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/esegui_E.py: numstat 3	0	evoluzione/esperimenti/esegui_E.py
+evoluzione/audit/patch/patch_e18quater_main.py
+paper1-freeze-20261101o..paper1-freeze-20261103p A
 ```
 
-**C-main-TAG-057** · `evoluzione/esperimenti/esegui_e14.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-057** · `evoluzione/audit/patch/patch_e18ter_main.py` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/esegui_e14.py: numstat 296	0	evoluzione/esperimenti/esegui_e14.py
+evoluzione/audit/patch/patch_e18ter_main.py
+paper1-freeze-20261030k..paper1-freeze-20261030l A
 ```
 
-**C-main-TAG-058** · `evoluzione/esperimenti/esegui_e14b.sh` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-058** · `evoluzione/audit/patch/patch_e18ter_tabellaV.py` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/esegui_e14b.sh: numstat 125	0	evoluzione/esperimenti/esegui_e14b.sh
+evoluzione/audit/patch/patch_e18ter_tabellaV.py
+paper1-freeze-20261030k..paper1-freeze-20261030l A
 ```
 
-**C-main-TAG-059** · `evoluzione/esperimenti/esegui_e2.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-059** · `evoluzione/audit/patch/patch_e18ter_tabelle.py` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/esegui_e2.py: numstat 8	3	evoluzione/esperimenti/esegui_e2.py
+evoluzione/audit/patch/patch_e18ter_tabelle.py
+paper1-freeze-20261030k..paper1-freeze-20261030l A
 ```
 
-**C-main-TAG-060** · `evoluzione/esperimenti/esegui_e4.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-060** · `evoluzione/audit/patch/patch_e3_riviste.py` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/esegui_e4.py: numstat 5	2	evoluzione/esperimenti/esegui_e4.py
+evoluzione/audit/patch/patch_e3_riviste.py
+paper1-freeze-20261030k..paper1-freeze-20261030l R
 ```
 
-**C-main-TAG-061** · `evoluzione/esperimenti/esegui_e5.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-061** · `evoluzione/audit/patch/patch_e3bis_costi.py` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/esegui_e5.py: numstat 7	4	evoluzione/esperimenti/esegui_e5.py
+evoluzione/audit/patch/patch_e3bis_costi.py
+paper1-freeze-20261030k..paper1-freeze-20261030l R
 ```
 
-**C-main-TAG-062** · `evoluzione/esperimenti/esegui_e6.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-062** · `evoluzione/audit/patch/patch_e5_prosa.py` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/esegui_e6.py: numstat 9	0	evoluzione/esperimenti/esegui_e6.py
+evoluzione/audit/patch/patch_e5_prosa.py
+paper1-freeze-20261030k..paper1-freeze-20261030l R
 ```
 
-**C-main-TAG-063** · `evoluzione/esperimenti/esegui_e6a.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-063** · `evoluzione/audit/patch/patch_e6_origini.py` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/esegui_e6a.py: numstat 7	0	evoluzione/esperimenti/esegui_e6a.py
+evoluzione/audit/patch/patch_e6_origini.py
+paper1-freeze-20261030k..paper1-freeze-20261030l R
 ```
 
-**C-main-TAG-064** · `evoluzione/esperimenti/esegui_e8.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-064** · `evoluzione/audit/patch/patch_g18_21.py` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/esegui_e8.py: numstat 6	2	evoluzione/esperimenti/esegui_e8.py
+evoluzione/audit/patch/patch_g18_21.py
+paper1-freeze-20261030k..paper1-freeze-20261030l A
 ```
 
-**C-main-TAG-065** · `evoluzione/esperimenti/esegui_f0.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-065** · `evoluzione/audit/patch/patch_g23.py` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/esegui_f0.py: numstat 7	2	evoluzione/esperimenti/esegui_f0.py
+evoluzione/audit/patch/patch_g23.py
+paper1-freeze-20261030k..paper1-freeze-20261030l A
 ```
 
-**C-main-TAG-066** · `evoluzione/esperimenti/esegui_inserimento.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-066** · `evoluzione/audit/patch/patch_l_didascalie.py` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/esegui_inserimento.py: numstat 3	0	evoluzione/esperimenti/esegui_inserimento.py
+evoluzione/audit/patch/patch_l_didascalie.py
+paper1-freeze-20261030k..paper1-freeze-20261030l A
 ```
 
-**C-main-TAG-067** · `evoluzione/esperimenti/esegui_refresh.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-067** · `evoluzione/audit/patch/patch_limite_d.py` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/esegui_refresh.py: numstat 5	1	evoluzione/esperimenti/esegui_refresh.py
+evoluzione/audit/patch/patch_limite_d.py
+paper1-freeze-20261030l-pub3..paper1-freeze-20261101m R
 ```
 
-**C-main-TAG-068** · `evoluzione/esperimenti/inserimento.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-068** · `evoluzione/audit/patch/patch_main_solo_testo.py` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/inserimento.py: numstat 92	4	evoluzione/esperimenti/inserimento.py
+evoluzione/audit/patch/patch_main_solo_testo.py
+paper1-freeze-20261101m..paper1-freeze-20261101m2 A
 ```
 
-**C-main-TAG-069** · `evoluzione/esperimenti/ricostruisci_predizioni.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-069** · `evoluzione/audit/patch/patch_manifesto_nota.py` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/ricostruisci_predizioni.py: numstat 13	4	evoluzione/esperimenti/ricostruisci_predizioni.py
+evoluzione/audit/patch/patch_manifesto_nota.py
+paper1-freeze-20261103p..paper1-freeze-20261103q A
 ```
 
-**C-main-TAG-070** · `evoluzione/esperimenti/riselezione_rmon_test.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-070** · `evoluzione/audit/patch/patch_metrics.py` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/riselezione_rmon_test.py: numstat 5	2	evoluzione/esperimenti/riselezione_rmon_test.py
+evoluzione/audit/patch/patch_metrics.py
+paper1-freeze-20261030k..paper1-freeze-20261030l R
 ```
 
-**C-main-TAG-071** · `evoluzione/esperimenti/seleziona_F.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-071** · `evoluzione/audit/patch/patch_priore_calibrato.py` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/seleziona_F.py: numstat 5	3	evoluzione/esperimenti/seleziona_F.py
+evoluzione/audit/patch/patch_priore_calibrato.py
+paper1-freeze-20261030k..paper1-freeze-20261030l R
 ```
 
-**C-main-TAG-072** · `evoluzione/esperimenti/sensibilita_rho_e2.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-072** · `evoluzione/audit/patch/patch_registro_31.py` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/sensibilita_rho_e2.py: numstat 5	1	evoluzione/esperimenti/sensibilita_rho_e2.py
+evoluzione/audit/patch/patch_registro_31.py
+paper1-freeze-20261101o..paper1-freeze-20261103p A
 ```
 
-**C-main-TAG-073** · `evoluzione/esperimenti/veterani_e3.py` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-073** · `evoluzione/audit/patch/patch_statica_causale.py` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/veterani_e3.py: numstat 5	2	evoluzione/esperimenti/veterani_e3.py
+evoluzione/audit/patch/patch_statica_causale.py
+paper1-freeze-20261030k..paper1-freeze-20261030l R
 ```
 
-**C-main-TAG-074** · `protocol/E14.md` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-074** · `evoluzione/audit/patch/patch_statica_variante.py` · 1 tag pair(s)
 
 ```
-protocol/E14.md: numstat 91	0	protocol/E14.md
+evoluzione/audit/patch/patch_statica_variante.py
+paper1-freeze-20261030k..paper1-freeze-20261030l R
 ```
 
-**C-main-TAG-075** · `protocol/E6.md` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-075** · `evoluzione/audit/patch/patch_stats_friedman.py` · 1 tag pair(s)
 
 ```
-protocol/E6.md: numstat 17	0	protocol/E6.md
+evoluzione/audit/patch/patch_stats_friedman.py
+paper1-freeze-20261030k..paper1-freeze-20261030l R
 ```
 
-**C-main-TAG-076** · `protocol/e14_stadio0.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-076** · `evoluzione/audit/patch/patch_tempi_main.py` · 1 tag pair(s)
 
 ```
-protocol/e14_stadio0.json: numstat 2218	0	protocol/e14_stadio0.json
+evoluzione/audit/patch/patch_tempi_main.py
+paper1-freeze-20261030k..paper1-freeze-20261030l R
 ```
 
-**C-main-TAG-077** · `protocol/e14b/a/analisi_e3.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-077** · `evoluzione/audit/patch/patch_tolleranza_appaiamento.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/analisi_e3.json: numstat 1864	0	protocol/e14b/a/analisi_e3.json
+evoluzione/audit/patch/patch_tolleranza_appaiamento.py
+paper1-freeze-20261030k..paper1-freeze-20261030l R
 ```
 
-**C-main-TAG-078** · `protocol/e14b/a/congelamento_e2.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-078** · `evoluzione/audit/patch/patch_zenodo_regola.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/congelamento_e2.json: numstat 777	0	protocol/e14b/a/congelamento_e2.json
+evoluzione/audit/patch/patch_zenodo_regola.py
+paper1-freeze-20261103p..paper1-freeze-20261103q A
 ```
 
-**C-main-TAG-079** · `protocol/e14b/a/congelamento_e3.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-079** · `evoluzione/audit/ripartizione_results.py` · 2 tag pair(s)
 
 ```
-protocol/e14b/a/congelamento_e3.json: numstat 3244	0	protocol/e14b/a/congelamento_e3.json
+evoluzione/audit/ripartizione_results.py
+paper1-freeze-20261028j..paper1-freeze-20261030k A
+paper1-freeze-20261103p..paper1-freeze-20261103q M
 ```
 
-**C-main-TAG-080** · `protocol/e14b/a/congelamento_e3bis.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-080** · `evoluzione/audit/verifica_ingressi_e18.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/congelamento_e3bis.json: numstat 676	0	protocol/e14b/a/congelamento_e3bis.json
+evoluzione/audit/verifica_ingressi_e18.py
+paper1-freeze-20261028j..paper1-freeze-20261030k A
 ```
 
-**C-main-TAG-081** · `protocol/e14b/a/congelamento_e4.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-081** · `evoluzione/componente/bracci.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/congelamento_e4.json: numstat 8069	0	protocol/e14b/a/congelamento_e4.json
+evoluzione/componente/bracci.py
+paper1-freeze-20261015h..paper1-freeze-20261028i M
 ```
 
-**C-main-TAG-082** · `protocol/e14b/a/congelamento_e5.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-082** · `evoluzione/componente/episodio.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/congelamento_e5.json: numstat 2073	0	protocol/e14b/a/congelamento_e5.json
+evoluzione/componente/episodio.py
+paper1-freeze-20261015h..paper1-freeze-20261028i M
 ```
 
-**C-main-TAG-083** · `protocol/e14b/a/congelamento_e7.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-083** · `evoluzione/componente/valutazione.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/congelamento_e7.json: numstat 2165	0	protocol/e14b/a/congelamento_e7.json
+evoluzione/componente/valutazione.py
+paper1-freeze-20261015h..paper1-freeze-20261028i M
 ```
 
-**C-main-TAG-084** · `protocol/e14b/a/copertura_e4.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-084** · `evoluzione/esperimenti/addestramento.py` · 2 tag pair(s)
 
 ```
-protocol/e14b/a/copertura_e4.json: numstat 5832	0	protocol/e14b/a/copertura_e4.json
+evoluzione/esperimenti/addestramento.py
+paper1-freeze-20261012e..paper1-freeze-20261015f M
+paper1-freeze-20261015h..paper1-freeze-20261028i M
 ```
 
-**C-main-TAG-085** · `protocol/e14b/a/curve_e8bis_punti.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-085** · `evoluzione/esperimenti/collauda_bracci.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/curve_e8bis_punti.json: numstat 1596	0	protocol/e14b/a/curve_e8bis_punti.json
+evoluzione/esperimenti/collauda_bracci.py
+paper1-freeze-20261015h..paper1-freeze-20261028i M
 ```
 
-**C-main-TAG-086** · `protocol/e14b/a/e14b_livelli_a.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-086** · `evoluzione/esperimenti/collauda_protocolli.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/e14b_livelli_a.json: numstat 358	0	protocol/e14b/a/e14b_livelli_a.json
+evoluzione/esperimenti/collauda_protocolli.py
+paper1-freeze-20261012e..paper1-freeze-20261015f M
 ```
 
-**C-main-TAG-087** · `protocol/e14b/a/e3bis_risultati.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-087** · `evoluzione/esperimenti/collauda_statica_espansiva.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/e3bis_risultati.json: numstat 207	0	protocol/e14b/a/e3bis_risultati.json
+evoluzione/esperimenti/collauda_statica_espansiva.py
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-088** · `protocol/e14b/a/e4_griglia_test.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-088** · `evoluzione/esperimenti/costi_appaiati.py` · 3 tag pair(s)
 
 ```
-protocol/e14b/a/e4_griglia_test.json: numstat 80	0	protocol/e14b/a/e4_griglia_test.json
+evoluzione/esperimenti/costi_appaiati.py
+paper1-freeze-20261010..paper1-freeze-20261010b A
+paper1-freeze-20261010b..paper1-freeze-20261010c M
+paper1-freeze-20261010e..paper1-freeze-20261011 M
 ```
 
-**C-main-TAG-089** · `protocol/e14b/a/e4_risultati.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-089** · `evoluzione/esperimenti/costi_e4.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/e4_risultati.json: numstat 1539	0	protocol/e14b/a/e4_risultati.json
+evoluzione/esperimenti/costi_e4.py
+paper1-freeze-20261012e..paper1-freeze-20261015f M
 ```
 
-**C-main-TAG-090** · `protocol/e14b/a/e4_scelta_gated.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-090** · `evoluzione/esperimenti/costi_sessione.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/e4_scelta_gated.json: numstat 95	0	protocol/e14b/a/e4_scelta_gated.json
+evoluzione/esperimenti/costi_sessione.py
+paper1-freeze-20261010e..paper1-freeze-20261011 A
 ```
 
-**C-main-TAG-091** · `protocol/e14b/a/e5_k_secondaria.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-091** · `evoluzione/esperimenti/e14b_prepara_copia.sh` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/e5_k_secondaria.json: numstat 36	0	protocol/e14b/a/e5_k_secondaria.json
+evoluzione/esperimenti/e14b_prepara_copia.sh
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-092** · `protocol/e14b/a/e5_risultati.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-092** · `evoluzione/esperimenti/esegui_E.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/e5_risultati.json: numstat 1075	0	protocol/e14b/a/e5_risultati.json
+evoluzione/esperimenti/esegui_E.py
+paper1-freeze-20261012e..paper1-freeze-20261015f M
 ```
 
-**C-main-TAG-093** · `protocol/e14b/a/e5_settimana_vs_A.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-093** · `evoluzione/esperimenti/esegui_e14.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/e5_settimana_vs_A.json: numstat 149	0	protocol/e14b/a/e5_settimana_vs_A.json
+evoluzione/esperimenti/esegui_e14.py
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-094** · `protocol/e14b/a/e6_origini_comuni.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-094** · `evoluzione/esperimenti/esegui_e14b.sh` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/e6_origini_comuni.json: numstat 19	0	protocol/e14b/a/e6_origini_comuni.json
+evoluzione/esperimenti/esegui_e14b.sh
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-095** · `protocol/e14b/a/e6_risultati.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-095** · `evoluzione/esperimenti/esegui_e15.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/e6_risultati.json: numstat 170	0	protocol/e14b/a/e6_risultati.json
+evoluzione/esperimenti/esegui_e15.py
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-096** · `protocol/e14b/a/e6_scelta_gated.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-096** · `evoluzione/esperimenti/esegui_e16.py` · 2 tag pair(s)
 
 ```
-protocol/e14b/a/e6_scelta_gated.json: numstat 51	0	protocol/e14b/a/e6_scelta_gated.json
+evoluzione/esperimenti/esegui_e16.py
+paper1-freeze-20261015h..paper1-freeze-20261028i A
+paper1-freeze-20261028j..paper1-freeze-20261030k M
 ```
 
-**C-main-TAG-097** · `protocol/e14b/a/e6a_risultati.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-097** · `evoluzione/esperimenti/esegui_e18quater.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/e6a_risultati.json: numstat 124	0	protocol/e14b/a/e6a_risultati.json
+evoluzione/esperimenti/esegui_e18quater.py
+paper1-freeze-20261101o..paper1-freeze-20261103p A
 ```
 
-**C-main-TAG-098** · `protocol/e14b/a/e6a_scelta_gated.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-098** · `evoluzione/esperimenti/esegui_e2.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/e6a_scelta_gated.json: numstat 50	0	protocol/e14b/a/e6a_scelta_gated.json
+evoluzione/esperimenti/esegui_e2.py
+paper1-freeze-20261012e..paper1-freeze-20261015f M
 ```
 
-**C-main-TAG-099** · `protocol/e14b/a/e6bis_risultati.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-099** · `evoluzione/esperimenti/esegui_e4.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/e6bis_risultati.json: numstat 63	0	protocol/e14b/a/e6bis_risultati.json
+evoluzione/esperimenti/esegui_e4.py
+paper1-freeze-20261012e..paper1-freeze-20261015f M
 ```
 
-**C-main-TAG-100** · `protocol/e14b/a/e7_posthoc.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-100** · `evoluzione/esperimenti/esegui_e5.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/e7_posthoc.json: numstat 368	0	protocol/e14b/a/e7_posthoc.json
+evoluzione/esperimenti/esegui_e5.py
+paper1-freeze-20261012e..paper1-freeze-20261015f M
 ```
 
-**C-main-TAG-101** · `protocol/e14b/a/e7_stadio1.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-101** · `evoluzione/esperimenti/esegui_e6.py` · 2 tag pair(s)
 
 ```
-protocol/e14b/a/e7_stadio1.json: numstat 1788	0	protocol/e14b/a/e7_stadio1.json
+evoluzione/esperimenti/esegui_e6.py
+paper1-freeze-20261010d..paper1-freeze-20261010e M
+paper1-freeze-20261012e..paper1-freeze-20261015f M
 ```
 
-**C-main-TAG-102** · `protocol/e14b/a/e8_risultati.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-102** · `evoluzione/esperimenti/esegui_e6a.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/e8_risultati.json: numstat 4923	0	protocol/e14b/a/e8_risultati.json
+evoluzione/esperimenti/esegui_e6a.py
+paper1-freeze-20261012e..paper1-freeze-20261015f M
 ```
 
-**C-main-TAG-103** · `protocol/e14b/a/e8_soglie.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-103** · `evoluzione/esperimenti/esegui_e8.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/e8_soglie.json: numstat 353	0	protocol/e14b/a/e8_soglie.json
+evoluzione/esperimenti/esegui_e8.py
+paper1-freeze-20261012e..paper1-freeze-20261015f M
 ```
 
-**C-main-TAG-104** · `protocol/e14b/a/e8bis_risultati.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-104** · `evoluzione/esperimenti/esegui_f0.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/e8bis_risultati.json: numstat 2416	0	protocol/e14b/a/e8bis_risultati.json
+evoluzione/esperimenti/esegui_f0.py
+paper1-freeze-20261012e..paper1-freeze-20261015f M
 ```
 
-**C-main-TAG-105** · `protocol/e14b/a/manifesto.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-105** · `evoluzione/esperimenti/esegui_inserimento.py` · 2 tag pair(s)
 
 ```
-protocol/e14b/a/manifesto.json: numstat 48	0	protocol/e14b/a/manifesto.json
+evoluzione/esperimenti/esegui_inserimento.py
+paper1-freeze-20261010c..paper1-freeze-20261010d M
+paper1-freeze-20261012e..paper1-freeze-20261015f M
 ```
 
-**C-main-TAG-106** · `protocol/e14b/a/predizioni_e2/controllo_e2.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-106** · `evoluzione/esperimenti/esegui_refresh.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/predizioni_e2/controllo_e2.json: numstat 5736	0	protocol/e14b/a/predizioni_e2/controllo_e2.json
+evoluzione/esperimenti/esegui_refresh.py
+paper1-freeze-20261012e..paper1-freeze-20261015f M
 ```
 
-**C-main-TAG-107** · `protocol/e14b/a/predizioni_f0/controllo_f0.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-107** · `evoluzione/esperimenti/inserimento.py` · 2 tag pair(s)
 
 ```
-protocol/e14b/a/predizioni_f0/controllo_f0.json: numstat 1518	0	protocol/e14b/a/predizioni_f0/controllo_f0.json
+evoluzione/esperimenti/inserimento.py
+paper1-freeze-20261012e..paper1-freeze-20261015f M
+paper1-freeze-20261015h..paper1-freeze-20261028i M
 ```
 
-**C-main-TAG-108** · `protocol/e14b/a/predizioni_fase3/controllo_A.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-108** · `evoluzione/esperimenti/pilota_tempi_e15.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/predizioni_fase3/controllo_A.json: numstat 1522	0	protocol/e14b/a/predizioni_fase3/controllo_A.json
+evoluzione/esperimenti/pilota_tempi_e15.py
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-109** · `protocol/e14b/a/predizioni_fase3/controllo_C.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-109** · `evoluzione/esperimenti/ricognizione_paper4.sh` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/predizioni_fase3/controllo_C.json: numstat 1522	0	protocol/e14b/a/predizioni_fase3/controllo_C.json
+evoluzione/esperimenti/ricognizione_paper4.sh
+paper1-freeze-20261010..paper1-freeze-20261010b A
 ```
 
-**C-main-TAG-110** · `protocol/e14b/a/predizioni_fase3/controllo_F.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-110** · `evoluzione/esperimenti/ricognizione_paper4_log.sh` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/predizioni_fase3/controllo_F.json: numstat 1522	0	protocol/e14b/a/predizioni_fase3/controllo_F.json
+evoluzione/esperimenti/ricognizione_paper4_log.sh
+paper1-freeze-20261010..paper1-freeze-20261010b A
 ```
 
-**C-main-TAG-111** · `protocol/e14b/a/predizioni_fase3/controllo_P.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-111** · `evoluzione/esperimenti/ricostruisci_predizioni.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/predizioni_fase3/controllo_P.json: numstat 1522	0	protocol/e14b/a/predizioni_fase3/controllo_P.json
+evoluzione/esperimenti/ricostruisci_predizioni.py
+paper1-freeze-20261012e..paper1-freeze-20261015f M
 ```
 
-**C-main-TAG-112** · `protocol/e14b/a/predizioni_fase3/controllo_R-mon.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-112** · `evoluzione/esperimenti/riselezione_rmon_test.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/predizioni_fase3/controllo_R-mon.json: numstat 1522	0	protocol/e14b/a/predizioni_fase3/controllo_R-mon.json
+evoluzione/esperimenti/riselezione_rmon_test.py
+paper1-freeze-20261012e..paper1-freeze-20261015f M
 ```
 
-**C-main-TAG-113** · `protocol/e14b/a/predizioni_fase3/controllo_R-orig.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-113** · `evoluzione/esperimenti/seleziona_F.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/predizioni_fase3/controllo_R-orig.json: numstat 1522	0	protocol/e14b/a/predizioni_fase3/controllo_R-orig.json
+evoluzione/esperimenti/seleziona_F.py
+paper1-freeze-20261012e..paper1-freeze-20261015f M
 ```
 
-**C-main-TAG-114** · `protocol/e14b/a/predizioni_fase3/controllo_R.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-114** · `evoluzione/esperimenti/sensibilita_rho_e2.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/predizioni_fase3/controllo_R.json: numstat 1522	0	protocol/e14b/a/predizioni_fase3/controllo_R.json
+evoluzione/esperimenti/sensibilita_rho_e2.py
+paper1-freeze-20261012e..paper1-freeze-20261015f M
 ```
 
-**C-main-TAG-115** · `protocol/e14b/a/predizioni_fase3_672/controllo_R-orig.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-115** · `evoluzione/esperimenti/veterani_e3.py` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/predizioni_fase3_672/controllo_R-orig.json: numstat 1522	0	protocol/e14b/a/predizioni_fase3_672/controllo_R-orig.json
+evoluzione/esperimenti/veterani_e3.py
+paper1-freeze-20261012e..paper1-freeze-20261015f M
 ```
 
-**C-main-TAG-116** · `protocol/e14b/a/riselezione_rmon_test.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-116** · `protocol/E14.md` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/riselezione_rmon_test.json: numstat 79	0	protocol/e14b/a/riselezione_rmon_test.json
+protocol/E14.md
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-117** · `protocol/e14b/a/veterani_e3.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-117** · `protocol/E15.md` · 1 tag pair(s)
 
 ```
-protocol/e14b/a/veterani_e3.json: numstat 140	0	protocol/e14b/a/veterani_e3.json
+protocol/E15.md
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-118** · `protocol/e14b/c/analisi_e3.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-118** · `protocol/E16.md` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/analisi_e3.json: numstat 1864	0	protocol/e14b/c/analisi_e3.json
+protocol/E16.md
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-119** · `protocol/e14b/c/congelamento_e2.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-119** · `protocol/E17.md` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/congelamento_e2.json: numstat 777	0	protocol/e14b/c/congelamento_e2.json
+protocol/E17.md
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-120** · `protocol/e14b/c/congelamento_e3.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-120** · `protocol/E18.md` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/congelamento_e3.json: numstat 3244	0	protocol/e14b/c/congelamento_e3.json
+protocol/E18.md
+paper1-freeze-20261028j..paper1-freeze-20261030k A
 ```
 
-**C-main-TAG-121** · `protocol/e14b/c/congelamento_e3bis.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-121** · `protocol/E18quater.md` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/congelamento_e3bis.json: numstat 676	0	protocol/e14b/c/congelamento_e3bis.json
+protocol/E18quater.md
+paper1-freeze-20261101o..paper1-freeze-20261103p A
 ```
 
-**C-main-TAG-122** · `protocol/e14b/c/congelamento_e4.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-122** · `protocol/E18ter.md` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/congelamento_e4.json: numstat 8069	0	protocol/e14b/c/congelamento_e4.json
+protocol/E18ter.md
+paper1-freeze-20261030k..paper1-freeze-20261030l A
 ```
 
-**C-main-TAG-123** · `protocol/e14b/c/congelamento_e5.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-123** · `protocol/E6.md` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/congelamento_e5.json: numstat 2073	0	protocol/e14b/c/congelamento_e5.json
+protocol/E6.md
+paper1-freeze-20261012e..paper1-freeze-20261015f M
 ```
 
-**C-main-TAG-124** · `protocol/e14b/c/congelamento_e7.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-124** · `protocol/REGISTRO_CORREZIONI.md` · 3 tag pair(s)
 
 ```
-protocol/e14b/c/congelamento_e7.json: numstat 2159	0	protocol/e14b/c/congelamento_e7.json
+protocol/REGISTRO_CORREZIONI.md
+paper1-freeze-20261028j..paper1-freeze-20261030k A
+paper1-freeze-20261030l..paper1-freeze-20261030l-pub M
+paper1-freeze-20261101o..paper1-freeze-20261103p M
 ```
 
-**C-main-TAG-125** · `protocol/e14b/c/copertura_e4.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-125** · `protocol/RISCRITTURA_STORIA.md` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/copertura_e4.json: numstat 5832	0	protocol/e14b/c/copertura_e4.json
+protocol/RISCRITTURA_STORIA.md
+paper1-freeze-20261030l..paper1-freeze-20261030l-pub A
 ```
 
-**C-main-TAG-126** · `protocol/e14b/c/curve_e8bis_punti.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-126** · `protocol/SUMMARIES.en.md` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/curve_e8bis_punti.json: numstat 1596	0	protocol/e14b/c/curve_e8bis_punti.json
+protocol/SUMMARIES.en.md
+paper1-freeze-20261028j..paper1-freeze-20261030k A
 ```
 
-**C-main-TAG-127** · `protocol/e14b/c/e14b_livelli_c.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-127** · `protocol/e14_stadio0.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/e14b_livelli_c.json: numstat 358	0	protocol/e14b/c/e14b_livelli_c.json
+protocol/e14_stadio0.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-128** · `protocol/e14b/c/e3bis_risultati.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-128** · `protocol/e14b/MASSIMI_DELTA.md` · 3 tag pair(s)
 
 ```
-protocol/e14b/c/e3bis_risultati.json: numstat 207	0	protocol/e14b/c/e3bis_risultati.json
+protocol/e14b/MASSIMI_DELTA.md
+paper1-freeze-20261030k..paper1-freeze-20261030l A
+paper1-freeze-20261030l-pub3..paper1-freeze-20261101m M
+paper1-freeze-20261101n..paper1-freeze-20261101o M
 ```
 
-**C-main-TAG-129** · `protocol/e14b/c/e4_griglia_test.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-129** · `protocol/e14b/a/analisi_e3.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/e4_griglia_test.json: numstat 80	0	protocol/e14b/c/e4_griglia_test.json
+protocol/e14b/a/analisi_e3.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-130** · `protocol/e14b/c/e4_risultati.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-130** · `protocol/e14b/a/congelamento_e2.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/e4_risultati.json: numstat 1539	0	protocol/e14b/c/e4_risultati.json
+protocol/e14b/a/congelamento_e2.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-131** · `protocol/e14b/c/e4_scelta_gated.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-131** · `protocol/e14b/a/congelamento_e3.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/e4_scelta_gated.json: numstat 95	0	protocol/e14b/c/e4_scelta_gated.json
+protocol/e14b/a/congelamento_e3.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-132** · `protocol/e14b/c/e5_k_secondaria.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-132** · `protocol/e14b/a/congelamento_e3bis.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/e5_k_secondaria.json: numstat 36	0	protocol/e14b/c/e5_k_secondaria.json
+protocol/e14b/a/congelamento_e3bis.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-133** · `protocol/e14b/c/e5_risultati.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-133** · `protocol/e14b/a/congelamento_e4.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/e5_risultati.json: numstat 1075	0	protocol/e14b/c/e5_risultati.json
+protocol/e14b/a/congelamento_e4.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-134** · `protocol/e14b/c/e5_settimana_vs_A.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-134** · `protocol/e14b/a/congelamento_e5.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/e5_settimana_vs_A.json: numstat 149	0	protocol/e14b/c/e5_settimana_vs_A.json
+protocol/e14b/a/congelamento_e5.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-135** · `protocol/e14b/c/e6_origini_comuni.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-135** · `protocol/e14b/a/congelamento_e7.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/e6_origini_comuni.json: numstat 19	0	protocol/e14b/c/e6_origini_comuni.json
+protocol/e14b/a/congelamento_e7.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-136** · `protocol/e14b/c/e6_risultati.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-136** · `protocol/e14b/a/copertura_e4.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/e6_risultati.json: numstat 170	0	protocol/e14b/c/e6_risultati.json
+protocol/e14b/a/copertura_e4.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-137** · `protocol/e14b/c/e6_scelta_gated.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-137** · `protocol/e14b/a/curve_e8bis_punti.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/e6_scelta_gated.json: numstat 51	0	protocol/e14b/c/e6_scelta_gated.json
+protocol/e14b/a/curve_e8bis_punti.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-138** · `protocol/e14b/c/e6a_risultati.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-138** · `protocol/e14b/a/e14b_livelli_a.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/e6a_risultati.json: numstat 124	0	protocol/e14b/c/e6a_risultati.json
+protocol/e14b/a/e14b_livelli_a.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-139** · `protocol/e14b/c/e6a_scelta_gated.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-139** · `protocol/e14b/a/e3bis_risultati.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/e6a_scelta_gated.json: numstat 50	0	protocol/e14b/c/e6a_scelta_gated.json
+protocol/e14b/a/e3bis_risultati.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-140** · `protocol/e14b/c/e6bis_risultati.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-140** · `protocol/e14b/a/e4_griglia_test.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/e6bis_risultati.json: numstat 63	0	protocol/e14b/c/e6bis_risultati.json
+protocol/e14b/a/e4_griglia_test.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-141** · `protocol/e14b/c/e7_posthoc.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-141** · `protocol/e14b/a/e4_risultati.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/e7_posthoc.json: numstat 365	0	protocol/e14b/c/e7_posthoc.json
+protocol/e14b/a/e4_risultati.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-142** · `protocol/e14b/c/e7_stadio1.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-142** · `protocol/e14b/a/e4_scelta_gated.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/e7_stadio1.json: numstat 1785	0	protocol/e14b/c/e7_stadio1.json
+protocol/e14b/a/e4_scelta_gated.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-143** · `protocol/e14b/c/e8_risultati.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-143** · `protocol/e14b/a/e5_k_secondaria.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/e8_risultati.json: numstat 4923	0	protocol/e14b/c/e8_risultati.json
+protocol/e14b/a/e5_k_secondaria.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-144** · `protocol/e14b/c/e8_soglie.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-144** · `protocol/e14b/a/e5_risultati.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/e8_soglie.json: numstat 353	0	protocol/e14b/c/e8_soglie.json
+protocol/e14b/a/e5_risultati.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-145** · `protocol/e14b/c/e8bis_risultati.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-145** · `protocol/e14b/a/e5_settimana_vs_A.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/e8bis_risultati.json: numstat 2416	0	protocol/e14b/c/e8bis_risultati.json
+protocol/e14b/a/e5_settimana_vs_A.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-146** · `protocol/e14b/c/manifesto.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-146** · `protocol/e14b/a/e6_origini_comuni.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/manifesto.json: numstat 48	0	protocol/e14b/c/manifesto.json
+protocol/e14b/a/e6_origini_comuni.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-147** · `protocol/e14b/c/predizioni_e2/controllo_e2.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-147** · `protocol/e14b/a/e6_risultati.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/predizioni_e2/controllo_e2.json: numstat 5736	0	protocol/e14b/c/predizioni_e2/controllo_e2.json
+protocol/e14b/a/e6_risultati.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-148** · `protocol/e14b/c/predizioni_f0/controllo_f0.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-148** · `protocol/e14b/a/e6_scelta_gated.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/predizioni_f0/controllo_f0.json: numstat 1518	0	protocol/e14b/c/predizioni_f0/controllo_f0.json
+protocol/e14b/a/e6_scelta_gated.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-149** · `protocol/e14b/c/predizioni_fase3/controllo_A.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-149** · `protocol/e14b/a/e6a_risultati.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/predizioni_fase3/controllo_A.json: numstat 1522	0	protocol/e14b/c/predizioni_fase3/controllo_A.json
+protocol/e14b/a/e6a_risultati.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-150** · `protocol/e14b/c/predizioni_fase3/controllo_C.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-150** · `protocol/e14b/a/e6a_scelta_gated.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/predizioni_fase3/controllo_C.json: numstat 1522	0	protocol/e14b/c/predizioni_fase3/controllo_C.json
+protocol/e14b/a/e6a_scelta_gated.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-151** · `protocol/e14b/c/predizioni_fase3/controllo_F.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-151** · `protocol/e14b/a/e6bis_risultati.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/predizioni_fase3/controllo_F.json: numstat 1522	0	protocol/e14b/c/predizioni_fase3/controllo_F.json
+protocol/e14b/a/e6bis_risultati.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-152** · `protocol/e14b/c/predizioni_fase3/controllo_P.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-152** · `protocol/e14b/a/e7_posthoc.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/predizioni_fase3/controllo_P.json: numstat 1522	0	protocol/e14b/c/predizioni_fase3/controllo_P.json
+protocol/e14b/a/e7_posthoc.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-153** · `protocol/e14b/c/predizioni_fase3/controllo_R-mon.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-153** · `protocol/e14b/a/e7_stadio1.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/predizioni_fase3/controllo_R-mon.json: numstat 1522	0	protocol/e14b/c/predizioni_fase3/controllo_R-mon.json
+protocol/e14b/a/e7_stadio1.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-154** · `protocol/e14b/c/predizioni_fase3/controllo_R-orig.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-154** · `protocol/e14b/a/e8_risultati.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/predizioni_fase3/controllo_R-orig.json: numstat 1522	0	protocol/e14b/c/predizioni_fase3/controllo_R-orig.json
+protocol/e14b/a/e8_risultati.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-155** · `protocol/e14b/c/predizioni_fase3/controllo_R.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-155** · `protocol/e14b/a/e8_soglie.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/predizioni_fase3/controllo_R.json: numstat 1522	0	protocol/e14b/c/predizioni_fase3/controllo_R.json
+protocol/e14b/a/e8_soglie.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-156** · `protocol/e14b/c/predizioni_fase3_672/controllo_R-orig.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-156** · `protocol/e14b/a/e8bis_risultati.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/predizioni_fase3_672/controllo_R-orig.json: numstat 1522	0	protocol/e14b/c/predizioni_fase3_672/controllo_R-orig.json
+protocol/e14b/a/e8bis_risultati.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-157** · `protocol/e14b/c/riselezione_rmon_test.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-157** · `protocol/e14b/a/manifesto.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/riselezione_rmon_test.json: numstat 79	0	protocol/e14b/c/riselezione_rmon_test.json
+protocol/e14b/a/manifesto.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-158** · `protocol/e14b/c/veterani_e3.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-158** · `protocol/e14b/a/predizioni_e2/controllo_e2.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/c/veterani_e3.json: numstat 140	0	protocol/e14b/c/veterani_e3.json
+protocol/e14b/a/predizioni_e2/controllo_e2.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-159** · `protocol/e14b/congelata/e14b_livelli_congelata.json` · paper1-freeze-20261012e..paper1-freeze-20261015f
+**C-main-TAG-159** · `protocol/e14b/a/predizioni_f0/controllo_f0.json` · 1 tag pair(s)
 
 ```
-protocol/e14b/congelata/e14b_livelli_congelata.json: numstat 358	0	protocol/e14b/congelata/e14b_livelli_congelata.json
+protocol/e14b/a/predizioni_f0/controllo_f0.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-160** · `analysis/rigenerazione/CONFRONTO.md` · paper1-freeze-20261015f..paper1-freeze-20261015g
+**C-main-TAG-160** · `protocol/e14b/a/predizioni_fase3/controllo_A.json` · 1 tag pair(s)
 
 ```
-analysis/rigenerazione/CONFRONTO.md: numstat 1	1	analysis/rigenerazione/CONFRONTO.md
+protocol/e14b/a/predizioni_fase3/controllo_A.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-161** · `analysis/main.py` · paper1-freeze-20261015g..paper1-freeze-20261015h
+**C-main-TAG-161** · `protocol/e14b/a/predizioni_fase3/controllo_C.json` · 1 tag pair(s)
 
 ```
-analysis/main.py: numstat 3	1	analysis/main.py
+protocol/e14b/a/predizioni_fase3/controllo_C.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-162** · `analysis/rigenerazione/CONFRONTO.md` · paper1-freeze-20261015g..paper1-freeze-20261015h
+**C-main-TAG-162** · `protocol/e14b/a/predizioni_fase3/controllo_F.json` · 1 tag pair(s)
 
 ```
-analysis/rigenerazione/CONFRONTO.md: numstat 7	3	analysis/rigenerazione/CONFRONTO.md
+protocol/e14b/a/predizioni_fase3/controllo_F.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-163** · `evoluzione/analisi/figura_rete.py` · paper1-freeze-20261015g..paper1-freeze-20261015h
+**C-main-TAG-163** · `protocol/e14b/a/predizioni_fase3/controllo_P.json` · 1 tag pair(s)
 
 ```
-evoluzione/analisi/figura_rete.py: numstat 239	0	evoluzione/analisi/figura_rete.py
+protocol/e14b/a/predizioni_fase3/controllo_P.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-164** · `CONGELAMENTO_E15.md` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-164** · `protocol/e14b/a/predizioni_fase3/controllo_R-mon.json` · 1 tag pair(s)
 
 ```
-CONGELAMENTO_E15.md: numstat 420	0	CONGELAMENTO_E15.md
+protocol/e14b/a/predizioni_fase3/controllo_R-mon.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-165** · `CONGELAMENTO_E16.md` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-165** · `protocol/e14b/a/predizioni_fase3/controllo_R-orig.json` · 1 tag pair(s)
 
 ```
-CONGELAMENTO_E16.md: numstat 224	0	CONGELAMENTO_E16.md
+protocol/e14b/a/predizioni_fase3/controllo_R-orig.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-166** · `CONGELAMENTO_E17.md` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-166** · `protocol/e14b/a/predizioni_fase3/controllo_R.json` · 1 tag pair(s)
 
 ```
-CONGELAMENTO_E17.md: numstat 88	0	CONGELAMENTO_E17.md
+protocol/e14b/a/predizioni_fase3/controllo_R.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-167** · `analysis/main.py` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-167** · `protocol/e14b/a/predizioni_fase3_672/controllo_R-orig.json` · 1 tag pair(s)
 
 ```
-analysis/main.py: numstat 17	1	analysis/main.py
+protocol/e14b/a/predizioni_fase3_672/controllo_R-orig.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-168** · `analysis/tabelle_paper1.py` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-168** · `protocol/e14b/a/riselezione_rmon_test.json` · 1 tag pair(s)
 
 ```
-analysis/tabelle_paper1.py: numstat 31	20	analysis/tabelle_paper1.py
+protocol/e14b/a/riselezione_rmon_test.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-169** · `analysis/tabelle_suppl.py` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-169** · `protocol/e14b/a/veterani_e3.json` · 1 tag pair(s)
 
 ```
-analysis/tabelle_suppl.py: numstat 195	10	analysis/tabelle_suppl.py
+protocol/e14b/a/veterani_e3.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-170** · `evoluzione/analisi/analizza_e17.py` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-170** · `protocol/e14b/c/analisi_e3.json` · 1 tag pair(s)
 
 ```
-evoluzione/analisi/analizza_e17.py: numstat 187	0	evoluzione/analisi/analizza_e17.py
+protocol/e14b/c/analisi_e3.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-171** · `evoluzione/analisi/analizza_e4.py` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-171** · `protocol/e14b/c/congelamento_e2.json` · 1 tag pair(s)
 
 ```
-evoluzione/analisi/analizza_e4.py: numstat 18	13	evoluzione/analisi/analizza_e4.py
+protocol/e14b/c/congelamento_e2.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-172** · `evoluzione/analisi/figura2_51.py` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-172** · `protocol/e14b/c/congelamento_e3.json` · 1 tag pair(s)
 
 ```
-evoluzione/analisi/figura2_51.py: numstat 6	0	evoluzione/analisi/figura2_51.py
+protocol/e14b/c/congelamento_e3.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-173** · `evoluzione/analisi/figura_cronologia.py` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-173** · `protocol/e14b/c/congelamento_e3bis.json` · 1 tag pair(s)
 
 ```
-evoluzione/analisi/figura_cronologia.py: numstat 121	0	evoluzione/analisi/figura_cronologia.py
+protocol/e14b/c/congelamento_e3bis.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-174** · `evoluzione/analisi/scheda_fatti.py` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-174** · `protocol/e14b/c/congelamento_e4.json` · 1 tag pair(s)
 
 ```
-evoluzione/analisi/scheda_fatti.py: numstat 306	0	evoluzione/analisi/scheda_fatti.py
+protocol/e14b/c/congelamento_e4.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-175** · `evoluzione/componente/bracci.py` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-175** · `protocol/e14b/c/congelamento_e5.json` · 1 tag pair(s)
 
 ```
-evoluzione/componente/bracci.py: numstat 6	0	evoluzione/componente/bracci.py
+protocol/e14b/c/congelamento_e5.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-176** · `evoluzione/componente/episodio.py` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-176** · `protocol/e14b/c/congelamento_e7.json` · 1 tag pair(s)
 
 ```
-evoluzione/componente/episodio.py: numstat 6	2	evoluzione/componente/episodio.py
+protocol/e14b/c/congelamento_e7.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-177** · `evoluzione/componente/valutazione.py` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-177** · `protocol/e14b/c/copertura_e4.json` · 1 tag pair(s)
 
 ```
-evoluzione/componente/valutazione.py: numstat 7	2	evoluzione/componente/valutazione.py
+protocol/e14b/c/copertura_e4.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-178** · `evoluzione/esperimenti/addestramento.py` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-178** · `protocol/e14b/c/curve_e8bis_punti.json` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/addestramento.py: numstat 3	1	evoluzione/esperimenti/addestramento.py
+protocol/e14b/c/curve_e8bis_punti.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-179** · `evoluzione/esperimenti/collauda_bracci.py` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-179** · `protocol/e14b/c/e14b_livelli_c.json` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/collauda_bracci.py: numstat 13	0	evoluzione/esperimenti/collauda_bracci.py
+protocol/e14b/c/e14b_livelli_c.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-180** · `evoluzione/esperimenti/collauda_statica_espansiva.py` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-180** · `protocol/e14b/c/e3bis_risultati.json` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/collauda_statica_espansiva.py: numstat 181	0	evoluzione/esperimenti/collauda_statica_espansiva.py
+protocol/e14b/c/e3bis_risultati.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-181** · `evoluzione/esperimenti/esegui_e15.py` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-181** · `protocol/e14b/c/e4_griglia_test.json` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/esegui_e15.py: numstat 894	0	evoluzione/esperimenti/esegui_e15.py
+protocol/e14b/c/e4_griglia_test.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-182** · `evoluzione/esperimenti/esegui_e16.py` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-182** · `protocol/e14b/c/e4_risultati.json` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/esegui_e16.py: numstat 369	0	evoluzione/esperimenti/esegui_e16.py
+protocol/e14b/c/e4_risultati.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-183** · `evoluzione/esperimenti/inserimento.py` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-183** · `protocol/e14b/c/e4_scelta_gated.json` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/inserimento.py: numstat 91	10	evoluzione/esperimenti/inserimento.py
+protocol/e14b/c/e4_scelta_gated.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-184** · `evoluzione/esperimenti/pilota_tempi_e15.py` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-184** · `protocol/e14b/c/e5_k_secondaria.json` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/pilota_tempi_e15.py: numstat 90	0	evoluzione/esperimenti/pilota_tempi_e15.py
+protocol/e14b/c/e5_k_secondaria.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-185** · `protocol/E15.md` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-185** · `protocol/e14b/c/e5_risultati.json` · 1 tag pair(s)
 
 ```
-protocol/E15.md: numstat 31	0	protocol/E15.md
+protocol/e14b/c/e5_risultati.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-186** · `protocol/E16.md` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-186** · `protocol/e14b/c/e5_settimana_vs_A.json` · 1 tag pair(s)
 
 ```
-protocol/E16.md: numstat 11	0	protocol/E16.md
+protocol/e14b/c/e5_settimana_vs_A.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-187** · `protocol/E17.md` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-187** · `protocol/e14b/c/e6_origini_comuni.json` · 1 tag pair(s)
 
 ```
-protocol/E17.md: numstat 13	0	protocol/E17.md
+protocol/e14b/c/e6_origini_comuni.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-188** · `protocol/e15/e15_risultati.json` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-188** · `protocol/e14b/c/e6_risultati.json` · 1 tag pair(s)
 
 ```
-protocol/e15/e15_risultati.json: numstat 2189	0	protocol/e15/e15_risultati.json
+protocol/e14b/c/e6_risultati.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-189** · `protocol/e15/tempi/A/A_Londra_p0_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-189** · `protocol/e14b/c/e6_scelta_gated.json` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Londra_p0_s201.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Londra_p0_s201.json.fatto
+protocol/e14b/c/e6_scelta_gated.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-190** · `protocol/e15/tempi/A/A_Londra_p0_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-190** · `protocol/e14b/c/e6a_risultati.json` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Londra_p0_s202.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Londra_p0_s202.json.fatto
+protocol/e14b/c/e6a_risultati.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-191** · `protocol/e15/tempi/A/A_Londra_p0_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-191** · `protocol/e14b/c/e6a_scelta_gated.json` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Londra_p0_s203.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Londra_p0_s203.json.fatto
+protocol/e14b/c/e6a_scelta_gated.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-192** · `protocol/e15/tempi/A/A_Londra_p0_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-192** · `protocol/e14b/c/e6bis_risultati.json` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Londra_p0_s204.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Londra_p0_s204.json.fatto
+protocol/e14b/c/e6bis_risultati.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-193** · `protocol/e15/tempi/A/A_Londra_p0_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-193** · `protocol/e14b/c/e7_posthoc.json` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Londra_p0_s205.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Londra_p0_s205.json.fatto
+protocol/e14b/c/e7_posthoc.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-194** · `protocol/e15/tempi/A/A_Londra_p0_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-194** · `protocol/e14b/c/e7_stadio1.json` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Londra_p0_s206.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Londra_p0_s206.json.fatto
+protocol/e14b/c/e7_stadio1.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-195** · `protocol/e15/tempi/A/A_Londra_p1_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-195** · `protocol/e14b/c/e8_risultati.json` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Londra_p1_s201.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Londra_p1_s201.json.fatto
+protocol/e14b/c/e8_risultati.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-196** · `protocol/e15/tempi/A/A_Londra_p1_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-196** · `protocol/e14b/c/e8_soglie.json` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Londra_p1_s202.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Londra_p1_s202.json.fatto
+protocol/e14b/c/e8_soglie.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-197** · `protocol/e15/tempi/A/A_Londra_p1_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-197** · `protocol/e14b/c/e8bis_risultati.json` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Londra_p1_s203.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Londra_p1_s203.json.fatto
+protocol/e14b/c/e8bis_risultati.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-198** · `protocol/e15/tempi/A/A_Londra_p1_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-198** · `protocol/e14b/c/manifesto.json` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Londra_p1_s204.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Londra_p1_s204.json.fatto
+protocol/e14b/c/manifesto.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-199** · `protocol/e15/tempi/A/A_Londra_p1_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-199** · `protocol/e14b/c/predizioni_e2/controllo_e2.json` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Londra_p1_s205.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Londra_p1_s205.json.fatto
+protocol/e14b/c/predizioni_e2/controllo_e2.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-200** · `protocol/e15/tempi/A/A_Londra_p1_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-200** · `protocol/e14b/c/predizioni_f0/controllo_f0.json` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Londra_p1_s206.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Londra_p1_s206.json.fatto
+protocol/e14b/c/predizioni_f0/controllo_f0.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-201** · `protocol/e15/tempi/A/A_Londra_p2_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-201** · `protocol/e14b/c/predizioni_fase3/controllo_A.json` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Londra_p2_s201.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Londra_p2_s201.json.fatto
+protocol/e14b/c/predizioni_fase3/controllo_A.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-202** · `protocol/e15/tempi/A/A_Londra_p2_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-202** · `protocol/e14b/c/predizioni_fase3/controllo_C.json` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Londra_p2_s202.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Londra_p2_s202.json.fatto
+protocol/e14b/c/predizioni_fase3/controllo_C.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-203** · `protocol/e15/tempi/A/A_Londra_p2_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-203** · `protocol/e14b/c/predizioni_fase3/controllo_F.json` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Londra_p2_s203.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Londra_p2_s203.json.fatto
+protocol/e14b/c/predizioni_fase3/controllo_F.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-204** · `protocol/e15/tempi/A/A_Londra_p2_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-204** · `protocol/e14b/c/predizioni_fase3/controllo_P.json` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Londra_p2_s204.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Londra_p2_s204.json.fatto
+protocol/e14b/c/predizioni_fase3/controllo_P.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-205** · `protocol/e15/tempi/A/A_Londra_p2_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-205** · `protocol/e14b/c/predizioni_fase3/controllo_R-mon.json` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Londra_p2_s205.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Londra_p2_s205.json.fatto
+protocol/e14b/c/predizioni_fase3/controllo_R-mon.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-206** · `protocol/e15/tempi/A/A_Londra_p2_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-206** · `protocol/e14b/c/predizioni_fase3/controllo_R-orig.json` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Londra_p2_s206.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Londra_p2_s206.json.fatto
+protocol/e14b/c/predizioni_fase3/controllo_R-orig.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-207** · `protocol/e15/tempi/A/A_Madrid_p0_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-207** · `protocol/e14b/c/predizioni_fase3/controllo_R.json` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Madrid_p0_s201.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Madrid_p0_s201.json.fatto
+protocol/e14b/c/predizioni_fase3/controllo_R.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-208** · `protocol/e15/tempi/A/A_Madrid_p0_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-208** · `protocol/e14b/c/predizioni_fase3_672/controllo_R-orig.json` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Madrid_p0_s202.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Madrid_p0_s202.json.fatto
+protocol/e14b/c/predizioni_fase3_672/controllo_R-orig.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-209** · `protocol/e15/tempi/A/A_Madrid_p0_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-209** · `protocol/e14b/c/riselezione_rmon_test.json` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Madrid_p0_s203.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Madrid_p0_s203.json.fatto
+protocol/e14b/c/riselezione_rmon_test.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-210** · `protocol/e15/tempi/A/A_Madrid_p0_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-210** · `protocol/e14b/c/veterani_e3.json` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Madrid_p0_s204.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Madrid_p0_s204.json.fatto
+protocol/e14b/c/veterani_e3.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-211** · `protocol/e15/tempi/A/A_Madrid_p0_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-211** · `protocol/e14b/congelata/e14b_livelli_congelata.json` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Madrid_p0_s205.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Madrid_p0_s205.json.fatto
+protocol/e14b/congelata/e14b_livelli_congelata.json
+paper1-freeze-20261012e..paper1-freeze-20261015f A
 ```
 
-**C-main-TAG-212** · `protocol/e15/tempi/A/A_Madrid_p0_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-212** · `protocol/e15/e15_risultati.json` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Madrid_p0_s206.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Madrid_p0_s206.json.fatto
+protocol/e15/e15_risultati.json
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-213** · `protocol/e15/tempi/A/A_Madrid_p1_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-213** · `protocol/e15/tempi/A/A_Londra_p0_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Madrid_p1_s201.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Madrid_p1_s201.json.fatto
+protocol/e15/tempi/A/A_Londra_p0_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-214** · `protocol/e15/tempi/A/A_Madrid_p1_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-214** · `protocol/e15/tempi/A/A_Londra_p0_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Madrid_p1_s202.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Madrid_p1_s202.json.fatto
+protocol/e15/tempi/A/A_Londra_p0_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-215** · `protocol/e15/tempi/A/A_Madrid_p1_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-215** · `protocol/e15/tempi/A/A_Londra_p0_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Madrid_p1_s203.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Madrid_p1_s203.json.fatto
+protocol/e15/tempi/A/A_Londra_p0_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-216** · `protocol/e15/tempi/A/A_Madrid_p1_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-216** · `protocol/e15/tempi/A/A_Londra_p0_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Madrid_p1_s204.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Madrid_p1_s204.json.fatto
+protocol/e15/tempi/A/A_Londra_p0_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-217** · `protocol/e15/tempi/A/A_Madrid_p1_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-217** · `protocol/e15/tempi/A/A_Londra_p0_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Madrid_p1_s205.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Madrid_p1_s205.json.fatto
+protocol/e15/tempi/A/A_Londra_p0_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-218** · `protocol/e15/tempi/A/A_Madrid_p1_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-218** · `protocol/e15/tempi/A/A_Londra_p0_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Madrid_p1_s206.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Madrid_p1_s206.json.fatto
+protocol/e15/tempi/A/A_Londra_p0_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-219** · `protocol/e15/tempi/A/A_Madrid_p2_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-219** · `protocol/e15/tempi/A/A_Londra_p1_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Madrid_p2_s201.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Madrid_p2_s201.json.fatto
+protocol/e15/tempi/A/A_Londra_p1_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-220** · `protocol/e15/tempi/A/A_Madrid_p2_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-220** · `protocol/e15/tempi/A/A_Londra_p1_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Madrid_p2_s202.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Madrid_p2_s202.json.fatto
+protocol/e15/tempi/A/A_Londra_p1_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-221** · `protocol/e15/tempi/A/A_Madrid_p2_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-221** · `protocol/e15/tempi/A/A_Londra_p1_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Madrid_p2_s203.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Madrid_p2_s203.json.fatto
+protocol/e15/tempi/A/A_Londra_p1_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-222** · `protocol/e15/tempi/A/A_Madrid_p2_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-222** · `protocol/e15/tempi/A/A_Londra_p1_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Madrid_p2_s204.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Madrid_p2_s204.json.fatto
+protocol/e15/tempi/A/A_Londra_p1_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-223** · `protocol/e15/tempi/A/A_Madrid_p2_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-223** · `protocol/e15/tempi/A/A_Londra_p1_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Madrid_p2_s205.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Madrid_p2_s205.json.fatto
+protocol/e15/tempi/A/A_Londra_p1_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-224** · `protocol/e15/tempi/A/A_Madrid_p2_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-224** · `protocol/e15/tempi/A/A_Londra_p1_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Madrid_p2_s206.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Madrid_p2_s206.json.fatto
+protocol/e15/tempi/A/A_Londra_p1_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-225** · `protocol/e15/tempi/A/A_Melbourne_p0_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-225** · `protocol/e15/tempi/A/A_Londra_p2_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Melbourne_p0_s201.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Melbourne_p0_s201.json.fatto
+protocol/e15/tempi/A/A_Londra_p2_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-226** · `protocol/e15/tempi/A/A_Melbourne_p0_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-226** · `protocol/e15/tempi/A/A_Londra_p2_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Melbourne_p0_s202.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Melbourne_p0_s202.json.fatto
+protocol/e15/tempi/A/A_Londra_p2_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-227** · `protocol/e15/tempi/A/A_Melbourne_p0_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-227** · `protocol/e15/tempi/A/A_Londra_p2_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Melbourne_p0_s203.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Melbourne_p0_s203.json.fatto
+protocol/e15/tempi/A/A_Londra_p2_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-228** · `protocol/e15/tempi/A/A_Melbourne_p0_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-228** · `protocol/e15/tempi/A/A_Londra_p2_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Melbourne_p0_s204.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Melbourne_p0_s204.json.fatto
+protocol/e15/tempi/A/A_Londra_p2_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-229** · `protocol/e15/tempi/A/A_Melbourne_p0_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-229** · `protocol/e15/tempi/A/A_Londra_p2_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Melbourne_p0_s205.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Melbourne_p0_s205.json.fatto
+protocol/e15/tempi/A/A_Londra_p2_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-230** · `protocol/e15/tempi/A/A_Melbourne_p0_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-230** · `protocol/e15/tempi/A/A_Londra_p2_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Melbourne_p0_s206.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Melbourne_p0_s206.json.fatto
+protocol/e15/tempi/A/A_Londra_p2_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-231** · `protocol/e15/tempi/A/A_Melbourne_p1_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-231** · `protocol/e15/tempi/A/A_Madrid_p0_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Melbourne_p1_s201.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Melbourne_p1_s201.json.fatto
+protocol/e15/tempi/A/A_Madrid_p0_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-232** · `protocol/e15/tempi/A/A_Melbourne_p1_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-232** · `protocol/e15/tempi/A/A_Madrid_p0_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Melbourne_p1_s202.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Melbourne_p1_s202.json.fatto
+protocol/e15/tempi/A/A_Madrid_p0_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-233** · `protocol/e15/tempi/A/A_Melbourne_p1_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-233** · `protocol/e15/tempi/A/A_Madrid_p0_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Melbourne_p1_s203.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Melbourne_p1_s203.json.fatto
+protocol/e15/tempi/A/A_Madrid_p0_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-234** · `protocol/e15/tempi/A/A_Melbourne_p1_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-234** · `protocol/e15/tempi/A/A_Madrid_p0_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Melbourne_p1_s204.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Melbourne_p1_s204.json.fatto
+protocol/e15/tempi/A/A_Madrid_p0_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-235** · `protocol/e15/tempi/A/A_Melbourne_p1_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-235** · `protocol/e15/tempi/A/A_Madrid_p0_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Melbourne_p1_s205.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Melbourne_p1_s205.json.fatto
+protocol/e15/tempi/A/A_Madrid_p0_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-236** · `protocol/e15/tempi/A/A_Melbourne_p1_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-236** · `protocol/e15/tempi/A/A_Madrid_p0_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Melbourne_p1_s206.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Melbourne_p1_s206.json.fatto
+protocol/e15/tempi/A/A_Madrid_p0_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-237** · `protocol/e15/tempi/A/A_Melbourne_p2_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-237** · `protocol/e15/tempi/A/A_Madrid_p1_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Melbourne_p2_s201.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Melbourne_p2_s201.json.fatto
+protocol/e15/tempi/A/A_Madrid_p1_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-238** · `protocol/e15/tempi/A/A_Melbourne_p2_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-238** · `protocol/e15/tempi/A/A_Madrid_p1_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Melbourne_p2_s202.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Melbourne_p2_s202.json.fatto
+protocol/e15/tempi/A/A_Madrid_p1_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-239** · `protocol/e15/tempi/A/A_Melbourne_p2_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-239** · `protocol/e15/tempi/A/A_Madrid_p1_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Melbourne_p2_s203.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Melbourne_p2_s203.json.fatto
+protocol/e15/tempi/A/A_Madrid_p1_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-240** · `protocol/e15/tempi/A/A_Melbourne_p2_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-240** · `protocol/e15/tempi/A/A_Madrid_p1_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Melbourne_p2_s204.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Melbourne_p2_s204.json.fatto
+protocol/e15/tempi/A/A_Madrid_p1_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-241** · `protocol/e15/tempi/A/A_Melbourne_p2_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-241** · `protocol/e15/tempi/A/A_Madrid_p1_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Melbourne_p2_s205.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Melbourne_p2_s205.json.fatto
+protocol/e15/tempi/A/A_Madrid_p1_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-242** · `protocol/e15/tempi/A/A_Melbourne_p2_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-242** · `protocol/e15/tempi/A/A_Madrid_p1_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/A/A_Melbourne_p2_s206.json.fatto: numstat 1	0	protocol/e15/tempi/A/A_Melbourne_p2_s206.json.fatto
+protocol/e15/tempi/A/A_Madrid_p1_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-243** · `protocol/e15/tempi/C/C_Londra_p0_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-243** · `protocol/e15/tempi/A/A_Madrid_p2_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Londra_p0_s201.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Londra_p0_s201.json.fatto
+protocol/e15/tempi/A/A_Madrid_p2_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-244** · `protocol/e15/tempi/C/C_Londra_p0_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-244** · `protocol/e15/tempi/A/A_Madrid_p2_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Londra_p0_s202.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Londra_p0_s202.json.fatto
+protocol/e15/tempi/A/A_Madrid_p2_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-245** · `protocol/e15/tempi/C/C_Londra_p0_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-245** · `protocol/e15/tempi/A/A_Madrid_p2_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Londra_p0_s203.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Londra_p0_s203.json.fatto
+protocol/e15/tempi/A/A_Madrid_p2_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-246** · `protocol/e15/tempi/C/C_Londra_p0_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-246** · `protocol/e15/tempi/A/A_Madrid_p2_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Londra_p0_s204.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Londra_p0_s204.json.fatto
+protocol/e15/tempi/A/A_Madrid_p2_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-247** · `protocol/e15/tempi/C/C_Londra_p0_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-247** · `protocol/e15/tempi/A/A_Madrid_p2_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Londra_p0_s205.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Londra_p0_s205.json.fatto
+protocol/e15/tempi/A/A_Madrid_p2_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-248** · `protocol/e15/tempi/C/C_Londra_p0_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-248** · `protocol/e15/tempi/A/A_Madrid_p2_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Londra_p0_s206.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Londra_p0_s206.json.fatto
+protocol/e15/tempi/A/A_Madrid_p2_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-249** · `protocol/e15/tempi/C/C_Londra_p1_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-249** · `protocol/e15/tempi/A/A_Melbourne_p0_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Londra_p1_s201.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Londra_p1_s201.json.fatto
+protocol/e15/tempi/A/A_Melbourne_p0_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-250** · `protocol/e15/tempi/C/C_Londra_p1_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-250** · `protocol/e15/tempi/A/A_Melbourne_p0_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Londra_p1_s202.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Londra_p1_s202.json.fatto
+protocol/e15/tempi/A/A_Melbourne_p0_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-251** · `protocol/e15/tempi/C/C_Londra_p1_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-251** · `protocol/e15/tempi/A/A_Melbourne_p0_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Londra_p1_s203.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Londra_p1_s203.json.fatto
+protocol/e15/tempi/A/A_Melbourne_p0_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-252** · `protocol/e15/tempi/C/C_Londra_p1_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-252** · `protocol/e15/tempi/A/A_Melbourne_p0_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Londra_p1_s204.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Londra_p1_s204.json.fatto
+protocol/e15/tempi/A/A_Melbourne_p0_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-253** · `protocol/e15/tempi/C/C_Londra_p1_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-253** · `protocol/e15/tempi/A/A_Melbourne_p0_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Londra_p1_s205.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Londra_p1_s205.json.fatto
+protocol/e15/tempi/A/A_Melbourne_p0_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-254** · `protocol/e15/tempi/C/C_Londra_p1_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-254** · `protocol/e15/tempi/A/A_Melbourne_p0_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Londra_p1_s206.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Londra_p1_s206.json.fatto
+protocol/e15/tempi/A/A_Melbourne_p0_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-255** · `protocol/e15/tempi/C/C_Londra_p2_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-255** · `protocol/e15/tempi/A/A_Melbourne_p1_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Londra_p2_s201.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Londra_p2_s201.json.fatto
+protocol/e15/tempi/A/A_Melbourne_p1_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-256** · `protocol/e15/tempi/C/C_Londra_p2_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-256** · `protocol/e15/tempi/A/A_Melbourne_p1_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Londra_p2_s202.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Londra_p2_s202.json.fatto
+protocol/e15/tempi/A/A_Melbourne_p1_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-257** · `protocol/e15/tempi/C/C_Londra_p2_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-257** · `protocol/e15/tempi/A/A_Melbourne_p1_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Londra_p2_s203.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Londra_p2_s203.json.fatto
+protocol/e15/tempi/A/A_Melbourne_p1_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-258** · `protocol/e15/tempi/C/C_Londra_p2_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-258** · `protocol/e15/tempi/A/A_Melbourne_p1_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Londra_p2_s204.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Londra_p2_s204.json.fatto
+protocol/e15/tempi/A/A_Melbourne_p1_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-259** · `protocol/e15/tempi/C/C_Londra_p2_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-259** · `protocol/e15/tempi/A/A_Melbourne_p1_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Londra_p2_s205.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Londra_p2_s205.json.fatto
+protocol/e15/tempi/A/A_Melbourne_p1_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-260** · `protocol/e15/tempi/C/C_Londra_p2_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-260** · `protocol/e15/tempi/A/A_Melbourne_p1_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Londra_p2_s206.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Londra_p2_s206.json.fatto
+protocol/e15/tempi/A/A_Melbourne_p1_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-261** · `protocol/e15/tempi/C/C_Madrid_p0_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-261** · `protocol/e15/tempi/A/A_Melbourne_p2_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Madrid_p0_s201.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Madrid_p0_s201.json.fatto
+protocol/e15/tempi/A/A_Melbourne_p2_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-262** · `protocol/e15/tempi/C/C_Madrid_p0_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-262** · `protocol/e15/tempi/A/A_Melbourne_p2_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Madrid_p0_s202.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Madrid_p0_s202.json.fatto
+protocol/e15/tempi/A/A_Melbourne_p2_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-263** · `protocol/e15/tempi/C/C_Madrid_p0_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-263** · `protocol/e15/tempi/A/A_Melbourne_p2_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Madrid_p0_s203.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Madrid_p0_s203.json.fatto
+protocol/e15/tempi/A/A_Melbourne_p2_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-264** · `protocol/e15/tempi/C/C_Madrid_p0_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-264** · `protocol/e15/tempi/A/A_Melbourne_p2_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Madrid_p0_s204.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Madrid_p0_s204.json.fatto
+protocol/e15/tempi/A/A_Melbourne_p2_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-265** · `protocol/e15/tempi/C/C_Madrid_p0_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-265** · `protocol/e15/tempi/A/A_Melbourne_p2_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Madrid_p0_s205.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Madrid_p0_s205.json.fatto
+protocol/e15/tempi/A/A_Melbourne_p2_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-266** · `protocol/e15/tempi/C/C_Madrid_p0_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-266** · `protocol/e15/tempi/A/A_Melbourne_p2_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Madrid_p0_s206.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Madrid_p0_s206.json.fatto
+protocol/e15/tempi/A/A_Melbourne_p2_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-267** · `protocol/e15/tempi/C/C_Madrid_p1_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-267** · `protocol/e15/tempi/C/C_Londra_p0_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Madrid_p1_s201.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Madrid_p1_s201.json.fatto
+protocol/e15/tempi/C/C_Londra_p0_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-268** · `protocol/e15/tempi/C/C_Madrid_p1_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-268** · `protocol/e15/tempi/C/C_Londra_p0_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Madrid_p1_s202.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Madrid_p1_s202.json.fatto
+protocol/e15/tempi/C/C_Londra_p0_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-269** · `protocol/e15/tempi/C/C_Madrid_p1_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-269** · `protocol/e15/tempi/C/C_Londra_p0_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Madrid_p1_s203.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Madrid_p1_s203.json.fatto
+protocol/e15/tempi/C/C_Londra_p0_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-270** · `protocol/e15/tempi/C/C_Madrid_p1_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-270** · `protocol/e15/tempi/C/C_Londra_p0_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Madrid_p1_s204.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Madrid_p1_s204.json.fatto
+protocol/e15/tempi/C/C_Londra_p0_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-271** · `protocol/e15/tempi/C/C_Madrid_p1_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-271** · `protocol/e15/tempi/C/C_Londra_p0_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Madrid_p1_s205.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Madrid_p1_s205.json.fatto
+protocol/e15/tempi/C/C_Londra_p0_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-272** · `protocol/e15/tempi/C/C_Madrid_p1_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-272** · `protocol/e15/tempi/C/C_Londra_p0_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Madrid_p1_s206.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Madrid_p1_s206.json.fatto
+protocol/e15/tempi/C/C_Londra_p0_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-273** · `protocol/e15/tempi/C/C_Madrid_p2_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-273** · `protocol/e15/tempi/C/C_Londra_p1_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Madrid_p2_s201.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Madrid_p2_s201.json.fatto
+protocol/e15/tempi/C/C_Londra_p1_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-274** · `protocol/e15/tempi/C/C_Madrid_p2_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-274** · `protocol/e15/tempi/C/C_Londra_p1_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Madrid_p2_s202.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Madrid_p2_s202.json.fatto
+protocol/e15/tempi/C/C_Londra_p1_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-275** · `protocol/e15/tempi/C/C_Madrid_p2_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-275** · `protocol/e15/tempi/C/C_Londra_p1_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Madrid_p2_s203.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Madrid_p2_s203.json.fatto
+protocol/e15/tempi/C/C_Londra_p1_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-276** · `protocol/e15/tempi/C/C_Madrid_p2_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-276** · `protocol/e15/tempi/C/C_Londra_p1_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Madrid_p2_s204.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Madrid_p2_s204.json.fatto
+protocol/e15/tempi/C/C_Londra_p1_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-277** · `protocol/e15/tempi/C/C_Madrid_p2_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-277** · `protocol/e15/tempi/C/C_Londra_p1_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Madrid_p2_s205.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Madrid_p2_s205.json.fatto
+protocol/e15/tempi/C/C_Londra_p1_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-278** · `protocol/e15/tempi/C/C_Madrid_p2_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-278** · `protocol/e15/tempi/C/C_Londra_p1_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Madrid_p2_s206.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Madrid_p2_s206.json.fatto
+protocol/e15/tempi/C/C_Londra_p1_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-279** · `protocol/e15/tempi/C/C_Melbourne_p0_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-279** · `protocol/e15/tempi/C/C_Londra_p2_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Melbourne_p0_s201.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Melbourne_p0_s201.json.fatto
+protocol/e15/tempi/C/C_Londra_p2_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-280** · `protocol/e15/tempi/C/C_Melbourne_p0_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-280** · `protocol/e15/tempi/C/C_Londra_p2_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Melbourne_p0_s202.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Melbourne_p0_s202.json.fatto
+protocol/e15/tempi/C/C_Londra_p2_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-281** · `protocol/e15/tempi/C/C_Melbourne_p0_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-281** · `protocol/e15/tempi/C/C_Londra_p2_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Melbourne_p0_s203.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Melbourne_p0_s203.json.fatto
+protocol/e15/tempi/C/C_Londra_p2_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-282** · `protocol/e15/tempi/C/C_Melbourne_p0_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-282** · `protocol/e15/tempi/C/C_Londra_p2_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Melbourne_p0_s204.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Melbourne_p0_s204.json.fatto
+protocol/e15/tempi/C/C_Londra_p2_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-283** · `protocol/e15/tempi/C/C_Melbourne_p0_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-283** · `protocol/e15/tempi/C/C_Londra_p2_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Melbourne_p0_s205.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Melbourne_p0_s205.json.fatto
+protocol/e15/tempi/C/C_Londra_p2_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-284** · `protocol/e15/tempi/C/C_Melbourne_p0_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-284** · `protocol/e15/tempi/C/C_Londra_p2_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Melbourne_p0_s206.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Melbourne_p0_s206.json.fatto
+protocol/e15/tempi/C/C_Londra_p2_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-285** · `protocol/e15/tempi/C/C_Melbourne_p1_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-285** · `protocol/e15/tempi/C/C_Madrid_p0_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Melbourne_p1_s201.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Melbourne_p1_s201.json.fatto
+protocol/e15/tempi/C/C_Madrid_p0_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-286** · `protocol/e15/tempi/C/C_Melbourne_p1_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-286** · `protocol/e15/tempi/C/C_Madrid_p0_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Melbourne_p1_s202.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Melbourne_p1_s202.json.fatto
+protocol/e15/tempi/C/C_Madrid_p0_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-287** · `protocol/e15/tempi/C/C_Melbourne_p1_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-287** · `protocol/e15/tempi/C/C_Madrid_p0_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Melbourne_p1_s203.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Melbourne_p1_s203.json.fatto
+protocol/e15/tempi/C/C_Madrid_p0_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-288** · `protocol/e15/tempi/C/C_Melbourne_p1_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-288** · `protocol/e15/tempi/C/C_Madrid_p0_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Melbourne_p1_s204.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Melbourne_p1_s204.json.fatto
+protocol/e15/tempi/C/C_Madrid_p0_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-289** · `protocol/e15/tempi/C/C_Melbourne_p1_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-289** · `protocol/e15/tempi/C/C_Madrid_p0_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Melbourne_p1_s205.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Melbourne_p1_s205.json.fatto
+protocol/e15/tempi/C/C_Madrid_p0_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-290** · `protocol/e15/tempi/C/C_Melbourne_p1_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-290** · `protocol/e15/tempi/C/C_Madrid_p0_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Melbourne_p1_s206.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Melbourne_p1_s206.json.fatto
+protocol/e15/tempi/C/C_Madrid_p0_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-291** · `protocol/e15/tempi/C/C_Melbourne_p2_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-291** · `protocol/e15/tempi/C/C_Madrid_p1_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Melbourne_p2_s201.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Melbourne_p2_s201.json.fatto
+protocol/e15/tempi/C/C_Madrid_p1_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-292** · `protocol/e15/tempi/C/C_Melbourne_p2_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-292** · `protocol/e15/tempi/C/C_Madrid_p1_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Melbourne_p2_s202.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Melbourne_p2_s202.json.fatto
+protocol/e15/tempi/C/C_Madrid_p1_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-293** · `protocol/e15/tempi/C/C_Melbourne_p2_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-293** · `protocol/e15/tempi/C/C_Madrid_p1_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Melbourne_p2_s203.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Melbourne_p2_s203.json.fatto
+protocol/e15/tempi/C/C_Madrid_p1_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-294** · `protocol/e15/tempi/C/C_Melbourne_p2_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-294** · `protocol/e15/tempi/C/C_Madrid_p1_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Melbourne_p2_s204.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Melbourne_p2_s204.json.fatto
+protocol/e15/tempi/C/C_Madrid_p1_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-295** · `protocol/e15/tempi/C/C_Melbourne_p2_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-295** · `protocol/e15/tempi/C/C_Madrid_p1_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Melbourne_p2_s205.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Melbourne_p2_s205.json.fatto
+protocol/e15/tempi/C/C_Madrid_p1_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-296** · `protocol/e15/tempi/C/C_Melbourne_p2_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-296** · `protocol/e15/tempi/C/C_Madrid_p1_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C/C_Melbourne_p2_s206.json.fatto: numstat 1	0	protocol/e15/tempi/C/C_Melbourne_p2_s206.json.fatto
+protocol/e15/tempi/C/C_Madrid_p1_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-297** · `protocol/e15/tempi/C_A/C_A_Londra_p0_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-297** · `protocol/e15/tempi/C/C_Madrid_p2_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Londra_p0_s201.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Londra_p0_s201.json.fatto
+protocol/e15/tempi/C/C_Madrid_p2_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-298** · `protocol/e15/tempi/C_A/C_A_Londra_p0_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-298** · `protocol/e15/tempi/C/C_Madrid_p2_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Londra_p0_s202.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Londra_p0_s202.json.fatto
+protocol/e15/tempi/C/C_Madrid_p2_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-299** · `protocol/e15/tempi/C_A/C_A_Londra_p0_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-299** · `protocol/e15/tempi/C/C_Madrid_p2_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Londra_p0_s203.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Londra_p0_s203.json.fatto
+protocol/e15/tempi/C/C_Madrid_p2_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-300** · `protocol/e15/tempi/C_A/C_A_Londra_p0_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-300** · `protocol/e15/tempi/C/C_Madrid_p2_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Londra_p0_s204.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Londra_p0_s204.json.fatto
+protocol/e15/tempi/C/C_Madrid_p2_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-301** · `protocol/e15/tempi/C_A/C_A_Londra_p0_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-301** · `protocol/e15/tempi/C/C_Madrid_p2_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Londra_p0_s205.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Londra_p0_s205.json.fatto
+protocol/e15/tempi/C/C_Madrid_p2_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-302** · `protocol/e15/tempi/C_A/C_A_Londra_p0_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-302** · `protocol/e15/tempi/C/C_Madrid_p2_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Londra_p0_s206.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Londra_p0_s206.json.fatto
+protocol/e15/tempi/C/C_Madrid_p2_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-303** · `protocol/e15/tempi/C_A/C_A_Londra_p1_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-303** · `protocol/e15/tempi/C/C_Melbourne_p0_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Londra_p1_s201.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Londra_p1_s201.json.fatto
+protocol/e15/tempi/C/C_Melbourne_p0_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-304** · `protocol/e15/tempi/C_A/C_A_Londra_p1_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-304** · `protocol/e15/tempi/C/C_Melbourne_p0_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Londra_p1_s202.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Londra_p1_s202.json.fatto
+protocol/e15/tempi/C/C_Melbourne_p0_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-305** · `protocol/e15/tempi/C_A/C_A_Londra_p1_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-305** · `protocol/e15/tempi/C/C_Melbourne_p0_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Londra_p1_s203.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Londra_p1_s203.json.fatto
+protocol/e15/tempi/C/C_Melbourne_p0_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-306** · `protocol/e15/tempi/C_A/C_A_Londra_p1_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-306** · `protocol/e15/tempi/C/C_Melbourne_p0_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Londra_p1_s204.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Londra_p1_s204.json.fatto
+protocol/e15/tempi/C/C_Melbourne_p0_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-307** · `protocol/e15/tempi/C_A/C_A_Londra_p1_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-307** · `protocol/e15/tempi/C/C_Melbourne_p0_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Londra_p1_s205.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Londra_p1_s205.json.fatto
+protocol/e15/tempi/C/C_Melbourne_p0_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-308** · `protocol/e15/tempi/C_A/C_A_Londra_p1_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-308** · `protocol/e15/tempi/C/C_Melbourne_p0_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Londra_p1_s206.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Londra_p1_s206.json.fatto
+protocol/e15/tempi/C/C_Melbourne_p0_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-309** · `protocol/e15/tempi/C_A/C_A_Londra_p2_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-309** · `protocol/e15/tempi/C/C_Melbourne_p1_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Londra_p2_s201.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Londra_p2_s201.json.fatto
+protocol/e15/tempi/C/C_Melbourne_p1_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-310** · `protocol/e15/tempi/C_A/C_A_Londra_p2_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-310** · `protocol/e15/tempi/C/C_Melbourne_p1_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Londra_p2_s202.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Londra_p2_s202.json.fatto
+protocol/e15/tempi/C/C_Melbourne_p1_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-311** · `protocol/e15/tempi/C_A/C_A_Londra_p2_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-311** · `protocol/e15/tempi/C/C_Melbourne_p1_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Londra_p2_s203.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Londra_p2_s203.json.fatto
+protocol/e15/tempi/C/C_Melbourne_p1_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-312** · `protocol/e15/tempi/C_A/C_A_Londra_p2_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-312** · `protocol/e15/tempi/C/C_Melbourne_p1_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Londra_p2_s204.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Londra_p2_s204.json.fatto
+protocol/e15/tempi/C/C_Melbourne_p1_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-313** · `protocol/e15/tempi/C_A/C_A_Londra_p2_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-313** · `protocol/e15/tempi/C/C_Melbourne_p1_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Londra_p2_s205.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Londra_p2_s205.json.fatto
+protocol/e15/tempi/C/C_Melbourne_p1_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-314** · `protocol/e15/tempi/C_A/C_A_Londra_p2_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-314** · `protocol/e15/tempi/C/C_Melbourne_p1_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Londra_p2_s206.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Londra_p2_s206.json.fatto
+protocol/e15/tempi/C/C_Melbourne_p1_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-315** · `protocol/e15/tempi/C_A/C_A_Madrid_p0_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-315** · `protocol/e15/tempi/C/C_Melbourne_p2_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Madrid_p0_s201.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Madrid_p0_s201.json.fatto
+protocol/e15/tempi/C/C_Melbourne_p2_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-316** · `protocol/e15/tempi/C_A/C_A_Madrid_p0_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-316** · `protocol/e15/tempi/C/C_Melbourne_p2_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Madrid_p0_s202.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Madrid_p0_s202.json.fatto
+protocol/e15/tempi/C/C_Melbourne_p2_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-317** · `protocol/e15/tempi/C_A/C_A_Madrid_p0_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-317** · `protocol/e15/tempi/C/C_Melbourne_p2_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Madrid_p0_s203.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Madrid_p0_s203.json.fatto
+protocol/e15/tempi/C/C_Melbourne_p2_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-318** · `protocol/e15/tempi/C_A/C_A_Madrid_p0_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-318** · `protocol/e15/tempi/C/C_Melbourne_p2_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Madrid_p0_s204.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Madrid_p0_s204.json.fatto
+protocol/e15/tempi/C/C_Melbourne_p2_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-319** · `protocol/e15/tempi/C_A/C_A_Madrid_p0_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-319** · `protocol/e15/tempi/C/C_Melbourne_p2_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Madrid_p0_s205.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Madrid_p0_s205.json.fatto
+protocol/e15/tempi/C/C_Melbourne_p2_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-320** · `protocol/e15/tempi/C_A/C_A_Madrid_p0_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-320** · `protocol/e15/tempi/C/C_Melbourne_p2_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Madrid_p0_s206.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Madrid_p0_s206.json.fatto
+protocol/e15/tempi/C/C_Melbourne_p2_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-321** · `protocol/e15/tempi/C_A/C_A_Madrid_p1_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-321** · `protocol/e15/tempi/C_A/C_A_Londra_p0_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Madrid_p1_s201.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Madrid_p1_s201.json.fatto
+protocol/e15/tempi/C_A/C_A_Londra_p0_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-322** · `protocol/e15/tempi/C_A/C_A_Madrid_p1_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-322** · `protocol/e15/tempi/C_A/C_A_Londra_p0_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Madrid_p1_s202.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Madrid_p1_s202.json.fatto
+protocol/e15/tempi/C_A/C_A_Londra_p0_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-323** · `protocol/e15/tempi/C_A/C_A_Madrid_p1_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-323** · `protocol/e15/tempi/C_A/C_A_Londra_p0_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Madrid_p1_s203.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Madrid_p1_s203.json.fatto
+protocol/e15/tempi/C_A/C_A_Londra_p0_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-324** · `protocol/e15/tempi/C_A/C_A_Madrid_p1_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-324** · `protocol/e15/tempi/C_A/C_A_Londra_p0_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Madrid_p1_s204.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Madrid_p1_s204.json.fatto
+protocol/e15/tempi/C_A/C_A_Londra_p0_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-325** · `protocol/e15/tempi/C_A/C_A_Madrid_p1_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-325** · `protocol/e15/tempi/C_A/C_A_Londra_p0_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Madrid_p1_s205.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Madrid_p1_s205.json.fatto
+protocol/e15/tempi/C_A/C_A_Londra_p0_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-326** · `protocol/e15/tempi/C_A/C_A_Madrid_p1_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-326** · `protocol/e15/tempi/C_A/C_A_Londra_p0_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Madrid_p1_s206.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Madrid_p1_s206.json.fatto
+protocol/e15/tempi/C_A/C_A_Londra_p0_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-327** · `protocol/e15/tempi/C_A/C_A_Madrid_p2_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-327** · `protocol/e15/tempi/C_A/C_A_Londra_p1_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Madrid_p2_s201.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Madrid_p2_s201.json.fatto
+protocol/e15/tempi/C_A/C_A_Londra_p1_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-328** · `protocol/e15/tempi/C_A/C_A_Madrid_p2_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-328** · `protocol/e15/tempi/C_A/C_A_Londra_p1_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Madrid_p2_s202.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Madrid_p2_s202.json.fatto
+protocol/e15/tempi/C_A/C_A_Londra_p1_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-329** · `protocol/e15/tempi/C_A/C_A_Madrid_p2_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-329** · `protocol/e15/tempi/C_A/C_A_Londra_p1_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Madrid_p2_s203.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Madrid_p2_s203.json.fatto
+protocol/e15/tempi/C_A/C_A_Londra_p1_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-330** · `protocol/e15/tempi/C_A/C_A_Madrid_p2_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-330** · `protocol/e15/tempi/C_A/C_A_Londra_p1_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Madrid_p2_s204.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Madrid_p2_s204.json.fatto
+protocol/e15/tempi/C_A/C_A_Londra_p1_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-331** · `protocol/e15/tempi/C_A/C_A_Madrid_p2_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-331** · `protocol/e15/tempi/C_A/C_A_Londra_p1_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Madrid_p2_s205.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Madrid_p2_s205.json.fatto
+protocol/e15/tempi/C_A/C_A_Londra_p1_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-332** · `protocol/e15/tempi/C_A/C_A_Madrid_p2_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-332** · `protocol/e15/tempi/C_A/C_A_Londra_p1_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Madrid_p2_s206.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Madrid_p2_s206.json.fatto
+protocol/e15/tempi/C_A/C_A_Londra_p1_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-333** · `protocol/e15/tempi/C_A/C_A_Melbourne_p0_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-333** · `protocol/e15/tempi/C_A/C_A_Londra_p2_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Melbourne_p0_s201.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Melbourne_p0_s201.json.fatto
+protocol/e15/tempi/C_A/C_A_Londra_p2_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-334** · `protocol/e15/tempi/C_A/C_A_Melbourne_p0_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-334** · `protocol/e15/tempi/C_A/C_A_Londra_p2_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Melbourne_p0_s202.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Melbourne_p0_s202.json.fatto
+protocol/e15/tempi/C_A/C_A_Londra_p2_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-335** · `protocol/e15/tempi/C_A/C_A_Melbourne_p0_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-335** · `protocol/e15/tempi/C_A/C_A_Londra_p2_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Melbourne_p0_s203.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Melbourne_p0_s203.json.fatto
+protocol/e15/tempi/C_A/C_A_Londra_p2_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-336** · `protocol/e15/tempi/C_A/C_A_Melbourne_p0_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-336** · `protocol/e15/tempi/C_A/C_A_Londra_p2_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Melbourne_p0_s204.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Melbourne_p0_s204.json.fatto
+protocol/e15/tempi/C_A/C_A_Londra_p2_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-337** · `protocol/e15/tempi/C_A/C_A_Melbourne_p0_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-337** · `protocol/e15/tempi/C_A/C_A_Londra_p2_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Melbourne_p0_s205.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Melbourne_p0_s205.json.fatto
+protocol/e15/tempi/C_A/C_A_Londra_p2_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-338** · `protocol/e15/tempi/C_A/C_A_Melbourne_p0_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-338** · `protocol/e15/tempi/C_A/C_A_Londra_p2_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Melbourne_p0_s206.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Melbourne_p0_s206.json.fatto
+protocol/e15/tempi/C_A/C_A_Londra_p2_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-339** · `protocol/e15/tempi/C_A/C_A_Melbourne_p1_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-339** · `protocol/e15/tempi/C_A/C_A_Madrid_p0_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Melbourne_p1_s201.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Melbourne_p1_s201.json.fatto
+protocol/e15/tempi/C_A/C_A_Madrid_p0_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-340** · `protocol/e15/tempi/C_A/C_A_Melbourne_p1_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-340** · `protocol/e15/tempi/C_A/C_A_Madrid_p0_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Melbourne_p1_s202.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Melbourne_p1_s202.json.fatto
+protocol/e15/tempi/C_A/C_A_Madrid_p0_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-341** · `protocol/e15/tempi/C_A/C_A_Melbourne_p1_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-341** · `protocol/e15/tempi/C_A/C_A_Madrid_p0_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Melbourne_p1_s203.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Melbourne_p1_s203.json.fatto
+protocol/e15/tempi/C_A/C_A_Madrid_p0_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-342** · `protocol/e15/tempi/C_A/C_A_Melbourne_p1_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-342** · `protocol/e15/tempi/C_A/C_A_Madrid_p0_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Melbourne_p1_s204.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Melbourne_p1_s204.json.fatto
+protocol/e15/tempi/C_A/C_A_Madrid_p0_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-343** · `protocol/e15/tempi/C_A/C_A_Melbourne_p1_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-343** · `protocol/e15/tempi/C_A/C_A_Madrid_p0_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Melbourne_p1_s205.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Melbourne_p1_s205.json.fatto
+protocol/e15/tempi/C_A/C_A_Madrid_p0_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-344** · `protocol/e15/tempi/C_A/C_A_Melbourne_p1_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-344** · `protocol/e15/tempi/C_A/C_A_Madrid_p0_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Melbourne_p1_s206.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Melbourne_p1_s206.json.fatto
+protocol/e15/tempi/C_A/C_A_Madrid_p0_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-345** · `protocol/e15/tempi/C_A/C_A_Melbourne_p2_s201.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-345** · `protocol/e15/tempi/C_A/C_A_Madrid_p1_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Melbourne_p2_s201.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Melbourne_p2_s201.json.fatto
+protocol/e15/tempi/C_A/C_A_Madrid_p1_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-346** · `protocol/e15/tempi/C_A/C_A_Melbourne_p2_s202.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-346** · `protocol/e15/tempi/C_A/C_A_Madrid_p1_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Melbourne_p2_s202.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Melbourne_p2_s202.json.fatto
+protocol/e15/tempi/C_A/C_A_Madrid_p1_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-347** · `protocol/e15/tempi/C_A/C_A_Melbourne_p2_s203.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-347** · `protocol/e15/tempi/C_A/C_A_Madrid_p1_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Melbourne_p2_s203.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Melbourne_p2_s203.json.fatto
+protocol/e15/tempi/C_A/C_A_Madrid_p1_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-348** · `protocol/e15/tempi/C_A/C_A_Melbourne_p2_s204.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-348** · `protocol/e15/tempi/C_A/C_A_Madrid_p1_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Melbourne_p2_s204.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Melbourne_p2_s204.json.fatto
+protocol/e15/tempi/C_A/C_A_Madrid_p1_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-349** · `protocol/e15/tempi/C_A/C_A_Melbourne_p2_s205.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-349** · `protocol/e15/tempi/C_A/C_A_Madrid_p1_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Melbourne_p2_s205.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Melbourne_p2_s205.json.fatto
+protocol/e15/tempi/C_A/C_A_Madrid_p1_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-350** · `protocol/e15/tempi/C_A/C_A_Melbourne_p2_s206.json.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-350** · `protocol/e15/tempi/C_A/C_A_Madrid_p1_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/C_A/C_A_Melbourne_p2_s206.json.fatto: numstat 1	0	protocol/e15/tempi/C_A/C_A_Melbourne_p2_s206.json.fatto
+protocol/e15/tempi/C_A/C_A_Madrid_p1_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-351** · `protocol/e15/tempi/E/ck_E_Londra_p0_s1150248972.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-351** · `protocol/e15/tempi/C_A/C_A_Madrid_p2_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Londra_p0_s1150248972.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Londra_p0_s1150248972.pt.fatto
+protocol/e15/tempi/C_A/C_A_Madrid_p2_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-352** · `protocol/e15/tempi/E/ck_E_Londra_p0_s1157715887.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-352** · `protocol/e15/tempi/C_A/C_A_Madrid_p2_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Londra_p0_s1157715887.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Londra_p0_s1157715887.pt.fatto
+protocol/e15/tempi/C_A/C_A_Madrid_p2_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-353** · `protocol/e15/tempi/E/ck_E_Londra_p0_s1592395901.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-353** · `protocol/e15/tempi/C_A/C_A_Madrid_p2_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Londra_p0_s1592395901.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Londra_p0_s1592395901.pt.fatto
+protocol/e15/tempi/C_A/C_A_Madrid_p2_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-354** · `protocol/e15/tempi/E/ck_E_Londra_p0_s399595374.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-354** · `protocol/e15/tempi/C_A/C_A_Madrid_p2_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Londra_p0_s399595374.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Londra_p0_s399595374.pt.fatto
+protocol/e15/tempi/C_A/C_A_Madrid_p2_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-355** · `protocol/e15/tempi/E/ck_E_Londra_p0_s643310434.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-355** · `protocol/e15/tempi/C_A/C_A_Madrid_p2_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Londra_p0_s643310434.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Londra_p0_s643310434.pt.fatto
+protocol/e15/tempi/C_A/C_A_Madrid_p2_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-356** · `protocol/e15/tempi/E/ck_E_Londra_p0_s682647013.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-356** · `protocol/e15/tempi/C_A/C_A_Madrid_p2_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Londra_p0_s682647013.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Londra_p0_s682647013.pt.fatto
+protocol/e15/tempi/C_A/C_A_Madrid_p2_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-357** · `protocol/e15/tempi/E/ck_E_Londra_p1_s1150248972.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-357** · `protocol/e15/tempi/C_A/C_A_Melbourne_p0_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Londra_p1_s1150248972.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Londra_p1_s1150248972.pt.fatto
+protocol/e15/tempi/C_A/C_A_Melbourne_p0_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-358** · `protocol/e15/tempi/E/ck_E_Londra_p1_s1157715887.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-358** · `protocol/e15/tempi/C_A/C_A_Melbourne_p0_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Londra_p1_s1157715887.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Londra_p1_s1157715887.pt.fatto
+protocol/e15/tempi/C_A/C_A_Melbourne_p0_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-359** · `protocol/e15/tempi/E/ck_E_Londra_p1_s1592395901.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-359** · `protocol/e15/tempi/C_A/C_A_Melbourne_p0_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Londra_p1_s1592395901.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Londra_p1_s1592395901.pt.fatto
+protocol/e15/tempi/C_A/C_A_Melbourne_p0_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-360** · `protocol/e15/tempi/E/ck_E_Londra_p1_s399595374.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-360** · `protocol/e15/tempi/C_A/C_A_Melbourne_p0_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Londra_p1_s399595374.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Londra_p1_s399595374.pt.fatto
+protocol/e15/tempi/C_A/C_A_Melbourne_p0_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-361** · `protocol/e15/tempi/E/ck_E_Londra_p1_s643310434.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-361** · `protocol/e15/tempi/C_A/C_A_Melbourne_p0_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Londra_p1_s643310434.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Londra_p1_s643310434.pt.fatto
+protocol/e15/tempi/C_A/C_A_Melbourne_p0_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-362** · `protocol/e15/tempi/E/ck_E_Londra_p1_s682647013.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-362** · `protocol/e15/tempi/C_A/C_A_Melbourne_p0_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Londra_p1_s682647013.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Londra_p1_s682647013.pt.fatto
+protocol/e15/tempi/C_A/C_A_Melbourne_p0_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-363** · `protocol/e15/tempi/E/ck_E_Londra_p2_s1150248972.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-363** · `protocol/e15/tempi/C_A/C_A_Melbourne_p1_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Londra_p2_s1150248972.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Londra_p2_s1150248972.pt.fatto
+protocol/e15/tempi/C_A/C_A_Melbourne_p1_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-364** · `protocol/e15/tempi/E/ck_E_Londra_p2_s1157715887.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-364** · `protocol/e15/tempi/C_A/C_A_Melbourne_p1_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Londra_p2_s1157715887.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Londra_p2_s1157715887.pt.fatto
+protocol/e15/tempi/C_A/C_A_Melbourne_p1_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-365** · `protocol/e15/tempi/E/ck_E_Londra_p2_s1592395901.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-365** · `protocol/e15/tempi/C_A/C_A_Melbourne_p1_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Londra_p2_s1592395901.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Londra_p2_s1592395901.pt.fatto
+protocol/e15/tempi/C_A/C_A_Melbourne_p1_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-366** · `protocol/e15/tempi/E/ck_E_Londra_p2_s399595374.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-366** · `protocol/e15/tempi/C_A/C_A_Melbourne_p1_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Londra_p2_s399595374.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Londra_p2_s399595374.pt.fatto
+protocol/e15/tempi/C_A/C_A_Melbourne_p1_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-367** · `protocol/e15/tempi/E/ck_E_Londra_p2_s643310434.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-367** · `protocol/e15/tempi/C_A/C_A_Melbourne_p1_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Londra_p2_s643310434.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Londra_p2_s643310434.pt.fatto
+protocol/e15/tempi/C_A/C_A_Melbourne_p1_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-368** · `protocol/e15/tempi/E/ck_E_Londra_p2_s682647013.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-368** · `protocol/e15/tempi/C_A/C_A_Melbourne_p1_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Londra_p2_s682647013.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Londra_p2_s682647013.pt.fatto
+protocol/e15/tempi/C_A/C_A_Melbourne_p1_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-369** · `protocol/e15/tempi/E/ck_E_Madrid_p0_s1150248972.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-369** · `protocol/e15/tempi/C_A/C_A_Melbourne_p2_s201.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Madrid_p0_s1150248972.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Madrid_p0_s1150248972.pt.fatto
+protocol/e15/tempi/C_A/C_A_Melbourne_p2_s201.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-370** · `protocol/e15/tempi/E/ck_E_Madrid_p0_s1157715887.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-370** · `protocol/e15/tempi/C_A/C_A_Melbourne_p2_s202.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Madrid_p0_s1157715887.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Madrid_p0_s1157715887.pt.fatto
+protocol/e15/tempi/C_A/C_A_Melbourne_p2_s202.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-371** · `protocol/e15/tempi/E/ck_E_Madrid_p0_s1592395901.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-371** · `protocol/e15/tempi/C_A/C_A_Melbourne_p2_s203.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Madrid_p0_s1592395901.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Madrid_p0_s1592395901.pt.fatto
+protocol/e15/tempi/C_A/C_A_Melbourne_p2_s203.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-372** · `protocol/e15/tempi/E/ck_E_Madrid_p0_s399595374.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-372** · `protocol/e15/tempi/C_A/C_A_Melbourne_p2_s204.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Madrid_p0_s399595374.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Madrid_p0_s399595374.pt.fatto
+protocol/e15/tempi/C_A/C_A_Melbourne_p2_s204.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-373** · `protocol/e15/tempi/E/ck_E_Madrid_p0_s643310434.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-373** · `protocol/e15/tempi/C_A/C_A_Melbourne_p2_s205.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Madrid_p0_s643310434.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Madrid_p0_s643310434.pt.fatto
+protocol/e15/tempi/C_A/C_A_Melbourne_p2_s205.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-374** · `protocol/e15/tempi/E/ck_E_Madrid_p0_s682647013.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-374** · `protocol/e15/tempi/C_A/C_A_Melbourne_p2_s206.json.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Madrid_p0_s682647013.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Madrid_p0_s682647013.pt.fatto
+protocol/e15/tempi/C_A/C_A_Melbourne_p2_s206.json.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-375** · `protocol/e15/tempi/E/ck_E_Madrid_p1_s1150248972.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-375** · `protocol/e15/tempi/E/ck_E_Londra_p0_s1150248972.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Madrid_p1_s1150248972.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Madrid_p1_s1150248972.pt.fatto
+protocol/e15/tempi/E/ck_E_Londra_p0_s1150248972.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-376** · `protocol/e15/tempi/E/ck_E_Madrid_p1_s1157715887.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-376** · `protocol/e15/tempi/E/ck_E_Londra_p0_s1157715887.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Madrid_p1_s1157715887.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Madrid_p1_s1157715887.pt.fatto
+protocol/e15/tempi/E/ck_E_Londra_p0_s1157715887.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-377** · `protocol/e15/tempi/E/ck_E_Madrid_p1_s1592395901.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-377** · `protocol/e15/tempi/E/ck_E_Londra_p0_s1592395901.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Madrid_p1_s1592395901.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Madrid_p1_s1592395901.pt.fatto
+protocol/e15/tempi/E/ck_E_Londra_p0_s1592395901.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-378** · `protocol/e15/tempi/E/ck_E_Madrid_p1_s399595374.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-378** · `protocol/e15/tempi/E/ck_E_Londra_p0_s399595374.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Madrid_p1_s399595374.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Madrid_p1_s399595374.pt.fatto
+protocol/e15/tempi/E/ck_E_Londra_p0_s399595374.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-379** · `protocol/e15/tempi/E/ck_E_Madrid_p1_s643310434.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-379** · `protocol/e15/tempi/E/ck_E_Londra_p0_s643310434.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Madrid_p1_s643310434.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Madrid_p1_s643310434.pt.fatto
+protocol/e15/tempi/E/ck_E_Londra_p0_s643310434.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-380** · `protocol/e15/tempi/E/ck_E_Madrid_p1_s682647013.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-380** · `protocol/e15/tempi/E/ck_E_Londra_p0_s682647013.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Madrid_p1_s682647013.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Madrid_p1_s682647013.pt.fatto
+protocol/e15/tempi/E/ck_E_Londra_p0_s682647013.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-381** · `protocol/e15/tempi/E/ck_E_Madrid_p2_s1150248972.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-381** · `protocol/e15/tempi/E/ck_E_Londra_p1_s1150248972.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Madrid_p2_s1150248972.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Madrid_p2_s1150248972.pt.fatto
+protocol/e15/tempi/E/ck_E_Londra_p1_s1150248972.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-382** · `protocol/e15/tempi/E/ck_E_Madrid_p2_s1157715887.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-382** · `protocol/e15/tempi/E/ck_E_Londra_p1_s1157715887.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Madrid_p2_s1157715887.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Madrid_p2_s1157715887.pt.fatto
+protocol/e15/tempi/E/ck_E_Londra_p1_s1157715887.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-383** · `protocol/e15/tempi/E/ck_E_Madrid_p2_s1592395901.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-383** · `protocol/e15/tempi/E/ck_E_Londra_p1_s1592395901.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Madrid_p2_s1592395901.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Madrid_p2_s1592395901.pt.fatto
+protocol/e15/tempi/E/ck_E_Londra_p1_s1592395901.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-384** · `protocol/e15/tempi/E/ck_E_Madrid_p2_s399595374.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-384** · `protocol/e15/tempi/E/ck_E_Londra_p1_s399595374.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Madrid_p2_s399595374.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Madrid_p2_s399595374.pt.fatto
+protocol/e15/tempi/E/ck_E_Londra_p1_s399595374.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-385** · `protocol/e15/tempi/E/ck_E_Madrid_p2_s643310434.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-385** · `protocol/e15/tempi/E/ck_E_Londra_p1_s643310434.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Madrid_p2_s643310434.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Madrid_p2_s643310434.pt.fatto
+protocol/e15/tempi/E/ck_E_Londra_p1_s643310434.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-386** · `protocol/e15/tempi/E/ck_E_Madrid_p2_s682647013.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-386** · `protocol/e15/tempi/E/ck_E_Londra_p1_s682647013.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Madrid_p2_s682647013.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Madrid_p2_s682647013.pt.fatto
+protocol/e15/tempi/E/ck_E_Londra_p1_s682647013.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-387** · `protocol/e15/tempi/E/ck_E_Melbourne_p0_s1150248972.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-387** · `protocol/e15/tempi/E/ck_E_Londra_p2_s1150248972.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Melbourne_p0_s1150248972.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Melbourne_p0_s1150248972.pt.fatto
+protocol/e15/tempi/E/ck_E_Londra_p2_s1150248972.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-388** · `protocol/e15/tempi/E/ck_E_Melbourne_p0_s1157715887.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-388** · `protocol/e15/tempi/E/ck_E_Londra_p2_s1157715887.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Melbourne_p0_s1157715887.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Melbourne_p0_s1157715887.pt.fatto
+protocol/e15/tempi/E/ck_E_Londra_p2_s1157715887.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-389** · `protocol/e15/tempi/E/ck_E_Melbourne_p0_s1592395901.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-389** · `protocol/e15/tempi/E/ck_E_Londra_p2_s1592395901.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Melbourne_p0_s1592395901.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Melbourne_p0_s1592395901.pt.fatto
+protocol/e15/tempi/E/ck_E_Londra_p2_s1592395901.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-390** · `protocol/e15/tempi/E/ck_E_Melbourne_p0_s399595374.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-390** · `protocol/e15/tempi/E/ck_E_Londra_p2_s399595374.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Melbourne_p0_s399595374.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Melbourne_p0_s399595374.pt.fatto
+protocol/e15/tempi/E/ck_E_Londra_p2_s399595374.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-391** · `protocol/e15/tempi/E/ck_E_Melbourne_p0_s643310434.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-391** · `protocol/e15/tempi/E/ck_E_Londra_p2_s643310434.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Melbourne_p0_s643310434.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Melbourne_p0_s643310434.pt.fatto
+protocol/e15/tempi/E/ck_E_Londra_p2_s643310434.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-392** · `protocol/e15/tempi/E/ck_E_Melbourne_p0_s682647013.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-392** · `protocol/e15/tempi/E/ck_E_Londra_p2_s682647013.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Melbourne_p0_s682647013.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Melbourne_p0_s682647013.pt.fatto
+protocol/e15/tempi/E/ck_E_Londra_p2_s682647013.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-393** · `protocol/e15/tempi/E/ck_E_Melbourne_p1_s1150248972.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-393** · `protocol/e15/tempi/E/ck_E_Madrid_p0_s1150248972.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Melbourne_p1_s1150248972.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Melbourne_p1_s1150248972.pt.fatto
+protocol/e15/tempi/E/ck_E_Madrid_p0_s1150248972.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-394** · `protocol/e15/tempi/E/ck_E_Melbourne_p1_s1157715887.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-394** · `protocol/e15/tempi/E/ck_E_Madrid_p0_s1157715887.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Melbourne_p1_s1157715887.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Melbourne_p1_s1157715887.pt.fatto
+protocol/e15/tempi/E/ck_E_Madrid_p0_s1157715887.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-395** · `protocol/e15/tempi/E/ck_E_Melbourne_p1_s1592395901.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-395** · `protocol/e15/tempi/E/ck_E_Madrid_p0_s1592395901.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Melbourne_p1_s1592395901.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Melbourne_p1_s1592395901.pt.fatto
+protocol/e15/tempi/E/ck_E_Madrid_p0_s1592395901.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-396** · `protocol/e15/tempi/E/ck_E_Melbourne_p1_s399595374.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-396** · `protocol/e15/tempi/E/ck_E_Madrid_p0_s399595374.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Melbourne_p1_s399595374.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Melbourne_p1_s399595374.pt.fatto
+protocol/e15/tempi/E/ck_E_Madrid_p0_s399595374.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-397** · `protocol/e15/tempi/E/ck_E_Melbourne_p1_s643310434.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-397** · `protocol/e15/tempi/E/ck_E_Madrid_p0_s643310434.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Melbourne_p1_s643310434.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Melbourne_p1_s643310434.pt.fatto
+protocol/e15/tempi/E/ck_E_Madrid_p0_s643310434.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-398** · `protocol/e15/tempi/E/ck_E_Melbourne_p1_s682647013.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-398** · `protocol/e15/tempi/E/ck_E_Madrid_p0_s682647013.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Melbourne_p1_s682647013.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Melbourne_p1_s682647013.pt.fatto
+protocol/e15/tempi/E/ck_E_Madrid_p0_s682647013.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-399** · `protocol/e15/tempi/E/ck_E_Melbourne_p2_s1150248972.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-399** · `protocol/e15/tempi/E/ck_E_Madrid_p1_s1150248972.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Melbourne_p2_s1150248972.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Melbourne_p2_s1150248972.pt.fatto
+protocol/e15/tempi/E/ck_E_Madrid_p1_s1150248972.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-400** · `protocol/e15/tempi/E/ck_E_Melbourne_p2_s1157715887.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-400** · `protocol/e15/tempi/E/ck_E_Madrid_p1_s1157715887.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Melbourne_p2_s1157715887.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Melbourne_p2_s1157715887.pt.fatto
+protocol/e15/tempi/E/ck_E_Madrid_p1_s1157715887.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-401** · `protocol/e15/tempi/E/ck_E_Melbourne_p2_s1592395901.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-401** · `protocol/e15/tempi/E/ck_E_Madrid_p1_s1592395901.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Melbourne_p2_s1592395901.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Melbourne_p2_s1592395901.pt.fatto
+protocol/e15/tempi/E/ck_E_Madrid_p1_s1592395901.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-402** · `protocol/e15/tempi/E/ck_E_Melbourne_p2_s399595374.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-402** · `protocol/e15/tempi/E/ck_E_Madrid_p1_s399595374.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Melbourne_p2_s399595374.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Melbourne_p2_s399595374.pt.fatto
+protocol/e15/tempi/E/ck_E_Madrid_p1_s399595374.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-403** · `protocol/e15/tempi/E/ck_E_Melbourne_p2_s643310434.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-403** · `protocol/e15/tempi/E/ck_E_Madrid_p1_s643310434.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Melbourne_p2_s643310434.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Melbourne_p2_s643310434.pt.fatto
+protocol/e15/tempi/E/ck_E_Madrid_p1_s643310434.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-404** · `protocol/e15/tempi/E/ck_E_Melbourne_p2_s682647013.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-404** · `protocol/e15/tempi/E/ck_E_Madrid_p1_s682647013.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E/ck_E_Melbourne_p2_s682647013.pt.fatto: numstat 20	0	protocol/e15/tempi/E/ck_E_Melbourne_p2_s682647013.pt.fatto
+protocol/e15/tempi/E/ck_E_Madrid_p1_s682647013.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-405** · `protocol/e15/tempi/E1/ck_E1_Londra_p0_s1150248972.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-405** · `protocol/e15/tempi/E/ck_E_Madrid_p2_s1150248972.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Londra_p0_s1150248972.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Londra_p0_s1150248972.pt.fatto
+protocol/e15/tempi/E/ck_E_Madrid_p2_s1150248972.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-406** · `protocol/e15/tempi/E1/ck_E1_Londra_p0_s1157715887.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-406** · `protocol/e15/tempi/E/ck_E_Madrid_p2_s1157715887.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Londra_p0_s1157715887.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Londra_p0_s1157715887.pt.fatto
+protocol/e15/tempi/E/ck_E_Madrid_p2_s1157715887.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-407** · `protocol/e15/tempi/E1/ck_E1_Londra_p0_s1592395901.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-407** · `protocol/e15/tempi/E/ck_E_Madrid_p2_s1592395901.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Londra_p0_s1592395901.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Londra_p0_s1592395901.pt.fatto
+protocol/e15/tempi/E/ck_E_Madrid_p2_s1592395901.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-408** · `protocol/e15/tempi/E1/ck_E1_Londra_p0_s399595374.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-408** · `protocol/e15/tempi/E/ck_E_Madrid_p2_s399595374.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Londra_p0_s399595374.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Londra_p0_s399595374.pt.fatto
+protocol/e15/tempi/E/ck_E_Madrid_p2_s399595374.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-409** · `protocol/e15/tempi/E1/ck_E1_Londra_p0_s643310434.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-409** · `protocol/e15/tempi/E/ck_E_Madrid_p2_s643310434.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Londra_p0_s643310434.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Londra_p0_s643310434.pt.fatto
+protocol/e15/tempi/E/ck_E_Madrid_p2_s643310434.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-410** · `protocol/e15/tempi/E1/ck_E1_Londra_p0_s682647013.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-410** · `protocol/e15/tempi/E/ck_E_Madrid_p2_s682647013.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Londra_p0_s682647013.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Londra_p0_s682647013.pt.fatto
+protocol/e15/tempi/E/ck_E_Madrid_p2_s682647013.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-411** · `protocol/e15/tempi/E1/ck_E1_Londra_p1_s1150248972.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-411** · `protocol/e15/tempi/E/ck_E_Melbourne_p0_s1150248972.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Londra_p1_s1150248972.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Londra_p1_s1150248972.pt.fatto
+protocol/e15/tempi/E/ck_E_Melbourne_p0_s1150248972.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-412** · `protocol/e15/tempi/E1/ck_E1_Londra_p1_s1157715887.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-412** · `protocol/e15/tempi/E/ck_E_Melbourne_p0_s1157715887.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Londra_p1_s1157715887.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Londra_p1_s1157715887.pt.fatto
+protocol/e15/tempi/E/ck_E_Melbourne_p0_s1157715887.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-413** · `protocol/e15/tempi/E1/ck_E1_Londra_p1_s1592395901.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-413** · `protocol/e15/tempi/E/ck_E_Melbourne_p0_s1592395901.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Londra_p1_s1592395901.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Londra_p1_s1592395901.pt.fatto
+protocol/e15/tempi/E/ck_E_Melbourne_p0_s1592395901.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-414** · `protocol/e15/tempi/E1/ck_E1_Londra_p1_s399595374.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-414** · `protocol/e15/tempi/E/ck_E_Melbourne_p0_s399595374.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Londra_p1_s399595374.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Londra_p1_s399595374.pt.fatto
+protocol/e15/tempi/E/ck_E_Melbourne_p0_s399595374.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-415** · `protocol/e15/tempi/E1/ck_E1_Londra_p1_s643310434.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-415** · `protocol/e15/tempi/E/ck_E_Melbourne_p0_s643310434.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Londra_p1_s643310434.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Londra_p1_s643310434.pt.fatto
+protocol/e15/tempi/E/ck_E_Melbourne_p0_s643310434.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-416** · `protocol/e15/tempi/E1/ck_E1_Londra_p1_s682647013.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-416** · `protocol/e15/tempi/E/ck_E_Melbourne_p0_s682647013.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Londra_p1_s682647013.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Londra_p1_s682647013.pt.fatto
+protocol/e15/tempi/E/ck_E_Melbourne_p0_s682647013.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-417** · `protocol/e15/tempi/E1/ck_E1_Londra_p2_s1150248972.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-417** · `protocol/e15/tempi/E/ck_E_Melbourne_p1_s1150248972.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Londra_p2_s1150248972.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Londra_p2_s1150248972.pt.fatto
+protocol/e15/tempi/E/ck_E_Melbourne_p1_s1150248972.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-418** · `protocol/e15/tempi/E1/ck_E1_Londra_p2_s1157715887.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-418** · `protocol/e15/tempi/E/ck_E_Melbourne_p1_s1157715887.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Londra_p2_s1157715887.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Londra_p2_s1157715887.pt.fatto
+protocol/e15/tempi/E/ck_E_Melbourne_p1_s1157715887.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-419** · `protocol/e15/tempi/E1/ck_E1_Londra_p2_s1592395901.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-419** · `protocol/e15/tempi/E/ck_E_Melbourne_p1_s1592395901.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Londra_p2_s1592395901.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Londra_p2_s1592395901.pt.fatto
+protocol/e15/tempi/E/ck_E_Melbourne_p1_s1592395901.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-420** · `protocol/e15/tempi/E1/ck_E1_Londra_p2_s399595374.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-420** · `protocol/e15/tempi/E/ck_E_Melbourne_p1_s399595374.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Londra_p2_s399595374.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Londra_p2_s399595374.pt.fatto
+protocol/e15/tempi/E/ck_E_Melbourne_p1_s399595374.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-421** · `protocol/e15/tempi/E1/ck_E1_Londra_p2_s643310434.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-421** · `protocol/e15/tempi/E/ck_E_Melbourne_p1_s643310434.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Londra_p2_s643310434.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Londra_p2_s643310434.pt.fatto
+protocol/e15/tempi/E/ck_E_Melbourne_p1_s643310434.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-422** · `protocol/e15/tempi/E1/ck_E1_Londra_p2_s682647013.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-422** · `protocol/e15/tempi/E/ck_E_Melbourne_p1_s682647013.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Londra_p2_s682647013.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Londra_p2_s682647013.pt.fatto
+protocol/e15/tempi/E/ck_E_Melbourne_p1_s682647013.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-423** · `protocol/e15/tempi/E1/ck_E1_Madrid_p0_s1150248972.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-423** · `protocol/e15/tempi/E/ck_E_Melbourne_p2_s1150248972.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Madrid_p0_s1150248972.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Madrid_p0_s1150248972.pt.fatto
+protocol/e15/tempi/E/ck_E_Melbourne_p2_s1150248972.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-424** · `protocol/e15/tempi/E1/ck_E1_Madrid_p0_s1157715887.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-424** · `protocol/e15/tempi/E/ck_E_Melbourne_p2_s1157715887.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Madrid_p0_s1157715887.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Madrid_p0_s1157715887.pt.fatto
+protocol/e15/tempi/E/ck_E_Melbourne_p2_s1157715887.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-425** · `protocol/e15/tempi/E1/ck_E1_Madrid_p0_s1592395901.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-425** · `protocol/e15/tempi/E/ck_E_Melbourne_p2_s1592395901.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Madrid_p0_s1592395901.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Madrid_p0_s1592395901.pt.fatto
+protocol/e15/tempi/E/ck_E_Melbourne_p2_s1592395901.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-426** · `protocol/e15/tempi/E1/ck_E1_Madrid_p0_s399595374.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-426** · `protocol/e15/tempi/E/ck_E_Melbourne_p2_s399595374.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Madrid_p0_s399595374.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Madrid_p0_s399595374.pt.fatto
+protocol/e15/tempi/E/ck_E_Melbourne_p2_s399595374.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-427** · `protocol/e15/tempi/E1/ck_E1_Madrid_p0_s643310434.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-427** · `protocol/e15/tempi/E/ck_E_Melbourne_p2_s643310434.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Madrid_p0_s643310434.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Madrid_p0_s643310434.pt.fatto
+protocol/e15/tempi/E/ck_E_Melbourne_p2_s643310434.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-428** · `protocol/e15/tempi/E1/ck_E1_Madrid_p0_s682647013.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-428** · `protocol/e15/tempi/E/ck_E_Melbourne_p2_s682647013.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Madrid_p0_s682647013.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Madrid_p0_s682647013.pt.fatto
+protocol/e15/tempi/E/ck_E_Melbourne_p2_s682647013.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-429** · `protocol/e15/tempi/E1/ck_E1_Madrid_p1_s1150248972.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-429** · `protocol/e15/tempi/E1/ck_E1_Londra_p0_s1150248972.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Madrid_p1_s1150248972.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Madrid_p1_s1150248972.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Londra_p0_s1150248972.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-430** · `protocol/e15/tempi/E1/ck_E1_Madrid_p1_s1157715887.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-430** · `protocol/e15/tempi/E1/ck_E1_Londra_p0_s1157715887.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Madrid_p1_s1157715887.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Madrid_p1_s1157715887.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Londra_p0_s1157715887.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-431** · `protocol/e15/tempi/E1/ck_E1_Madrid_p1_s1592395901.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-431** · `protocol/e15/tempi/E1/ck_E1_Londra_p0_s1592395901.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Madrid_p1_s1592395901.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Madrid_p1_s1592395901.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Londra_p0_s1592395901.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-432** · `protocol/e15/tempi/E1/ck_E1_Madrid_p1_s399595374.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-432** · `protocol/e15/tempi/E1/ck_E1_Londra_p0_s399595374.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Madrid_p1_s399595374.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Madrid_p1_s399595374.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Londra_p0_s399595374.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-433** · `protocol/e15/tempi/E1/ck_E1_Madrid_p1_s643310434.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-433** · `protocol/e15/tempi/E1/ck_E1_Londra_p0_s643310434.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Madrid_p1_s643310434.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Madrid_p1_s643310434.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Londra_p0_s643310434.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-434** · `protocol/e15/tempi/E1/ck_E1_Madrid_p1_s682647013.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-434** · `protocol/e15/tempi/E1/ck_E1_Londra_p0_s682647013.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Madrid_p1_s682647013.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Madrid_p1_s682647013.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Londra_p0_s682647013.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-435** · `protocol/e15/tempi/E1/ck_E1_Madrid_p2_s1150248972.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-435** · `protocol/e15/tempi/E1/ck_E1_Londra_p1_s1150248972.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Madrid_p2_s1150248972.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Madrid_p2_s1150248972.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Londra_p1_s1150248972.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-436** · `protocol/e15/tempi/E1/ck_E1_Madrid_p2_s1157715887.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-436** · `protocol/e15/tempi/E1/ck_E1_Londra_p1_s1157715887.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Madrid_p2_s1157715887.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Madrid_p2_s1157715887.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Londra_p1_s1157715887.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-437** · `protocol/e15/tempi/E1/ck_E1_Madrid_p2_s1592395901.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-437** · `protocol/e15/tempi/E1/ck_E1_Londra_p1_s1592395901.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Madrid_p2_s1592395901.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Madrid_p2_s1592395901.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Londra_p1_s1592395901.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-438** · `protocol/e15/tempi/E1/ck_E1_Madrid_p2_s399595374.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-438** · `protocol/e15/tempi/E1/ck_E1_Londra_p1_s399595374.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Madrid_p2_s399595374.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Madrid_p2_s399595374.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Londra_p1_s399595374.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-439** · `protocol/e15/tempi/E1/ck_E1_Madrid_p2_s643310434.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-439** · `protocol/e15/tempi/E1/ck_E1_Londra_p1_s643310434.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Madrid_p2_s643310434.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Madrid_p2_s643310434.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Londra_p1_s643310434.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-440** · `protocol/e15/tempi/E1/ck_E1_Madrid_p2_s682647013.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-440** · `protocol/e15/tempi/E1/ck_E1_Londra_p1_s682647013.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Madrid_p2_s682647013.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Madrid_p2_s682647013.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Londra_p1_s682647013.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-441** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s1150248972.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-441** · `protocol/e15/tempi/E1/ck_E1_Londra_p2_s1150248972.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s1150248972.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s1150248972.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Londra_p2_s1150248972.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-442** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s1157715887.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-442** · `protocol/e15/tempi/E1/ck_E1_Londra_p2_s1157715887.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s1157715887.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s1157715887.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Londra_p2_s1157715887.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-443** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s1592395901.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-443** · `protocol/e15/tempi/E1/ck_E1_Londra_p2_s1592395901.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s1592395901.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s1592395901.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Londra_p2_s1592395901.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-444** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s399595374.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-444** · `protocol/e15/tempi/E1/ck_E1_Londra_p2_s399595374.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s399595374.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s399595374.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Londra_p2_s399595374.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-445** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s643310434.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-445** · `protocol/e15/tempi/E1/ck_E1_Londra_p2_s643310434.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s643310434.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s643310434.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Londra_p2_s643310434.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-446** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s682647013.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-446** · `protocol/e15/tempi/E1/ck_E1_Londra_p2_s682647013.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s682647013.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s682647013.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Londra_p2_s682647013.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-447** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s1150248972.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-447** · `protocol/e15/tempi/E1/ck_E1_Madrid_p0_s1150248972.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s1150248972.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s1150248972.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Madrid_p0_s1150248972.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-448** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s1157715887.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-448** · `protocol/e15/tempi/E1/ck_E1_Madrid_p0_s1157715887.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s1157715887.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s1157715887.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Madrid_p0_s1157715887.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-449** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s1592395901.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-449** · `protocol/e15/tempi/E1/ck_E1_Madrid_p0_s1592395901.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s1592395901.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s1592395901.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Madrid_p0_s1592395901.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-450** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s399595374.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-450** · `protocol/e15/tempi/E1/ck_E1_Madrid_p0_s399595374.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s399595374.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s399595374.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Madrid_p0_s399595374.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-451** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s643310434.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-451** · `protocol/e15/tempi/E1/ck_E1_Madrid_p0_s643310434.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s643310434.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s643310434.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Madrid_p0_s643310434.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-452** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s682647013.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-452** · `protocol/e15/tempi/E1/ck_E1_Madrid_p0_s682647013.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s682647013.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s682647013.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Madrid_p0_s682647013.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-453** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s1150248972.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-453** · `protocol/e15/tempi/E1/ck_E1_Madrid_p1_s1150248972.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s1150248972.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s1150248972.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Madrid_p1_s1150248972.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-454** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s1157715887.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-454** · `protocol/e15/tempi/E1/ck_E1_Madrid_p1_s1157715887.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s1157715887.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s1157715887.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Madrid_p1_s1157715887.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-455** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s1592395901.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-455** · `protocol/e15/tempi/E1/ck_E1_Madrid_p1_s1592395901.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s1592395901.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s1592395901.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Madrid_p1_s1592395901.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-456** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s399595374.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-456** · `protocol/e15/tempi/E1/ck_E1_Madrid_p1_s399595374.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s399595374.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s399595374.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Madrid_p1_s399595374.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-457** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s643310434.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-457** · `protocol/e15/tempi/E1/ck_E1_Madrid_p1_s643310434.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s643310434.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s643310434.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Madrid_p1_s643310434.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-458** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s682647013.pt.fatto` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-458** · `protocol/e15/tempi/E1/ck_E1_Madrid_p1_s682647013.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s682647013.pt.fatto: numstat 20	0	protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s682647013.pt.fatto
+protocol/e15/tempi/E1/ck_E1_Madrid_p1_s682647013.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-459** · `protocol/e15/tempi/esito_e15.json` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-459** · `protocol/e15/tempi/E1/ck_E1_Madrid_p2_s1150248972.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/esito_e15.json: numstat 22	0	protocol/e15/tempi/esito_e15.json
+protocol/e15/tempi/E1/ck_E1_Madrid_p2_s1150248972.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-460** · `protocol/e15/tempi/pilota_tempi_16.json` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-460** · `protocol/e15/tempi/E1/ck_E1_Madrid_p2_s1157715887.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e15/tempi/pilota_tempi_16.json: numstat 32	0	protocol/e15/tempi/pilota_tempi_16.json
+protocol/e15/tempi/E1/ck_E1_Madrid_p2_s1157715887.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-461** · `protocol/e16/e16_risultati.json` · paper1-freeze-20261015h..paper1-freeze-20261028i
+**C-main-TAG-461** · `protocol/e15/tempi/E1/ck_E1_Madrid_p2_s1592395901.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e16/e16_risultati.json: numstat 411264	0	protocol/e16/e16_risultati.json
+protocol/e15/tempi/E1/ck_E1_Madrid_p2_s1592395901.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-462** · `analysis/rigenerazione/CONFRONTO.md` · paper1-freeze-20261028i..paper1-freeze-20261028j
+**C-main-TAG-462** · `protocol/e15/tempi/E1/ck_E1_Madrid_p2_s399595374.pt.fatto` · 1 tag pair(s)
 
 ```
-analysis/rigenerazione/CONFRONTO.md: numstat 83	55	analysis/rigenerazione/CONFRONTO.md
+protocol/e15/tempi/E1/ck_E1_Madrid_p2_s399595374.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-463** · `evoluzione/analisi/figura2_51.py` · paper1-freeze-20261028i..paper1-freeze-20261028j
+**C-main-TAG-463** · `protocol/e15/tempi/E1/ck_E1_Madrid_p2_s643310434.pt.fatto` · 1 tag pair(s)
 
 ```
-evoluzione/analisi/figura2_51.py: numstat 1	1	evoluzione/analisi/figura2_51.py
+protocol/e15/tempi/E1/ck_E1_Madrid_p2_s643310434.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-464** · `CONGELAMENTO_E14B.md` · paper1-freeze-20261028j..paper1-freeze-20261030k
+**C-main-TAG-464** · `protocol/e15/tempi/E1/ck_E1_Madrid_p2_s682647013.pt.fatto` · 1 tag pair(s)
 
 ```
-CONGELAMENTO_E14B.md: numstat 4	2	CONGELAMENTO_E14B.md
+protocol/e15/tempi/E1/ck_E1_Madrid_p2_s682647013.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-465** · `CONGELAMENTO_E18.md` · paper1-freeze-20261028j..paper1-freeze-20261030k
+**C-main-TAG-465** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s1150248972.pt.fatto` · 1 tag pair(s)
 
 ```
-CONGELAMENTO_E18.md: numstat 352	0	CONGELAMENTO_E18.md
+protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s1150248972.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-466** · `analysis/main.py` · paper1-freeze-20261028j..paper1-freeze-20261030k
+**C-main-TAG-466** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s1157715887.pt.fatto` · 1 tag pair(s)
 
 ```
-analysis/main.py: numstat 64	7	analysis/main.py
+protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s1157715887.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-467** · `analysis/rigenerazione/CONFRONTO.md` · paper1-freeze-20261028j..paper1-freeze-20261030k
+**C-main-TAG-467** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s1592395901.pt.fatto` · 1 tag pair(s)
 
 ```
-analysis/rigenerazione/CONFRONTO.md: numstat 45	17	analysis/rigenerazione/CONFRONTO.md
+protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s1592395901.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-468** · `analysis/tabelle_paper1.py` · paper1-freeze-20261028j..paper1-freeze-20261030k
+**C-main-TAG-468** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s399595374.pt.fatto` · 1 tag pair(s)
 
 ```
-analysis/tabelle_paper1.py: numstat 57	5	analysis/tabelle_paper1.py
+protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s399595374.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-469** · `analysis/tabelle_suppl.py` · paper1-freeze-20261028j..paper1-freeze-20261030k
+**C-main-TAG-469** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s643310434.pt.fatto` · 1 tag pair(s)
 
 ```
-analysis/tabelle_suppl.py: numstat 214	4	analysis/tabelle_suppl.py
+protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s643310434.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-470** · `evoluzione/ADDENDUM_PEMS04.md` · paper1-freeze-20261028j..paper1-freeze-20261030k
+**C-main-TAG-470** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s682647013.pt.fatto` · 1 tag pair(s)
 
 ```
-evoluzione/ADDENDUM_PEMS04.md: numstat 4	0	evoluzione/ADDENDUM_PEMS04.md
+protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s682647013.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-471** · `evoluzione/analisi/analizza_e18.py` · paper1-freeze-20261028j..paper1-freeze-20261030k
+**C-main-TAG-471** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s1150248972.pt.fatto` · 1 tag pair(s)
 
 ```
-evoluzione/analisi/analizza_e18.py: numstat 738	0	evoluzione/analisi/analizza_e18.py
+protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s1150248972.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-472** · `evoluzione/audit/manifesto_zenodo.py` · paper1-freeze-20261028j..paper1-freeze-20261030k
+**C-main-TAG-472** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s1157715887.pt.fatto` · 1 tag pair(s)
 
 ```
-evoluzione/audit/manifesto_zenodo.py: numstat 99	0	evoluzione/audit/manifesto_zenodo.py
+protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s1157715887.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-473** · `evoluzione/audit/ripartizione_results.py` · paper1-freeze-20261028j..paper1-freeze-20261030k
+**C-main-TAG-473** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s1592395901.pt.fatto` · 1 tag pair(s)
 
 ```
-evoluzione/audit/ripartizione_results.py: numstat 115	0	evoluzione/audit/ripartizione_results.py
+protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s1592395901.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-474** · `evoluzione/audit/verifica_ingressi_e18.py` · paper1-freeze-20261028j..paper1-freeze-20261030k
+**C-main-TAG-474** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s399595374.pt.fatto` · 1 tag pair(s)
 
 ```
-evoluzione/audit/verifica_ingressi_e18.py: numstat 87	0	evoluzione/audit/verifica_ingressi_e18.py
+protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s399595374.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-475** · `evoluzione/esperimenti/esegui_e16.py` · paper1-freeze-20261028j..paper1-freeze-20261030k
+**C-main-TAG-475** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s643310434.pt.fatto` · 1 tag pair(s)
 
 ```
-evoluzione/esperimenti/esegui_e16.py: numstat 9	7	evoluzione/esperimenti/esegui_e16.py
+protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s643310434.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-476** · `protocol/E18.md` · paper1-freeze-20261028j..paper1-freeze-20261030k
+**C-main-TAG-476** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s682647013.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/E18.md: numstat 147	0	protocol/E18.md
+protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s682647013.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-477** · `protocol/REGISTRO_CORREZIONI.md` · paper1-freeze-20261028j..paper1-freeze-20261030k
+**C-main-TAG-477** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s1150248972.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/REGISTRO_CORREZIONI.md: numstat 52	0	protocol/REGISTRO_CORREZIONI.md
+protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s1150248972.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-478** · `protocol/SUMMARIES.en.md` · paper1-freeze-20261028j..paper1-freeze-20261030k
+**C-main-TAG-478** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s1157715887.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/SUMMARIES.en.md: numstat 155	0	protocol/SUMMARIES.en.md
+protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s1157715887.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-479** · `protocol/e18/COPIA_INGRESSI_MAC.md` · paper1-freeze-20261028j..paper1-freeze-20261030k
+**C-main-TAG-479** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s1592395901.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e18/COPIA_INGRESSI_MAC.md: numstat 342	0	protocol/e18/COPIA_INGRESSI_MAC.md
+protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s1592395901.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-480** · `protocol/e18/tempi_parte_A.json` · paper1-freeze-20261028j..paper1-freeze-20261030k
+**C-main-TAG-480** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s399595374.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/e18/tempi_parte_A.json: numstat 55	0	protocol/e18/tempi_parte_A.json
+protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s399595374.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-481** · `protocol/spark/CONFRONTO_paper1-freeze-20261028i.md` · paper1-freeze-20261028j..paper1-freeze-20261030k
+**C-main-TAG-481** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s643310434.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/spark/CONFRONTO_paper1-freeze-20261028i.md: numstat 679	0	protocol/spark/CONFRONTO_paper1-freeze-20261028i.md
+protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s643310434.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-482** · `protocol/spark/CONFRONTO_paper1-freeze-20261028j.md` · paper1-freeze-20261028j..paper1-freeze-20261030k
+**C-main-TAG-482** · `protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s682647013.pt.fatto` · 1 tag pair(s)
 
 ```
-protocol/spark/CONFRONTO_paper1-freeze-20261028j.md: numstat 679	0	protocol/spark/CONFRONTO_paper1-freeze-20261028j.md
+protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s682647013.pt.fatto
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-483** · `protocol/zenodo/RIPARTIZIONE_RESULTS.md` · paper1-freeze-20261028j..paper1-freeze-20261030k
+**C-main-TAG-483** · `protocol/e15/tempi/esito_e15.json` · 1 tag pair(s)
 
 ```
-protocol/zenodo/RIPARTIZIONE_RESULTS.md: numstat 301	0	protocol/zenodo/RIPARTIZIONE_RESULTS.md
+protocol/e15/tempi/esito_e15.json
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-484** · `protocol/zenodo/RIPARTIZIONE_RESULTS_spark.md` · paper1-freeze-20261028j..paper1-freeze-20261030k
+**C-main-TAG-484** · `protocol/e15/tempi/pilota_tempi_16.json` · 1 tag pair(s)
 
 ```
-protocol/zenodo/RIPARTIZIONE_RESULTS_spark.md: numstat 301	0	protocol/zenodo/RIPARTIZIONE_RESULTS_spark.md
+protocol/e15/tempi/pilota_tempi_16.json
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-485** · `CONGELAMENTO_E18TER.md` · paper1-freeze-20261030k..paper1-freeze-20261030l
+**C-main-TAG-485** · `protocol/e16/e16_risultati.json` · 1 tag pair(s)
 
 ```
-CONGELAMENTO_E18TER.md: numstat 170	0	CONGELAMENTO_E18TER.md
+protocol/e16/e16_risultati.json
+paper1-freeze-20261015h..paper1-freeze-20261028i A
 ```
 
-**C-main-TAG-486** · `analysis/main.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
+**C-main-TAG-486** · `protocol/e18/COPIA_INGRESSI_MAC.md` · 1 tag pair(s)
 
 ```
-analysis/main.py: numstat 11	1	analysis/main.py
+protocol/e18/COPIA_INGRESSI_MAC.md
+paper1-freeze-20261028j..paper1-freeze-20261030k A
 ```
 
-**C-main-TAG-487** · `analysis/rigenerazione/CONFRONTO.md` · paper1-freeze-20261030k..paper1-freeze-20261030l
+**C-main-TAG-487** · `protocol/e18/tempi_parte_A.json` · 1 tag pair(s)
 
 ```
-analysis/rigenerazione/CONFRONTO.md: numstat 32	53	analysis/rigenerazione/CONFRONTO.md
+protocol/e18/tempi_parte_A.json
+paper1-freeze-20261028j..paper1-freeze-20261030k A
 ```
 
-**C-main-TAG-488** · `analysis/tabelle_paper1.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
+**C-main-TAG-488** · `protocol/spark/CONFRONTO_paper1-freeze-20261028i.md` · 1 tag pair(s)
 
 ```
-analysis/tabelle_paper1.py: numstat 75	35	analysis/tabelle_paper1.py
+protocol/spark/CONFRONTO_paper1-freeze-20261028i.md
+paper1-freeze-20261028j..paper1-freeze-20261030k A
 ```
 
-**C-main-TAG-489** · `analysis/tabelle_suppl.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
+**C-main-TAG-489** · `protocol/spark/CONFRONTO_paper1-freeze-20261028j.md` · 1 tag pair(s)
 
 ```
-analysis/tabelle_suppl.py: numstat 132	43	analysis/tabelle_suppl.py
+protocol/spark/CONFRONTO_paper1-freeze-20261028j.md
+paper1-freeze-20261028j..paper1-freeze-20261030k A
 ```
 
-**C-main-TAG-490** · `evoluzione/analisi/analizza_e18ter.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
+**C-main-TAG-490** · `protocol/spark/CONFRONTO_paper1-freeze-20261030k.md` · 1 tag pair(s)
 
 ```
-evoluzione/analisi/analizza_e18ter.py: numstat 312	0	evoluzione/analisi/analizza_e18ter.py
+protocol/spark/CONFRONTO_paper1-freeze-20261030k.md
+paper1-freeze-20261030k..paper1-freeze-20261030l A
 ```
 
-**C-main-TAG-491** · `evoluzione/audit/archivi_zenodo.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
+**C-main-TAG-491** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub2.md` · 1 tag pair(s)
 
 ```
-evoluzione/audit/archivi_zenodo.py: numstat 114	0	evoluzione/audit/archivi_zenodo.py
+protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub2.md
+paper1-freeze-20261030l-pub2..paper1-freeze-20261030l-pub3 A
 ```
 
-**C-main-TAG-492** · `evoluzione/audit/massimi_e14b.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
+**C-main-TAG-492** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub3.md` · 1 tag pair(s)
 
 ```
-evoluzione/audit/massimi_e14b.py: numstat 84	0	evoluzione/audit/massimi_e14b.py
+protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub3.md
+paper1-freeze-20261030l-pub3..paper1-freeze-20261101m A
 ```
 
-**C-main-TAG-493** · `evoluzione/audit/patch/README.md` · paper1-freeze-20261030k..paper1-freeze-20261030l
+**C-main-TAG-493** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l.md` · 1 tag pair(s)
 
 ```
-evoluzione/audit/patch/README.md: numstat 4	0	evoluzione/audit/patch/README.md
+protocol/spark/CONFRONTO_paper1-freeze-20261030l.md
+paper1-freeze-20261030l..paper1-freeze-20261030l-pub A
 ```
 
-**C-main-TAG-494** · `evoluzione/audit/patch/patch_attributo_distanza.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
+**C-main-TAG-494** · `protocol/spark/CONFRONTO_paper1-freeze-20261101n.md` · 1 tag pair(s)
 
 ```
-evoluzione/audit/patch/patch_attributo_distanza.py: numstat 225	0	evoluzione/audit/patch/patch_attributo_distanza.py
+protocol/spark/CONFRONTO_paper1-freeze-20261101n.md
+paper1-freeze-20261101o..paper1-freeze-20261103p A
 ```
 
-**C-main-TAG-495** · `evoluzione/audit/patch/patch_e14b_adatta_F.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
+**C-main-TAG-495** · `protocol/spark/CONFRONTO_paper1-freeze-20261101o.md` · 1 tag pair(s)
 
 ```
-evoluzione/audit/patch/patch_e14b_adatta_F.py: numstat 61	0	evoluzione/audit/patch/patch_e14b_adatta_F.py
+protocol/spark/CONFRONTO_paper1-freeze-20261101o.md
+paper1-freeze-20261101o..paper1-freeze-20261103p A
 ```
 
-**C-main-TAG-496** · `evoluzione/audit/patch/patch_e14b_ricostruzione.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
+**C-main-TAG-496** · `protocol/spark/CONFRONTO_paper1-freeze-20261103p.md` · 1 tag pair(s)
 
 ```
-evoluzione/audit/patch/patch_e14b_ricostruzione.py: numstat 57	0	evoluzione/audit/patch/patch_e14b_ricostruzione.py
+protocol/spark/CONFRONTO_paper1-freeze-20261103p.md
+paper1-freeze-20261103p..paper1-freeze-20261103q A
 ```
 
-**C-main-TAG-497** · `evoluzione/audit/patch/patch_e15.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
+**C-main-TAG-497** · `protocol/spark/NOTA_20261101n.md` · 1 tag pair(s)
 
 ```
-evoluzione/audit/patch/patch_e15.py: numstat 386	0	evoluzione/audit/patch/patch_e15.py
+protocol/spark/NOTA_20261101n.md
+paper1-freeze-20261101o..paper1-freeze-20261103p A
 ```
 
-**C-main-TAG-498** · `evoluzione/audit/patch/patch_e15_main.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
+**C-main-TAG-498** · `protocol/zenodo/ARCHIVI.md` · 2 tag pair(s)
 
 ```
-evoluzione/audit/patch/patch_e15_main.py: numstat 42	0	evoluzione/audit/patch/patch_e15_main.py
+protocol/zenodo/ARCHIVI.md
+paper1-freeze-20261030k..paper1-freeze-20261030l A
+paper1-freeze-20261030l..paper1-freeze-20261030l-pub M
 ```
 
-**C-main-TAG-499** · `evoluzione/audit/patch/patch_e18_e16.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
+**C-main-TAG-499** · `protocol/zenodo/MANIFEST.txt` · 2 tag pair(s)
 
 ```
-evoluzione/audit/patch/patch_e18_e16.py: numstat 80	0	evoluzione/audit/patch/patch_e18_e16.py
+protocol/zenodo/MANIFEST.txt
+paper1-freeze-20261030k..paper1-freeze-20261030l A
+paper1-freeze-20261030l..paper1-freeze-20261030l-pub M
 ```
 
-**C-main-TAG-500** · `evoluzione/audit/patch/patch_e18_main.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
+**C-main-TAG-500** · `protocol/zenodo/RIPARTIZIONE_RESULTS.md` · 2 tag pair(s)
 
 ```
-evoluzione/audit/patch/patch_e18_main.py: numstat 38	0	evoluzione/audit/patch/patch_e18_main.py
+protocol/zenodo/RIPARTIZIONE_RESULTS.md
+paper1-freeze-20261028j..paper1-freeze-20261030k A
+paper1-freeze-20261103p..paper1-freeze-20261103q M
 ```
 
-**C-main-TAG-501** · `evoluzione/audit/patch/patch_e18ter_main.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
+**C-main-TAG-501** · `protocol/zenodo/RIPARTIZIONE_RESULTS_spark.md` · 2 tag pair(s)
 
 ```
-evoluzione/audit/patch/patch_e18ter_main.py: numstat 115	0	evoluzione/audit/patch/patch_e18ter_main.py
-```
-
-**C-main-TAG-502** · `evoluzione/audit/patch/patch_e18ter_tabellaV.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
-
-```
-evoluzione/audit/patch/patch_e18ter_tabellaV.py: numstat 87	0	evoluzione/audit/patch/patch_e18ter_tabellaV.py
-```
-
-**C-main-TAG-503** · `evoluzione/audit/patch/patch_e18ter_tabelle.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
-
-```
-evoluzione/audit/patch/patch_e18ter_tabelle.py: numstat 202	0	evoluzione/audit/patch/patch_e18ter_tabelle.py
-```
-
-**C-main-TAG-504** · `evoluzione/audit/patch/patch_e3_riviste.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
-
-```
-evoluzione/audit/patch/patch_e3_riviste.py: numstat 156	0	evoluzione/audit/patch/patch_e3_riviste.py
-```
-
-**C-main-TAG-505** · `evoluzione/audit/patch/patch_e3bis_costi.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
-
-```
-evoluzione/audit/patch/patch_e3bis_costi.py: numstat 116	0	evoluzione/audit/patch/patch_e3bis_costi.py
-```
-
-**C-main-TAG-506** · `evoluzione/audit/patch/patch_e5_prosa.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
-
-```
-evoluzione/audit/patch/patch_e5_prosa.py: numstat 38	0	evoluzione/audit/patch/patch_e5_prosa.py
-```
-
-**C-main-TAG-507** · `evoluzione/audit/patch/patch_e6_origini.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
-
-```
-evoluzione/audit/patch/patch_e6_origini.py: numstat 116	0	evoluzione/audit/patch/patch_e6_origini.py
-```
-
-**C-main-TAG-508** · `evoluzione/audit/patch/patch_g18_21.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
-
-```
-evoluzione/audit/patch/patch_g18_21.py: numstat 57	0	evoluzione/audit/patch/patch_g18_21.py
-```
-
-**C-main-TAG-509** · `evoluzione/audit/patch/patch_g23.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
-
-```
-evoluzione/audit/patch/patch_g23.py: numstat 47	0	evoluzione/audit/patch/patch_g23.py
-```
-
-**C-main-TAG-510** · `evoluzione/audit/patch/patch_l_didascalie.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
-
-```
-evoluzione/audit/patch/patch_l_didascalie.py: numstat 63	0	evoluzione/audit/patch/patch_l_didascalie.py
-```
-
-**C-main-TAG-511** · `evoluzione/audit/patch/patch_metrics.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
-
-```
-evoluzione/audit/patch/patch_metrics.py: numstat 49	0	evoluzione/audit/patch/patch_metrics.py
-```
-
-**C-main-TAG-512** · `evoluzione/audit/patch/patch_priore_calibrato.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
-
-```
-evoluzione/audit/patch/patch_priore_calibrato.py: numstat 135	0	evoluzione/audit/patch/patch_priore_calibrato.py
-```
-
-**C-main-TAG-513** · `evoluzione/audit/patch/patch_statica_causale.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
-
-```
-evoluzione/audit/patch/patch_statica_causale.py: numstat 266	0	evoluzione/audit/patch/patch_statica_causale.py
-```
-
-**C-main-TAG-514** · `evoluzione/audit/patch/patch_statica_variante.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
-
-```
-evoluzione/audit/patch/patch_statica_variante.py: numstat 275	0	evoluzione/audit/patch/patch_statica_variante.py
-```
-
-**C-main-TAG-515** · `evoluzione/audit/patch/patch_stats_friedman.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
-
-```
-evoluzione/audit/patch/patch_stats_friedman.py: numstat 182	0	evoluzione/audit/patch/patch_stats_friedman.py
-```
-
-**C-main-TAG-516** · `evoluzione/audit/patch/patch_tempi_main.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
-
-```
-evoluzione/audit/patch/patch_tempi_main.py: numstat 42	0	evoluzione/audit/patch/patch_tempi_main.py
-```
-
-**C-main-TAG-517** · `evoluzione/audit/patch/patch_tolleranza_appaiamento.py` · paper1-freeze-20261030k..paper1-freeze-20261030l
-
-```
-evoluzione/audit/patch/patch_tolleranza_appaiamento.py: numstat 54	0	evoluzione/audit/patch/patch_tolleranza_appaiamento.py
-```
-
-**C-main-TAG-518** · `protocol/E18ter.md` · paper1-freeze-20261030k..paper1-freeze-20261030l
-
-```
-protocol/E18ter.md: numstat 41	0	protocol/E18ter.md
-```
-
-**C-main-TAG-519** · `protocol/e14b/MASSIMI_DELTA.md` · paper1-freeze-20261030k..paper1-freeze-20261030l
-
-```
-protocol/e14b/MASSIMI_DELTA.md: numstat 18	0	protocol/e14b/MASSIMI_DELTA.md
-```
-
-**C-main-TAG-520** · `protocol/spark/CONFRONTO_paper1-freeze-20261030k.md` · paper1-freeze-20261030k..paper1-freeze-20261030l
-
-```
-protocol/spark/CONFRONTO_paper1-freeze-20261030k.md: numstat 709	0	protocol/spark/CONFRONTO_paper1-freeze-20261030k.md
-```
-
-**C-main-TAG-521** · `protocol/zenodo/ARCHIVI.md` · paper1-freeze-20261030k..paper1-freeze-20261030l
-
-```
-protocol/zenodo/ARCHIVI.md: numstat 14	0	protocol/zenodo/ARCHIVI.md
-```
-
-**C-main-TAG-522** · `protocol/zenodo/MANIFEST.txt` · paper1-freeze-20261030k..paper1-freeze-20261030l
-
-```
-protocol/zenodo/MANIFEST.txt: numstat 12683	0	protocol/zenodo/MANIFEST.txt
-```
-
-**C-main-TAG-523** · `evoluzione/audit/archivi_zenodo.py` · paper1-freeze-20261030l..paper1-freeze-20261030l-pub
-
-```
-evoluzione/audit/archivi_zenodo.py: numstat 15	5	evoluzione/audit/archivi_zenodo.py
-```
-
-**C-main-TAG-524** · `protocol/REGISTRO_CORREZIONI.md` · paper1-freeze-20261030l..paper1-freeze-20261030l-pub
-
-```
-protocol/REGISTRO_CORREZIONI.md: numstat 2	1	protocol/REGISTRO_CORREZIONI.md
-```
-
-**C-main-TAG-525** · `protocol/RISCRITTURA_STORIA.md` · paper1-freeze-20261030l..paper1-freeze-20261030l-pub
-
-```
-protocol/RISCRITTURA_STORIA.md: numstat 159	0	protocol/RISCRITTURA_STORIA.md
-```
-
-**C-main-TAG-526** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l.md` · paper1-freeze-20261030l..paper1-freeze-20261030l-pub
-
-```
-protocol/spark/CONFRONTO_paper1-freeze-20261030l.md: numstat 688	0	protocol/spark/CONFRONTO_paper1-freeze-20261030l.md
-```
-
-**C-main-TAG-527** · `protocol/zenodo/ARCHIVI.md` · paper1-freeze-20261030l..paper1-freeze-20261030l-pub
-
-```
-protocol/zenodo/ARCHIVI.md: numstat 5	3	protocol/zenodo/ARCHIVI.md
-```
-
-**C-main-TAG-528** · `protocol/zenodo/MANIFEST.txt` · paper1-freeze-20261030l..paper1-freeze-20261030l-pub
-
-```
-protocol/zenodo/MANIFEST.txt: numstat 6	4	protocol/zenodo/MANIFEST.txt
-```
-
-**C-main-TAG-529** · `evoluzione/analisi/analizza_e18.py` · paper1-freeze-20261030l-pub..paper1-freeze-20261030l-pub2
-
-```
-evoluzione/analisi/analizza_e18.py: numstat 2	1	evoluzione/analisi/analizza_e18.py
-```
-
-**C-main-TAG-530** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub2.md` · paper1-freeze-20261030l-pub2..paper1-freeze-20261030l-pub3
-
-```
-protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub2.md: numstat 691	0	protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub2.md
-```
-
-**C-main-TAG-531** · `analysis/main.py` · paper1-freeze-20261030l-pub3..paper1-freeze-20261101m
-
-```
-analysis/main.py: numstat 211	1	analysis/main.py
-```
-
-**C-main-TAG-532** · `analysis/rigenerazione/CONFRONTO.md` · paper1-freeze-20261030l-pub3..paper1-freeze-20261101m
-
-```
-analysis/rigenerazione/CONFRONTO.md: numstat 46	579	analysis/rigenerazione/CONFRONTO.md
-```
-
-**C-main-TAG-533** · `analysis/tabelle_suppl.py` · paper1-freeze-20261030l-pub3..paper1-freeze-20261101m
-
-```
-analysis/tabelle_suppl.py: numstat 2	2	analysis/tabelle_suppl.py
-```
-
-**C-main-TAG-534** · `evoluzione/audit/massimi_e14b.py` · paper1-freeze-20261030l-pub3..paper1-freeze-20261101m
-
-```
-evoluzione/audit/massimi_e14b.py: numstat 12	2	evoluzione/audit/massimi_e14b.py
-```
-
-**C-main-TAG-535** · `evoluzione/audit/patch/patch_e14_massimi.py` · paper1-freeze-20261030l-pub3..paper1-freeze-20261101m
-
-```
-evoluzione/audit/patch/patch_e14_massimi.py: numstat 62	0	evoluzione/audit/patch/patch_e14_massimi.py
-```
-
-**C-main-TAG-536** · `evoluzione/audit/patch/patch_limite_d.py` · paper1-freeze-20261030l-pub3..paper1-freeze-20261101m
-
-```
-evoluzione/audit/patch/patch_limite_d.py: numstat 49	0	evoluzione/audit/patch/patch_limite_d.py
-```
-
-**C-main-TAG-537** · `protocol/e14b/MASSIMI_DELTA.md` · paper1-freeze-20261030l-pub3..paper1-freeze-20261101m
-
-```
-protocol/e14b/MASSIMI_DELTA.md: numstat 13	13	protocol/e14b/MASSIMI_DELTA.md
-```
-
-**C-main-TAG-538** · `protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub3.md` · paper1-freeze-20261030l-pub3..paper1-freeze-20261101m
-
-```
-protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub3.md: numstat 688	0	protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub3.md
-```
-
-**C-main-TAG-539** · `analysis/main.py` · paper1-freeze-20261101m..paper1-freeze-20261101m2
-
-```
-analysis/main.py: numstat 2	2	analysis/main.py
-```
-
-**C-main-TAG-540** · `analysis/rigenerazione/CONFRONTO.md` · paper1-freeze-20261101m..paper1-freeze-20261101m2
-
-```
-analysis/rigenerazione/CONFRONTO.md: numstat 2	2	analysis/rigenerazione/CONFRONTO.md
-```
-
-**C-main-TAG-541** · `evoluzione/audit/patch/patch_main_solo_testo.py` · paper1-freeze-20261101m..paper1-freeze-20261101m2
-
-```
-evoluzione/audit/patch/patch_main_solo_testo.py: numstat 48	0	evoluzione/audit/patch/patch_main_solo_testo.py
-```
-
-**C-main-TAG-542** · `analysis/rigenerazione/CONFRONTO.md` · paper1-freeze-20261101m2..paper1-freeze-20261101n
-
-```
-analysis/rigenerazione/CONFRONTO.md: numstat 2	2	analysis/rigenerazione/CONFRONTO.md
-```
-
-**C-main-TAG-543** · `analysis/rigenerazione/CONFRONTO.md` · paper1-freeze-20261101n..paper1-freeze-20261101o
-
-```
-analysis/rigenerazione/CONFRONTO.md: numstat 2	2	analysis/rigenerazione/CONFRONTO.md
-```
-
-**C-main-TAG-544** · `evoluzione/audit/massimi_e14b.py` · paper1-freeze-20261101n..paper1-freeze-20261101o
-
-```
-evoluzione/audit/massimi_e14b.py: numstat 24	7	evoluzione/audit/massimi_e14b.py
-```
-
-**C-main-TAG-545** · `evoluzione/audit/patch/patch_e14_massimi_2.py` · paper1-freeze-20261101n..paper1-freeze-20261101o
-
-```
-evoluzione/audit/patch/patch_e14_massimi_2.py: numstat 74	0	evoluzione/audit/patch/patch_e14_massimi_2.py
-```
-
-**C-main-TAG-546** · `protocol/e14b/MASSIMI_DELTA.md` · paper1-freeze-20261101n..paper1-freeze-20261101o
-
-```
-protocol/e14b/MASSIMI_DELTA.md: numstat 9	7	protocol/e14b/MASSIMI_DELTA.md
-```
-
-**C-main-TAG-547** · `CONGELAMENTO_E18QUATER.md` · paper1-freeze-20261101o..paper1-freeze-20261103p
-
-```
-CONGELAMENTO_E18QUATER.md: numstat 73	0	CONGELAMENTO_E18QUATER.md
-```
-
-**C-main-TAG-548** · `analysis/main.py` · paper1-freeze-20261101o..paper1-freeze-20261103p
-
-```
-analysis/main.py: numstat 11	1	analysis/main.py
-```
-
-**C-main-TAG-549** · `analysis/rigenerazione/CONFRONTO.md` · paper1-freeze-20261101o..paper1-freeze-20261103p
-
-```
-analysis/rigenerazione/CONFRONTO.md: numstat 593	47	analysis/rigenerazione/CONFRONTO.md
-```
-
-**C-main-TAG-550** · `analysis/tabelle_paper1.py` · paper1-freeze-20261101o..paper1-freeze-20261103p
-
-```
-analysis/tabelle_paper1.py: numstat 15	2	analysis/tabelle_paper1.py
-```
-
-**C-main-TAG-551** · `analysis/tabelle_suppl.py` · paper1-freeze-20261101o..paper1-freeze-20261103p
-
-```
-analysis/tabelle_suppl.py: numstat 71	0	analysis/tabelle_suppl.py
-```
-
-**C-main-TAG-552** · `evoluzione/analisi/classi_per_sensore.py` · paper1-freeze-20261101o..paper1-freeze-20261103p
-
-```
-evoluzione/analisi/classi_per_sensore.py: numstat 111	0	evoluzione/analisi/classi_per_sensore.py
-```
-
-**C-main-TAG-553** · `evoluzione/analisi/figura_rete.py` · paper1-freeze-20261101o..paper1-freeze-20261103p
-
-```
-evoluzione/analisi/figura_rete.py: numstat 2	2	evoluzione/analisi/figura_rete.py
-```
-
-**C-main-TAG-554** · `evoluzione/audit/patch/patch_e18quater_cat.py` · paper1-freeze-20261101o..paper1-freeze-20261103p
-
-```
-evoluzione/audit/patch/patch_e18quater_cat.py: numstat 49	0	evoluzione/audit/patch/patch_e18quater_cat.py
-```
-
-**C-main-TAG-555** · `evoluzione/audit/patch/patch_e18quater_main.py` · paper1-freeze-20261101o..paper1-freeze-20261103p
-
-```
-evoluzione/audit/patch/patch_e18quater_main.py: numstat 142	0	evoluzione/audit/patch/patch_e18quater_main.py
-```
-
-**C-main-TAG-556** · `evoluzione/audit/patch/patch_registro_31.py` · paper1-freeze-20261101o..paper1-freeze-20261103p
-
-```
-evoluzione/audit/patch/patch_registro_31.py: numstat 42	0	evoluzione/audit/patch/patch_registro_31.py
-```
-
-**C-main-TAG-557** · `evoluzione/esperimenti/esegui_e18quater.py` · paper1-freeze-20261101o..paper1-freeze-20261103p
-
-```
-evoluzione/esperimenti/esegui_e18quater.py: numstat 262	0	evoluzione/esperimenti/esegui_e18quater.py
-```
-
-**C-main-TAG-558** · `protocol/E18quater.md` · paper1-freeze-20261101o..paper1-freeze-20261103p
-
-```
-protocol/E18quater.md: numstat 28	0	protocol/E18quater.md
-```
-
-**C-main-TAG-559** · `protocol/REGISTRO_CORREZIONI.md` · paper1-freeze-20261101o..paper1-freeze-20261103p
-
-```
-protocol/REGISTRO_CORREZIONI.md: numstat 2	1	protocol/REGISTRO_CORREZIONI.md
-```
-
-**C-main-TAG-560** · `protocol/spark/CONFRONTO_paper1-freeze-20261101n.md` · paper1-freeze-20261101o..paper1-freeze-20261103p
-
-```
-protocol/spark/CONFRONTO_paper1-freeze-20261101n.md: numstat 688	0	protocol/spark/CONFRONTO_paper1-freeze-20261101n.md
-```
-
-**C-main-TAG-561** · `protocol/spark/CONFRONTO_paper1-freeze-20261101o.md` · paper1-freeze-20261101o..paper1-freeze-20261103p
-
-```
-protocol/spark/CONFRONTO_paper1-freeze-20261101o.md: numstat 688	0	protocol/spark/CONFRONTO_paper1-freeze-20261101o.md
-```
-
-**C-main-TAG-562** · `protocol/spark/NOTA_20261101n.md` · paper1-freeze-20261101o..paper1-freeze-20261103p
-
-```
-protocol/spark/NOTA_20261101n.md: numstat 6	0	protocol/spark/NOTA_20261101n.md
-```
-
-**C-main-TAG-563** · `evoluzione/audit/manifesto_zenodo.py` · paper1-freeze-20261103p..paper1-freeze-20261103q
-
-```
-evoluzione/audit/manifesto_zenodo.py: numstat 2	0	evoluzione/audit/manifesto_zenodo.py
-```
-
-**C-main-TAG-564** · `evoluzione/audit/patch/patch_manifesto_nota.py` · paper1-freeze-20261103p..paper1-freeze-20261103q
-
-```
-evoluzione/audit/patch/patch_manifesto_nota.py: numstat 44	0	evoluzione/audit/patch/patch_manifesto_nota.py
-```
-
-**C-main-TAG-565** · `evoluzione/audit/patch/patch_zenodo_regola.py` · paper1-freeze-20261103p..paper1-freeze-20261103q
-
-```
-evoluzione/audit/patch/patch_zenodo_regola.py: numstat 43	0	evoluzione/audit/patch/patch_zenodo_regola.py
-```
-
-**C-main-TAG-566** · `evoluzione/audit/ripartizione_results.py` · paper1-freeze-20261103p..paper1-freeze-20261103q
-
-```
-evoluzione/audit/ripartizione_results.py: numstat 4	1	evoluzione/audit/ripartizione_results.py
-```
-
-**C-main-TAG-567** · `protocol/spark/CONFRONTO_paper1-freeze-20261103p.md` · paper1-freeze-20261103p..paper1-freeze-20261103q
-
-```
-protocol/spark/CONFRONTO_paper1-freeze-20261103p.md: numstat 701	0	protocol/spark/CONFRONTO_paper1-freeze-20261103p.md
-```
-
-**C-main-TAG-568** · `protocol/zenodo/RIPARTIZIONE_RESULTS.md` · paper1-freeze-20261103p..paper1-freeze-20261103q
-
-```
-protocol/zenodo/RIPARTIZIONE_RESULTS.md: numstat 21	15	protocol/zenodo/RIPARTIZIONE_RESULTS.md
-```
-
-**C-main-TAG-569** · `protocol/zenodo/RIPARTIZIONE_RESULTS_spark.md` · paper1-freeze-20261103p..paper1-freeze-20261103q
-
-```
-protocol/zenodo/RIPARTIZIONE_RESULTS_spark.md: numstat 11	5	protocol/zenodo/RIPARTIZIONE_RESULTS_spark.md
+protocol/zenodo/RIPARTIZIONE_RESULTS_spark.md
+paper1-freeze-20261028j..paper1-freeze-20261030k A
+paper1-freeze-20261103p..paper1-freeze-20261103q M
 ```
 
 
@@ -5107,145 +4662,49 @@ paper4: single protocol with Part A and Part B (sections 1-2, review decisions o
 
 ## `paper4` — record note
 
-**C-paper4-REC-001** · `paper4/congelamenti/CONGELAMENTO_4A.md` · line 11
-
-```
-## Correction 1 — M30 threshold out of sample (mean over 5 splits [interval])
-```
-
-**C-paper4-REC-002** · `paper4/congelamenti/CONGELAMENTO_4A.md` · line 49
-
-```
-## Table 69 and correction 3 — Austin, lanes
-```
-
-**C-paper4-REC-003** · `paper4/congelamenti/CONGELAMENTO_4A.md` · line 59
+**C-paper4-REC-001** · `paper4/congelamenti/CONGELAMENTO_4A.md` · line 59
 
 ```
 Correction 3: rank correlation between lanes and section area under the curve over 29 sections (by lanes: {'2': 21, '3': 6, '4': 2}): -0.441 [-0.714; -0.072].
 ```
 
-**C-paper4-REC-004** · `paper4/congelamenti/CONGELAMENTO_4A.md` · line 146
-
-```
-## Controls, deviations and defects
-```
-
-**C-paper4-REC-005** · `paper4/congelamenti/CONGELAMENTO_4A.md` · line 149
+**C-paper4-REC-002** · `paper4/congelamenti/CONGELAMENTO_4A.md` · line 149
 
 ```
 2. The thresholds of correction 1 were chosen on half A and saved with fingerprint before any metric of half B.
 ```
 
-**C-paper4-REC-006** · `paper4/congelamenti/CONGELAMENTO_4A.md` · line 150
+**C-paper4-REC-003** · `paper4/congelamenti/CONGELAMENTO_4A.md` · line 150
 
 ```
 3. The arterial values of Table 68 and the Austin volume–occupancy correlations are recomputed (register of corrections, items 14–16); the deliverable's brackets of Austin are interquartile ranges (item 17).
 ```
 
-**C-paper4-REC-007** · `paper4/congelamenti/CONGELAMENTO_4A.md` · line 153
-
-```
-## Dated note (2026-11-08), appended after freezing
-```
-
-**C-paper4-REC-008** · `paper4/congelamenti/CONGELAMENTO_4A.md` · line 157
+**C-paper4-REC-004** · `paper4/congelamenti/CONGELAMENTO_4A.md` · line 157
 
 ```
 1. **T67, green class (register of corrections, item 18).** The deliverable's green class was 0.8 ≤ r_tr < 1.5. The 442,965 cells it misses are exactly those whose measured factor is clipped at 1.5 (`carica_m30`); with that class the conserved module gives 2,989,877 cells and +0.0326, as printed. The conserved code has 1.6 (`validazione_colocalizzata.py`, line 117) in its only commit (dc8b6bb, 2026-09-17): the version that printed the table is not conserved. The overall +0.255 is not reproduced by that class nor by six other cell sets (from +0.249 to +0.480): generator not found.
 ```
 
-**C-paper4-REC-009** · `paper4/congelamenti/CONGELAMENTO_4A.md` · line 159
+**C-paper4-REC-005** · `paper4/congelamenti/CONGELAMENTO_4A.md` · line 159
 
 ```
 3. **Austin sections (item 20).** The 40 sections are `intname|direction` after excluding the three intersections without direction. The only definition that gives the brief's 31 is "sections with a defined area under the curve, whatever the number of lanes": the 29 of correction 3 plus 2 with one lane. The section that leaves correction 3 (30 → 29) is `LAMARZENNIA|SB`: 2 lanes, 43,081 aggregated cells, 11 of them with a congested lane, so its area under the curve is undefined. The deliverable's lane–AUC correlation (−0.541, p = 0.002, over 31 sections) is not reproduced: −0.269 (p = 0.144) over those 31, −0.441 (p = 0.017) over the 29 of correction 3. Its section excluded for a prevalence difference of −45.1 points does not exist under the conserved code, where every difference is ≥ 0 by construction (maximum +52.0, `BurnetRutland|SB`). No conserved script computes either value: generator not found. The prevalence differences of 3 and 4 lanes (+18.62 and +9.88 against +18.35 and +9.93 printed) are not traced.
 ```
 
-**C-paper4-REC-010** · `paper4/congelamenti/CONGELAMENTO_E10pred.md` · line 35
-
-```
-## Controls, deviations and defects
-```
-
-**C-paper4-REC-011** · `paper4/congelamenti/CONGELAMENTO_E10predbis.md` · line 31
-
-```
-## Controls, deviations and defects
-```
-
-**C-paper4-REC-012** · `paper4/congelamenti/CONGELAMENTO_E10predbis.md` · line 34
+**C-paper4-REC-006** · `paper4/congelamenti/CONGELAMENTO_E10predbis.md` · line 34
 
 ```
 2. Register of corrections, item 23: E10-pred scored each design with its own class weights.
 ```
 
-**C-paper4-REC-013** · `paper4/congelamenti/CONGELAMENTO_E11.md` · line 73
-
-```
-## Deviations and defects
-```
-
-**C-paper4-REC-014** · `paper4/congelamenti/CONGELAMENTO_E11.md` · line 76
+**C-paper4-REC-007** · `paper4/congelamenti/CONGELAMENTO_E11.md` · line 76
 
 ```
 2. Control of the warning `p4b.py:367: Mean of empty slice` (dated note, 2026-11-06), printed once per run (240 of 240). It comes from the historical-average table (node × weekly slot), built on observed nodes only (D1); the empty rows lie on the node axis. Checked by this generator on the 60 rebuilt setups (configuration × seed; the four arms of a seed share them): empty rows 45–67 per setup, equal to the hidden nodes in every setup: True; observed nodes without training data: 0; setups with a non-finite value in the historical average: 0. The empty mean is replaced by the global mean and hidden rows are set to zero before any input is built. Per-cell files with a non-finite probability on target nodes: 0 runs of 240 (720 files checked). No NaN enters the means or the resample, which use per-node sums over valid cells only (item 1).
 ```
 
-**C-paper4-REC-015** · `paper4/congelamenti/CONGELAMENTO_E11.md` · line 81
-
-```
-7. Defect of this generator, found at its first run on 2026-11-06 and corrected before any output was written: the red-recall step indexed `p[:, nodes, :, 2]` in one step, which numpy reorders to (nodes, origins, horizons) and which stopped with an IndexError. Node selection and class selection are now separate (`red_recall`), covered by the self-test with origins != nodes.
-```
-
-**C-paper4-REC-016** · `paper4/congelamenti/CONGELAMENTO_E12.md` · line 151
-
-```
-## Controls, deviations and defects
-```
-
-**C-paper4-REC-017** · `paper4/congelamenti/CONGELAMENTO_E12bis.md` · line 62
-
-```
-## Controls, deviations and defects
-```
-
-**C-paper4-REC-018** · `paper4/congelamenti/CONGELAMENTO_E12quater.md` · line 109
-
-```
-## Controls, deviations and defects
-```
-
-**C-paper4-REC-019** · `paper4/congelamenti/CONGELAMENTO_E12quinquies.md` · line 71
-
-```
-## Controls, deviations and defects
-```
-
-**C-paper4-REC-020** · `paper4/congelamenti/CONGELAMENTO_E12sexies.md` · line 497
-
-```
-## Controls, deviations and defects
-```
-
-**C-paper4-REC-021** · `paper4/congelamenti/CONGELAMENTO_E12sexiesbis.md` · line 222
-
-```
-## Controls, deviations and defects
-```
-
-**C-paper4-REC-022** · `paper4/congelamenti/CONGELAMENTO_E12ter.md` · line 79
-
-```
-## Controls, deviations and defects
-```
-
-**C-paper4-REC-023** · `paper4/congelamenti/CONGELAMENTO_E9.md` · line 85
-
-```
-## Controls, deviations and defects
-```
-
-**C-paper4-REC-024** · `paper4/congelamenti/CONGELAMENTO_E9.md` · line 89
+**C-paper4-REC-008** · `paper4/congelamenti/CONGELAMENTO_E9.md` · line 89
 
 ```
 3. Cost measurement (E9.md, Deviations 1): the two first isolated measurements of G1-rand(deg) were taken during Spotlight indexing and are not used; the cost table uses the measurement with Spotlight idle.
