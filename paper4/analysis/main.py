@@ -139,11 +139,9 @@ PROVENANCE = {
     ("section_availability.md", "7.5"): "isolated training costs: E9 at most 6.6 h (E9.md, cost table), E11 about 0.9 h (E11.md); declared provenance, review 2026-11-08",
     ("section_availability.md", "8.4"): "isolated training costs: 7.5 h for E9 and E11 (above) + E10-pred at most 0.89 h (E10pred.md, e10pred_costo.json 910c64ba433f40ae)",
     ("section_limits.md", "8.4"): "isolated training costs: 7.5 h for E9 and E11 (above) + E10-pred at most 0.89 h (E10pred.md, e10pred_costo.json 910c64ba433f40ae)",
-    ("section_availability.md", "14"): "du -sk -L of paper4/runs/e12quater, e12quinquies, e12sexies, e12sexiesbis on 2026-11-09: 14.27 MiB",
-    ("section_availability.md", "2.6"): "du -sk -L of paper4/runs/e10pred on 2026-11-09: 2.57 GiB",
-    ("section_availability.md", "61"): "RIPARTIZIONE_RUNS.md (c9222f224441b6b2): regeneration 25.7 MB + pilot 35.0 MB",
-    ("section_availability.md", "19.5"): "RIPARTIZIONE_RUNS.md (c9222f224441b6b2): predictions of E9, 19.53 GiB",
-    ("section_availability.md", "3.7"): "RIPARTIZIONE_RUNS.md (c9222f224441b6b2): predictions of E11, 3.72 GiB",
+    ("section_availability.md", "2.85"): "paper4/zenodo/MANIFEST_ZENODO.tsv (ea8cbfd104fa2fff, tag paper4-freeze-20261110a): code archive, 2,846,720 B",
+    ("section_availability.md", "6.82"): "paper4/zenodo/MANIFEST_ZENODO.tsv (ea8cbfd104fa2fff, tag paper4-freeze-20261110a): run folders, predictions of E11 and E10-pred, 6,819,696,640 B",
+    ("section_availability.md", "20.97"): "paper4/zenodo/MANIFEST_ZENODO.tsv (ea8cbfd104fa2fff, tag paper4-freeze-20261110a): predictions of E9, 20,972,800,000 B",
     ("section_partA.md", "0.407"): "p4a_risultati.json, table68 and gini_split: (G_same - G_0-20) / (G_same - G_arterials), band 0-20 m, point value (review 21:45, item 5)",
     ("section_partA.md", "0.461"): "p4a_risultati.json, table68 and gini_split: (G_same - G_20-60) / (G_same - G_arterials), band 20-60 m, point value (review 21:45, item 5)",
     ("section_partA.md", "0.817"): "p4a_risultati.json, table68 and gini_split: (G_same - G_60-200) / (G_same - G_arterials), band 60-200 m, point value (review 21:45, item 5)",
@@ -574,11 +572,12 @@ UNIT = {"KiB": 2 ** 10, "MiB": 2 ** 20, "GiB": 2 ** 30, "TiB": 2 ** 40, "kB": 10
 
 
 def step_zenodo(report, manifest):
-    """Data and Code Availability against the Zenodo manifest, if it exists (absent: reported, PASS). The tar names
-    written in the statement are exactly those of the manifest; the passage of each archive (from its name to the
-    next archive name or the end of the paragraph) names every group the archive contains and no group it does not
-    (ZENODO_WORDS), and states the archive's size at the precision written. The size is the archive row of the
-    manifest, or the sum of its files when the manifest comes from a dry run."""
+    """Data and Code Availability against the Zenodo manifest, if it exists (absent: reported, PASS). The archives
+    are described without their file names (decision of 2026-11-10): no tar name may appear. Each archive is found
+    by its size: exactly one clause of the statement (clauses split at ; : and the end of a sentence) states the
+    archive's size at the precision written; that clause names every group the archive contains and no group it does
+    not (ZENODO_WORDS). The size is the archive row of the manifest, or the sum of its files when the manifest comes
+    from a dry run. The DOI of crea_pacchetto.py must appear."""
     report.append("## 3e. Data and Code Availability against the Zenodo manifest\n")
     if not manifest.exists():
         report.append(f"`{manifest}` not found: not checked (PASS until the package is built at the tag).\n")
@@ -593,46 +592,50 @@ def step_zenodo(report, manifest):
         if path == "(archive)":
             e["archive"] = int(b); continue
         e["files"] += int(b)
-        rel = path.removeprefix(cp.RUNS_REL + "/")
-        e["groups"].add("code" if rel == path else cp.group(rel))
+        if a == cp.ARCHIVES["code"]:          # git archive of the commit: code, even the tracked paper4/runs/MANIFEST.tsv
+            e["groups"].add("code"); continue
+        e["groups"].add(cp.group(path.removeprefix(cp.RUNS_REL + "/")))
     tags = {r[5] for r in rows if len(r) > 5}
-    report.append(f"Manifest `{manifest.relative_to(ROOT) if manifest.is_relative_to(ROOT) else manifest}` "
-                  f"({sha(manifest)}): {len(rows):,} rows, archives {', '.join(sorted(arch))}; tag {', '.join(sorted(tags))}.\n")
+    shown = manifest.relative_to(ROOT) if manifest.is_relative_to(ROOT) else manifest
+    report.append(f"Manifest `{shown}` ({sha(manifest)}): {len(rows):,} rows, {len(arch)} archives; tag "
+                  f"{', '.join(sorted(tags))}.\n")
     tex = PAPER.parent / "sections" / "availability.tex"
     text = "\n".join(printed(ln) for ln in tex.read_text().splitlines() if not ln.lstrip().startswith("%"))
     text = re.sub(r"\\texttt\{([^}]*)\}", r"\1", text)
     ok = True
-    named = re.findall(r"[\w.-]+\.tar(?:\.gz)?\b", text)
-    if set(named) != set(arch):
-        ok = False
-        report.append(f"Tar names: statement {sorted(set(named)) or 'none'}, manifest {sorted(arch)}: FAIL\n")
-    report.append("| Archive | Groups (manifest) | Size (manifest) | In the statement | |\n|---|---|---|---|---|")
-    paragraphs = re.split(r"\n\s*\n", text)
+    named = sorted(set(re.findall(r"[\w.-]+\.tar(?:\.gz)?\b", text)))
+    if named:
+        ok = False; report.append(f"Tar names in the statement (not allowed): {', '.join(named)}: FAIL\n")
+    if cp.DOI not in text:
+        ok = False; report.append(f"DOI {cp.DOI} not in the statement: FAIL\n")
+    clauses = [c.strip() for c in re.split(r"[;:]|\.(?=\s|$)", text) if c.strip()]
+    report.append("| Archive | Groups (manifest) | Size (manifest) | Size stated | |\n|---|---|---|---|---|")
+    used = set()
     for a, e in sorted(arch.items()):
         size = e["archive"] if e["archive"] is not None else e["files"]
         kind = "archive" if e["archive"] is not None else "files, dry run"
-        para = next((p for p in paragraphs if a in p), None)
-        if para is None:
-            ok = False
-            report.append(f"| {a} | {', '.join(sorted(e['groups']))} | {size:,} B ({kind}) | not named | FAIL |"); continue
-        start = para.index(a) + len(a)
-        nxt = [para.index(o, start) for o in arch if o != a and o in para[start:]]
-        passage = para[start:min(nxt) if nxt else len(para)]
+        hits = []
+        for k, c in enumerate(clauses):
+            for n, u in SIZE.findall(c):
+                if round(size / UNIT[u], len(n.split(".")[1]) if "." in n else 0) == float(n):
+                    hits.append((k, f"{n} {u}"))
         why = []
-        for g, w in ZENODO_WORDS.items():
-            said = bool(re.search(w, passage, re.I))
-            if g in e["groups"] and not said:
-                why.append(f"{g} not named")
-            if g not in e["groups"] and said:
-                why.append(f"{g} named but not in the archive")
-        stated = SIZE.findall(passage)
-        match = [f"{n} {u}" for n, u in stated
-                 if round(size / UNIT[u], len(n.split(".")[1]) if "." in n else 0) == float(n)]
-        if not match:
-            why.append(f"size {size:,} B not stated (found: {', '.join(f'{n} {u}' for n, u in stated) or 'none'})")
+        if len({k for k, _ in hits}) != 1:
+            why.append("size not stated" if not hits else "size stated in more than one clause")
+        else:
+            k = hits[0][0]; c = clauses[k]
+            if k in used:
+                why.append("clause shared with another archive")
+            used.add(k)
+            for g, w in ZENODO_WORDS.items():
+                said = bool(re.search(w, c, re.I))
+                if g in e["groups"] and not said:
+                    why.append(f"{g} not named")
+                if g not in e["groups"] and said:
+                    why.append(f"{g} named but not in the archive")
         ok &= not why
         report.append(f"| {a} | {', '.join(sorted(e['groups']))} | {size:,} B ({kind}) | "
-                      f"{', '.join(match) or '—'} | {'; '.join(why) or 'ok'} |")
+                      f"{', '.join(sorted({h for _, h in hits})) or '—'} | {'; '.join(why) or 'ok'} |")
     report.append("")
     return ok
 
