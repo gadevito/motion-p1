@@ -24,8 +24,8 @@ re-run; they are inputs, with their fingerprints checked by the generators thems
 
 Step 3 also checks the two LaTeX projects of the manuscript repository (the paper at its root and the supplementary
 material in supplementary/): every generated .tex must come from the current Markdown, every LaTeX reference must
-resolve inside its own project, and the fixed-text references between them are listed (3b); and every file named in
-§VI must be listed in protocol/paper4/fase2/LIMITI_FONTI.json (3c).
+resolve inside its own project, and the fixed-text references between them are listed (3b); and no file name may
+appear in the typeset paper (3c).
 
 Usage, from the repository root, with the interpreter of the experiments:
 
@@ -414,8 +414,7 @@ def step_text(report):
 # paper at its root (main.tex, sections/), the supplement in supplementary/ (main.tex, sections/). Both are generated
 # by build.py from paper/*.md (and, for S1, the register); references between them are fixed text.
 
-LIMITS_SOURCES = ROOT / "protocol" / "paper4" / "fase2" / "LIMITI_FONTI.json"
-FILE_NAME = re.compile(r"(?<![\w/.-])((?:[\w.-]+/)*[\w.-]+\.(?:md|py|json|tsv))\b")
+FILE_NAME = re.compile(r"(?<![\w/.-])((?:[\w.-]+/)*[\w.-]+\.(?:md|py|json|tsv|svg|png|npz|pkl|txt|lock|log|csv))\b")
 LATEX_REF = re.compile(r"\\(?:ref|eqref|autoref|cref|Cref|pageref)\{([^}]*)\}")
 TO_PAPER = re.compile(r"§\s?[IVX]+(?:-[A-Z])?|\b(?:Section|Table|Tab\.)\s+[IVX]+\b|\bFig(?:ure|\.)\s?\d+")
 TO_SUPPLEMENT = re.compile(r"\bS[12]\b|\bTable S\d+|\bsupplement(?:ary)?(?: material)?\b(?:,? S\d)?", re.I)
@@ -485,19 +484,31 @@ def step_projects(report):
     return ok
 
 
-def step_limits_sources(report):
-    """Every file named in §VI (paper/section_limits.md, below its draft header) is listed in LIMITI_FONTI.json."""
-    report.append("## 3c. Files named in §VI against `protocol/paper4/fase2/LIMITI_FONTI.json`\n")
-    lf = json.loads(LIMITS_SOURCES.read_text())
-    listed = [f["path"] for f in lf["files"]]
-    lines = (PAPER / "section_limits.md").read_text().splitlines()
-    start = next((i + 1 for i, ln in enumerate(lines) if ln.startswith("---")), 0)
-    named = sorted({m for ln in lines[start:] for m in FILE_NAME.findall(ln)})
-    bad = [n for n in named if not any(p == n or p.endswith("/" + n) for p in listed)]
-    report.append(f"Manifest `{LIMITS_SOURCES.relative_to(ROOT)}` ({sha(LIMITS_SOURCES)}), {len(listed)} files. Named in "
-                  f"§VI: {', '.join(f'`{n}`' for n in named) if named else 'none'}.")
-    report.append("Not in the manifest: " + (", ".join(f"`{b}`" for b in bad) if bad else "none") + ".\n")
-    return not bad
+def printed(ln):
+    r"""A LaTeX line without what is not printed: the file arguments of \includegraphics, \input and \include."""
+    ln = re.sub(r"\\(?:includegraphics(?:\[[^\]]*\])?|input|include)\{[^}]*\}", " ", ln)
+    return ln.replace("\\_", "_")
+
+
+def step_no_file_names(report):
+    """No file name appears in the typeset paper: the non-comment lines of main.tex and sections/*.tex of the paper
+    project. Folders of the repository (e.g. protocol/paper4/) are allowed; files (name.md, .py, .json, ...) are not.
+    The supplementary material is reported, not checked."""
+    man = PAPER.parent; hits = []; sup = []
+    for t in [man / "main.tex"] + sorted((man / "sections").glob("*.tex")):
+        for i, ln in enumerate(t.read_text().splitlines(), 1):
+            if not ln.lstrip().startswith("%"):
+                hits += [f"`{t.relative_to(man)}`:{i}: {m}" for m in FILE_NAME.findall(printed(ln))]
+    for t in sorted((man / "supplementary").rglob("*.tex")):
+        for i, ln in enumerate(t.read_text().splitlines(), 1):
+            if not ln.lstrip().startswith("%"):
+                sup += [f"`{t.relative_to(man)}`:{i}: {m}" for m in FILE_NAME.findall(printed(ln))]
+    report.append("## 3c. No file names in the paper\n")
+    report.append("File names in the typeset paper: " + ("none." if not hits else "") )
+    report += [f"- {h}" for h in hits]
+    report.append(f"\nFile names in the supplementary material (reported, not checked): {len(sup)}." )
+    report += [f"- {h}" for h in sup] + [""]
+    return not hits
 
 
 # ---------------------------------------------------------------- main -------------------------------------
@@ -529,7 +540,7 @@ def main():
         res["regeneration"] = step_regenerate(report, a.only or list(EXPERIMENTS), work)
     res["text"] = step_text(report)
     res["projects"] = step_projects(report)
-    res["limits_sources"] = step_limits_sources(report)
+    res["no_file_names"] = step_no_file_names(report)
     report.append("## Outcome\n\n" + "\n".join(f"- {k}: {'PASS' if v else 'FAIL'}" for k, v in res.items()))
     rp = work / "report.md"; rp.write_text("\n".join(report) + "\n")
     tracked = ROOT / "paper4" / "analysis" / "reports" / f"{stamp}.md"      # tracked copy, to be committed
