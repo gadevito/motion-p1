@@ -2201,7 +2201,7 @@
    "class": "protocol",
    "commit": "aa9f478b3fa8",
    "path": "protocol/E1.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 0",
    "sha256": "038031264dea187c24d41ae6ba80c7e80dbc027410457879ae6df7d477e44afb"
   },
   {
@@ -2210,7 +2210,7 @@
    "class": "protocol",
    "commit": "aa9f478b3fa8",
    "path": "protocol/E14.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 0",
    "sha256": "b30984ca153d3e5ddab776dc476862038f3338c457204a4f0e8faf35cb924636"
   },
   {
@@ -2219,7 +2219,7 @@
    "class": "protocol",
    "commit": "aa9f478b3fa8",
    "path": "protocol/E15.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 0",
    "sha256": "31d731567da30bb4007d3f24b2be22fcaa6151688192474f6edcdc607460e8d6"
   },
   {
@@ -2228,7 +2228,7 @@
    "class": "protocol",
    "commit": "aa9f478b3fa8",
    "path": "protocol/E16.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 0",
    "sha256": "d37208e5fbb17d84aee0be39eed581c5cb77ad36a3ed7e31fe9d56e080111930"
   },
   {
@@ -2237,7 +2237,7 @@
    "class": "protocol",
    "commit": "aa9f478b3fa8",
    "path": "protocol/E17.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 0",
    "sha256": "dcacf323f9f5defb4bb727eef0babd7817f3ee67fac2c464808a7af25f28d87e"
   },
   {
@@ -2246,7 +2246,7 @@
    "class": "protocol",
    "commit": "aa9f478b3fa8",
    "path": "protocol/E18.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 0",
    "sha256": "42da14831a4e982c97cf2336ed27e3f96a4ca1e85747d11e84309a357fa7a076"
   },
   {
@@ -2255,7 +2255,7 @@
    "class": "protocol",
    "commit": "aa9f478b3fa8",
    "path": "protocol/E18quater.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 0",
    "sha256": "56046a7784a5169e57e08679238df0d11596bc3afefe35c6e1c9160bfe29532b"
   },
   {
@@ -2264,7 +2264,7 @@
    "class": "protocol",
    "commit": "aa9f478b3fa8",
    "path": "protocol/E18ter.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 0",
    "sha256": "25ee156fa3178dbf7f9a20e28fecbc96d60d8d7c79f7f0b2f8e92040e1554656"
   },
   {
@@ -2273,7 +2273,7 @@
    "class": "protocol",
    "commit": "aa9f478b3fa8",
    "path": "protocol/E2.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 0",
    "sha256": "14a94b8a2bebc7e539e2785383d56d2404a46912ab3387b07d17e24f4cedd360"
   },
   {
@@ -2282,25 +2282,25 @@
    "class": "protocol",
    "commit": "aa9f478b3fa8",
    "path": "protocol/E3.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 0",
    "sha256": "245085de8a909ca8919958a2c3b1bf8ab4abea53c4ec68ac09d0eda707f9d12f"
   },
   {
    "branch": "main",
-   "candidate_items": 0,
+   "candidate_items": 2,
    "class": "protocol",
    "commit": "aa9f478b3fa8",
    "path": "protocol/E4.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 2",
    "sha256": "e275daec5945c26b528e917238c048fb25b35ad12ff6135c70bcc158b52a2acb"
   },
   {
    "branch": "main",
-   "candidate_items": 0,
+   "candidate_items": 2,
    "class": "protocol",
    "commit": "aa9f478b3fa8",
    "path": "protocol/E5.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 2",
    "sha256": "3dd706bcf3ddd899adabe76fc95035453c0d0a0bea265773125c8648908fbff5"
   },
   {
@@ -2309,7 +2309,7 @@
    "class": "protocol",
    "commit": "aa9f478b3fa8",
    "path": "protocol/E6.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 0",
    "sha256": "90818c7597925712a4e096ea373ef880d6532036491652a09e27da3eab78e216"
   },
   {
@@ -2318,7 +2318,7 @@
    "class": "protocol",
    "commit": "aa9f478b3fa8",
    "path": "protocol/E6bis.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 0",
    "sha256": "1d74950bf0f0ba9ae65f11f319ff4cb2e252abbeb4b5680b05ca29ffd1c0d5cc"
   },
   {
@@ -2327,16 +2327,16 @@
    "class": "protocol",
    "commit": "aa9f478b3fa8",
    "path": "protocol/E7.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 0",
    "sha256": "07db021e8523623547f805d161794f68ede5033df71ac47c29d1c0312c914643"
   },
   {
    "branch": "main",
-   "candidate_items": 0,
+   "candidate_items": 1,
    "class": "protocol",
    "commit": "aa9f478b3fa8",
    "path": "protocol/E8.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 1",
    "sha256": "611d3541a6086e1961c9212c70cb32c89696220301bbdfc04ef7b05a38b135b9"
   },
   {
@@ -2345,7 +2345,7 @@
    "class": "protocol",
    "commit": "aa9f478b3fa8",
    "path": "protocol/E8bis.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 0",
    "sha256": "0323686ceb9571172ed914466eb93488e2ba9b78b9f8c452820c299f588aa44f"
   },
   {
@@ -2359,39 +2359,12 @@
   },
   {
    "branch": "main",
-   "candidate_items": 0,
-   "class": "protocol",
+   "candidate_items": null,
+   "class": "history aid",
    "commit": "aa9f478b3fa8",
    "path": "protocol/RISCRITTURA_STORIA.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "listed; not a source of candidate items",
    "sha256": "204aaa8da79f2d438005e28091d31bf85024b360d5e82545e61387614a3d15f7"
-  },
-  {
-   "branch": "main",
-   "candidate_items": 0,
-   "class": "protocol",
-   "commit": "aa9f478b3fa8",
-   "path": "protocol/SUMMARIES.en.md",
-   "rule": "items under a Deviation(s) heading",
-   "sha256": "8053392b472af656f67b3bab537d564d244eb123ee608334becfd7b3d380eb21"
-  },
-  {
-   "branch": "main",
-   "candidate_items": 0,
-   "class": "protocol",
-   "commit": "aa9f478b3fa8",
-   "path": "protocol/e14b/MASSIMI_DELTA.md",
-   "rule": "items under a Deviation(s) heading",
-   "sha256": "eb101fcebf8423c5952fdd53d10efde85965cc22162915c3fef9cda716bff3fe"
-  },
-  {
-   "branch": "main",
-   "candidate_items": 0,
-   "class": "protocol",
-   "commit": "aa9f478b3fa8",
-   "path": "protocol/e18/COPIA_INGRESSI_MAC.md",
-   "rule": "items under a Deviation(s) heading",
-   "sha256": "0a056269f197c436a5f9402241c9a01dfccd7b8f972ba1cb9ca3e2613747be35"
   },
   {
    "branch": "main",
@@ -2419,15 +2392,6 @@
    "path": "protocol/processo/incidenti/I3.md",
    "rule": null,
    "sha256": "f339e4e34d8934092869ff463ed7aed0aa64bce19f006f636b23e16e4dca5531"
-  },
-  {
-   "branch": "main",
-   "candidate_items": null,
-   "class": "incident card",
-   "commit": "aa9f478b3fa8",
-   "path": "protocol/processo/incidenti/README.md",
-   "rule": null,
-   "sha256": "4b2b9107a9c4df891b59ad6c2680cfde1cb31e7941cc6f0eede806a92f8ce4e4"
   },
   {
    "branch": "main",
@@ -2979,7 +2943,7 @@
    "class": "protocol",
    "commit": "ef31396c28cf",
    "path": "protocol/paper4/E10geo.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 0",
    "sha256": "c5e4904ca5c2b5548f7d1c6d2f735e05cad8d2d54d17db56d59351cef3d4e8aa"
   },
   {
@@ -2988,7 +2952,7 @@
    "class": "protocol",
    "commit": "ef31396c28cf",
    "path": "protocol/paper4/E10pred.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 0",
    "sha256": "be25adc4a455d1ec1bf2e17a52d0e73d7d1651046020eaf80e00e8207d648798"
   },
   {
@@ -2997,7 +2961,7 @@
    "class": "protocol",
    "commit": "ef31396c28cf",
    "path": "protocol/paper4/E10predbis.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 0",
    "sha256": "d0431d61d7c2adb8a76eeb644c113710234ff68ddd6040e34cbd6f99654e7fe7"
   },
   {
@@ -3006,7 +2970,7 @@
    "class": "protocol",
    "commit": "ef31396c28cf",
    "path": "protocol/paper4/E11.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 0",
    "sha256": "1eca5076f48c03e4b300ed139d437b86c52b942d1d6f56e75ffeada2b55ac9ef"
   },
   {
@@ -3015,7 +2979,7 @@
    "class": "protocol",
    "commit": "ef31396c28cf",
    "path": "protocol/paper4/E12.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 0",
    "sha256": "a6a58140b530690790b0948548dadeb755df1d1b93db0f15b779489245a94173"
   },
   {
@@ -3024,7 +2988,7 @@
    "class": "protocol",
    "commit": "ef31396c28cf",
    "path": "protocol/paper4/E12bis.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 0",
    "sha256": "a672e0b3882e6fedfe2423611772496d7b702346e50124bdf6fdb9ebcf324331"
   },
   {
@@ -3033,7 +2997,7 @@
    "class": "protocol",
    "commit": "ef31396c28cf",
    "path": "protocol/paper4/E12quater.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 0",
    "sha256": "d07e09d4b775a2f204eec72e7d4071ff9d15cc3277c5ca0cdb8a87bbc9cbf989"
   },
   {
@@ -3042,7 +3006,7 @@
    "class": "protocol",
    "commit": "ef31396c28cf",
    "path": "protocol/paper4/E12quinquies.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 0",
    "sha256": "c184d6e5bd54551275863ab3ad8b6b011a344fd18b6b06fc27ef7200b5fd9b21"
   },
   {
@@ -3051,7 +3015,7 @@
    "class": "protocol",
    "commit": "ef31396c28cf",
    "path": "protocol/paper4/E12sexies.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 0",
    "sha256": "ca365680191433e45723793478d0559cf9218d012cce3fdef031ff1f7730bd89"
   },
   {
@@ -3060,7 +3024,7 @@
    "class": "protocol",
    "commit": "ef31396c28cf",
    "path": "protocol/paper4/E12sexiesbis.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 0",
    "sha256": "e9494be86fc2d742defef9ab15c5aea692cc1c2a344c42d8074f5eaf62947ec2"
   },
   {
@@ -3069,16 +3033,16 @@
    "class": "protocol",
    "commit": "ef31396c28cf",
    "path": "protocol/paper4/E12ter.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 0; text pattern 0",
    "sha256": "4bd886de8879a2e440013b13242fdd953d7d6d2c2f0a94bf4fcb2076fb603406"
   },
   {
    "branch": "paper4",
-   "candidate_items": 1,
+   "candidate_items": 2,
    "class": "protocol",
    "commit": "ef31396c28cf",
    "path": "protocol/paper4/E9.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 1; text pattern 1",
    "sha256": "745dd58c039814b6dcbee32b85aeeb9535e58eb267951afa3058fa092b57f199"
   },
   {
@@ -3087,16 +3051,16 @@
    "class": "protocol",
    "commit": "ef31396c28cf",
    "path": "protocol/paper4/P4A.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "heading items 1; text pattern 0",
    "sha256": "6086d07909d1c4945e2e2c88bc6ed4f00edc61d3efe9e93abde89cb2dfe2896f"
   },
   {
    "branch": "paper4",
-   "candidate_items": 0,
-   "class": "protocol",
+   "candidate_items": null,
+   "class": "method standard",
    "commit": "ef31396c28cf",
    "path": "protocol/paper4/PROTOCOLLO.md",
-   "rule": "items under a Deviation(s) heading",
+   "rule": "listed; not a source of candidate items",
    "sha256": "a745fea6511caf81a33882af46f7b96e522e8434161c7e15e8858e03f8ac4117"
   },
   {
@@ -3107,69 +3071,6 @@
    "path": "protocol/paper4/REGISTRO_CORREZIONI.md",
    "rule": "rows `| n |`",
    "sha256": "1fad0c326f0a1b390402bd8640d2e8c741f8fea99faadc13720d7c598424266f"
-  },
-  {
-   "branch": "paper4",
-   "candidate_items": 0,
-   "class": "protocol",
-   "commit": "ef31396c28cf",
-   "path": "protocol/paper4/SUMMARIES.en.md",
-   "rule": "items under a Deviation(s) heading",
-   "sha256": "dcbee4d8a3b2308a6934b58784e37f32e724f51b39787b1437c84d32c6cd8993"
-  },
-  {
-   "branch": "paper4",
-   "candidate_items": 0,
-   "class": "protocol",
-   "commit": "ef31396c28cf",
-   "path": "protocol/paper4/fase1/CROSSVAL_rigenerato.md",
-   "rule": "items under a Deviation(s) heading",
-   "sha256": "19cc2e052353901f6c099909056d2643acc4c5a1233c3861f6a210329d5437fc"
-  },
-  {
-   "branch": "paper4",
-   "candidate_items": 0,
-   "class": "protocol",
-   "commit": "ef31396c28cf",
-   "path": "protocol/paper4/fase1/GEOMETRIA_CRITERIO4_rigenerato.md",
-   "rule": "items under a Deviation(s) heading",
-   "sha256": "fa24eacd20322a23a1eee7410bad7fc775ee359e0316b41a1fddc3cad6dc1f75"
-  },
-  {
-   "branch": "paper4",
-   "candidate_items": 0,
-   "class": "protocol",
-   "commit": "ef31396c28cf",
-   "path": "protocol/paper4/fase1/GRAFI_SENZA_GENERATORE.md",
-   "rule": "items under a Deviation(s) heading",
-   "sha256": "471352624d0f117a2b2ea93cff7aedbaa2fdcadcfa5f142275aa3cbf560651d1"
-  },
-  {
-   "branch": "paper4",
-   "candidate_items": 0,
-   "class": "protocol",
-   "commit": "ef31396c28cf",
-   "path": "protocol/paper4/fase2/CAUSE_4A.md",
-   "rule": "items under a Deviation(s) heading",
-   "sha256": "db005d0afccfa9385864f5d3a1a366e4f691be500795a5501a740d23e546b6d7"
-  },
-  {
-   "branch": "paper4",
-   "candidate_items": 0,
-   "class": "protocol",
-   "commit": "ef31396c28cf",
-   "path": "protocol/paper4/fase2/FASCE_APPAIATE.md",
-   "rule": "items under a Deviation(s) heading",
-   "sha256": "8ada8d3d6628fb4fcf4df974bbf4c27a7764d99ee35c3f228177fbde6f752cf7"
-  },
-  {
-   "branch": "paper4",
-   "candidate_items": 0,
-   "class": "protocol",
-   "commit": "ef31396c28cf",
-   "path": "protocol/paper4/zenodo/RIPARTIZIONE_RUNS.md",
-   "rule": "items under a Deviation(s) heading",
-   "sha256": "c9222f224441b6b27077aca234307e94ef82830259969563d32fc5b8f1423d9b"
   }
  ]
 }

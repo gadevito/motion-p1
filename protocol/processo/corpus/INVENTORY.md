@@ -1,6 +1,6 @@
 # Inventory of the sources (P0 §3, phase 1)
 
-Branches at the commits declared in P0: `main` aa9f478b3fa8, `paper4` ef31396c28cf. Read through `git show`; the working tree was not read. `inventory.json` sha256 `e3712706e4121c07794df82e19b1002af1475baf3e0b7106e3df257dee958cde`.
+Branches at the commits declared in P0: `main` aa9f478b3fa8, `paper4` ef31396c28cf. Read through `git show`; the working tree was not read. `inventory.json` sha256 `187f7cde9b1858b67494d44aaa4a41cc2172a31b5bfd9cbc5fddd2573c45dfd6`.
 
 ## Sources
 
@@ -30,31 +30,27 @@ Branches at the commits declared in P0: `main` aa9f478b3fa8, `paper4` ef31396c28
 | main | frozen record | `CONGELAMENTO_INTEGRAZIONE_FASE3.md` | `48182afc5e66c4eb` |  | listed; flags extracted in phase 2 |
 | main | frozen record | `CONGELAMENTO_RACCORDO.md` | `e3a68b9319b69e50` |  | listed; flags extracted in phase 2 |
 | main | frozen record | `CONGELAMENTO_SELEZIONE_F.md` | `006a0da255daf2d4` |  | listed; flags extracted in phase 2 |
+| main | history aid | `protocol/RISCRITTURA_STORIA.md` | `204aaa8da79f2d43` |  | listed; not a source of candidate items |
 | main | incident card | `protocol/processo/incidenti/I1.md` | `3ee6e51fc3019022` |  |  |
 | main | incident card | `protocol/processo/incidenti/I2.md` | `96864db6bd1429d4` |  |  |
 | main | incident card | `protocol/processo/incidenti/I3.md` | `f339e4e34d893409` |  |  |
-| main | incident card | `protocol/processo/incidenti/README.md` | `4b2b9107a9c4df89` |  |  |
-| main | protocol | `protocol/E1.md` | `038031264dea187c` | 0 | items under a Deviation(s) heading |
-| main | protocol | `protocol/E14.md` | `b30984ca153d3e5d` | 0 | items under a Deviation(s) heading |
-| main | protocol | `protocol/E15.md` | `31d731567da30bb4` | 0 | items under a Deviation(s) heading |
-| main | protocol | `protocol/E16.md` | `d37208e5fbb17d84` | 0 | items under a Deviation(s) heading |
-| main | protocol | `protocol/E17.md` | `dcacf323f9f5defb` | 0 | items under a Deviation(s) heading |
-| main | protocol | `protocol/E18.md` | `42da14831a4e982c` | 0 | items under a Deviation(s) heading |
-| main | protocol | `protocol/E18quater.md` | `56046a7784a5169e` | 0 | items under a Deviation(s) heading |
-| main | protocol | `protocol/E18ter.md` | `25ee156fa3178dbf` | 0 | items under a Deviation(s) heading |
-| main | protocol | `protocol/E2.md` | `14a94b8a2bebc7e5` | 0 | items under a Deviation(s) heading |
-| main | protocol | `protocol/E3.md` | `245085de8a909ca8` | 0 | items under a Deviation(s) heading |
-| main | protocol | `protocol/E4.md` | `e275daec5945c26b` | 0 | items under a Deviation(s) heading |
-| main | protocol | `protocol/E5.md` | `3dd706bcf3ddd899` | 0 | items under a Deviation(s) heading |
-| main | protocol | `protocol/E6.md` | `90818c7597925712` | 0 | items under a Deviation(s) heading |
-| main | protocol | `protocol/E6bis.md` | `1d74950bf0f0ba9a` | 0 | items under a Deviation(s) heading |
-| main | protocol | `protocol/E7.md` | `07db021e85236235` | 0 | items under a Deviation(s) heading |
-| main | protocol | `protocol/E8.md` | `611d3541a6086e19` | 0 | items under a Deviation(s) heading |
-| main | protocol | `protocol/E8bis.md` | `0323686ceb957117` | 0 | items under a Deviation(s) heading |
-| main | protocol | `protocol/RISCRITTURA_STORIA.md` | `204aaa8da79f2d43` | 0 | items under a Deviation(s) heading |
-| main | protocol | `protocol/SUMMARIES.en.md` | `8053392b472af656` | 0 | items under a Deviation(s) heading |
-| main | protocol | `protocol/e14b/MASSIMI_DELTA.md` | `eb101fcebf8423c5` | 0 | items under a Deviation(s) heading |
-| main | protocol | `protocol/e18/COPIA_INGRESSI_MAC.md` | `0a056269f197c436` | 0 | items under a Deviation(s) heading |
+| main | protocol | `protocol/E1.md` | `038031264dea187c` | 0 | heading items 0; text pattern 0 |
+| main | protocol | `protocol/E14.md` | `b30984ca153d3e5d` | 0 | heading items 0; text pattern 0 |
+| main | protocol | `protocol/E15.md` | `31d731567da30bb4` | 0 | heading items 0; text pattern 0 |
+| main | protocol | `protocol/E16.md` | `d37208e5fbb17d84` | 0 | heading items 0; text pattern 0 |
+| main | protocol | `protocol/E17.md` | `dcacf323f9f5defb` | 0 | heading items 0; text pattern 0 |
+| main | protocol | `protocol/E18.md` | `42da14831a4e982c` | 0 | heading items 0; text pattern 0 |
+| main | protocol | `protocol/E18quater.md` | `56046a7784a5169e` | 0 | heading items 0; text pattern 0 |
+| main | protocol | `protocol/E18ter.md` | `25ee156fa3178dbf` | 0 | heading items 0; text pattern 0 |
+| main | protocol | `protocol/E2.md` | `14a94b8a2bebc7e5` | 0 | heading items 0; text pattern 0 |
+| main | protocol | `protocol/E3.md` | `245085de8a909ca8` | 0 | heading items 0; text pattern 0 |
+| main | protocol | `protocol/E4.md` | `e275daec5945c26b` | 2 | heading items 0; text pattern 2 |
+| main | protocol | `protocol/E5.md` | `3dd706bcf3ddd899` | 2 | heading items 0; text pattern 2 |
+| main | protocol | `protocol/E6.md` | `90818c7597925712` | 0 | heading items 0; text pattern 0 |
+| main | protocol | `protocol/E6bis.md` | `1d74950bf0f0ba9a` | 0 | heading items 0; text pattern 0 |
+| main | protocol | `protocol/E7.md` | `07db021e85236235` | 0 | heading items 0; text pattern 0 |
+| main | protocol | `protocol/E8.md` | `611d3541a6086e19` | 1 | heading items 0; text pattern 1 |
+| main | protocol | `protocol/E8bis.md` | `0323686ceb957117` | 0 | heading items 0; text pattern 0 |
 | main | regeneration report | `analysis/rigenerazione/CONFRONTO.md` | `ffcdeb95aed8ffb0` |  | listed; flags extracted in phase 2 |
 | main | regeneration report | `protocol/spark/CONFRONTO_paper1-freeze-20261028i.md` | `8ccfe6279f7373fe` |  | listed; flags extracted in phase 2 |
 | main | regeneration report | `protocol/spark/CONFRONTO_paper1-freeze-20261028j.md` | `38507c2a206836a1` |  | listed; flags extracted in phase 2 |
@@ -79,27 +75,20 @@ Branches at the commits declared in P0: `main` aa9f478b3fa8, `paper4` ef31396c28
 | paper4 | frozen record | `paper4/congelamenti/CONGELAMENTO_E12sexiesbis.md` | `6b34cf2ed1e9f0a6` |  | listed; flags extracted in phase 2 |
 | paper4 | frozen record | `paper4/congelamenti/CONGELAMENTO_E12ter.md` | `ec03ebf339d7deb4` |  | listed; flags extracted in phase 2 |
 | paper4 | frozen record | `paper4/congelamenti/CONGELAMENTO_E9.md` | `0237d28dee3b7c4d` |  | listed; flags extracted in phase 2 |
-| paper4 | protocol | `protocol/paper4/E10geo.md` | `c5e4904ca5c2b554` | 0 | items under a Deviation(s) heading |
-| paper4 | protocol | `protocol/paper4/E10pred.md` | `be25adc4a455d1ec` | 0 | items under a Deviation(s) heading |
-| paper4 | protocol | `protocol/paper4/E10predbis.md` | `d0431d61d7c2adb8` | 0 | items under a Deviation(s) heading |
-| paper4 | protocol | `protocol/paper4/E11.md` | `1eca5076f48c03e4` | 0 | items under a Deviation(s) heading |
-| paper4 | protocol | `protocol/paper4/E12.md` | `a6a58140b5306907` | 0 | items under a Deviation(s) heading |
-| paper4 | protocol | `protocol/paper4/E12bis.md` | `a672e0b3882e6fed` | 0 | items under a Deviation(s) heading |
-| paper4 | protocol | `protocol/paper4/E12quater.md` | `d07e09d4b775a2f2` | 0 | items under a Deviation(s) heading |
-| paper4 | protocol | `protocol/paper4/E12quinquies.md` | `c184d6e5bd545512` | 0 | items under a Deviation(s) heading |
-| paper4 | protocol | `protocol/paper4/E12sexies.md` | `ca365680191433e4` | 0 | items under a Deviation(s) heading |
-| paper4 | protocol | `protocol/paper4/E12sexiesbis.md` | `e9494be86fc2d742` | 0 | items under a Deviation(s) heading |
-| paper4 | protocol | `protocol/paper4/E12ter.md` | `4bd886de8879a2e4` | 0 | items under a Deviation(s) heading |
-| paper4 | protocol | `protocol/paper4/E9.md` | `745dd58c039814b6` | 1 | items under a Deviation(s) heading |
-| paper4 | protocol | `protocol/paper4/P4A.md` | `6086d07909d1c494` | 1 | items under a Deviation(s) heading |
-| paper4 | protocol | `protocol/paper4/PROTOCOLLO.md` | `a745fea6511caf81` | 0 | items under a Deviation(s) heading |
-| paper4 | protocol | `protocol/paper4/SUMMARIES.en.md` | `dcbee4d8a3b2308a` | 0 | items under a Deviation(s) heading |
-| paper4 | protocol | `protocol/paper4/fase1/CROSSVAL_rigenerato.md` | `19cc2e052353901f` | 0 | items under a Deviation(s) heading |
-| paper4 | protocol | `protocol/paper4/fase1/GEOMETRIA_CRITERIO4_rigenerato.md` | `fa24eacd20322a23` | 0 | items under a Deviation(s) heading |
-| paper4 | protocol | `protocol/paper4/fase1/GRAFI_SENZA_GENERATORE.md` | `471352624d0f117a` | 0 | items under a Deviation(s) heading |
-| paper4 | protocol | `protocol/paper4/fase2/CAUSE_4A.md` | `db005d0afccfa938` | 0 | items under a Deviation(s) heading |
-| paper4 | protocol | `protocol/paper4/fase2/FASCE_APPAIATE.md` | `8ada8d3d6628fb4f` | 0 | items under a Deviation(s) heading |
-| paper4 | protocol | `protocol/paper4/zenodo/RIPARTIZIONE_RUNS.md` | `c9222f224441b6b2` | 0 | items under a Deviation(s) heading |
+| paper4 | method standard | `protocol/paper4/PROTOCOLLO.md` | `a745fea6511caf81` |  | listed; not a source of candidate items |
+| paper4 | protocol | `protocol/paper4/E10geo.md` | `c5e4904ca5c2b554` | 0 | heading items 0; text pattern 0 |
+| paper4 | protocol | `protocol/paper4/E10pred.md` | `be25adc4a455d1ec` | 0 | heading items 0; text pattern 0 |
+| paper4 | protocol | `protocol/paper4/E10predbis.md` | `d0431d61d7c2adb8` | 0 | heading items 0; text pattern 0 |
+| paper4 | protocol | `protocol/paper4/E11.md` | `1eca5076f48c03e4` | 0 | heading items 0; text pattern 0 |
+| paper4 | protocol | `protocol/paper4/E12.md` | `a6a58140b5306907` | 0 | heading items 0; text pattern 0 |
+| paper4 | protocol | `protocol/paper4/E12bis.md` | `a672e0b3882e6fed` | 0 | heading items 0; text pattern 0 |
+| paper4 | protocol | `protocol/paper4/E12quater.md` | `d07e09d4b775a2f2` | 0 | heading items 0; text pattern 0 |
+| paper4 | protocol | `protocol/paper4/E12quinquies.md` | `c184d6e5bd545512` | 0 | heading items 0; text pattern 0 |
+| paper4 | protocol | `protocol/paper4/E12sexies.md` | `ca365680191433e4` | 0 | heading items 0; text pattern 0 |
+| paper4 | protocol | `protocol/paper4/E12sexiesbis.md` | `e9494be86fc2d742` | 0 | heading items 0; text pattern 0 |
+| paper4 | protocol | `protocol/paper4/E12ter.md` | `4bd886de8879a2e4` | 0 | heading items 0; text pattern 0 |
+| paper4 | protocol | `protocol/paper4/E9.md` | `745dd58c039814b6` | 2 | heading items 1; text pattern 1 |
+| paper4 | protocol | `protocol/paper4/P4A.md` | `6086d07909d1c494` | 1 | heading items 1; text pattern 0 |
 | paper4 | regeneration report | `paper4/analysis/CONFRONTO.md` | `5dd0f1258210537b` |  | listed; flags extracted in phase 2 |
 | paper4 | regeneration report | `paper4/analysis/reports/20261108T185534Z.md` | `adef0afe48fb1d22` |  | listed; flags extracted in phase 2 |
 | paper4 | regeneration report | `paper4/analysis/reports/20261108T190815Z.md` | `646bb182e53f0c11` |  | listed; flags extracted in phase 2 |
@@ -148,7 +137,7 @@ Branches at the commits declared in P0: `main` aa9f478b3fa8, `paper4` ef31396c28
 
 ## Totals of mechanically counted candidate items
 
-- protocol: 2
+- protocol: 8
 - register: 61
 - git search, main, commit messages: 50
 - git search, main, diffs between consecutive tags: 569
