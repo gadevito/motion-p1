@@ -1,0 +1,3175 @@
+{
+ "git_search": [
+  {
+   "branch": "main",
+   "candidate_items": 50,
+   "commit": "aa9f478b3fa8",
+   "hits": [
+    {
+     "commit": "207f23f435b1",
+     "date": "2026-11-10T16:38:36+01:00",
+     "keywords": [
+      "voce",
+      "rettific",
+      "ritir"
+     ],
+     "subject": "registro: voce 34, la voce 33 è ritirata (la seconda macchina del 12/10 era Spark, commit 01af3f7); processo: rettifica datata in I3"
+    },
+    {
+     "commit": "00a790db5761",
+     "date": "2026-11-10T16:25:57+01:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "processo: incidente I3 (voce 22, falso positivo del controllo di appaiamento), verifica preliminare; registro voce 33, causa della 22 corretta (stessa architettura)"
+    },
+    {
+     "commit": "f60c00a3a6ed",
+     "date": "2026-11-10T16:19:17+01:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "processo: incidente I2 (Paper 4, voce 23, pesi di classe nel confronto dei placement), verifica preliminare; orario della revisione corretto dalla sequenza dei commit"
+    },
+    {
+     "commit": "ca99ef25c2f1",
+     "date": "2026-11-10T15:49:23+01:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "processo: incidente I1 (voce 29, AUC su 19 soglie), verifica preliminare della ricostruzione dalle tracce; lacune dichiarate"
+    },
+    {
+     "commit": "0a4a33a786e2",
+     "date": "2026-11-10T12:28:49+01:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "registro: voce 32, codice di terzi MoGERNN rimosso dal tracciamento e LICENSE CC BY 4.0"
+    },
+    {
+     "commit": "4013add4099b",
+     "date": "2026-11-03T20:37:20+01:00",
+     "keywords": [
+      "voce",
+      "correct"
+     ],
+     "subject": "paper1: verifica dei numeri sul manoscritto diviso in sezioni; dilatazioni nella forma del testo; figura della rete con la tabella degli embedding B; registro inglese, voci 30 e 31"
+    },
+    {
+     "commit": "b4ab62a8c3b0",
+     "date": "2026-11-03T12:38:32+01:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "E18-quater, forma standard: parte B (classi per sensore nei bersagli di prova), generatore del congelamento, fase E18QUATER in main.py, tabelle del supplemento (sezione E dopo E10; accanto a C5), protocollo aggiornato; registro voce 31 (soglia di congestione nel manoscritto)"
+    },
+    {
+     "commit": "94d8807537f6",
+     "date": "2026-11-01T09:53:38+01:00",
+     "keywords": [
+      "item"
+     ],
+     "subject": "main.py: opzione --solo-testo, verifica di testo senza rigenerazione"
+    },
+    {
+     "commit": "8b177d20dc11",
+     "date": "2026-10-31T21:00:56+01:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "E18 parte D: limite storico 923c02e (era 964e4f5 prima della riscrittura della storia, voce 30)"
+    },
+    {
+     "commit": "f0431247e5ef",
+     "date": "2026-10-31T11:42:55+01:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "Riscrittura della storia prima della pubblicazione: tabella hash prima -> pubblicato, voce 30 del registro"
+    },
+    {
+     "commit": "217624d6f28c",
+     "date": "2026-10-30T13:51:10+01:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "main.py, fase E18TER: esegue tutte le parti, come il congelamento; riga scritta il 30/10 dall'esecutore, corretta dal giro"
+    },
+    {
+     "commit": "8177eb217eff",
+     "date": "2026-10-29T10:49:16+01:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "paper1: voce 29 nella traduzione inglese del registro; riassunto E18 con le impronte dopo e18-bis"
+    },
+    {
+     "commit": "e03a5926810e",
+     "date": "2026-10-29T10:45:31+01:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "CONGELAMENTO_E18 rigenerato (parte C completa, voce 29), riga 29 del registro; rimosso voce28.py"
+    },
+    {
+     "commit": "784a4fb6e1e4",
+     "date": "2026-10-29T10:38:07+01:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "E18-bis: parte C con ECE, log-loss e Brier sulla finestra > 1 settimana; voce 29 (non 28) per la ROC empirica, nota datata nel generatore"
+    },
+    {
+     "commit": "7d5aa3fa7547",
+     "date": "2026-10-29T10:36:04+01:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "paper1: voce 28 nella traduzione inglese del registro; impronte nuove di protocol/E6.md, protocol/E14.md e CONGELAMENTO_E14B.md nei riassunti (dai file); tabella G21 in caratteri compatti"
+    },
+    {
+     "commit": "1a3381f57999",
+     "date": "2026-10-29T10:30:15+01:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "congelamento_e14b.json rigenerato con la voce 28"
+    },
+    {
+     "commit": "2d4bb450213b",
+     "date": "2026-10-29T10:29:31+01:00",
+     "keywords": [
+      "voce",
+      "correzion"
+     ],
+     "subject": "Merge branch 'esecutore/voce28'"
+    },
+    {
+     "commit": "30e15b872607",
+     "date": "2026-10-29T10:17:03+01:00",
+     "keywords": [
+      "voce",
+      "correzion"
+     ],
+     "subject": "paper1: E18 nel supplemento (sezione G da congelamento_e18.json: ROC empirica, bootstrap per sensore, margini, provenienza della politica), righe F'(1 sett.) delle tabelle di E16 dalla parte C (correzione 27), 24 verifiche nuove dei numeri stampati; voce 27 del registro chiusa; riassunto E18"
+    },
+    {
+     "commit": "db06fa303df5",
+     "date": "2026-10-29T10:14:34+01:00",
+     "keywords": [
+      "voce",
+      "correzion"
+     ],
+     "subject": "Voce 28: nomi di ruolo nelle note sulle correzioni (E6, E14, generatore E14-B, correzione 23), CONGELAMENTO_E14B rigenerato con nota datata; distance.csv di PEMS04 non usato (ADDENDUM §7); ripartizione di results/ per il deposito"
+    },
+    {
+     "commit": "754a20acfae0",
+     "date": "2026-10-29T09:58:51+01:00",
+     "keywords": [
+      "correzion"
+     ],
+     "subject": "E18: congelamento (C correzione 27 con controllo, A ROC/pAUC/richiami a FA fissi, B bootstrap per sensore, D provenienza della politica)"
+    },
+    {
+     "commit": "dc8ea6d2b201",
+     "date": "2026-10-28T22:18:58+01:00",
+     "keywords": [
+      "correzion",
+      "correct"
+     ],
+     "subject": "paper1: README inglese come README.md (italiano in README.it.md); registro italiano consolidato protocol/REGISTRO_CORREZIONI.md (voci 1–27, originale), register_of_corrections.en.md come sua traduzione"
+    },
+    {
+     "commit": "c1f4751e8c99",
+     "date": "2026-10-28T22:10:39+01:00",
+     "keywords": [
+      "correzion"
+     ],
+     "subject": "paper1: livello inglese del repository (README.en, glossario, riassunti E3–E18, registro delle correzioni 1–27)"
+    },
+    {
+     "commit": "d7b9f509ce6f",
+     "date": "2026-10-28T21:32:53+01:00",
+     "keywords": [
+      "correzion"
+     ],
+     "subject": "E18: parte C (correzione 27, E16 su origini > 1 settimana) con controllo bloccante; rapporto di forma per la stima di A"
+    },
+    {
+     "commit": "a3384ed455f2",
+     "date": "2026-10-28T21:18:02+01:00",
+     "keywords": [
+      "correzion"
+     ],
+     "subject": "E18: protocollo di analisi dalla seconda revisione (A ROC/pAUC, B bootstrap per sensore, C correzione 27 E16, D provenienza politica); firmato"
+    },
+    {
+     "commit": "cc286a819da1",
+     "date": "2026-10-15T08:59:04+02:00",
+     "keywords": [
+      "correzion",
+      "difetto"
+     ],
+     "subject": "Statica causale predefinita (correzione del difetto 21, dopo E14): OR3_STATICA assente = causale (variante a); --statica=congelata su 18 esecutori riproduce la campagna; statica dell'addestramento da statica_addestramento; adatta_F, valuta_prova, seleziona_F, E6/E6a seleziona-F, refresh, costi_e4, rho da statica_cella; collauda_protocolli fissa congelata; preflight 15 (E14 n. 8): identita' al bit con m_r perturbata dopo t0+24h, blocca su congelata. Collaudi 8/8 19/19 37/37 25/25 24/24 11/11, preflight 15/15 (14/15 su congelata), pilota E14 nc scarto 0, main.py --solo E2 congelata: tutto coincide"
+    },
+    {
+     "commit": "6f672454afe7",
+     "date": "2026-10-15T08:14:26+02:00",
+     "keywords": [
+      "difetto"
+     ],
+     "subject": "Merge branch 'esecutore/difetto-23'"
+    },
+    {
+     "commit": "1ce57696561d",
+     "date": "2026-10-15T08:06:02+02:00",
+     "keywords": [
+      "correzion",
+      "difetto"
+     ],
+     "subject": "Difetto 26: il controllo PEMS confronta (tau, N) e riporta la delta wCE di validazione a parte; CONGELAMENTO_E14B.md rigenerato con correzione datata"
+    },
+    {
+     "commit": "f90ceafe78b0",
+     "date": "2026-10-13T21:13:16+02:00",
+     "keywords": [
+      "correzion",
+      "difetto"
+     ],
+     "subject": "Difetto 23: frequenze_classi.py legge gli artefatti usati (pesi_griglia, pesi_pems04, pesi_pems08 p0-p5) con impronta per file; correzione datata in protocol/E6.md con la tabella rigenerata. Nessun effetto sui risultati"
+    },
+    {
+     "commit": "ab039e1ef35f",
+     "date": "2026-10-13T07:42:58+02:00",
+     "keywords": [
+      "difetto"
+     ],
+     "subject": "paper1: main.py — tolleranza combinata; indice delle impronte deterministico"
+    },
+    {
+     "commit": "3a20a945b1c1",
+     "date": "2026-10-12T22:09:05+02:00",
+     "keywords": [
+      "difetto"
+     ],
+     "subject": "paper1: CONFRONTO.md di riferimento per il tag e; \\label nelle tabelle del supplementare"
+    },
+    {
+     "commit": "01af3f7ac40e",
+     "date": "2026-10-12T20:05:54+02:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "Esecutore: voce 22 — tolleranza del controllo di appaiamento 1e-12 -> 1e-7 (float32 fra architetture: Spark 4,9e-9 per elemento, 3,8e-11 sulla wCE di cella, 1,2e-14 coerenza interna; riproducibilita_spark.json 0f628bcbb05a6cf6)"
+    },
+    {
+     "commit": "c58df00f376b",
+     "date": "2026-10-12T08:21:10+02:00",
+     "keywords": [
+      "difetto"
+     ],
+     "subject": "paper1: impronta canonica dei file di scelta"
+    },
+    {
+     "commit": "02be9e174265",
+     "date": "2026-10-11T22:15:43+02:00",
+     "keywords": [
+      "difetto"
+     ],
+     "subject": "paper1: manoscritto nel repo"
+    },
+    {
+     "commit": "25af2ef00a9c",
+     "date": "2026-10-11T22:03:39+02:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "Merge esecutore/e5-prosa: voce 20, prosa di E5 stabile nel tempo"
+    },
+    {
+     "commit": "03bcece3ecf2",
+     "date": "2026-10-11T22:03:39+02:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "Esecutore: voce 20 — CONGELAMENTO_E5 rigenerato per la riga di prosa su E3-bis (stessi numeri 52cdd962ff9888f6; impronta 069509f0570bbc0a)"
+    },
+    {
+     "commit": "e824dbee4dc2",
+     "date": "2026-10-10T18:15:50+02:00",
+     "keywords": [
+      "difetto"
+     ],
+     "subject": "Merge esecutore/e3-riviste: difetto 19, conteggio delle riviste dal solo lancio di E3"
+    },
+    {
+     "commit": "db9f8f3b1c24",
+     "date": "2026-10-10T18:15:50+02:00",
+     "keywords": [
+      "difetto"
+     ],
+     "subject": "Esecutore: difetto 19 — riviste di E3 dal solo lancio (108 manifesti per braccio, per impronta); rimisure con etichetta propria nel registro; CONGELAMENTO_E3 rigenerato (impronta 110ec4be3f3f9151)"
+    },
+    {
+     "commit": "d8ef81299651",
+     "date": "2026-10-10T18:09:49+02:00",
+     "keywords": [
+      "correzion",
+      "difetto"
+     ],
+     "subject": "paper1: analysis/main.py, prima versione"
+    },
+    {
+     "commit": "416be4e23c1e",
+     "date": "2026-10-10T16:19:45+02:00",
+     "keywords": [
+      "difetto"
+     ],
+     "subject": "Merge esecutore/tempi-e6: tempi appaiati, E3-bis difetto 17, architettura dai checkpoint, metadati audit MoGERNN, ricognizione Paper 4"
+    },
+    {
+     "commit": "05b1be7ccc2b",
+     "date": "2026-10-10T16:01:25+02:00",
+     "keywords": [
+      "difetto"
+     ],
+     "subject": "Esecutore: E3-bis §3 corretta (difetto 17) — R-orig(1 sett.) per citta' dai manifesti isolati, rapporto solo nella stessa citta'; patch letterale e congelamento rigenerato"
+    },
+    {
+     "commit": "d90f9e09aab6",
+     "date": "2026-10-09T16:36:13+02:00",
+     "keywords": [
+      "deviaz"
+     ],
+     "subject": "E8: deviazione dichiarata (A non valutabile in validazione, eredita le soglie di C)"
+    },
+    {
+     "commit": "6629f40fd549",
+     "date": "2026-10-08T07:25:20+02:00",
+     "keywords": [
+      "difetto"
+     ],
+     "subject": "da_E1: sorgente del predittore dal punto di controllo (undici canali su PEMS); difetto emerso in E6 seleziona-F"
+    },
+    {
+     "commit": "c25495cdb6b8",
+     "date": "2026-09-22T13:27:20+02:00",
+     "keywords": [
+      "rettific"
+     ],
+     "subject": "congelamento: fase E principale e selezione di F"
+    },
+    {
+     "commit": "904c6d1a7761",
+     "date": "2026-09-19T10:08:23+02:00",
+     "keywords": [
+      "rettific"
+     ],
+     "subject": "fase 3 sospesa: rettifica del budget di addestramento"
+    },
+    {
+     "commit": "5fdb881fd5af",
+     "date": "2026-09-18T08:32:27+02:00",
+     "keywords": [
+      "correct"
+     ],
+     "subject": "chiusura del raccordo: conclusione definitiva"
+    },
+    {
+     "commit": "0b7fc84dca4b",
+     "date": "2026-09-18T08:20:14+02:00",
+     "keywords": [
+      "correct"
+     ],
+     "subject": "congelamento della conferma: criterio congiunto non soddisfatto"
+    },
+    {
+     "commit": "0ce3f293d1f2",
+     "date": "2026-09-17T22:44:55+02:00",
+     "keywords": [
+      "correzion"
+     ],
+     "subject": "protocollo di conferma: dodici inizializzazioni nuove"
+    },
+    {
+     "commit": "83a9a8bacfac",
+     "date": "2026-09-17T21:13:52+02:00",
+     "keywords": [
+      "correct"
+     ],
+     "subject": "congelamento dei risultati del raccordo"
+    },
+    {
+     "commit": "4525efa1f5f7",
+     "date": "2026-09-17T19:22:57+02:00",
+     "keywords": [
+      "correzion"
+     ],
+     "subject": "pesi come artefatto condiviso; ricampionamento corretto"
+    },
+    {
+     "commit": "9cde540ec14a",
+     "date": "2026-09-17T18:05:11+02:00",
+     "keywords": [
+      "correct"
+     ],
+     "subject": "estrattore 1.3: copertura_coppie nel blocco di disponibilita' condiviso"
+    }
+   ],
+   "keywords": [
+    "voce",
+    "item",
+    "correzion",
+    "correct",
+    "difetto",
+    "defect",
+    "fix",
+    "rettific",
+    "ritir",
+    "retract",
+    "deviaz",
+    "deviation"
+   ],
+   "kind": "commit messages"
+  },
+  {
+   "branch": "main",
+   "candidate_items": 569,
+   "commit": "aa9f478b3fa8",
+   "diffs": [
+    {
+     "files": [
+      "CONGELAMENTO_E3bis.md",
+      "evoluzione/analisi/architettura_ck.py",
+      "evoluzione/audit/METADATI_AUDIT.md",
+      "evoluzione/audit/metadati_audit.py",
+      "evoluzione/esperimenti/costi_appaiati.py",
+      "evoluzione/esperimenti/ricognizione_paper4.sh",
+      "evoluzione/esperimenti/ricognizione_paper4_log.sh"
+     ],
+     "files_changed": 7,
+     "from": "paper1-freeze-20261010",
+     "to": "paper1-freeze-20261010b"
+    },
+    {
+     "files": [
+      "evoluzione/esperimenti/costi_appaiati.py"
+     ],
+     "files_changed": 1,
+     "from": "paper1-freeze-20261010b",
+     "to": "paper1-freeze-20261010c"
+    },
+    {
+     "files": [
+      "CONGELAMENTO_E3.md",
+      "analysis/impronte.py",
+      "analysis/main.py",
+      "analysis/tabelle_paper1.py",
+      "evoluzione/analisi/analizza_e3.py",
+      "evoluzione/analisi/analizza_e4.py",
+      "evoluzione/analisi/analizza_e5.py",
+      "evoluzione/analisi/figura2_51.py",
+      "evoluzione/analisi/figura_e8bis.py",
+      "evoluzione/analisi/stile_paper.py",
+      "evoluzione/esperimenti/esegui_inserimento.py"
+     ],
+     "files_changed": 11,
+     "from": "paper1-freeze-20261010c",
+     "to": "paper1-freeze-20261010d"
+    },
+    {
+     "files": [
+      "CONGELAMENTO_E6.md",
+      "evoluzione/esperimenti/esegui_e6.py"
+     ],
+     "files_changed": 2,
+     "from": "paper1-freeze-20261010d",
+     "to": "paper1-freeze-20261010e"
+    },
+    {
+     "files": [
+      "analysis/impronte.py",
+      "analysis/main.py",
+      "analysis/tabelle_paper1.py",
+      "evoluzione/esperimenti/costi_appaiati.py",
+      "evoluzione/esperimenti/costi_sessione.py"
+     ],
+     "files_changed": 5,
+     "from": "paper1-freeze-20261010e",
+     "to": "paper1-freeze-20261011"
+    },
+    {
+     "files": [
+      "CONGELAMENTO_E5.md",
+      "analysis/rigenerazione/CONFRONTO.md"
+     ],
+     "files_changed": 2,
+     "from": "paper1-freeze-20261011",
+     "to": "paper1-freeze-20261011b"
+    },
+    {
+     "files": [
+      "analysis/impronte.py",
+      "analysis/main.py",
+      "analysis/rigenerazione/CONFRONTO.md",
+      "analysis/tabelle_paper1.py"
+     ],
+     "files_changed": 4,
+     "from": "paper1-freeze-20261011b",
+     "to": "paper1-freeze-20261011c"
+    },
+    {
+     "files": [
+      "analysis/main.py",
+      "analysis/rigenerazione/CONFRONTO.md"
+     ],
+     "files_changed": 2,
+     "from": "paper1-freeze-20261011c",
+     "to": "paper1-freeze-20261012d"
+    },
+    {
+     "files": [
+      "analysis/main.py",
+      "analysis/rigenerazione/CONFRONTO.md",
+      "analysis/tabelle_paper1.py",
+      "analysis/tabelle_suppl.py",
+      "evoluzione/analisi/riproducibilita_spark.py",
+      "evoluzione/analisi/verifica_appaiamento.py"
+     ],
+     "files_changed": 6,
+     "from": "paper1-freeze-20261012d",
+     "to": "paper1-freeze-20261012e"
+    },
+    {
+     "files": [
+      "CONGELAMENTO_E14.md",
+      "CONGELAMENTO_E14B.md",
+      "analysis/impronte.py",
+      "analysis/main.py",
+      "analysis/rigenerazione/CONFRONTO.md",
+      "analysis/tabelle_suppl.py",
+      "evoluzione/analisi/correzione_difetto_23.py",
+      "evoluzione/analisi/e14_stadio0.py",
+      "evoluzione/analisi/e14b_fascio.py",
+      "evoluzione/analisi/e14b_livelli.py",
+      "evoluzione/analisi/frequenze_classi.py",
+      "evoluzione/esperimenti/addestramento.py",
+      "evoluzione/esperimenti/collauda_protocolli.py",
+      "evoluzione/esperimenti/costi_e4.py",
+      "evoluzione/esperimenti/e14b_prepara_copia.sh",
+      "evoluzione/esperimenti/esegui_E.py",
+      "evoluzione/esperimenti/esegui_e14.py",
+      "evoluzione/esperimenti/esegui_e14b.sh",
+      "evoluzione/esperimenti/esegui_e2.py",
+      "evoluzione/esperimenti/esegui_e4.py",
+      "evoluzione/esperimenti/esegui_e5.py",
+      "evoluzione/esperimenti/esegui_e6.py",
+      "evoluzione/esperimenti/esegui_e6a.py",
+      "evoluzione/esperimenti/esegui_e8.py",
+      "evoluzione/esperimenti/esegui_f0.py",
+      "evoluzione/esperimenti/esegui_inserimento.py",
+      "evoluzione/esperimenti/esegui_refresh.py",
+      "evoluzione/esperimenti/inserimento.py",
+      "evoluzione/esperimenti/ricostruisci_predizioni.py",
+      "evoluzione/esperimenti/riselezione_rmon_test.py",
+      "evoluzione/esperimenti/seleziona_F.py",
+      "evoluzione/esperimenti/sensibilita_rho_e2.py",
+      "evoluzione/esperimenti/veterani_e3.py",
+      "protocol/E14.md",
+      "protocol/E6.md",
+      "protocol/e14_stadio0.json",
+      "protocol/e14b/a/analisi_e3.json",
+      "protocol/e14b/a/congelamento_e2.json",
+      "protocol/e14b/a/congelamento_e3.json",
+      "protocol/e14b/a/congelamento_e3bis.json",
+      "protocol/e14b/a/congelamento_e4.json",
+      "protocol/e14b/a/congelamento_e5.json",
+      "protocol/e14b/a/congelamento_e7.json",
+      "protocol/e14b/a/copertura_e4.json",
+      "protocol/e14b/a/curve_e8bis_punti.json",
+      "protocol/e14b/a/e14b_livelli_a.json",
+      "protocol/e14b/a/e3bis_risultati.json",
+      "protocol/e14b/a/e4_griglia_test.json",
+      "protocol/e14b/a/e4_risultati.json",
+      "protocol/e14b/a/e4_scelta_gated.json",
+      "protocol/e14b/a/e5_k_secondaria.json",
+      "protocol/e14b/a/e5_risultati.json",
+      "protocol/e14b/a/e5_settimana_vs_A.json",
+      "protocol/e14b/a/e6_origini_comuni.json",
+      "protocol/e14b/a/e6_risultati.json",
+      "protocol/e14b/a/e6_scelta_gated.json",
+      "protocol/e14b/a/e6a_risultati.json",
+      "protocol/e14b/a/e6a_scelta_gated.json",
+      "protocol/e14b/a/e6bis_risultati.json",
+      "protocol/e14b/a/e7_posthoc.json",
+      "protocol/e14b/a/e7_stadio1.json",
+      "protocol/e14b/a/e8_risultati.json",
+      "protocol/e14b/a/e8_soglie.json",
+      "protocol/e14b/a/e8bis_risultati.json",
+      "protocol/e14b/a/manifesto.json",
+      "protocol/e14b/a/predizioni_e2/controllo_e2.json",
+      "protocol/e14b/a/predizioni_f0/controllo_f0.json",
+      "protocol/e14b/a/predizioni_fase3/controllo_A.json",
+      "protocol/e14b/a/predizioni_fase3/controllo_C.json",
+      "protocol/e14b/a/predizioni_fase3/controllo_F.json",
+      "protocol/e14b/a/predizioni_fase3/controllo_P.json",
+      "protocol/e14b/a/predizioni_fase3/controllo_R-mon.json",
+      "protocol/e14b/a/predizioni_fase3/controllo_R-orig.json",
+      "protocol/e14b/a/predizioni_fase3/controllo_R.json",
+      "protocol/e14b/a/predizioni_fase3_672/controllo_R-orig.json",
+      "protocol/e14b/a/riselezione_rmon_test.json",
+      "protocol/e14b/a/veterani_e3.json",
+      "protocol/e14b/c/analisi_e3.json",
+      "protocol/e14b/c/congelamento_e2.json",
+      "protocol/e14b/c/congelamento_e3.json",
+      "protocol/e14b/c/congelamento_e3bis.json",
+      "protocol/e14b/c/congelamento_e4.json",
+      "protocol/e14b/c/congelamento_e5.json",
+      "protocol/e14b/c/congelamento_e7.json",
+      "protocol/e14b/c/copertura_e4.json",
+      "protocol/e14b/c/curve_e8bis_punti.json",
+      "protocol/e14b/c/e14b_livelli_c.json",
+      "protocol/e14b/c/e3bis_risultati.json",
+      "protocol/e14b/c/e4_griglia_test.json",
+      "protocol/e14b/c/e4_risultati.json",
+      "protocol/e14b/c/e4_scelta_gated.json",
+      "protocol/e14b/c/e5_k_secondaria.json",
+      "protocol/e14b/c/e5_risultati.json",
+      "protocol/e14b/c/e5_settimana_vs_A.json",
+      "protocol/e14b/c/e6_origini_comuni.json",
+      "protocol/e14b/c/e6_risultati.json",
+      "protocol/e14b/c/e6_scelta_gated.json",
+      "protocol/e14b/c/e6a_risultati.json",
+      "protocol/e14b/c/e6a_scelta_gated.json",
+      "protocol/e14b/c/e6bis_risultati.json",
+      "protocol/e14b/c/e7_posthoc.json",
+      "protocol/e14b/c/e7_stadio1.json",
+      "protocol/e14b/c/e8_risultati.json",
+      "protocol/e14b/c/e8_soglie.json",
+      "protocol/e14b/c/e8bis_risultati.json",
+      "protocol/e14b/c/manifesto.json",
+      "protocol/e14b/c/predizioni_e2/controllo_e2.json",
+      "protocol/e14b/c/predizioni_f0/controllo_f0.json",
+      "protocol/e14b/c/predizioni_fase3/controllo_A.json",
+      "protocol/e14b/c/predizioni_fase3/controllo_C.json",
+      "protocol/e14b/c/predizioni_fase3/controllo_F.json",
+      "protocol/e14b/c/predizioni_fase3/controllo_P.json",
+      "protocol/e14b/c/predizioni_fase3/controllo_R-mon.json",
+      "protocol/e14b/c/predizioni_fase3/controllo_R-orig.json",
+      "protocol/e14b/c/predizioni_fase3/controllo_R.json",
+      "protocol/e14b/c/predizioni_fase3_672/controllo_R-orig.json",
+      "protocol/e14b/c/riselezione_rmon_test.json",
+      "protocol/e14b/c/veterani_e3.json",
+      "protocol/e14b/congelata/e14b_livelli_congelata.json"
+     ],
+     "files_changed": 119,
+     "from": "paper1-freeze-20261012e",
+     "to": "paper1-freeze-20261015f"
+    },
+    {
+     "files": [
+      "analysis/rigenerazione/CONFRONTO.md"
+     ],
+     "files_changed": 1,
+     "from": "paper1-freeze-20261015f",
+     "to": "paper1-freeze-20261015g"
+    },
+    {
+     "files": [
+      "analysis/main.py",
+      "analysis/rigenerazione/CONFRONTO.md",
+      "evoluzione/analisi/figura_rete.py"
+     ],
+     "files_changed": 3,
+     "from": "paper1-freeze-20261015g",
+     "to": "paper1-freeze-20261015h"
+    },
+    {
+     "files": [
+      "CONGELAMENTO_E15.md",
+      "CONGELAMENTO_E16.md",
+      "CONGELAMENTO_E17.md",
+      "analysis/main.py",
+      "analysis/tabelle_paper1.py",
+      "analysis/tabelle_suppl.py",
+      "evoluzione/analisi/analizza_e17.py",
+      "evoluzione/analisi/analizza_e4.py",
+      "evoluzione/analisi/figura2_51.py",
+      "evoluzione/analisi/figura_cronologia.py",
+      "evoluzione/analisi/scheda_fatti.py",
+      "evoluzione/componente/bracci.py",
+      "evoluzione/componente/episodio.py",
+      "evoluzione/componente/valutazione.py",
+      "evoluzione/esperimenti/addestramento.py",
+      "evoluzione/esperimenti/collauda_bracci.py",
+      "evoluzione/esperimenti/collauda_statica_espansiva.py",
+      "evoluzione/esperimenti/esegui_e15.py",
+      "evoluzione/esperimenti/esegui_e16.py",
+      "evoluzione/esperimenti/inserimento.py",
+      "evoluzione/esperimenti/pilota_tempi_e15.py",
+      "protocol/E15.md",
+      "protocol/E16.md",
+      "protocol/E17.md",
+      "protocol/e15/e15_risultati.json",
+      "protocol/e15/tempi/A/A_Londra_p0_s201.json.fatto",
+      "protocol/e15/tempi/A/A_Londra_p0_s202.json.fatto",
+      "protocol/e15/tempi/A/A_Londra_p0_s203.json.fatto",
+      "protocol/e15/tempi/A/A_Londra_p0_s204.json.fatto",
+      "protocol/e15/tempi/A/A_Londra_p0_s205.json.fatto",
+      "protocol/e15/tempi/A/A_Londra_p0_s206.json.fatto",
+      "protocol/e15/tempi/A/A_Londra_p1_s201.json.fatto",
+      "protocol/e15/tempi/A/A_Londra_p1_s202.json.fatto",
+      "protocol/e15/tempi/A/A_Londra_p1_s203.json.fatto",
+      "protocol/e15/tempi/A/A_Londra_p1_s204.json.fatto",
+      "protocol/e15/tempi/A/A_Londra_p1_s205.json.fatto",
+      "protocol/e15/tempi/A/A_Londra_p1_s206.json.fatto",
+      "protocol/e15/tempi/A/A_Londra_p2_s201.json.fatto",
+      "protocol/e15/tempi/A/A_Londra_p2_s202.json.fatto",
+      "protocol/e15/tempi/A/A_Londra_p2_s203.json.fatto",
+      "protocol/e15/tempi/A/A_Londra_p2_s204.json.fatto",
+      "protocol/e15/tempi/A/A_Londra_p2_s205.json.fatto",
+      "protocol/e15/tempi/A/A_Londra_p2_s206.json.fatto",
+      "protocol/e15/tempi/A/A_Madrid_p0_s201.json.fatto",
+      "protocol/e15/tempi/A/A_Madrid_p0_s202.json.fatto",
+      "protocol/e15/tempi/A/A_Madrid_p0_s203.json.fatto",
+      "protocol/e15/tempi/A/A_Madrid_p0_s204.json.fatto",
+      "protocol/e15/tempi/A/A_Madrid_p0_s205.json.fatto",
+      "protocol/e15/tempi/A/A_Madrid_p0_s206.json.fatto",
+      "protocol/e15/tempi/A/A_Madrid_p1_s201.json.fatto",
+      "protocol/e15/tempi/A/A_Madrid_p1_s202.json.fatto",
+      "protocol/e15/tempi/A/A_Madrid_p1_s203.json.fatto",
+      "protocol/e15/tempi/A/A_Madrid_p1_s204.json.fatto",
+      "protocol/e15/tempi/A/A_Madrid_p1_s205.json.fatto",
+      "protocol/e15/tempi/A/A_Madrid_p1_s206.json.fatto",
+      "protocol/e15/tempi/A/A_Madrid_p2_s201.json.fatto",
+      "protocol/e15/tempi/A/A_Madrid_p2_s202.json.fatto",
+      "protocol/e15/tempi/A/A_Madrid_p2_s203.json.fatto",
+      "protocol/e15/tempi/A/A_Madrid_p2_s204.json.fatto",
+      "protocol/e15/tempi/A/A_Madrid_p2_s205.json.fatto",
+      "protocol/e15/tempi/A/A_Madrid_p2_s206.json.fatto",
+      "protocol/e15/tempi/A/A_Melbourne_p0_s201.json.fatto",
+      "protocol/e15/tempi/A/A_Melbourne_p0_s202.json.fatto",
+      "protocol/e15/tempi/A/A_Melbourne_p0_s203.json.fatto",
+      "protocol/e15/tempi/A/A_Melbourne_p0_s204.json.fatto",
+      "protocol/e15/tempi/A/A_Melbourne_p0_s205.json.fatto",
+      "protocol/e15/tempi/A/A_Melbourne_p0_s206.json.fatto",
+      "protocol/e15/tempi/A/A_Melbourne_p1_s201.json.fatto",
+      "protocol/e15/tempi/A/A_Melbourne_p1_s202.json.fatto",
+      "protocol/e15/tempi/A/A_Melbourne_p1_s203.json.fatto",
+      "protocol/e15/tempi/A/A_Melbourne_p1_s204.json.fatto",
+      "protocol/e15/tempi/A/A_Melbourne_p1_s205.json.fatto",
+      "protocol/e15/tempi/A/A_Melbourne_p1_s206.json.fatto",
+      "protocol/e15/tempi/A/A_Melbourne_p2_s201.json.fatto",
+      "protocol/e15/tempi/A/A_Melbourne_p2_s202.json.fatto",
+      "protocol/e15/tempi/A/A_Melbourne_p2_s203.json.fatto",
+      "protocol/e15/tempi/A/A_Melbourne_p2_s204.json.fatto",
+      "protocol/e15/tempi/A/A_Melbourne_p2_s205.json.fatto",
+      "protocol/e15/tempi/A/A_Melbourne_p2_s206.json.fatto",
+      "protocol/e15/tempi/C/C_Londra_p0_s201.json.fatto",
+      "protocol/e15/tempi/C/C_Londra_p0_s202.json.fatto",
+      "protocol/e15/tempi/C/C_Londra_p0_s203.json.fatto",
+      "protocol/e15/tempi/C/C_Londra_p0_s204.json.fatto",
+      "protocol/e15/tempi/C/C_Londra_p0_s205.json.fatto",
+      "protocol/e15/tempi/C/C_Londra_p0_s206.json.fatto",
+      "protocol/e15/tempi/C/C_Londra_p1_s201.json.fatto",
+      "protocol/e15/tempi/C/C_Londra_p1_s202.json.fatto",
+      "protocol/e15/tempi/C/C_Londra_p1_s203.json.fatto",
+      "protocol/e15/tempi/C/C_Londra_p1_s204.json.fatto",
+      "protocol/e15/tempi/C/C_Londra_p1_s205.json.fatto",
+      "protocol/e15/tempi/C/C_Londra_p1_s206.json.fatto",
+      "protocol/e15/tempi/C/C_Londra_p2_s201.json.fatto",
+      "protocol/e15/tempi/C/C_Londra_p2_s202.json.fatto",
+      "protocol/e15/tempi/C/C_Londra_p2_s203.json.fatto",
+      "protocol/e15/tempi/C/C_Londra_p2_s204.json.fatto",
+      "protocol/e15/tempi/C/C_Londra_p2_s205.json.fatto",
+      "protocol/e15/tempi/C/C_Londra_p2_s206.json.fatto",
+      "protocol/e15/tempi/C/C_Madrid_p0_s201.json.fatto",
+      "protocol/e15/tempi/C/C_Madrid_p0_s202.json.fatto",
+      "protocol/e15/tempi/C/C_Madrid_p0_s203.json.fatto",
+      "protocol/e15/tempi/C/C_Madrid_p0_s204.json.fatto",
+      "protocol/e15/tempi/C/C_Madrid_p0_s205.json.fatto",
+      "protocol/e15/tempi/C/C_Madrid_p0_s206.json.fatto",
+      "protocol/e15/tempi/C/C_Madrid_p1_s201.json.fatto",
+      "protocol/e15/tempi/C/C_Madrid_p1_s202.json.fatto",
+      "protocol/e15/tempi/C/C_Madrid_p1_s203.json.fatto",
+      "protocol/e15/tempi/C/C_Madrid_p1_s204.json.fatto",
+      "protocol/e15/tempi/C/C_Madrid_p1_s205.json.fatto",
+      "protocol/e15/tempi/C/C_Madrid_p1_s206.json.fatto",
+      "protocol/e15/tempi/C/C_Madrid_p2_s201.json.fatto",
+      "protocol/e15/tempi/C/C_Madrid_p2_s202.json.fatto",
+      "protocol/e15/tempi/C/C_Madrid_p2_s203.json.fatto",
+      "protocol/e15/tempi/C/C_Madrid_p2_s204.json.fatto",
+      "protocol/e15/tempi/C/C_Madrid_p2_s205.json.fatto",
+      "protocol/e15/tempi/C/C_Madrid_p2_s206.json.fatto",
+      "protocol/e15/tempi/C/C_Melbourne_p0_s201.json.fatto",
+      "protocol/e15/tempi/C/C_Melbourne_p0_s202.json.fatto",
+      "protocol/e15/tempi/C/C_Melbourne_p0_s203.json.fatto",
+      "protocol/e15/tempi/C/C_Melbourne_p0_s204.json.fatto",
+      "protocol/e15/tempi/C/C_Melbourne_p0_s205.json.fatto",
+      "protocol/e15/tempi/C/C_Melbourne_p0_s206.json.fatto",
+      "protocol/e15/tempi/C/C_Melbourne_p1_s201.json.fatto",
+      "protocol/e15/tempi/C/C_Melbourne_p1_s202.json.fatto",
+      "protocol/e15/tempi/C/C_Melbourne_p1_s203.json.fatto",
+      "protocol/e15/tempi/C/C_Melbourne_p1_s204.json.fatto",
+      "protocol/e15/tempi/C/C_Melbourne_p1_s205.json.fatto",
+      "protocol/e15/tempi/C/C_Melbourne_p1_s206.json.fatto",
+      "protocol/e15/tempi/C/C_Melbourne_p2_s201.json.fatto",
+      "protocol/e15/tempi/C/C_Melbourne_p2_s202.json.fatto",
+      "protocol/e15/tempi/C/C_Melbourne_p2_s203.json.fatto",
+      "protocol/e15/tempi/C/C_Melbourne_p2_s204.json.fatto",
+      "protocol/e15/tempi/C/C_Melbourne_p2_s205.json.fatto",
+      "protocol/e15/tempi/C/C_Melbourne_p2_s206.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Londra_p0_s201.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Londra_p0_s202.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Londra_p0_s203.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Londra_p0_s204.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Londra_p0_s205.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Londra_p0_s206.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Londra_p1_s201.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Londra_p1_s202.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Londra_p1_s203.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Londra_p1_s204.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Londra_p1_s205.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Londra_p1_s206.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Londra_p2_s201.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Londra_p2_s202.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Londra_p2_s203.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Londra_p2_s204.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Londra_p2_s205.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Londra_p2_s206.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Madrid_p0_s201.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Madrid_p0_s202.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Madrid_p0_s203.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Madrid_p0_s204.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Madrid_p0_s205.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Madrid_p0_s206.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Madrid_p1_s201.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Madrid_p1_s202.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Madrid_p1_s203.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Madrid_p1_s204.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Madrid_p1_s205.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Madrid_p1_s206.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Madrid_p2_s201.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Madrid_p2_s202.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Madrid_p2_s203.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Madrid_p2_s204.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Madrid_p2_s205.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Madrid_p2_s206.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Melbourne_p0_s201.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Melbourne_p0_s202.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Melbourne_p0_s203.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Melbourne_p0_s204.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Melbourne_p0_s205.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Melbourne_p0_s206.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Melbourne_p1_s201.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Melbourne_p1_s202.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Melbourne_p1_s203.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Melbourne_p1_s204.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Melbourne_p1_s205.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Melbourne_p1_s206.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Melbourne_p2_s201.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Melbourne_p2_s202.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Melbourne_p2_s203.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Melbourne_p2_s204.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Melbourne_p2_s205.json.fatto",
+      "protocol/e15/tempi/C_A/C_A_Melbourne_p2_s206.json.fatto",
+      "protocol/e15/tempi/E/ck_E_Londra_p0_s1150248972.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Londra_p0_s1157715887.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Londra_p0_s1592395901.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Londra_p0_s399595374.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Londra_p0_s643310434.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Londra_p0_s682647013.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Londra_p1_s1150248972.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Londra_p1_s1157715887.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Londra_p1_s1592395901.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Londra_p1_s399595374.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Londra_p1_s643310434.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Londra_p1_s682647013.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Londra_p2_s1150248972.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Londra_p2_s1157715887.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Londra_p2_s1592395901.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Londra_p2_s399595374.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Londra_p2_s643310434.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Londra_p2_s682647013.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Madrid_p0_s1150248972.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Madrid_p0_s1157715887.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Madrid_p0_s1592395901.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Madrid_p0_s399595374.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Madrid_p0_s643310434.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Madrid_p0_s682647013.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Madrid_p1_s1150248972.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Madrid_p1_s1157715887.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Madrid_p1_s1592395901.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Madrid_p1_s399595374.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Madrid_p1_s643310434.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Madrid_p1_s682647013.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Madrid_p2_s1150248972.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Madrid_p2_s1157715887.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Madrid_p2_s1592395901.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Madrid_p2_s399595374.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Madrid_p2_s643310434.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Madrid_p2_s682647013.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Melbourne_p0_s1150248972.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Melbourne_p0_s1157715887.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Melbourne_p0_s1592395901.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Melbourne_p0_s399595374.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Melbourne_p0_s643310434.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Melbourne_p0_s682647013.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Melbourne_p1_s1150248972.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Melbourne_p1_s1157715887.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Melbourne_p1_s1592395901.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Melbourne_p1_s399595374.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Melbourne_p1_s643310434.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Melbourne_p1_s682647013.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Melbourne_p2_s1150248972.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Melbourne_p2_s1157715887.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Melbourne_p2_s1592395901.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Melbourne_p2_s399595374.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Melbourne_p2_s643310434.pt.fatto",
+      "protocol/e15/tempi/E/ck_E_Melbourne_p2_s682647013.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Londra_p0_s1150248972.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Londra_p0_s1157715887.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Londra_p0_s1592395901.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Londra_p0_s399595374.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Londra_p0_s643310434.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Londra_p0_s682647013.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Londra_p1_s1150248972.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Londra_p1_s1157715887.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Londra_p1_s1592395901.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Londra_p1_s399595374.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Londra_p1_s643310434.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Londra_p1_s682647013.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Londra_p2_s1150248972.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Londra_p2_s1157715887.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Londra_p2_s1592395901.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Londra_p2_s399595374.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Londra_p2_s643310434.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Londra_p2_s682647013.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Madrid_p0_s1150248972.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Madrid_p0_s1157715887.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Madrid_p0_s1592395901.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Madrid_p0_s399595374.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Madrid_p0_s643310434.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Madrid_p0_s682647013.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Madrid_p1_s1150248972.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Madrid_p1_s1157715887.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Madrid_p1_s1592395901.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Madrid_p1_s399595374.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Madrid_p1_s643310434.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Madrid_p1_s682647013.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Madrid_p2_s1150248972.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Madrid_p2_s1157715887.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Madrid_p2_s1592395901.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Madrid_p2_s399595374.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Madrid_p2_s643310434.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Madrid_p2_s682647013.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s1150248972.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s1157715887.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s1592395901.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s399595374.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s643310434.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Melbourne_p0_s682647013.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s1150248972.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s1157715887.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s1592395901.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s399595374.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s643310434.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Melbourne_p1_s682647013.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s1150248972.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s1157715887.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s1592395901.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s399595374.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s643310434.pt.fatto",
+      "protocol/e15/tempi/E1/ck_E1_Melbourne_p2_s682647013.pt.fatto",
+      "protocol/e15/tempi/esito_e15.json",
+      "protocol/e15/tempi/pilota_tempi_16.json",
+      "protocol/e16/e16_risultati.json"
+     ],
+     "files_changed": 298,
+     "from": "paper1-freeze-20261015h",
+     "to": "paper1-freeze-20261028i"
+    },
+    {
+     "files": [
+      "analysis/rigenerazione/CONFRONTO.md",
+      "evoluzione/analisi/figura2_51.py"
+     ],
+     "files_changed": 2,
+     "from": "paper1-freeze-20261028i",
+     "to": "paper1-freeze-20261028j"
+    },
+    {
+     "files": [
+      "CONGELAMENTO_E14B.md",
+      "CONGELAMENTO_E18.md",
+      "analysis/main.py",
+      "analysis/rigenerazione/CONFRONTO.md",
+      "analysis/tabelle_paper1.py",
+      "analysis/tabelle_suppl.py",
+      "evoluzione/ADDENDUM_PEMS04.md",
+      "evoluzione/analisi/analizza_e18.py",
+      "evoluzione/audit/manifesto_zenodo.py",
+      "evoluzione/audit/ripartizione_results.py",
+      "evoluzione/audit/verifica_ingressi_e18.py",
+      "evoluzione/esperimenti/esegui_e16.py",
+      "protocol/E18.md",
+      "protocol/REGISTRO_CORREZIONI.md",
+      "protocol/SUMMARIES.en.md",
+      "protocol/e18/COPIA_INGRESSI_MAC.md",
+      "protocol/e18/tempi_parte_A.json",
+      "protocol/spark/CONFRONTO_paper1-freeze-20261028i.md",
+      "protocol/spark/CONFRONTO_paper1-freeze-20261028j.md",
+      "protocol/zenodo/RIPARTIZIONE_RESULTS.md",
+      "protocol/zenodo/RIPARTIZIONE_RESULTS_spark.md"
+     ],
+     "files_changed": 21,
+     "from": "paper1-freeze-20261028j",
+     "to": "paper1-freeze-20261030k"
+    },
+    {
+     "files": [
+      "CONGELAMENTO_E18TER.md",
+      "analysis/main.py",
+      "analysis/rigenerazione/CONFRONTO.md",
+      "analysis/tabelle_paper1.py",
+      "analysis/tabelle_suppl.py",
+      "evoluzione/analisi/analizza_e18ter.py",
+      "evoluzione/audit/archivi_zenodo.py",
+      "evoluzione/audit/massimi_e14b.py",
+      "evoluzione/audit/patch/README.md",
+      "evoluzione/audit/patch/patch_attributo_distanza.py",
+      "evoluzione/audit/patch/patch_e14b_adatta_F.py",
+      "evoluzione/audit/patch/patch_e14b_ricostruzione.py",
+      "evoluzione/audit/patch/patch_e15.py",
+      "evoluzione/audit/patch/patch_e15_main.py",
+      "evoluzione/audit/patch/patch_e18_e16.py",
+      "evoluzione/audit/patch/patch_e18_main.py",
+      "evoluzione/audit/patch/patch_e18ter_main.py",
+      "evoluzione/audit/patch/patch_e18ter_tabellaV.py",
+      "evoluzione/audit/patch/patch_e18ter_tabelle.py",
+      "evoluzione/audit/patch/patch_e3_riviste.py",
+      "evoluzione/audit/patch/patch_e3bis_costi.py",
+      "evoluzione/audit/patch/patch_e5_prosa.py",
+      "evoluzione/audit/patch/patch_e6_origini.py",
+      "evoluzione/audit/patch/patch_g18_21.py",
+      "evoluzione/audit/patch/patch_g23.py",
+      "evoluzione/audit/patch/patch_l_didascalie.py",
+      "evoluzione/audit/patch/patch_metrics.py",
+      "evoluzione/audit/patch/patch_priore_calibrato.py",
+      "evoluzione/audit/patch/patch_statica_causale.py",
+      "evoluzione/audit/patch/patch_statica_variante.py",
+      "evoluzione/audit/patch/patch_stats_friedman.py",
+      "evoluzione/audit/patch/patch_tempi_main.py",
+      "evoluzione/audit/patch/patch_tolleranza_appaiamento.py",
+      "protocol/E18ter.md",
+      "protocol/e14b/MASSIMI_DELTA.md",
+      "protocol/spark/CONFRONTO_paper1-freeze-20261030k.md",
+      "protocol/zenodo/ARCHIVI.md",
+      "protocol/zenodo/MANIFEST.txt"
+     ],
+     "files_changed": 38,
+     "from": "paper1-freeze-20261030k",
+     "to": "paper1-freeze-20261030l"
+    },
+    {
+     "files": [
+      "evoluzione/audit/archivi_zenodo.py",
+      "protocol/REGISTRO_CORREZIONI.md",
+      "protocol/RISCRITTURA_STORIA.md",
+      "protocol/spark/CONFRONTO_paper1-freeze-20261030l.md",
+      "protocol/zenodo/ARCHIVI.md",
+      "protocol/zenodo/MANIFEST.txt"
+     ],
+     "files_changed": 6,
+     "from": "paper1-freeze-20261030l",
+     "to": "paper1-freeze-20261030l-pub"
+    },
+    {
+     "files": [
+      "evoluzione/analisi/analizza_e18.py"
+     ],
+     "files_changed": 1,
+     "from": "paper1-freeze-20261030l-pub",
+     "to": "paper1-freeze-20261030l-pub2"
+    },
+    {
+     "files": [
+      "protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub2.md"
+     ],
+     "files_changed": 1,
+     "from": "paper1-freeze-20261030l-pub2",
+     "to": "paper1-freeze-20261030l-pub3"
+    },
+    {
+     "files": [
+      "analysis/main.py",
+      "analysis/rigenerazione/CONFRONTO.md",
+      "analysis/tabelle_suppl.py",
+      "evoluzione/audit/massimi_e14b.py",
+      "evoluzione/audit/patch/patch_e14_massimi.py",
+      "evoluzione/audit/patch/patch_limite_d.py",
+      "protocol/e14b/MASSIMI_DELTA.md",
+      "protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub3.md"
+     ],
+     "files_changed": 8,
+     "from": "paper1-freeze-20261030l-pub3",
+     "to": "paper1-freeze-20261101m"
+    },
+    {
+     "files": [
+      "analysis/main.py",
+      "analysis/rigenerazione/CONFRONTO.md",
+      "evoluzione/audit/patch/patch_main_solo_testo.py"
+     ],
+     "files_changed": 3,
+     "from": "paper1-freeze-20261101m",
+     "to": "paper1-freeze-20261101m2"
+    },
+    {
+     "files": [
+      "analysis/rigenerazione/CONFRONTO.md"
+     ],
+     "files_changed": 1,
+     "from": "paper1-freeze-20261101m2",
+     "to": "paper1-freeze-20261101n"
+    },
+    {
+     "files": [
+      "analysis/rigenerazione/CONFRONTO.md",
+      "evoluzione/audit/massimi_e14b.py",
+      "evoluzione/audit/patch/patch_e14_massimi_2.py",
+      "protocol/e14b/MASSIMI_DELTA.md"
+     ],
+     "files_changed": 4,
+     "from": "paper1-freeze-20261101n",
+     "to": "paper1-freeze-20261101o"
+    },
+    {
+     "files": [
+      "CONGELAMENTO_E18QUATER.md",
+      "analysis/main.py",
+      "analysis/rigenerazione/CONFRONTO.md",
+      "analysis/tabelle_paper1.py",
+      "analysis/tabelle_suppl.py",
+      "evoluzione/analisi/classi_per_sensore.py",
+      "evoluzione/analisi/figura_rete.py",
+      "evoluzione/audit/patch/patch_e18quater_cat.py",
+      "evoluzione/audit/patch/patch_e18quater_main.py",
+      "evoluzione/audit/patch/patch_registro_31.py",
+      "evoluzione/esperimenti/esegui_e18quater.py",
+      "protocol/E18quater.md",
+      "protocol/REGISTRO_CORREZIONI.md",
+      "protocol/spark/CONFRONTO_paper1-freeze-20261101n.md",
+      "protocol/spark/CONFRONTO_paper1-freeze-20261101o.md",
+      "protocol/spark/NOTA_20261101n.md"
+     ],
+     "files_changed": 16,
+     "from": "paper1-freeze-20261101o",
+     "to": "paper1-freeze-20261103p"
+    },
+    {
+     "files": [
+      "evoluzione/audit/manifesto_zenodo.py",
+      "evoluzione/audit/patch/patch_manifesto_nota.py",
+      "evoluzione/audit/patch/patch_zenodo_regola.py",
+      "evoluzione/audit/ripartizione_results.py",
+      "protocol/spark/CONFRONTO_paper1-freeze-20261103p.md",
+      "protocol/zenodo/RIPARTIZIONE_RESULTS.md",
+      "protocol/zenodo/RIPARTIZIONE_RESULTS_spark.md"
+     ],
+     "files_changed": 7,
+     "from": "paper1-freeze-20261103p",
+     "to": "paper1-freeze-20261103q"
+    }
+   ],
+   "kind": "diffs between consecutive tags",
+   "paths": [
+    "protocol/",
+    "paper4/",
+    "analysis/",
+    "evoluzione/",
+    "CONGELAMENTO_"
+   ],
+   "tags": [
+    "paper1-freeze-20261010",
+    "paper1-freeze-20261010b",
+    "paper1-freeze-20261010c",
+    "paper1-freeze-20261010d",
+    "paper1-freeze-20261010e",
+    "paper1-freeze-20261011",
+    "paper1-freeze-20261011b",
+    "paper1-freeze-20261011c",
+    "paper1-freeze-20261012d",
+    "paper1-freeze-20261012e",
+    "paper1-freeze-20261015f",
+    "paper1-freeze-20261015g",
+    "paper1-freeze-20261015h",
+    "paper1-freeze-20261028i",
+    "paper1-freeze-20261028j",
+    "paper1-freeze-20261030k",
+    "paper1-freeze-20261030l",
+    "paper1-freeze-20261030l-pub",
+    "paper1-freeze-20261030l-pub2",
+    "paper1-freeze-20261030l-pub3",
+    "paper1-freeze-20261101m",
+    "paper1-freeze-20261101m2",
+    "paper1-freeze-20261101n",
+    "paper1-freeze-20261101o",
+    "paper1-freeze-20261103p",
+    "paper1-freeze-20261103q"
+   ]
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": 70,
+   "commit": "ef31396c28cf",
+   "hits": [
+    {
+     "commit": "ef31396c28cf",
+     "date": "2026-11-10T16:19:14+01:00",
+     "keywords": [
+      "item",
+      "correct"
+     ],
+     "subject": "paper4: register item 26, time of the internal review in item 23 and E10predbis.md corrected from the commit sequence (14:38, not 15:15)"
+    },
+    {
+     "commit": "a9710f1701d1",
+     "date": "2026-11-10T12:31:19+01:00",
+     "keywords": [
+      "item"
+     ],
+     "subject": "paper4: register item 25, third-party MoGERNN code removed from tracking and LICENSE CC BY 4.0"
+    },
+    {
+     "commit": "fe81f4596617",
+     "date": "2026-11-10T11:37:55+01:00",
+     "keywords": [
+      "item"
+     ],
+     "subject": "paper4: main.py step 3d fails unless S2 of the supplementary material gives protocol/paper4/<record>.md (<commit>) for each of the 13 frozen records, the commit in this repository, the file signed at that commit and the frozen-record commit equal to EXPERIMENTS; S1 Source items without a path and commit are listed; step 3c strips the break points of inline code, which hid every file name (the supplement count was 0, it is 55); protocol/paper4/fase2/genera_limiti_fonti.py regenerates LIMITI_FONTI.json from git objects at a commit, keeping its structure and section_vi_support mapping (reproduces the committed file at 2849887 byte for byte)"
+    },
+    {
+     "commit": "d2f6220ba912",
+     "date": "2026-11-10T09:44:52+01:00",
+     "keywords": [
+      "fix"
+     ],
+     "subject": "paper4: main.py step 3 covers the two LaTeX projects of the manuscript (paper at the root, supplementary material in supplementary/): every generated .tex from the current Markdown, every LaTeX reference resolved inside its own project, fixed-text references between the projects listed (3b); every file named in section VI listed in protocol/paper4/fase2/LIMITI_FONTI.json (3c); text-only check PASS on manuscript ffe0b36"
+    },
+    {
+     "commit": "17ad609cd0e9",
+     "date": "2026-11-10T09:14:05+01:00",
+     "keywords": [
+      "item"
+     ],
+     "subject": "paper4: LIMITI_FONTI.json, provenance of the 14 files supporting section VI (commit, blob, sha256, supported block; P4A signed b633f53 vs archived e53d3cb); register item 24"
+    },
+    {
+     "commit": "b05df6edf9dd",
+     "date": "2026-11-09T15:18:25+01:00",
+     "keywords": [
+      "item",
+      "correct"
+     ],
+     "subject": "paper4: main.py checks and regenerates the records of E10-pred-bis and E12-sexies-bis (regeneration identical); register item 23 (class weights of each design in E10-pred, corrected by E10-pred-bis); text-only check PASS on the manuscript after the internal review of 2026-11-09 (15:15, 15:30)"
+    },
+    {
+     "commit": "9421197566bf",
+     "date": "2026-11-09T14:39:10+01:00",
+     "keywords": [
+      "item"
+     ],
+     "subject": "paper4: main.py checks and regenerates the records of E12-quater, E12-quinquies, E10-pred and E12-sexies and the figure of E12-sexies (new paper4/analysis/figure_e12sexies.py, drawn from e12sexies_risultati.json); regeneration of the four records and the figure identical; register item 22 (asymmetric fallback of E12-ter, measured by E12-quater); text-only check PASS on the rewritten manuscript"
+    },
+    {
+     "commit": "ad5f64b35927",
+     "date": "2026-11-08T21:38:08+01:00",
+     "keywords": [
+      "correct"
+     ],
+     "subject": "paper4: E10-pred, E12-quater, E12-quinquies drafts approved with one correction each (input masks under uniform placement declared and their realised share recorded, cells with an observed segment reported; full fallback chain with a control per link and the case D' better than D; N_min per slot and readable bins declared in advance)"
+    },
+    {
+     "commit": "c11e3c5cb91b",
+     "date": "2026-11-08T20:59:41+01:00",
+     "keywords": [
+      "item"
+     ],
+     "subject": "paper4: model states not saved, stated in §VI Reproducibility and in Data and Code Availability (sentence of the internal review); Zenodo DOI 10.5281/zenodo.24059573 with three archives from the executor's partition; README no longer claims checkpoints; register item 21 (declared design choice, no effect on the numbers); provenance of 7.5 h and archive sizes declared; text-only check PASS; manuscript/ untouched"
+    },
+    {
+     "commit": "a9fd300048df",
+     "date": "2026-11-08T20:22:46+01:00",
+     "keywords": [
+      "item"
+     ],
+     "subject": "paper4: draft restructured after the internal review of the full draft (Part B before Part A; setting and protocol stated once; E12, E12-bis and E12-ter in one section with one table; limits collected; Melbourne stated once in the discussion; installation vs masked-node kriging; earlier report named only in the introduction and discussion; abstract under 200 words; RQs in standard form; contributions reordered; third open direction); authors, grant, bibliography, biographies and data availability as in Paper 1; supplement with register items 1-3, 8-13 and the frozen records; one LaTeX file per section and an Overleaf package; main.py sources updated, text check PASS"
+    },
+    {
+     "commit": "ae392326b112",
+     "date": "2026-11-08T20:05:26+01:00",
+     "keywords": [
+      "correct"
+     ],
+     "subject": "paper4: full draft typeset into one PDF (paper4/manuscript/build.py: Markdown sections to IEEEtran main.tex, Tectonic; register of corrections as supplement); working title, abstract and lead of Part B; README of Paper 4 with the map of the experiments and the regeneration; protocol status of 4A updated"
+    },
+    {
+     "commit": "130e2e4f57ad",
+     "date": "2026-11-08T19:55:44+01:00",
+     "keywords": [
+      "item"
+     ],
+     "subject": "paper4: causes of items 18-20 from the executor's measurements (CAUSE_4A.md, 03fd226); dated note appended to CONGELAMENTO_4A.md (now f8f093436de33d99; generated text before the note still 7304d9639f91ec81, no computed control changes); Part A section without cause markers; main.py checks the generated text and masks the note; SUMMARIES.en.md lists the Italian records of Part A"
+    },
+    {
+     "commit": "c3e8ab6eff17",
+     "date": "2026-11-08T15:38:12+01:00",
+     "keywords": [
+      "item",
+      "correct"
+     ],
+     "subject": "paper4: Part A section draft (three corrections declared, statements descriptive; Table 69 with 30 sections and 29 in the rank correlation); register items 18-20 with the diagnosis so far, causes open for the executor; main.py regenerates and checks P4A (seventh frozen record)"
+    },
+    {
+     "commit": "e53d3cb235c0",
+     "date": "2026-11-08T15:01:42+01:00",
+     "keywords": [
+      "deviation"
+     ],
+     "subject": "paper4: P4A input check after the run outside the frozen p4a.py (verifica_p4a.py); deviation 1 dated (no per-figure CSVs; check added)"
+    },
+    {
+     "commit": "f99b765ddabc",
+     "date": "2026-11-08T14:55:42+01:00",
+     "keywords": [
+      "item",
+      "correct"
+     ],
+     "subject": "paper4: P4A on the review's decisions (threshold between sensors primary, in time secondary; descriptive reading rules; Austin volume-occupancy recomputed; arterial values per pair primary); register items 14-17; P4A code (step 0, Tables 64-69 recomputed, corrections 1-3, weighted bootstrap, guard, frozen-record generator, self-tests); fingerprinted copy of t4c_crossval.py; manifest of the Part A inputs"
+    },
+    {
+     "commit": "824f6caf3ab7",
+     "date": "2026-11-08T14:43:47+01:00",
+     "keywords": [
+      "correct"
+     ],
+     "subject": "paper4: P4A pre-registration draft (three datasets with fingerprints, regeneration of Tables 64-69, three corrections, untraced deliverable numbers, choices to confirm); perimeter of the negative result in limits and discussion; English summaries of the Phase 1 records"
+    },
+    {
+     "commit": "61367a0008e7",
+     "date": "2026-11-08T14:24:02+01:00",
+     "keywords": [
+      "item",
+      "correct"
+     ],
+     "subject": "paper4: E12-ter section; introduction, research questions and contributions; discussion, limits, conclusion; Part A outline and status; paper order; thesis rewritten (protocol §1.1, dated note), §1.2-§1.3 status, §2.6 choices of the analyses without training, §3 points closed; register of corrections items 9-13; paper4/analysis/main.py (fingerprints, regeneration of the six frozen records, numbers in the text)"
+    },
+    {
+     "commit": "0be7e7aeaabf",
+     "date": "2026-11-07T15:37:39+01:00",
+     "keywords": [
+      "deviation"
+     ],
+     "subject": "paper4: E9 isolated cost of G1-rand(deg) (135.9 s) and G1 in the same conditions; launched by the executor; deviation on the earlier measurements"
+    },
+    {
+     "commit": "646332df6dda",
+     "date": "2026-11-06T21:42:09+01:00",
+     "keywords": [
+      "fix"
+     ],
+     "subject": "paper4: E9 and E11 section, two precision fixes"
+    },
+    {
+     "commit": "4fd7fe173feb",
+     "date": "2026-11-06T21:38:31+01:00",
+     "keywords": [
+      "item",
+      "correct"
+     ],
+     "subject": "paper4: register of corrections, item 8 (E11 generator, red-recall indexing)"
+    },
+    {
+     "commit": "b2863c98c07d",
+     "date": "2026-11-06T19:02:25+01:00",
+     "keywords": [
+      "correct"
+     ],
+     "subject": "paper4: E11 generator, red-recall indexing corrected (node and class selected in two steps), recall in the self-test, end-to-end self-test on a synthetic copy"
+    },
+    {
+     "commit": "a8621901cbb6",
+     "date": "2026-11-06T16:56:20+01:00",
+     "keywords": [
+      "fix"
+     ],
+     "subject": "paper4: E11 diagnostic D4 (dropout 0.3 on block outputs, no static attribute) with the adoption rule fixed before launch"
+    },
+    {
+     "commit": "41cea36cf78f",
+     "date": "2026-11-06T15:54:49+01:00",
+     "keywords": [
+      "defect",
+      "fix"
+     ],
+     "subject": "paper4: Tables 34-35 regenerable only after fixing the pairing (RC 4); first-run reading of the deliverable's control noted for the appendix of defects"
+    },
+    {
+     "commit": "e9ca476b0d8c",
+     "date": "2026-11-06T15:54:30+01:00",
+     "keywords": [
+      "item",
+      "correct"
+     ],
+     "subject": "paper4: register of corrections, item 7 (weights, topology and connectivity of the deliverable's negative control)"
+    },
+    {
+     "commit": "b937aa2f1d0e",
+     "date": "2026-11-06T11:46:22+01:00",
+     "keywords": [
+      "item",
+      "correct"
+     ],
+     "subject": "paper4: single protocol with Part A and Part B (sections 1-2, review decisions of 6/11 and brief 9b); E11 pre-registration draft; register of corrections items 1-3"
+    },
+    {
+     "commit": "4013add4099b",
+     "date": "2026-11-03T20:37:20+01:00",
+     "keywords": [
+      "voce",
+      "correct"
+     ],
+     "subject": "paper1: verifica dei numeri sul manoscritto diviso in sezioni; dilatazioni nella forma del testo; figura della rete con la tabella degli embedding B; registro inglese, voci 30 e 31"
+    },
+    {
+     "commit": "b4ab62a8c3b0",
+     "date": "2026-11-03T12:38:32+01:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "E18-quater, forma standard: parte B (classi per sensore nei bersagli di prova), generatore del congelamento, fase E18QUATER in main.py, tabelle del supplemento (sezione E dopo E10; accanto a C5), protocollo aggiornato; registro voce 31 (soglia di congestione nel manoscritto)"
+    },
+    {
+     "commit": "94d8807537f6",
+     "date": "2026-11-01T09:53:38+01:00",
+     "keywords": [
+      "item"
+     ],
+     "subject": "main.py: opzione --solo-testo, verifica di testo senza rigenerazione"
+    },
+    {
+     "commit": "8b177d20dc11",
+     "date": "2026-10-31T21:00:56+01:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "E18 parte D: limite storico 923c02e (era 964e4f5 prima della riscrittura della storia, voce 30)"
+    },
+    {
+     "commit": "f0431247e5ef",
+     "date": "2026-10-31T11:42:55+01:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "Riscrittura della storia prima della pubblicazione: tabella hash prima -> pubblicato, voce 30 del registro"
+    },
+    {
+     "commit": "217624d6f28c",
+     "date": "2026-10-30T13:51:10+01:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "main.py, fase E18TER: esegue tutte le parti, come il congelamento; riga scritta il 30/10 dall'esecutore, corretta dal giro"
+    },
+    {
+     "commit": "8177eb217eff",
+     "date": "2026-10-29T10:49:16+01:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "paper1: voce 29 nella traduzione inglese del registro; riassunto E18 con le impronte dopo e18-bis"
+    },
+    {
+     "commit": "e03a5926810e",
+     "date": "2026-10-29T10:45:31+01:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "CONGELAMENTO_E18 rigenerato (parte C completa, voce 29), riga 29 del registro; rimosso voce28.py"
+    },
+    {
+     "commit": "784a4fb6e1e4",
+     "date": "2026-10-29T10:38:07+01:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "E18-bis: parte C con ECE, log-loss e Brier sulla finestra > 1 settimana; voce 29 (non 28) per la ROC empirica, nota datata nel generatore"
+    },
+    {
+     "commit": "7d5aa3fa7547",
+     "date": "2026-10-29T10:36:04+01:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "paper1: voce 28 nella traduzione inglese del registro; impronte nuove di protocol/E6.md, protocol/E14.md e CONGELAMENTO_E14B.md nei riassunti (dai file); tabella G21 in caratteri compatti"
+    },
+    {
+     "commit": "1a3381f57999",
+     "date": "2026-10-29T10:30:15+01:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "congelamento_e14b.json rigenerato con la voce 28"
+    },
+    {
+     "commit": "2d4bb450213b",
+     "date": "2026-10-29T10:29:31+01:00",
+     "keywords": [
+      "voce",
+      "correzion"
+     ],
+     "subject": "Merge branch 'esecutore/voce28'"
+    },
+    {
+     "commit": "30e15b872607",
+     "date": "2026-10-29T10:17:03+01:00",
+     "keywords": [
+      "voce",
+      "correzion"
+     ],
+     "subject": "paper1: E18 nel supplemento (sezione G da congelamento_e18.json: ROC empirica, bootstrap per sensore, margini, provenienza della politica), righe F'(1 sett.) delle tabelle di E16 dalla parte C (correzione 27), 24 verifiche nuove dei numeri stampati; voce 27 del registro chiusa; riassunto E18"
+    },
+    {
+     "commit": "db06fa303df5",
+     "date": "2026-10-29T10:14:34+01:00",
+     "keywords": [
+      "voce",
+      "correzion"
+     ],
+     "subject": "Voce 28: nomi di ruolo nelle note sulle correzioni (E6, E14, generatore E14-B, correzione 23), CONGELAMENTO_E14B rigenerato con nota datata; distance.csv di PEMS04 non usato (ADDENDUM §7); ripartizione di results/ per il deposito"
+    },
+    {
+     "commit": "754a20acfae0",
+     "date": "2026-10-29T09:58:51+01:00",
+     "keywords": [
+      "correzion"
+     ],
+     "subject": "E18: congelamento (C correzione 27 con controllo, A ROC/pAUC/richiami a FA fissi, B bootstrap per sensore, D provenienza della politica)"
+    },
+    {
+     "commit": "dc8ea6d2b201",
+     "date": "2026-10-28T22:18:58+01:00",
+     "keywords": [
+      "correzion",
+      "correct"
+     ],
+     "subject": "paper1: README inglese come README.md (italiano in README.it.md); registro italiano consolidato protocol/REGISTRO_CORREZIONI.md (voci 1–27, originale), register_of_corrections.en.md come sua traduzione"
+    },
+    {
+     "commit": "c1f4751e8c99",
+     "date": "2026-10-28T22:10:39+01:00",
+     "keywords": [
+      "correzion"
+     ],
+     "subject": "paper1: livello inglese del repository (README.en, glossario, riassunti E3–E18, registro delle correzioni 1–27)"
+    },
+    {
+     "commit": "d7b9f509ce6f",
+     "date": "2026-10-28T21:32:53+01:00",
+     "keywords": [
+      "correzion"
+     ],
+     "subject": "E18: parte C (correzione 27, E16 su origini > 1 settimana) con controllo bloccante; rapporto di forma per la stima di A"
+    },
+    {
+     "commit": "a3384ed455f2",
+     "date": "2026-10-28T21:18:02+01:00",
+     "keywords": [
+      "correzion"
+     ],
+     "subject": "E18: protocollo di analisi dalla seconda revisione (A ROC/pAUC, B bootstrap per sensore, C correzione 27 E16, D provenienza politica); firmato"
+    },
+    {
+     "commit": "cc286a819da1",
+     "date": "2026-10-15T08:59:04+02:00",
+     "keywords": [
+      "correzion",
+      "difetto"
+     ],
+     "subject": "Statica causale predefinita (correzione del difetto 21, dopo E14): OR3_STATICA assente = causale (variante a); --statica=congelata su 18 esecutori riproduce la campagna; statica dell'addestramento da statica_addestramento; adatta_F, valuta_prova, seleziona_F, E6/E6a seleziona-F, refresh, costi_e4, rho da statica_cella; collauda_protocolli fissa congelata; preflight 15 (E14 n. 8): identita' al bit con m_r perturbata dopo t0+24h, blocca su congelata. Collaudi 8/8 19/19 37/37 25/25 24/24 11/11, preflight 15/15 (14/15 su congelata), pilota E14 nc scarto 0, main.py --solo E2 congelata: tutto coincide"
+    },
+    {
+     "commit": "6f672454afe7",
+     "date": "2026-10-15T08:14:26+02:00",
+     "keywords": [
+      "difetto"
+     ],
+     "subject": "Merge branch 'esecutore/difetto-23'"
+    },
+    {
+     "commit": "1ce57696561d",
+     "date": "2026-10-15T08:06:02+02:00",
+     "keywords": [
+      "correzion",
+      "difetto"
+     ],
+     "subject": "Difetto 26: il controllo PEMS confronta (tau, N) e riporta la delta wCE di validazione a parte; CONGELAMENTO_E14B.md rigenerato con correzione datata"
+    },
+    {
+     "commit": "f90ceafe78b0",
+     "date": "2026-10-13T21:13:16+02:00",
+     "keywords": [
+      "correzion",
+      "difetto"
+     ],
+     "subject": "Difetto 23: frequenze_classi.py legge gli artefatti usati (pesi_griglia, pesi_pems04, pesi_pems08 p0-p5) con impronta per file; correzione datata in protocol/E6.md con la tabella rigenerata. Nessun effetto sui risultati"
+    },
+    {
+     "commit": "ab039e1ef35f",
+     "date": "2026-10-13T07:42:58+02:00",
+     "keywords": [
+      "difetto"
+     ],
+     "subject": "paper1: main.py — tolleranza combinata; indice delle impronte deterministico"
+    },
+    {
+     "commit": "3a20a945b1c1",
+     "date": "2026-10-12T22:09:05+02:00",
+     "keywords": [
+      "difetto"
+     ],
+     "subject": "paper1: CONFRONTO.md di riferimento per il tag e; \\label nelle tabelle del supplementare"
+    },
+    {
+     "commit": "01af3f7ac40e",
+     "date": "2026-10-12T20:05:54+02:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "Esecutore: voce 22 — tolleranza del controllo di appaiamento 1e-12 -> 1e-7 (float32 fra architetture: Spark 4,9e-9 per elemento, 3,8e-11 sulla wCE di cella, 1,2e-14 coerenza interna; riproducibilita_spark.json 0f628bcbb05a6cf6)"
+    },
+    {
+     "commit": "c58df00f376b",
+     "date": "2026-10-12T08:21:10+02:00",
+     "keywords": [
+      "difetto"
+     ],
+     "subject": "paper1: impronta canonica dei file di scelta"
+    },
+    {
+     "commit": "02be9e174265",
+     "date": "2026-10-11T22:15:43+02:00",
+     "keywords": [
+      "difetto"
+     ],
+     "subject": "paper1: manoscritto nel repo"
+    },
+    {
+     "commit": "25af2ef00a9c",
+     "date": "2026-10-11T22:03:39+02:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "Merge esecutore/e5-prosa: voce 20, prosa di E5 stabile nel tempo"
+    },
+    {
+     "commit": "03bcece3ecf2",
+     "date": "2026-10-11T22:03:39+02:00",
+     "keywords": [
+      "voce"
+     ],
+     "subject": "Esecutore: voce 20 — CONGELAMENTO_E5 rigenerato per la riga di prosa su E3-bis (stessi numeri 52cdd962ff9888f6; impronta 069509f0570bbc0a)"
+    },
+    {
+     "commit": "e824dbee4dc2",
+     "date": "2026-10-10T18:15:50+02:00",
+     "keywords": [
+      "difetto"
+     ],
+     "subject": "Merge esecutore/e3-riviste: difetto 19, conteggio delle riviste dal solo lancio di E3"
+    },
+    {
+     "commit": "db9f8f3b1c24",
+     "date": "2026-10-10T18:15:50+02:00",
+     "keywords": [
+      "difetto"
+     ],
+     "subject": "Esecutore: difetto 19 — riviste di E3 dal solo lancio (108 manifesti per braccio, per impronta); rimisure con etichetta propria nel registro; CONGELAMENTO_E3 rigenerato (impronta 110ec4be3f3f9151)"
+    },
+    {
+     "commit": "d8ef81299651",
+     "date": "2026-10-10T18:09:49+02:00",
+     "keywords": [
+      "correzion",
+      "difetto"
+     ],
+     "subject": "paper1: analysis/main.py, prima versione"
+    },
+    {
+     "commit": "416be4e23c1e",
+     "date": "2026-10-10T16:19:45+02:00",
+     "keywords": [
+      "difetto"
+     ],
+     "subject": "Merge esecutore/tempi-e6: tempi appaiati, E3-bis difetto 17, architettura dai checkpoint, metadati audit MoGERNN, ricognizione Paper 4"
+    },
+    {
+     "commit": "05b1be7ccc2b",
+     "date": "2026-10-10T16:01:25+02:00",
+     "keywords": [
+      "difetto"
+     ],
+     "subject": "Esecutore: E3-bis §3 corretta (difetto 17) — R-orig(1 sett.) per citta' dai manifesti isolati, rapporto solo nella stessa citta'; patch letterale e congelamento rigenerato"
+    },
+    {
+     "commit": "d90f9e09aab6",
+     "date": "2026-10-09T16:36:13+02:00",
+     "keywords": [
+      "deviaz"
+     ],
+     "subject": "E8: deviazione dichiarata (A non valutabile in validazione, eredita le soglie di C)"
+    },
+    {
+     "commit": "6629f40fd549",
+     "date": "2026-10-08T07:25:20+02:00",
+     "keywords": [
+      "difetto"
+     ],
+     "subject": "da_E1: sorgente del predittore dal punto di controllo (undici canali su PEMS); difetto emerso in E6 seleziona-F"
+    },
+    {
+     "commit": "c25495cdb6b8",
+     "date": "2026-09-22T13:27:20+02:00",
+     "keywords": [
+      "rettific"
+     ],
+     "subject": "congelamento: fase E principale e selezione di F"
+    },
+    {
+     "commit": "904c6d1a7761",
+     "date": "2026-09-19T10:08:23+02:00",
+     "keywords": [
+      "rettific"
+     ],
+     "subject": "fase 3 sospesa: rettifica del budget di addestramento"
+    },
+    {
+     "commit": "5fdb881fd5af",
+     "date": "2026-09-18T08:32:27+02:00",
+     "keywords": [
+      "correct"
+     ],
+     "subject": "chiusura del raccordo: conclusione definitiva"
+    },
+    {
+     "commit": "0b7fc84dca4b",
+     "date": "2026-09-18T08:20:14+02:00",
+     "keywords": [
+      "correct"
+     ],
+     "subject": "congelamento della conferma: criterio congiunto non soddisfatto"
+    },
+    {
+     "commit": "0ce3f293d1f2",
+     "date": "2026-09-17T22:44:55+02:00",
+     "keywords": [
+      "correzion"
+     ],
+     "subject": "protocollo di conferma: dodici inizializzazioni nuove"
+    },
+    {
+     "commit": "83a9a8bacfac",
+     "date": "2026-09-17T21:13:52+02:00",
+     "keywords": [
+      "correct"
+     ],
+     "subject": "congelamento dei risultati del raccordo"
+    },
+    {
+     "commit": "4525efa1f5f7",
+     "date": "2026-09-17T19:22:57+02:00",
+     "keywords": [
+      "correzion"
+     ],
+     "subject": "pesi come artefatto condiviso; ricampionamento corretto"
+    },
+    {
+     "commit": "9cde540ec14a",
+     "date": "2026-09-17T18:05:11+02:00",
+     "keywords": [
+      "correct"
+     ],
+     "subject": "estrattore 1.3: copertura_coppie nel blocco di disponibilita' condiviso"
+    }
+   ],
+   "keywords": [
+    "voce",
+    "item",
+    "correzion",
+    "correct",
+    "difetto",
+    "defect",
+    "fix",
+    "rettific",
+    "ritir",
+    "retract",
+    "deviaz",
+    "deviation"
+   ],
+   "kind": "commit messages"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": 0,
+   "commit": "ef31396c28cf",
+   "diffs": [],
+   "kind": "diffs between consecutive tags",
+   "paths": [
+    "protocol/",
+    "paper4/",
+    "analysis/",
+    "evoluzione/",
+    "CONGELAMENTO_"
+   ],
+   "tags": [
+    "paper4-freeze-20261110a"
+   ]
+  }
+ ],
+ "p0": {
+  "main": "aa9f478b3fa8",
+  "paper4": "ef31396c28cf"
+ },
+ "sources": [
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "cited_json": [],
+   "class": "frozen record",
+   "commit": "aa9f478b3fa8",
+   "path": "CONGELAMENTO_APPAIAMENTO.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "a26e0c8b3d2f87cbde1c5b159248fa13dd4ab9763f5e8e36e85cf8b17284b076"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "cited_json": [],
+   "class": "frozen record",
+   "commit": "aa9f478b3fa8",
+   "path": "CONGELAMENTO_CONFERMA.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "c68acdc6ca0daba6ca226def7736ff3ea31e880d325492171fab974ca7766d85"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "cited_json": [
+    {
+     "path": "results/evoluzione/e14_risultati.json",
+     "sha256": "5019fd42135cde100739345a9d70c907884f4135a550d186284d04bf16544837"
+    },
+    {
+     "path": "results/evoluzione/e14_stadio0.json",
+     "sha256": "80721114071126308596e49baf1be751de48c85250b4e6bef7c6fa73d05d2ae3"
+    },
+    {
+     "path": "results/evoluzione/esito_e14_celle.json",
+     "sha256": "310974a93b4f3b1319bdbfa75ba42b7f8617754c1df79c3c5b12370e7d78d307"
+    }
+   ],
+   "class": "frozen record",
+   "commit": "aa9f478b3fa8",
+   "path": "CONGELAMENTO_E14.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "9b1f7816addc51dd109543d2677e17d5fed5298d22cbe29f2691d2b5a5574da7"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "cited_json": [
+    {
+     "path": "results/evoluzione/congelamento_e14b.json",
+     "sha256": "83fb792e766f815cdc1e488f6d74a5c2bc67e85193c310497a0f971d4fae5b80"
+    }
+   ],
+   "class": "frozen record",
+   "commit": "aa9f478b3fa8",
+   "path": "CONGELAMENTO_E14B.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "58e774413c805d58b12f06ddd9ae3e9e8284a1142c5fef5a30112e7abfe12c32"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "cited_json": [
+    {
+     "path": "protocol/e14b/congelata/e14b_livelli_congelata.json",
+     "sha256": "916c2e5883c81b9ce8caf0597b5d528b9f730fd4d540efff9cfbb68062b3c57a"
+    },
+    {
+     "path": "protocol/e15/tempi/pilota_tempi_16.json",
+     "sha256": "ceaf1a5c1cd27ac8af2bbe93b2b4da8789206261fce463e8cf684ad9780d0945"
+    },
+    {
+     "path": "results/evoluzione/congelamento_e15.json",
+     "sha256": "00f25406ca7604f8697e41b11429ad32fa0ef18c1bcf5bf1e49a4a9581d55c28"
+    },
+    {
+     "path": "results/evoluzione/e15_risultati.json",
+     "sha256": "82df1d02792e330e0ea241aee50c91b2ad6fb8247902389b53a9a5bcd617532c"
+    }
+   ],
+   "class": "frozen record",
+   "commit": "aa9f478b3fa8",
+   "path": "CONGELAMENTO_E15.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "7577cec5134dbd389d3c46e211d224c1eb22cb9d8ebeeb4d4ff867c1bc523d40"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "cited_json": [
+    {
+     "path": "results/evoluzione/congelamento_e16.json",
+     "sha256": "98877ae9afe62453fd82a004144fdd54bc4de17ca0ac7a19668677fb899af296"
+    },
+    {
+     "path": "results/evoluzione/e16_risultati.json",
+     "sha256": "ee1d7e51f945a6108c5265e7a46d6330923cd81a68e2b16bb3d32b1634fe5538"
+    }
+   ],
+   "class": "frozen record",
+   "commit": "aa9f478b3fa8",
+   "path": "CONGELAMENTO_E16.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "1df4d91ef930bc9536310fda2740b5af1a24ca0c8faa09f9333d3ff895359803"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "cited_json": [
+    {
+     "path": "results/evoluzione/congelamento_e17.json",
+     "sha256": "e6748bef25ed2e1e5ed96787be6945dbc4091cdef35a3d9aee1d386a6523e1cf"
+    },
+    {
+     "path": "results/evoluzione/e17_risultati.json",
+     "sha256": "d9c5f646191945dfd5b3bdbb7cb99a77ec2519808657ece7fc9e4e5c2e5179aa"
+    }
+   ],
+   "class": "frozen record",
+   "commit": "aa9f478b3fa8",
+   "path": "CONGELAMENTO_E17.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "6b9e7e7634211a4c795b7637c46bc3ada013610b861a42ced6e8fb5886b61ae3"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "cited_json": [
+    {
+     "path": "protocol/e18/tempi_parte_A.json",
+     "sha256": "632a3c662a6358149ffa99ffb265015043fa519ad77a96a5cc0e48f682e18cd0"
+    },
+    {
+     "path": "results/evoluzione/congelamento_e18.json",
+     "sha256": "5f3138ca8f77ac9a8a0d2f2b94ee0166f4c4c66825d22fb4375a3636609e8cee"
+    },
+    {
+     "path": "results/evoluzione/e18_risultati.json",
+     "sha256": "ddc86f7c534d44a29de3d53154a50f1dff98189e3afeebeacf4a9272985fa0ac"
+    }
+   ],
+   "class": "frozen record",
+   "commit": "aa9f478b3fa8",
+   "path": "CONGELAMENTO_E18.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "2e56a7202de9538357b8a2ab1197cccb311cb71484a7df472c64fb15dd48a1a0"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "cited_json": [
+    {
+     "path": "results/evoluzione/congelamento_e18quater.json",
+     "sha256": "b2fb7829d3995659617c1138b73aa542045cb36cf5a5dc53919941394688bfe0"
+    },
+    {
+     "path": "results/evoluzione/e18quater_classi_risultati.json",
+     "sha256": "020fea6939297a96921471b232bdbab269fbf48878f1cff1095615476b248f62"
+    },
+    {
+     "path": "results/evoluzione/e18quater_risultati.json",
+     "sha256": "316f1f9a3b0fa29ed423da86f7316e39060c196053abab525c2ae5924d7a8110"
+    }
+   ],
+   "class": "frozen record",
+   "commit": "aa9f478b3fa8",
+   "path": "CONGELAMENTO_E18QUATER.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "949b092be9f5c5372b1dfb23a3b3530411ed1b9e3a4e02084629c6bf46d22fc7"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "cited_json": [
+    {
+     "path": "results/evoluzione/congelamento_e18ter.json",
+     "sha256": "1983aca248349c9bd4309c9fe29f82c679c4a454ee856bacf1164f01501a9acc"
+    },
+    {
+     "path": "results/evoluzione/e18ter_risultati.json",
+     "sha256": "2a3bb86c1ba9c292d82100a6155133a63a6bf313647eb7061c09c6344f1ab229"
+    }
+   ],
+   "class": "frozen record",
+   "commit": "aa9f478b3fa8",
+   "path": "CONGELAMENTO_E18TER.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "943d92b6af4db470c48abe711a7b962f6ef91cf2a3765fe4facd58d6721b4e43"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "cited_json": [],
+   "class": "frozen record",
+   "commit": "aa9f478b3fa8",
+   "path": "CONGELAMENTO_E2.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "b14c651a25d3c5d12034ca4900f503d2adfd09d5fcf52cfacdcb242505182fb7"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "cited_json": [],
+   "class": "frozen record",
+   "commit": "aa9f478b3fa8",
+   "path": "CONGELAMENTO_E3.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "110ec4be3f3f9151c0e46cb8816234159304d930c339411eedb4777296f4e19d"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "cited_json": [],
+   "class": "frozen record",
+   "commit": "aa9f478b3fa8",
+   "path": "CONGELAMENTO_E3bis.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "174d8e2d1808516c7ae50ae493a8cd037652a74152639c3af2c18a565b0486a8"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "cited_json": [],
+   "class": "frozen record",
+   "commit": "aa9f478b3fa8",
+   "path": "CONGELAMENTO_E4.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "4a8784708a246265c1f6af7b50ca7997ddf76e6e836c018b127e34c240f92874"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "cited_json": [],
+   "class": "frozen record",
+   "commit": "aa9f478b3fa8",
+   "path": "CONGELAMENTO_E5.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "069509f0570bbc0af5fd9c12d623331c5a912fcf05800fc2c5e18b27c260c8ff"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "cited_json": [],
+   "class": "frozen record",
+   "commit": "aa9f478b3fa8",
+   "path": "CONGELAMENTO_E6.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "f5e5d941ba4b7a4d5fe760fe0471e198bff4075eebdac9f25ba26ce9ef71442d"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "cited_json": [],
+   "class": "frozen record",
+   "commit": "aa9f478b3fa8",
+   "path": "CONGELAMENTO_E7.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "a3f62bf4816f5aa0cc40a3bfeeda1cf71a38ee97a39761c35534afd006660e66"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "cited_json": [],
+   "class": "frozen record",
+   "commit": "aa9f478b3fa8",
+   "path": "CONGELAMENTO_E8.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "e0d9f02b0f653d1dab27654c3083dac0089f0dc4fca880b7dcf097ef27e2ed46"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "cited_json": [
+    {
+     "path": "results/evoluzione/selezione_F_griglia/configurazione_F.json",
+     "sha256": "18062d5ba9596a6fdd1741fe25d9ee8f5c4f676e3bc5f46c0779f99a5beb3603"
+    }
+   ],
+   "class": "frozen record",
+   "commit": "aa9f478b3fa8",
+   "path": "CONGELAMENTO_E_F_GRIGLIA.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "4dfc51ab8758aedeb005a1582c6b057839d582b91e00e5e4c1baa2a4cf2e882e"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "cited_json": [
+    {
+     "path": "results/evoluzione/selezione_F_principale/configurazione_F.json",
+     "sha256": "06d23ed1b0c481066d123e8e868720e831e938fbe5889a303c082ce6630e037c"
+    }
+   ],
+   "class": "frozen record",
+   "commit": "aa9f478b3fa8",
+   "path": "CONGELAMENTO_E_F_PIPELINE_PRECEDENTE.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "61b1be36fb91f0ace0fc006e3b58dfcac9b3797d8c182c89af0739f9500e08b2"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "cited_json": [
+    {
+     "path": "results/evoluzione/selezione_F_principale/configurazione_F.json",
+     "sha256": "06d23ed1b0c481066d123e8e868720e831e938fbe5889a303c082ce6630e037c"
+    }
+   ],
+   "class": "frozen record",
+   "commit": "aa9f478b3fa8",
+   "path": "CONGELAMENTO_E_F_PRINCIPALE.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "596d8a641efc761dffcf5405c5d0cfa6c3c8a0b9618866bce362c1f2da536df6"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "cited_json": [],
+   "class": "frozen record",
+   "commit": "aa9f478b3fa8",
+   "path": "CONGELAMENTO_INTEGRAZIONE_FASE3.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "48182afc5e66c4ebccc1d5226a1180db6606af88a5d5a6718cb342565d68c0a2"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "cited_json": [],
+   "class": "frozen record",
+   "commit": "aa9f478b3fa8",
+   "path": "CONGELAMENTO_RACCORDO.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "e3a68b9319b69e5086d8eaf25991766097428c72c81efa9c77c8fee5462923c6"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "cited_json": [],
+   "class": "frozen record",
+   "commit": "aa9f478b3fa8",
+   "path": "CONGELAMENTO_SELEZIONE_F.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "006a0da255daf2d45fc6d3b9a00f7254f0c3bb9596e3c15a16ddde381f1e7c31"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "aa9f478b3fa8",
+   "path": "analysis/rigenerazione/CONFRONTO.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "ffcdeb95aed8ffb0afd29734442590dc3f2dd7726c1e600de0e2c94900727552"
+  },
+  {
+   "branch": "main",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/E1.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "038031264dea187c24d41ae6ba80c7e80dbc027410457879ae6df7d477e44afb"
+  },
+  {
+   "branch": "main",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/E14.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "b30984ca153d3e5ddab776dc476862038f3338c457204a4f0e8faf35cb924636"
+  },
+  {
+   "branch": "main",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/E15.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "31d731567da30bb4007d3f24b2be22fcaa6151688192474f6edcdc607460e8d6"
+  },
+  {
+   "branch": "main",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/E16.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "d37208e5fbb17d84aee0be39eed581c5cb77ad36a3ed7e31fe9d56e080111930"
+  },
+  {
+   "branch": "main",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/E17.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "dcacf323f9f5defb4bb727eef0babd7817f3ee67fac2c464808a7af25f28d87e"
+  },
+  {
+   "branch": "main",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/E18.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "42da14831a4e982c97cf2336ed27e3f96a4ca1e85747d11e84309a357fa7a076"
+  },
+  {
+   "branch": "main",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/E18quater.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "56046a7784a5169e57e08679238df0d11596bc3afefe35c6e1c9160bfe29532b"
+  },
+  {
+   "branch": "main",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/E18ter.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "25ee156fa3178dbf7f9a20e28fecbc96d60d8d7c79f7f0b2f8e92040e1554656"
+  },
+  {
+   "branch": "main",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/E2.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "14a94b8a2bebc7e539e2785383d56d2404a46912ab3387b07d17e24f4cedd360"
+  },
+  {
+   "branch": "main",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/E3.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "245085de8a909ca8919958a2c3b1bf8ab4abea53c4ec68ac09d0eda707f9d12f"
+  },
+  {
+   "branch": "main",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/E4.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "e275daec5945c26b528e917238c048fb25b35ad12ff6135c70bcc158b52a2acb"
+  },
+  {
+   "branch": "main",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/E5.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "3dd706bcf3ddd899adabe76fc95035453c0d0a0bea265773125c8648908fbff5"
+  },
+  {
+   "branch": "main",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/E6.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "90818c7597925712a4e096ea373ef880d6532036491652a09e27da3eab78e216"
+  },
+  {
+   "branch": "main",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/E6bis.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "1d74950bf0f0ba9ae65f11f319ff4cb2e252abbeb4b5680b05ca29ffd1c0d5cc"
+  },
+  {
+   "branch": "main",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/E7.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "07db021e8523623547f805d161794f68ede5033df71ac47c29d1c0312c914643"
+  },
+  {
+   "branch": "main",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/E8.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "611d3541a6086e1961c9212c70cb32c89696220301bbdfc04ef7b05a38b135b9"
+  },
+  {
+   "branch": "main",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/E8bis.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "0323686ceb9571172ed914466eb93488e2ba9b78b9f8c452820c299f588aa44f"
+  },
+  {
+   "branch": "main",
+   "candidate_items": 35,
+   "class": "register",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/REGISTRO_CORREZIONI.md",
+   "rule": "rows `| n |`",
+   "sha256": "772df62aed850a3a62d3081f8c3f26a9918758a8a171a7660620629a61bebe56"
+  },
+  {
+   "branch": "main",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/RISCRITTURA_STORIA.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "204aaa8da79f2d438005e28091d31bf85024b360d5e82545e61387614a3d15f7"
+  },
+  {
+   "branch": "main",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/SUMMARIES.en.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "8053392b472af656f67b3bab537d564d244eb123ee608334becfd7b3d380eb21"
+  },
+  {
+   "branch": "main",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/e14b/MASSIMI_DELTA.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "eb101fcebf8423c5952fdd53d10efde85965cc22162915c3fef9cda716bff3fe"
+  },
+  {
+   "branch": "main",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/e18/COPIA_INGRESSI_MAC.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "0a056269f197c436a5f9402241c9a01dfccd7b8f972ba1cb9ca3e2613747be35"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "class": "incident card",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/processo/incidenti/I1.md",
+   "rule": null,
+   "sha256": "3ee6e51fc3019022df14ae9c96cb5bb972630531956af23d61ea3958cc3ea3bc"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "class": "incident card",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/processo/incidenti/I2.md",
+   "rule": null,
+   "sha256": "96864db6bd1429d42c273520f17ce4893cc2e7aed3c24513a9ab8998b6347786"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "class": "incident card",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/processo/incidenti/I3.md",
+   "rule": null,
+   "sha256": "f339e4e34d8934092869ff463ed7aed0aa64bce19f006f636b23e16e4dca5531"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "class": "incident card",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/processo/incidenti/README.md",
+   "rule": null,
+   "sha256": "4b2b9107a9c4df891b59ad6c2680cfde1cb31e7941cc6f0eede806a92f8ce4e4"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/spark/CONFRONTO_paper1-freeze-20261028i.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "8ccfe6279f7373fe0440625f36bec1f4af74297971980cc520e95dfc1a928c65"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/spark/CONFRONTO_paper1-freeze-20261028j.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "38507c2a206836a18d88579e279e1de172029e5f3d18e436b64470f106db8245"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/spark/CONFRONTO_paper1-freeze-20261030k.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "ff979d65217903362b2ce7055b4aa5130a06faf711a996a0b587263bc4a38f30"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub2.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "2aa1153c8ffe346640dac34ebf8676824cf4d01882bca9ca1b7dadd976372a65"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub3.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "f883a9f6875c83d58313a8fd8a72992ac81ba60fcdf5389f965a64032ff89781"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/spark/CONFRONTO_paper1-freeze-20261030l.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "82366be46e718eacf4ff7c0e50a3a104cc7157eda855f444819dba474ad93bc0"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/spark/CONFRONTO_paper1-freeze-20261101n.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "e40a8bb4620cc06d1217299eb5eed4e5d43c63bb6449dfadd534ec34f29cca51"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/spark/CONFRONTO_paper1-freeze-20261101o.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "2f28a069ce022d467e0d01cd07d97fa77ab05e0d12c2a1552aa15ab92afdb7e8"
+  },
+  {
+   "branch": "main",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "aa9f478b3fa8",
+   "path": "protocol/spark/CONFRONTO_paper1-freeze-20261103p.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "fbcc56451a8efd14ae9fd1382100740a0beddb59bae0165cee0925419784d5d9"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/CONFRONTO.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "5dd0f1258210537b7f18a1e9c1e40ec404ffd3d15a93b36e6a564cda7d2a8b95"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261108T185534Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "adef0afe48fb1d222c8fceaffbb90f85cfd5b0cc1b7a3365977803f7cfbe3983"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261108T190815Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "646bb182e53f0c11b9b2cc9396a9c50cb4dede2be62be40905df22a6645675f9"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261108T192252Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "b1a4147b1e7616b36424e6eb03e0c9db050362ea9c263eeeb438f1fdf2356deb"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261108T192907Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "ee17875b3a35b89f458e400faaa503190ae70c2ff995b818329dd9543feca262"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261108T193524Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "6ee26c368c34f04cce02728cd72c18434a4ddaa4328700e0b7766e36f515b2ea"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261108T195934Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "8def99358b7cf025f0b5bf2aa2ba623f148703503dd1f14f174c94fb098770b2"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261108T201201Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "a0a5800ff12bcde6c9db6e4ec6f33515d40f4414175e24acb3dfbaeb8d2848fc"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261108T201303Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "ffb7c4d1cc86c0cb281409ea04a1ba700023f2826b58f70d467d8711785c8c16"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261108T203411Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "fa4f011b82c2e50ab17674c25c3c9ae0dece4a0141d5fae6b9634c0c8cf72ee8"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261108T203424Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "fd04a16b4d5f1c7475ad60fa9750d23e2e9dc8ac2adf0a2ded1bf22e35e09843"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261109T133424Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "213c9668e719024e756f1d212c62d87a115d924f8580fa9898f8b33410157d5e"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261109T133900Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "83f7659b77f505754f0c162f73f2f385a344d47cfb7f86eb26fb450dcfc7e865"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261109T134904Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "3b31747d985841148916c6d56851be48ea0af29c0bc05c77b6db1d200e663c6c"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261109T141715Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "5df2c47bab6a32838b6b97f0f6137e4efa73365d5847a94b20c0395e12b008ca"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261109T141723Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "0fb3530ef47d0ebfaeceeea135d78b5dee6be2fa3d2648adcbd476299b01384c"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261109T141753Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "9678bfa488a2789ddd34b6ee332c04755eb41164ecaf5ca0286aa51c285c9576"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261109T142737Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "cb1e78101d40acccc498ccda2a6317fada27aa3bef8f3c09a84f01cdbc322d3f"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261109T143301Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "386643c77e534c1d60906bacca314b3033e9e9588896627a99c7a64fd6500785"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261109T143315Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "dc02bdaabf25126966ac2a3e14d4cc4f1db36c3c76da09e08938ae9550fa9b3e"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261109T143747Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "a46345c33d2d554335b2fa92ea9b8b20572d3bb2c1d700c840f02c8f24ed315d"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261109T144311Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "a2fe105be49d81c930c9e63b1ec88eb48a35e1ef1c7313a3e72572ff37209940"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261109T144737Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "849b4d40f17a9388b85a3b607405dbab4a254423ac19b4c8c7ec3de75e660bdd"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261109T163343Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "54a42bb89fbdde41f654096772632495d2e9989a6563ef05a52562a91e9af3ca"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261110T084415Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "f942300848ce7e36922576e30990b1024a7fc1191cb2170c1f032338b18984e5"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261110T084431Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "a7860aafc0723a59779a3adb0cba70f2765b7ed8510f57cbc1b8b60681b67e10"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261110T084452Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "c8bb32a55686e09ab246091ae631c98e7c8afe60860c652fc5091acbec85061d"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261110T085549Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "b2cc755b2871acc8fac62cac117a25f43da5f36c293e573cc6fb99a62c384cd5"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261110T103756Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "7f954a73c98bf5b9a8c17218d73d8a053b4a26c4d74b29362ebd115d2c10d6e5"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261110T104332Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "a7d431a620061ece89362f40cea81987814a6753be9c0f6a7092d01e113d72a5"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261110T105246Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "9d2b5ddb699c585eeb1f26d6da929c0dc693329dde363fc7af1d744e1f6df0ba"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261110T114831Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "2037e68d2732d1b3fa0b326da548682145390087161b426a8e8d97aaecea9cbd"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261110T120827Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "e877b03ec5cd1e7a17beb3fdb8c3d7205ed36a7a2574de3514d9ee342b36e257"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261110T121236Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "7e9c6fca1e6f396e959823b835531bb94e69525658c580cf1b69e954e3d719c1"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261110T123530Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "8fc91640aeb9b664af1b027df14500f878c647fa8ef942e8cabb2557f2370b8a"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261110T124126Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "3d2357ceb24bfd6ec539da952803e0242b7badd8438c138554c9fd26a62d7187"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "class": "regeneration report",
+   "commit": "ef31396c28cf",
+   "path": "paper4/analysis/reports/20261110T125004Z.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "ba5d0e510232b464a13692fb18493744fd16098cdbbc39c63b9d3e9ebdd09b7e"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "cited_json": [],
+   "class": "frozen record",
+   "commit": "ef31396c28cf",
+   "path": "paper4/congelamenti/CONGELAMENTO_4A.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "f8f093436de33d9991381ed7c7eae93507813e268ec95c3aeae5c97c59f7154a"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "cited_json": [],
+   "class": "frozen record",
+   "commit": "ef31396c28cf",
+   "path": "paper4/congelamenti/CONGELAMENTO_E10geo.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "bafddd27099190925ca455644fd91b358c206a05569668d2232401513dd53762"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "cited_json": [],
+   "class": "frozen record",
+   "commit": "ef31396c28cf",
+   "path": "paper4/congelamenti/CONGELAMENTO_E10pred.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "408240d2b5a72c1076c45af5ae8a88272269a1f0969f3154f3c6136daef685fe"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "cited_json": [],
+   "class": "frozen record",
+   "commit": "ef31396c28cf",
+   "path": "paper4/congelamenti/CONGELAMENTO_E10predbis.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "30ef7b7182aadede076361870080ffc0731d773a83910d70edd5c07a4db25112"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "cited_json": [],
+   "class": "frozen record",
+   "commit": "ef31396c28cf",
+   "path": "paper4/congelamenti/CONGELAMENTO_E11.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "459b43ee3e649a31a41d79e85043ceef54406db50185d2b94b38438a256b92ea"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "cited_json": [],
+   "class": "frozen record",
+   "commit": "ef31396c28cf",
+   "path": "paper4/congelamenti/CONGELAMENTO_E12.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "0be136a3886173bc3f685697554b178763a23169312d8b3dd1096a50ed5b558d"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "cited_json": [],
+   "class": "frozen record",
+   "commit": "ef31396c28cf",
+   "path": "paper4/congelamenti/CONGELAMENTO_E12bis.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "11e89874e3b100b8fbaa4c7623aeb4f649f2e418b7672f2993b133bcc0ce8245"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "cited_json": [],
+   "class": "frozen record",
+   "commit": "ef31396c28cf",
+   "path": "paper4/congelamenti/CONGELAMENTO_E12quater.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "971f0bdb951b17f15d82a0e82c21d97f53686bc4de915f3ba6b7aa3bdd872d26"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "cited_json": [],
+   "class": "frozen record",
+   "commit": "ef31396c28cf",
+   "path": "paper4/congelamenti/CONGELAMENTO_E12quinquies.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "09ccb7ca25decb9f1e100b0c2abc35ed43e1ee637208162dd01c5764f7a3a5db"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "cited_json": [],
+   "class": "frozen record",
+   "commit": "ef31396c28cf",
+   "path": "paper4/congelamenti/CONGELAMENTO_E12sexies.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "500b389066921146b66de8060ff4b54d74803c65fbb00a8f92e272a74049c302"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "cited_json": [],
+   "class": "frozen record",
+   "commit": "ef31396c28cf",
+   "path": "paper4/congelamenti/CONGELAMENTO_E12sexiesbis.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "6b34cf2ed1e9f0a6c7e836a1448891a9ed16121dceea0fc3060b54a36a95d4cb"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "cited_json": [],
+   "class": "frozen record",
+   "commit": "ef31396c28cf",
+   "path": "paper4/congelamenti/CONGELAMENTO_E12ter.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "ec03ebf339d7deb4be2dc976853e0fe0fd19d8221b552487897493fd859f18cf"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": null,
+   "cited_json": [],
+   "class": "frozen record",
+   "commit": "ef31396c28cf",
+   "path": "paper4/congelamenti/CONGELAMENTO_E9.md",
+   "rule": "listed; flags extracted in phase 2",
+   "sha256": "0237d28dee3b7c4dcd6c1d8c48565633d93144b9a3f38876d227ae4f4d3f87cd"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "ef31396c28cf",
+   "path": "protocol/paper4/E10geo.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "c5e4904ca5c2b5548f7d1c6d2f735e05cad8d2d54d17db56d59351cef3d4e8aa"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "ef31396c28cf",
+   "path": "protocol/paper4/E10pred.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "be25adc4a455d1ec1bf2e17a52d0e73d7d1651046020eaf80e00e8207d648798"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "ef31396c28cf",
+   "path": "protocol/paper4/E10predbis.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "d0431d61d7c2adb8a76eeb644c113710234ff68ddd6040e34cbd6f99654e7fe7"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "ef31396c28cf",
+   "path": "protocol/paper4/E11.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "1eca5076f48c03e4b300ed139d437b86c52b942d1d6f56e75ffeada2b55ac9ef"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "ef31396c28cf",
+   "path": "protocol/paper4/E12.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "a6a58140b530690790b0948548dadeb755df1d1b93db0f15b779489245a94173"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "ef31396c28cf",
+   "path": "protocol/paper4/E12bis.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "a672e0b3882e6fedfe2423611772496d7b702346e50124bdf6fdb9ebcf324331"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "ef31396c28cf",
+   "path": "protocol/paper4/E12quater.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "d07e09d4b775a2f204eec72e7d4071ff9d15cc3277c5ca0cdb8a87bbc9cbf989"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "ef31396c28cf",
+   "path": "protocol/paper4/E12quinquies.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "c184d6e5bd54551275863ab3ad8b6b011a344fd18b6b06fc27ef7200b5fd9b21"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "ef31396c28cf",
+   "path": "protocol/paper4/E12sexies.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "ca365680191433e45723793478d0559cf9218d012cce3fdef031ff1f7730bd89"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "ef31396c28cf",
+   "path": "protocol/paper4/E12sexiesbis.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "e9494be86fc2d742defef9ab15c5aea692cc1c2a344c42d8074f5eaf62947ec2"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "ef31396c28cf",
+   "path": "protocol/paper4/E12ter.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "4bd886de8879a2e440013b13242fdd953d7d6d2c2f0a94bf4fcb2076fb603406"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": 1,
+   "class": "protocol",
+   "commit": "ef31396c28cf",
+   "path": "protocol/paper4/E9.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "745dd58c039814b6dcbee32b85aeeb9535e58eb267951afa3058fa092b57f199"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": 1,
+   "class": "protocol",
+   "commit": "ef31396c28cf",
+   "path": "protocol/paper4/P4A.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "6086d07909d1c4945e2e2c88bc6ed4f00edc61d3efe9e93abde89cb2dfe2896f"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "ef31396c28cf",
+   "path": "protocol/paper4/PROTOCOLLO.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "a745fea6511caf81a33882af46f7b96e522e8434161c7e15e8858e03f8ac4117"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": 26,
+   "class": "register",
+   "commit": "ef31396c28cf",
+   "path": "protocol/paper4/REGISTRO_CORREZIONI.md",
+   "rule": "rows `| n |`",
+   "sha256": "1fad0c326f0a1b390402bd8640d2e8c741f8fea99faadc13720d7c598424266f"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "ef31396c28cf",
+   "path": "protocol/paper4/SUMMARIES.en.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "dcbee4d8a3b2308a6934b58784e37f32e724f51b39787b1437c84d32c6cd8993"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "ef31396c28cf",
+   "path": "protocol/paper4/fase1/CROSSVAL_rigenerato.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "19cc2e052353901f6c099909056d2643acc4c5a1233c3861f6a210329d5437fc"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "ef31396c28cf",
+   "path": "protocol/paper4/fase1/GEOMETRIA_CRITERIO4_rigenerato.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "fa24eacd20322a23a1eee7410bad7fc775ee359e0316b41a1fddc3cad6dc1f75"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "ef31396c28cf",
+   "path": "protocol/paper4/fase1/GRAFI_SENZA_GENERATORE.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "471352624d0f117a2b2ea93cff7aedbaa2fdcadcfa5f142275aa3cbf560651d1"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "ef31396c28cf",
+   "path": "protocol/paper4/fase2/CAUSE_4A.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "db005d0afccfa9385864f5d3a1a366e4f691be500795a5501a740d23e546b6d7"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "ef31396c28cf",
+   "path": "protocol/paper4/fase2/FASCE_APPAIATE.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "8ada8d3d6628fb4fcf4df974bbf4c27a7764d99ee35c3f228177fbde6f752cf7"
+  },
+  {
+   "branch": "paper4",
+   "candidate_items": 0,
+   "class": "protocol",
+   "commit": "ef31396c28cf",
+   "path": "protocol/paper4/zenodo/RIPARTIZIONE_RUNS.md",
+   "rule": "items under a Deviation(s) heading",
+   "sha256": "c9222f224441b6b27077aca234307e94ef82830259969563d32fc5b8f1423d9b"
+  }
+ ]
+}
