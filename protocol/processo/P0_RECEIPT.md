@@ -15,3 +15,14 @@ From this receipt on, the activities restricted by P0 (corpus construction, clas
 ## Correction, 2026-11-10 (same day)
 
 The confirmation of 17:26:19 recorded above was issued by the responsible author himself, not by a third party: it does not constitute a deposit in the sense of P0 §12 («deposit with a third party») and is **void**. The signed file and its fingerprint are unaffected. A valid receipt requires confirmation by a depositary who is not an author (DEP-01 reassigned to the proposing partner, Mediacom; see the note after the signature in `P0.md`); until it is recorded here, the activities restricted by P0 do not begin. Error of the coordination role, which drafted this receipt from the confirmation without checking who issued it.
+
+## Valid receipt, 2026-11-10
+
+| Field | Value |
+| --- | --- |
+| Depositary | DEP-01, reassigned: a person of the proposing partner, Mediacom, not an author and not P2-03; identity in the confidential register |
+| Document sent | `P0.md` as at commit `2ab032b`, SHA-256 `9c448ef792fcbd2c2ac36fdfeba2668cf6ef5f9fa26671704e6ef94e898bfea6` |
+| Sent by | the responsible author, 2026-11-10, after commit `7b93dd5` |
+| Receipt confirmed by DEP-01 | 2026-11-10 17:36 (Europe/Rome, UTC+01:00); fingerprint verification by the depositary: as stated in their confirmation, kept in the confidential register |
+
+From this receipt on, the activities restricted by P0 (corpus construction, classification, counts, invitation for P2) may begin.
