@@ -18,6 +18,17 @@ Candidate items are counted only where P0 gives a mechanical rule:
 Frozen records and regeneration reports are listed with fingerprints; their flags
 are extracted in phase 2, not counted here.
 
+Changes
+  2026-11-10, after the first run (executor's report on commit 73cc5c6):
+    - deviations: besides items under a Deviation(s) heading, paragraphs that start with
+      "Deviazione"/"Deviation" or contain "deviazione dal"/"deviazioni dal"/"deviation from"
+      are counted (the Paper 1 protocols declare deviations in the body, not under a heading);
+      the rule of each file says which pattern matched;
+    - class "protocol" restricted to the experiment protocols (`E<n>…md`, `P4A.md`);
+      `PROTOCOLLO.md` listed as "method standard" (no count); `RISCRITTURA_STORIA.md` listed as
+      "history aid"; summaries, phase reports and analysis notes under protocol/ excluded;
+    - incident cards: only `I<n>.md`, not the README.
+
 Usage (from the OR3 working copy; both commits share the object store):
   python3 protocol/processo/analisi/inventory.py --main aa9f478b3fa8 --paper4 ef31396c28cf \
       --out protocol/processo/corpus
@@ -55,8 +66,13 @@ def count_register_rows(text):
     return sum(1 for l in text.splitlines() if REG_ROW.match(l))
 
 
+DEV_TEXT = re.compile(r"^\s*(?:[-*]\s+|\d+[.)]\s+)?(?:\*\*|\*|_)?\s*deviazion|^\s*(?:[-*]\s+|\d+[.)]\s+)?(?:\*\*|\*|_)?\s*deviation", re.I)
+DEV_INLINE = re.compile(r"deviazion[ei] dal|deviation from", re.I)
+
+
 def count_deviation_items(text):
-    n, inside, level = 0, False, 0
+    """Returns (count under headings, count by text pattern outside those sections)."""
+    n_head, n_text, inside, level = 0, 0, False, 0
     for l in text.splitlines():
         m = re.match(r"^(#{1,6})\s", l)
         if m:
@@ -65,9 +81,14 @@ def count_deviation_items(text):
             if DEV_HEADING.match(l):
                 inside, level = True, len(m.group(1))
             continue
-        if inside and ITEM.match(l) and not re.match(r"^\s*(-|\*)\s*(None|Nessuna)\.?\s*$", l):
-            n += 1
-    return n
+        if re.match(r"^\s*(-|\*)\s*(None|Nessuna)\.?\s*$", l):
+            continue
+        if inside:
+            if ITEM.match(l):
+                n_head += 1
+        elif DEV_TEXT.match(l) or DEV_INLINE.search(l):
+            n_text += 1
+    return n_head, n_text
 
 
 def cited_json(text):
@@ -78,12 +99,15 @@ def classify(path, branch):
     p = path
     if p in ("protocol/REGISTRO_CORREZIONI.md", "protocol/paper4/REGISTRO_CORREZIONI.md"):
         return "register"
-    if p.startswith("protocol/processo/incidenti/") and p.endswith(".md"):
+    if re.fullmatch(r"protocol/processo/incidenti/I\d+\.md", p):
         return "incident card"
+    if p == "protocol/RISCRITTURA_STORIA.md":
+        return "history aid"
+    if p in ("protocol/PROTOCOLLO.md", "protocol/paper4/PROTOCOLLO.md"):
+        return "method standard"
     if p.startswith(("protocol/revisioni/", "protocol/paper4/revisioni/")):
         return "internal review observation"
-    if (p.startswith("protocol/") and p.endswith(".md")
-            and not p.startswith(("protocol/spark/", "protocol/zenodo/", "protocol/processo/"))):
+    if re.fullmatch(r"protocol/(paper4/)?(E\d+[A-Za-z]*|P4A)\.md", p):
         return "protocol"
     if (p.startswith("CONGELAMENTO_") or p.startswith("paper4/congelamenti/")) and p.endswith(".md"):
         return "frozen record"
@@ -122,8 +146,11 @@ def main():
             if cls == "register":
                 e["candidate_items"] = count_register_rows(text); e["rule"] = "rows `| n |`"
             elif cls == "protocol":
-                n = count_deviation_items(text)
-                e["candidate_items"] = n; e["rule"] = "items under a Deviation(s) heading"
+                nh, nt = count_deviation_items(text)
+                e["candidate_items"] = nh + nt
+                e["rule"] = f"heading items {nh}; text pattern {nt}"
+            elif cls in ("method standard", "history aid"):
+                e["rule"] = "listed; not a source of candidate items"
             elif cls == "frozen record":
                 e["rule"] = "listed; flags extracted in phase 2"
                 js = [j for j in cited_json(text) if j in files]
