@@ -117,3 +117,7 @@ analysis/rigenerazione/*
 
 # link ai dati condivisi
 /data_collection
+
+# Third-party code (MoGERNN, no licence upstream): kept locally for the audits, not redistributed
+/evoluzione/MoGERNN-main/**
+!/evoluzione/MoGERNN-main/ORIGINE.md
