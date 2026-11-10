@@ -426,12 +426,12 @@ TO_PAPER = re.compile(r"§\s?[IVX]+(?:-[A-Z])?|\b(?:Section|Table|Tab\.)\s+[IVX]
 TO_SUPPLEMENT = re.compile(r"\bS[12]\b|\bTable S\d+|\bsupplement(?:ary)?(?: material)?\b(?:,? S\d)?", re.I)
 
 
-BUILD_INPUTS = ["build.py", "references.tex", "IEEEtran.cls", "paper", "figures"]
+BUILD_INPUTS = ["build.py", "references.bib", "IEEEtran.cls", "paper", "figures"]
 HAND_WRITTEN = {"sections/biographies.tex"}
 
 
 def GENERATED_FOUND(man):
-    """The files of the manuscript that build.py writes: main.tex, bibliography.tex, latexmkrc, README_OVERLEAF.txt and
+    """The files of the manuscript that build.py writes: main.tex, latexmkrc, README_OVERLEAF.txt (bibliography.tex, if left over) and
     sections/*.tex of the paper; main.tex, latexmkrc, README_OVERLEAF.txt, IEEEtran.cls and sections/*.tex of the
     supplement. PDFs, logs and zips are not compared."""
     out = [p for p in ["main.tex", "bibliography.tex", "latexmkrc", "README_OVERLEAF.txt"] if (man / p).exists()]
