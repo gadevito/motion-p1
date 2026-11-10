@@ -485,15 +485,17 @@ def step_projects(report):
 
 
 def printed(ln):
-    r"""A LaTeX line without what is not printed: the file arguments of \includegraphics, \input and \include."""
+    r"""A LaTeX line as printed: without the file arguments of \includegraphics, \input and \include, and without the
+    break points (\allowbreak{}) that build.py inserts after / _ . | - in inline code, which would split a file name."""
     ln = re.sub(r"\\(?:includegraphics(?:\[[^\]]*\])?|input|include)\{[^}]*\}", " ", ln)
+    ln = re.sub(r"\\allowbreak(?:\{\})?", "", ln)
     return ln.replace("\\_", "_")
 
 
 def step_no_file_names(report):
     """No file name appears in the typeset paper: the non-comment lines of main.tex and sections/*.tex of the paper
     project. Folders of the repository (e.g. protocol/paper4/) are allowed; files (name.md, .py, .json, ...) are not.
-    The supplementary material is reported, not checked."""
+    In the supplementary material file names are required (step 3d); here they are only counted."""
     man = PAPER.parent; hits = []; sup = []
     for t in [man / "main.tex"] + sorted((man / "sections").glob("*.tex")):
         for i, ln in enumerate(t.read_text().splitlines(), 1):
@@ -506,9 +508,68 @@ def step_no_file_names(report):
     report.append("## 3c. No file names in the paper\n")
     report.append("File names in the typeset paper: " + ("none." if not hits else "") )
     report += [f"- {h}" for h in hits]
-    report.append(f"\nFile names in the supplementary material (reported, not checked): {len(sup)}." )
-    report += [f"- {h}" for h in sup] + [""]
+    report.append(f"\nFile names in the supplementary material (allowed there; required in S2, step 3d): {len(sup)}.\n")
     return not hits
+
+
+S2_ROW = re.compile(r"^[IVX]+(?:-[A-Z])? & ")
+S1_ROW = re.compile(r"^\d+ & ")
+PREREG = re.compile(r"protocol/paper4/([\w./-]+\.md) \(([0-9a-f]{7,40})\)")
+
+
+def cells(ln):
+    r"""The cells of a longtable row, without the closing \\ and \addlinespace, and with \texttt{...} unwrapped."""
+    ln = re.sub(r"\\\\\s*(?:\\addlinespace\[[^\]]*\])?\s*$", "", ln.rstrip())
+    return [re.sub(r"\\texttt\{([^}]*)\}", r"\1", c).strip() for c in ln.split(" & ")]
+
+
+def step_supplement_provenance(report):
+    """S2 of the supplementary material: for every frozen record of EXPERIMENTS (the figure excluded), exactly one row
+    whose pre-registration column reads protocol/paper4/<record>.md (<commit>), with the commit in this repository,
+    the file present at that commit with its signature line filled, and the frozen-record column equal to the commit
+    of EXPERIMENTS. Anything missing or different: FAIL. The Source column of S1 is listed: items without
+    protocol/paper4/<file> (<commit>) are reported, not failed."""
+    man = PAPER.parent; t = man / "supplementary" / "sections" / "supplement.tex"
+    report.append("## 3d. Provenance in the supplementary material\n")
+    if not t.exists():
+        report.append(f"`{t.relative_to(man)}` not found: FAIL\n")
+        return False
+    lines = [printed(ln) for ln in t.read_text().splitlines() if not ln.lstrip().startswith("%")]
+    s2 = [cells(ln) for ln in lines if S2_ROW.match(ln)]
+    git = lambda *c: subprocess.run(["git", *c], cwd=ROOT, capture_output=True, text=True)
+    ok = True
+    report.append("| Record | S2, pre-registration | Frozen record, S2 / EXPERIMENTS | |\n|---|---|---|---|")
+    for key, e in EXPERIMENTS.items():
+        if e["commit"] == "—":
+            continue
+        want = f"{key}.md"
+        hit = [(r, m) for r in s2 if len(r) >= 4 for m in [PREREG.search(r[2])] if m and m.group(1) == want]
+        if len(hit) != 1:
+            ok = False
+            report.append(f"| {key} | protocol/paper4/{want}: {'missing' if not hit else f'{len(hit)} rows'} | | FAIL |")
+            continue
+        r, m = hit[0]
+        c = m.group(2); why = []
+        if git("cat-file", "-e", f"{c}^{{commit}}").returncode:
+            why.append(f"commit {c} not in this repository")
+        else:
+            f = git("show", f"{c}:protocol/paper4/{want}")
+            parts = f.stdout.split("\n\n")
+            if f.returncode:
+                why.append(f"file absent at {c}")
+            elif len(parts) < 2 or "____" in parts[1] or "__/__" in parts[1]:
+                why.append(f"signature line not filled at {c}")
+        if r[3] != e["commit"]:
+            why.append(f"frozen record {r[3]} in S2, {e['commit']} in EXPERIMENTS")
+        ok &= not why
+        report.append(f"| {key} | protocol/paper4/{want} ({c}) | {r[3]} / {e['commit']} | {'; '.join(why) or 'ok'} |")
+    report.append("")
+    s1 = [cells(ln) for ln in lines if S1_ROW.match(ln)]
+    loose = [r for r in s1 if not PREREG.search(r[-1])]
+    report.append(f"S1, Source column: {len(s1)} items, {len(loose)} without protocol/paper4/<file> (<commit>) "
+                  f"(reported, not checked):\n")
+    report += ["- item " + r[0] + ": " + r[-1] for r in loose] + [""]
+    return ok
 
 
 # ---------------------------------------------------------------- main -------------------------------------
@@ -541,6 +602,7 @@ def main():
     res["text"] = step_text(report)
     res["projects"] = step_projects(report)
     res["no_file_names"] = step_no_file_names(report)
+    res["supplement_provenance"] = step_supplement_provenance(report)
     report.append("## Outcome\n\n" + "\n".join(f"- {k}: {'PASS' if v else 'FAIL'}" for k, v in res.items()))
     rp = work / "report.md"; rp.write_text("\n".join(report) + "\n")
     tracked = ROOT / "paper4" / "analysis" / "reports" / f"{stamp}.md"      # tracked copy, to be committed
