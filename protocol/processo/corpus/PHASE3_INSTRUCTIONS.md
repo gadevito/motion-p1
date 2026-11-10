@@ -97,3 +97,7 @@ The responsible author freezes `CORPUS.json` with its sha256 (phase 4); after th
 ## 8. Hand-back
 
 Send `MINUTES_PHASE3.md` and `CORPUS.json` to the responsible author with the date, both codes and the commit you worked on. The coordination role runs the completeness check (§6.7) and reports; the responsible author commits and freezes (phase 4). Questions during the work go to the responsible author in writing and are appended to the minutes with the answer.
+
+## Clarification, 2026-11-10 (question from COD-01/COD-02)
+
+§3 («a candidate appears in exactly one problem») and §5.2 (splitting) conflict for a candidate that contains several problems. Resolution: a split candidate appears in the `candidates` list of **every** problem it supports; each such repetition must correspond to a `split into n` line in the minutes naming that candidate ID. The completeness check of §6.7 becomes: every candidate ID of `candidates.json` appears **at least once** in `CORPUS.json`; an ID appearing more than once is accepted only if the minutes contain a split line for it; no ID appears in more than one `excluded` entry, and an ID in an `excluded` entry appears nowhere else. P0 §4 is unchanged.
