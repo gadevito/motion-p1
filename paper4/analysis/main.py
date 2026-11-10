@@ -22,6 +22,11 @@ The generators are imported, not copied: their output folder is the module varia
 argument of the E9 writer), redirected to the work folder. Training and the per-run computations are not
 re-run; they are inputs, with their fingerprints checked by the generators themselves.
 
+Step 3 also checks the two LaTeX projects of the manuscript repository (the paper at its root and the supplementary
+material in supplementary/): every generated .tex must come from the current Markdown, every LaTeX reference must
+resolve inside its own project, and the fixed-text references between them are listed (3b); and every file named in
+§VI must be listed in protocol/paper4/fase2/LIMITI_FONTI.json (3c).
+
 Usage, from the repository root, with the interpreter of the experiments:
 
     $PY paper4/analysis/main.py                 # all three steps
@@ -403,6 +408,98 @@ def step_text(report):
     return ok
 
 
+
+# ---------------------------------------------------------------- step 3b, 3c --------------------------------
+# The paper and its supplementary material are two independent XeLaTeX projects of the manuscript repository: the
+# paper at its root (main.tex, sections/), the supplement in supplementary/ (main.tex, sections/). Both are generated
+# by build.py from paper/*.md (and, for S1, the register); references between them are fixed text.
+
+LIMITS_SOURCES = ROOT / "protocol" / "paper4" / "fase2" / "LIMITI_FONTI.json"
+FILE_NAME = re.compile(r"(?<![\w/.-])((?:[\w.-]+/)*[\w.-]+\.(?:md|py|json|tsv))\b")
+LATEX_REF = re.compile(r"\\(?:ref|eqref|autoref|cref|Cref|pageref)\{([^}]*)\}")
+TO_PAPER = re.compile(r"§\s?[IVX]+(?:-[A-Z])?|\b(?:Section|Table|Tab\.)\s+[IVX]+\b|\bFig(?:ure|\.)\s?\d+")
+TO_SUPPLEMENT = re.compile(r"\bS[12]\b|\bTable S\d+|\bsupplement(?:ary)?(?: material)?\b(?:,? S\d)?", re.I)
+
+
+def step_projects(report):
+    """Both projects: every generated .tex comes from the current Markdown (fingerprint in its header; files without
+    the header, such as the biographies, are hand-written and listed); every LaTeX
+    reference resolves inside its own project; the fixed-text references that cross the two projects are listed."""
+    ok = True; man = PAPER.parent
+    projects = {"paper": man, "supplementary": man / "supplementary"}
+    report.append("## 3b. The two LaTeX projects\n")
+    if not (projects["supplementary"] / "main.tex").exists():
+        report.append(f"supplementary/main.tex not found in {man}: FAIL\n")
+        return False
+    rows = []
+    for name, d in projects.items():
+        for tex in sorted((d / "sections").glob("*.tex")):
+            head = tex.read_text().split("\n", 1)[0]
+            m = re.search(r"from (paper/[\w.-]+\.md)(?: and the register)? \(([0-9a-f]{16}|-)\)", head)
+            if not m:
+                rows.append((name, tex.name, "hand-written (no generated header), not checked", True)); continue
+            src, fp = man / m.group(1), m.group(2)
+            if fp == "-":
+                rows.append((name, tex.name, f"{m.group(1)} and the register (no single fingerprint)", True)); continue
+            got = sha(src) if src.exists() else "missing"
+            rows.append((name, tex.name, f"{m.group(1)} {fp} / now {got}", got == fp))
+    report.append("| Project | File | Source, fingerprint in the header / now | |\n|---|---|---|---|")
+    for name, f, txt, good in rows:
+        ok &= good
+        report.append(f"| {name} | `{f}` | {txt} | {'ok' if good else 'STALE OR HAND-EDITED'} |")
+    report.append("")
+    labels, refs, crossing = {}, {}, []
+    for name, d in projects.items():
+        texts = [d / "main.tex"] + sorted((d / "sections").glob("*.tex"))
+        labels[name] = {l for t in texts for l in re.findall(r"\\label\{([^}]*)\}", t.read_text())}
+        refs[name] = [(t, r) for t in texts for r in LATEX_REF.findall(t.read_text())]
+    for name in projects:
+        for t, r in refs[name]:
+            if r not in labels[name]:
+                ok = False; crossing.append(f"`{t.relative_to(man)}`: \\ref{{{r}}} is not defined in the {name} project")
+    sup_cites = [(t, c) for t in [projects["supplementary"] / "main.tex"] + sorted((projects["supplementary"] / "sections").glob("*.tex"))
+                 for c in re.findall(r"\\cite\{([^}]*)\}", t.read_text())]
+    sup_bib = any("\\bibitem" in t.read_text() or "\\bibliography" in t.read_text()
+                  for t in projects["supplementary"].rglob("*.tex"))
+    for t, c in sup_cites:
+        if not sup_bib:
+            ok = False; crossing.append(f"`{t.relative_to(man)}`: \\cite{{{c}}} without a bibliography in the supplementary project")
+    report.append("LaTeX references across the two projects (each must resolve inside its own project): "
+                  + ("none.\n" if not crossing else "\n\n" + "\n".join(f"- {c}" for c in crossing) + "\n"))
+    fixed = []
+    for t in sorted((projects["supplementary"] / "sections").glob("*.tex")) + [projects["supplementary"] / "main.tex"]:
+        for i, ln in enumerate(t.read_text().splitlines(), 1):
+            if ln.startswith("%"):
+                continue
+            for m in sorted(set(TO_PAPER.findall(ln))):
+                fixed.append(f"`{t.relative_to(man)}`:{i} → paper: {m}")
+    for t in [projects["paper"] / "main.tex"] + sorted((projects["paper"] / "sections").glob("*.tex")):
+        for i, ln in enumerate(t.read_text().splitlines(), 1):
+            if ln.startswith("%"):
+                continue
+            for m in sorted(set(x if isinstance(x, str) else x[0] for x in TO_SUPPLEMENT.findall(ln))):
+                fixed.append(f"`{t.relative_to(man)}`:{i} → supplement: {m}")
+    report.append(f"Fixed-text references between the two projects, to be checked by hand when numbering changes "
+                  f"({len(fixed)}):\n")
+    report += [f"- {x}" for x in fixed] + [""]
+    return ok
+
+
+def step_limits_sources(report):
+    """Every file named in §VI (paper/section_limits.md, below its draft header) is listed in LIMITI_FONTI.json."""
+    report.append("## 3c. Files named in §VI against `protocol/paper4/fase2/LIMITI_FONTI.json`\n")
+    lf = json.loads(LIMITS_SOURCES.read_text())
+    listed = [f["path"] for f in lf["files"]]
+    lines = (PAPER / "section_limits.md").read_text().splitlines()
+    start = next((i + 1 for i, ln in enumerate(lines) if ln.startswith("---")), 0)
+    named = sorted({m for ln in lines[start:] for m in FILE_NAME.findall(ln)})
+    bad = [n for n in named if not any(p == n or p.endswith("/" + n) for p in listed)]
+    report.append(f"Manifest `{LIMITS_SOURCES.relative_to(ROOT)}` ({sha(LIMITS_SOURCES)}), {len(listed)} files. Named in "
+                  f"§VI: {', '.join(f'`{n}`' for n in named) if named else 'none'}.")
+    report.append("Not in the manifest: " + (", ".join(f"`{b}`" for b in bad) if bad else "none") + ".\n")
+    return not bad
+
+
 # ---------------------------------------------------------------- main -------------------------------------
 
 def main():
@@ -431,6 +528,8 @@ def main():
     if not a.text_only:
         res["regeneration"] = step_regenerate(report, a.only or list(EXPERIMENTS), work)
     res["text"] = step_text(report)
+    res["projects"] = step_projects(report)
+    res["limits_sources"] = step_limits_sources(report)
     report.append("## Outcome\n\n" + "\n".join(f"- {k}: {'PASS' if v else 'FAIL'}" for k, v in res.items()))
     rp = work / "report.md"; rp.write_text("\n".join(report) + "\n")
     tracked = ROOT / "paper4" / "analysis" / "reports" / f"{stamp}.md"      # tracked copy, to be committed
