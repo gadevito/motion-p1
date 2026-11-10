@@ -24,3 +24,7 @@ Both runs on `main` aa9f478b3fa8 and `paper4` ef31396c28cf, the commits declared
 - Register rows: 35 for Paper 1 against 34 items (17a and 17b are two rows), 26 for Paper 4. Rows are candidates; separation and merging are decided in phase 3.
 - Tag diffs count files changed, not problems: a source for phase 2, never a number of the paper.
 - `paper4` has one tag at the declared commit: no consecutive pair, 0 diffs, as expected.
+
+## Addition, 2026-11-10 (execution role, after run 2)
+
+`protocol/paper4/E9.md` at `ef31396`: the `## Deviations` section is at r. 286 (1 item, counted by heading); the line counted by the text pattern is r. 258, «Deviations, item 1.», a cross-reference to the section, not a deviation: a false positive of the pattern «paragraph starting with Deviation». The inventory stays frozen at run 2 (`187f7cde…`); the candidate count for E9 is read as 1 and the «protocol» total as 7; the line is excluded in phase 3 with this reason. Candidate counts are not numbers of the paper.
