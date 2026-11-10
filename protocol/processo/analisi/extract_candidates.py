@@ -1,0 +1,196 @@
+#!/usr/bin/env python3
+"""Phase 2 of P0 — extraction of the candidate items (P0 §8 phase 2).
+
+Reads the frozen `inventory.json` of phase 1 and the two branches at the commits it
+records, through `git show` only, and writes:
+
+  protocol/processo/corpus/candidates.json   one entry per candidate item: id, class,
+                                             branch, commit, path, locator, verbatim text,
+                                             and (git search only) the register item it names
+  protocol/processo/corpus/CANDIDATES.md     the same, readable, grouped by class
+
+No type, no phase, no status is assigned: those belong to phases 3 and 5. The text is
+verbatim; nothing is interpreted. Rules, all mechanical and declared here:
+
+  register rows       every row `| n |` of the two registers; text = the whole row
+  deviations          items under a Deviation(s) heading, and paragraphs outside those
+                      sections starting with «Deviazione/Deviation» or containing
+                      «deviazione dal / deviation from» (same rule as phase 1; known false
+                      positive: a cross-reference such as «Deviations, item 1.»)
+  git commits         commits whose message contains a P0 keyword; text = hash, date,
+                      subject, body; `register_ref` = the item numbers named as «voce n» /
+                      «item n» in the message, else «unregistered»; on `paper4`, commits
+                      reachable from the `main` commit are skipped (they are listed once,
+                      under `main`: phase 1 counted them on both branches)
+  tag diffs           one candidate per (consecutive tag pair, changed file) within the P0
+                      paths; text = the file path and the number of lines changed
+  record notes        lines of a frozen record containing «deviation/deviazion», «nota
+                      datata/dated note», «rigenerato il/regenerated on», «ritir/retract»,
+                      «correzion/correct»
+  report flags        lines of a regeneration report containing «FAIL», «fallit», «non
+                      coincid», «differ», «diverg», «mismatch», «warning», «scarto», «anomal»,
+                      excluding lines that state the overall success (e.g. «EVERYTHING COINCIDES»,
+                      «PASS» alone)
+
+Usage (from the OR3 working copy):
+  python3 protocol/processo/analisi/extract_candidates.py --inventory protocol/processo/corpus/inventory.json \
+      --out protocol/processo/corpus
+"""
+import argparse, hashlib, json, re, subprocess, sys
+from pathlib import Path
+
+REG_ROW = re.compile(r"^\|\s*(\d+[a-z]?)\s*\|")
+DEV_HEADING = re.compile(r"^#{1,6}\s.*(deviation|deviazion)", re.I)
+ITEM = re.compile(r"^\s*(\d+[\.\)]|[-*])\s+\S")
+DEV_TEXT = re.compile(r"^\s*(?:[-*]\s+|\d+[.)]\s+)?(?:\*\*|\*|_)?\s*deviazion|^\s*(?:[-*]\s+|\d+[.)]\s+)?(?:\*\*|\*|_)?\s*deviation", re.I)
+DEV_INLINE = re.compile(r"deviazion[ei] dal|deviation from", re.I)
+REG_REF = re.compile(r"\b(?:voce|voci|item|items)\s+(\d+[a-z]?)(?:\s*(?:,|e|and|–|-)\s*(\d+[a-z]?))*", re.I)
+RECORD_NOTE = re.compile(r"deviation|deviazion|nota datata|dated note|rigenerato il|regenerated on|ritir|retract|correzion|correct", re.I)
+REPORT_FLAG = re.compile(r"\bFAIL|fallit|non coincid|differ|diverg|mismatch|warning|scarto|anomal", re.I)
+REPORT_OK = re.compile(r"EVERYTHING COINCIDES|TUTTO COINCIDE|^\s*PASS\s*$|: PASS\b", re.I)
+DIFF_PATHS = ["protocol/", "paper4/", "analysis/", "evoluzione/", "CONGELAMENTO_"]
+
+
+def git(*args):
+    return subprocess.run(["git", *args], check=True, capture_output=True, text=True).stdout
+
+
+def show(commit, path):
+    return subprocess.run(["git", "show", f"{commit}:{path}"], check=True, capture_output=True).stdout.decode("utf-8", "replace")
+
+
+def sha(b):
+    return hashlib.sha256(b).hexdigest()
+
+
+def register_rows(text):
+    for i, l in enumerate(text.splitlines(), 1):
+        m = REG_ROW.match(l)
+        if m:
+            yield i, m.group(1), l.rstrip()
+
+
+def deviation_items(text):
+    inside, level = False, 0
+    for i, l in enumerate(text.splitlines(), 1):
+        m = re.match(r"^(#{1,6})\s", l)
+        if m:
+            if inside and len(m.group(1)) <= level:
+                inside = False
+            if DEV_HEADING.match(l):
+                inside, level = True, len(m.group(1))
+            continue
+        if re.match(r"^\s*(-|\*)\s*(None|Nessuna)\.?\s*$", l):
+            continue
+        if inside:
+            if ITEM.match(l):
+                yield i, "heading", l.rstrip()
+        elif DEV_TEXT.match(l) or DEV_INLINE.search(l):
+            yield i, "text pattern", l.rstrip()
+
+
+def register_refs(msg):
+    refs = []
+    for m in REG_REF.finditer(msg):
+        refs += [g for g in m.groups() if g]
+    return sorted(set(refs), key=lambda x: (int(re.match(r"\d+", x).group()), x))
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--inventory", required=True)
+    ap.add_argument("--out", default="protocol/processo/corpus")
+    a = ap.parse_args()
+    inv = json.loads(Path(a.inventory).read_text(encoding="utf-8"))
+    inv_sha = sha(Path(a.inventory).read_bytes())
+    out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
+    cands = []
+    counters = {}
+
+    def add(cls, branch, commit, path, locator, text, **extra):
+        key = (branch, cls)
+        counters[key] = counters.get(key, 0) + 1
+        short = {"register row": "REG", "deviation": "DEV", "git commit": "GIT", "tag diff": "TAG",
+                 "record note": "REC", "report flag": "RPT"}[cls]
+        cid = f"C-{branch}-{short}-{counters[key]:03d}"
+        e = {"id": cid, "class": cls, "branch": branch, "commit": commit, "path": path,
+             "locator": locator, "text": text}
+        e.update(extra)
+        cands.append(e)
+
+    for src in sorted(inv["sources"], key=lambda e: (e["branch"], e["class"], e["path"])):
+        branch, commit, path, cls = src["branch"], src["commit"], src["path"], src["class"]
+        if cls == "register":
+            text = show(commit, path)
+            for line, n, row in register_rows(text):
+                add("register row", branch, commit, path, f"line {line}, item {n}", row, item=n)
+        elif cls == "protocol":
+            text = show(commit, path)
+            for line, how, l in deviation_items(text):
+                add("deviation", branch, commit, path, f"line {line} ({how})", l)
+        elif cls == "frozen record":
+            text = show(commit, path)
+            for i, l in enumerate(text.splitlines(), 1):
+                if RECORD_NOTE.search(l) and not l.lstrip().startswith("|---"):
+                    add("record note", branch, commit, path, f"line {i}", l.rstrip())
+        elif cls == "regeneration report":
+            text = show(commit, path)
+            for i, l in enumerate(text.splitlines(), 1):
+                if REPORT_FLAG.search(l) and not REPORT_OK.search(l):
+                    add("report flag", branch, commit, path, f"line {i}", l.rstrip())
+
+    for s_ in inv["git_search"]:
+        branch, commit = s_["branch"], s_["commit"]
+        if s_["kind"] == "commit messages":
+            for h in s_["hits"]:
+                if branch == "paper4" and subprocess.run(
+                        ["git", "merge-base", "--is-ancestor", h["commit"], inv["p0"]["main"]]).returncode == 0:
+                    continue
+                body = git("log", "-1", "--format=%B", h["commit"]).rstrip()
+                refs = register_refs(body)
+                add("git commit", branch, commit, "", f"commit {h['commit']}, {h['date']}", body,
+                    keywords=h["keywords"], register_ref=refs if refs else "unregistered")
+        else:
+            for d in s_["diffs"]:
+                for f in d["files"]:
+                    stat = git("diff", "--numstat", d["from"], d["to"], "--", f).strip()
+                    add("tag diff", branch, commit, f, f"{d['from']}..{d['to']}",
+                        f"{f}: numstat {stat or 'binary'}")
+
+    js = json.dumps({"inventory_sha256": inv_sha, "p0": inv["p0"], "candidates": cands},
+                    indent=1, ensure_ascii=False, sort_keys=True).encode()
+    (out / "candidates.json").write_bytes(js)
+    jsha = sha(js)
+
+    lines = ["# Candidate items (P0 §8, phase 2)", "",
+             f"Extracted from the frozen inventory (`inventory.json` sha256 `{inv_sha}`) at `main` "
+             f"{inv['p0']['main']}, `paper4` {inv['p0']['paper4']}. `candidates.json` sha256 `{jsha}`. "
+             "Verbatim text; no type, phase or status: those are decided in phases 3 and 5. "
+             "A candidate is not a problem.", ""]
+    by = {}
+    for c in cands:
+        by.setdefault((c["branch"], c["class"]), []).append(c)
+    lines += ["## Counts", ""]
+    for (b, cls), lst in sorted(by.items()):
+        lines.append(f"- `{b}`, {cls}: {len(lst)}")
+    for (b, cls), lst in sorted(by.items()):
+        lines += ["", f"## `{b}` — {cls}", ""]
+        for c in lst:
+            head = f"**{c['id']}** · `{c['path']}` · {c['locator']}" if c["path"] else f"**{c['id']}** · {c['locator']}"
+            if "register_ref" in c:
+                rr = c["register_ref"]
+                head += " · register: " + (", ".join(rr) if isinstance(rr, list) else rr)
+            lines.append(head)
+            lines.append("")
+            lines.append("```")
+            lines.append(c["text"])
+            lines.append("```")
+            lines.append("")
+    (out / "CANDIDATES.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(f"candidates {len(cands)}; candidates.json sha256 {jsha}")
+    for (b, cls), lst in sorted(by.items()):
+        print(f"  {b} {cls}: {len(lst)}")
+
+
+if __name__ == "__main__":
+    sys.exit(main())
