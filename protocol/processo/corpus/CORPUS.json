@@ -1,0 +1,2084 @@
+[
+  {
+    "id": "P1-001",
+    "status": "deviation",
+    "candidates": [
+      "C-main-DEV-001"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "E4 deferred PEMS04 to E6 because the external context had no E-prime or F model.",
+    "reason": null
+  },
+  {
+    "id": "P1-002",
+    "status": "deviation",
+    "candidates": [
+      "C-main-DEV-002",
+      "C-main-REC-011"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "E4 declared an adaptation-duration grid of 6 h, 12 h, 24 h, 48 h and one week instead of durations including 1 h and 4 h.",
+    "reason": null
+  },
+  {
+    "id": "P1-003",
+    "status": "deviation",
+    "candidates": [
+      "C-main-DEV-003",
+      "C-main-DEV-004",
+      "C-main-REC-013"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "E5 used six rather than eight seeds, confirmed by the reviewer on 4 October after the precision comparison.",
+    "reason": null
+  },
+  {
+    "id": "P1-004",
+    "status": "defect",
+    "candidates": [
+      "C-main-DEV-005",
+      "C-main-GIT-041",
+      "C-main-REC-016"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "E8 prescribed evaluating A on validation nodes, but A had embeddings only for initial and test nodes; the pilot raised NodoNonRegistrato and A inherited C thresholds.",
+    "reason": null
+  },
+  {
+    "id": "P1-005",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-001",
+      "C-main-GIT-002",
+      "C-main-REG-034",
+      "C-main-REG-035"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "Paper 1 register item 33 attributed the pairing discrepancy to two same-architecture MacBooks based on recollection; item 34 retracted that claim against the cited Spark artifacts; documents P1-006.",
+    "reason": null
+  },
+  {
+    "id": "P1-006",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-002",
+      "C-main-GIT-020",
+      "C-main-GIT-021",
+      "C-main-GIT-030",
+      "C-main-GIT-031",
+      "C-main-REG-023",
+      "C-main-TAG-039"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The E2 pairing identity check used rtol 1e-12 on float32 aggregates and failed across machines at a maximum element difference of 4.9e-9.",
+    "reason": null
+  },
+  {
+    "id": "P4-001",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-003",
+      "C-paper4-GIT-006",
+      "C-paper4-REC-006",
+      "C-paper4-REG-023"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "E10-pred compared placements using each design’s own class-weight vector.",
+    "reason": null
+  },
+  {
+    "id": "P4-002",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-003",
+      "C-paper4-GIT-001",
+      "C-paper4-REG-026"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "Item 23 and E10predbis dated the review 15:15 rather than 14:38; documents P4-001.",
+    "reason": null
+  },
+  {
+    "id": "P1-007",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-004",
+      "C-main-GIT-012",
+      "C-main-GIT-013",
+      "C-main-GIT-014",
+      "C-main-GIT-020",
+      "C-main-GIT-024",
+      "C-main-REG-030",
+      "C-main-TAG-014",
+      "C-main-TAG-016",
+      "C-main-TAG-017",
+      "C-main-TAG-096"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "E8-bis AUC was computed on 19 fixed thresholds; E18 reevaluated the claims on the empirical ROC over all distinct scores.",
+    "reason": null
+  },
+  {
+    "id": "PC-001",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-005",
+      "C-main-REG-033",
+      "C-paper4-GIT-002",
+      "C-paper4-REG-025"
+    ],
+    "paper": "paper1",
+    "shared_with": "paper4 register item 25",
+    "summary": "The public repository tracked the complete MoGERNN third-party code although its upstream repository declared no licence; the tracked copy was removed.",
+    "reason": null
+  },
+  {
+    "id": "P1-008",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-006",
+      "C-main-GIT-009",
+      "C-main-GIT-010",
+      "C-main-GIT-015",
+      "C-main-GIT-016",
+      "C-main-GIT-017",
+      "C-main-GIT-019",
+      "C-main-REC-003",
+      "C-main-REG-029",
+      "C-main-REG-031",
+      "C-main-TAG-002",
+      "C-main-TAG-020",
+      "C-main-TAG-124"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "Correction notes named a working tool rather than the role that found the defect; the role wording was propagated through the historical versions; documents corrections including P1-035, P1-036 and P1-039.",
+    "reason": null
+  },
+  {
+    "id": "P1-009",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-006",
+      "C-main-GIT-007",
+      "C-main-REG-032",
+      "C-main-TAG-124"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The manuscript congestion-threshold description did not match the Traffic4cast per-segment reference and 0.8/0.4 classes or the PEMS training-only reference and 0.8/0.5 classes.",
+    "reason": null
+  },
+  {
+    "id": "P1-010",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-006",
+      "C-main-TAG-016"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The manuscript-number verifier did not read section files after the manuscript was split into input files; recursive expansion was added.",
+    "reason": null
+  },
+  {
+    "id": "P1-011",
+    "status": "excluded",
+    "candidates": [
+      "C-main-GIT-008"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "An optional text-only manuscript-verification mode was added.",
+    "reason": "Adds the optional text-only verification mode; no existing mismatch established by this commit."
+  },
+  {
+    "id": "P1-012",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-011",
+      "C-main-TAG-014",
+      "C-main-TAG-015"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The E18TER regeneration phase ran only livelli, omitted wce16 and rewrote F17 with the E16 wCE; the command was changed to all parts.",
+    "reason": null
+  },
+  {
+    "id": "P1-013",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-012",
+      "C-main-GIT-013",
+      "C-main-GIT-014",
+      "C-main-REC-006",
+      "C-main-REC-008",
+      "C-main-REG-030"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "E18 section 1 referred to register item 28 for the 19-threshold AUC correction, although that number was assigned to role-name notes; the correction is item 29; documents P1-007.",
+    "reason": null
+  },
+  {
+    "id": "P1-014",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-012",
+      "C-main-GIT-013",
+      "C-main-GIT-014",
+      "C-main-REC-006",
+      "C-main-REG-030",
+      "C-main-TAG-017"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The first E18 part-C record reported only wCE and omitted the per-class ECE, log-loss and Brier measures required by protocol section 3; documents P1-015.",
+    "reason": null
+  },
+  {
+    "id": "P1-015",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-018",
+      "C-main-GIT-020",
+      "C-main-GIT-021",
+      "C-main-GIT-023",
+      "C-main-GIT-024",
+      "C-main-REG-028",
+      "C-main-TAG-014",
+      "C-main-TAG-016",
+      "C-main-TAG-017"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "E16 evaluated F-prime(1 week) on origins in its first week despite the embedding using that week of data; E18 recomputed on origins older than one week.",
+    "reason": null
+  },
+  {
+    "id": "P1-016",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-021",
+      "C-main-GIT-043",
+      "C-main-GIT-044",
+      "C-main-REG-001"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "One optimizer update per epoch was presented as a full epoch; 35 updates covered about 15% of one pass.",
+    "reason": null
+  },
+  {
+    "id": "P1-017",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-021",
+      "C-main-GIT-043",
+      "C-main-GIT-044",
+      "C-main-REG-002"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "Checkpoints were selected on the first 32 validation instants, about 2% of the validation period.",
+    "reason": null
+  },
+  {
+    "id": "P1-018",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-021",
+      "C-main-GIT-048",
+      "C-main-REG-003"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "A clamp assigned a valid class to missing targets, affecting 40% of London test targets.",
+    "reason": null
+  },
+  {
+    "id": "P1-019",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-021",
+      "C-main-REG-004"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The static branch and heads were initialized differently across variants, with 640 additional random draws.",
+    "reason": null
+  },
+  {
+    "id": "PC-002",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-021",
+      "C-main-REC-017",
+      "C-main-REG-005",
+      "C-paper4-GIT-025",
+      "C-paper4-REG-001"
+    ],
+    "paper": "paper1",
+    "shared_with": "paper4 register item 1",
+    "summary": "Windows built by row index crossed calendar gaps; 2.6% of origins were excluded by the corrected admissibility rule.",
+    "reason": null
+  },
+  {
+    "id": "P1-020",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-021",
+      "C-main-REG-006"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The adaptation window included row t0, giving 78 origins instead of the corrected 77.",
+    "reason": null
+  },
+  {
+    "id": "P1-021",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-021",
+      "C-main-REG-007"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The descriptor was trained on a non-causal end-of-period snapshot; the preregistered causal variant was not executed.",
+    "reason": null
+  },
+  {
+    "id": "PC-003",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-021",
+      "C-main-GIT-044",
+      "C-main-REG-008",
+      "C-paper4-GIT-025",
+      "C-paper4-REG-003"
+    ],
+    "paper": "paper1",
+    "shared_with": "paper4 register item 3",
+    "summary": "Paper 1 used 900/900/594 nodes against documented 828/774/587; Paper 4 recorded the same discrepancy between target-file and aligned-graph populations.",
+    "reason": null
+  },
+  {
+    "id": "P1-022",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-021",
+      "C-main-REG-009"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "Four of six arm declarations were not updated when an arm was added; declarations were replaced by one property table.",
+    "reason": null
+  },
+  {
+    "id": "P1-023",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-021",
+      "C-main-REG-010"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "R-orig and R-mon were routed through the adaptation branch; 216 runs were quarantined.",
+    "reason": null
+  },
+  {
+    "id": "P1-024",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-021",
+      "C-main-REG-011"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "A phase summary was overwritten by a later launch; summaries were changed to separate per-launch outputs.",
+    "reason": null
+  },
+  {
+    "id": "P1-025",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-021",
+      "C-main-REG-012"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The feasibility script rounded partitions to 27 sensors instead of 26; corrected before launch.",
+    "reason": null
+  },
+  {
+    "id": "P1-026",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-021",
+      "C-main-GIT-042",
+      "C-main-REG-013"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The predictor was constructed with nine channels regardless of source and failed on PEMS.",
+    "reason": null
+  },
+  {
+    "id": "P1-027",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-021",
+      "C-main-REG-014"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "A post hoc coverage criterion proposed during review did not discriminate; corrected before use.",
+    "reason": null
+  },
+  {
+    "id": "P1-028",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-021",
+      "C-main-REG-015"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "An operational-metric generator branch wrote indistinguishable for above at some levels and never below; corrected before commit.",
+    "reason": null
+  },
+  {
+    "id": "P1-029",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-021",
+      "C-main-REG-016"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "np.trapz was unavailable in the execution environment; explicit trapezoids were used.",
+    "reason": null
+  },
+  {
+    "id": "P1-030",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-021",
+      "C-main-GIT-033",
+      "C-main-GIT-039",
+      "C-main-GIT-040",
+      "C-main-REC-010",
+      "C-main-REG-017",
+      "C-main-TAG-010",
+      "C-main-TAG-088"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The E3-bis generator divided the pooled-city R-orig median by the Melbourne-only F-prime time and reported at least 6x.",
+    "reason": null
+  },
+  {
+    "id": "P1-031",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-021",
+      "C-main-GIT-033",
+      "C-main-REG-018"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The manuscript attributed 36.8 s and 35.7 s to F-prime at Madrid and London; they were E4 gated(48 h) times.",
+    "reason": null
+  },
+  {
+    "id": "P1-032",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-021",
+      "C-main-REG-019"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "A manuscript citation did not correspond to the reference it pointed to; the citation was removed.",
+    "reason": null
+  },
+  {
+    "id": "P1-033",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-021",
+      "C-main-GIT-036",
+      "C-main-GIT-037",
+      "C-main-GIT-038",
+      "C-main-REC-009",
+      "C-main-REG-020",
+      "C-main-TAG-009",
+      "C-main-TAG-022",
+      "C-main-TAG-105"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "E3 visit counts included nine isolated timing remeasurements, reporting 117 rather than 108 runs.",
+    "reason": null
+  },
+  {
+    "id": "P1-034",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-021",
+      "C-main-GIT-033",
+      "C-main-GIT-034",
+      "C-main-GIT-035",
+      "C-main-REC-014",
+      "C-main-REG-021",
+      "C-main-TAG-011",
+      "C-main-TAG-015"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The E5 record sentence about E3-bis changed with the experiments present when regenerated, despite identical numbers.",
+    "reason": null
+  },
+  {
+    "id": "P1-035",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-021",
+      "C-main-GIT-025",
+      "C-main-REC-002",
+      "C-main-REG-022",
+      "C-main-TAG-014",
+      "C-main-TAG-016",
+      "C-main-TAG-017",
+      "C-main-TAG-031",
+      "C-main-TAG-081",
+      "C-main-TAG-082",
+      "C-main-TAG-083",
+      "C-main-TAG-084",
+      "C-main-TAG-085",
+      "C-main-TAG-086",
+      "C-main-TAG-089",
+      "C-main-TAG-092",
+      "C-main-TAG-098",
+      "C-main-TAG-099",
+      "C-main-TAG-100",
+      "C-main-TAG-101",
+      "C-main-TAG-102",
+      "C-main-TAG-103",
+      "C-main-TAG-104",
+      "C-main-TAG-105",
+      "C-main-TAG-106",
+      "C-main-TAG-107",
+      "C-main-TAG-111",
+      "C-main-TAG-112",
+      "C-main-TAG-113",
+      "C-main-TAG-114",
+      "C-main-TAG-115"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The static branch used sensor coverage over the full series, including test data; causal inputs were introduced.",
+    "reason": null
+  },
+  {
+    "id": "P1-036",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-021",
+      "C-main-GIT-026",
+      "C-main-GIT-028",
+      "C-main-REG-024",
+      "C-main-TAG-035",
+      "C-main-TAG-123"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The E6 class-frequency table used an earlier weight-file set and only three of six PEMS08 partitions.",
+    "reason": null
+  },
+  {
+    "id": "P1-037",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-021",
+      "C-main-REG-025",
+      "C-main-TAG-107",
+      "C-main-TAG-111"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "adatta_F built its own static vector; E14 variants adapted F using the frozen vector and evaluated it using the variant vector.",
+    "reason": null
+  },
+  {
+    "id": "P1-038",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-021",
+      "C-main-REG-026"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The E14-B orchestrator ran the E6 origins phase before E6a, whose predictions it reads; the phase was moved after E6a.",
+    "reason": null
+  },
+  {
+    "id": "P1-039",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-021",
+      "C-main-GIT-027",
+      "C-main-REC-004",
+      "C-main-REG-027"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The E14-B generator marked identical (tau,N) choices different because it also compared validation wCE values differing by about 1e-9.",
+    "reason": null
+  },
+  {
+    "id": "P1-040",
+    "status": "excluded",
+    "candidates": [
+      "C-main-GIT-022"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "English documentation and register translations were added.",
+    "reason": "Adds English documentation and register translations; no new correction."
+  },
+  {
+    "id": "P1-041",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-029",
+      "C-main-TAG-014",
+      "C-main-TAG-015"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The regeneration comparison rejected small numerical and printed-document differences within the adopted combined tolerance; numeric and document comparisons were aligned.",
+    "reason": null
+  },
+  {
+    "id": "P1-042",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-029",
+      "C-main-TAG-013",
+      "C-main-TAG-014",
+      "C-main-TAG-015"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The fingerprint index attributed a shared fingerprint to the first filesystem traversal match, yielding different source filenames on Mac and Spark.",
+    "reason": null
+  },
+  {
+    "id": "P1-043",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-032",
+      "C-main-TAG-014",
+      "C-main-TAG-015"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "Choice-file timestamps and timestamp-dependent fingerprints changed the supposedly deterministic comparison report between otherwise equivalent runs.",
+    "reason": null
+  },
+  {
+    "id": "P1-044",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-043"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "MoGERNN runtime and profiling were measured while eight phase-E processes occupied the machine; the absolute timings and derived campaign estimates were retracted.",
+    "reason": null
+  },
+  {
+    "id": "P1-045",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-043"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "Initial-state filenames omitted city and partition; nine runs with the same seed overwrote different states in one file and left manifest references pointing to replaced contents.",
+    "reason": null
+  },
+  {
+    "id": "P1-046",
+    "status": "excluded",
+    "candidates": [
+      "C-main-GIT-045"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The final raccordo audit qualification and engineering conclusion were recorded.",
+    "reason": "Adds final audit qualification and engineering interpretation; no demonstrated prior incorrect result."
+  },
+  {
+    "id": "P1-047",
+    "status": "excluded",
+    "candidates": [
+      "C-main-GIT-046"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The twelve-seed confirmation outcome was recorded, including an inconclusive result for Madrid.",
+    "reason": "Records a new confirmation result, including an inconclusive context; failing a scientific criterion is not a defect."
+  },
+  {
+    "id": "P1-048",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-047"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "Preparing the twelve-seed confirmation campaign overwrote the state register for the earlier three-seed paired campaign.",
+    "reason": null
+  },
+  {
+    "id": "P1-049",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-048",
+      "C-main-GIT-049"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The first raccordo campaign trained with unweighted cross-entropy although the protocol prescribed weighted cross-entropy; the campaign was invalidated and retrained.",
+    "reason": null
+  },
+  {
+    "id": "P1-050",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-048",
+      "C-main-GIT-049"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The first raccordo campaign did not record its evaluation weights: reg.metrica was never called; a shared fingerprinted weight artifact and logging were added.",
+    "reason": null
+  },
+  {
+    "id": "P1-051",
+    "status": "deviation",
+    "candidates": [
+      "C-main-GIT-048"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The raccordo deterioration rule used the lower bound of the bilateral 90% interval without that criterion being specified in the frozen protocol; the record declared it non-preregistered.",
+    "reason": null
+  },
+  {
+    "id": "P1-052",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-049"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The raccordo resampling reused initialization draws across repeated occurrences of a partition; the correction drew independently for each occurrence.",
+    "reason": null
+  },
+  {
+    "id": "P1-053",
+    "status": "defect",
+    "candidates": [
+      "C-main-GIT-050"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "copertura_coppie was calculated only for EXTENDED and remained zero for BASE-CORRECTED, although availability components were required to match.",
+    "reason": null
+  },
+  {
+    "id": "P1-054",
+    "status": "excluded",
+    "candidates": [
+      "C-main-REC-001",
+      "C-main-REC-015"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "A prose fragment and an E8 generation/header line were extracted as record notes.",
+    "reason": "Known extraction residues in NOTE_CANDIDATES.md; the E8 deviation is represented by DEV-005/REC-016."
+  },
+  {
+    "id": "P1-055",
+    "status": "defect",
+    "candidates": [
+      "C-main-REC-005"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "E16 specified A probabilities on validation and post-hoc calibration, although A had no validation-node embeddings; A remained uncalibrated in comparisons with calibrated C.",
+    "reason": null
+  },
+  {
+    "id": "P1-056",
+    "status": "excluded",
+    "candidates": [
+      "C-main-REC-007"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The E18 record states that unavailable PEMS04 arms are handled as provided by A.6 and are not a deviation.",
+    "reason": "Explicit protocol-conforming applicability note; no defect, deviation or violation."
+  },
+  {
+    "id": "P1-057",
+    "status": "defect",
+    "candidates": [
+      "C-main-REC-012"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "E4 estimated less than 10 process-hours by counting adaptations; the launch with repeated full-period evaluations took 11.3 hours with eight processes.",
+    "reason": null
+  },
+  {
+    "id": "P1-058",
+    "status": "defect",
+    "candidates": [
+      "C-main-REG-030",
+      "C-main-TAG-014"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "Regenerating E18 reproduced the analysis numbers but changed the printed part-A timings; the generator was changed to read the first-run timing register.",
+    "reason": null
+  },
+  {
+    "id": "P1-059",
+    "status": "defect",
+    "candidates": [
+      "C-main-RPT-001"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "At tag l-pub2 the E18 generator added a parenthesis absent from the frozen record, causing two differing text lines with all 12,299 numbers within tolerance; the parenthesis was removed at l-pub3.",
+    "reason": null
+  },
+  {
+    "id": "P1-060",
+    "status": "defect",
+    "candidates": [
+      "C-main-RPT-001"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "During the l-pub2 regeneration a second run was started by mistake and stopped after 35 seconds; separate workspaces left the real results unchanged.",
+    "reason": null
+  },
+  {
+    "id": "P1-061",
+    "status": "excluded",
+    "candidates": [
+      "C-main-TAG-001",
+      "C-main-TAG-003",
+      "C-main-TAG-004",
+      "C-main-TAG-005",
+      "C-main-TAG-006",
+      "C-main-TAG-007",
+      "C-main-TAG-008",
+      "C-main-TAG-019",
+      "C-main-TAG-021",
+      "C-main-TAG-025",
+      "C-main-TAG-026",
+      "C-main-TAG-027",
+      "C-main-TAG-028",
+      "C-main-TAG-029",
+      "C-main-TAG-030",
+      "C-main-TAG-032",
+      "C-main-TAG-036",
+      "C-main-TAG-037",
+      "C-main-TAG-038",
+      "C-main-TAG-040",
+      "C-main-TAG-044",
+      "C-main-TAG-045",
+      "C-main-TAG-047",
+      "C-main-TAG-048",
+      "C-main-TAG-055",
+      "C-main-TAG-056",
+      "C-main-TAG-057",
+      "C-main-TAG-058",
+      "C-main-TAG-059",
+      "C-main-TAG-064",
+      "C-main-TAG-065",
+      "C-main-TAG-066",
+      "C-main-TAG-068",
+      "C-main-TAG-069",
+      "C-main-TAG-072",
+      "C-main-TAG-078",
+      "C-main-TAG-080",
+      "C-main-TAG-087",
+      "C-main-TAG-090",
+      "C-main-TAG-091",
+      "C-main-TAG-093",
+      "C-main-TAG-094",
+      "C-main-TAG-095",
+      "C-main-TAG-097",
+      "C-main-TAG-108",
+      "C-main-TAG-109",
+      "C-main-TAG-110",
+      "C-main-TAG-116",
+      "C-main-TAG-117",
+      "C-main-TAG-118",
+      "C-main-TAG-119",
+      "C-main-TAG-120",
+      "C-main-TAG-121",
+      "C-main-TAG-122",
+      "C-main-TAG-125",
+      "C-main-TAG-126",
+      "C-main-TAG-127",
+      "C-main-TAG-129",
+      "C-main-TAG-130",
+      "C-main-TAG-131",
+      "C-main-TAG-132",
+      "C-main-TAG-133",
+      "C-main-TAG-134",
+      "C-main-TAG-135",
+      "C-main-TAG-136",
+      "C-main-TAG-137",
+      "C-main-TAG-138",
+      "C-main-TAG-139",
+      "C-main-TAG-140",
+      "C-main-TAG-141",
+      "C-main-TAG-142",
+      "C-main-TAG-143",
+      "C-main-TAG-144",
+      "C-main-TAG-145",
+      "C-main-TAG-146",
+      "C-main-TAG-147",
+      "C-main-TAG-148",
+      "C-main-TAG-149",
+      "C-main-TAG-150",
+      "C-main-TAG-151",
+      "C-main-TAG-152",
+      "C-main-TAG-153",
+      "C-main-TAG-154",
+      "C-main-TAG-155",
+      "C-main-TAG-156",
+      "C-main-TAG-157",
+      "C-main-TAG-158",
+      "C-main-TAG-159",
+      "C-main-TAG-160",
+      "C-main-TAG-161",
+      "C-main-TAG-162",
+      "C-main-TAG-163",
+      "C-main-TAG-164",
+      "C-main-TAG-165",
+      "C-main-TAG-166",
+      "C-main-TAG-167",
+      "C-main-TAG-168",
+      "C-main-TAG-169",
+      "C-main-TAG-170",
+      "C-main-TAG-171",
+      "C-main-TAG-172",
+      "C-main-TAG-173",
+      "C-main-TAG-174",
+      "C-main-TAG-175",
+      "C-main-TAG-176",
+      "C-main-TAG-177",
+      "C-main-TAG-178",
+      "C-main-TAG-179",
+      "C-main-TAG-180",
+      "C-main-TAG-181",
+      "C-main-TAG-182",
+      "C-main-TAG-183",
+      "C-main-TAG-184",
+      "C-main-TAG-185",
+      "C-main-TAG-186",
+      "C-main-TAG-187",
+      "C-main-TAG-188",
+      "C-main-TAG-189",
+      "C-main-TAG-190",
+      "C-main-TAG-191",
+      "C-main-TAG-192",
+      "C-main-TAG-193",
+      "C-main-TAG-194",
+      "C-main-TAG-195",
+      "C-main-TAG-196",
+      "C-main-TAG-197",
+      "C-main-TAG-198",
+      "C-main-TAG-199",
+      "C-main-TAG-200",
+      "C-main-TAG-201",
+      "C-main-TAG-202",
+      "C-main-TAG-203",
+      "C-main-TAG-204",
+      "C-main-TAG-205",
+      "C-main-TAG-206",
+      "C-main-TAG-207",
+      "C-main-TAG-208",
+      "C-main-TAG-209",
+      "C-main-TAG-210",
+      "C-main-TAG-211",
+      "C-main-TAG-212",
+      "C-main-TAG-213",
+      "C-main-TAG-214",
+      "C-main-TAG-215",
+      "C-main-TAG-216",
+      "C-main-TAG-217",
+      "C-main-TAG-218",
+      "C-main-TAG-219",
+      "C-main-TAG-220",
+      "C-main-TAG-221",
+      "C-main-TAG-222",
+      "C-main-TAG-223",
+      "C-main-TAG-224",
+      "C-main-TAG-225",
+      "C-main-TAG-226",
+      "C-main-TAG-227",
+      "C-main-TAG-228",
+      "C-main-TAG-229",
+      "C-main-TAG-230",
+      "C-main-TAG-231",
+      "C-main-TAG-232",
+      "C-main-TAG-233",
+      "C-main-TAG-234",
+      "C-main-TAG-235",
+      "C-main-TAG-236",
+      "C-main-TAG-237",
+      "C-main-TAG-238",
+      "C-main-TAG-239",
+      "C-main-TAG-240",
+      "C-main-TAG-241",
+      "C-main-TAG-242",
+      "C-main-TAG-243",
+      "C-main-TAG-244",
+      "C-main-TAG-245",
+      "C-main-TAG-246",
+      "C-main-TAG-247",
+      "C-main-TAG-248",
+      "C-main-TAG-249",
+      "C-main-TAG-250",
+      "C-main-TAG-251",
+      "C-main-TAG-252",
+      "C-main-TAG-253",
+      "C-main-TAG-254",
+      "C-main-TAG-255",
+      "C-main-TAG-256",
+      "C-main-TAG-257",
+      "C-main-TAG-258",
+      "C-main-TAG-259",
+      "C-main-TAG-260",
+      "C-main-TAG-261",
+      "C-main-TAG-262",
+      "C-main-TAG-263",
+      "C-main-TAG-264",
+      "C-main-TAG-265",
+      "C-main-TAG-266",
+      "C-main-TAG-267",
+      "C-main-TAG-268",
+      "C-main-TAG-269",
+      "C-main-TAG-270",
+      "C-main-TAG-271",
+      "C-main-TAG-272",
+      "C-main-TAG-273",
+      "C-main-TAG-274",
+      "C-main-TAG-275",
+      "C-main-TAG-276",
+      "C-main-TAG-277",
+      "C-main-TAG-278",
+      "C-main-TAG-279",
+      "C-main-TAG-280",
+      "C-main-TAG-281",
+      "C-main-TAG-282",
+      "C-main-TAG-283",
+      "C-main-TAG-284",
+      "C-main-TAG-285",
+      "C-main-TAG-286",
+      "C-main-TAG-287",
+      "C-main-TAG-288",
+      "C-main-TAG-289",
+      "C-main-TAG-290",
+      "C-main-TAG-291",
+      "C-main-TAG-292",
+      "C-main-TAG-293",
+      "C-main-TAG-294",
+      "C-main-TAG-295",
+      "C-main-TAG-296",
+      "C-main-TAG-297",
+      "C-main-TAG-298",
+      "C-main-TAG-299",
+      "C-main-TAG-300",
+      "C-main-TAG-301",
+      "C-main-TAG-302",
+      "C-main-TAG-303",
+      "C-main-TAG-304",
+      "C-main-TAG-305",
+      "C-main-TAG-306",
+      "C-main-TAG-307",
+      "C-main-TAG-308",
+      "C-main-TAG-309",
+      "C-main-TAG-310",
+      "C-main-TAG-311",
+      "C-main-TAG-312",
+      "C-main-TAG-313",
+      "C-main-TAG-314",
+      "C-main-TAG-315",
+      "C-main-TAG-316",
+      "C-main-TAG-317",
+      "C-main-TAG-318",
+      "C-main-TAG-319",
+      "C-main-TAG-320",
+      "C-main-TAG-321",
+      "C-main-TAG-322",
+      "C-main-TAG-323",
+      "C-main-TAG-324",
+      "C-main-TAG-325",
+      "C-main-TAG-326",
+      "C-main-TAG-327",
+      "C-main-TAG-328",
+      "C-main-TAG-329",
+      "C-main-TAG-330",
+      "C-main-TAG-331",
+      "C-main-TAG-332",
+      "C-main-TAG-333",
+      "C-main-TAG-334",
+      "C-main-TAG-335",
+      "C-main-TAG-336",
+      "C-main-TAG-337",
+      "C-main-TAG-338",
+      "C-main-TAG-339",
+      "C-main-TAG-340",
+      "C-main-TAG-341",
+      "C-main-TAG-342",
+      "C-main-TAG-343",
+      "C-main-TAG-344",
+      "C-main-TAG-345",
+      "C-main-TAG-346",
+      "C-main-TAG-347",
+      "C-main-TAG-348",
+      "C-main-TAG-349",
+      "C-main-TAG-350",
+      "C-main-TAG-351",
+      "C-main-TAG-352",
+      "C-main-TAG-353",
+      "C-main-TAG-354",
+      "C-main-TAG-355",
+      "C-main-TAG-356",
+      "C-main-TAG-357",
+      "C-main-TAG-358",
+      "C-main-TAG-359",
+      "C-main-TAG-360",
+      "C-main-TAG-361",
+      "C-main-TAG-362",
+      "C-main-TAG-363",
+      "C-main-TAG-364",
+      "C-main-TAG-365",
+      "C-main-TAG-366",
+      "C-main-TAG-367",
+      "C-main-TAG-368",
+      "C-main-TAG-369",
+      "C-main-TAG-370",
+      "C-main-TAG-371",
+      "C-main-TAG-372",
+      "C-main-TAG-373",
+      "C-main-TAG-374",
+      "C-main-TAG-375",
+      "C-main-TAG-376",
+      "C-main-TAG-377",
+      "C-main-TAG-378",
+      "C-main-TAG-379",
+      "C-main-TAG-380",
+      "C-main-TAG-381",
+      "C-main-TAG-382",
+      "C-main-TAG-383",
+      "C-main-TAG-384",
+      "C-main-TAG-385",
+      "C-main-TAG-386",
+      "C-main-TAG-387",
+      "C-main-TAG-388",
+      "C-main-TAG-389",
+      "C-main-TAG-390",
+      "C-main-TAG-391",
+      "C-main-TAG-392",
+      "C-main-TAG-393",
+      "C-main-TAG-394",
+      "C-main-TAG-395",
+      "C-main-TAG-396",
+      "C-main-TAG-397",
+      "C-main-TAG-398",
+      "C-main-TAG-399",
+      "C-main-TAG-400",
+      "C-main-TAG-401",
+      "C-main-TAG-402",
+      "C-main-TAG-403",
+      "C-main-TAG-404",
+      "C-main-TAG-405",
+      "C-main-TAG-406",
+      "C-main-TAG-407",
+      "C-main-TAG-408",
+      "C-main-TAG-409",
+      "C-main-TAG-410",
+      "C-main-TAG-411",
+      "C-main-TAG-412",
+      "C-main-TAG-413",
+      "C-main-TAG-414",
+      "C-main-TAG-415",
+      "C-main-TAG-416",
+      "C-main-TAG-417",
+      "C-main-TAG-418",
+      "C-main-TAG-419",
+      "C-main-TAG-420",
+      "C-main-TAG-421",
+      "C-main-TAG-422",
+      "C-main-TAG-423",
+      "C-main-TAG-424",
+      "C-main-TAG-425",
+      "C-main-TAG-426",
+      "C-main-TAG-427",
+      "C-main-TAG-428",
+      "C-main-TAG-429",
+      "C-main-TAG-430",
+      "C-main-TAG-431",
+      "C-main-TAG-432",
+      "C-main-TAG-433",
+      "C-main-TAG-434",
+      "C-main-TAG-435",
+      "C-main-TAG-436",
+      "C-main-TAG-437",
+      "C-main-TAG-438",
+      "C-main-TAG-439",
+      "C-main-TAG-440",
+      "C-main-TAG-441",
+      "C-main-TAG-442",
+      "C-main-TAG-443",
+      "C-main-TAG-444",
+      "C-main-TAG-445",
+      "C-main-TAG-446",
+      "C-main-TAG-447",
+      "C-main-TAG-448",
+      "C-main-TAG-449",
+      "C-main-TAG-450",
+      "C-main-TAG-451",
+      "C-main-TAG-452",
+      "C-main-TAG-453",
+      "C-main-TAG-454",
+      "C-main-TAG-455",
+      "C-main-TAG-456",
+      "C-main-TAG-457",
+      "C-main-TAG-458",
+      "C-main-TAG-459",
+      "C-main-TAG-460",
+      "C-main-TAG-461",
+      "C-main-TAG-462",
+      "C-main-TAG-463",
+      "C-main-TAG-464",
+      "C-main-TAG-465",
+      "C-main-TAG-466",
+      "C-main-TAG-467",
+      "C-main-TAG-468",
+      "C-main-TAG-469",
+      "C-main-TAG-470",
+      "C-main-TAG-471",
+      "C-main-TAG-472",
+      "C-main-TAG-473",
+      "C-main-TAG-474",
+      "C-main-TAG-475",
+      "C-main-TAG-476",
+      "C-main-TAG-477",
+      "C-main-TAG-478",
+      "C-main-TAG-479",
+      "C-main-TAG-480",
+      "C-main-TAG-481",
+      "C-main-TAG-482",
+      "C-main-TAG-483",
+      "C-main-TAG-484",
+      "C-main-TAG-485",
+      "C-main-TAG-486",
+      "C-main-TAG-487",
+      "C-main-TAG-488",
+      "C-main-TAG-489",
+      "C-main-TAG-490",
+      "C-main-TAG-491",
+      "C-main-TAG-492",
+      "C-main-TAG-493",
+      "C-main-TAG-494",
+      "C-main-TAG-495",
+      "C-main-TAG-496",
+      "C-main-TAG-497"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "426 files were added without a modification status across the inventoried consecutive tag pairs.",
+    "reason": "Addition-only tag traces, not corrections. The inspected list includes seven frozen records and seven experiment protocols; these are additions too. Problems described by their contents are considered through the other candidates and required section reads."
+  },
+  {
+    "id": "P1-062",
+    "status": "defect",
+    "candidates": [
+      "C-main-TAG-012",
+      "C-main-TAG-101"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The E6 frozen report claimed every number was calculated from result files, but its PEMS04 common-origin count of 168 was hardcoded in the generator.",
+    "reason": null
+  },
+  {
+    "id": "P1-063",
+    "status": "defect",
+    "candidates": [
+      "C-main-TAG-014",
+      "C-main-TAG-015"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "A second solo_testo function replaced the phase-comparison helper; regeneration stopped with AttributeError on a list argument.",
+    "reason": null
+  },
+  {
+    "id": "P1-064",
+    "status": "defect",
+    "candidates": [
+      "C-main-TAG-014"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "When regeneration stopped with a table KeyError, main.py did not write its comparison and report; exception handling was added to emit NON CONCLUSO.",
+    "reason": null
+  },
+  {
+    "id": "P1-065",
+    "status": "violation",
+    "candidates": [
+      "C-main-TAG-015"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "A reviewer manually added a note to generated CONFRONTO.md despite its explicit instruction not to edit by hand.",
+    "reason": null
+  },
+  {
+    "id": "P1-066",
+    "status": "defect",
+    "candidates": [
+      "C-main-TAG-017"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "F17 absolute wCE pooled weights across horizons instead of averaging the separately normalised per-horizon losses used by the manuscript.",
+    "reason": null
+  },
+  {
+    "id": "P1-067",
+    "status": "defect",
+    "candidates": [
+      "C-main-TAG-017"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The F17 caption claimed every class ECE was below 0.04; it was replaced with the observed maximum computed from the printed entries.",
+    "reason": null
+  },
+  {
+    "id": "P1-068",
+    "status": "defect",
+    "candidates": [
+      "C-main-TAG-017"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The E15 cost-table generator formatted absent timing values as decimal numbers; missing timing entries were changed to --.",
+    "reason": null
+  },
+  {
+    "id": "P1-069",
+    "status": "excluded",
+    "candidates": [
+      "C-main-TAG-018"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "PEMS04 addendum documents that distance.csv was not used.",
+    "reason": "No correction: adds an input-scope clarification without a changed analysis."
+  },
+  {
+    "id": "P1-070",
+    "status": "excluded",
+    "candidates": [
+      "C-main-TAG-023",
+      "C-main-TAG-024",
+      "C-main-TAG-033",
+      "C-main-TAG-034"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "Figure scripts add English rendering, layout adjustments and a notation change from E to B.",
+    "reason": "No correction: presentation and notation updates; no changed computation or stated prior false outcome."
+  },
+  {
+    "id": "P1-071",
+    "status": "excluded",
+    "candidates": [
+      "C-main-TAG-041",
+      "C-main-TAG-042",
+      "C-main-TAG-498",
+      "C-main-TAG-499"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "Archive scripts and manifests add reuse/annotation options and update the release inventory for E18-ter.",
+    "reason": "No correction: normal packaging of the next release and optional tooling."
+  },
+  {
+    "id": "P1-072",
+    "status": "defect",
+    "candidates": [
+      "C-main-TAG-043",
+      "C-main-TAG-128"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The E14-B maximum-difference report interchanged the causal and permuted variant labels; its numerical values and locations were already correct; documents P1-035.",
+    "reason": null
+  },
+  {
+    "id": "P1-073",
+    "status": "defect",
+    "candidates": [
+      "C-main-TAG-043",
+      "C-main-TAG-128"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "The E14-B maximum-difference report omitted F0-prime and F-prime(24 h) from absolute levels and differences.",
+    "reason": null
+  },
+  {
+    "id": "P1-074",
+    "status": "excluded",
+    "candidates": [
+      "C-main-TAG-046",
+      "C-main-TAG-049",
+      "C-main-TAG-050",
+      "C-main-TAG-051",
+      "C-main-TAG-052",
+      "C-main-TAG-053",
+      "C-main-TAG-054",
+      "C-main-TAG-060",
+      "C-main-TAG-061",
+      "C-main-TAG-062",
+      "C-main-TAG-063",
+      "C-main-TAG-067",
+      "C-main-TAG-070",
+      "C-main-TAG-071",
+      "C-main-TAG-073",
+      "C-main-TAG-074",
+      "C-main-TAG-075",
+      "C-main-TAG-076",
+      "C-main-TAG-077"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "One-off patch scripts were moved into evoluzione/audit/patch/.",
+    "reason": "No correction in these tag changes: pure relocations of existing patch scripts, whose underlying fixes are not counted again."
+  },
+  {
+    "id": "P1-075",
+    "status": "defect",
+    "candidates": [
+      "C-main-TAG-079",
+      "C-main-TAG-500",
+      "C-main-TAG-501"
+    ],
+    "paper": "paper1",
+    "shared_with": null,
+    "summary": "At tag p, predizioni_e18quater was classified as other and excluded from the regeneration archive manifest despite being an input to regeneration.",
+    "reason": null
+  },
+  {
+    "id": "P4-003",
+    "status": "excluded",
+    "candidates": [
+      "C-paper4-DEV-001"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "Deviations, item 1.",
+    "reason": "Cross-reference only; real cost episode is DEV-002 / REG-011. Instruction example reverses IDs."
+  },
+  {
+    "id": "P4-004",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-DEV-002",
+      "C-paper4-GIT-017",
+      "C-paper4-GIT-018",
+      "C-paper4-REC-008",
+      "C-paper4-REG-011"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "The first two isolated E9 cost measurements ran during Spotlight indexing and were replaced with idle-machine measurements.",
+    "reason": null
+  },
+  {
+    "id": "P4-005",
+    "status": "deviation",
+    "candidates": [
+      "C-paper4-DEV-003",
+      "C-paper4-GIT-014"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "P4A wrote results.json and screen outputs instead of the per-figure CSVs announced in the signed protocol.",
+    "reason": null
+  },
+  {
+    "id": "P4-006",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-DEV-003",
+      "C-paper4-GIT-014"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "Frozen P4A code lacked a post-run input check; an external checker was added before the run.",
+    "reason": null
+  },
+  {
+    "id": "P4-007",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-003"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "The filename check missed inline-code filenames split by LaTeX allowbreak markers; the supplement count changed from 0 to 55.",
+    "reason": null
+  },
+  {
+    "id": "P4-008",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-004",
+      "C-paper4-RPT-001"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "The project checker rejected hand-written biographies.tex because it had no generated-source header.",
+    "reason": null
+  },
+  {
+    "id": "P4-009",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-004",
+      "C-paper4-RPT-001"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "The project checker did not recognise the supplement’s composite Markdown-and-register header without a single fingerprint.",
+    "reason": null
+  },
+  {
+    "id": "P4-010",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-005",
+      "C-paper4-REG-024"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "Section VI lacked a provenance list identifying the versions of its supporting files.",
+    "reason": null
+  },
+  {
+    "id": "P4-011",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-007",
+      "C-paper4-REG-022"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "E12-ter fallback removed the calendar from the neighbour table while retaining it in the calendar-only comparator.",
+    "reason": null
+  },
+  {
+    "id": "P4-012",
+    "status": "excluded",
+    "candidates": [
+      "C-paper4-GIT-008"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "Unsigned E10-pred/E12-quater/E12-quinquies drafts received declared mask, fallback-chain and minimum-count specifications.",
+    "reason": "Pre-signature specification refinements; no run or contrary result described."
+  },
+  {
+    "id": "P4-013",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-009"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "README and the availability text claimed checkpoint files, although training saved only predictions and no model-state files existed.",
+    "reason": null
+  },
+  {
+    "id": "P4-014",
+    "status": "excluded",
+    "candidates": [
+      "C-paper4-GIT-010"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "The draft was restructured and typeset after review; the supplement reproduced existing register ranges.",
+    "reason": "Editorial organisation, bibliography and build changes. register_ref 1/13 is a regex artefact of ranges 1–3 and 8–13, not a new fix to items 1 and 13."
+  },
+  {
+    "id": "P4-015",
+    "status": "excluded",
+    "candidates": [
+      "C-paper4-GIT-011"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "A full manuscript build, README and abstract were added, and the P4A status updated.",
+    "reason": "Routine drafting/typesetting and status update; commit does not correct a distinct prior defect."
+  },
+  {
+    "id": "P4-016",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-012",
+      "C-paper4-GIT-013",
+      "C-paper4-REC-004",
+      "C-paper4-REG-018"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "The Table 67 green class omitted 442,965 cells clipped at 1.5; its printed class count and correlation differed from regeneration.",
+    "reason": null
+  },
+  {
+    "id": "P4-017",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-012",
+      "C-paper4-GIT-013",
+      "C-paper4-REC-004",
+      "C-paper4-REG-018"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "The overall Table 67 correlation +0.255 was not reproduced by the preserved script or tested cell sets.",
+    "reason": null
+  },
+  {
+    "id": "P4-018",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-012",
+      "C-paper4-GIT-013",
+      "C-paper4-REG-019"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "Table 68 neighbour-band statistics differed by 0.001–0.009 from regeneration; no preserved version or tested filter reproduced them.",
+    "reason": null
+  },
+  {
+    "id": "P4-019",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-012",
+      "C-paper4-GIT-013",
+      "C-paper4-REC-005",
+      "C-paper4-REG-020"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "The brief counted 31 Austin sections; filtering gave 40, with 30 multi-lane sections and 29 multi-lane sections with defined AUC.",
+    "reason": null
+  },
+  {
+    "id": "P4-020",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-012",
+      "C-paper4-GIT-013",
+      "C-paper4-REC-001",
+      "C-paper4-REC-005",
+      "C-paper4-REG-020"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "The Austin lane–AUC correlation −0.541 (p=0.002) was not reproduced over the stated 31 sections or the corrected 29.",
+    "reason": null
+  },
+  {
+    "id": "P4-021",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-012",
+      "C-paper4-GIT-013",
+      "C-paper4-REC-005",
+      "C-paper4-REG-020"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "The reported excluded Austin section at −45.1 prevalence points did not exist under the preserved code, whose differences were nonnegative.",
+    "reason": null
+  },
+  {
+    "id": "P4-022",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-012",
+      "C-paper4-GIT-013",
+      "C-paper4-REC-005",
+      "C-paper4-REG-020"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "Austin 3-/4-lane prevalence differences +18.35/+9.93 were untraced and regenerated as +18.62/+9.88.",
+    "reason": null
+  },
+  {
+    "id": "P4-023",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-015",
+      "C-paper4-GIT-016",
+      "C-paper4-REC-003",
+      "C-paper4-REG-014"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "The arterial AUC 0.542 was hard-coded without a source, including the derived Gini and 58%/42% gap split.",
+    "reason": null
+  },
+  {
+    "id": "P4-024",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-015",
+      "C-paper4-GIT-016",
+      "C-paper4-REC-003",
+      "C-paper4-REG-015"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "The arterial rank correlation appeared as +0.001 in Table 68 and +0.071 in text, neither computed.",
+    "reason": null
+  },
+  {
+    "id": "P4-025",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-015",
+      "C-paper4-GIT-016",
+      "C-paper4-REC-003",
+      "C-paper4-REG-016"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "Austin lane/section volume–occupancy correlations +0.7241/+0.2999 had no preserved generator.",
+    "reason": null
+  },
+  {
+    "id": "P4-026",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-015",
+      "C-paper4-GIT-016",
+      "C-paper4-REC-003",
+      "C-paper4-REG-017"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "Austin AUC interquartile ranges were presented as intervals.",
+    "reason": null
+  },
+  {
+    "id": "P4-027",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-016",
+      "C-paper4-REG-005"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "No preserved generator computed the raw-input/reconstructed-factor correlation ratio of Table 66.",
+    "reason": null
+  },
+  {
+    "id": "P4-028",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-017",
+      "C-paper4-REG-009"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "Three Melbourne E11 node partitions fell outside the prescribed share tolerance; preflight passed 22 of 23 checks.",
+    "reason": null
+  },
+  {
+    "id": "P4-029",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-017",
+      "C-paper4-REG-010"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "The first E11 record reported test red recall without the realised test false-alarm rate.",
+    "reason": null
+  },
+  {
+    "id": "P4-030",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-017",
+      "C-paper4-REG-012"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "The E12-bis synthetic test populated only the nearest distance bin and met its between-bin condition vacuously.",
+    "reason": null
+  },
+  {
+    "id": "P4-031",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-017",
+      "C-paper4-REG-013"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "Frozen E12 code lacked the post-run input check later supplied by verifica_e12.py.",
+    "reason": null
+  },
+  {
+    "id": "P4-032",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-017",
+      "C-paper4-REG-013"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "Frozen E12 code lacked an end-to-end self-test of its record generator.",
+    "reason": null
+  },
+  {
+    "id": "P4-033",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-018"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "The E9 pre-registration launch field named Gabriele De Vito and was changed to Fabio Palomba.",
+    "reason": null
+  },
+  {
+    "id": "P4-034",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-019"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "The E11 manuscript’s pilot wCE range ended at 1.073; corrected to 1.071.",
+    "reason": null
+  },
+  {
+    "id": "P4-035",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-019"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "The E9 protocol stated that E11 recall was near the false-alarm rate without restricting that statement to Madrid.",
+    "reason": null
+  },
+  {
+    "id": "P4-036",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-020",
+      "C-paper4-GIT-021",
+      "C-paper4-REG-008"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "The E11 record generator reordered axes during red-recall indexing and stopped with IndexError before producing output.",
+    "reason": null
+  },
+  {
+    "id": "P4-037",
+    "status": "excluded",
+    "candidates": [
+      "C-paper4-GIT-022"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "Diagnostic D4 and its prospective adoption rule were added before launch.",
+    "reason": "Fixed means established in advance; planned diagnostic extension, not a defect correction."
+  },
+  {
+    "id": "P4-038",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-023",
+      "C-paper4-REG-004"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "The geometry script searched graph names for knn and found no true/randomised pairs.",
+    "reason": null
+  },
+  {
+    "id": "P4-039",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-023",
+      "C-paper4-REG-004"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "The geometry script sought geo_<graph>_s<seed>.csv instead of the preserved city-prefixed filenames.",
+    "reason": null
+  },
+  {
+    "id": "P4-040",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-023"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "The deliverable called the first Madrid geometry-control run a refutation although its 1.96-point margin made it inconclusive under the script’s rule.",
+    "reason": null
+  },
+  {
+    "id": "P4-041",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-024",
+      "C-paper4-REG-007"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "Randomised geometry-control graphs used their new geographic distances and their own kernel scale as weights.",
+    "reason": null
+  },
+  {
+    "id": "P4-042",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-024",
+      "C-paper4-REG-007"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "The three preserved randomised geometry-control graphs were disconnected.",
+    "reason": null
+  },
+  {
+    "id": "P4-043",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-GIT-025",
+      "C-paper4-REG-002"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "Loop-context free-flow reference used the speed percentile of the whole year, including the test period.",
+    "reason": null
+  },
+  {
+    "id": "P4-044",
+    "status": "excluded",
+    "candidates": [
+      "C-paper4-REC-002"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "P4A chose correction-1 thresholds on half A and saved their fingerprints before evaluating half B.",
+    "reason": "Successful prescribed control; the new out-of-sample evaluation is a specification change with no established contrary outcome in this candidate."
+  },
+  {
+    "id": "P4-045",
+    "status": "excluded",
+    "candidates": [
+      "C-paper4-REC-007"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "E11 historical-average empty-slice warnings were checked; no non-finite value entered any target probability or aggregate.",
+    "reason": "Documented diagnostic confirms expected empty hidden rows, not a defective output."
+  },
+  {
+    "id": "P4-046",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-REG-005"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "The --exclude-empty and --max-dist 30 cross-validation outputs were not preserved.",
+    "reason": null
+  },
+  {
+    "id": "P4-047",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-REG-006"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "The rand_k1, rand_k2 and identity Madrid graphs had no generator in the searched repository or histories.",
+    "reason": null
+  },
+  {
+    "id": "P4-048",
+    "status": "defect",
+    "candidates": [
+      "C-paper4-REG-006"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "The ten rand-k runs named in randk.log had no preserved result CSVs.",
+    "reason": null
+  },
+  {
+    "id": "P4-049",
+    "status": "excluded",
+    "candidates": [
+      "C-paper4-REG-021"
+    ],
+    "paper": "paper4",
+    "shared_with": null,
+    "summary": "Model states were kept only in memory; predictions were saved, and later evaluation on other data requires retraining.",
+    "reason": "Declared existing design choice; no requirement to persist weights established. The false checkpoint claim is counted separately from GIT-009."
+  }
+]
