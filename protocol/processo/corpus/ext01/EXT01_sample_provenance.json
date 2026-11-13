@@ -1,0 +1,1218 @@
+{
+ "meta": {
+  "seed": 20261113,
+  "n": 33,
+  "of": 108
+ },
+ "problems": [
+  {
+   "id": "P1-002",
+   "summary": "E4 declared an adaptation-duration grid of 6 h, 12 h, 24 h, 48 h and one week instead of durations including 1 h and 4 h.",
+   "provenance": [
+    {
+     "candidate": "C-main-DEV-002",
+     "class": "deviation",
+     "path": "protocol/E4.md",
+     "locator": "line 52 (text pattern)",
+     "commit": "aa9f478b3fa8",
+     "text": "   durata, su griglia regolare: 5, 29, 77, 173, 653. Deviazione dal §8,"
+    },
+    {
+     "candidate": "C-main-REC-011",
+     "class": "record note",
+     "path": "CONGELAMENTO_E4.md",
+     "locator": "line 121",
+     "commit": "aa9f478b3fa8",
+     "text": "- **Deviazione dal §8 del protocollo, dichiarata prima del lancio in E4.md**: curva a {6 h, 12 h, 24 h, 48 h, 1 settimana} invece di {1 h, 4 h, …}: sotto le 5 ore la regola delle origini non ne contiene alcuna."
+    }
+   ]
+  },
+  {
+   "id": "P1-003",
+   "summary": "E5 used six rather than eight seeds, confirmed by the reviewer on 4 October after the precision comparison.",
+   "provenance": [
+    {
+     "candidate": "C-main-DEV-003",
+     "class": "deviation",
+     "path": "protocol/E5.md",
+     "locator": "line 142 (text pattern)",
+     "commit": "aa9f478b3fa8",
+     "text": "quello, indipendentemente dai semi. **Questa e' una deviazione dalla lettera"
+    },
+    {
+     "candidate": "C-main-DEV-004",
+     "class": "deviation",
+     "path": "protocol/E5.md",
+     "locator": "line 150 (text pattern)",
+     "commit": "aa9f478b3fa8",
+     "text": "revisore il 4/10**: deviazione dalla lettera del §9 coerente con il suo scopo"
+    },
+    {
+     "candidate": "C-main-REC-013",
+     "class": "record note",
+     "path": "CONGELAMENTO_E5.md",
+     "locator": "line 129",
+     "commit": "aa9f478b3fa8",
+     "text": "- **Sei semi invece di otto**: deviazione dalla lettera del §9 confermata dal revisore; la semiampiezza cambia di ±0,0003 fra 12 e 6 semi (sezione 3)."
+    }
+   ]
+  },
+  {
+   "id": "P1-004",
+   "summary": "E8 prescribed evaluating A on validation nodes, but A had embeddings only for initial and test nodes; the pilot raised NodoNonRegistrato and A inherited C thresholds.",
+   "provenance": [
+    {
+     "candidate": "C-main-DEV-005",
+     "class": "deviation",
+     "path": "protocol/E8.md",
+     "locator": "line 85 (text pattern)",
+     "commit": "aa9f478b3fa8",
+     "text": "**Deviazione del 9/10, dopo il pilota di tempo e prima di scegliere qualunque"
+    },
+    {
+     "candidate": "C-main-GIT-041",
+     "class": "git commit",
+     "locator": "commit d90f9e09aab6, 2026-10-09T16:36:13+02:00",
+     "text": "E8: deviazione dichiarata (A non valutabile in validazione, eredita le soglie di C)",
+     "register_ref": "unregistered"
+    },
+    {
+     "candidate": "C-main-REC-016",
+     "class": "record note",
+     "path": "CONGELAMENTO_E8.md",
+     "locator": "line 274",
+     "commit": "aa9f478b3fa8",
+     "text": "- Protocollo E8: A previsto in validazione, non valutabile (ha i nodi di prova): eredita le soglie di C — deviazione del 9/10."
+    }
+   ]
+  },
+  {
+   "id": "P1-007",
+   "summary": "E8-bis AUC was computed on 19 fixed thresholds; E18 reevaluated the claims on the empirical ROC over all distinct scores.",
+   "provenance": [
+    {
+     "candidate": "C-main-GIT-004",
+     "class": "git commit",
+     "locator": "commit ca99ef25c2f1, 2026-11-10T15:49:23+01:00",
+     "text": "processo: incidente I1 (voce 29, AUC su 19 soglie), verifica preliminare della ricostruzione dalle tracce; lacune dichiarate",
+     "register_ref": [
+      "29"
+     ]
+    },
+    {
+     "candidate": "C-main-GIT-012",
+     "class": "git commit",
+     "locator": "commit 8177eb217eff, 2026-10-29T10:49:16+01:00",
+     "text": "paper1: voce 29 nella traduzione inglese del registro; riassunto E18 con le impronte dopo e18-bis\n\nPaper1",
+     "register_ref": [
+      "29"
+     ]
+    },
+    {
+     "candidate": "C-main-GIT-013",
+     "class": "git commit",
+     "locator": "commit e03a5926810e, 2026-10-29T10:45:31+01:00",
+     "text": "CONGELAMENTO_E18 rigenerato (parte C completa, voce 29), riga 29 del registro; rimosso voce28.py",
+     "register_ref": [
+      "29"
+     ]
+    },
+    {
+     "candidate": "C-main-GIT-014",
+     "class": "git commit",
+     "locator": "commit 784a4fb6e1e4, 2026-10-29T10:38:07+01:00",
+     "text": "E18-bis: parte C con ECE, log-loss e Brier sulla finestra > 1 settimana; voce 29 (non 28) per la ROC empirica, nota datata nel generatore",
+     "register_ref": [
+      "29"
+     ]
+    },
+    {
+     "candidate": "C-main-GIT-020",
+     "class": "git commit",
+     "locator": "commit 754a20acfae0, 2026-10-29T09:58:51+01:00",
+     "text": "E18: congelamento (C correzione 27 con controllo, A ROC/pAUC/richiami a FA fissi, B bootstrap per sensore, D provenienza della politica)",
+     "register_ref": "unregistered"
+    },
+    {
+     "candidate": "C-main-GIT-024",
+     "class": "git commit",
+     "locator": "commit a3384ed455f2, 2026-10-28T21:18:02+01:00",
+     "text": "E18: protocollo di analisi dalla seconda revisione (A ROC/pAUC, B bootstrap per sensore, C correzione 27 E16, D provenienza politica); firmato",
+     "register_ref": "unregistered"
+    },
+    {
+     "candidate": "C-main-REG-030",
+     "class": "register row",
+     "path": "protocol/REGISTRO_CORREZIONI.md",
+     "locator": "line 52, item 29",
+     "commit": "aa9f478b3fa8",
+     "text": "| 29 | l'AUC di E8-bis era calcolata su 19 soglie fisse (seconda revisione esterna, punto 3); le affermazioni che ne dipendevano sono ri-valutate sulla ROC empirica su tutti i punteggi distinti (E18 parte A, `CONGELAMENTO_E18.md` §2c). Il protocollo E18 §1 r. 61 chiamava questa voce «28»: il numero 28 era gia' assegnato (nomi di ruolo), quindi e' la 29; il protocollo firmato non si modifica, la deviazione e' dichiarata in `CONGELAMENTO_E18.md` §6 | E18 parte A (nessun addestramento); `CONGELAMENTO_E18.md` rigenerato il 2026-10-29 con nota datata, e con la parte C completata dalle stesse probabilita' con ECE per classe, log-loss e Brier sulla finestra > 1 settimana (protocollo §3; la prima versione riportava la sola wCE). Impronte prima → dopo: `CONGELAMENTO_E18.md` `b284661178a15d9c` → `54f5530ab845588c`; `e18_risultati.json` `4f705ba30cd5946c`; `congelamento_e18.json` `f054365ac1387dfd`. Rigenerato di nuovo il 2026-10-29: i tempi della parte A nel documento vengono dal registro `protocol/e18/tempi_parte_A.json` (prima esecuzione, 28/10), come per E15, perche' il giro di rigenerazione coincideva su tutti i numeri ma non sui tempi stampati; impronta `CONGELAMENTO_E18.md` `54f5530ab845588c` → `046fbffc7afcc5ff`. Rigenerato il 2026-10-29 (parte D): ricerca storica limitata ai commit fino alla firma del protocollo (OR3 `964e4f5`, manoscritto `ae12921`), stesso esito; impronta `CONGELAMENTO_E18.md` `046fbffc7afcc5ff` → `2e56a7202de95383`, `e18_risultati.json` `ddc86f7c534d44a2`, `congelamento_e18.json` `5f3138ca8f77ac9a` | `CONGELAMENTO_E18.md`; `results/evoluzione/e18_risultati.json`; `analysis/tabelle_suppl.py` (F17) |"
+    },
+    {
+     "candidate": "C-main-TAG-014",
+     "class": "tag diff",
+     "path": "analysis/main.py",
+     "locator": "13 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-016",
+     "class": "tag diff",
+     "path": "analysis/tabelle_paper1.py",
+     "locator": "8 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-017",
+     "class": "tag diff",
+     "path": "analysis/tabelle_suppl.py",
+     "locator": "7 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-096",
+     "class": "tag diff",
+     "path": "evoluzione/esperimenti/esegui_e16.py",
+     "locator": "2 tag pair(s)"
+    }
+   ]
+  },
+  {
+   "id": "P1-010",
+   "summary": "The manuscript-number verifier did not read section files after the manuscript was split into input files; recursive expansion was added.",
+   "provenance": [
+    {
+     "candidate": "C-main-GIT-006",
+     "class": "git commit",
+     "locator": "commit 4013add4099b, 2026-11-03T20:37:20+01:00",
+     "text": "paper1: verifica dei numeri sul manoscritto diviso in sezioni; dilatazioni nella forma del testo; figura della rete con la tabella degli embedding B; registro inglese, voci 30 e 31\n\n- tabelle_paper1.verifica legge main.tex con i file di sezione richiamati da \\input espansi (sections/,\n  supplement/); gli \\input di figures/ restano non espansi, come prima (tabelle generate, non testo\n  trascritto). Senza questo la verifica non vedeva i numeri del manoscritto diviso il 1/11.\n- voce «dilatazioni»: il testo stampa «1, 2, 4 and 8» (scelta di Gabriele, 3/11).\n- figura_rete.py, versione inglese: «B: K×8» e «mean of B», come la figura decisa da Gabriele (3/11).\n- register_of_corrections.en.md: voci 30 (riscrittura della storia) e 31 (soglia di congestione).\nProvato prima del commit con il giro completo 20261103T154653Z (manoscritto 59e772c): TUTTO COINCIDE,\n48 fasi; la figura rigenerata dal giro coincide con quella del manoscritto.\n\nPaper1",
+     "register_ref": [
+      "30",
+      "31"
+     ]
+    },
+    {
+     "candidate": "C-main-TAG-016",
+     "class": "tag diff",
+     "path": "analysis/tabelle_paper1.py",
+     "locator": "8 tag pair(s)"
+    }
+   ]
+  },
+  {
+   "id": "P1-013",
+   "summary": "E18 section 1 referred to register item 28 for the 19-threshold AUC correction, although that number was assigned to role-name notes; the correction is item 29; documents P1-007.",
+   "provenance": [
+    {
+     "candidate": "C-main-GIT-012",
+     "class": "git commit",
+     "locator": "commit 8177eb217eff, 2026-10-29T10:49:16+01:00",
+     "text": "paper1: voce 29 nella traduzione inglese del registro; riassunto E18 con le impronte dopo e18-bis\n\nPaper1",
+     "register_ref": [
+      "29"
+     ]
+    },
+    {
+     "candidate": "C-main-GIT-013",
+     "class": "git commit",
+     "locator": "commit e03a5926810e, 2026-10-29T10:45:31+01:00",
+     "text": "CONGELAMENTO_E18 rigenerato (parte C completa, voce 29), riga 29 del registro; rimosso voce28.py",
+     "register_ref": [
+      "29"
+     ]
+    },
+    {
+     "candidate": "C-main-GIT-014",
+     "class": "git commit",
+     "locator": "commit 784a4fb6e1e4, 2026-10-29T10:38:07+01:00",
+     "text": "E18-bis: parte C con ECE, log-loss e Brier sulla finestra > 1 settimana; voce 29 (non 28) per la ROC empirica, nota datata nel generatore",
+     "register_ref": [
+      "29"
+     ]
+    },
+    {
+     "candidate": "C-main-REC-006",
+     "class": "record note",
+     "path": "CONGELAMENTO_E18.md",
+     "locator": "line 5",
+     "commit": "aa9f478b3fa8",
+     "text": "Rigenerato il 2026-10-29 (seconda versione; la prima, del 28/10, aveva impronta `b284661178a15d9c`): (i) la sostituzione delle affermazioni a 19 soglie e' la **voce 29** del registro delle correzioni, non la 28 scritta nel protocollo §1 r. 61 (la 28 era gia' stata assegnata ai nomi di ruolo nelle note sulle correzioni): deviazione dichiarata in §6; (ii) la parte C e' completata con le metriche di F16 (ECE per classe, log-loss, Brier) sulla stessa finestra, come il protocollo §3 richiede («righe F′(1wk) di F16 ricalcolate»): la prima versione riportava la sola wCE. Nessun numero gia' congelato cambia."
+    },
+    {
+     "candidate": "C-main-REC-008",
+     "class": "record note",
+     "path": "CONGELAMENTO_E18.md",
+     "locator": "line 343",
+     "commit": "aa9f478b3fa8",
+     "text": "- 29/10/2026, numerazione: il protocollo §1 r. 61 assegnava alla sostituzione delle affermazioni a 19 soglie (ROC empirica) la voce 28 del registro delle correzioni; la voce 28 era gia' stata assegnata il 29/10 ai nomi di ruolo nelle note sulle correzioni, quindi la sostituzione e' la voce 29. Il protocollo non si modifica (firmato); §2c e il registro portano 29."
+    },
+    {
+     "candidate": "C-main-REG-030",
+     "class": "register row",
+     "path": "protocol/REGISTRO_CORREZIONI.md",
+     "locator": "line 52, item 29",
+     "commit": "aa9f478b3fa8",
+     "text": "| 29 | l'AUC di E8-bis era calcolata su 19 soglie fisse (seconda revisione esterna, punto 3); le affermazioni che ne dipendevano sono ri-valutate sulla ROC empirica su tutti i punteggi distinti (E18 parte A, `CONGELAMENTO_E18.md` §2c). Il protocollo E18 §1 r. 61 chiamava questa voce «28»: il numero 28 era gia' assegnato (nomi di ruolo), quindi e' la 29; il protocollo firmato non si modifica, la deviazione e' dichiarata in `CONGELAMENTO_E18.md` §6 | E18 parte A (nessun addestramento); `CONGELAMENTO_E18.md` rigenerato il 2026-10-29 con nota datata, e con la parte C completata dalle stesse probabilita' con ECE per classe, log-loss e Brier sulla finestra > 1 settimana (protocollo §3; la prima versione riportava la sola wCE). Impronte prima → dopo: `CONGELAMENTO_E18.md` `b284661178a15d9c` → `54f5530ab845588c`; `e18_risultati.json` `4f705ba30cd5946c`; `congelamento_e18.json` `f054365ac1387dfd`. Rigenerato di nuovo il 2026-10-29: i tempi della parte A nel documento vengono dal registro `protocol/e18/tempi_parte_A.json` (prima esecuzione, 28/10), come per E15, perche' il giro di rigenerazione coincideva su tutti i numeri ma non sui tempi stampati; impronta `CONGELAMENTO_E18.md` `54f5530ab845588c` → `046fbffc7afcc5ff`. Rigenerato il 2026-10-29 (parte D): ricerca storica limitata ai commit fino alla firma del protocollo (OR3 `964e4f5`, manoscritto `ae12921`), stesso esito; impronta `CONGELAMENTO_E18.md` `046fbffc7afcc5ff` → `2e56a7202de95383`, `e18_risultati.json` `ddc86f7c534d44a2`, `congelamento_e18.json` `5f3138ca8f77ac9a` | `CONGELAMENTO_E18.md`; `results/evoluzione/e18_risultati.json`; `analysis/tabelle_suppl.py` (F17) |"
+    }
+   ]
+  },
+  {
+   "id": "P1-015",
+   "summary": "E16 evaluated F-prime(1 week) on origins in its first week despite the embedding using that week of data; E18 recomputed on origins older than one week.",
+   "provenance": [
+    {
+     "candidate": "C-main-GIT-018",
+     "class": "git commit",
+     "locator": "commit 30e15b872607, 2026-10-29T10:17:03+01:00",
+     "text": "paper1: E18 nel supplemento (sezione G da congelamento_e18.json: ROC empirica, bootstrap per sensore, margini, provenienza della politica), righe F'(1 sett.) delle tabelle di E16 dalla parte C (correzione 27), 24 verifiche nuove dei numeri stampati; voce 27 del registro chiusa; riassunto E18\n\nPaper1",
+     "register_ref": [
+      "27"
+     ]
+    },
+    {
+     "candidate": "C-main-GIT-020",
+     "class": "git commit",
+     "locator": "commit 754a20acfae0, 2026-10-29T09:58:51+01:00",
+     "text": "E18: congelamento (C correzione 27 con controllo, A ROC/pAUC/richiami a FA fissi, B bootstrap per sensore, D provenienza della politica)",
+     "register_ref": "unregistered"
+    },
+    {
+     "candidate": "C-main-GIT-021",
+     "class": "git commit",
+     "locator": "commit dc8ea6d2b201, 2026-10-28T22:18:58+01:00",
+     "text": "paper1: README inglese come README.md (italiano in README.it.md); registro italiano consolidato protocol/REGISTRO_CORREZIONI.md (voci 1–27, originale), register_of_corrections.en.md come sua traduzione\n\nPaper1",
+     "register_ref": [
+      "1",
+      "27"
+     ]
+    },
+    {
+     "candidate": "C-main-GIT-023",
+     "class": "git commit",
+     "locator": "commit d7b9f509ce6f, 2026-10-28T21:32:53+01:00",
+     "text": "E18: parte C (correzione 27, E16 su origini > 1 settimana) con controllo bloccante; rapporto di forma per la stima di A",
+     "register_ref": "unregistered"
+    },
+    {
+     "candidate": "C-main-GIT-024",
+     "class": "git commit",
+     "locator": "commit a3384ed455f2, 2026-10-28T21:18:02+01:00",
+     "text": "E18: protocollo di analisi dalla seconda revisione (A ROC/pAUC, B bootstrap per sensore, C correzione 27 E16, D provenienza politica); firmato",
+     "register_ref": "unregistered"
+    },
+    {
+     "candidate": "C-main-REG-028",
+     "class": "register row",
+     "path": "protocol/REGISTRO_CORREZIONI.md",
+     "locator": "line 50, item 27",
+     "commit": "aa9f478b3fa8",
+     "text": "| 27 | in `esegui_e16.py` ogni braccio era valutato su tutte le origini dopo t₁; per F′(1 sett.) questo include la prima settimana, in cui l'embedding adattato usa dati fino a t₀ + 1 settimana, quindi le righe F′(1 sett.) delle tabelle di E16 sono su una finestra non causale per quel braccio; il controllo bloccante confrontava con l'aggregato congelato somma delle tre fasce e non poteva rilevarlo; la quota di calibrazione s di F₀ − C non è toccata | corretto da E18, parte C: righe F′(1 sett.) delle tabelle di E16 ricalcolate sulle origini più vecchie di una settimana per entrambi i bracci, parametri di calibrazione invariati; controllo bloccante sugli aggregati congelati superato (scarto relativo massimo 8,66 × 10⁻⁷, soglia 10⁻⁶) | `protocol/E18.md` §3, `CONGELAMENTO_E18.md` §1 |"
+    },
+    {
+     "candidate": "C-main-TAG-014",
+     "class": "tag diff",
+     "path": "analysis/main.py",
+     "locator": "13 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-016",
+     "class": "tag diff",
+     "path": "analysis/tabelle_paper1.py",
+     "locator": "8 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-017",
+     "class": "tag diff",
+     "path": "analysis/tabelle_suppl.py",
+     "locator": "7 tag pair(s)"
+    }
+   ]
+  },
+  {
+   "id": "P1-016",
+   "summary": "One optimizer update per epoch was presented as a full epoch; 35 updates covered about 15% of one pass.",
+   "provenance": [
+    {
+     "candidate": "C-main-GIT-021",
+     "class": "git commit",
+     "locator": "commit dc8ea6d2b201, 2026-10-28T22:18:58+01:00",
+     "text": "paper1: README inglese come README.md (italiano in README.it.md); registro italiano consolidato protocol/REGISTRO_CORREZIONI.md (voci 1–27, originale), register_of_corrections.en.md come sua traduzione\n\nPaper1",
+     "register_ref": [
+      "1",
+      "27"
+     ]
+    },
+    {
+     "candidate": "C-main-GIT-043",
+     "class": "git commit",
+     "locator": "commit c25495cdb6b8, 2026-09-22T13:27:20+02:00",
+     "text": "congelamento: fase E principale e selezione di F\n\n108 punti E col protocollo principale, 0 falliti; 68 selezionati al\ntetto di 2.290 aggiornamenti.\n\nSelezione di F sui nuovi E: Madrid e Londra (50, 0.01), Melbourne\n(200, 0.001). La scelta cambia in tutte e tre le citta' rispetto alla\nselezione storica (200, 0.01): il trasferimento automatico sarebbe\nstato scorretto. Margini sulla seconda configurazione: 0,0004 / 0,0029\n/ 0,0021 wCE.\n\nAudit MoGERNN: benchmark in isolamento, rettifica delle misure prese\ndurante la fase E.",
+     "register_ref": "unregistered"
+    },
+    {
+     "candidate": "C-main-GIT-044",
+     "class": "git commit",
+     "locator": "commit 904c6d1a7761, 2026-09-19T10:08:23+02:00",
+     "text": "fase 3 sospesa: rettifica del budget di addestramento\n\nUn'«epoca» e' UN aggiornamento dell'ottimizzatore, non una passata sul\ncorpus: le campagne hanno usato al massimo 35 aggiornamenti su 32\nistanti ciascuno, con validazione dopo ognuno. La denominazione del\nprotocollo non corrispondeva all'implementazione.\n\nScarto quantificato: 229 aggiornamenti per passata nominale, 35\neseguiti, 14,4% delle origini coperte.\n\nSecondo fatto emerso: la validazione usa sempre i PRIMI 32 istanti del\nperiodo, mai altri. Il punto di controllo e' selezionato sul 2% del\nperiodo di validazione, in tutte le campagne.\n\nBudget dei bracci addestrati da zero: 32 x K_iniziali = 20.160 finestre\nper aggiornamento, uguale per C, P, A, R. Non 24.480 per R.\n\nCampagne precedenti non cancellate: i risultati restano validi come\nconfronti SOTTO quel budget.",
+     "register_ref": "unregistered"
+    },
+    {
+     "candidate": "C-main-REG-001",
+     "class": "register row",
+     "path": "protocol/REGISTRO_CORREZIONI.md",
+     "locator": "line 23, item 1",
+     "commit": "aa9f478b3fa8",
+     "text": "| 1 | un lotto per epoca presentato come un'epoca | 35 aggiornamenti = 15 % di un passaggio; con un budget adeguato l'ordine dei modelli è cambiato | `evoluzione/RETTIFICA_BUDGET.md` |"
+    }
+   ]
+  },
+  {
+   "id": "P1-020",
+   "summary": "The adaptation window included row t0, giving 78 origins instead of the corrected 77.",
+   "provenance": [
+    {
+     "candidate": "C-main-GIT-021",
+     "class": "git commit",
+     "locator": "commit dc8ea6d2b201, 2026-10-28T22:18:58+01:00",
+     "text": "paper1: README inglese come README.md (italiano in README.it.md); registro italiano consolidato protocol/REGISTRO_CORREZIONI.md (voci 1–27, originale), register_of_corrections.en.md come sua traduzione\n\nPaper1",
+     "register_ref": [
+      "1",
+      "27"
+     ]
+    },
+    {
+     "candidate": "C-main-REG-006",
+     "class": "register row",
+     "path": "protocol/REGISTRO_CORREZIONI.md",
+     "locator": "line 28, item 6",
+     "commit": "aa9f478b3fa8",
+     "text": "| 6 | riga t₀ inclusa nell'adattamento | 77 origini invece di 78 | tabella del supplemento fino a `manoscritto-20261015f`; `NOTE_PER_GLI_AUTORI.md` |"
+    }
+   ]
+  },
+  {
+   "id": "P1-030",
+   "summary": "The E3-bis generator divided the pooled-city R-orig median by the Melbourne-only F-prime time and reported at least 6x.",
+   "provenance": [
+    {
+     "candidate": "C-main-GIT-021",
+     "class": "git commit",
+     "locator": "commit dc8ea6d2b201, 2026-10-28T22:18:58+01:00",
+     "text": "paper1: README inglese come README.md (italiano in README.it.md); registro italiano consolidato protocol/REGISTRO_CORREZIONI.md (voci 1–27, originale), register_of_corrections.en.md come sua traduzione\n\nPaper1",
+     "register_ref": [
+      "1",
+      "27"
+     ]
+    },
+    {
+     "candidate": "C-main-GIT-033",
+     "class": "git commit",
+     "locator": "commit 02be9e174265, 2026-10-11T22:15:43+02:00",
+     "text": "paper1: manoscritto nel repo\n\nOR3/paper1 (prima deliverables/paper1, che ora e' un collegamento simbolico\nqui): main.tex, supplementary.tex, NOTE_PER_GLI_AUTORI.md,\nletter_MoGERNN_authors.txt, IEEEtran.cls, figure prodotte da\nanalysis/main.py --paper paper1 e tabella C1; esclusi PDF compilati, PDF di\nriferimento e template (paper1/.gitignore).\n\nIl manoscritto contiene gia' il punto 1 del revisore (11/10): tutti i tempi\ndalla sessione unica (costi_tabella_sessione.json), abstract 13-39 s /\n127-401 s / 377-2,229 s, rapporti 3.0x-16.1x, \"about 1 s per sensor per week\",\ntoken a costo zero in addestramento, riaddestramento uguale a 24 h e a 1 sett.,\nnota di Tab. II (sessione unica; tempi di E3-bis ed E6 superati). NOTE:\ndifetto 17 chiuso, difetto 20 (prosa di E5), tempi superati. main.pdf: 9 pagine.\n\nPaper1",
+     "register_ref": "unregistered"
+    },
+    {
+     "candidate": "C-main-GIT-039",
+     "class": "git commit",
+     "locator": "commit 416be4e23c1e, 2026-10-10T16:19:45+02:00",
+     "text": "Merge esecutore/tempi-e6: tempi appaiati, E3-bis difetto 17, architettura dai checkpoint, metadati audit MoGERNN, ricognizione Paper 4",
+     "register_ref": "unregistered"
+    },
+    {
+     "candidate": "C-main-GIT-040",
+     "class": "git commit",
+     "locator": "commit 05b1be7ccc2b, 2026-10-10T16:01:25+02:00",
+     "text": "Esecutore: E3-bis §3 corretta (difetto 17) — R-orig(1 sett.) per citta' dai manifesti isolati, rapporto solo nella stessa citta'; patch letterale e congelamento rigenerato",
+     "register_ref": "unregistered"
+    },
+    {
+     "candidate": "C-main-REC-010",
+     "class": "record note",
+     "path": "CONGELAMENTO_E3bis.md",
+     "locator": "line 47",
+     "commit": "aa9f478b3fa8",
+     "text": "- **Correzione del 2026-10-10 (difetto 17 del registro)**: la prima versione della sezione 3 scriveva «almeno 6×» dividendo la mediana di R-orig(1 sett.) sulle nove celle delle tre citta' per il solo F′(1 sett.) misurato in isolamento (Melbourne, la configurazione F piu' costosa nella citta' piu' piccola). Lo script ora riporta R-orig(1 sett.) per citta' dai manifesti isolati e il rapporto solo nella stessa citta'; il documento e' rigenerato, non modificato a mano."
+    },
+    {
+     "candidate": "C-main-REG-017",
+     "class": "register row",
+     "path": "protocol/REGISTRO_CORREZIONI.md",
+     "locator": "line 39, item 17a",
+     "commit": "aa9f478b3fa8",
+     "text": "| 17a | generatore di E3-bis: «almeno 6×» divideva la mediana di R-orig(1 sett.) sulle nove celle delle tre città per il solo F′(1 sett.) misurato in isolamento (Melbourne) | tempi per contesto dalla sessione unica (`costi_tabella_sessione.json`); rapporto solo nella stessa città; congelamento di E3-bis rigenerato (impronta `174d8e2d1808516c`) | `CONGELAMENTO_E3bis.md` |"
+    },
+    {
+     "candidate": "C-main-TAG-010",
+     "class": "tag diff",
+     "path": "CONGELAMENTO_E3bis.md",
+     "locator": "1 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-088",
+     "class": "tag diff",
+     "path": "evoluzione/esperimenti/costi_appaiati.py",
+     "locator": "3 tag pair(s)"
+    }
+   ]
+  },
+  {
+   "id": "P1-033",
+   "summary": "E3 visit counts included nine isolated timing remeasurements, reporting 117 rather than 108 runs.",
+   "provenance": [
+    {
+     "candidate": "C-main-GIT-021",
+     "class": "git commit",
+     "locator": "commit dc8ea6d2b201, 2026-10-28T22:18:58+01:00",
+     "text": "paper1: README inglese come README.md (italiano in README.it.md); registro italiano consolidato protocol/REGISTRO_CORREZIONI.md (voci 1–27, originale), register_of_corrections.en.md come sua traduzione\n\nPaper1",
+     "register_ref": [
+      "1",
+      "27"
+     ]
+    },
+    {
+     "candidate": "C-main-GIT-036",
+     "class": "git commit",
+     "locator": "commit e824dbee4dc2, 2026-10-10T18:15:50+02:00",
+     "text": "Merge esecutore/e3-riviste: difetto 19, conteggio delle riviste dal solo lancio di E3",
+     "register_ref": "unregistered"
+    },
+    {
+     "candidate": "C-main-GIT-037",
+     "class": "git commit",
+     "locator": "commit db9f8f3b1c24, 2026-10-10T18:15:50+02:00",
+     "text": "Esecutore: difetto 19 — riviste di E3 dal solo lancio (108 manifesti per braccio, per impronta); rimisure con etichetta propria nel registro; CONGELAMENTO_E3 rigenerato (impronta 110ec4be3f3f9151)",
+     "register_ref": "unregistered"
+    },
+    {
+     "candidate": "C-main-GIT-038",
+     "class": "git commit",
+     "locator": "commit d8ef81299651, 2026-10-10T18:09:49+02:00",
+     "text": "paper1: analysis/main.py, prima versione\n\nRigenera ogni numero del Paper 1 dalle predizioni per cella con il codice\nstatistico del repository e lo confronta con i congelamenti:\n- sandbox con clone APFS di results/evoluzione (altrove collegamenti\n  simbolici e controllo d'integrita'); nulla viene scritto in results/\n- 34 fasi: architettura dai checkpoint, scelte su validazione (confrontate e\n  ripristinate), test con ricampionamento, E3/E3-bis/E7, generatori E2-E8\n- confronto numero per numero con i json congelati e dei CONGELAMENTO_E*.md\n  (date e impronte mascherate; differenze di sola prosa separate)\n- tabelle del manoscritto (analysis/tabelle_paper1.py) e tabella C1\n- impronte dei file citate nei congelamenti (analysis/impronte.py)\n- rapporto deterministico analysis/rigenerazione/CONFRONTO.md (tracciato),\n  per il diff fra macchine\n- figure: gli script esistenti, con --lingua en verso paper1/figures/\n  (stile in evoluzione/analisi/stile_paper.py; in 'it' come prima)\n\nPrima rigenerazione completa: tutti i numeri coincidono salvo il difetto 19\n(riviste di E3, 108 -> 117 esecuzioni). CONFRONTO.md di riferimento al\nprossimo giro, dopo la correzione del difetto 19 e la rimisura dei tempi.\n\nPaper1",
+     "register_ref": "unregistered"
+    },
+    {
+     "candidate": "C-main-REC-009",
+     "class": "record note",
+     "path": "CONGELAMENTO_E3.md",
+     "locator": "line 102",
+     "commit": "aa9f478b3fa8",
+     "text": "- **Correzione del 2026-10-10 (difetto 19 del registro)**: il conteggio delle riviste prendeva dal registro ogni esecuzione completata di R, R-orig e R-mon, comprese le 9 rimisure isolate di R-orig e R-mon fatte per la tabella dei costi (117 invece di 108). Ora il lancio di E3 e' definito dai 108 manifesti per braccio di `inserimento_griglia/`, elencati per impronta in `analisi_e3.json` (`riviste/<braccio>/lancio`), e di ogni cella conta la sola esecuzione che ha prodotto la wCE registrata; le rimisure future hanno etichetta propria nel registro (`…/rimisura`). Documento rigenerato, non modificato a mano."
+    },
+    {
+     "candidate": "C-main-REG-020",
+     "class": "register row",
+     "path": "protocol/REGISTRO_CORREZIONI.md",
+     "locator": "line 42, item 19",
+     "commit": "aa9f478b3fa8",
+     "text": "| 19 | il conteggio delle riviste di E3 prendeva dal registro ogni esecuzione completata di R, R-orig e R-mon, comprese le 9 rimisure isolate fatte per la tabella dei costi (117 invece di 108) | lancio definito dai 108 manifesti per braccio, elencati per impronta in `analisi_e3.json`; ogni cella conta solo l'esecuzione che ha prodotto la wCE registrata; rimisure etichettate a parte; congelamento rigenerato, non modificato a mano; numeri del paper invariati | `CONGELAMENTO_E3.md` |"
+    },
+    {
+     "candidate": "C-main-TAG-009",
+     "class": "tag diff",
+     "path": "CONGELAMENTO_E3.md",
+     "locator": "1 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-022",
+     "class": "tag diff",
+     "path": "evoluzione/analisi/analizza_e3.py",
+     "locator": "1 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-105",
+     "class": "tag diff",
+     "path": "evoluzione/esperimenti/esegui_inserimento.py",
+     "locator": "2 tag pair(s)"
+    }
+   ]
+  },
+  {
+   "id": "P1-035",
+   "summary": "The static branch used sensor coverage over the full series, including test data; causal inputs were introduced.",
+   "provenance": [
+    {
+     "candidate": "C-main-GIT-021",
+     "class": "git commit",
+     "locator": "commit dc8ea6d2b201, 2026-10-28T22:18:58+01:00",
+     "text": "paper1: README inglese come README.md (italiano in README.it.md); registro italiano consolidato protocol/REGISTRO_CORREZIONI.md (voci 1–27, originale), register_of_corrections.en.md come sua traduzione\n\nPaper1",
+     "register_ref": [
+      "1",
+      "27"
+     ]
+    },
+    {
+     "candidate": "C-main-GIT-025",
+     "class": "git commit",
+     "locator": "commit cc286a819da1, 2026-10-15T08:59:04+02:00",
+     "text": "Statica causale predefinita (correzione del difetto 21, dopo E14): OR3_STATICA assente = causale (variante a); --statica=congelata su 18 esecutori riproduce la campagna; statica dell'addestramento da statica_addestramento; adatta_F, valuta_prova, seleziona_F, E6/E6a seleziona-F, refresh, costi_e4, rho da statica_cella; collauda_protocolli fissa congelata; preflight 15 (E14 n. 8): identita' al bit con m_r perturbata dopo t0+24h, blocca su congelata. Collaudi 8/8 19/19 37/37 25/25 24/24 11/11, preflight 15/15 (14/15 su congelata), pilota E14 nc scarto 0, main.py --solo E2 congelata: tutto coincide",
+     "register_ref": "unregistered"
+    },
+    {
+     "candidate": "C-main-REC-002",
+     "class": "record note",
+     "path": "CONGELAMENTO_E14.md",
+     "locator": "line 118",
+     "commit": "aa9f478b3fa8",
+     "text": "- Preflight n. 8 (perturbazione di `m_r` dopo t₀ → `static_inputs` invariato): da aggiungere con la correzione del codice, qualunque sia l'esito (pre-registro, controlli, punto 2)."
+    },
+    {
+     "candidate": "C-main-REG-022",
+     "class": "register row",
+     "path": "protocol/REGISTRO_CORREZIONI.md",
+     "locator": "line 44, item 21",
+     "commit": "aa9f478b3fa8",
+     "text": "| 21 | ramo statico alimentato con la copertura del sensore sull'intera serie, test compreso | effetto misurato da E14: confinato ai bracci senza un'identità appresa per il sensore, wCE dei bracci spostata di ≤ 0,007; l'unica lettura a tre episodi che cambia lo fa a favore del paper; le cinque dichiarazioni ristabilite da capo a fondo con ingressi causali da E15; codice causale per default dopo lo studio (`--statica=congelata` riproduce la campagna congelata) | `protocol/E14.md`, `CONGELAMENTO_E14.md`, `CONGELAMENTO_E14B.md`, `CONGELAMENTO_E15.md` |"
+    },
+    {
+     "candidate": "C-main-TAG-014",
+     "class": "tag diff",
+     "path": "analysis/main.py",
+     "locator": "13 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-016",
+     "class": "tag diff",
+     "path": "analysis/tabelle_paper1.py",
+     "locator": "8 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-017",
+     "class": "tag diff",
+     "path": "analysis/tabelle_suppl.py",
+     "locator": "7 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-031",
+     "class": "tag diff",
+     "path": "evoluzione/analisi/figura2_51.py",
+     "locator": "3 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-081",
+     "class": "tag diff",
+     "path": "evoluzione/componente/bracci.py",
+     "locator": "1 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-082",
+     "class": "tag diff",
+     "path": "evoluzione/componente/episodio.py",
+     "locator": "1 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-083",
+     "class": "tag diff",
+     "path": "evoluzione/componente/valutazione.py",
+     "locator": "1 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-084",
+     "class": "tag diff",
+     "path": "evoluzione/esperimenti/addestramento.py",
+     "locator": "2 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-085",
+     "class": "tag diff",
+     "path": "evoluzione/esperimenti/collauda_bracci.py",
+     "locator": "1 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-086",
+     "class": "tag diff",
+     "path": "evoluzione/esperimenti/collauda_protocolli.py",
+     "locator": "1 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-089",
+     "class": "tag diff",
+     "path": "evoluzione/esperimenti/costi_e4.py",
+     "locator": "1 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-092",
+     "class": "tag diff",
+     "path": "evoluzione/esperimenti/esegui_E.py",
+     "locator": "1 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-098",
+     "class": "tag diff",
+     "path": "evoluzione/esperimenti/esegui_e2.py",
+     "locator": "1 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-099",
+     "class": "tag diff",
+     "path": "evoluzione/esperimenti/esegui_e4.py",
+     "locator": "1 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-100",
+     "class": "tag diff",
+     "path": "evoluzione/esperimenti/esegui_e5.py",
+     "locator": "1 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-101",
+     "class": "tag diff",
+     "path": "evoluzione/esperimenti/esegui_e6.py",
+     "locator": "2 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-102",
+     "class": "tag diff",
+     "path": "evoluzione/esperimenti/esegui_e6a.py",
+     "locator": "1 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-103",
+     "class": "tag diff",
+     "path": "evoluzione/esperimenti/esegui_e8.py",
+     "locator": "1 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-104",
+     "class": "tag diff",
+     "path": "evoluzione/esperimenti/esegui_f0.py",
+     "locator": "1 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-105",
+     "class": "tag diff",
+     "path": "evoluzione/esperimenti/esegui_inserimento.py",
+     "locator": "2 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-106",
+     "class": "tag diff",
+     "path": "evoluzione/esperimenti/esegui_refresh.py",
+     "locator": "1 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-107",
+     "class": "tag diff",
+     "path": "evoluzione/esperimenti/inserimento.py",
+     "locator": "2 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-111",
+     "class": "tag diff",
+     "path": "evoluzione/esperimenti/ricostruisci_predizioni.py",
+     "locator": "1 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-112",
+     "class": "tag diff",
+     "path": "evoluzione/esperimenti/riselezione_rmon_test.py",
+     "locator": "1 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-113",
+     "class": "tag diff",
+     "path": "evoluzione/esperimenti/seleziona_F.py",
+     "locator": "1 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-114",
+     "class": "tag diff",
+     "path": "evoluzione/esperimenti/sensibilita_rho_e2.py",
+     "locator": "1 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-115",
+     "class": "tag diff",
+     "path": "evoluzione/esperimenti/veterani_e3.py",
+     "locator": "1 tag pair(s)"
+    }
+   ]
+  },
+  {
+   "id": "P1-036",
+   "summary": "The E6 class-frequency table used an earlier weight-file set and only three of six PEMS08 partitions.",
+   "provenance": [
+    {
+     "candidate": "C-main-GIT-021",
+     "class": "git commit",
+     "locator": "commit dc8ea6d2b201, 2026-10-28T22:18:58+01:00",
+     "text": "paper1: README inglese come README.md (italiano in README.it.md); registro italiano consolidato protocol/REGISTRO_CORREZIONI.md (voci 1–27, originale), register_of_corrections.en.md come sua traduzione\n\nPaper1",
+     "register_ref": [
+      "1",
+      "27"
+     ]
+    },
+    {
+     "candidate": "C-main-GIT-026",
+     "class": "git commit",
+     "locator": "commit 6f672454afe7, 2026-10-15T08:14:26+02:00",
+     "text": "Merge branch 'esecutore/difetto-23'",
+     "register_ref": "unregistered"
+    },
+    {
+     "candidate": "C-main-GIT-028",
+     "class": "git commit",
+     "locator": "commit f90ceafe78b0, 2026-10-13T21:13:16+02:00",
+     "text": "Difetto 23: frequenze_classi.py legge gli artefatti usati (pesi_griglia, pesi_pems04, pesi_pems08 p0-p5) con impronta per file; correzione datata in protocol/E6.md con la tabella rigenerata. Nessun effetto sui risultati",
+     "register_ref": "unregistered"
+    },
+    {
+     "candidate": "C-main-REG-024",
+     "class": "register row",
+     "path": "protocol/REGISTRO_CORREZIONI.md",
+     "locator": "line 46, item 23",
+     "commit": "aa9f478b3fa8",
+     "text": "| 23 | la tabella descrittiva congelata delle frequenze di classe (E6, `frequenze_classi.json`) era calcolata da un insieme precedente di file dei pesi di classe (campagna per indice) e da 3 delle 6 partizioni di PEMS08, non dai file caricati dagli esperimenti | tabella ricostruita dai file effettivamente caricati, con impronte; nessun effetto sui risultati; cambiano tre limiti descrittivi (città: classe congestionata fino a 15,9 % invece di 15,7 %; Madrid 9,0–9,5 %; Londra 15,4–15,9 %) | `protocol/E6.md` (correzione datata) |"
+    },
+    {
+     "candidate": "C-main-TAG-035",
+     "class": "tag diff",
+     "path": "evoluzione/analisi/frequenze_classi.py",
+     "locator": "1 tag pair(s)"
+    },
+    {
+     "candidate": "C-main-TAG-123",
+     "class": "tag diff",
+     "path": "protocol/E6.md",
+     "locator": "1 tag pair(s)"
+    }
+   ]
+  },
+  {
+   "id": "P1-039",
+   "summary": "The E14-B generator marked identical (tau,N) choices different because it also compared validation wCE values differing by about 1e-9.",
+   "provenance": [
+    {
+     "candidate": "C-main-GIT-021",
+     "class": "git commit",
+     "locator": "commit dc8ea6d2b201, 2026-10-28T22:18:58+01:00",
+     "text": "paper1: README inglese come README.md (italiano in README.it.md); registro italiano consolidato protocol/REGISTRO_CORREZIONI.md (voci 1–27, originale), register_of_corrections.en.md come sua traduzione\n\nPaper1",
+     "register_ref": [
+      "1",
+      "27"
+     ]
+    },
+    {
+     "candidate": "C-main-GIT-027",
+     "class": "git commit",
+     "locator": "commit 1ce57696561d, 2026-10-15T08:06:02+02:00",
+     "text": "Difetto 26: il controllo PEMS confronta (tau, N) e riporta la delta wCE di validazione a parte; CONGELAMENTO_E14B.md rigenerato con correzione datata",
+     "register_ref": "unregistered"
+    },
+    {
+     "candidate": "C-main-REC-004",
+     "class": "record note",
+     "path": "CONGELAMENTO_E14B.md",
+     "locator": "line 342",
+     "commit": "aa9f478b3fa8",
+     "text": "Correzione 2026-10-15 (registro, voce 26, trovata durante la stesura del manoscritto): la prima versione di questa sezione confrontava l'intero record della scelta, compresa la wCE di validazione (che fra Mac e Spark differisce di ~1e-9), e marcava «DIVERSA» scelte con (τ, N) identici; ora si confrontano (τ, N) e la Δ della wCE si riporta a parte."
+    },
+    {
+     "candidate": "C-main-REG-027",
+     "class": "register row",
+     "path": "protocol/REGISTRO_CORREZIONI.md",
+     "locator": "line 49, item 26",
+     "commit": "aa9f478b3fa8",
+     "text": "| 26 | il generatore di E14-B confrontava l'intero record della scelta (τ, N) di PEMS, compresa la wCE di validazione che differisce di ~10⁻⁹ fra macchine, e marcava come «diverse» scelte (τ, N) identiche | solo documentazione, nessun effetto sui numeri; il generatore confronta (τ, N) e riporta a parte la differenza di wCE; congelamento rigenerato con correzione datata (commit `109aca5`, impronta `864b21c7796aefb2`) | `CONGELAMENTO_E14B.md` |"
+    }
+   ]
+  },
+  {
+   "id": "P1-044",
+   "summary": "MoGERNN runtime and profiling were measured while eight phase-E processes occupied the machine; the absolute timings and derived campaign estimates were retracted.",
+   "provenance": [
+    {
+     "candidate": "C-main-GIT-043",
+     "class": "git commit",
+     "locator": "commit c25495cdb6b8, 2026-09-22T13:27:20+02:00",
+     "text": "congelamento: fase E principale e selezione di F\n\n108 punti E col protocollo principale, 0 falliti; 68 selezionati al\ntetto di 2.290 aggiornamenti.\n\nSelezione di F sui nuovi E: Madrid e Londra (50, 0.01), Melbourne\n(200, 0.001). La scelta cambia in tutte e tre le citta' rispetto alla\nselezione storica (200, 0.01): il trasferimento automatico sarebbe\nstato scorretto. Margini sulla seconda configurazione: 0,0004 / 0,0029\n/ 0,0021 wCE.\n\nAudit MoGERNN: benchmark in isolamento, rettifica delle misure prese\ndurante la fase E.",
+     "register_ref": "unregistered"
+    }
+   ]
+  },
+  {
+   "id": "P1-050",
+   "summary": "The first raccordo campaign did not record its evaluation weights: reg.metrica was never called; a shared fingerprinted weight artifact and logging were added.",
+   "provenance": [
+    {
+     "candidate": "C-main-GIT-048",
+     "class": "git commit",
+     "locator": "commit 83a9a8bacfac, 2026-09-17T21:13:52+02:00",
+     "text": "congelamento dei risultati del raccordo\n\nNessuna citta' dimostra la non inferiorita' con entrambe le procedure.\nL'evidenza di deterioramento a Londra non e' robusta alla specificazione\nincrociata. Stime puntuali sfavorevoli a BASE-CORRECTED, incertezza\ninsufficiente per conclusioni robuste rispetto al margine.\n\nCriterio di deterioramento registrato come specificazione non\npreregistrata. Storia delle tre campagne, con i difetti delle due\ninvalidate e la dichiarazione di quali risultati erano stati esaminati.",
+     "register_ref": "unregistered"
+    },
+    {
+     "candidate": "C-main-GIT-049",
+     "class": "git commit",
+     "locator": "commit 4525efa1f5f7, 2026-09-17T19:22:57+02:00",
+     "text": "pesi come artefatto condiviso; ricampionamento corretto\n\nLa prima campagna e' archiviata come NON CONFORME: l'addestramento usava\nl'entropia non pesata mentre il protocollo fissa w_k = N/(3 n_k), e i pesi\ndi valutazione non erano tracciati. Ricalcolare le metriche non\ncorreggerebbe l'obiettivo dell'apprendimento: si riaddestra.\n\nArtefatto dei pesi: nove vettori, uno per citta' e partizione, dai soli\nnodi e periodo di addestramento. Consumato da addestramento e analisi,\nnon ricalcolato. Popolazione di conteggio dichiarata, conteggio per\norizzonte esplicito, classe assente che interrompe.\n\nRicampionamento: ogni occorrenza di partizione estrae le proprie\ninizializzazioni. Correzione verificata: riduce la dispersione da 0,338\na 0,266, non la aumenta.\n\nTre prove mirate: 15/15. Integrazione: 19/19.",
+     "register_ref": "unregistered"
+    }
+   ]
+  },
+  {
+   "id": "P1-057",
+   "summary": "E4 estimated less than 10 process-hours by counting adaptations; the launch with repeated full-period evaluations took 11.3 hours with eight processes.",
+   "provenance": [
+    {
+     "candidate": "C-main-REC-012",
+     "class": "record note",
+     "path": "CONGELAMENTO_E4.md",
+     "locator": "line 122",
+     "commit": "aa9f478b3fa8",
+     "text": "- **Stima di costo del protocollo sbagliata, non deviazione**: «< 10 ore-processo» contava gli adattamenti; le 13 valutazioni per cella sull'intero periodo piu' le 12 intermedie della traiettoria hanno portato il lancio a 11.3 ore con 8 processi. Nessun parametro e' cambiato."
+    }
+   ]
+  },
+  {
+   "id": "P1-060",
+   "summary": "During the l-pub2 regeneration a second run was started by mistake and stopped after 35 seconds; separate workspaces left the real results unchanged.",
+   "provenance": [
+    {
+     "candidate": "C-main-RPT-001",
+     "class": "report flag",
+     "path": "protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub2.md",
+     "locator": "line 5"
+    }
+   ]
+  },
+  {
+   "id": "P1-065",
+   "summary": "A reviewer manually added a note to generated CONFRONTO.md despite its explicit instruction not to edit by hand.",
+   "provenance": [
+    {
+     "candidate": "C-main-TAG-015",
+     "class": "tag diff",
+     "path": "analysis/rigenerazione/CONFRONTO.md",
+     "locator": "15 tag pair(s)"
+    }
+   ]
+  },
+  {
+   "id": "P1-066",
+   "summary": "F17 absolute wCE pooled weights across horizons instead of averaging the separately normalised per-horizon losses used by the manuscript.",
+   "provenance": [
+    {
+     "candidate": "C-main-TAG-017",
+     "class": "tag diff",
+     "path": "analysis/tabelle_suppl.py",
+     "locator": "7 tag pair(s)"
+    }
+   ]
+  },
+  {
+   "id": "P1-067",
+   "summary": "The F17 caption claimed every class ECE was below 0.04; it was replaced with the observed maximum computed from the printed entries.",
+   "provenance": [
+    {
+     "candidate": "C-main-TAG-017",
+     "class": "tag diff",
+     "path": "analysis/tabelle_suppl.py",
+     "locator": "7 tag pair(s)"
+    }
+   ]
+  },
+  {
+   "id": "P1-068",
+   "summary": "The E15 cost-table generator formatted absent timing values as decimal numbers; missing timing entries were changed to --.",
+   "provenance": [
+    {
+     "candidate": "C-main-TAG-017",
+     "class": "tag diff",
+     "path": "analysis/tabelle_suppl.py",
+     "locator": "7 tag pair(s)"
+    }
+   ]
+  },
+  {
+   "id": "P4-001",
+   "summary": "E10-pred compared placements using each design’s own class-weight vector.",
+   "provenance": [
+    {
+     "candidate": "C-main-GIT-003",
+     "class": "git commit",
+     "locator": "commit f60c00a3a6ed, 2026-11-10T16:19:17+01:00",
+     "text": "processo: incidente I2 (Paper 4, voce 23, pesi di classe nel confronto dei placement), verifica preliminare; orario della revisione corretto dalla sequenza dei commit",
+     "register_ref": [
+      "23"
+     ]
+    },
+    {
+     "candidate": "C-paper4-GIT-006",
+     "class": "git commit",
+     "locator": "commit b05df6edf9dd, 2026-11-09T15:18:25+01:00",
+     "text": "paper4: main.py checks and regenerates the records of E10-pred-bis and E12-sexies-bis (regeneration identical); register item 23 (class weights of each design in E10-pred, corrected by E10-pred-bis); text-only check PASS on the manuscript after the internal review of 2026-11-09 (15:15, 15:30)",
+     "register_ref": [
+      "23"
+     ]
+    },
+    {
+     "candidate": "C-paper4-REC-006",
+     "class": "record note",
+     "path": "paper4/congelamenti/CONGELAMENTO_E10predbis.md",
+     "locator": "line 34",
+     "commit": "ef31396c28cf",
+     "text": "2. Register of corrections, item 23: E10-pred scored each design with its own class weights."
+    },
+    {
+     "candidate": "C-paper4-REG-023",
+     "class": "register row",
+     "path": "protocol/paper4/REGISTRO_CORREZIONI.md",
+     "locator": "line 39, item 23",
+     "commit": "ef31396c28cf",
+     "text": "| 23 | E10-pred scored each placement with the class weights of its own configuration (`paper4/code/e10pred.py`, `cell_for`, line 337: `node_sums(p, y, keep, rec[\"class_weights\"])`), computed from that design's observed segments; on the segments hidden under both placements, Δ therefore mixed the change of predictions with a change of the scoring function (Melbourne, seed 0: (0.455, 1.544, 6.552) uniform against (0.474, 1.450, 4.969) blocks). V(G1) within one design is not affected | E10-pred-bis (pre-registered) rescores both placements from the saved predictions with one weight vector per city, from the training period of all its segments; with the design weights its code reproduces the frozen record of E10-pred to the bit. With common weights Δ G0 is +0.15 / −0.16 / +5.10 in Madrid, London and Melbourne (E10-pred: +0.01 / −0.29 / +2.78) and Δ G1 +0.07 / −0.31 / +3.79 (+1.05 in Melbourne); in Melbourne the reading of Δ G0 becomes \"uniform placement forecasts the common segments better\", +5.10 [+3.10; +6.37]. The frozen record of E10-pred is unchanged; the paper reports E10-pred-bis in §III-D and Table V | internal review of 2026-11-09 (15:15, item 1) | `protocol/paper4/E10predbis.md`; `paper4/congelamenti/CONGELAMENTO_E10predbis.md` (e9ce6c2, 30ef7b7182aadede) |"
+    }
+   ]
+  },
+  {
+   "id": "P4-005",
+   "summary": "P4A wrote results.json and screen outputs instead of the per-figure CSVs announced in the signed protocol.",
+   "provenance": [
+    {
+     "candidate": "C-paper4-DEV-003",
+     "class": "deviation",
+     "path": "protocol/paper4/P4A.md",
+     "locator": "line 228 (heading)",
+     "commit": "ef31396c28cf",
+     "text": "1. *2026-11-08, after the signature, before the run.* The signed `p4a.py` (ff3204dee7064a27) writes every"
+    },
+    {
+     "candidate": "C-paper4-GIT-014",
+     "class": "git commit",
+     "locator": "commit e53d3cb235c0, 2026-11-08T15:01:42+01:00",
+     "text": "paper4: P4A input check after the run outside the frozen p4a.py (verifica_p4a.py); deviation 1 dated (no per-figure CSVs; check added)",
+     "register_ref": "unregistered"
+    }
+   ]
+  },
+  {
+   "id": "P4-011",
+   "summary": "E12-ter fallback removed the calendar from the neighbour table while retaining it in the calendar-only comparator.",
+   "provenance": [
+    {
+     "candidate": "C-paper4-GIT-007",
+     "class": "git commit",
+     "locator": "commit 9421197566bf, 2026-11-09T14:39:10+01:00",
+     "text": "paper4: main.py checks and regenerates the records of E12-quater, E12-quinquies, E10-pred and E12-sexies and the figure of E12-sexies (new paper4/analysis/figure_e12sexies.py, drawn from e12sexies_risultati.json); regeneration of the four records and the figure identical; register item 22 (asymmetric fallback of E12-ter, measured by E12-quater); text-only check PASS on the rewritten manuscript",
+     "register_ref": [
+      "22"
+     ]
+    },
+    {
+     "candidate": "C-paper4-REG-022",
+     "class": "register row",
+     "path": "protocol/paper4/REGISTRO_CORREZIONI.md",
+     "locator": "line 38, item 22",
+     "commit": "ef31396c28cf",
+     "text": "| 22 | Asymmetric fallback in E12-ter: when a row of the table with the neighbour had fewer than 20 pairs, it fell back to the E12-bis row, which has no calendar, while the calendar-only table kept the calendar; 6–66% of the lookups fell back overall, at most 9.8% within 250 m, so the losses of E12-ter beyond 250 m mixed the neighbour's class with the loss of the calendar | measured by E12-quater (pre-registered, fallback to the calendar-only row, so that the two tables differ only where the neighbour is used): D′ − D is −0.03 to +0.40 points within 250 m in Madrid and London and up to +20.8 beyond (London, 10%, 500–1,000 m); D′ stays negative at 250–500 m in Madrid and London (−4.7 to −12.3). The frozen record of E12-ter is unchanged; the paper reports D′ in §III-C and Table II | the analysis of the E12-ter fallbacks in the draft and the internal review of 2026-11-08 (21:45); measured 2026-11-09 | `protocol/paper4/E12quater.md`; `paper4/congelamenti/CONGELAMENTO_E12quater.md` (21fc58f, 971f0bdb951b17f1) |"
+    }
+   ]
+  },
+  {
+   "id": "P4-019",
+   "summary": "The brief counted 31 Austin sections; filtering gave 40, with 30 multi-lane sections and 29 multi-lane sections with defined AUC.",
+   "provenance": [
+    {
+     "candidate": "C-paper4-GIT-012",
+     "class": "git commit",
+     "locator": "commit 130e2e4f57ad, 2026-11-08T19:55:44+01:00",
+     "text": "paper4: causes of items 18-20 from the executor's measurements (CAUSE_4A.md, 03fd226); dated note appended to CONGELAMENTO_4A.md (now f8f093436de33d99; generated text before the note still 7304d9639f91ec81, no computed control changes); Part A section without cause markers; main.py checks the generated text and masks the note; SUMMARIES.en.md lists the Italian records of Part A",
+     "register_ref": [
+      "18",
+      "20"
+     ]
+    },
+    {
+     "candidate": "C-paper4-GIT-013",
+     "class": "git commit",
+     "locator": "commit c3e8ab6eff17, 2026-11-08T15:38:12+01:00",
+     "text": "paper4: Part A section draft (three corrections declared, statements descriptive; Table 69 with 30 sections and 29 in the rank correlation); register items 18-20 with the diagnosis so far, causes open for the executor; main.py regenerates and checks P4A (seventh frozen record)",
+     "register_ref": [
+      "18",
+      "20"
+     ]
+    },
+    {
+     "candidate": "C-paper4-REC-005",
+     "class": "record note",
+     "path": "paper4/congelamenti/CONGELAMENTO_4A.md",
+     "locator": "line 159",
+     "commit": "ef31396c28cf",
+     "text": "3. **Austin sections (item 20).** The 40 sections are `intname|direction` after excluding the three intersections without direction. The only definition that gives the brief's 31 is \"sections with a defined area under the curve, whatever the number of lanes\": the 29 of correction 3 plus 2 with one lane. The section that leaves correction 3 (30 → 29) is `LAMARZENNIA|SB`: 2 lanes, 43,081 aggregated cells, 11 of them with a congested lane, so its area under the curve is undefined. The deliverable's lane–AUC correlation (−0.541, p = 0.002, over 31 sections) is not reproduced: −0.269 (p = 0.144) over those 31, −0.441 (p = 0.017) over the 29 of correction 3. Its section excluded for a prevalence difference of −45.1 points does not exist under the conserved code, where every difference is ≥ 0 by construction (maximum +52.0, `BurnetRutland|SB`). No conserved script computes either value: generator not found. The prevalence differences of 3 and 4 lanes (+18.62 and +9.88 against +18.35 and +9.93 printed) are not traced."
+    },
+    {
+     "candidate": "C-paper4-REG-020",
+     "class": "register row",
+     "path": "protocol/paper4/REGISTRO_CORREZIONI.md",
+     "locator": "line 36, item 20",
+     "commit": "ef31396c28cf",
+     "text": "| 20 | Austin sections: the brief counts 31; after the script's filters there are 40 (10 with one lane, 30 with at least 2: 22 / 6 / 2, as in Table 69); correction 3 uses 29. The deliverable states a lane–AUC rank correlation of −0.541 (p = 0.002) over 31 sections and excludes one section for a prevalence difference of −45.1 points. The prevalence differences of 3 and 4 lanes are +18.62 and +9.88 points, against +18.35 and +9.93 printed | cause (executor, 2026-11-08): the 40 sections are `intname|direction` after excluding the three intersections without direction. The only definition that gives 31 is \"sections with a defined area under the curve (more than 20 congested and more than 20 non-congested cells), whatever the number of lanes\": the 29 plus 2 with one lane. The section that leaves correction 3 is `LAMARZENNIA|SB`: 2 lanes, 43,081 aggregated cells, 11 with a congested lane, so its area under the curve is undefined. The −0.541 is not reproduced (−0.269, p = 0.144, over those 31; −0.441, p = 0.017, over the 29), and no conserved script computes it. The section at −45.1 points does not exist under the conserved code: every prevalence difference is ≥ 0 by construction (maximum +52.0, `BurnetRutland|SB`). Generator not found for either; the two prevalence differences are not traced. Defect of the deliverable; no effect on the numbers of the paper | comparison in `CONGELAMENTO_4A.md` and preflight count; causes in `CAUSE_4A.md` (03fd226), 2026-11-08 | `paper4/congelamenti/CONGELAMENTO_4A.md`, comparison and dated note; `protocol/paper4/fase2/CAUSE_4A.md`; `protocol/paper4/P4A.md`, Correction 3 |"
+    }
+   ]
+  },
+  {
+   "id": "P4-021",
+   "summary": "The reported excluded Austin section at −45.1 prevalence points did not exist under the preserved code, whose differences were nonnegative.",
+   "provenance": [
+    {
+     "candidate": "C-paper4-GIT-012",
+     "class": "git commit",
+     "locator": "commit 130e2e4f57ad, 2026-11-08T19:55:44+01:00",
+     "text": "paper4: causes of items 18-20 from the executor's measurements (CAUSE_4A.md, 03fd226); dated note appended to CONGELAMENTO_4A.md (now f8f093436de33d99; generated text before the note still 7304d9639f91ec81, no computed control changes); Part A section without cause markers; main.py checks the generated text and masks the note; SUMMARIES.en.md lists the Italian records of Part A",
+     "register_ref": [
+      "18",
+      "20"
+     ]
+    },
+    {
+     "candidate": "C-paper4-GIT-013",
+     "class": "git commit",
+     "locator": "commit c3e8ab6eff17, 2026-11-08T15:38:12+01:00",
+     "text": "paper4: Part A section draft (three corrections declared, statements descriptive; Table 69 with 30 sections and 29 in the rank correlation); register items 18-20 with the diagnosis so far, causes open for the executor; main.py regenerates and checks P4A (seventh frozen record)",
+     "register_ref": [
+      "18",
+      "20"
+     ]
+    },
+    {
+     "candidate": "C-paper4-REC-005",
+     "class": "record note",
+     "path": "paper4/congelamenti/CONGELAMENTO_4A.md",
+     "locator": "line 159",
+     "commit": "ef31396c28cf",
+     "text": "3. **Austin sections (item 20).** The 40 sections are `intname|direction` after excluding the three intersections without direction. The only definition that gives the brief's 31 is \"sections with a defined area under the curve, whatever the number of lanes\": the 29 of correction 3 plus 2 with one lane. The section that leaves correction 3 (30 → 29) is `LAMARZENNIA|SB`: 2 lanes, 43,081 aggregated cells, 11 of them with a congested lane, so its area under the curve is undefined. The deliverable's lane–AUC correlation (−0.541, p = 0.002, over 31 sections) is not reproduced: −0.269 (p = 0.144) over those 31, −0.441 (p = 0.017) over the 29 of correction 3. Its section excluded for a prevalence difference of −45.1 points does not exist under the conserved code, where every difference is ≥ 0 by construction (maximum +52.0, `BurnetRutland|SB`). No conserved script computes either value: generator not found. The prevalence differences of 3 and 4 lanes (+18.62 and +9.88 against +18.35 and +9.93 printed) are not traced."
+    },
+    {
+     "candidate": "C-paper4-REG-020",
+     "class": "register row",
+     "path": "protocol/paper4/REGISTRO_CORREZIONI.md",
+     "locator": "line 36, item 20",
+     "commit": "ef31396c28cf",
+     "text": "| 20 | Austin sections: the brief counts 31; after the script's filters there are 40 (10 with one lane, 30 with at least 2: 22 / 6 / 2, as in Table 69); correction 3 uses 29. The deliverable states a lane–AUC rank correlation of −0.541 (p = 0.002) over 31 sections and excludes one section for a prevalence difference of −45.1 points. The prevalence differences of 3 and 4 lanes are +18.62 and +9.88 points, against +18.35 and +9.93 printed | cause (executor, 2026-11-08): the 40 sections are `intname|direction` after excluding the three intersections without direction. The only definition that gives 31 is \"sections with a defined area under the curve (more than 20 congested and more than 20 non-congested cells), whatever the number of lanes\": the 29 plus 2 with one lane. The section that leaves correction 3 is `LAMARZENNIA|SB`: 2 lanes, 43,081 aggregated cells, 11 with a congested lane, so its area under the curve is undefined. The −0.541 is not reproduced (−0.269, p = 0.144, over those 31; −0.441, p = 0.017, over the 29), and no conserved script computes it. The section at −45.1 points does not exist under the conserved code: every prevalence difference is ≥ 0 by construction (maximum +52.0, `BurnetRutland|SB`). Generator not found for either; the two prevalence differences are not traced. Defect of the deliverable; no effect on the numbers of the paper | comparison in `CONGELAMENTO_4A.md` and preflight count; causes in `CAUSE_4A.md` (03fd226), 2026-11-08 | `paper4/congelamenti/CONGELAMENTO_4A.md`, comparison and dated note; `protocol/paper4/fase2/CAUSE_4A.md`; `protocol/paper4/P4A.md`, Correction 3 |"
+    }
+   ]
+  },
+  {
+   "id": "P4-026",
+   "summary": "Austin AUC interquartile ranges were presented as intervals.",
+   "provenance": [
+    {
+     "candidate": "C-paper4-GIT-015",
+     "class": "git commit",
+     "locator": "commit f99b765ddabc, 2026-11-08T14:55:42+01:00",
+     "text": "paper4: P4A on the review's decisions (threshold between sensors primary, in time secondary; descriptive reading rules; Austin volume-occupancy recomputed; arterial values per pair primary); register items 14-17; P4A code (step 0, Tables 64-69 recomputed, corrections 1-3, weighted bootstrap, guard, frozen-record generator, self-tests); fingerprinted copy of t4c_crossval.py; manifest of the Part A inputs",
+     "register_ref": [
+      "14",
+      "17"
+     ]
+    },
+    {
+     "candidate": "C-paper4-GIT-016",
+     "class": "git commit",
+     "locator": "commit 824f6caf3ab7, 2026-11-08T14:43:47+01:00",
+     "text": "paper4: P4A pre-registration draft (three datasets with fingerprints, regeneration of Tables 64-69, three corrections, untraced deliverable numbers, choices to confirm); perimeter of the negative result in limits and discussion; English summaries of the Phase 1 records",
+     "register_ref": "unregistered"
+    },
+    {
+     "candidate": "C-paper4-REC-003",
+     "class": "record note",
+     "path": "paper4/congelamenti/CONGELAMENTO_4A.md",
+     "locator": "line 150",
+     "commit": "ef31396c28cf",
+     "text": "3. The arterial values of Table 68 and the Austin volume–occupancy correlations are recomputed (register of corrections, items 14–16); the deliverable's brackets of Austin are interquartile ranges (item 17)."
+    },
+    {
+     "candidate": "C-paper4-REG-017",
+     "class": "register row",
+     "path": "protocol/paper4/REGISTRO_CORREZIONI.md",
+     "locator": "line 33, item 17",
+     "commit": "ef31396c28cf",
+     "text": "| 17 | The within-lane area under the curve in Austin, \"0,990, con intervallo [0,959; 0,999]\" (text p. 131), presents as an interval the interquartile range across lanes printed by the script; the brackets of Table 69 are also interquartile ranges | reported in Part A as interquartile ranges, with the bootstrap interval over sections next to them (correction 2). Defect of the deliverable; no effect on the numbers of the paper | reading of `sez_austin` against the text, 2026-11-08 | `protocol/paper4/P4A.md`, Correction 2 |"
+    }
+   ]
+  },
+  {
+   "id": "P4-032",
+   "summary": "Frozen E12 code lacked an end-to-end self-test of its record generator.",
+   "provenance": [
+    {
+     "candidate": "C-paper4-GIT-017",
+     "class": "git commit",
+     "locator": "commit 61367a0008e7, 2026-11-08T14:24:02+01:00",
+     "text": "paper4: E12-ter section; introduction, research questions and contributions; discussion, limits, conclusion; Part A outline and status; paper order; thesis rewritten (protocol §1.1, dated note), §1.2-§1.3 status, §2.6 choices of the analyses without training, §3 points closed; register of corrections items 9-13; paper4/analysis/main.py (fingerprints, regeneration of the six frozen records, numbers in the text)",
+     "register_ref": [
+      "9",
+      "13"
+     ]
+    },
+    {
+     "candidate": "C-paper4-REG-013",
+     "class": "register row",
+     "path": "protocol/paper4/REGISTRO_CORREZIONI.md",
+     "locator": "line 29, item 13",
+     "commit": "ef31396c28cf",
+     "text": "| 13 | The frozen E12 code (`e12.py`, 3ec453d15372b217) had no input check after the run and no end-to-end self-test of its frozen-record generator, which E9 and E11 had | both added outside the frozen file, in `paper4/code/verifica_e12.py` (e4b753bc52fdf7f5, commit ac545db), before the campaign; E12-bis and E12-ter carry them inside their own code | drafting of the E12 commands for the executor, 2026-11-08 | `paper4/code/verifica_e12.py` |"
+    }
+   ]
+  },
+  {
+   "id": "P4-033",
+   "summary": "The E9 pre-registration launch field named Gabriele De Vito and was changed to Fabio Palomba.",
+   "provenance": [
+    {
+     "candidate": "C-paper4-GIT-018",
+     "class": "git commit",
+     "locator": "commit 0be7e7aeaabf, 2026-11-07T15:37:39+01:00",
+     "text": "paper4: E9 isolated cost of G1-rand(deg) (135.9 s) and G1 in the same conditions; launched by the executor; deviation on the earlier measurements",
+     "register_ref": "unregistered"
+    }
+   ]
+  },
+  {
+   "id": "P4-034",
+   "summary": "The E11 manuscript’s pilot wCE range ended at 1.073; corrected to 1.071.",
+   "provenance": [
+    {
+     "candidate": "C-paper4-GIT-019",
+     "class": "git commit",
+     "locator": "commit 646332df6dda, 2026-11-06T21:42:09+01:00",
+     "text": "paper4: E9 and E11 section, two precision fixes",
+     "register_ref": "unregistered"
+    }
+   ]
+  },
+  {
+   "id": "P4-041",
+   "summary": "Randomised geometry-control graphs used their new geographic distances and their own kernel scale as weights.",
+   "provenance": [
+    {
+     "candidate": "C-paper4-GIT-024",
+     "class": "git commit",
+     "locator": "commit e9ca476b0d8c, 2026-11-06T15:54:30+01:00",
+     "text": "paper4: register of corrections, item 7 (weights, topology and connectivity of the deliverable's negative control)",
+     "register_ref": [
+      "7"
+     ]
+    },
+    {
+     "candidate": "C-paper4-REG-007",
+     "class": "register row",
+     "path": "protocol/paper4/REGISTRO_CORREZIONI.md",
+     "locator": "line 23, item 7",
+     "commit": "ef31396c28cf",
+     "text": "| 7 | Negative control of the deliverable's geometry: the randomised edges carried their new geographic distance as weight (`make_geo_sweep.py:49`, `weight = D[a, b] + 1`) with a kernel σ of their own (`models/gomo_sparse.py:149`); on the three preserved pairs the mean kernel was 0.23–0.36 for the randomised graphs against 0.20–0.48 for the kNN graphs, with randomised medians 0.04–0.26, and the three randomised graphs were not connected. Weights, topology and connectivity differed together: the control did not isolate the geometry | E11: both randomised graphs receive the multiset of G1's weights permuted over their edges, and connectivity is preserved (`protocol/paper4/E11.md`, Design, preflight 5 and 5-bis). Register only: no Paper 4 number depends on the deliverable's control | weight check on `geo_sweep/*_neg_rand_*.pkl` against the kNN pairs, 2026-11-06 | `protocol/paper4/E11.md` |"
+    }
+   ]
+  },
+  {
+   "id": "P4-046",
+   "summary": "The --exclude-empty and --max-dist 30 cross-validation outputs were not preserved.",
+   "provenance": [
+    {
+     "candidate": "C-paper4-REG-005",
+     "class": "register row",
+     "path": "protocol/paper4/REGISTRO_CORREZIONI.md",
+     "locator": "line 21, item 5",
+     "commit": "ef31396c28cf",
+     "text": "| 5 | Table 66 (ratio between the rank correlation of the raw inputs and that of the reconstructed factor) has no generator: `data_collection/t4c_crossval.py` prints the per-input correlations to the screen (r. 137-160) and saves only the pairs (r. 194); no script computes the ratio. The `--exclude-empty` and `--max-dist 30` outputs (README §7.11, r. 727-729) were not preserved | the three README commands re-run with preserved outputs, fingerprints of CSVs and inputs, comparison with Tables 64-65 in `protocol/paper4/fase1/CROSSVAL_rigenerato.md` (Tables 64-65 and the 30 m sensitivity reproduced exactly; base CSV byte-identical to the preserved one); Table 66 not regenerated (no generator), to be recomputed from the preserved screen outputs if needed | search for the generator of Tables 64-66 (D8), 2026-11-06 | `protocol/paper4/fase1/CROSSVAL_rigenerato.md` |"
+    }
+   ]
+  }
+ ]
+}

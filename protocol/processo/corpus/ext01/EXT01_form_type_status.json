@@ -1,0 +1,269 @@
+{
+ "verifier": "EXT-01",
+ "part": "a: type and status on the anonymised sample",
+ "_allowed": {
+  "primary_type": [
+   "1 leakage",
+   "2 indexing and alignment",
+   "3 silent loss",
+   "4a metric declared != implemented",
+   "4b inadequate metric implemented faithfully",
+   "4c scoring not comparable across configurations",
+   "5 budget, selection and convergence",
+   "6 unsupported statement in the text",
+   "7 provenance and traceability",
+   "7d documentary",
+   "8a defective control: false positive",
+   "8b defective control: false negative or blind",
+   "9 procedural violation",
+   "10 environment and dependencies",
+   "11 other"
+  ],
+  "status": [
+   "defect",
+   "deviation",
+   "violation"
+  ],
+  "evidence_status": [
+   "documented",
+   "attributed recollection",
+   "hypothesis",
+   "conflict"
+  ]
+ },
+ "date_started": "",
+ "date_delivered": "",
+ "problems": [
+  {
+   "id": "P1-002",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P1-003",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P1-004",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P1-007",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P1-010",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P1-013",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P1-015",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P1-016",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P1-020",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P1-030",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P1-033",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P1-035",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P1-036",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P1-039",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P1-044",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P1-050",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P1-057",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P1-060",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P1-065",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P1-066",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P1-067",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P1-068",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P4-001",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P4-005",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P4-011",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P4-019",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P4-021",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P4-026",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P4-032",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P4-033",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P4-034",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P4-041",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  },
+  {
+   "id": "P4-046",
+   "primary_type": "",
+   "status": "",
+   "evidence_status": "",
+   "notes": ""
+  }
+ ]
+}
