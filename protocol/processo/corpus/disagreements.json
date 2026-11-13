@@ -1,0 +1,954 @@
+[
+ {
+  "id": "P1-021",
+  "field": "phase_of_introduction",
+  "COD-01": "unknown",
+  "COD-02": "regeneration",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-035",
+  "field": "phase_of_introduction",
+  "COD-01": "deliverable",
+  "COD-02": "regeneration",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-037",
+  "field": "phase_of_introduction",
+  "COD-01": "unknown",
+  "COD-02": "regeneration",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-041",
+  "field": "phase_of_introduction",
+  "COD-01": "regeneration",
+  "COD-02": "manuscript preparation",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-042",
+  "field": "phase_of_introduction",
+  "COD-01": "regeneration",
+  "COD-02": "manuscript preparation",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-043",
+  "field": "phase_of_introduction",
+  "COD-01": "regeneration",
+  "COD-02": "manuscript preparation",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-064",
+  "field": "phase_of_introduction",
+  "COD-01": "regeneration",
+  "COD-02": "manuscript preparation",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-072",
+  "field": "phase_of_introduction",
+  "COD-01": "regeneration",
+  "COD-02": "manuscript preparation",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-073",
+  "field": "phase_of_introduction",
+  "COD-01": "regeneration",
+  "COD-02": "manuscript preparation",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-075",
+  "field": "phase_of_introduction",
+  "COD-01": "regeneration",
+  "COD-02": "manuscript preparation",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-072",
+  "field": "artefact",
+  "COD-01": "code",
+  "COD-02": "record",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-073",
+  "field": "artefact",
+  "COD-01": "record",
+  "COD-02": "code",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P4-016",
+  "field": "artefact",
+  "COD-01": "code",
+  "COD-02": "record",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P4-027",
+  "field": "artefact",
+  "COD-01": "code",
+  "COD-02": "record",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P4-046",
+  "field": "artefact",
+  "COD-01": "environment/repository",
+  "COD-02": "record",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P4-048",
+  "field": "artefact",
+  "COD-01": "environment/repository",
+  "COD-02": "record",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-004",
+  "field": "primary_type",
+  "COD-01": "5 budget, selection and convergence",
+  "COD-02": "2 indexing and alignment",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-020",
+  "field": "primary_type",
+  "COD-01": "2 indexing and alignment",
+  "COD-02": "1 leakage",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-026",
+  "field": "primary_type",
+  "COD-01": "11 other",
+  "COD-02": "2 indexing and alignment",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-027",
+  "field": "primary_type",
+  "COD-01": "5 budget, selection and convergence",
+  "COD-02": "4b inadequate metric implemented faithfully",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-030",
+  "field": "primary_type",
+  "COD-01": "4c scoring not comparable across configurations",
+  "COD-02": "2 indexing and alignment",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-051",
+  "field": "primary_type",
+  "COD-01": "5 budget, selection and convergence",
+  "COD-02": "9 procedural violation",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-055",
+  "field": "primary_type",
+  "COD-01": "5 budget, selection and convergence",
+  "COD-02": "2 indexing and alignment",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-057",
+  "field": "primary_type",
+  "COD-01": "11 other",
+  "COD-02": "5 budget, selection and convergence",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-073",
+  "field": "primary_type",
+  "COD-01": "7 provenance and traceability",
+  "COD-02": "3 silent loss",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-065",
+  "field": "secondary_type",
+  "COD-01": "7 provenance and traceability",
+  "COD-02": "none",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P4-039",
+  "field": "secondary_type",
+  "COD-01": "none",
+  "COD-02": "3 silent loss",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-007",
+  "field": "stage_of_detection",
+  "COD-01": "unknown",
+  "COD-02": "internal review",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-013",
+  "field": "stage_of_detection",
+  "COD-01": "freeze",
+  "COD-02": "unknown",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-015",
+  "field": "stage_of_detection",
+  "COD-01": "unknown",
+  "COD-02": "internal review",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-019",
+  "field": "stage_of_detection",
+  "COD-01": "execution",
+  "COD-02": "preflight",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "PC-002",
+  "field": "stage_of_detection",
+  "COD-01": "execution",
+  "COD-02": "preflight",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-030",
+  "field": "stage_of_detection",
+  "COD-01": "text check",
+  "COD-02": "internal review",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-031",
+  "field": "stage_of_detection",
+  "COD-01": "text check",
+  "COD-02": "internal review",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-048",
+  "field": "stage_of_detection",
+  "COD-01": "preflight",
+  "COD-02": "execution",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-053",
+  "field": "stage_of_detection",
+  "COD-01": "execution",
+  "COD-02": "preflight",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-055",
+  "field": "stage_of_detection",
+  "COD-01": "execution",
+  "COD-02": "preflight",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-065",
+  "field": "stage_of_detection",
+  "COD-01": "unknown",
+  "COD-02": "preliminary reconstruction",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-066",
+  "field": "stage_of_detection",
+  "COD-01": "unknown",
+  "COD-02": "internal review",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-067",
+  "field": "stage_of_detection",
+  "COD-01": "unknown",
+  "COD-02": "internal review",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P4-004",
+  "field": "stage_of_detection",
+  "COD-01": "execution",
+  "COD-02": "preflight",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P4-027",
+  "field": "stage_of_detection",
+  "COD-01": "regeneration",
+  "COD-02": "pre-registration",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P4-033",
+  "field": "stage_of_detection",
+  "COD-01": "execution",
+  "COD-02": "pre-registration",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P4-035",
+  "field": "stage_of_detection",
+  "COD-01": "text check",
+  "COD-02": "pre-registration",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P4-046",
+  "field": "stage_of_detection",
+  "COD-01": "regeneration",
+  "COD-02": "pre-registration",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P4-047",
+  "field": "stage_of_detection",
+  "COD-01": "regeneration",
+  "COD-02": "pre-registration",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P4-048",
+  "field": "stage_of_detection",
+  "COD-01": "regeneration",
+  "COD-02": "pre-registration",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-001",
+  "field": "first_observed_detector",
+  "COD-01": "unknown",
+  "COD-02": "drafting",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-002",
+  "field": "first_observed_detector",
+  "COD-01": "unknown",
+  "COD-02": "drafting",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-007",
+  "field": "first_observed_detector",
+  "COD-01": "external",
+  "COD-02": "unknown",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-015",
+  "field": "first_observed_detector",
+  "COD-01": "external",
+  "COD-02": "unknown",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-016",
+  "field": "first_observed_detector",
+  "COD-01": "unknown",
+  "COD-02": "mechanical control",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-017",
+  "field": "first_observed_detector",
+  "COD-01": "unknown",
+  "COD-02": "mechanical control",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-019",
+  "field": "first_observed_detector",
+  "COD-01": "mechanical control",
+  "COD-02": "unknown",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-027",
+  "field": "first_observed_detector",
+  "COD-01": "protocol review",
+  "COD-02": "internal review",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-030",
+  "field": "first_observed_detector",
+  "COD-01": "drafting",
+  "COD-02": "internal review",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-031",
+  "field": "first_observed_detector",
+  "COD-01": "drafting",
+  "COD-02": "internal review",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-043",
+  "field": "first_observed_detector",
+  "COD-01": "unknown",
+  "COD-02": "mechanical control",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-055",
+  "field": "first_observed_detector",
+  "COD-01": "unknown",
+  "COD-02": "execution",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-059",
+  "field": "first_observed_detector",
+  "COD-01": "mechanical control",
+  "COD-02": "regeneration on another machine",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-066",
+  "field": "first_observed_detector",
+  "COD-01": "external",
+  "COD-02": "unknown",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-067",
+  "field": "first_observed_detector",
+  "COD-01": "external",
+  "COD-02": "internal review",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P4-005",
+  "field": "first_observed_detector",
+  "COD-01": "unknown",
+  "COD-02": "drafting",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P4-027",
+  "field": "first_observed_detector",
+  "COD-01": "execution",
+  "COD-02": "drafting",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P4-038",
+  "field": "first_observed_detector",
+  "COD-01": "execution",
+  "COD-02": "drafting",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P4-039",
+  "field": "first_observed_detector",
+  "COD-01": "execution",
+  "COD-02": "drafting",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P4-040",
+  "field": "first_observed_detector",
+  "COD-01": "execution",
+  "COD-02": "drafting",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P4-046",
+  "field": "first_observed_detector",
+  "COD-01": "execution",
+  "COD-02": "drafting",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P4-047",
+  "field": "first_observed_detector",
+  "COD-01": "execution",
+  "COD-02": "drafting",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P4-048",
+  "field": "first_observed_detector",
+  "COD-01": "execution",
+  "COD-02": "drafting",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-003",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "hypothesised",
+  "COD-02": "not applicable",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-009",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "not applicable",
+  "COD-02": "hypothesised",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-014",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "not applicable",
+  "COD-02": "hypothesised",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-016",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "not applicable",
+  "COD-02": "hypothesised",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-017",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "not applicable",
+  "COD-02": "hypothesised",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "PC-002",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "not applicable",
+  "COD-02": "hypothesised",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-020",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "not applicable",
+  "COD-02": "hypothesised",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-021",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "not applicable",
+  "COD-02": "hypothesised",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-025",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "not applicable",
+  "COD-02": "hypothesised",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-026",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "not applicable",
+  "COD-02": "hypothesised",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-030",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "not applicable",
+  "COD-02": "hypothesised",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-036",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "not applicable",
+  "COD-02": "hypothesised",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-038",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "not applicable",
+  "COD-02": "hypothesised",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-055",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "not applicable",
+  "COD-02": "hypothesised",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-060",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "hypothesised",
+  "COD-02": "not applicable",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-062",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "not applicable",
+  "COD-02": "hypothesised",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-066",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "not applicable",
+  "COD-02": "hypothesised",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-067",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "not applicable",
+  "COD-02": "hypothesised",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-073",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "not applicable",
+  "COD-02": "hypothesised",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P4-005",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "not applicable",
+  "COD-02": "hypothesised",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P4-010",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "hypothesised",
+  "COD-02": "not applicable",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P4-023",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "not applicable",
+  "COD-02": "hypothesised",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P4-024",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "not applicable",
+  "COD-02": "hypothesised",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P4-025",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "not applicable",
+  "COD-02": "hypothesised",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P4-026",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "not applicable",
+  "COD-02": "hypothesised",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P4-040",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "hypothesised",
+  "COD-02": "not applicable",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P4-043",
+  "field": "detection_capability_of_other_controls",
+  "COD-01": "not applicable",
+  "COD-02": "hypothesised",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-001",
+  "field": "observed_effect",
+  "COD-01": "not measured",
+  "COD-02": "none",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-002",
+  "field": "observed_effect",
+  "COD-01": "not measured",
+  "COD-02": "none",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-003",
+  "field": "observed_effect",
+  "COD-01": "not measured",
+  "COD-02": "none",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-022",
+  "field": "observed_effect",
+  "COD-01": "none",
+  "COD-02": "not measured",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-024",
+  "field": "observed_effect",
+  "COD-01": "not measured",
+  "COD-02": "none",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P1-055",
+  "field": "observed_effect",
+  "COD-01": "not measured",
+  "COD-02": "none",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-058",
+  "field": "observed_effect",
+  "COD-01": "numbers changed",
+  "COD-02": "none",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P1-073",
+  "field": "observed_effect",
+  "COD-01": "none",
+  "COD-02": "numbers changed",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P4-016",
+  "field": "observed_effect",
+  "COD-01": "none",
+  "COD-02": "numbers changed",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P4-017",
+  "field": "observed_effect",
+  "COD-01": "none",
+  "COD-02": "numbers changed",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P4-018",
+  "field": "observed_effect",
+  "COD-01": "none",
+  "COD-02": "numbers changed",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P4-019",
+  "field": "observed_effect",
+  "COD-01": "none",
+  "COD-02": "numbers changed",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P4-020",
+  "field": "observed_effect",
+  "COD-01": "none",
+  "COD-02": "numbers changed",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P4-022",
+  "field": "observed_effect",
+  "COD-01": "none",
+  "COD-02": "numbers changed",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P4-023",
+  "field": "observed_effect",
+  "COD-01": "none",
+  "COD-02": "numbers changed",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P4-024",
+  "field": "observed_effect",
+  "COD-01": "none",
+  "COD-02": "numbers changed",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P4-025",
+  "field": "observed_effect",
+  "COD-01": "none",
+  "COD-02": "numbers changed",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P4-027",
+  "field": "observed_effect",
+  "COD-01": "none",
+  "COD-02": "not measured",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P4-043",
+  "field": "observed_effect",
+  "COD-01": "not measured",
+  "COD-02": "none",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "documented"
+ },
+ {
+  "id": "P4-047",
+  "field": "observed_effect",
+  "COD-01": "none",
+  "COD-02": "not measured",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P4-048",
+  "field": "observed_effect",
+  "COD-01": "none",
+  "COD-02": "not measured",
+  "evidence_COD-01": "documented",
+  "evidence_COD-02": "hypothesis"
+ },
+ {
+  "id": "P4-002",
+  "field": "assistant_at_detection",
+  "COD-01": "yes",
+  "COD-02": "unknown",
+  "evidence_COD-01": "hypothesis",
+  "evidence_COD-02": "hypothesis"
+ }
+]
