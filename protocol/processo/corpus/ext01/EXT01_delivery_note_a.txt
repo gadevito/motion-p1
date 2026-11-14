@@ -1,0 +1,17 @@
+Phase 6, part (a): EXT-01
+Date: 2026-11-14 (Europe/Rome)
+
+Completed: all 33 sampled problems, with primary type, status, evidence status and English notes.
+Status totals: 29 defects, 3 deviations, 1 violation.
+Evidence totals: 23 documented, 10 hypotheses.
+
+
+Evidence boundary
+Only PHASE6_INSTRUCTIONS.md, the supplied blank form and the anonymised sample were used for classification. No coder values, agreement reports, phase-5 minutes, resolved coding, provenance package or repository file contents were read. Local directory listings were inspected, but the repository was not opened. P0 itself was not supplied or inspected; this assessment applies the definitions reproduced in the instructions and cannot certify equivalence to the signed P0.
+
+Method
+Each ID is coded for its stated problem rather than every unrelated issue mentioned in a shared register row. Given text stating a mechanism supports documented status; absent or incomplete mechanism evidence is marked hypothesis. Counts of withheld traces are not treated as inspected evidence. A declared correction does not automatically reclassify a pre-existing defect as a deviation. Notes explain boundary decisions. In particular, P1-015 applies the explicit control precedence to its jointly documented failed control and leakage mechanism; P1-007 lacks the original metric prescription; P4-005 contains only a truncated declaration. These uncertainties have not been resolved using withheld material.
+
+Validation
+PASS: JSON parses; original top-level and entry schemas preserved; all 33 IDs match the sample and template in order; IDs unique; all required fields filled; allowed enum values used; no attributed-recollection classifications; dates valid; all type-11 decisions include a reason.
+The coordination command external_sample.py validate was not run: it was not among the supplied files and repository access is deferred by the workflow. These checks are local structural validation, not a claim of coordinator acceptance.

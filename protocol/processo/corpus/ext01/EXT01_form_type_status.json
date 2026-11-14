@@ -1,269 +1,269 @@
 {
- "verifier": "EXT-01",
- "part": "a: type and status on the anonymised sample",
- "_allowed": {
-  "primary_type": [
-   "1 leakage",
-   "2 indexing and alignment",
-   "3 silent loss",
-   "4a metric declared != implemented",
-   "4b inadequate metric implemented faithfully",
-   "4c scoring not comparable across configurations",
-   "5 budget, selection and convergence",
-   "6 unsupported statement in the text",
-   "7 provenance and traceability",
-   "7d documentary",
-   "8a defective control: false positive",
-   "8b defective control: false negative or blind",
-   "9 procedural violation",
-   "10 environment and dependencies",
-   "11 other"
-  ],
-  "status": [
-   "defect",
-   "deviation",
-   "violation"
-  ],
-  "evidence_status": [
-   "documented",
-   "attributed recollection",
-   "hypothesis",
-   "conflict"
+  "verifier": "EXT-01",
+  "part": "a: type and status on the anonymised sample",
+  "_allowed": {
+    "primary_type": [
+      "1 leakage",
+      "2 indexing and alignment",
+      "3 silent loss",
+      "4a metric declared != implemented",
+      "4b inadequate metric implemented faithfully",
+      "4c scoring not comparable across configurations",
+      "5 budget, selection and convergence",
+      "6 unsupported statement in the text",
+      "7 provenance and traceability",
+      "7d documentary",
+      "8a defective control: false positive",
+      "8b defective control: false negative or blind",
+      "9 procedural violation",
+      "10 environment and dependencies",
+      "11 other"
+    ],
+    "status": [
+      "defect",
+      "deviation",
+      "violation"
+    ],
+    "evidence_status": [
+      "documented",
+      "attributed recollection",
+      "hypothesis",
+      "conflict"
+    ]
+  },
+  "date_started": "2026-11-13",
+  "date_delivered": "2026-11-14",
+  "problems": [
+    {
+      "id": "P1-002",
+      "primary_type": "5 budget, selection and convergence",
+      "status": "deviation",
+      "evidence_status": "documented",
+      "notes": "The record note declares the revised adaptation-duration grid before launch because the origin rule provides no origins below five hours. This is a declared change to adaptation budget/design; no failed execution or unauthorised process step is established."
+    },
+    {
+      "id": "P1-003",
+      "primary_type": "5 budget, selection and convergence",
+      "status": "deviation",
+      "evidence_status": "documented",
+      "notes": "The record explicitly declares six instead of eight seeds, supported by the reported precision comparison. This changes the replication budget. The excerpt does not establish a breached approval-order rule, so confirmation after comparison alone is not coded as a violation."
+    },
+    {
+      "id": "P1-004",
+      "primary_type": "2 indexing and alignment",
+      "status": "defect",
+      "evidence_status": "documented",
+      "notes": "The record states that A was prescribed for validation but lacked the relevant validation-node support. This is a mismatch between model coverage and the evaluation population. Inheriting C thresholds is the declared remedy; it does not erase the original inability to perform the prescribed evaluation. No use of test outcomes for selection is established."
+    },
+    {
+      "id": "P1-007",
+      "primary_type": "4b inadequate metric implemented faithfully",
+      "status": "defect",
+      "evidence_status": "hypothesis",
+      "notes": "Register item 29 documents AUC on 19 fixed thresholds and subsequent empirical-ROC reevaluation. I infer that the implemented coarse metric was inadequate but implemented as designed; the supplied excerpts do not state the original prescribed AUC algorithm, so 4a cannot be excluded. The separate item-number error is assessed under P1-013."
+    },
+    {
+      "id": "P1-010",
+      "primary_type": "8b defective control: false negative or blind",
+      "status": "defect",
+      "evidence_status": "documented",
+      "notes": "The commit explicitly states that the verifier could not see manuscript numbers in section files until input expansion was added. This is a control blind spot, regardless of whether any hidden number was wrong."
+    },
+    {
+      "id": "P1-013",
+      "primary_type": "7d documentary",
+      "status": "defect",
+      "evidence_status": "documented",
+      "notes": "The notes explicitly correct the protocol reference from item 28 to item 29 because 28 referred to role-name notes. This is erroneous documentary attribution of a correction, taking precedence over generic traceability. Declaring the correction does not turn the original erroneous reference into a deviation."
+    },
+    {
+      "id": "P1-015",
+      "primary_type": "8b defective control: false negative or blind",
+      "status": "defect",
+      "evidence_status": "documented",
+      "notes": "Register item 27 states both non-causal evaluation using an embedding adapted through the first week and a blocking control unable to detect it because it checked the frozen aggregate. Applying precedence rule (iii) literally to these jointly documented mechanisms gives 8b before leakage (1). If coding were restricted to the evaluation-window mechanism alone, 1 would apply; this scope ambiguity is retained explicitly."
+    },
+    {
+      "id": "P1-016",
+      "primary_type": "5 budget, selection and convergence",
+      "status": "defect",
+      "evidence_status": "documented",
+      "notes": "The commit and register identify one optimiser update per nominal epoch, with only 35 updates rather than full passes. This is an implemented training-budget mismatch, not a metric mismatch. The same commit contains a separate validation-coverage issue; it is not needed for this classification."
+    },
+    {
+      "id": "P1-020",
+      "primary_type": "2 indexing and alignment",
+      "status": "defect",
+      "evidence_status": "documented",
+      "notes": "Register item 6 explicitly identifies inclusion of row t0, corrected from 78 to 77 origins. This is an adaptation-window boundary/indexing error; the excerpt does not establish test-information leakage."
+    },
+    {
+      "id": "P1-030",
+      "primary_type": "4c scoring not comparable across configurations",
+      "status": "defect",
+      "evidence_status": "documented",
+      "notes": "The record and register describe a speed ratio with a pooled three-city numerator and a Melbourne-only denominator. The comparison mixes different configurations/contexts; paired within-city ratios are the stated correction. The generated erroneous claim is a consequence of the non-comparable calculation."
+    },
+    {
+      "id": "P1-033",
+      "primary_type": "2 indexing and alignment",
+      "status": "defect",
+      "evidence_status": "documented",
+      "notes": "The count selected all completed runs, including nine timing remeasurements outside the intended E3 launch. Restricting it to the 108 launch manifests and the result-producing execution fixes an incorrectly selected run population."
+    },
+    {
+      "id": "P1-035",
+      "primary_type": "1 leakage",
+      "status": "defect",
+      "evidence_status": "documented",
+      "notes": "Register item 21 explicitly states that sensor coverage over the full series, including test data, entered the static branch. Causal inputs remove this information leakage; the reported small numerical effect does not change the type."
+    },
+    {
+      "id": "P1-036",
+      "primary_type": "2 indexing and alignment",
+      "status": "defect",
+      "evidence_status": "documented",
+      "notes": "The descriptive table selected a previous set of weight files and only three of six PEMS08 partitions, instead of the files actually used. This is an artefact/population alignment error. Fingerprints improve the remedy, but the source states the incorrect selection mechanism rather than merely missing provenance."
+    },
+    {
+      "id": "P1-039",
+      "primary_type": "8a defective control: false positive",
+      "status": "defect",
+      "evidence_status": "documented",
+      "notes": "The comparator labelled identical (tau, N) choices different because it also compared validation wCE values differing by about 1e-9. This is an explicit false positive; control precedence applies before cross-machine numerical variation."
+    },
+    {
+      "id": "P1-044",
+      "primary_type": "10 environment and dependencies",
+      "status": "defect",
+      "evidence_status": "hypothesis",
+      "notes": "The summary attributes invalid runtime measurements to eight concurrent processes; the commit confirms replacement by isolated benchmarking but does not itself describe the contention mechanism. Environmental resource contention is the inferred primary type. No explicit process prohibition is supplied."
+    },
+    {
+      "id": "P1-050",
+      "primary_type": "7 provenance and traceability",
+      "status": "defect",
+      "evidence_status": "documented",
+      "notes": "The commit explicitly states that evaluation weights were untraced and describes replacement by a shared, fingerprinted artefact. The summary identifies the missing logging call, which is not independently shown. The separately mentioned unweighted training objective is outside this sampled logging problem."
+    },
+    {
+      "id": "P1-057",
+      "primary_type": "11 other",
+      "status": "defect",
+      "evidence_status": "documented",
+      "notes": "Other: computational-cost estimation omitted repeated full-period evaluations. The note explicitly calls the estimate wrong, not a deviation, and states that no parameter changed. This concerns runtime forecasting, not the training/selection/convergence budget in type 5; no wrong date, cause or attribution is identified."
+    },
+    {
+      "id": "P1-060",
+      "primary_type": "11 other",
+      "status": "defect",
+      "evidence_status": "hypothesis",
+      "notes": "Other: accidental duplicate launch, stopped after 35 seconds according to the summary, with no change to the real results. No verbatim text is supplied and the report flag is withheld. The unintended extra execution supports defect provisionally; no specific process rule is provided to justify violation."
+    },
+    {
+      "id": "P1-065",
+      "primary_type": "9 procedural violation",
+      "status": "violation",
+      "evidence_status": "hypothesis",
+      "notes": "The summary describes manual editing despite an explicit prohibition on editing the generated file by hand. Process-rule precedence gives type 9 and violation regardless of numerical effects. No verbatim text or diff is supplied, so the prohibition and action cannot be checked directly."
+    },
+    {
+      "id": "P1-066",
+      "primary_type": "4a metric declared != implemented",
+      "status": "defect",
+      "evidence_status": "hypothesis",
+      "notes": "The summary contrasts pooled horizon weights with the prescribed average of separately normalised per-horizon losses. This is a declared-versus-implemented metric mismatch. Only a withheld tag-diff count is available; no formula or implementation text is shown."
+    },
+    {
+      "id": "P1-067",
+      "primary_type": "6 unsupported statement in the text",
+      "status": "defect",
+      "evidence_status": "hypothesis",
+      "notes": "The F17 caption is described as making an unsupported universal ECE bound, replaced by the observed maximum. I treat the caption as manuscript text. No verbatim caption or printed entries are supplied, so its location and numerical contradiction remain summary-based."
+    },
+    {
+      "id": "P1-068",
+      "primary_type": "11 other",
+      "status": "defect",
+      "evidence_status": "hypothesis",
+      "notes": "Other: missing-value formatting in a cost-table generator. The summary states that absent timings were formatted as decimal numbers and then changed to --. It does not establish silent numerical substitution, a particular runtime exception, or a metric error. No verbatim evidence is supplied."
+    },
+    {
+      "id": "P4-001",
+      "primary_type": "4c scoring not comparable across configurations",
+      "status": "defect",
+      "evidence_status": "documented",
+      "notes": "Register item 23 explicitly shows each placement scored with its own class weights. Delta therefore combined prediction changes with changes to the scoring function. This is cross-configuration non-comparability, which takes precedence over 4b."
+    },
+    {
+      "id": "P4-005",
+      "primary_type": "7 provenance and traceability",
+      "status": "deviation",
+      "evidence_status": "hypothesis",
+      "notes": "The deviation fragment places the declaration after signature and before the run; the commit reports no per-figure CSVs. I provisionally interpret results.json and screen output as the declared replacement output format, a traceability/delivery choice without an established computational defect. The full declaration is truncated, so whether a required output remained unmet is uncertain."
+    },
+    {
+      "id": "P4-011",
+      "primary_type": "3 silent loss",
+      "status": "defect",
+      "evidence_status": "documented",
+      "notes": "Register item 22 documents fallback from sparse neighbour rows to a row without calendar information while the comparator retained the calendar. The fallback silently substitutes different information and confounds the comparison; no indexing/alignment error is stated. The loss function itself is not described as changing across configurations."
+    },
+    {
+      "id": "P4-019",
+      "primary_type": "2 indexing and alignment",
+      "status": "defect",
+      "evidence_status": "documented",
+      "notes": "The supplied note distinguishes 40 filtered sections, 30 multi-lane sections, and 29 multi-lane sections with defined AUC; 31 is obtainable only under a different population definition. The sampled count issue is a population mismatch. The untraced correlation and excluded-section claim in the shared register row are distinct mechanisms, the latter assessed under P4-021."
+    },
+    {
+      "id": "P4-021",
+      "primary_type": "7 provenance and traceability",
+      "status": "defect",
+      "evidence_status": "documented",
+      "notes": "The note and register state that the reported -45.1-point exclusion cannot occur under the preserved code and that no generator was found. This is an untraceable reported result. The affected text is a deliverable, not established as manuscript text, so type 6 is not used."
+    },
+    {
+      "id": "P4-026",
+      "primary_type": "11 other",
+      "status": "defect",
+      "evidence_status": "documented",
+      "notes": "Other: statistical uncertainty/reporting ambiguity. Register item 17 says between-lane interquartile ranges were presented merely as intervals; the correction labels them as IQRs and separately adds bootstrap intervals. The excerpt does not establish an incorrectly implemented metric or identify the deliverable text as manuscript text. Calling an IQR an interval is not mathematically false by itself; the documented defect is its insufficient interpretation."
+    },
+    {
+      "id": "P4-032",
+      "primary_type": "8b defective control: false negative or blind",
+      "status": "defect",
+      "evidence_status": "documented",
+      "notes": "Register item 13 explicitly documents the missing end-to-end generator self-test and addition outside the frozen code. The absent control leaves that class of generator errors unchecked. No actual missed numerical error or explicit breached process rule is established."
+    },
+    {
+      "id": "P4-033",
+      "primary_type": "7d documentary",
+      "status": "defect",
+      "evidence_status": "hypothesis",
+      "notes": "The summary describes correction of the named launcher in a preregistration field, indicating documentary attribution error and hence 7d precedence. The anonymised names are indistinguishable, and the commit does not describe that field correction. Actual unauthorised launching cannot be inferred."
+    },
+    {
+      "id": "P4-034",
+      "primary_type": "6 unsupported statement in the text",
+      "status": "defect",
+      "evidence_status": "hypothesis",
+      "notes": "The summary places the incorrect endpoint 1.073, corrected to 1.071, in the manuscript. This is an unsupported numerical statement in manuscript text. The commit mentions two precision fixes without the numbers, so the particular discrepancy is not directly evidenced by the verbatim excerpt."
+    },
+    {
+      "id": "P4-041",
+      "primary_type": "8b defective control: false negative or blind",
+      "status": "defect",
+      "evidence_status": "documented",
+      "notes": "Register item 7 explicitly states that the negative control changed weights, topology and connectivity together and therefore did not isolate geometry. This is a defective experimental control blind to the distinction it was intended to test. No particular false positive is established; control precedence is applied."
+    },
+    {
+      "id": "P4-046",
+      "primary_type": "7 provenance and traceability",
+      "status": "defect",
+      "evidence_status": "documented",
+      "notes": "Register item 5 explicitly states that the two cross-validation outputs were not preserved. Rerunning with retained outputs and fingerprints addresses missing traceability. The separate absent Table 66 generator is not needed to classify this sampled problem."
+    }
   ]
- },
- "date_started": "",
- "date_delivered": "",
- "problems": [
-  {
-   "id": "P1-002",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-003",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-004",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-007",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-010",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-013",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-015",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-016",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-020",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-030",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-033",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-035",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-036",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-039",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-044",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-050",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-057",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-060",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-065",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-066",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-067",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-068",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P4-001",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P4-005",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P4-011",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P4-019",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P4-021",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P4-026",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P4-032",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P4-033",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P4-034",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P4-041",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P4-046",
-   "primary_type": "",
-   "status": "",
-   "evidence_status": "",
-   "notes": ""
-  }
- ]
 }
