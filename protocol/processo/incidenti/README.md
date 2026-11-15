@@ -39,3 +39,11 @@ The external verification by EXT-01 (P0 §8) and the P2 audit by Frontiere and M
 - Excerpts quoted in the paper are English translations, each linked to the file, the commit and the original passage (section and, where needed, the date of the addendum or rectification). A quotation from a passage later superseded (e.g. I3 §7.1, superseded by the rectification of 2026-11-10) must say so in the paper.
 - Translations are checked to preserve the qualifications of evidence status: hypothesis, attributed recollection, conflict, not verified, documented.
 - If the external verifier (P0 §8, phase 6) does not read Italian, the materials they need are provided as side-by-side translations, each with the original commit, the public code of the translator and a fidelity check by a second person identified by code; the procedure is fixed in P0 before signature, the translations are prepared when needed.
+
+## External verification carried out (phase 6, part c)
+
+| Code | Date | Activity | Outcome | File |
+| --- | --- | --- | --- | --- |
+| EXT-01 | 2026-11-15 | documentary verification of `I3.md` at commit `46d29b8` on the original evidence (git objects at the P0 snapshots and cited commits; Spark JSON fingerprint and its 108-row maxima recomputed) | 51 claims: 27 confirmed, 14 not confirmed, 10 not checkable; evidence overstatements and alternative explanations listed | `EXT01_addendum_I3.md` (sha256 `1a5a6ee64e56df9e…`) |
+
+This is the first human external verification of a card. The card is unchanged; the addendum is read with it. Its findings on I3 (creation commit `f9290bb`, not `c7b42da`; «float32» applies to the probabilities, not to all aggregates; «22:00» is a commit time; no evidence for the hours of work, for the identity of the operator or for a contemporaneous role rule) take precedence over the card's original wording and over the preliminary addendum where they differ.

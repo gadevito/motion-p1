@@ -1,0 +1,28 @@
+EXT01 — Delivery note: existing part (b) and new part (c)
+Date: 2026-11-15 (Europe/Rome)
+
+Files
+- Part (b), existing and unchanged: ../part_b_ai_review/EXT01_form_phase.json
+  SHA-256: be2bd016bf4420dd7e252518f92b2553aa2ef588d3f08f050e1c01ece22f76e1
+  Its recorded delivery date is 2026-11-14. It contains 33 completed entries.
+- Part (c), newly written: EXT01_addendum_I3.md
+  SHA-256: 1a5a6ee64e56df9e882dde329dba08b7ee9feab0345f7f8d74897d6d8925d021
+  Reviewed card version: 46d29b840ee364e703fa20d2613ab3aa629fe15a.
+  51 separately assessed claims: 27 confirmed, 14 not confirmed,
+  10 not checkable. These are documentary judgments, not problem counts.
+
+
+Evidence and verification
+Sources were inspected as Git objects in the existing local clone of the public-origin
+repository, at the frozen main/paper4 snapshots and cited historical commits.
+No new clone was fetched and live public availability was not checked. The Spark
+JSON fingerprint and its 108-row summary calculations were verified; original
+experiments and historical execution environments were not rerun. The addendum
+includes a source key, per-claim outcomes, evidence overstatements, and alternatives.
+
+Local delivery checks passed: all 51 claim IDs are unique and sequential; every
+claim has one permitted outcome and an artefact finding. The existing phase form
+parses and has 33 populated entries with allowed values and notes. The original
+incident card and both existing EXT01 forms are byte-unchanged. No coordination
+acceptance or external_sample.py validation is asserted by this note. No card,
+register, resolved coding, or original submission was altered.

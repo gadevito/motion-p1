@@ -1,221 +1,221 @@
 {
- "verifier": "EXT-01",
- "part": "b: phase of introduction on the provenance package",
- "_allowed": {
-  "phase_of_introduction": [
-   "deliverable",
-   "regeneration",
-   "manuscript preparation",
-   "preliminary reconstruction",
-   "unknown"
-  ],
-  "evidence_status": [
-   "documented",
-   "attributed recollection",
-   "hypothesis",
-   "conflict"
+  "verifier": "EXT-01",
+  "part": "b: phase of introduction on the provenance package",
+  "_allowed": {
+    "phase_of_introduction": [
+      "deliverable",
+      "regeneration",
+      "manuscript preparation",
+      "preliminary reconstruction",
+      "unknown"
+    ],
+    "evidence_status": [
+      "documented",
+      "attributed recollection",
+      "hypothesis",
+      "conflict"
+    ]
+  },
+  "date_started": "2026-11-14",
+  "date_delivered": "2026-11-14",
+  "problems": [
+    {
+      "id": "P1-002",
+      "phase_of_introduction": "regeneration",
+      "evidence_status": "documented",
+      "notes": "C-main-DEV-002 (protocol/E4.md, aa9f478b3fa8, line 52) and C-main-REC-011 (CONGELAMENTO_E4.md, line 121) locate the revised duration grid in the E4 campaign design, declared before launch. This is a workflow campaign choice, not an inherited deliverable issue."
+    },
+    {
+      "id": "P1-003",
+      "phase_of_introduction": "regeneration",
+      "evidence_status": "documented",
+      "notes": "C-main-REC-013 (CONGELAMENTO_E5.md, aa9f478b3fa8, line 129), together with C-main-DEV-003/004 in protocol/E5.md, locates the six-seed choice in E5. The confirmation on 4 October concerns this workflow campaign; it does not identify the exact initial decision date."
+    },
+    {
+      "id": "P1-004",
+      "phase_of_introduction": "regeneration",
+      "evidence_status": "documented",
+      "notes": "C-main-REC-016 (CONGELAMENTO_E8.md, aa9f478b3fa8, line 274) explicitly attributes the incompatible validation requirement to protocol E8. C-main-GIT-041 (d90f9e09aab6, 2026-10-09) records the replacement threshold policy. The sampled mismatch arises in the E8 campaign design; this does not establish when the underlying embedding implementation was first written."
+    },
+    {
+      "id": "P1-007",
+      "phase_of_introduction": "regeneration",
+      "evidence_status": "documented",
+      "notes": "C-main-REG-030 (protocol/REGISTRO_CORREZIONI.md, aa9f478b3fa8, item 29) identifies the coarse AUC calculation as belonging to E8-bis, subsequently reevaluated by E18. C-main-GIT-004 records the later I1 reconstruction, not introduction of the AUC problem. The exact introducing commit is not supplied."
+    },
+    {
+      "id": "P1-010",
+      "phase_of_introduction": "manuscript preparation",
+      "evidence_status": "hypothesis",
+      "notes": "C-main-GIT-006 (4013add4099b, 2026-11-03) says the checker ceased to see the manuscript numbers after the manuscript was split into section files on 1 November. I assign the phase in which the incompatible document structure made the blind spot operative. The checker limitation may predate that split; the package does not give its original implementation history, so regeneration remains an alternative if introduction is defined by the latent limitation."
+    },
+    {
+      "id": "P1-013",
+      "phase_of_introduction": "regeneration",
+      "evidence_status": "documented",
+      "notes": "C-main-REC-006/008 (CONGELAMENTO_E18.md, aa9f478b3fa8, lines 5 and 343) locate the wrong item reference in signed protocol E18, section 1, line 61. This is campaign documentation, not a later incident-card reconstruction. The notes describe correction on 29 October but do not establish the exact original edit or resolve the sequence of item-number allocation."
+    },
+    {
+      "id": "P1-015",
+      "phase_of_introduction": "regeneration",
+      "evidence_status": "documented",
+      "notes": "C-main-REG-028 (protocol/REGISTRO_CORREZIONI.md, aa9f478b3fa8, item 27) locates both the non-causal evaluation window and the ineffective aggregate check in the E16 campaign implementation. C-main-GIT-023 (d7b9f509ce6f, 2026-10-28) records the E18 correction. Subsequent supplement updates are propagation of the correction, not introduction."
+    },
+    {
+      "id": "P1-016",
+      "phase_of_introduction": "regeneration",
+      "evidence_status": "documented",
+      "notes": "C-main-GIT-044 (904c6d1a7761, 2026-09-19) explicitly describes the workflow campaigns using 35 optimiser updates under an inconsistent protocol epoch label. C-main-REG-001 points to evoluzione/RETTIFICA_BUDGET.md. This locates the sampled budget mismatch in campaign execution; no exact introducing commit is claimed."
+    },
+    {
+      "id": "P1-020",
+      "phase_of_introduction": "unknown",
+      "evidence_status": "hypothesis",
+      "notes": "C-main-REG-006 (protocol/REGISTRO_CORREZIONI.md, aa9f478b3fa8, item 6) states that t0 was included and points to a supplement table through manoscritto-20261015f and NOTE_PER_GLI_AUTORI.md. It does not establish whether the wrong origin count first arose in adaptation code or in manuscript tabulation. C-main-GIT-021 merely consolidates the register. The phase of introduction cannot be determined from these sources."
+    },
+    {
+      "id": "P1-030",
+      "phase_of_introduction": "regeneration",
+      "evidence_status": "documented",
+      "notes": "C-main-REG-017 and C-main-REC-010 (aa9f478b3fa8, register item 17a and CONGELAMENTO_E3bis.md line 47) explicitly identify the E3-bis generator and its first record version as the source of the mixed-city ratio. C-main-GIT-040 (05b1be7ccc2b, 2026-10-10) is the correction, not the introducing commit."
+    },
+    {
+      "id": "P1-033",
+      "phase_of_introduction": "regeneration",
+      "evidence_status": "documented",
+      "notes": "C-main-REC-009 (CONGELAMENTO_E3.md, aa9f478b3fa8, line 102) and C-main-REG-020 (item 19) describe the E3 record-counting procedure including unrelated remeasurements. This is a campaign analysis/record-generation error. The full regeneration in C-main-GIT-038 detected it; detection does not establish its exact introduction date."
+    },
+    {
+      "id": "P1-035",
+      "phase_of_introduction": "unknown",
+      "evidence_status": "hypothesis",
+      "notes": "C-main-REG-022 (aa9f478b3fa8, item 21) documents full-series coverage entering the static branch, and C-main-GIT-025 (cc286a819da1, 2026-10-15) documents replacement by causal inputs after E14. These establish presence in the frozen campaigns and subsequent repair, but not whether the leaking calculation was inherited from deliverable code or introduced in the workflow. Tag candidates list affected paths without actual diffs. The originating phase remains unknown."
+    },
+    {
+      "id": "P1-036",
+      "phase_of_introduction": "regeneration",
+      "evidence_status": "documented",
+      "notes": "C-main-REG-024 (aa9f478b3fa8, item 23) places the wrong input selection in the frozen E6 class-frequency table. C-main-GIT-028 (f90ceafe78b0, 2026-10-13) identifies frequenze_classi.py and regeneration of the protocol table from the actual experimental artefacts. This is workflow table generation, not an inherited deliverable result."
+    },
+    {
+      "id": "P1-039",
+      "phase_of_introduction": "regeneration",
+      "evidence_status": "documented",
+      "notes": "C-main-REG-027 and C-main-REC-004 (aa9f478b3fa8, item 26 and CONGELAMENTO_E14B.md line 342) identify the first E14-B record generator as comparing the full choice record. The note says the error was found during manuscript drafting, which is the detection phase rather than its origin. C-main-GIT-027 records the 15 October repair."
+    },
+    {
+      "id": "P1-044",
+      "phase_of_introduction": "regeneration",
+      "evidence_status": "documented",
+      "notes": "C-main-GIT-043 (c25495cdb6b8, 2026-09-22) explicitly describes correction of measurements taken during phase E, with isolated benchmarking. This locates the invalid measurement episode in workflow campaigns. The excerpt does not independently document the summary's exact number of competing processes or the original measurement date."
+    },
+    {
+      "id": "P1-050",
+      "phase_of_introduction": "regeneration",
+      "evidence_status": "documented",
+      "notes": "C-main-GIT-049 (4525efa1f5f7, 2026-09-17) explicitly identifies untraced evaluation weights in the first campaign and introduces a shared weight artefact. C-main-GIT-048 describes the history of three raccordo campaigns. The omission therefore belongs to workflow campaign execution, rather than the subsequent record of its correction."
+    },
+    {
+      "id": "P1-057",
+      "phase_of_introduction": "regeneration",
+      "evidence_status": "documented",
+      "notes": "C-main-REC-012 (CONGELAMENTO_E4.md, aa9f478b3fa8, line 122) explicitly identifies the erroneous cost estimate as the E4 protocol estimate, omitting repeated evaluations. It arose in workflow campaign planning; the reported runtime is evidence of the discrepancy, not its introduction date."
+    },
+    {
+      "id": "P1-060",
+      "phase_of_introduction": "regeneration",
+      "evidence_status": "hypothesis",
+      "notes": "The summary places the accidental duplicate launch during l-pub2 regeneration. C-main-RPT-001 points to protocol/spark/CONFRONTO_paper1-freeze-20261030l-pub2.md, line 5, consistent with that phase. No report text, commit or execution record is included, so this remains a summary-based assignment."
+    },
+    {
+      "id": "P1-065",
+      "phase_of_introduction": "regeneration",
+      "evidence_status": "hypothesis",
+      "notes": "The summary identifies manual editing of the generated regeneration report. C-main-TAG-015 locates analysis/rigenerazione/CONFRONTO.md, but supplies only a count of tag pairs, not the diff or introducing commit. I infer introduction while maintaining a workflow record; the phase is not established by the reviewer role."
+    },
+    {
+      "id": "P1-066",
+      "phase_of_introduction": "manuscript preparation",
+      "evidence_status": "hypothesis",
+      "notes": "The summary concerns the F17 manuscript-table loss calculation, and C-main-TAG-017 points to analysis/tabelle_suppl.py. I infer introduction during preparation of supplementary tables. Only a tag-pair count is supplied, so the package does not establish whether an earlier campaign calculation was inherited; regeneration is an alternative."
+    },
+    {
+      "id": "P1-067",
+      "phase_of_introduction": "manuscript preparation",
+      "evidence_status": "hypothesis",
+      "notes": "The summary locates the unsupported ECE bound in the F17 caption; C-main-TAG-017 points to analysis/tabelle_suppl.py. This supports manuscript-caption preparation as the inferred origin. The actual caption diff and its introducing commit are absent."
+    },
+    {
+      "id": "P1-068",
+      "phase_of_introduction": "manuscript preparation",
+      "evidence_status": "hypothesis",
+      "notes": "C-main-TAG-017 points to analysis/tabelle_suppl.py, while the summary identifies formatting of absent timings in an E15 cost table. I infer introduction in supplementary-table presentation, rather than timing measurement. The package contains no diff establishing the original implementation, so regeneration remains an alternative."
+    },
+    {
+      "id": "P4-001",
+      "phase_of_introduction": "regeneration",
+      "evidence_status": "documented",
+      "notes": "C-paper4-REG-023 (protocol/paper4/REGISTRO_CORREZIONI.md, ef31396c28cf, item 23) locates design-specific scoring in paper4/code/e10pred.py, cell_for, line 337, and distinguishes E10-pred from its corrective rerun. C-main-GIT-003 is the later I2 reconstruction; it did not introduce the scoring issue."
+    },
+    {
+      "id": "P4-005",
+      "phase_of_introduction": "regeneration",
+      "evidence_status": "documented",
+      "notes": "C-paper4-DEV-003 (protocol/paper4/P4A.md, ef31396c28cf, line 228) places the output-format issue in signed p4a.py and dates the declaration 2026-11-08, after signature and before the run. C-paper4-GIT-014 (e53d3cb235c0) confirms the missing per-figure CSVs. The declaration is truncated, but the P4A workflow location is explicit."
+    },
+    {
+      "id": "P4-011",
+      "phase_of_introduction": "regeneration",
+      "evidence_status": "documented",
+      "notes": "C-paper4-REG-022 (ef31396c28cf, item 22) explicitly locates the asymmetric fallback in E12-ter, with E12-quater used to measure the correction. Manuscript analysis and internal review detected the issue, but its mechanism belongs to the campaign computation."
+    },
+    {
+      "id": "P4-019",
+      "phase_of_introduction": "deliverable",
+      "evidence_status": "documented",
+      "notes": "C-paper4-REG-020 (ef31396c28cf, item 20) explicitly identifies the section-count discrepancy as a defect of the deliverable, distinguishing the brief's 31 sections from the reconstructed populations. C-paper4-REC-005 documents the later diagnosis; neither the November correction nor the new paper table is the origin."
+    },
+    {
+      "id": "P4-021",
+      "phase_of_introduction": "deliverable",
+      "evidence_status": "documented",
+      "notes": "C-paper4-REC-005 and C-paper4-REG-020 (ef31396c28cf, CONGELAMENTO_4A.md line 159 and register item 20) explicitly attribute the impossible -45.1-point exclusion to the deliverable. Failure to find its original generator limits causal reconstruction, but does not erase the documented phase in which the claim already existed."
+    },
+    {
+      "id": "P4-026",
+      "phase_of_introduction": "deliverable",
+      "evidence_status": "documented",
+      "notes": "C-paper4-REG-017 (ef31396c28cf, item 17) identifies the ambiguous interval statement on deliverable page 131 and Table 69 and explicitly labels it a deliverable defect. C-paper4-REC-003 confirms that provenance. Later Part A reporting separates IQRs from bootstrap intervals."
+    },
+    {
+      "id": "P4-032",
+      "phase_of_introduction": "regeneration",
+      "evidence_status": "documented",
+      "notes": "C-paper4-REG-013 (ef31396c28cf, item 13) identifies the omission in frozen e12.py and addition of checks in paper4/code/verifica_e12.py before the campaign. The omission therefore belongs to workflow code preparation/freezing, even though it was remedied before execution. The later register commit is not the introduction."
+    },
+    {
+      "id": "P4-033",
+      "phase_of_introduction": "regeneration",
+      "evidence_status": "hypothesis",
+      "notes": "The summary places the wrong launcher name in E9 preregistration. C-paper4-GIT-018 (0be7e7aeaabf, 2026-11-07) concerns the E9 launch and a deviation, but does not reproduce the field change. I infer campaign-protocol preparation as the origin; the supplied commit message alone does not verify the original attribution or its date."
+    },
+    {
+      "id": "P4-034",
+      "phase_of_introduction": "manuscript preparation",
+      "evidence_status": "hypothesis",
+      "notes": "The summary identifies the incorrect endpoint in the E11 manuscript text. C-paper4-GIT-019 (646332df6dda, 2026-11-06) describes two precision fixes in the E9/E11 section, consistent with manuscript preparation. The excerpt does not show the numerical change or establish whether it was copied from an earlier record."
+    },
+    {
+      "id": "P4-041",
+      "phase_of_introduction": "deliverable",
+      "evidence_status": "documented",
+      "notes": "C-paper4-REG-007 (ef31396c28cf, item 7) explicitly locates the confounded negative control in the deliverable, citing make_geo_sweep.py:49 and models/gomo_sparse.py:149. E11 is the corrective workflow design. C-paper4-GIT-024 records the later diagnosis rather than introduction."
+    },
+    {
+      "id": "P4-046",
+      "phase_of_introduction": "deliverable",
+      "evidence_status": "documented",
+      "notes": "C-paper4-REG-005 (ef31396c28cf, item 5) describes missing outputs of the original README commands and contrasts them with preserved outputs from rerunning the deliverable analyses in protocol/paper4/fase1/CROSSVAL_rigenerato.md. This locates the missing provenance in the inherited deliverable materials; the exact loss or non-preservation date is not given."
+    }
   ]
- },
- "date_started": "",
- "date_delivered": "",
- "problems": [
-  {
-   "id": "P1-002",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-003",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-004",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-007",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-010",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-013",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-015",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-016",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-020",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-030",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-033",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-035",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-036",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-039",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-044",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-050",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-057",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-060",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-065",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-066",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-067",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P1-068",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P4-001",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P4-005",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P4-011",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P4-019",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P4-021",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P4-026",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P4-032",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P4-033",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P4-034",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P4-041",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  },
-  {
-   "id": "P4-046",
-   "phase_of_introduction": "",
-   "evidence_status": "",
-   "notes": ""
-  }
- ]
 }

@@ -1,0 +1,10 @@
+primary_type: raw 29/33, chance 0.09, kappa 0.87
+  P1-015: EXT-01 '8b defective control: false negative or blind' vs resolved '1 leakage'
+  P1-030: EXT-01 '4c scoring not comparable across configurations' vs resolved '2 indexing and alignment'
+  P1-036: EXT-01 '2 indexing and alignment' vs resolved '7 provenance and traceability'
+  P4-026: EXT-01 '11 other' vs resolved '7 provenance and traceability'
+status: raw 33/33, chance 0.78, kappa 1.00
+phase_of_introduction: raw 30/33, chance 0.46, kappa 0.83
+  P1-020: EXT-01 'unknown' vs resolved 'regeneration'
+  P1-035: EXT-01 'unknown' vs resolved 'deliverable'
+  P1-065: EXT-01 'regeneration' vs resolved 'manuscript preparation'
