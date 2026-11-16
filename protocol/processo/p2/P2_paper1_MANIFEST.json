@@ -1,0 +1,935 @@
+{
+ "meta": {
+  "paper": "paper1",
+  "tag": "paper1-freeze-20261103q",
+  "commit": "d327eb19046754f7ac2f122652b973ed68ba0eb6",
+  "files": 175,
+  "excluded": 766,
+  "exclusion_rules": [
+   "protocol/REGISTRO_CORREZIONI.md",
+   "protocol/register_of_corrections.en.md",
+   "protocol/paper4/REGISTRO_CORREZIONI.md",
+   "protocol/RISCRITTURA_STORIA.md",
+   "protocol/SUMMARIES.en.md",
+   "protocol/paper4/SUMMARIES.en.md",
+   "protocol/spark/*",
+   "protocol/zenodo/*",
+   "protocol/processo/*",
+   "protocol/paper4/zenodo/*",
+   "protocol/paper4/fase1/*",
+   "protocol/paper4/fase2/*",
+   "protocol/e14b/*",
+   "protocol/e18/*",
+   "protocol/e15/*",
+   "CONGELAMENTO_*",
+   "genera_congelamento_*.py",
+   "paper4/congelamenti/*",
+   "paper4/zenodo/*",
+   "analysis/rigenerazione/*",
+   "paper4/analysis/regeneration/*",
+   "paper4/analysis/rigenerazione/*",
+   "analysis/CONFRONTO.md",
+   "paper4/analysis/CONFRONTO.md",
+   "paper4/analysis/reports/*",
+   "evoluzione/*.md",
+   "evoluzione/**/*.md",
+   "evoluzione/MoGERNN-main/*",
+   "evoluzione/audit/*",
+   "results/*",
+   "data_collection/*",
+   "paper4/runs/*",
+   "paper4/manuscript/*",
+   "paper1/*",
+   "README.md",
+   "README.it.md",
+   "GLOSSARY.en.md",
+   "NOTE_PER_GLI_AUTORI.md",
+   "inventario.py"
+  ],
+  "scope": [
+   "analysis/",
+   "evoluzione/",
+   "protocol/",
+   "pyproject.toml",
+   "poetry.lock",
+   "LICENSE"
+  ]
+ },
+ "files": [
+  {
+   "path": "analysis/impronte.py",
+   "bytes": 8967,
+   "sha256": "cafa4e13066b141f8f3c77e07e40a862d680e1e01424c5b527bea45287790b37"
+  },
+  {
+   "path": "analysis/main.py",
+   "bytes": 62605,
+   "sha256": "a66c5a7c543e825f9121e020eab0633d44aaa6f975213f38e0c717f87e73183e"
+  },
+  {
+   "path": "analysis/tabelle_paper1.py",
+   "bytes": 21844,
+   "sha256": "f3f82701184ac56a0790c17c7c7c4cf098600ad130495b74d02b70d2f47232cc"
+  },
+  {
+   "path": "analysis/tabelle_suppl.py",
+   "bytes": 57515,
+   "sha256": "0ec6ec154d84e1e952f52d8dae2d12c22152e4dbd35a48938237b8e6f276342f"
+  },
+  {
+   "path": "evoluzione/__init__.py",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "evoluzione/analisi/__init__.py",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "evoluzione/analisi/analizza_adeguatezza.py",
+   "bytes": 6138,
+   "sha256": "28dac4c59006b7ba723e78cc7f538d988dbd331030518176f8c5f751df91da43"
+  },
+  {
+   "path": "evoluzione/analisi/analizza_copertura_e4.py",
+   "bytes": 11845,
+   "sha256": "0269f7763aa09d4d362b376b65007bfa1aaa06642505bf89398b451c4afb4721"
+  },
+  {
+   "path": "evoluzione/analisi/analizza_e17.py",
+   "bytes": 11178,
+   "sha256": "3ed68f1488c4506d3819fa05c4e716b95864cbe20d106c7a0fdcf6a87155a8df"
+  },
+  {
+   "path": "evoluzione/analisi/analizza_e18.py",
+   "bytes": 47673,
+   "sha256": "66ee8ff7d7bfaf88b821cd72b64ad73c059bfc40094b6f41b00463d92cd71736"
+  },
+  {
+   "path": "evoluzione/analisi/analizza_e18ter.py",
+   "bytes": 21307,
+   "sha256": "0038812ad4e09695e6706a146845e934aef09beb0ceb73428e5fc565a2da593e"
+  },
+  {
+   "path": "evoluzione/analisi/analizza_e2.py",
+   "bytes": 6952,
+   "sha256": "d50afaf7aad4534ce604185343ab0684865bcbf880fc27015fd98128ef6a25f9"
+  },
+  {
+   "path": "evoluzione/analisi/analizza_e3.py",
+   "bytes": 10316,
+   "sha256": "a591fde2f22d251fda30b9da924a63073c3bd02ec51037550ae85e880209f6d2"
+  },
+  {
+   "path": "evoluzione/analisi/analizza_e3bis.py",
+   "bytes": 7127,
+   "sha256": "c4d791c24eedded9682d83abef6e40439c2819a0d7620b097ba8fee574852e00"
+  },
+  {
+   "path": "evoluzione/analisi/analizza_e4.py",
+   "bytes": 11388,
+   "sha256": "702ea9be1dac34901559756ad5ae68270a46998440d58222de3c30280a8f3eb2"
+  },
+  {
+   "path": "evoluzione/analisi/analizza_e5.py",
+   "bytes": 6116,
+   "sha256": "b85d5af32a602af6a2486cb6814f88a7600f9c9548332e44f62c204b42599be5"
+  },
+  {
+   "path": "evoluzione/analisi/analizza_f0.py",
+   "bytes": 4323,
+   "sha256": "5a30fd2faaa35daf81870924a2a3da3d543f042d81b603c90cb38da30701bac5"
+  },
+  {
+   "path": "evoluzione/analisi/analizza_inserimento.py",
+   "bytes": 7181,
+   "sha256": "45d68a183d3ff48677b11255ae0af38923b6e9d547e8819ed2703156c883fd32"
+  },
+  {
+   "path": "evoluzione/analisi/analizza_raccordo.py",
+   "bytes": 17408,
+   "sha256": "6066183070b05775d79db8bd250419e990e364d596eff1d8331a1de9312c61e3"
+  },
+  {
+   "path": "evoluzione/analisi/analizza_refresh.py",
+   "bytes": 11418,
+   "sha256": "9ae9eb4d6e65de7cab1543d10e4f9b2126ab35c57a90ec0007c47e97ad1b745d"
+  },
+  {
+   "path": "evoluzione/analisi/analizza_sensibilita.py",
+   "bytes": 7900,
+   "sha256": "5e6d8b933af41a04b8b77a6247b1a518aafff5837d14a470767a4a32864b0d0c"
+  },
+  {
+   "path": "evoluzione/analisi/analizza_veterani_e3.py",
+   "bytes": 5100,
+   "sha256": "d51ff7c1953d9fc29f7291f6d8d8d7c22a3533050cc0939e47d76a465210f9ed"
+  },
+  {
+   "path": "evoluzione/analisi/architettura_ck.py",
+   "bytes": 5954,
+   "sha256": "9b5e0dc34c78744727d24d54b5790762dcaeb7c6245f9f7476cd37319e582743"
+  },
+  {
+   "path": "evoluzione/analisi/classi_per_sensore.py",
+   "bytes": 6449,
+   "sha256": "8b8cb7c5ee1fe2655ab9d6c7ef740ab4b6139859866f86cdb8866292f18fbd2b"
+  },
+  {
+   "path": "evoluzione/analisi/collauda_pesi.py",
+   "bytes": 8245,
+   "sha256": "c00ec536508d29f1f69e6be7984aae75e3f57df5c8cca663ac6c084f02aa0a70"
+  },
+  {
+   "path": "evoluzione/analisi/collauda_ricampionamento.py",
+   "bytes": 5066,
+   "sha256": "b5c38dcc2a849de0babf0f96630980b16b5cd485bff2547a0b9f3ce70387935b"
+  },
+  {
+   "path": "evoluzione/analisi/confronta_campagne.py",
+   "bytes": 8558,
+   "sha256": "4e3cfe827c3362ea4652a7c99e648c1fa85fb6dd246f2d4f5bcb99022076318d"
+  },
+  {
+   "path": "evoluzione/analisi/correzione_difetto_23.py",
+   "bytes": 5364,
+   "sha256": "decd22dc0b46b5a8bea7bf27b228318a03bb60e960a8ec4a373b91306eb22a49"
+  },
+  {
+   "path": "evoluzione/analisi/costi_e3.py",
+   "bytes": 3090,
+   "sha256": "c71f3f1ca388a3cbc487c54702b897f1c662be9c831b04dac23f4818f1fc4b1a"
+  },
+  {
+   "path": "evoluzione/analisi/diagnostica_dispersione.py",
+   "bytes": 1879,
+   "sha256": "0c3f58e57bf399fb640a0d1052165f77b331b20c7eed899b1c23835c45ca20dd"
+  },
+  {
+   "path": "evoluzione/analisi/diagnostica_posthoc.py",
+   "bytes": 13831,
+   "sha256": "6d6aefee7fbce714ecd137f63a7d65b9894f6c2195986e6e82bba1749056f142"
+  },
+  {
+   "path": "evoluzione/analisi/e14_stadio0.py",
+   "bytes": 9581,
+   "sha256": "132160382d964d007b65f0e4779e1a8c31a1524eb29b52058384402ddb58463a"
+  },
+  {
+   "path": "evoluzione/analisi/e14b_fascio.py",
+   "bytes": 4154,
+   "sha256": "eac26100aed07b7902e603a163a128bbae41ba5ee181d0927a2d403172465c40"
+  },
+  {
+   "path": "evoluzione/analisi/e14b_livelli.py",
+   "bytes": 6082,
+   "sha256": "e2029b28532b3bdb8473c076d3fe78dddcdfa05cce62904d0e9c91b950dbb89f"
+  },
+  {
+   "path": "evoluzione/analisi/e7_posthoc.py",
+   "bytes": 6568,
+   "sha256": "ab62ffb9a8b69a4985c62a5d15ad15b59cb2a79e71a462873546978cbf58356f"
+  },
+  {
+   "path": "evoluzione/analisi/e7_stadio1.py",
+   "bytes": 13960,
+   "sha256": "fab3034c6cf470c92eb8fd26f79ae139ea0dc8fffc153222b72c2e0ae93e08da"
+  },
+  {
+   "path": "evoluzione/analisi/effetto_ricampionamento.py",
+   "bytes": 5697,
+   "sha256": "51504405460af74e8fcd9d67262321650f8563a1479422db32262122036e227f"
+  },
+  {
+   "path": "evoluzione/analisi/figura2_51.py",
+   "bytes": 6019,
+   "sha256": "fb045a417e327b2a82edb01a6d244f9d94e7763a15296e2d63cbfdac002b99c3"
+  },
+  {
+   "path": "evoluzione/analisi/figura_cronologia.py",
+   "bytes": 5711,
+   "sha256": "7e73ffa6a1702cac7fe9abf5769c927da9f1e3b0011fca7e65dca27ceca5783f"
+  },
+  {
+   "path": "evoluzione/analisi/figura_e8bis.py",
+   "bytes": 4471,
+   "sha256": "13afd491f2d9c795bc76c9d440c6a0e33f4bb5652d61ece97c4284069be75b5e"
+  },
+  {
+   "path": "evoluzione/analisi/figura_rete.py",
+   "bytes": 14603,
+   "sha256": "05259304e56ad9ce78e9df0222aceecdd929047770c657ffe88ef6c6d362bafe"
+  },
+  {
+   "path": "evoluzione/analisi/frequenze_classi.py",
+   "bytes": 3606,
+   "sha256": "82aa3ef8657fa0fcc93317e996fd714718402dbd66141d7509dc88cb5f0fde80"
+  },
+  {
+   "path": "evoluzione/analisi/pesi.py",
+   "bytes": 7404,
+   "sha256": "523769860117b3d082ab5d8fef6b46b7acf138c5a8a150f4d6740bdd6a96c7dc"
+  },
+  {
+   "path": "evoluzione/analisi/ricampionamento.py",
+   "bytes": 6076,
+   "sha256": "665a120d30e2cf9b97471ce89e47dd837d193f3db593e83c97b141cbbe7e2a60"
+  },
+  {
+   "path": "evoluzione/analisi/riproducibilita_spark.py",
+   "bytes": 4617,
+   "sha256": "94f5173cc56704642627a1e02e98354377ae70490df6d19b730cb08be1b2587e"
+  },
+  {
+   "path": "evoluzione/analisi/riselezione_rmon.py",
+   "bytes": 5085,
+   "sha256": "d0552d186bccad665ea124a81ac74035368af8c76fc35fab0ab5ef9c2eb0d14e"
+  },
+  {
+   "path": "evoluzione/analisi/scheda_fatti.py",
+   "bytes": 22253,
+   "sha256": "d1633f128e11aaa4ba5f6596873768274b2ba281e4597357ba7896c6938bd605"
+  },
+  {
+   "path": "evoluzione/analisi/sensibilita_incrociata.py",
+   "bytes": 8543,
+   "sha256": "883cfc4be9e24e911397ffd09ccc349c17b8f7009c356cf28a5cc32141e96792"
+  },
+  {
+   "path": "evoluzione/analisi/settimana_vs_A_e5.py",
+   "bytes": 6174,
+   "sha256": "ef2ceb4812f93353d65f00e6caa8f79e31161547e906c4096aa089a295052c91"
+  },
+  {
+   "path": "evoluzione/analisi/stabilita_bootstrap.py",
+   "bytes": 8213,
+   "sha256": "b66d1406d8e101af04e1d346c952c2e8bff3965cf18e65b084c35348fd57ca54"
+  },
+  {
+   "path": "evoluzione/analisi/stile_paper.py",
+   "bytes": 1216,
+   "sha256": "31b49d0ab5ead3ecff5667f499d88bed630b3066a1cd60634b8b75c010a4e38a"
+  },
+  {
+   "path": "evoluzione/analisi/verifica_appaiamento.py",
+   "bytes": 4884,
+   "sha256": "e8869fa4589e09f9165dd09a84aa0a72b6a55cb3c0091060d9dd841ef7bab7cf"
+  },
+  {
+   "path": "evoluzione/componente/__init__.py",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "evoluzione/componente/adattamento.py",
+   "bytes": 9698,
+   "sha256": "ce88e086bcbdddba085a559fc1910eb7c691e38b1644fb5d2ec012f9401fb32e"
+  },
+  {
+   "path": "evoluzione/componente/bracci.py",
+   "bytes": 10728,
+   "sha256": "a3ff6ab7b913926f1c3e87380cfd9ea2b57a3f9856c426ffbb207ef89cbcc174"
+  },
+  {
+   "path": "evoluzione/componente/campionamento.py",
+   "bytes": 9652,
+   "sha256": "d45b2980a89a570fc56883553b7af84879881f0bf6e68203b088c3a9cb89f6c0"
+  },
+  {
+   "path": "evoluzione/componente/canonico.py",
+   "bytes": 9953,
+   "sha256": "13159f040bde67f1184755802dfe721214e268be3d237324c272101ba53e99d4"
+  },
+  {
+   "path": "evoluzione/componente/collauda_encoder.py",
+   "bytes": 8528,
+   "sha256": "498d292d3ce91cb4096dbde5fb61ac0055fdccc751c34eea44d8a1490b445da1"
+  },
+  {
+   "path": "evoluzione/componente/collauda_estrattore.py",
+   "bytes": 15129,
+   "sha256": "afd47a90f01f17ccf775ea8ce9aa744273d1556a9ab03e03072aa21d51705774"
+  },
+  {
+   "path": "evoluzione/componente/collauda_normalizzazione.py",
+   "bytes": 7463,
+   "sha256": "105cab0259a95997879d63bad4a090ba787fa63b0da326757125523f4f193ff5"
+  },
+  {
+   "path": "evoluzione/componente/collauda_predittore.py",
+   "bytes": 13033,
+   "sha256": "3edccda19b8f53bb9fcb4ead5e2bcd627b832031176b00bb8391a47e7603ebbd"
+  },
+  {
+   "path": "evoluzione/componente/collauda_rapporto.py",
+   "bytes": 7587,
+   "sha256": "166af3a5b1cac4e8439487c8bd65146d173d39ced99f5737de322d8f2be3a6d3"
+  },
+  {
+   "path": "evoluzione/componente/collauda_registro.py",
+   "bytes": 7049,
+   "sha256": "470dea7adc4030cdadb470dcbd6c15878f586b96a30c320425f3939e42fd8e2f"
+  },
+  {
+   "path": "evoluzione/componente/collauda_riferimento.py",
+   "bytes": 4950,
+   "sha256": "296b3ad3c8672c8f25e6546dd8d71628074fb49b5877c77154127fa42ef5b111"
+  },
+  {
+   "path": "evoluzione/componente/collauda_token_ignoto.py",
+   "bytes": 2905,
+   "sha256": "3fb1316463d81cd51199af6b0828f3d90897ebb108729f696d087d1919517016"
+  },
+  {
+   "path": "evoluzione/componente/corpus.py",
+   "bytes": 8131,
+   "sha256": "350fb2fbce1fb80a4fe69fd7c75905dd79d205be62bf0c0d06bdf4012136a1ed"
+  },
+  {
+   "path": "evoluzione/componente/encoder.py",
+   "bytes": 6333,
+   "sha256": "eb0d751ebad4dca7d92ce40196db2dc40f4ae68b758afbc935cea51883e47d5f"
+  },
+  {
+   "path": "evoluzione/componente/episodio.py",
+   "bytes": 5104,
+   "sha256": "95f99cfdb5a070a6ddd326acd1a5225d88b9f9503818fadc74876519328292ee"
+  },
+  {
+   "path": "evoluzione/componente/estrattore.py",
+   "bytes": 19413,
+   "sha256": "8b5ebeb324fff585e4cce5e8302dc241a560fbf46032f3f30485f132ee620c29"
+  },
+  {
+   "path": "evoluzione/componente/estrattore_incrementale.py",
+   "bytes": 13101,
+   "sha256": "3593854aa621e2403a2e941b449451d604831558293542338c0c05445794995a"
+  },
+  {
+   "path": "evoluzione/componente/griglia.py",
+   "bytes": 5618,
+   "sha256": "dc4c8857bba94dc12f2556d28d6dafe4535fd3f0d0493937b9e63d7de532cc81"
+  },
+  {
+   "path": "evoluzione/componente/identita.py",
+   "bytes": 15044,
+   "sha256": "e13498ad4f3aea184155ba037235fc405b3887507de7c90b1236ab9891062aad"
+  },
+  {
+   "path": "evoluzione/componente/normalizzazione.py",
+   "bytes": 8601,
+   "sha256": "4b00076d79be99c9009884b9e10da5e1bc8a4165b8fced1696d225a82e9fcfeb"
+  },
+  {
+   "path": "evoluzione/componente/predittore.py",
+   "bytes": 13237,
+   "sha256": "805d9dac9ab150c34fe03e18596dc17af47d8aff153a962c6730a8c714a0a14b"
+  },
+  {
+   "path": "evoluzione/componente/rapporto.py",
+   "bytes": 5174,
+   "sha256": "eded37b082a498eaa59c3ef5db365e0641c42aa1fea1f18f1eb2a7981d9b48d9"
+  },
+  {
+   "path": "evoluzione/componente/registro.py",
+   "bytes": 15226,
+   "sha256": "5c58700a477ead52d7a5d932e090bc6764c32063b27b0f1dd918df208922b3d5"
+  },
+  {
+   "path": "evoluzione/componente/riferimento.py",
+   "bytes": 7948,
+   "sha256": "7922792eced86326960af64a1c7564e755a137fa77ddb27e1f3baf4917e0bfb3"
+  },
+  {
+   "path": "evoluzione/componente/valutazione.py",
+   "bytes": 8724,
+   "sha256": "c893c9a5d84824a50f3ba841521093889400af75686a50b4e6a9000a048ed175"
+  },
+  {
+   "path": "evoluzione/componente/verifica_reale.py",
+   "bytes": 8072,
+   "sha256": "3ef25c80fb71528cd18c4a6337309e93077ed66576d753dbf6e7d5da16d71c1b"
+  },
+  {
+   "path": "evoluzione/esperimenti/__init__.py",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "evoluzione/esperimenti/addestramento.py",
+   "bytes": 51937,
+   "sha256": "7044f877b60d3a38192a290554493d0ccd4ab2de77a880e1c6ca55020b3653d8"
+  },
+  {
+   "path": "evoluzione/esperimenti/adeguatezza_E1.py",
+   "bytes": 10628,
+   "sha256": "d006022ce5529bd7f99a0d83edaf0d350a4f12ba3ef2228a959072f95ab7d812"
+  },
+  {
+   "path": "evoluzione/esperimenti/audit_ciclo.py",
+   "bytes": 5691,
+   "sha256": "bb32907487180bc599d8ba24554d8be140245e53cca811e717a704f8ae62912d"
+  },
+  {
+   "path": "evoluzione/esperimenti/calendario.py",
+   "bytes": 7143,
+   "sha256": "2a4a573181df7a1066accd0727e49b5c6f2fe1a12899d43748a9c6eca0c55b70"
+  },
+  {
+   "path": "evoluzione/esperimenti/calendario_pems04.py",
+   "bytes": 3914,
+   "sha256": "b3ba07cfc62e8d53b62a2a47ee80c97b403c4b3f8e22b995690035b412357a15"
+  },
+  {
+   "path": "evoluzione/esperimenti/calendario_pems08.py",
+   "bytes": 5205,
+   "sha256": "35bc7585e87324549e900a614700ccad58a950f6c4a390c3a508d2c5ce0a0904"
+  },
+  {
+   "path": "evoluzione/esperimenti/collauda_appaiamento.py",
+   "bytes": 10907,
+   "sha256": "a76aab2e54cbf645579d6ac1981139f566f0d886ec3e4742a47925b86f3e6d9e"
+  },
+  {
+   "path": "evoluzione/esperimenti/collauda_bracci.py",
+   "bytes": 16986,
+   "sha256": "bb83feeab1d5049d690ed064c5cebc7a0ad8977576f3fda5078893776c286a42"
+  },
+  {
+   "path": "evoluzione/esperimenti/collauda_griglia.py",
+   "bytes": 9333,
+   "sha256": "1a44fa4736a7790cdbd3677fe30de6b56259f6476fde72c45c6123f1e685a31b"
+  },
+  {
+   "path": "evoluzione/esperimenti/collauda_identita.py",
+   "bytes": 12837,
+   "sha256": "16522ebe2c0b350255a5f9ae271314d878a78ecc0311fdb1465efa753a2ff3b8"
+  },
+  {
+   "path": "evoluzione/esperimenti/collauda_integrazione.py",
+   "bytes": 11698,
+   "sha256": "0edb37cfff6dc5e24f205d8402a17f10a4a93f20156baf40be65da9ca071ee7b"
+  },
+  {
+   "path": "evoluzione/esperimenti/collauda_maschere.py",
+   "bytes": 10338,
+   "sha256": "49756560ab20e7d8671679456ef3147d0e38f6fa817c6aa301e1796d4bca129a"
+  },
+  {
+   "path": "evoluzione/esperimenti/collauda_pems04.py",
+   "bytes": 7291,
+   "sha256": "a0c87efec52bfa91dca50f1419f92c05863fd3afcac0fb2fbd3b65ab2ed955e5"
+  },
+  {
+   "path": "evoluzione/esperimenti/collauda_politica_ck.py",
+   "bytes": 4348,
+   "sha256": "4be1c133127321775f754a8de06a41435111030722e4fd44a03a3aeaf7f53c81"
+  },
+  {
+   "path": "evoluzione/esperimenti/collauda_protocolli.py",
+   "bytes": 5620,
+   "sha256": "5b8626c7fb49eef24f045e31f5a5aab4ddf83cad1d8330055ff47be8aaf3a531"
+  },
+  {
+   "path": "evoluzione/esperimenti/collauda_ripresa.py",
+   "bytes": 5841,
+   "sha256": "426f93994a66930a98d82fde23d033304509967ae1916565af3ec16dcb046f52"
+  },
+  {
+   "path": "evoluzione/esperimenti/collauda_statica_espansiva.py",
+   "bytes": 10088,
+   "sha256": "ba0428ae864c614f3e7c745b31092c1e95288deb5a75a2a4a68851174070fb2a"
+  },
+  {
+   "path": "evoluzione/esperimenti/collauda_valutazione.py",
+   "bytes": 9085,
+   "sha256": "4caffd75071bcf1820af4df4857cae8eda4b51ea69f3c2b1c6836dbca4354efe"
+  },
+  {
+   "path": "evoluzione/esperimenti/collauda_vettorizzazione.py",
+   "bytes": 3919,
+   "sha256": "d6b83ffc4d438cddc24a672b8482fcea6459bee29ee298e4292b86415ec77015"
+  },
+  {
+   "path": "evoluzione/esperimenti/costi_appaiati.py",
+   "bytes": 18528,
+   "sha256": "8a46855b64c5e1195791f8c6d5b6ffa9d928b8aa098bab5aef1695b905319659"
+  },
+  {
+   "path": "evoluzione/esperimenti/costi_e4.py",
+   "bytes": 8979,
+   "sha256": "93407831f166fc431f8c636e52048946fc4e56865ad4b33e2005f768c85d76e7"
+  },
+  {
+   "path": "evoluzione/esperimenti/costi_sessione.py",
+   "bytes": 13181,
+   "sha256": "894ecaa29b6642a63f4642f175c1a999bd0b84175d974ea9d80100e8f40fc4c6"
+  },
+  {
+   "path": "evoluzione/esperimenti/costruisci_maschere.py",
+   "bytes": 12702,
+   "sha256": "b101a19e70c5890e996f9e143a73fffcbaec6ff644e3eb19d2605edb309e1147"
+  },
+  {
+   "path": "evoluzione/esperimenti/diagnostica_griglia.py",
+   "bytes": 6014,
+   "sha256": "4dc3e8abf04cd70a709e2e21bb005e4ec4610c75bc577dee1a351aa45b4bc95f"
+  },
+  {
+   "path": "evoluzione/esperimenti/e14b_prepara_copia.sh",
+   "bytes": 3976,
+   "sha256": "c90d118d8f18c7950795eda58cfd54414e70e86113964696bb3b9df057eb8529"
+  },
+  {
+   "path": "evoluzione/esperimenti/episodi_e5.py",
+   "bytes": 5255,
+   "sha256": "d0884640cb7b4a0355bc32d05a821d55507d6e1ecec6b5e825eb32d92326855f"
+  },
+  {
+   "path": "evoluzione/esperimenti/esegui_E.py",
+   "bytes": 13821,
+   "sha256": "a8dae6968f18af3094be7171ae0aaafc5f880cb0431f1243aa5ef29ee750237d"
+  },
+  {
+   "path": "evoluzione/esperimenti/esegui_e14.py",
+   "bytes": 17233,
+   "sha256": "fe1945976e0bb91ab835bc14e6325ea6cd9244dacac422a1965ccbbdf0c53400"
+  },
+  {
+   "path": "evoluzione/esperimenti/esegui_e14b.sh",
+   "bytes": 7854,
+   "sha256": "eed15766c98d40a19e40aa5546dbb014ecd1a1b4a9f6ec1c98809e1b13cfc84c"
+  },
+  {
+   "path": "evoluzione/esperimenti/esegui_e15.py",
+   "bytes": 54436,
+   "sha256": "fec3e753465ee07c5291cac81c1b1d250739ba7215e4e99e748453e0d51fceb0"
+  },
+  {
+   "path": "evoluzione/esperimenti/esegui_e16.py",
+   "bytes": 21022,
+   "sha256": "d4b0134ceb6d524ed7e097519fcb8590f5d6f911affed90c10e293ec48d58b3f"
+  },
+  {
+   "path": "evoluzione/esperimenti/esegui_e18quater.py",
+   "bytes": 16964,
+   "sha256": "efd45c86dc337a1dafc0b0d313db03fdcbc7f9c4756cf303fda83e807f7c3d75"
+  },
+  {
+   "path": "evoluzione/esperimenti/esegui_e2.py",
+   "bytes": 9936,
+   "sha256": "553f2d855488ee64ad964d80653beeb4e444c5715dc3284319cee13c7bf8986b"
+  },
+  {
+   "path": "evoluzione/esperimenti/esegui_e4.py",
+   "bytes": 25853,
+   "sha256": "71846e691df80e02a6fbee3c9b01c48b075bd59a412c33d384b1bd6e4f64c221"
+  },
+  {
+   "path": "evoluzione/esperimenti/esegui_e5.py",
+   "bytes": 38390,
+   "sha256": "2b63ebe317c9e9783e696d04d46e0f142697b59a3bede61b4de68b00efb3d70e"
+  },
+  {
+   "path": "evoluzione/esperimenti/esegui_e6.py",
+   "bytes": 52592,
+   "sha256": "13413d0ac85061299ea56f261616e888d2fbca0ae3dbfd446b1a809f75a15ce0"
+  },
+  {
+   "path": "evoluzione/esperimenti/esegui_e6a.py",
+   "bytes": 26808,
+   "sha256": "0fbdd2ce4b855d4f0b816a226a8615889c334dfa125334432c76cd46276c648c"
+  },
+  {
+   "path": "evoluzione/esperimenti/esegui_e8.py",
+   "bytes": 37507,
+   "sha256": "a66f03c6e0b4276f3d60031a8464d30debe81f9a9217237de9847d5edfa99724"
+  },
+  {
+   "path": "evoluzione/esperimenti/esegui_f0.py",
+   "bytes": 6937,
+   "sha256": "3e618a4e717898cdabaef571b4bfdc98eba2e5d48eb6c77d31b0d59d4556e1b0"
+  },
+  {
+   "path": "evoluzione/esperimenti/esegui_inserimento.py",
+   "bytes": 21251,
+   "sha256": "8e6c3213a47570cc070575c846f3744979d526edfb169429ea81cdcf76d60d77"
+  },
+  {
+   "path": "evoluzione/esperimenti/esegui_pems04.py",
+   "bytes": 6587,
+   "sha256": "d672149a565926164f9666a85df5dd704ca1bc2df1218809def881ccbedfb22c"
+  },
+  {
+   "path": "evoluzione/esperimenti/esegui_raccordo.py",
+   "bytes": 21185,
+   "sha256": "5aa7a80b9fbae1bb2894e213e41627d6ba8a5a388f79fbb91bc643c94885e227"
+  },
+  {
+   "path": "evoluzione/esperimenti/esegui_refresh.py",
+   "bytes": 9463,
+   "sha256": "bf103190b1f188c68a2b6fd4ef4b721f188101e32faf5a88d393c362b78db030"
+  },
+  {
+   "path": "evoluzione/esperimenti/estrai_pems04.py",
+   "bytes": 8827,
+   "sha256": "93d98cf3d58bbb95f5d1e0f5abd39616f823cdca2078026c9afe7e5c0b9db6c6"
+  },
+  {
+   "path": "evoluzione/esperimenti/fasi.py",
+   "bytes": 8498,
+   "sha256": "a099f860e6597a7db873caa5fa75e6e2f7696c9c1b1b55cbab7ca8461f0ebba9"
+  },
+  {
+   "path": "evoluzione/esperimenti/fattibilita_pems04.py",
+   "bytes": 5377,
+   "sha256": "d0e6c49cf9bd40b37e437d07411eab565b991c25f0f0ed6b7a003721dff413fb"
+  },
+  {
+   "path": "evoluzione/esperimenti/inserimento.py",
+   "bytes": 18806,
+   "sha256": "a31836f7b9cbf530d9c333b2a08ae9f5afaa17bc6a5ff283177bd809f138d582"
+  },
+  {
+   "path": "evoluzione/esperimenti/migra_chiavi.py",
+   "bytes": 7863,
+   "sha256": "127e250fa24f4a48759fe08c82a07f7007a2687b0699f9efa8075cc298e4d05b"
+  },
+  {
+   "path": "evoluzione/esperimenti/misura_parallelismo.py",
+   "bytes": 5274,
+   "sha256": "1db27cf466b1b2d91bda750a005a8d9b2ce70b31be83de590770897ddafb752c"
+  },
+  {
+   "path": "evoluzione/esperimenti/periodi_candidati.py",
+   "bytes": 3761,
+   "sha256": "b437dfafb23e53467cad2f1242a1416d03af5ecb1b721846ac9bb043dc6a5d0b"
+  },
+  {
+   "path": "evoluzione/esperimenti/pilota_tempi_e15.py",
+   "bytes": 4803,
+   "sha256": "ae2f068a719de954bff03793c8c34ed0e3f4f69e93a9ef7b3d3a74df0deb18e8"
+  },
+  {
+   "path": "evoluzione/esperimenti/prepara_canonico.py",
+   "bytes": 4605,
+   "sha256": "2875e59da8f82e05ff435f31ee07dc5726055a84ecd14c8f0b62ca26a2257ccf"
+  },
+  {
+   "path": "evoluzione/esperimenti/prepara_pesi_griglia.py",
+   "bytes": 2868,
+   "sha256": "a5c366528a2c5bb71d15734115648013b54be964b19bf2c2b7d263efbf102b14"
+  },
+  {
+   "path": "evoluzione/esperimenti/prepara_pesi_pems04.py",
+   "bytes": 3873,
+   "sha256": "5bdf88dfdab8541913355393576dfcca0aeb11b434b2c2abd44e7faf9722a042"
+  },
+  {
+   "path": "evoluzione/esperimenti/prepara_stati_iniziali.py",
+   "bytes": 9930,
+   "sha256": "8e3306f5d199514cfb8c15b6873957240558a51eac0438a8c4357fdae9e9545e"
+  },
+  {
+   "path": "evoluzione/esperimenti/preparazione_e5.py",
+   "bytes": 9975,
+   "sha256": "324044aefb327bab61e8b2c6f6c2543b5cfd0aab9d0d805dc9bd2ac71f61e00f"
+  },
+  {
+   "path": "evoluzione/esperimenti/prova_adeguatezza.py",
+   "bytes": 17103,
+   "sha256": "2dd03de0c3e5557ae051c6f5fa8a33c425d5c36db8ffce17cbf3ef416016ec3d"
+  },
+  {
+   "path": "evoluzione/esperimenti/prova_canonico_EF.py",
+   "bytes": 9101,
+   "sha256": "97ccb8a6a7dc63626d3bab026418325b7dfe3080217e79e2ebcb3bfd5c276bbf"
+  },
+  {
+   "path": "evoluzione/esperimenti/prova_e3.py",
+   "bytes": 9905,
+   "sha256": "996e9fb454b67b20954c771173f9696130fcaa09c91a0f43c7b875e657099efc"
+  },
+  {
+   "path": "evoluzione/esperimenti/prova_end_to_end.py",
+   "bytes": 15583,
+   "sha256": "9bf4e683983d507e2c014f09f14946763403ef848fab4d2ede3a7d743d9a5d4c"
+  },
+  {
+   "path": "evoluzione/esperimenti/prova_inserimento.py",
+   "bytes": 10951,
+   "sha256": "28c79732f94a7cff0dd7475f9e2ba82507f48f46c4a5d9df41c9d0991df48c73"
+  },
+  {
+   "path": "evoluzione/esperimenti/prova_mancanti.py",
+   "bytes": 15516,
+   "sha256": "2653538e1490f22b11d119e8031c0d4c4d3b8c41fe345e13a43bf6323f0ec702"
+  },
+  {
+   "path": "evoluzione/esperimenti/prova_reale.py",
+   "bytes": 15719,
+   "sha256": "cb19b4d79e40473baa1fe03a64922fbd5b9672936895d3794adc4ea1a6d6716b"
+  },
+  {
+   "path": "evoluzione/esperimenti/provenienza_pems04.py",
+   "bytes": 5400,
+   "sha256": "bc9ac903785a52365e57f3aa4ead3fec37a6365a99d43fb64aaa6de63f9be58f"
+  },
+  {
+   "path": "evoluzione/esperimenti/quarantena_e3_falso.py",
+   "bytes": 3644,
+   "sha256": "592fbe7105c7c83c5aed240ed43a454b167f14991166632c3384be5397b5b9b3"
+  },
+  {
+   "path": "evoluzione/esperimenti/ricognizione_paper4.sh",
+   "bytes": 3907,
+   "sha256": "7f376818c29a3de52b7bc8f65e76ced3269fd3e3f9c94301a7f613752697a531"
+  },
+  {
+   "path": "evoluzione/esperimenti/ricognizione_paper4_log.sh",
+   "bytes": 3181,
+   "sha256": "48c2ad48b7328d97a7befe3368fd455cf7d6e98f49c9e57beb21455550db8647"
+  },
+  {
+   "path": "evoluzione/esperimenti/riconcilia_popolazione.py",
+   "bytes": 8898,
+   "sha256": "232659346719c65ed4c40836a1639897b61c84ad9f371c8f9995a8d03be24852"
+  },
+  {
+   "path": "evoluzione/esperimenti/ricostruisci_predizioni.py",
+   "bytes": 14983,
+   "sha256": "d965e1eea809887ae4768073398691ef25eb775a6d30e44f0c821d1001f926af"
+  },
+  {
+   "path": "evoluzione/esperimenti/riselezione_rmon_test.py",
+   "bytes": 12138,
+   "sha256": "118c3e59c17f5236f6ff85b89f97c0b6816a30e59ef82dc4269b7294f87b3dae"
+  },
+  {
+   "path": "evoluzione/esperimenti/seleziona_F.py",
+   "bytes": 18311,
+   "sha256": "dd4aa9e768dadec363dc35adc5c9419fca175fdb498fed512af10f8d4f599527"
+  },
+  {
+   "path": "evoluzione/esperimenti/semi.py",
+   "bytes": 4377,
+   "sha256": "08aefa05d4f1d42f5db734cd022b193cf062d7acce569c9ed746b6d687bf95b7"
+  },
+  {
+   "path": "evoluzione/esperimenti/sensibilita_rho_e2.py",
+   "bytes": 15319,
+   "sha256": "7c7ec8a714708850f701e3475ef9840e2da90f681b5c39d038d556f37feafbe5"
+  },
+  {
+   "path": "evoluzione/esperimenti/veterani_e3.py",
+   "bytes": 7487,
+   "sha256": "def6ce603b1a4a351578456315b8e6b0c7415163921ae2b3e92ce128ea45b6d1"
+  },
+  {
+   "path": "poetry.lock",
+   "bytes": 192190,
+   "sha256": "967f3db0b4109345191b75ff8f065a8606cb8c10564c3f6e3a50d40116bdbbbb"
+  },
+  {
+   "path": "protocol/E1.md",
+   "bytes": 3585,
+   "sha256": "038031264dea187c24d41ae6ba80c7e80dbc027410457879ae6df7d477e44afb"
+  },
+  {
+   "path": "protocol/E14.md",
+   "bytes": 5647,
+   "sha256": "b30984ca153d3e5ddab776dc476862038f3338c457204a4f0e8faf35cb924636"
+  },
+  {
+   "path": "protocol/E15.md",
+   "bytes": 4430,
+   "sha256": "31d731567da30bb4007d3f24b2be22fcaa6151688192474f6edcdc607460e8d6"
+  },
+  {
+   "path": "protocol/E16.md",
+   "bytes": 1218,
+   "sha256": "d37208e5fbb17d84aee0be39eed581c5cb77ad36a3ed7e31fe9d56e080111930"
+  },
+  {
+   "path": "protocol/E17.md",
+   "bytes": 1262,
+   "sha256": "dcacf323f9f5defb4bb727eef0babd7817f3ee67fac2c464808a7af25f28d87e"
+  },
+  {
+   "path": "protocol/E18.md",
+   "bytes": 9327,
+   "sha256": "42da14831a4e982c97cf2336ed27e3f96a4ca1e85747d11e84309a357fa7a076"
+  },
+  {
+   "path": "protocol/E18quater.md",
+   "bytes": 5592,
+   "sha256": "56046a7784a5169e57e08679238df0d11596bc3afefe35c6e1c9160bfe29532b"
+  },
+  {
+   "path": "protocol/E18ter.md",
+   "bytes": 2947,
+   "sha256": "25ee156fa3178dbf7f9a20e28fecbc96d60d8d7c79f7f0b2f8e92040e1554656"
+  },
+  {
+   "path": "protocol/E2.md",
+   "bytes": 3048,
+   "sha256": "14a94b8a2bebc7e539e2785383d56d2404a46912ab3387b07d17e24f4cedd360"
+  },
+  {
+   "path": "protocol/E3.md",
+   "bytes": 2803,
+   "sha256": "245085de8a909ca8919958a2c3b1bf8ab4abea53c4ec68ac09d0eda707f9d12f"
+  },
+  {
+   "path": "protocol/E4.md",
+   "bytes": 12743,
+   "sha256": "e275daec5945c26b528e917238c048fb25b35ad12ff6135c70bcc158b52a2acb"
+  },
+  {
+   "path": "protocol/E5.md",
+   "bytes": 16578,
+   "sha256": "3dd706bcf3ddd899adabe76fc95035453c0d0a0bea265773125c8648908fbff5"
+  },
+  {
+   "path": "protocol/E6.md",
+   "bytes": 20274,
+   "sha256": "90818c7597925712a4e096ea373ef880d6532036491652a09e27da3eab78e216"
+  },
+  {
+   "path": "protocol/E6bis.md",
+   "bytes": 3213,
+   "sha256": "1d74950bf0f0ba9ae65f11f319ff4cb2e252abbeb4b5680b05ca29ffd1c0d5cc"
+  },
+  {
+   "path": "protocol/E7.md",
+   "bytes": 7374,
+   "sha256": "07db021e8523623547f805d161794f68ede5033df71ac47c29d1c0312c914643"
+  },
+  {
+   "path": "protocol/E8.md",
+   "bytes": 8623,
+   "sha256": "611d3541a6086e1961c9212c70cb32c89696220301bbdfc04ef7b05a38b135b9"
+  },
+  {
+   "path": "protocol/E8bis.md",
+   "bytes": 3446,
+   "sha256": "0323686ceb9571172ed914466eb93488e2ba9b78b9f8c452820c299f588aa44f"
+  },
+  {
+   "path": "protocol/e14_stadio0.json",
+   "bytes": 52888,
+   "sha256": "80721114071126308596e49baf1be751de48c85250b4e6bef7c6fa73d05d2ae3"
+  },
+  {
+   "path": "protocol/e16/e16_risultati.json",
+   "bytes": 8837766,
+   "sha256": "ee1d7e51f945a6108c5265e7a46d6330923cd81a68e2b16bb3d32b1634fe5538"
+  },
+  {
+   "path": "pyproject.toml",
+   "bytes": 670,
+   "sha256": "debe858a56434a2043af1bc21f0e6a7dbccdda69d05f4333c4796973fe38b9ea"
+  }
+ ]
+}
