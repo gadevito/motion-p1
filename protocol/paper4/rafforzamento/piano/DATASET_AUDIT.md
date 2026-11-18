@@ -80,3 +80,9 @@ Open data portal, Wavetronix radar, 15-min speed and volume on urban arterials (
 ## Outcome (2026-11-18)
 
 NDW-Rotterdam is ideal on C3, C4, C5 and C6 and acquired; C1 (per-site limits from OSM or the NDW traffic-signs dataset) is the one open item, resolvable without new data. WebTRIS is verified and ideal on C1/C3/C5 but is a motorway corridor (C6 minimum): it stays as the second replication if the co-authors decide to fund it (+50 final fits), otherwise as the archived alternative. M-30 is the reserve. Decision requested from the co-authors: NDW-Rotterdam only, or NDW-Rotterdam + WebTRIS.
+
+## Dated notes
+
+**2026-11-18 — deviation from C3 (duration), declared after the candidates were examined.** C3 above sets a minimum of 9 months. The NDW-Rotterdam acquisition covers 1 June – 31 December 2025, 7 months, decided on 2026-11-16 after the probes, on the ground that the replication should have the same extent as the original studies (Madrid 2021-06-01 → 2021-12-31, London 2019-07-01 → 2020-01-31, Melbourne 2020-06-01 → 2020-12-30) and not more training data than they had. The criterion is not rewritten; the "ideal" verdict on C3 in the NDW section is therefore to be read as "ideal under this declared deviation". Extension to 9 months (13 further exports, March–May 2025) remains possible; the decision is recorded in P4R at signature. The same deviation would apply to WebTRIS if funded.
+
+**2026-11-18 — day count.** The NDW package spans 214 full days; the verification's "215 days with data" includes 2025-05-31, present with two minutes (23:58–23:59 UTC) at the head of the first export. No change to the package, its manifest or its fingerprints.
