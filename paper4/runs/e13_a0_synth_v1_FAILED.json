@@ -1,0 +1,279 @@
+{
+ "protocol": "E13 A0.2",
+ "generator_seed": 20261118,
+ "generator": "A0.2 generators (fixed before the tag). Both keep the real timestamps and calendar. Classes from thresholds\n    0.8/0.4 on a latent factor z in [0, 1.6]. 'dependent': z_t = 0.7\u00b7(A_norm z_{t\u22121}) + 0.3\u00b7profile_t + noise, with\n    A_norm the row-normalised kernel adjacency of G1 (information travels along the graph with lag one step).\n    'independent': z_t = 0.6\u00b7z_{t\u22121} + 0.4\u00b7profile_t + noise, node by node. Information absent by construction in\n    'independent': any dependence between nodes beyond the shared calendar profile and the node amplitudes.",
+ "kinds": {
+  "dependent": {
+   "trajectories": {
+    "G0": [
+     {
+      "update": 0,
+      "val_wce": 1.1065982807670192
+     },
+     {
+      "update": 250,
+      "val_wce": 0.8016722058998659
+     },
+     {
+      "update": 500,
+      "val_wce": 0.748456252460801
+     },
+     {
+      "update": 750,
+      "val_wce": 0.7128920127852756
+     },
+     {
+      "update": 1000,
+      "val_wce": 0.7116492814709408
+     },
+     {
+      "update": 1250,
+      "val_wce": 0.7415169611812698
+     },
+     {
+      "update": 1500,
+      "val_wce": 0.7120116059601752
+     },
+     {
+      "update": 1750,
+      "val_wce": 0.7133437067932057
+     },
+     {
+      "update": 2000,
+      "val_wce": 0.730611879065598
+     }
+    ],
+    "G1": [
+     {
+      "update": 0,
+      "val_wce": 1.110645990638919
+     },
+     {
+      "update": 250,
+      "val_wce": 0.8127296770419092
+     },
+     {
+      "update": 500,
+      "val_wce": 0.7292666512046633
+     },
+     {
+      "update": 750,
+      "val_wce": 0.7160009057952762
+     },
+     {
+      "update": 1000,
+      "val_wce": 0.7097260939672722
+     },
+     {
+      "update": 1250,
+      "val_wce": 0.7401890817940532
+     },
+     {
+      "update": 1500,
+      "val_wce": 0.7116670710924532
+     },
+     {
+      "update": 1750,
+      "val_wce": 0.7131103383400993
+     },
+     {
+      "update": 2000,
+      "val_wce": 0.7269432057562182
+     }
+    ]
+   },
+   "V_G1_by_checkpoint": [
+    [
+     0,
+     -0.36577951929350927
+    ],
+    [
+     250,
+     -1.3793007990880144
+    ],
+    [
+     500,
+     2.5638908343734887
+    ],
+    [
+     750,
+     -0.43609592396106944
+    ],
+    [
+     1000,
+     0.2702437216958155
+    ],
+    [
+     1250,
+     0.17907606389760755
+    ],
+    [
+     1500,
+     0.048388939848444494
+    ],
+    [
+     1750,
+     0.03271472796129251
+    ],
+    [
+     2000,
+     0.5021371010380764
+    ]
+   ],
+   "best_checkpoint_G1": 1000,
+   "V_at_best": 0.2702437216958155,
+   "verdict": "FAIL: the full model does not exploit an available spatial signal"
+  },
+  "independent": {
+   "trajectories": {
+    "G0": [
+     {
+      "update": 0,
+      "val_wce": 1.1083614758171625
+     },
+     {
+      "update": 250,
+      "val_wce": 0.8100164430237404
+     },
+     {
+      "update": 500,
+      "val_wce": 0.7758936430721947
+     },
+     {
+      "update": 750,
+      "val_wce": 0.7684582681980247
+     },
+     {
+      "update": 1000,
+      "val_wce": 0.765342046109717
+     },
+     {
+      "update": 1250,
+      "val_wce": 0.7874970835468977
+     },
+     {
+      "update": 1500,
+      "val_wce": 0.770197311883627
+     },
+     {
+      "update": 1750,
+      "val_wce": 0.7627714547044638
+     },
+     {
+      "update": 2000,
+      "val_wce": 0.7727132364344161
+     }
+    ],
+    "G1": [
+     {
+      "update": 0,
+      "val_wce": 1.1072608294687418
+     },
+     {
+      "update": 250,
+      "val_wce": 0.808799136698406
+     },
+     {
+      "update": 500,
+      "val_wce": 0.7700315301420905
+     },
+     {
+      "update": 750,
+      "val_wce": 0.7663376392683291
+     },
+     {
+      "update": 1000,
+      "val_wce": 0.7645049831050291
+     },
+     {
+      "update": 1250,
+      "val_wce": 0.7912908584166923
+     },
+     {
+      "update": 1500,
+      "val_wce": 0.7734719758941542
+     },
+     {
+      "update": 1750,
+      "val_wce": 0.763397033276371
+     },
+     {
+      "update": 2000,
+      "val_wce": 0.7736845597367137
+     }
+    ]
+   },
+   "V_G1_by_checkpoint": [
+    [
+     0,
+     0.09930391595478269
+    ],
+    [
+     250,
+     0.15028168080024737
+    ],
+    [
+     500,
+     0.7555304754003169
+    ],
+    [
+     750,
+     0.27595889294916004
+    ],
+    [
+     1000,
+     0.10937109870583137
+    ],
+    [
+     1250,
+     -0.48175097394740596
+    ],
+    [
+     1500,
+     -0.42517209032041053
+    ],
+    [
+     1750,
+     -0.08201389394540584
+    ],
+    [
+     2000,
+     -0.12570294599579893
+    ]
+   ],
+   "best_checkpoint_G1": 1750,
+   "V_at_best": -0.08201389394540584,
+   "verdict": "pass",
+   "note": "pass"
+  }
+ },
+ "trainings": 4,
+ "written": "2026-11-18T17:09:05.365582+00:00",
+ "environment": {
+  "host": "MacBook-Pro-di-gabriele-2.local",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.12.7",
+  "torch": "2.12.1",
+  "numpy": "2.5.1",
+  "pandas": "3.0.3",
+  "networkx": "3.6.1",
+  "mps": true,
+  "cuda": false,
+  "tag": "",
+  "frozen_tag": "paper4-E13-20261118",
+  "head": "b43c587",
+  "code_sha16": {
+   "p4b.py": "926061038a7472a3",
+   "e9.py": "4dd5628af8879511",
+   "e13.py": "7e5e7614d1c29e75"
+  },
+  "prereg_sha16": "88192b2fcd2c4ac4",
+  "load_avg": [
+   1.875,
+   2.134765625,
+   3.48583984375
+  ]
+ },
+ "commit": "b43c5874892f9096b443edc84711cf52eb2721d8",
+ "code_dirty": false
+}

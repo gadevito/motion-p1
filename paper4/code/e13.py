@@ -782,23 +782,81 @@ def preflight(args):
 
 
 def synth_processes(su, kind, seed):
-    """A0.2 generators (fixed before the tag). Both keep the real timestamps and calendar. Classes from thresholds
-    0.8/0.4 on a latent factor z in [0, 1.6]. 'dependent': z_t = 0.7·(A_norm z_{t−1}) + 0.3·profile_t + noise, with
-    A_norm the row-normalised kernel adjacency of G1 (information travels along the graph with lag one step).
-    'independent': z_t = 0.6·z_{t−1} + 0.4·profile_t + noise, node by node. Information absent by construction in
-    'independent': any dependence between nodes beyond the shared calendar profile and the node amplitudes."""
+    """A0.2 generators, version 2 (dated note of 2026-11-18 in E13.md; version 1 gave the tabular diagnostic of
+    `e13_a0_diag.py` a gain below one point for hidden cells; post-hoc revision of the synthetic control, declared). Both keep the real timestamps and calendar. Classes from
+    thresholds 0.8/0.4 on a latent factor z = base + 0.4*u + measurement noise (sd 0.03), clipped to [0, 1.6], with
+    base_t(i) = profile_t * amp(i) (two daily dips) and u a persistent field, u_t = 0.97*u_{t-1} + sqrt(1-0.97^2)*shock_t.
+    'dependent': amp and the shocks are spatially smoothed by a Gaussian kernel on the UTM coordinates (bandwidth 800 m,
+    row-normalised, shocks rescaled to unit variance): the field is smooth at the scale of the hidden grid cells and
+    persistent over hours, so the observed neighbours' history is informative about a hidden node's future beyond the calendar.
+    'independent': amp i.i.d. per node and shocks i.i.d. per node and time, no smoothing: any dependence between nodes
+    beyond the shared calendar profile is absent by construction. Nothing of the real target processes enters."""
     r = np.random.default_rng([seed, 2]); T, K = len(su.ts), su.K
     q = (pd.DatetimeIndex(su.ts).hour.to_numpy() * 4 + pd.DatetimeIndex(su.ts).minute.to_numpy() // 15) / 96.0
     prof = 1.0 - 0.45 * np.exp(-((q - 0.35) ** 2) / 0.004) - 0.45 * np.exp(-((q - 0.73) ** 2) / 0.004)
-    base = prof[:, None] * r.uniform(0.6, 1.2, K)[None, :]
-    A, _ = p4b.kernel_adjacency(su.al["graph"], su.kept); An = A / np.maximum(A.sum(1, keepdims=True), 1e-9)
-    z = np.empty((T, K)); z[0] = base[0]; eps = r.normal(0, 0.08, (T, K))
+    xy = np.asarray(su.al["coords"], dtype="float64"); D = np.linalg.norm(xy[:, None] - xy[None], axis=-1)
+    S = np.exp(-(D / 800.0) ** 2); S = S / S.sum(1, keepdims=True)
+    amp = r.uniform(0.6, 1.2, K); eta = r.normal(0.0, 1.0, (T, K)); rho = 0.97
+    if kind == "dependent":
+        amp = S @ amp; eta = eta @ S.T; eta = eta / eta.std()
+    u = np.zeros((T, K)); sc = np.sqrt(1 - rho ** 2)
     for t in range(1, T):
-        z[t] = 0.7 * (An @ z[t - 1]) + 0.3 * base[t] + eps[t] if kind == "dependent" else 0.6 * z[t - 1] + 0.4 * base[t] + eps[t]
-    z = np.clip(z, 0.0, 1.6)
+        u[t] = rho * u[t - 1] + sc * eta[t]
+    z = np.clip(prof[:, None] * amp[None, :] + 0.4 * u + r.normal(0, 0.03, (T, K)), 0.0, 1.6)
     C = np.where(z >= 0.8, 1, np.where(z >= 0.4, 2, 3)).astype("int64")
     flow = (300 * (1.6 - z) + r.normal(0, 20, (T, K))).astype("float32"); occ = (60 * (1.6 - z) / 1.6 + r.normal(0, 3, (T, K))).astype("float32")
     return z.astype("float32"), flow, occ, C
+
+
+RECEPTIVE_HOPS = 6     # GWN of p4b: the output combines the skip branches, each taken before its block's graph convolution, so the
+                       # longest propagation path to a prediction crosses the GCNs of blocks 1-3 only: 3 x order 2 = 6 steps
+
+
+def tabular_diagnostic(su, z, C, A=None, hops=RECEPTIVE_HOPS):
+    """Exploratory diagnostic of a synthetic positive control (A0.2, note of 2026-11-18). PRIVILEGED ACCESS: two class
+    tables are estimated on the historical labels of the validation-hidden nodes themselves (training origins) and read on
+    validation origins — something G1 is not allowed to do — so this measures how much the chosen tabular predictor gains
+    from a spatial feature, not a bound on any model and not a history-free performance. No neural-network training.
+    Tables: P(class | slot of the target time) and P(class | slot, binned spatial feature at the origin). Feature:
+      A is None  -> 'geo5': mean latent factor of the 5 nearest observed nodes (UTM distance), a geographic feature;
+      A given    -> 'graph': observed nodes' latent factor propagated `hops` times along A (the matrix G1 receives, hidden
+                    nodes carrying nothing of their own), normalised by the propagated indicator of the observed nodes —
+                    the readings that can reach the node through the model's own adjacency within its receptive field (direct propagation path
+                    only; it does not describe every effect of training, e.g. BatchNorm statistics shared across nodes).
+    Returns per-horizon wCE of the two tables and V = 100 (wce_cal - wce_feat)/wce_cal, the mean over horizons, and for
+    'graph' the share of hidden nodes with a propagation path of <= `hops` steps from an observed node (unreached nodes get
+    an uninformative bin)."""
+    z = np.asarray(z, dtype="float64"); ts = pd.DatetimeIndex(su.ts); slot = (ts.hour * 4 + ts.minute // 15).to_numpy()
+    obs, hid = su.obs, su.val; out = {}
+    if A is None:
+        xy = np.asarray(su.al["coords"], dtype="float64"); D = np.linalg.norm(xy[:, None] - xy[None, obs], axis=-1)
+        nn_ = np.argsort(D, 1)[:, :5]; feat = z[:, obs][:, nn_].mean(2); out["feature"] = "geo5"
+    else:
+        A = np.asarray(A, dtype="float64"); M = np.zeros_like(A); P = np.eye(len(A))
+        for _ in range(hops):
+            P = P @ A; M = M + P
+        Mo = M[:, obs]; den = Mo.sum(1); num = z[:, obs] @ Mo.T
+        reached = den > 0                      # all weights are >= 0: den > 0 iff a path of <= hops steps from an observed node exists
+        feat = np.where(reached[None, :], num / np.where(reached, den, 1.0)[None, :], -1.0)
+        out["feature"] = f"graph_{hops}hops"; out["hidden_reached_share"] = float(reached[hid].mean())
+    zb = np.where(feat < 0, 0, np.digitize(feat, np.linspace(0, 1.6, 33)) + 1)                      # 0 = unreachable, 1..34
+    W = np.asarray(su.W, dtype="float64"); tr, va = np.asarray(su.tr), np.asarray(su.va)
+
+    def wce(Pm, Y):
+        pr = np.clip(np.take_along_axis(Pm, (Y - 1)[..., None], -1)[..., 0], 1e-6, 1); w = W[Y - 1]
+        return float(-(w * np.log(pr)).sum() / w.sum())
+
+    def table(keys, Y, n):
+        cnt = np.zeros((n, 3)); np.add.at(cnt, (keys.ravel(), Y.ravel() - 1), 1)
+        return (cnt + 0.5) / (cnt.sum(1, keepdims=True) + 1.5)
+
+    for h in p4b.HORIZONS:
+        Ytr, Yva = C[tr + h][:, hid], C[va + h][:, hid]
+        tc = table(np.broadcast_to(slot[tr + h][:, None], Ytr.shape), Ytr, 96); Pc = np.broadcast_to(tc[slot[va + h]][:, None, :], Yva.shape + (3,))
+        tn = table(zb[tr][:, hid] * 96 + slot[tr + h][:, None], Ytr, 35 * 96); Pn = tn[zb[va][:, hid] * 96 + slot[va + h][:, None]]
+        a, b = wce(Pc, Yva), wce(Pn, Yva); out[str(h)] = {"wce_calendar": a, "wce_calendar_feature": b, "V": 100 * (a - b) / a}
+    out["mean_V"] = float(np.mean([out[str(h)]["V"] for h in p4b.HORIZONS]))
+    return out
 
 
 def a0_synth(args):
@@ -806,9 +864,27 @@ def a0_synth(args):
     path = RUNS / "e13_a0_synth.json"
     if path.exists():
         raise FileExistsError(f"{path} exists")
-    out = {"protocol": "E13 A0.2", "generator_seed": 20261118, "generator": synth_processes.__doc__, "kinds": {}, "trainings": 0}
+    out = {"protocol": "E13 A0.2", "generator_version": 2, "generator_seed": 20261118, "generator": synth_processes.__doc__, "kinds": {}, "trainings": 0}
+    # validity of the synthetic control, before any neural-network training (note of 2026-11-18): the tabular diagnostic
+    # on the graph-accessible feature (the adjacency G1 receives, its receptive field) must gain >= 10 points in the
+    # dependent process and stay within +-1 point in the independent one; otherwise nothing is trained. Privileged
+    # diagnostic of the simulator (see tabular_diagnostic), not a bound: a pass here does not guarantee that G1 learns it.
+    gens = {}
     for kind in ("dependent", "independent"):
         su = SetupE13("madrid", 0, "I0"); z, flow, occ, C = synth_processes(su, kind, 20261118); su.inject(z, flow, occ, C)
+        A1, _ = e9.adjacency(su, "G1"); dg = tabular_diagnostic(su, z, C, A=A1); dgeo = tabular_diagnostic(su, z, C)
+        shares = (np.bincount(C.ravel(), minlength=4)[1:] / C.size).tolist()
+        valid = dg["mean_V"] >= 10 if kind == "dependent" else abs(dg["mean_V"]) <= 1
+        print(kind, "tabular diagnostic, graph feature: V per horizon", {h: round(dg[h]["V"], 1) for h in dg if h in ("1", "2", "4", "8")}, "mean", round(dg["mean_V"], 1),
+              "hidden reached", round(dg["hidden_reached_share"], 3), "| geo5 mean", round(dgeo["mean_V"], 1), "| class shares", np.round(shares, 3), "->", "valid" if valid else "INVALID")
+        gens[kind] = (su, {"graph": dg, "geo5": dgeo}, shares, valid)
+    out["control_check"] = {k: {"tabular_diagnostic": v[1], "class_shares": v[2], "valid": v[3]} for k, v in gens.items()}
+    if not all(v[3] for v in gens.values()):
+        out["verdict"] = "synthetic control invalid on the graph-accessible diagnostic: no neural-network training performed"
+        out["written"] = datetime.now(timezone.utc).isoformat(); out["environment"] = environment()
+        path.write_text(json.dumps(out, indent=1)); print("->", path, "control invalid, stopped before training"); return 1
+    for kind in ("dependent", "independent"):
+        su = gens[kind][0]
         res = {}
         for arm in ARMS:
             A, _ = e9.adjacency(su, arm)

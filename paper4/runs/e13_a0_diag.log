@@ -1,0 +1,13 @@
+adjacency passed to G1: (828, 828), nonzero 3610, symmetric True, row sums min/max 0.814/1.226; receptive field of the predictions 6 hops (skip branches, 3 graph convolutions of order 2); hop distance of the 163 validation-hidden nodes from the nearest observed node along the propagation direction: {1: 16, 2: 21, 3: 17, 4: 18, 5: 15, 6: 12, 7: 10, 8: 14, 9: 14, 10: 9, 11: 8, 12: 5, 13: 2, 14: 2} (-1 = no path); within 6 hops: 99 of 163 (60.7 %)
+v1 dependent: class shares [0.546, 0.443, 0.011]; W [0.6299999952316284, 0.7300000190734863, 23.989999771118164]; spatial sd of z 0.132; sd of node means 0.094
+   geo5 : h=1 V=+0.7  h=2 V=+0.6  h=4 V=+0.5  h=8 V=+0.9  | mean V = +0.7 points
+   graph: h=1 V=+0.9  h=2 V=+1.1  h=4 V=+1.1  h=8 V=+1.2  | mean V = +1.1 points, hidden reached 0.607
+v1 independent: class shares [0.508, 0.463, 0.028]; W [0.6899999976158142, 0.6800000071525574, 10.65999984741211]; spatial sd of z 0.186; sd of node means 0.156
+   geo5 : h=1 V=+0.2  h=2 V=+0.2  h=4 V=+0.1  h=8 V=+0.2  | mean V = +0.2 points
+   graph: h=1 V=+0.6  h=2 V=+0.5  h=4 V=+0.6  h=8 V=+0.6  | mean V = +0.6 points, hidden reached 0.607
+v2 dependent: class shares [0.508, 0.329, 0.163]; W [0.6399999856948853, 1.0199999809265137, 2.1700000762939453]; spatial sd of z 0.324; sd of node means 0.023
+   geo5 : h=1 V=+43.0  h=2 V=+39.2  h=4 V=+31.3  h=8 V=+21.5  | mean V = +33.8 points
+   graph: h=1 V=+17.1  h=2 V=+15.1  h=4 V=+11.6  h=8 V=+6.5  | mean V = +12.6 points, hidden reached 0.607
+v2 independent: class shares [0.509, 0.309, 0.182]; W [0.6600000262260437, 1.0700000524520874, 1.809999942779541]; spatial sd of z 0.402; sd of node means 0.148
+   geo5 : h=1 V=-0.1  h=2 V=-0.1  h=4 V=-0.1  h=8 V=-0.1  | mean V = -0.1 points
+   graph: h=1 V=-0.0  h=2 V=-0.1  h=4 V=-0.1  h=8 V=-0.0  | mean V = -0.0 points, hidden reached 0.607
