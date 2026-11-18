@@ -27,3 +27,13 @@ Document: `protocol/paper4/E13pre.md`, signed 2026-11-18 10:16, tag `paper4-E13p
 > Data 18/11/2026 ora 10:19
 
 Time of confirmation: 2026-11-18 10:19 (Europe/Rome); fingerprint, tag and commit match. No execution of E13-pre took place before this time.
+
+### E13 — 2026-11-18
+
+Document: `protocol/paper4/E13.md`, signed 2026-11-18 17:40, tag `paper4-E13-20261118`, commit `5caba04`, sha256 `88192b2fcd2c4ac4a28e10a8af3077b6e6572b1b5e95497e72a8151c332638b1`. Sent to DEP-01 by the responsible author on 2026-11-18. Confirmation, verbatim:
+
+> Conferma di aver ricevuto il protocollo E13.md (SHA-256: 88192b2fcd2c4ac4a28e10a8af3077b6e6572b1b5e95497e72a8151c332638b1 — tag paper4-E13-20261118, commit 5caba04, branch paper4 del repository pubblico).
+>
+> Data 18/11/2026 ore 17:41
+
+Time of confirmation: 2026-11-18 17:41 (Europe/Rome); fingerprint, tag and commit match. No A0.2/A0.3 training and no A1 run took place before this time.
