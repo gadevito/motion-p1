@@ -37,3 +37,13 @@ Document: `protocol/paper4/E13.md`, signed 2026-11-18 17:40, tag `paper4-E13-202
 > Data 18/11/2026 ore 17:41
 
 Time of confirmation: 2026-11-18 17:41 (Europe/Rome); fingerprint, tag and commit match. No A0.2/A0.3 training and no A1 run took place before this time.
+
+### E13, revised with the dated note on A0.2 — 2026-11-18
+
+Document: `protocol/paper4/E13.md`, signed text unchanged, dated note of 2026-11-18 appended (internal review approved 18:54), tag `paper4-E13-20261118b`, commit `30db81b`, sha256 `47a33af7a50573235e75a00d08f7e6ddb104bf474835a3c3c533731e9549a8ed`. Sent to DEP-01 by the responsible author on 2026-11-18. Confirmation, verbatim:
+
+> Confermo di aver ricevuto la versione aggiornata del protocollo E13.md, con la nota datata del 18/11 (SHA-256: 47a33af7a50573235e75a00d08f7e6ddb104bf474835a3c3c533731e9549a8ed — tag paper4-E13-20261118b, commit 30db81b, branch paper4 del repository pubblico).
+>
+> Data 18/11/2026 ora 19:00
+
+Time of confirmation: 2026-11-18 19:00 (Europe/Rome); fingerprint, tag and commit match. Between the first deposit (17:41) and this one the only training performed was the failed A0.2 of control version 1 (report kept, see the note); no A0.2 with control version 2, no A0.3 and no A1 run took place before this time.
