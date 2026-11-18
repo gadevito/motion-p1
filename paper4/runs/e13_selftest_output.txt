@@ -1,0 +1,121 @@
+ok   gate: refuses without an E13 tag reachable from HEAD
+ok   gate: refuses before signature
+ok   gate: refuses an uncommitted change of the protocol (dirty tree)
+ok   gate: refuses a protocol changed after the tag (new signed tag required)
+ok   frozen_tag: nearest E13 tag
+ok   gate: refuses code changed after the tag
+ok   HEAD advanced beyond the tag by record commits: frozen files unchanged
+ok   gate: refuses an untracked file
+ok   gate: refuses without A0.2
+ok   gate: refuses without A0.3
+ok   gate: refuses an A0 report of another frozen tag
+ok   gate: refuses an A0 report with another code fingerprint
+ok   gate: passes with A0 reports of this frozen version
+ok   gate: anomaly without acceptance refused
+{
+ "accepted_by": "GDV",
+ "note_commit": "abc1234",
+ "a0_synth_sha16": "bc6709924bbb4058",
+ "independent_verdict": "anomaly: unexpected gain",
+ "written": "2026-11-18T15:57:49.447383+00:00"
+}
+ok   gate: anomaly with acceptance passes
+ok   dev: interrupted attempt leaves no index entry
+{"cell": "madrid_s0_G0_I0", "selected_config": "C1", "selected_checkpoint": 3000, "selected_adequacy": {"min_update": 3000, "min_at_cap": false, "last_improvement_frac": -0.00048709206039936184, "pass": true}}
+ok   dev: re-run after interruption succeeds (attempt 2, no folder collision)
+ok   dev: refuses a completed cell without a registered deviation
+{"cell": "madrid_s0_G0_I0", "selected_config": "C1", "selected_checkpoint": 3000, "selected_adequacy": {"min_update": 3000, "min_at_cap": false, "last_improvement_frac": -0.00048709206039936184, "pass": true}}
+ok   dev: re-run with --deviation recorded (attempt 3, deviation stored)
+{"cell": "madrid_s0_G0_I1", "selected_config": "C1", "selected_checkpoint": 3000, "selected_adequacy": {"min_update": 3000, "min_at_cap": false, "last_improvement_frac": -0.00048709206039936184, "pass": true}}
+{"cell": "madrid_s0_G1_I0", "selected_config": "C1", "selected_checkpoint": 3000, "selected_adequacy": {"min_update": 3000, "min_at_cap": false, "last_improvement_frac": -0.00048709206039936184, "pass": true}}
+{"cell": "madrid_s0_G1_I1", "selected_config": "C1", "selected_checkpoint": 3000, "selected_adequacy": {"min_update": 3000, "min_at_cap": false, "last_improvement_frac": -0.00048709206039936184, "pass": true}}
+{"cell": "madrid_s1_G0_I0", "selected_config": "C1", "selected_checkpoint": 3000, "selected_adequacy": {"min_update": 3000, "min_at_cap": false, "last_improvement_frac": -0.00048709206039936184, "pass": true}}
+{"cell": "madrid_s1_G0_I1", "selected_config": "C1", "selected_checkpoint": 3000, "selected_adequacy": {"min_update": 3000, "min_at_cap": false, "last_improvement_frac": -0.00048709206039936184, "pass": true}}
+{"cell": "madrid_s1_G1_I0", "selected_config": "C1", "selected_checkpoint": 10000, "selected_adequacy": {"min_update": 10000, "min_at_cap": true, "last_improvement_frac": 0.011235955056179784, "pass": false}}
+{"cell": "madrid_s1_G1_I1", "selected_config": "C1", "selected_checkpoint": 3000, "selected_adequacy": {"min_update": 3000, "min_at_cap": false, "last_improvement_frac": -0.00048709206039936184, "pass": true}}
+ok   dev: 8 cells developed (campaign skips the completed one)
+ok   adequacy: pending failure detected, lock False
+ok   extend: interrupted state recorded as incomplete/started, not complete
+{
+ "group": "madrid_G1_I0",
+ "status": "incomplete",
+ "seeds": {
+  "0": {
+   "usable": true,
+   "config": "C1"
+  },
+  "1": {
+   "usable": false,
+   "config": "C1"
+  }
+ }
+}
+extension incomplete: seeds without a usable reproduced run: [1] — re-run `extend` to resume (an interruption is not a failure; two completed runs that do not reproduce are a reported failure)
+ok   extend: resumed; seed 0 kept, seed 1 reproduction failed -> unusable, status incomplete, exit 1
+ok   latest_dev ignores the unusable extended run
+ok   adequacy: incomplete extension blocks the lock
+{
+ "group": "madrid_G1_I0",
+ "status": "complete",
+ "seeds": {
+  "0": {
+   "usable": true,
+   "config": "C1"
+  },
+  "1": {
+   "usable": true,
+   "config": "C1"
+  }
+ }
+}
+ok   extend: retry reproduces, group complete
+ok   extend: a third call is refused (once per group)
+ok   dev: refuses a cell of an extended group
+{"cell": "madrid_s0_G0_I0", "config": "C1", "selected_checkpoint": 3000, "adequacy": {"min_update": 3000, "min_at_cap": false, "last_improvement_frac": -0.00048709206039936184, "pass": true}}
+{"cell": "madrid_s0_G0_I1", "config": "C1", "selected_checkpoint": 3000, "adequacy": {"min_update": 3000, "min_at_cap": false, "last_improvement_frac": -0.00048709206039936184, "pass": true}}
+{"cell": "madrid_s0_G1_I0", "config": "C1", "selected_checkpoint": 3000, "adequacy": {"min_update": 3000, "min_at_cap": false, "last_improvement_frac": -0.0004823926676313989, "pass": true}}
+{"cell": "madrid_s0_G1_I1", "config": "C1", "selected_checkpoint": 3000, "adequacy": {"min_update": 3000, "min_at_cap": false, "last_improvement_frac": -0.00048709206039936184, "pass": true}}
+{"cell": "madrid_s1_G0_I0", "config": "C1", "selected_checkpoint": 3000, "adequacy": {"min_update": 3000, "min_at_cap": false, "last_improvement_frac": -0.00048709206039936184, "pass": true}}
+{"cell": "madrid_s1_G0_I1", "config": "C1", "selected_checkpoint": 3000, "adequacy": {"min_update": 3000, "min_at_cap": false, "last_improvement_frac": -0.00048709206039936184, "pass": true}}
+{"cell": "madrid_s1_G1_I0", "config": "C1", "selected_checkpoint": 15000, "adequacy": {"min_update": 15000, "min_at_cap": false, "last_improvement_frac": -0.0006373486297005175, "pass": true}}
+{"cell": "madrid_s1_G1_I1", "config": "C1", "selected_checkpoint": 3000, "adequacy": {"min_update": 3000, "min_at_cap": false, "last_improvement_frac": -0.00048709206039936184, "pass": true}}
+ok   final: all 8 up to date, lock True
+ok   lock: stale final detected after a new development
+{"cell": "madrid_s0_G0_I1", "config": "C1", "selected_checkpoint": 3000, "adequacy": {"min_update": 3000, "min_at_cap": false, "last_improvement_frac": -0.00048709206039936184, "pass": true}}
+ok   campaign final: only the stale cell re-run; lock True again
+{
+ "missing_dev": [],
+ "missing_final": [],
+ "final_stale": [],
+ "dev_failures_pending": [],
+ "dev_failures_after_extension": [],
+ "final_failures": [],
+ "excluded_from_adequacy_statements": [],
+ "lock": true,
+ "lock_sha16": "ad23d7b83b0228bb"
+}
+dev_failures_pending: run `extend` for their groups, then `final` again; dev_failures_after_extension and final_failures: feasibility limit / inconclusive, excluded from adequacy-conditioned statements
+ok   test: refused when the lock file is not committed
+ok   gate still passes after the lock commit (HEAD beyond the tag)
+ok   test: refused when the committed lock is modified in the tree
+ok   test: refuses a foreign test file, does not overwrite
+madrid_s0_G0_I0 test wCE (mean over horizons) 1.0
+madrid_s0_G0_I1 test wCE (mean over horizons) 1.0
+madrid_s0_G1_I0 test wCE (mean over horizons) 1.0
+madrid_s0_G1_I1 test wCE (mean over horizons) 1.0
+madrid_s1_G0_I0 test wCE (mean over horizons) 1.0
+madrid_s1_G0_I1 test wCE (mean over horizons) 1.0
+madrid_s1_G1_I0 test wCE (mean over horizons) 1.0
+madrid_s1_G1_I1 test wCE (mean over horizons) 1.0
+ok   test: 8 files written with the current lock
+madrid    V_G1_I0              0.000  CI   0.000   0.000  p 1.0000  inconclusive / advantage>=3 excluded
+madrid    V_G1_I1              0.000  CI   0.000   0.000  p 1.0000  inconclusive / advantage>=3 excluded
+madrid    Delta_I1_minus_I0    0.000  CI   0.000   0.000  p 1.0000  inconclusive / advantage>=3 excluded
+sup-t 95 %: {'madrid:V_G1_I0': [0.0, 0.0], 'madrid:V_G1_I1': [0.0, 0.0]}
+statement: PROVISIONAL (marginal intervals, before Holm over the P4R family of 24): gain below the prespecified 3-point margin at 20 % under adequate training {'cities_helps': 0, 'eligible': {'madrid': True}, 'excluded_cells': []}
+ok   analysis: statement provisional before Holm
+ok   analysis: metric declared per horizon
+ok   metric: per-horizon mean 2.0, not pooled 2.5
+ok   metric: analysis uses per_horizon_mean
+
+40 checks, 0 failed
