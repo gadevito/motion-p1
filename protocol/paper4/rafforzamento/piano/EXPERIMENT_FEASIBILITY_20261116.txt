@@ -1,0 +1,72 @@
+FATTIBILITÀ DEI NUOVI ESPERIMENTI — PAPER 4
+16 novembre 2026. Ispezione in sola lettura, nessun training, nessuna nuova metrica predittiva, nessuna modifica a codice/protocolli/manoscritto. Unica lettura dati: metadati timestamps dei tre NPZ per inventario temporale.
+
+SORGENTI E STATO
+Checkout scientifico ../repo-paper4 su paper4, HEAD ef31396, working tree pulito al controllo. Altri worktree elencati da git: ../OR3 main 19c95be e ../OR3-esecutore 1f67ec4. Non sono stati consultati chat o lavori estranei. L'audit MoGERNN presente anche in OR3 risale allo stesso commit c25495c.
+- paper4/code/p4b.py, ultimo commit 40460d6. Split, input, training, scoring del paper.
+- paper4/code/e9.py; protocol/paper4/E9.md, firma efbecae, codice congelato 2821669.
+- protocol/paper4/PROTOCOLLO.md.
+- evoluzione/audit/AUDIT_MoGERNN.md, ultimo commit c25495c; originale esaminato 86b153fb4bf9358e32079930ccaea1cbcffa66f8.
+- evoluzione/audit/benchmark_mogernn.py, profila_mogernn.py, audit_mogernn_runtime.py.
+- evoluzione/DISEGNO_INSERIMENTO.md, PROTOCOLLO_CONFERMA.md, CONGELAMENTO_BUDGET.md: precedenti di un diverso studio, non risultati di Paper4.
+
+1. CHE COSA ESISTE GIÀ E NON VA PROPOSTO COME NUOVO
+Paper4 ha già confronto G0/G1, randomizzazione della geometria, positive control con supervisione target, confronto compatto e whole-city, calibrazione e fallback simmetrico, calendario, persistenza appaiata e placement con pesi comuni. Estendere queste analisi senza una specifica obiezione non rafforza automaticamente la novelty.
+E9 ha già un pilot di budget fino a 8000 aggiornamenti su Madrid, coverage40%, seed0. La prima soglia vicina al minimo conduceva a500; il cambio di ordinamento500/1000 ha portato a1000. Il limite è l'estensione dell'adeguatezza a città/configurazioni/modelli, non assenza totale di controllo di training.
+Lo studio evoluzione contiene budget2290/4580, nuove inizializzazioni e descrittori. Sono altro disegno e altro problema; non importarli come evidenza del budget Paper4 o replica indipendente.
+
+2. MoGERNN È GIÀ AUDITATO, MA L'AUDIT RIGUARDA ANCHE UN ALTRO TASK
+Nell'originale distinguere VS (mai osservati) da NAS (nuovi sensori che al test ricevono la propria storia recente). Per Paper4 il confronto rilevante è il regime VS, non il risultato NAS/installazione. L'audit della normalizzazione NAS non prova che il regime statico VS usi target history.
+L'audit trova nessun parametro indicizzato per nodo. Questa architettura può rappresentare target mai visti; il confronto è pertinente. Tuttavia:
+- decoder autoregressivo ricircola velocità; sostituire output con tre logit cambia la ricorrenza;
+- zero dopo normalizzazione confonde media, dato mancante e nodo nascosto; identificazione hidden dipende dalla somma del lotto;
+- esperti massimo/minimo hanno convenzioni di aggregazione diverse da media/diffusione. Modificarle è variante semantica, non mera accelerazione;
+- validazione originale coincide col periodo di training, split70/30 hardcoded e checkpoint best_test disponibile. Nel confronto comune bisogna usare esclusivamente validation separata e non calcolare risultati test a ogni epoca;
+- originale regressione velocità, input1ora a5min; Paper4 classificazione tre classi,3ore a15min, orizzonti15/30/60/120.
+Perciò non promettere un 'drop-in baseline'. Occorre gate di ammissibilità e scelta esplicita del compito comune.
+
+Opzioni da decidere prima di training:
+A) Adattamento dichiarato a classificazione: mantenere ricorrenza continua, aggiungere testa probabilistica e definire obiettivo, eventuale loss ausiliaria e peso. È una variante; non chiamarla riproduzione del metodo originale. Il peso ausiliario diventa iperparametro da scegliere solo su validation. Confrontare stessi input ammissibili e stessi target.
+B) Regressione comune: riaddestrare G0/G1 e baseline sul fattore continuo, poi confrontare metriche continue. Mantiene più fedelmente MoGERNN ma crea un nuovo task e richiede separare questa evidenza dai risultati wCE esistenti. Classificare con soglie le previsioni puntuali non produce probabilità utilizzabili direttamente per wCE.
+C) Cercare altro modello induttivo con output distribuzionale o classificazione più compatibile. La ricerca bibliografica del parent può identificare un candidato; non assumere compatibilità dall'abstract.
+Nessuna scelta definitiva fra A/B/C può essere giustificata con i soli file attuali. Prima scelta documentale, poi protocollo, poi esperimenti.
+
+3. HOLDOUT TEMPORALE
+Inventario NPZ, solo timestamps letti:
+- Madrid10464 timestamp,2021-06-01T00:00..2021-12-31T23:45;
+- London10557,2019-07-01T00:00..2020-01-31T23:45;
+- Melbourne10368,2020-06-01T00:00..2020-12-30T23:45.
+Sono periodi con gap: continuità va verificata, non inferita dalle estremità. p4b.py admissible_origins richiede continuità dall'inizio input alla fine target; split_origins applica70/10/20 a tutte le origini ammissibili e purge. I tre NPZ già alimentano la campagna storica. Nell'inventario non è stato identificato un quarto blocco blind.
+Nuovi semi, nuovi hidden nodes dentro gli stessi dati, o una sottoselezione tardiva del test non diventano conferma temporale indipendente. Prima di prometterla occorre inventario dei dati non esaminati e della loro provenienza, inclusi gli altri paper; non basta che non siano nel PDF. Senza nuovo holdout, pianificare una robustezza secondaria congelata prima della nuova esecuzione, dichiarandola come tale.
+
+4. INPUT STATICI E COMPARABILITÀ
+align_graph già fornisce coordinateUTM e max_speed. Le coordinate servono già alle partizioni/grafi ma non come feature. max_speed è disponibile con missingness e l'implementazione corrente ne standardizza il vettore su tutti i nodi; per una nuova condizione ammissibile occorre dichiarare se le statistiche statiche transduttive sono consentite, oppure stimarle sui soli observed training nodes. Non copiare implicitamente preprocessing in un claim più restrittivo.
+Disegno minimo interpretabile: fattoriale G0/G1 × statiche escluse/incluse, stessi split/origini/target/weights. Il guadagno G1−G0 va stimato dentro ciascuna condizione; testare direttamente l'interazione, non confrontare significatività separate. La comparazione di sistemi con feature diverse non attribuisce l'effetto allo spazio.
+Nessuna embedding libera per ID dei test-hidden nodes addestrata su loro storia. Coordinate/location possono identificare luoghi ma sono ammissibili se disponibili senza misure; separare identità geografica da leakage delle etichette. Dichiarare che il fattoriale modifica una scelta del precedente perimetro, non corregge numeri precedenti.
+
+5. PROPOSTA MINIMA PER IL PIANO DEL PARENT
+Gate0 documentale/implementativo, nessun esperimento ora:
+- fissare commit sorgente di ogni candidato, input ammessi, split, normalizzazione, maschere e checkpoint;
+- scegliere compito comune e natura dell'adattamento prima di osservare performance;
+- unit test futuri per invariance alla perturbazione delle misure test-hidden, permutazioni, missing masks, nessuna selezione sul test; distinguere uso consentito delle labels test per score da accesso agli input;
+- inventario nuovo holdout e piano di compute. Nessun hidden test per scegliere modello, features, learning rate o budget.
+
+BloccoA adeguatezza addestramento: G0/G1, tutte tre città, un coverage primario scelto per continuità con placement(f20%) anziché per esito. Piloti training/validation con griglia limitata di lr e budget/patience prefissati; stessa opportunità di selezione per entrambi, non lo stesso numero di aggiornamenti imposto a priori come garanzia di equità. Congelare regola prima dei piloti. Confronto finale selezionato su validation e appaiato fra bracci; mantenere traiettorie e checkpoint. Controllare anche relazione tra budget e ordinamento, non solo loss assoluta. Non dichiarare convergenza dal plateau apparente.
+BloccoB statiche: fattoriale sopra, stesso setting primario. Analisi primaria delle differenze entrocondizione e interazione diretta; dati/componenti identici fuori dal fattore.
+BloccoC modello induttivo dedicato: al medesimo task/info setting del blocco scelto, con calendar baseline e G0/G1 adeguatamente selezionati. È confronto di sistemi, non effetto causale di una specifica architettura. L'ablazione spaziale del candidato è utile solo se tecnicamente sensata e preregistrata.
+BloccoD informazione spaziale: per il modello selezionato può servire un controllo dei vicini senza rompere calendario/distribuzione. Qualsiasi shuffle a test soltanto è OOD e non isola il contributo; preferire variante addestrata con controllo coerente, purché non comporti un'esplosione di campagna. Non indispensabile se il confronto già risponde al claim limitato.
+Estensioni agli altri coverage e placement: fissarle prima dei risultati se necessarie al claim; non aggiungerle solo dove appare un successo. Per un piano minimo, f20% consente legame con placement ma non sostiene generalità10–60% per nuovi modelli. Gli altri livelli storici restano risultati storici.
+Ramo misura: nessun ulteriore esperimento necessario solo per rendere T-ITS; la necessità dipende dalla novelty rivendicata e dai precedenti. Evitare aggiungere una campagna locale disconnessa per compensare un'obiezione ai modelli.
+
+6. INFERENZA
+Stesso score weights fra modelli all'interno di split/condizione, stesse chiavi sensor-origin-horizon, stesso missingness mask di valutazione, differenze appaiate. Preservare score storico e margine3punti per continuità se appropriato; non dare a3punti un significato operativo che non ha. Distinguere nuova primary family da risultati descrittivi; definire multiplicity e aggregate-city rule prima di test. Intervallo contenente0 non dimostra equivalenza, e 'nessun guadagno' richiede intervallo compatibile col margine prespecificato. Bootstrap di sensori trattati indipendenti non sostituisce blocchi spaziali; nuova inizializzazione e partizione sono fattori differenti. Numero ripetizioni va motivato con precisione e budget prima dell'esito, non proposto come garanzia di potenza.
+
+7. COSTI
+E9 protocollo firma efbecae riporta isolate Madrid1000 updates G0~89s,G1~169s,G1rand~136s; sono hardware/implementazione specifici e non previsione affidabile del nuovo modello.
+Audit MoGERNN contiene una rettifica: tempi18.6s/update e stime650/1280ore derivavano da macchina occupata e sono ritrattati. NON usarli nel piano. Benchmark isolato successivo su grafo sintetico765n, batch32, torch2.12.1,M3: CPU3.27s/update,MPS0.91s/update; inferenza1.95/0.51s; MPS driver pool9.3GB. Solo10update misurati, non throughput sostenuto né il nuovo adattamento. Costo preliminare può essere formula N_run×U×t_update + validation + preprocessing, etichettata stima e da sostituire con pilot isolato dopo approvazione. La memoria e il backend scelto vanno verificati con task reale. Nessun costo definitivo o durata promessa ora.
+
+8. OVERLAP CON PAPER1
+evoluzione/DISEGNO_INSERIMENTO studia nuovi sensori che acquisiscono storia locale e strategie di aggiornamento/descrittori. Paper4 studia segmenti i cui dati non entrano in training né input. Evitare importare bracciP/E/C, budget, semi o claim 'new sensor no identity' come novelty Paper4. Audit di compatibilità MoGERNN è infrastruttura riusabile; campagne su stesse città/periodi non diventano indipendenti. La nuova campagna deve registrare in una matrice quali dati/metodi sono condivisi e quale domanda scientifica è distinta.
+
+ESITO
+Nuovi confronti sono fattibili in linea di principio; non c'è ancora un protocollo eseguibile approvato per MoGERNN/classificazione o una fonte verificata di holdout temporale intatto. Priorità alta alla separazione input/ottimizzazione/modello, non al numero di nuovi esperimenti. Il piano deve avere gate espliciti prima dei training e nessuna cancellazione o sovrascrittura dei record storici.
