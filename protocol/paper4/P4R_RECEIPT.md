@@ -18,4 +18,12 @@ Recorded by the responsible author on 2026-11-18. Later protocols of the campaig
 
 ## Later receipts
 
-(none)
+### E13-pre — 2026-11-18
+
+Document: `protocol/paper4/E13pre.md`, signed 2026-11-18 10:16, tag `paper4-E13pre-20261118`, commit `032752e`, sha256 `b46a209ee0f8d2ab3a2b527d71a903a40ccd33d4e72431d64b43b7448a9d28d0`. Sent to DEP-01 by the responsible author on 2026-11-18. Confirmation, verbatim:
+
+> Confermo la ricezione di E13pre.md SHA-256: b46a209ee0f8d2ab3a2b527d71a903a40ccd33d4e72431d64b43b7448a9d28d0 — tag paper4-E13pre-20261118, commit 032752e, branch paper4 del repository pubblico.
+>
+> Data 18/11/2026 ora 10:19
+
+Time of confirmation: 2026-11-18 10:19 (Europe/Rome); fingerprint, tag and commit match. No execution of E13-pre took place before this time.
