@@ -1,0 +1,135 @@
+{
+ "protocol": "E13pre",
+ "started_utc": "2026-11-18T09:28:45.624444+00:00",
+ "host": "MacBook-Pro-di-gabriele-2.local",
+ "platform": "macOS-26.6.2-arm64-arm-64bit",
+ "machine": "arm64",
+ "python": "3.12.7",
+ "torch": "2.12.1",
+ "numpy": "2.5.0",
+ "device": "cpu",
+ "mps_available": true,
+ "cuda_available": false,
+ "cuda_device": null,
+ "commit": "032752eb9ff602934789d876a38a03797cc6ee4d",
+ "code_dirty": false,
+ "load_avg_before": [
+  3.90869140625,
+  3.80908203125,
+  3.50048828125
+ ],
+ "code_sha_16": {
+  "p4b.py": "926061038a7472a3",
+  "e9.py": "4dd5628af8879511",
+  "e13pre.py": "eb56048600bb5737"
+ },
+ "city": "madrid",
+ "f": 0.2,
+ "seed": 0,
+ "batch": 32,
+ "u_short": 10,
+ "u_long": 60,
+ "reps": 3,
+ "data_fingerprints": {
+  "madrid:targets": {
+   "path": "/Users/gabrieledevito/Personal/MOTION/deliverables/OR3/data_collection/traffic4cast/MADRID_2022/gomo_fmt/targets_t4cmad_d8.npz",
+   "exists": true,
+   "sha256_16": "4d75bd9ef37e99b4"
+  },
+  "madrid:sensors": {
+   "path": "/Users/gabrieledevito/Personal/MOTION/deliverables/OR3/data_collection/traffic4cast/MADRID_2022/gomo_fmt/t4cmad_sensors.csv",
+   "exists": true,
+   "sha256_16": "cea1ffd8ebe5ae48"
+  },
+  "madrid:roads": {
+   "path": "/Users/gabrieledevito/Personal/MOTION/deliverables/OR3/data_collection/traffic4cast/MADRID_2022/gomo_fmt/t4cmad_routes-graph.pkl",
+   "exists": true,
+   "sha256_16": "3c1280a75411f3ec"
+  },
+  "london:targets": {
+   "path": "/Users/gabrieledevito/Personal/MOTION/deliverables/OR3/data_collection/traffic4cast/LONDON_2022/gomo_fmt/targets_t4cmad_d8.npz",
+   "exists": true,
+   "sha256_16": "8b379b9bb980f5a8"
+  },
+  "london:sensors": {
+   "path": "/Users/gabrieledevito/Personal/MOTION/deliverables/OR3/data_collection/traffic4cast/LONDON_2022/gomo_fmt/t4cmad_sensors.csv",
+   "exists": true,
+   "sha256_16": "52176d76b09a7441"
+  },
+  "london:roads": {
+   "path": "/Users/gabrieledevito/Personal/MOTION/deliverables/OR3/data_collection/traffic4cast/LONDON_2022/gomo_fmt/t4cmad_routes-graph.pkl",
+   "exists": true,
+   "sha256_16": "030850b3a5733a96"
+  }
+ },
+ "london_equals_madrid": false,
+ "setup_seconds": 0.5509845828637481,
+ "nodes_kept_K": 828,
+ "n_observed": 164,
+ "n_val": 163,
+ "n_test": 501,
+ "train_origins": 7093,
+ "grid": 11,
+ "arms": {
+  "G0": {
+   "seconds_per_update_median": 0.8590879791602493,
+   "seconds_per_update_all": [
+    0.8486344116553665,
+    0.8590879791602493,
+    0.8950508391857147
+   ],
+   "t_short_all": [
+    19.519086625427008,
+    18.699058208614588,
+    18.784028041176498
+   ],
+   "t_long_all": [
+    61.95080720819533,
+    61.65345716662705,
+    63.536570000462234
+   ],
+   "checkpoint_plus_fixed_seconds_est": 10.193148249574005,
+   "rss_peak_mb_so_far": 6036.3125,
+   "device_mem_mb": null
+  },
+  "G1": {
+   "seconds_per_update_median": 1.599965540841222,
+   "seconds_per_update_all": [
+    1.599965540841222,
+    1.605302395839244,
+    1.5872390674613417
+   ],
+   "t_short_all": [
+    33.91414066590369,
+    33.332613040693104,
+    33.17629120964557
+   ],
+   "t_long_all": [
+    113.91241770796478,
+    113.59773283265531,
+    112.53824458271265
+   ],
+   "checkpoint_plus_fixed_seconds_est": 17.332957632280888,
+   "rss_peak_mb_so_far": 6952.28125,
+   "device_mem_mb": null
+  }
+ },
+ "load_avg_after": [
+  4.7197265625,
+  4.65625,
+  4.31298828125
+ ],
+ "finished_utc": "2026-11-18T09:40:10.852661+00:00",
+ "A1_hours_on_this_device_U1000": {
+  "G0": 40.5,
+  "G1": 74.6
+ },
+ "A1_hours_on_this_device_U5000": {
+  "G0": 183.6,
+  "G1": 341.3
+ },
+ "A1_hours_on_this_device_U10000": {
+  "G0": 362.6,
+  "G1": 674.6
+ }
+}

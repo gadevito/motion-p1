@@ -1,0 +1,48 @@
+{
+  "dispositivo": "mps",
+  "nodi": 828,
+  "lotto": 32,
+  "fili_torch": 10,
+  "aggiornamento": {
+    "mediana_s": 1.1170346662402153,
+    "minimo_s": 1.0660653337836266,
+    "massimo_s": 1.142922124825418,
+    "dev_std_s": 0.031045924507665287,
+    "n": 10
+  },
+  "inferenza": {
+    "mediana_s": 0.649576208088547,
+    "minimo_s": 0.645342375151813,
+    "massimo_s": 0.6555675426498055,
+    "dev_std_s": 0.0032186643873858447,
+    "n": 10
+  },
+  "rss_picco_processo_GB": 0.531382272,
+  "memoria_dispositivo_picco": {
+    "allocata_GB": 0.016044032,
+    "driver_GB": 10.867195904
+  },
+  "avvisi_fallback": [],
+  "grafo": {
+    "nodi": 828,
+    "archi_senza_autoanelli": 34170,
+    "densita": 0.049900986628813766,
+    "pesi": "uniformi in (0, 1), sintetici",
+    "normalizzazione": "random walk D^-1 A, calcolata dal modello (gnn.py 32-45)",
+    "nota": "con DiffConv denso il costo NON dipende dalla densita'; conta solo per una variante sparsa"
+  },
+  "nota_random_walk": "calculate_random_walk_matrix passa per numpy su CPU a ogni forward (4 chiamate): su MPS sono andate e ritorni dispositivo-host",
+  "correttezza_cpu_contro_mps": {
+    "uscita_eval_max_abs": 3.725290298461914e-08,
+    "perdita_abs": 1.1920928955078125e-07,
+    "gradienti_max_abs": 4.190951585769653e-09
+  },
+  "ambiente": {
+    "piattaforma": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.12.7",
+    "torch": "2.12.1",
+    "nuclei": 14,
+    "mps_disponibile": true,
+    "fallback_mps_abilitato": "0"
+  }
+}

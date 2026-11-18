@@ -120,4 +120,17 @@ Responsible author: Gabriele De Vito, 2026-11-18 09:47 (Europe/Rome). Co-authors
 
 ## Dated notes after signature
 
-(none)
+**2026-11-18 — E13-pre executed; gate G-compute, part 1 (classification): outcome (a), full grid.** Protocol `E13pre.md` (tag `paper4-E13pre-20261118`, commit `032752e`, deposited 10:19). Runs from clean worktrees of the tag on both machines; reports under `paper4/runs/e13pre_mac/` and `paper4/runs/e13pre_spark/` (`report_<device>.json|md`, committed). Madrid, f = 0.20, seed 0, K = 828 nodes, grid 11, batch 32; seconds per update as (t60 − t10)/50, median of three.
+
+| Machine, backend | G0 s/update | G1 s/update | A1 hours (150 fits per arm): U = 1 000 / 5 000 / 10 000 |
+| --- | --- | --- | --- |
+| Mac M3 Max, MPS | 0.062 | 0.131 | 9 / 41 / 81 |
+| Mac, CPU (reference) | 0.859 | 1.600 | 115 / 525 / 1 037 |
+| Spark GB10, CUDA | 0.076 | 0.116 | 9 / 41 / 81 |
+| Spark, CPU (reference) | 0.568 | 1.067 | 74 / 346 / 687 |
+
+Classification (A1, 300 fits) on the Mac in MPS: within the calendar at the full grid of four configurations for any U up to 10 000 → **outcome (a)**; no reduction. CUDA brings no gain on G0/G1 (small models); the assignment of P4R §8 (classification on the Mac, regression on Spark) stands.
+
+Dedicated model, original code (`86b153f`), MPS, 828 synthetic nodes, batch 32, audited benchmark unchanged, run in the Paper 1 environment because `einops` is absent from `ENV.txt` (declared): 1.12 s per full update (min 1.07, max 1.14, n = 10), inference 0.65 s, CPU/MPS agreement 10⁻⁷–10⁻⁸. Preliminary estimate only: 300 dedicated fits at U = 10 000 would be ≈ 930 h on MPS; the regression campaign depends on Spark, whose cost for the **adapted** model is measured by E14-pre (the audited benchmark accepts `cpu|mps` only; not modified).
+
+Checks: London data files differ from Madrid's on both machines (prerequisite to E13); code not dirty; Spark environment = root poetry env (torch 2.12.1+cu130, numpy 2.5.1 vs 2.5.0 in `ENV.txt`), recorded in the reports. Load average on the Mac during the MPS run 3–3.7 on 14 cores (background load present, declared); Spark idle.
