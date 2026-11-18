@@ -1,0 +1,400 @@
+{
+ "protocol": "E13 A0.2",
+ "generator_version": 2,
+ "generator_seed": 20261118,
+ "generator": "A0.2 generators, version 2 (dated note of 2026-11-18 in E13.md; version 1 gave the tabular diagnostic of\n    `e13_a0_diag.py` a gain below one point for hidden cells; post-hoc revision of the synthetic control, declared). Both keep the real timestamps and calendar. Classes from\n    thresholds 0.8/0.4 on a latent factor z = base + 0.4*u + measurement noise (sd 0.03), clipped to [0, 1.6], with\n    base_t(i) = profile_t * amp(i) (two daily dips) and u a persistent field, u_t = 0.97*u_{t-1} + sqrt(1-0.97^2)*shock_t.\n    'dependent': amp and the shocks are spatially smoothed by a Gaussian kernel on the UTM coordinates (bandwidth 800 m,\n    row-normalised, shocks rescaled to unit variance): the field is smooth at the scale of the hidden grid cells and\n    persistent over hours, so the observed neighbours' history is informative about a hidden node's future beyond the calendar.\n    'independent': amp i.i.d. per node and shocks i.i.d. per node and time, no smoothing: any dependence between nodes\n    beyond the shared calendar profile is absent by construction. Nothing of the real target processes enters.",
+ "kinds": {
+  "dependent": {
+   "trajectories": {
+    "G0": [
+     {
+      "update": 0,
+      "val_wce": 1.1098931410034953
+     },
+     {
+      "update": 250,
+      "val_wce": 1.0690841297850306
+     },
+     {
+      "update": 500,
+      "val_wce": 1.0619103133290788
+     },
+     {
+      "update": 750,
+      "val_wce": 1.0696428262775644
+     },
+     {
+      "update": 1000,
+      "val_wce": 1.0655486809955592
+     },
+     {
+      "update": 1250,
+      "val_wce": 1.062098844681023
+     },
+     {
+      "update": 1500,
+      "val_wce": 1.0612534646257195
+     },
+     {
+      "update": 1750,
+      "val_wce": 1.067661328354422
+     },
+     {
+      "update": 2000,
+      "val_wce": 1.0608165924912147
+     }
+    ],
+    "G1": [
+     {
+      "update": 0,
+      "val_wce": 1.107214531723581
+     },
+     {
+      "update": 250,
+      "val_wce": 1.0802596748838227
+     },
+     {
+      "update": 500,
+      "val_wce": 1.062653520780169
+     },
+     {
+      "update": 750,
+      "val_wce": 1.0572436185399208
+     },
+     {
+      "update": 1000,
+      "val_wce": 1.0658614541212348
+     },
+     {
+      "update": 1250,
+      "val_wce": 1.0612639697679596
+     },
+     {
+      "update": 1500,
+      "val_wce": 1.0568744354247483
+     },
+     {
+      "update": 1750,
+      "val_wce": 1.0678794311733564
+     },
+     {
+      "update": 2000,
+      "val_wce": 1.0600750198794269
+     }
+    ]
+   },
+   "V_G1_by_checkpoint": [
+    [
+     0,
+     0.2413393849332583
+    ],
+    [
+     250,
+     -1.0453382280624814
+    ],
+    [
+     500,
+     -0.069987779736341
+    ],
+    [
+     750,
+     1.159191407920131
+    ],
+    [
+     1000,
+     -0.029353246008745514
+    ],
+    [
+     1250,
+     0.0786061407791163
+    ],
+    [
+     1500,
+     0.4126280240239775
+    ],
+    [
+     1750,
+     -0.02042809017635463
+    ],
+    [
+     2000,
+     0.06990582698620522
+    ]
+   ],
+   "best_checkpoint_G1": 1500,
+   "V_at_best": 0.4126280240239775,
+   "verdict": "FAIL: the full model does not exploit an available spatial signal"
+  },
+  "independent": {
+   "trajectories": {
+    "G0": [
+     {
+      "update": 0,
+      "val_wce": 1.1035158998912498
+     },
+     {
+      "update": 250,
+      "val_wce": 1.0644467737609236
+     },
+     {
+      "update": 500,
+      "val_wce": 1.0594537230808965
+     },
+     {
+      "update": 750,
+      "val_wce": 1.06012293266684
+     },
+     {
+      "update": 1000,
+      "val_wce": 1.0595334550949793
+     },
+     {
+      "update": 1250,
+      "val_wce": 1.0627215388388538
+     },
+     {
+      "update": 1500,
+      "val_wce": 1.0598131171961507
+     },
+     {
+      "update": 1750,
+      "val_wce": 1.0583568923155562
+     },
+     {
+      "update": 2000,
+      "val_wce": 1.0595839484474137
+     }
+    ],
+    "G1": [
+     {
+      "update": 0,
+      "val_wce": 1.1035725247700687
+     },
+     {
+      "update": 250,
+      "val_wce": 1.0656615230105662
+     },
+     {
+      "update": 500,
+      "val_wce": 1.058892912339434
+     },
+     {
+      "update": 750,
+      "val_wce": 1.059631855737149
+     },
+     {
+      "update": 1000,
+      "val_wce": 1.059423687762625
+     },
+     {
+      "update": 1250,
+      "val_wce": 1.0629900626915658
+     },
+     {
+      "update": 1500,
+      "val_wce": 1.0596744007973269
+     },
+     {
+      "update": 1750,
+      "val_wce": 1.0583045365769022
+     },
+     {
+      "update": 2000,
+      "val_wce": 1.059682392398978
+     }
+    ]
+   },
+   "V_G1_by_checkpoint": [
+    [
+     0,
+     -0.005131315174031247
+    ],
+    [
+     250,
+     -0.1141202434529088
+    ],
+    [
+     500,
+     0.05293395353141852
+    ],
+    [
+     750,
+     0.04632264000324287
+    ],
+    [
+     1000,
+     0.010359968515047809
+    ],
+    [
+     1250,
+     -0.02526756472870833
+    ],
+    [
+     1500,
+     0.013088760326988556
+    ],
+    [
+     1750,
+     0.004946888807941031
+    ],
+    [
+     2000,
+     -0.00929081189919674
+    ]
+   ],
+   "best_checkpoint_G1": 1750,
+   "V_at_best": 0.004946888807941031,
+   "verdict": "pass",
+   "note": "pass"
+  }
+ },
+ "trainings": 4,
+ "control_check": {
+  "dependent": {
+   "tabular_diagnostic": {
+    "graph": {
+     "feature": "graph_6hops",
+     "hidden_reached_share": 0.6073619631901841,
+     "1": {
+      "wce_calendar": 1.1255272110243155,
+      "wce_calendar_feature": 0.9328781302143115,
+      "V": 17.116341472959917
+     },
+     "2": {
+      "wce_calendar": 1.1236257926478843,
+      "wce_calendar_feature": 0.9536337446199027,
+      "V": 15.128884468501408
+     },
+     "4": {
+      "wce_calendar": 1.1215511271630207,
+      "wce_calendar_feature": 0.9915277589242019,
+      "V": 11.593173515657268
+     },
+     "8": {
+      "wce_calendar": 1.1125667691345462,
+      "wce_calendar_feature": 1.0407835563558427,
+      "V": 6.452036387401978
+     },
+     "mean_V": 12.572608961130143
+    },
+    "geo5": {
+     "feature": "geo5",
+     "1": {
+      "wce_calendar": 1.1255272110243155,
+      "wce_calendar_feature": 0.6410409605176526,
+      "V": 43.04527209659761
+     },
+     "2": {
+      "wce_calendar": 1.1236257926478843,
+      "wce_calendar_feature": 0.6835243204301626,
+      "V": 39.167975236719954
+     },
+     "4": {
+      "wce_calendar": 1.1215511271630207,
+      "wce_calendar_feature": 0.7701722889693784,
+      "V": 31.329720926986184
+     },
+     "8": {
+      "wce_calendar": 1.1125667691345462,
+      "wce_calendar_feature": 0.872872110218663,
+      "V": 21.544294290071164
+     },
+     "mean_V": 33.771815637593726
+    }
+   },
+   "class_shares": [
+    0.5084186730857303,
+    0.32857755229801,
+    0.16300377461625964
+   ],
+   "valid": true
+  },
+  "independent": {
+   "tabular_diagnostic": {
+    "graph": {
+     "feature": "graph_6hops",
+     "hidden_reached_share": 0.6073619631901841,
+     "1": {
+      "wce_calendar": 1.1332392072360375,
+      "wce_calendar_feature": 1.1337553790130872,
+      "V": -0.045548351464877034
+     },
+     "2": {
+      "wce_calendar": 1.1332004981177912,
+      "wce_calendar_feature": 1.1338420451774913,
+      "V": -0.056613729059040024
+     },
+     "4": {
+      "wce_calendar": 1.1331201916247142,
+      "wce_calendar_feature": 1.133743451866334,
+      "V": -0.05500389510544274
+     },
+     "8": {
+      "wce_calendar": 1.133097783931598,
+      "wce_calendar_feature": 1.1332643919560164,
+      "V": -0.014703764033512166
+     },
+     "mean_V": -0.04296743491571799
+    },
+    "geo5": {
+     "feature": "geo5",
+     "1": {
+      "wce_calendar": 1.1332392072360375,
+      "wce_calendar_feature": 1.1347112565119202,
+      "V": -0.1298974891164367
+     },
+     "2": {
+      "wce_calendar": 1.1332004981177912,
+      "wce_calendar_feature": 1.1345204326299674,
+      "V": -0.11647846205226041
+     },
+     "4": {
+      "wce_calendar": 1.1331201916247142,
+      "wce_calendar_feature": 1.1345762838970506,
+      "V": -0.12850289696528444
+     },
+     "8": {
+      "wce_calendar": 1.133097783931598,
+      "wce_calendar_feature": 1.1344344109559197,
+      "V": -0.11796219560890676
+     },
+     "mean_V": -0.12321026093572207
+    }
+   },
+   "class_shares": [
+    0.5089981847124349,
+    0.3091824373236419,
+    0.18181937796392325
+   ],
+   "valid": true
+  }
+ },
+ "written": "2026-11-18T18:23:30.833296+00:00",
+ "environment": {
+  "host": "MacBook-Pro-di-gabriele-2.local",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.12.7",
+  "torch": "2.12.1",
+  "numpy": "2.5.1",
+  "pandas": "3.0.3",
+  "networkx": "3.6.1",
+  "mps": true,
+  "cuda": false,
+  "tag": "",
+  "frozen_tag": "paper4-E13-20261118b",
+  "head": "072809d",
+  "code_sha16": {
+   "p4b.py": "926061038a7472a3",
+   "e9.py": "4dd5628af8879511",
+   "e13.py": "42e357b86a21fd2d"
+  },
+  "prereg_sha16": "47a33af7a5057323",
+  "load_avg": [
+   1.47705078125,
+   2.19384765625,
+   4.71435546875
+  ]
+ },
+ "commit": "072809df6ce920995f7a568cf2c8e1e114306649",
+ "code_dirty": false
+}
