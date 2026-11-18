@@ -1,0 +1,67 @@
+REVISIONE AVVERSARIALE DEL PIANO — LETTORE INFORMATO
+16 novembre 2026. Letti EXPERIMENT_PLAN_20261116.txt v1, EXPERIMENT_FEASIBILITY_20261116.txt e SCOPUS_SEARCH_20261116.json. Nessun esperimento o modifica al manoscritto. La verifica riguarda intelligibilità, coerenza e utilità del disegno; non certifica sufficienza scientifica per T-ITS.
+
+VERDETTO
+Il piano rende comprensibile il motivo dei nuovi esperimenti e tutela correttamente i risultati storici. È una buona agenda di ricerca, ma non è ancora eseguibile. Oltre ai gate esplicitamente aperti, tre incoerenze devono essere risolte: schema informativo A2/A3, significato dell'ablazione no-dynamic nel candidato e contrasti primari A2. Il nucleo minimo va reso più leggibile separando training neurali, baseline stimate e budget di sviluppo.
+
+P1 — A3 NON HA LO STESSO SCHEMA INFORMATIVO DI A2
+A2 propone fattore osservato + calendario + topologia; A3 dichiara di preservare coordinate/topologia/calendario. Le coordinate non figurano nel completo A2 e la compatibilità del calendario con MoGERNN non è ancora dimostrata. Se A3 aggiunge informazioni, il contrasto non misura solo soppressione della dinamica.
+Riparazione: definire un unico schema S per completo e no-dynamic, indicando per ogni canale se originale/adattato, come entra nel modello e se condiviso con G0-reg/G1-reg. A3 deve mantenere esattamente S senza introdurre coordinate. Se si desidera S+coordinate, è un secondo confronto separato e deve avere entrambi i bracci. Finché non verificato dal codice, nessun riuso dei fit A2 promesso nel budget.
+
+P1 — ZERO DINAMICO PUÒ CAMBIARE IL SIGNIFICATO DELLA MASCHERA
+La fattibilità segnala che MoGERNN originale identifica hidden nodes dalla somma del lotto e che zero normalizzato può indicare media/mancanza/nodo nascosto. Azzerare i vicini potrebbe quindi cambiare anche chi è osservato, la struttura interna o l'ammissibilità degli esperti. Il lettore non può capire che cosa sia effettivamente manipolato.
+Riparazione: maschera esplicita e invariata tra bracci, test sull'invarianza della struttura e del routing rispetto al valore sostitutivo, convenzione di input definita. Qualsiasi modifica al masking originale va dichiarata come correzione/adattamento. Preferire una variante no-dynamic tecnicamente valida e riaddestrata; se non possibile, non forzare questo controllo e restringere il claim. L'ablation non è causalità fisica e ciò è già correttamente scritto.
+
+P1 — A2 NON TESTA COME PRIMARY LA DOMANDA CHE LO MOTIVA
+Si aggiunge un modello dedicato per verificare la dipendenza dal modello originale, ma la famiglia primaria confronta solo induttivo vs calendario-reg. Un guadagno sul calendario non dice se differisce da G0-reg/G1-reg, e una mancata differenza sul calendario non stabilisce equivalenza fra modelli.
+Riparazione: esplicitare un contrasto appaiato modello induttivo vs G0-reg (e G1-reg secondario o primario separato), oltre al calendario. Aggiornare famiglia multiplicity e frase di interpretazione. Non confrontare il nuovo MAE con vecchi punti wCE e non usare significatività separata per dedurre una differenza tra modelli. Il track regressivo risponde a una domanda aggiuntiva sul fattore continuo; non dimostra direttamente che il vecchio risultato di classificazione dipendesse dall'architettura.
+
+P2 — IL CAMBIO DI TASK RICHIEDE UNA DECISIONE VISIBILE, NON UNA NOTA TECNICA
+La proposta di regressione comune è ragionevole per preservare il decoder, ma cambia target/loss/metriche e riduce gli input a un insieme comune. Come lettore capisco il motivo, ma non quale sarà il nuovo claim unitario del paper.
+Riparazione: aprire il piano con scelta raccomandata e conseguenza: mantenere classificazione storica come primo studio; aggiungere una verifica separata su fattore continuo, con baseline riaddestrate e identico regime informativo. La conclusione potrà distinguere dipendenza dal task e dal modello, senza identificarne il contributo individuale confrontando A1 e A2. Se si vuole isolare architettura sulla classificazione serve un adattamento probabilistico validato, non la semplice sogliatura di previsioni puntuali. Questo è un tradeoff da ratificare prima dell'esecuzione.
+
+P2 — IL CONTO DEI FIT MESCOLA COSTI DIVERSI
+A2 conta 3 città×5 seed×4 modelli=60fit, ma il calendario-reg è una tabella deterministica, non un training neurale. Se A3 riusa il completo, 45training neurali A2 +15 stime calendario; A1 ha60training neurali; A3 aggiunge15training, quindi nucleo120training neurali +15 baseline stimate, non135training neurali. Il testo chiama già i fit non esperimenti indipendenti, ma resta facile leggere135 come costo omogeneo. Lo sviluppo A2/A3 non è quantificato; A1 solo ha192fit di sviluppo.
+Riparazione: tabella per fase con fit neurali finali, baseline tabellari, fit di sviluppo, massimo updates, riuso possibile e costo ancora ignoto. Precisare se i checkpoint1000/3000/10000 appartengono alla stessa traiettoria o sono training separati. Definire quali dei due seed di sviluppo coincidono con i cinque finali e come si aggrega validation per la scelta. Non moltiplicare arbitrariamente benchmark breve per l'intera campagna come stima definitiva.
+
+P2 — SHUFFLE INTRA-SPLIT E CAUSALITÀ TEMPORALE SONO ANCORA UN MENU, NON UNA PROCEDURA
+Una permutazione di tutte le finestre di test nello stesso slot usa tipicamente finestre future. Il piano segnala correttamente il problema, ma una biblioteca causale non è una permutazione simmetrica e cambia distribuzione/disponibilità nel tempo; non produce automaticamente un test nullo valido.
+Riparazione: togliere shuffle dal nucleo e qualificarlo come futura sensibilità da protocollo dedicato, oppure fissare donor pool solo training, slot/fallback, ricampionamento con rimpiazzo, trattamento dei target temporali e motivazione. Non usare il risultato come conditional independence test. Il contrasto completo vs no-dynamic è sufficiente per il nucleo se implementato correttamente.
+
+P2 — INTERAZIONE STATICHE E GENERALITÀ
+Il testo propone di capire se il guadagno cambia con le statiche ma tratta l'interazione come secondaria. È accettabile se il claim principale resta beneficio dentrocondizione; se si vuole affermare che statiche sbloccano il guadagno, l'interazione diretta deve essere nella famiglia prespecificata. Il solo significativo in I1 e non significativo in I0 non basta. Non estendere i nuovi risultati f20% a10–60%; il piano già pone questo limite, da conservare anche nella sintesi finale.
+
+P3 — RELAZIONE CON LA NOVELTY
+La ricerca Scopus documenta precedenti che ridimensionano i claim di primo task e primo collegamento placement/forecasting. Lo screening è dichiaratamente parziale e diversi candidati hanno solo abstract o titolo: adeguato per shortlist, non per attestare il vuoto di letteratura. Prima della scelta definitiva del modello leggere i full text più prossimi e registrare esplicitamente dati target ammessi in training/inferenza, normalizzazioni e selezione. L'assenza di una voce non verificata non significa che il lavoro non faccia quel controllo.
+
+COSA IL PIANO FA BENE
+- Nuovi semi non sono spacciati per holdout indipendente.
+- Il pilot di budget preesistente è riconosciuto.
+- Esiti favorevoli a MoGERNN aggiornano la tesi, non attivano la ricerca di un modello che fallisca.
+- RQ4 non è usata per compensare debolezze della previsione né per confrontare utilità di dataset diversi.
+- Risultati storici, protocollo e nuovo estimand restano separati.
+- Nessuna equivalenza dedotta da intervallo contenente zero.
+- I costi ritrattati non vengono riproposti.
+
+PERCORSO MINIMO CHE UN AUTORE PUÒ SCEGLIERE
+1. Decidere track regressivo comune oppure variante di classificazione; audit del candidato e schema input unico.
+2. Congelare A1 con G0/G1×I0/I1, tuning su validation, contrasti appaiati; I2 facoltativo solo se feature audit lo sostiene.
+3. Eseguire A2 soltanto dopo controllo dell'implementazione, con confronto induttivo/calendario/G0-reg/G1-reg sullo stesso task.
+4. A3 soltanto se no-dynamic conserva maschere e rappresentazione; shuffle fuori dal nucleo.
+5. Inventariare A4 prima di chiamare la nuova campagna conferma; se manca, dichiarare secondary robustness.
+6. A5 se il nuovo headline include placement con modelli dedicati, altrimenti mantenerlo come evidenza storica limitata.
+
+CONDIZIONE DI CHIUSURA
+Dopo le riparazioni il documento può essere approvabile come piano di ricerca. Non va etichettato PASS per esecuzione finché non sono fissati candidato/adattatore, schema informativo, budget di sviluppo, inferenza/statistica e provenienza dati. Una revisione del codice prima del lancio resta distinta da questa revisione del piano. Nulla qui garantisce accettazione o sufficienza di novelty per IEEE T-ITS.
+
+VERIFICA VERSIONE 2 — 16 novembre 2026
+Riletta v2 dopo le correzioni. Risolti a livello di piano: schema S0 identico A2/A3 senza coordinate aggiunte; maschera esplicita e gate di invarianza per no-dynamic; confronti primari diretti con G0-reg/G1-reg; mediana calendario per MAE; distinzione120training neurali finali+15stime tabellari; tetto di sviluppo esplicitato fino a504training schematici; track regressivo e ratifica del nuovo endpoint dichiarati. La distinzione fra piano di ricerca e protocollo eseguibile è ora chiara e corretta. Non è una certificazione di sufficienza per T-ITS.
+
+Resta una precisione P1 prima del protocollo: due split dedicati e un solo schema iperparametri per città sono comuni a cinque split finali, ma 'test-hidden storico escluso' non specifica l'unione. Se tuning congiunto deve escludere l'UNIONE dei test-hidden di tutti e cinque gli split, non soltanto uno; altrimenti etichette target di uno split possono entrare nello sviluppo di un altro e influenzare lo schema comune. L'intersezione dei pool non-test potrebbe essere troppo piccola: non assumere fattibilità. Alternative sono tuning annidato separato per ciascuno split esterno (costo da ricalcolare), oppure nuovo target comune fissato per tutte le repliche, che cambia il disegno e deve restare distinto dallo storico. Il manifest delle maschere deve verificare questa proprietà prima di qualsiasi training.
+Restano dettagli di esecuzione già compatibili con gate aperti: chiarire checkpoint su una traiettoria o fit separati; lo shuffle resta escluso dal nucleo e non è una procedura valida finché donor pool/timing non sono specificati. Le interazioni statiche restano secondarie, quindi eventuali claim sul cambiamento del guadagno vanno trattati come secondari.
+Esito v2: piano utilizzabile per decidere scope e priorità, con la precisione union-of-test da incorporare. Non pronto al lancio; nessun esperimento eseguito.
+
+VERIFICA VERSIONE 3 — 16 novembre 2026
+Verificata v3. La questione dell'unione dei test è risolta a livello di disegno scegliendo tuning separato per ciascuno split esterno, senza trasferire scelte derivanti da altri split che ne usino i test-hidden. Il nuovo conteggio è coerente:240+180+60=480training di sviluppo e60+45+15=120finali, totale600training neurali più15stime calendario. Se il completo A3 non è riutilizzabile,60sviluppo+15finali aggiungono75, totale675. Checkpoint della stessa traiettoria non moltiplicano i fit.
+Lo schema A2/A3 è comune e il gate include maschere esplicite e teacher forcing. Disabilitare teacher forcing in entrambi è una modifica dichiarata al training originale, da validare tecnicamente; non viene presentata come riproduzione perfetta. Shuffle è esplicitamente fuori dal nucleo. Il nuovo estimand regressivo resta distinto dalla classificazione storica.
+Esito: le osservazioni di coerenza del lettore sono recepite in modo sufficiente per una decisione sul piano scientifico. Il piano resta intenzionalmente NON eseguibile finché A0, adapter, budget sostenuto, precisione, schema statistico operativo e scope sono fissati. Nessuna ulteriore contraddizione bloccante individuata nella v3 sul perimetro di questa rilettura. Questo giudizio non certifica novelty sufficiente per T-ITS né sostituisce la futura revisione del codice/protocollo. Nessun esperimento eseguito.

@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-16",
+  "platform": "Scopus Documents via sessione Chrome UniSA",
+  "fields": "Article title, Abstract, Keywords",
+  "filters": "Nessun filtro anno/lingua applicato; ordinamento Date newest; display200",
+  "purpose": "Ricerca mirata per disegno esperimenti, non systematic review e non prova di priorità",
+  "queries": [
+    {
+      "id": "Q1",
+      "query": "traffic AND (\"unobserved location*\" OR \"unobserved node*\" OR \"unsensed\" OR \"unseen node*\") AND (forecast* OR predict*)",
+      "count": 14,
+      "screening": "Tutti i titoli e abstract disponibili nella pagina letti."
+    },
+    {
+      "id": "Q2",
+      "query": "traffic AND (inductive OR \"missing data\" OR \"partial sensing\") AND (forecast* OR predict*)",
+      "count": 815,
+      "screening": "Ricerca esplorativa troppo ampia; prima pagina di 200 titoli, screening non completo; raffinata Q3."
+    },
+    {
+      "id": "Q3",
+      "query": "traffic AND (inductive OR \"partial sensing\" OR \"non-historical\") AND (forecast* OR predict*) AND NOT (\"network traffic\" OR cellular OR wireless OR aviation)",
+      "count": 265,
+      "screening": "Prima pagina 200 titoli esaminata, abstract selezionati. Restanti 65 non esaminati. Esclusioni lessicali possono perdere lavori pertinenti."
+    },
+    {
+      "id": "Q4",
+      "query": "traffic AND (\"spatial correlation\" OR \"spatial dependence\") AND (calendar OR detrend* OR baseline OR \"functional data\")",
+      "count": 443,
+      "screening": "Prima pagina 200 titoli esaminata; non revisione esaustiva; fonti mirate approfondite."
+    },
+    {
+      "id": "Q5",
+      "query": "traffic AND (\"sensor placement\" OR \"sensor location\") AND (forecast* OR predict*) AND (coverage OR accuracy OR uncertainty)",
+      "count": 35,
+      "screening": "Tutti i titoli esaminati; abstract selezionati, inclusa ottimizzazione GNN2025."
+    },
+    {
+      "id": "Q6",
+      "query": "traffic AND (\"loop detector*\" OR radar) AND (\"lane aggregation\" OR \"reference speed\" OR \"congestion detection\" OR \"spatial aggregation\")",
+      "count": 26,
+      "screening": "Tutti i titoli esaminati. Record rilevanti su probe/reference identificati; alcuni abstract non disponibili nella lista, nessuna equivalenza di metodo dedotta."
+    },
+    {
+      "id": "Q7",
+      "query": "traffic AND (detrend* OR \"calendar baseline\" OR \"climatology\" OR \"functional data analysis\")",
+      "count": 712,
+      "screening": "Ricerca esplorativa ampia; esame selettivo della prima pagina. Record climatology2026 verificato; ricerca puntuale Q8."
+    },
+    {
+      "id": "Q8",
+      "query": "\"Using temporal detrending to observe the spatial correlation of traffic\"",
+      "count": 1,
+      "screening": "Record esatto verificato; testo editore già letto."
+    }
+  ],
+  "date_note": "Scopus mostra anche volumi2027. Anno fascicolo non è data online; non trattarli come futuri o già pubblicati definitivamente senza verifica. TA-ANP ha preprint maggio2026 verificato."
+}
