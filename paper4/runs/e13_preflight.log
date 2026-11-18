@@ -1,0 +1,43 @@
+E13 preflight — 2026-11-18T16:26:35.499175+00:00 — commit 8393fe00898b268daeddcf9d1b6e62e1ac7a07e8 (code dirty: False) — tag ''
+code p4b.py 926061038a7472a3 · e9.py 4dd5628af8879511 · e13.py 7e5e7614d1c29e75 · torch 2.12.1
+[PASS] graph  road graph connected after alignment in the three cities
+[PASS] sets   f = 20 %: no empty set, shares within ±15, ≥ 8 test blocks (15 pairs)
+[PASS] A0.4   London data files differ from Madrid's — {"madrid": {"targets": "4d75bd9ef37e99b4", "sensors": "cea1ffd8ebe5ae48", "roads": "3c1280a75411f3ec"}, "london": {"targets": "8b379b9bb980f5a8", "sensors": "52176d76b09a7441", "roads": "030850b3a5733a96"}}
+[PASS] 1a-I0  node sets disjoint, non-empty, whole cells
+[PASS] 1b-I0  no hidden index in input mask or loss of 100 batches
+[PASS] 1c-I0  hidden nodes zero in dynamic channels, flag channel and loss tensor
+[PASS] ch-I0  input channels = 11
+[PASS] 2a-I0  every origin admissible
+[PASS] 2b-I0  no target of a period overlaps an input of the next
+[PASS] 2c-I0  causality: noise after the origin leaves the inputs identical to the bit
+[PASS] 2d-I0  noise on hidden nodes (all) leaves class weights, normalisation and historical average identical
+[PASS] 3-I0   class weights recomputed independently from observed training cells
+[PASS] A0.1-I0 noise on hidden nodes: inputs, loss masks, 50 per-step losses, parameters and validation predictions identical — inputs True losses True params True preds True
+[PASS] 7-I0   updates equal the cap exactly; no hidden node in any batch
+[PASS] 8-I0   per-cell file reconstructs the aggregate validation wCE within 1e-9
+[INFO] det-I0 two identical runs (50 updates): max |Δ parameter| = 0.000e+00 (bitwise identical)
+[PASS] init-I0 development and final initialisation seeds differ
+[PASS] 1a-I1  node sets disjoint, non-empty, whole cells
+[PASS] 1b-I1  no hidden index in input mask or loss of 100 batches
+[PASS] 1c-I1  hidden nodes zero in dynamic channels, flag channel and loss tensor
+[PASS] ch-I1  input channels = 13
+[PASS] 2a-I1  every origin admissible
+[PASS] 2b-I1  no target of a period overlaps an input of the next
+[PASS] 2c-I1  causality: noise after the origin leaves the inputs identical to the bit
+[PASS] 2d-I1  noise on hidden nodes (all) leaves class weights, normalisation and historical average identical
+[PASS] 3-I1   class weights recomputed independently from observed training cells
+[PASS] A0.1-I1 noise on hidden nodes: inputs, loss masks, 50 per-step losses, parameters and validation predictions identical — inputs True losses True params True preds True
+[PASS] A0.1-I1-coords perturbing hidden nodes' coordinates leaves every channel of the observed nodes identical
+[PASS] A0.3-perm permuted coordinates change only the two coordinate channels, among observed nodes
+[PASS] 7-I1   updates equal the cap exactly; no hidden node in any batch
+[PASS] 8-I1   per-cell file reconstructs the aggregate validation wCE within 1e-9
+[INFO] det-I1 two identical runs (50 updates): max |Δ parameter| = 0.000e+00 (bitwise identical)
+[PASS] init-I1 development and final initialisation seeds differ
+[PASS] 6      node sets, origins, class weights, normalisation and historical average identical across arms and regimes
+[PASS] A0.5   no reference to test origins or test nodes in the development, extension and final code
+[INFO] test-hidden nodes per (city, seed): {"madrid": {"0": 501, "1": 486, "2": 499, "3": 502, "4": 498}, "london": {"0": 460, "1": 459, "2": 483, "3": 469, "4": 464}, "melbourne": {"0": 345, "1": 351, "2": 352, "3": 349, "4": 342}}
+[PASS] 9      an existing run folder blocks the launch
+[PASS] guard  test metrics refused while the E13 signature line is blank
+[INFO] gate refuses dev now: no E13 tag reachable from HEAD (git describe --match paper4-E13-*: '')
+[PASS] gate   the launch gate refuses `dev` before signature / tag / A0.2
+PREFLIGHT: 0 failure(s)
