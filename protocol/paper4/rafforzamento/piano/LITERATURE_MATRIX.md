@@ -11,7 +11,7 @@ Version 0, 2026-11-18, coordination role. Rows: the closest works from the Scopu
 | inputs | observed sites' dynamic history, calendar, topology; coordinates only as a new factor (I1, S1) |
 | calendar baseline | yes (per-slot table; median for regression) |
 | training controls | adequacy rule on validation, nested tuning per split (new) |
-| component comparisons | G0/G1 (spatial exchange on/off); static × dynamic 2×2 in the dedicated model (new) |
+| component comparisons | G0/G1 (spatial exchange on/off); coordinates × dynamic-readings 2×2 in the dedicated model, topology in every cell (new) |
 | replication | NDW-Rotterdam, different source, frozen recipes (new) |
 | code | public repository, frozen tags |
 
