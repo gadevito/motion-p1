@@ -52,9 +52,9 @@ Probes 2026-11-16/17: site configuration (20 619 sites nationwide, all 60-s, flo
 | C2 | yes: stable ids, coordinates, lanes, carriageway; topology from OSM |
 | C3 | 7 months (same length and season as Madrid/Melbourne), 273 urban + 876 motorway sites → ideal |
 | C4 | never used by us; not a benchmark of MoGERNN (METR-LA/PEMS only, per `AUDIT_MoGERNN.md`) → ideal |
-| C5 | open Dexter export without account (Expert module, 8-day limit, captcha); NDW states free reuse, CC0 on its website content, formal data licence not named (2026-11-18: [copyright page](https://english.ndw.nu/service/copyright), [open-data page](https://english.ndw.nu/our-data/i-want-to-use-open-data)); service-desk confirmation requested/to request → minimum until confirmed |
+| C5 | open Dexter export without account (Expert module, 8-day limit, captcha); licence **CC0 1.0** per the NDW open-data terms of use (https://docs.ndw.nu/algemeen/data-gebruiksvoorwaarden/, checked 2026-11-18), attribution appreciated, not required → ideal |
 | C6 | **urban network** (arterials of a city of 650 000, with the motorway ring available as a separate layer) → ideal |
-| verdict | **passes the minimum on every criterion; ideal on C3, C4, C6; C1 after the limits are derived; C5 after licence confirmation. The only urban candidate.** |
+| verdict | **passes the minimum on every criterion; ideal on C3, C4, C5, C6; C1 after the limits are derived. The only urban candidate.** |
 
 Site-selection rule for the replication, fixed now and applied only in E15: presence ≥ 90 % of the period's minutes and valid speed ≥ 70 %; urban layer primary, motorway ring as a declared secondary layer or excluded. Hours of day restricted to those covered by the T4C cities.
 
@@ -79,4 +79,4 @@ Open data portal, Wavetronix radar, 15-min speed and volume on urban arterials (
 
 ## Outcome (2026-11-18)
 
-NDW-Rotterdam is ideal on C4, C6 and C3 and acquired; C1 (per-site limits) and C5 (licence confirmation) are the two open items, both resolvable without new data. WebTRIS is verified and ideal on C1/C3/C5 but is a motorway corridor (C6 minimum): it stays as the second replication if the co-authors decide to fund it (+50 final fits), otherwise as the archived alternative. M-30 is the reserve. Decision requested from the co-authors: NDW-Rotterdam only, or NDW-Rotterdam + WebTRIS.
+NDW-Rotterdam is ideal on C3, C4, C5 and C6 and acquired; C1 (per-site limits from OSM or the NDW traffic-signs dataset) is the one open item, resolvable without new data. WebTRIS is verified and ideal on C1/C3/C5 but is a motorway corridor (C6 minimum): it stays as the second replication if the co-authors decide to fund it (+50 final fits), otherwise as the archived alternative. M-30 is the reserve. Decision requested from the co-authors: NDW-Rotterdam only, or NDW-Rotterdam + WebTRIS.
