@@ -47,3 +47,13 @@ Document: `protocol/paper4/E13.md`, signed text unchanged, dated note of 2026-11
 > Data 18/11/2026 ora 19:00
 
 Time of confirmation: 2026-11-18 19:00 (Europe/Rome); fingerprint, tag and commit match. Between the first deposit (17:41) and this one the only training performed was the failed A0.2 of control version 1 (report kept, see the note); no A0.2 with control version 2, no A0.3 and no A1 run took place before this time.
+
+### E13, with the I1 investigation note — 2026-11-18
+
+Document: `protocol/paper4/E13.md`, signed text unchanged, notes of 2026-11-18 appended (A0.2 note, I1 note with internal review approval 20:55), tag `paper4-E13-20261118c`, commit `95b2c57`, sha256 `9134ca00cc310e5e0f1233bb3e77bba4b3a3c56dc65d673d2a7e9178428ffdcf`. Sent to DEP-01 by the responsible author on 2026-11-18. Confirmation, verbatim:
+
+> Confermo la ricevuta di E14.md con la nota di indagine (SHA.256 9134ca00cc310e5e0f1233bb3e77bba4b3a3c56dc65d673d2a7e9178428ffdcf - tag paper4-E13-20261118c commit 95b2c57) I1 del 18/11/2026
+>
+> Data 18/11/2026 ora 20:58
+
+Time of confirmation: 2026-11-18 20:58 (Europe/Rome). "E14.md" is the depositary's slip, left as written: the fingerprint, tag and commit quoted identify `protocol/paper4/E13.md` at `95b2c57`, the file attached; no E14.md exists yet. Fingerprint, tag and commit match. The I1 run (`e13_a0_invest.py`) did not start before this time.
