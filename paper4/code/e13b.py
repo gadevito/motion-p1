@@ -718,7 +718,7 @@ def analysis(args):
         res["V_D1"]["eligible_for_adequacy_statements"] = not (cells_c & excluded); res["V_D1"]["excluded_cells"] = sorted(cells_c & excluded)
         res["_reps"] = reps["V_D1"]
         out["cities"][city] = res
-    R = np.stack([out["cities"][c]["_reps"] for c in CITIES], 1); est = np.array([out["cities"][c]["V_D1"]["estimate"] for c in CITIES])
+    R = np.stack([out["cities"][c]["_reps"] for c in CITIES], 1); est = estimates_array([out["cities"][c]["V_D1"]["estimate"] for c in CITIES])
     fin = np.isfinite(R).all(1)                                           # a replicate enters the band only if defined for every city
     if np.isfinite(est).all() and fin.sum() >= MIN_DEFINED_FRAC * B_REPS:
         Rf = R[fin]; sd = Rf.std(0) + 1e-12; T = np.abs((Rf - Rf.mean(0)) / sd).max(1); q = float(np.percentile(T, 95))
@@ -750,6 +750,11 @@ def analysis(args):
 
 
 MIN_DEFINED_FRAC = 0.95
+
+
+def estimates_array(values):
+    """Point estimates as a float64 array: an undefined estimate (None) becomes NaN, never an object array."""
+    return np.array([np.nan if v is None else float(v) for v in values], dtype="float64")
 
 
 def summarise_replicates(obs, reps):

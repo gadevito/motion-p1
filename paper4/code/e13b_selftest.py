@@ -344,6 +344,8 @@ ok("replicates: p-values from finite replicates only (2 % undefined: defined, 98
 ok("replicates: too many undefined replicates -> contrast undefined, no p-value", not a2["defined"] and a2["p_centred"] is None)
 ok("replicates: undefined observed contrast -> undefined, no p-value", not a3["defined"] and a3["estimate"] is None)
 ok("replicates: all-NaN replicates never yield p = 0", not a4["defined"] and a4["p_centred"] is None)
+ea = e13b.estimates_array([2.0, None, 3.5])
+ok("estimates: an undefined estimate becomes NaN in a float64 array (np.isfinite works, no object array)", ea.dtype == np.float64 and np.isnan(ea[1]) and np.isfinite(ea).sum() == 2)
 # 5c. struct: the I3 reference is required
 ok("struct: refuses (exit 1) when e13_a0_struct.json is missing", e13b.struct(NS()) == 1 and not (RUNS / "e13b_struct.json").exists())
 # 5d. pre: MPS required; bound to the approved preflight; interruption identifiable

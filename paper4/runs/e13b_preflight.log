@@ -1,0 +1,28 @@
+E13B preflight — 2026-11-19T12:35:45.974362+00:00 — commit 89824a1e3b714fe706aaed2eeb12446906f5de15 (code dirty: True) — tag ''
+code p4b.py 926061038a7472a3 · e9.py 4dd5628af8879511 · e13.py 42e357b86a21fd2d · e13b.py fda51553fe7ff752 · torch 2.12.1
+[PASS] graph  road graph connected after alignment in the three cities
+[PASS] sets   f = 20 %: no empty set, shares within ±15, ≥ 8 test blocks (15 pairs)
+[PASS] B0.4   London data files differ from Madrid's — {"madrid": {"targets": "4d75bd9ef37e99b4", "sensors": "cea1ffd8ebe5ae48", "roads": "3c1280a75411f3ec"}, "london": {"targets": "8b379b9bb980f5a8", "sensors": "52176d76b09a7441", "roads": "030850b3a5733a96"}}
+[PASS] 1a     node sets disjoint, non-empty, whole cells
+[PASS] 1b     no hidden index in input mask or loss of 100 batches
+[PASS] 1c     hidden nodes zero in their own dynamic channels (0-3), the input indicator and the loss tensor (F and R are admitted inputs)
+[PASS] ch     input channels = 13 (11 + F + R)
+[PASS] 2a     every origin admissible
+[PASS] 2b     no target of a period overlaps an input of the next
+[PASS] 2c     causality: noise after the origin leaves the 13 input channels identical to the bit (F included)
+[PASS] 2d     noise on hidden nodes (all) leaves class weights, normalisation and historical average identical
+[PASS] 3      class weights recomputed independently from observed training cells
+[PASS] B0.1-batch noise on hidden nodes' readings: the 13 input channels, loss masks and masked labels of a training batch identical to the bit
+[PASS] B0.3a  F on 64 validation origins (inputs = observed) equals the double-precision reference over the whole window within 1e-4, and the diagnostic's propagated mean at the origin — max |diff| window 5.96e-08, origin vs diagnostic formula 5.96e-08
+[PASS] B0.3b  F on 20 training masks equals the reference over the whole window, both unconverted (float64) and as the float32 tensor the network receives, within 1e-4; unreachable nodes F = 0 and R = 0 in the tensor — max |diff| float32 tensor 5.96e-08, float64 0.00e+00; nodes with mass in (0, 1e-6]: 2556 over 20 masks
+[PASS] B0.3c  R equals the indicator of a positive propagated mass in every mask
+[PASS] B0.3d  D0: channels 0-3 and F exactly zero in a training batch and a validation batch; the other channels identical to D1's
+[PASS] 6      node sets, origins, class weights, normalisation and historical average identical across arms
+[PASS] B0.5   no reference to test origins or test nodes in the development, extension and final code
+[PASS] derived the derived block equals the mechanical derivation from e13.py (substitution table)
+[PASS] B0.5-struct I3 reproduction agrees with e13_a0_struct.json on the shared quantities
+[PASS] 9      an existing run folder blocks the launch
+[PASS] guard  test metrics refused while the E13B signature line is blank
+[INFO] gate refuses dev now: no E13B tag reachable from HEAD (git describe --match paper4-E13B-*: '')
+[PASS] gate   the launch gate refuses `dev` before signature / tag / B0.2 / P4R revision
+PREFLIGHT: 0 failure(s) — no model update was performed

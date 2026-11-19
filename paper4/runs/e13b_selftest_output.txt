@@ -17,13 +17,13 @@ ok   b0-synth: an interrupted attempt leaves a report with status 'incomplete' a
 ok   b0-synth: re-run refused while the incomplete report exists
 dependent seed 20261119 tabular diagnostic, graph feature: V per horizon {'1': 0, '2': 0, '4': 0, '8': 0} mean 5.0 | class shares [1. 0. 0.] -> INVALID
 independent seed 20261120 tabular diagnostic, graph feature: V per horizon {'1': 0, '2': 0, '4': 0, '8': 0} mean 0.0 | class shares [1. 0. 0.] -> valid
--> /var/folders/5j/4x7mn8ls2r7bxy98whtdt53m0000gn/T/e13b_selftest_7hztonwn/root/paper4/runs/e13b_b0_synth.json be7ac2310e1dfdaa control invalid, stopped before training
+-> /var/folders/5j/4x7mn8ls2r7bxy98whtdt53m0000gn/T/e13b_selftest_dpdie5ks/root/paper4/runs/e13b_b0_synth.json 714c77b6661cac58 control invalid, stopped before training
 ok   b0-synth: an invalid realisation stops before any training (trainings 0, status complete, exit 1)
 dependent seed 20261119 tabular diagnostic, graph feature: V per horizon {'1': 0, '2': 0, '4': 0, '8': 0} mean 20.0 | class shares [1. 0. 0.] -> valid
 independent seed 20261120 tabular diagnostic, graph feature: V per horizon {'1': 0, '2': 0, '4': 0, '8': 0} mean 0.0 | class shares [1. 0. 0.] -> valid
 dependent best checkpoint of D1 2000 V 0.0 -> FAIL: the dependent control is not passed (V(D1) < +3 at the best checkpoint); B1 blocked, no acceptance route
 independent best checkpoint of D1 2000 V 0.0 -> pass
--> /var/folders/5j/4x7mn8ls2r7bxy98whtdt53m0000gn/T/e13b_selftest_7hztonwn/root/paper4/runs/e13b_b0_synth.json 3ad9a721253c6b4d
+-> /var/folders/5j/4x7mn8ls2r7bxy98whtdt53m0000gn/T/e13b_selftest_dpdie5ks/root/paper4/runs/e13b_b0_synth.json fc285fc43c4c8ded
 ok   b0-synth: complete run records 4 trainings, D1 best checkpoint and verdicts (identical fake curves -> dependent not passed)
 ok   gate: refuses on the real b0-synth report with the dependent control not passed
 ok   gate: refuses a B0.2 report of another frozen tag
@@ -36,21 +36,21 @@ ok   gate: independent anomaly without acceptance refused
  "scope": "independent anomaly",
  "accepted_by": "GDV",
  "note_commit": "abc1234",
- "b0_synth_sha16": "1b97801a159a1f70",
+ "b0_synth_sha16": "42ad2609e8172aff",
  "frozen_tag": "paper4-E13B-20261121",
  "independent_verdict": "anomaly: V(D1) > +3",
- "written": "2026-11-19T12:20:21.363144+00:00"
+ "written": "2026-11-19T12:34:52.774149+00:00"
 }
 ok   gate: with the acceptance, refuses until the P4R revision is recorded
 ok   p4r-revision: refuses a non-existent revision commit
 ok   p4r-revision: refuses a revision commit that does not carry the committed P4R.md
 ok   p4r-revision: refuses a receipt commit that does not touch P4R_RECEIPT.md
 {
- "p4r_commit": "21dbe3d",
+ "p4r_commit": "0cc1c78",
  "p4r_sha16": "9b410ab9a625c496",
- "receipt_commit": "03e371f",
+ "receipt_commit": "8fda0e0",
  "by": "GDV",
- "written": "2026-11-19T12:20:23.071646+00:00",
+ "written": "2026-11-19T12:34:54.717145+00:00",
  "frozen_tag": "paper4-E13B-20261121"
 }
 ok   gate: refuses while e13b_p4r_revision.json is not committed
@@ -119,7 +119,7 @@ ok   campaign final: stale cell re-run; lock True again
  "final_failures": [],
  "excluded_from_adequacy_statements": [],
  "lock": true,
- "lock_sha16": "72a48c0d09c1441b"
+ "lock_sha16": "38bc1bc8d0a5fce7"
 }
 dev_failures_pending: run `extend` for their groups, then `final` again; dev_failures_after_extension and final_failures: feasibility limit / inconclusive, excluded from adequacy-conditioned statements
 ok   lock file is E13B's own (e13b_adequacy.json), not E13's
@@ -143,7 +143,8 @@ ok   replicates: p-values from finite replicates only (2 % undefined: defined, 9
 ok   replicates: too many undefined replicates -> contrast undefined, no p-value
 ok   replicates: undefined observed contrast -> undefined, no p-value
 ok   replicates: all-NaN replicates never yield p = 0
-/var/folders/5j/4x7mn8ls2r7bxy98whtdt53m0000gn/T/e13b_selftest_7hztonwn/root/paper4/runs/e13_a0_struct.json missing: the I3 reference is required for the reproduction check
+ok   estimates: an undefined estimate becomes NaN in a float64 array (np.isfinite works, no object array)
+/var/folders/5j/4x7mn8ls2r7bxy98whtdt53m0000gn/T/e13b_selftest_dpdie5ks/root/paper4/runs/e13_a0_struct.json missing: the I3 reference is required for the reproduction check
 ok   struct: refuses (exit 1) when e13_a0_struct.json is missing
 ok   pre: refuses without the deterministic preflight log
 ok   pre: refuses when the preflight did not pass
@@ -155,10 +156,10 @@ B0.1 D1: losses True parameters True predictions True
 B0.1 D0: losses True parameters True predictions True
 benchmark D1: s/update [0.0, 0.0, 0.0] median 0.0000
 benchmark D0: s/update [0.0, 0.0, 0.0] median 0.0000
--> /var/folders/5j/4x7mn8ls2r7bxy98whtdt53m0000gn/T/e13b_selftest_7hztonwn/root/paper4/runs/e13b_pre.json 13211a9cf06f671f
+-> /var/folders/5j/4x7mn8ls2r7bxy98whtdt53m0000gn/T/e13b_selftest_dpdie5ks/root/paper4/runs/e13b_pre.json ea4543eabe1496b5
 ok   pre: complete run records B0.1 per arm (4 trajectories) and the benchmark (6), 560 updates
 ok   version: after a new tag, latest_dev/latest_final ignore the records of the previous version (indices kept on disk)
 ok   version: the lock is False and lists the cells whose records belong to another version
 ok   metric: analysis uses per_horizon_mean
 
-68 checks, 0 failed
+69 checks, 0 failed
