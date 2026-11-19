@@ -95,3 +95,13 @@ Document: `protocol/paper4/E13Bpre.md`, signed 2026-11-19 13:42, tag `paper4-E13
 > Ora: 13:45
 
 Time of confirmation: 2026-11-19 13:45 (Europe/Rome). The depositary quoted the first 16 hexadecimal characters of the fingerprint, which match the committed file; tag and commit match. No update of any E13B model (B0.1, benchmark) took place before this time.
+
+### E13B — 2026-11-19
+
+Document: `protocol/paper4/E13B.md`, signed 2026-11-19 13:57, tag `paper4-E13B-20261119`, commit `e50d06a`, sha256 `46377f67135e9927ec98857326f739ae3e874f2952867ccb275964d81b439287`. Sent to DEP-01 by the responsible author on 2026-11-19. Confirmation, verbatim:
+
+> Conferma di ricezione del protocollo E13B.md firmato (SHA-256 46377f67135e9927, tag paper4-E13B-20261119, commit e50d06a, branch paper4 del repository pubblico).
+>
+> Ora: 13:58
+
+Time of confirmation: 2026-11-19 13:58 (Europe/Rome). The depositary quoted the first 16 hexadecimal characters of the fingerprint, which match the committed file; tag and commit match. No B0.2 training and no B1 run took place before this time.
