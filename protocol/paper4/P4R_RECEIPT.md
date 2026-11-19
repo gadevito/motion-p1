@@ -75,3 +75,13 @@ Document: `protocol/paper4/E13.md`, signed text unchanged, notes appended (A0.2,
 > confermo ricezione E13.md con nuova nota. Tag `paper4-E13-20261119b` su `7a3c67d`; impronta `169a2d23edb8e10e023546f750094e1facb97324ac6daeb329c1b459318eb3c2. Ora: 11:18`
 
 Time of confirmation: 2026-11-19 11:18 (Europe/Rome); fingerprint, tag and commit match. The I3 measurement (`e13_a0_struct.py`) did not run before this time.
+
+### E13 final (closed) and P4R with the decision of 2026-11-19 — 2026-11-19
+
+Documents: `protocol/paper4/E13.md`, signed text unchanged, final with the closure note (sha256 `08becbd20c38e8fa879df70d7a5a289c69b9e101d0d85dabbe0b451c22e34ce0`); `protocol/paper4/P4R.md`, signed text unchanged, with the decision note of 2026-11-19 (sha256 `fd193a9de55021b940ea7a1213fbea1e014d41fbb19b910b5bffea7e9cd62d05`); tag `paper4-E13-20261119c`, commit `9e8bd1d`. Sent to DEP-01 by the responsible author on 2026-11-19. Confirmation, verbatim:
+
+> Conferma ricezione della versione finale di E13.md (SHA-256: 08becbd20c38e8fa879df70d7a5a289c69b9e101d0d85dabbe0b451c22e34ce0) e P4R.md aggiornato con la decisione del 19/11 (SHA-256: fd193a9de55021b940ea7a1213fbea1e014d41fbb19b910b5bffea7e9cd62d05) — tag paper4-E13-20261119c, commit 9e8bd1d, branch paper4 del repository pubblico.
+>
+> Ore: 11:58
+
+Time of confirmation: 2026-11-19 11:58 (Europe/Rome); fingerprints, tag and commit match. E13 is closed; no fit of any kind has been run since I2 (10:51–11:30 window of its execution) and none is authorised until E13B is signed and deposited.
