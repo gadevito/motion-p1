@@ -1,6 +1,6 @@
 # E13B-pre — authorised preflight updates of E13B: hidden-node invariance (B0.1) and cost benchmark
 
-**Pre-registration.** Date ______ · commit ______ (code `p4b.py` ______, `e9.py` ______, `e13.py` ______, `e13b.py` ______; E13B preflight log `e13b_preflight.log` ______, 0 failures) · signed: ______ · internal review: ______ · launched by ______ (Mac M3 Max, MPS).
+**Pre-registration.** Date 2026-11-19 13:42 (Europe/Rome) · commit `ba64cf0` (code `p4b.py` 926061038a7472a3, `e9.py` 4dd5628af8879511, `e13.py` 42e357b86a21fd2d, `e13b.py` fda51553fe7ff752; E13B preflight log `e13b_preflight.log` bc20e8fb389ad124, 0 failures, no model update; I3 reproduction `e13b_struct.json` 1fe0f21f982e86b4, 15/15 agree; self-test 69 checks) · signed: Gabriele De Vito · internal review: Filomena Ferrucci (approval of the code and of draft 2, 2026-11-19 13:39) · launched by Gabriele De Vito (Mac M3 Max, MPS).
 
 Draft 2 of 2026-11-19 (gate completed on the code review), written under P4R as revised by the collegial decision of 2026-11-19 and under `E13B.md` (draft 3, Order step 3). It covers **every model update that precedes the signature of E13B**, so that the signature of E13B does not document them retroactively. The sequence is binding: implementation → review of `e13b.py` and of its self-test → deterministic preflight of E13B (no update) → this protocol signed, deposited and tagged → the updates below → signature of E13B. No other training is authorised by this protocol; B0.2 and B1 belong to E13B.
 
