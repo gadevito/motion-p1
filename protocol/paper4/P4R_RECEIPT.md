@@ -67,3 +67,11 @@ Document: `protocol/paper4/E13.md`, signed text unchanged, notes appended (A0.2,
 > Data: 19/11/2026 ora: 09:23
 
 Time of confirmation: 2026-11-19 09:23 (Europe/Rome); fingerprint, tag and commit match. The I2 run (`e13_a0_invest2.py`) did not start before this time.
+
+### E13, with the I3 note — 2026-11-19
+
+Document: `protocol/paper4/E13.md`, signed text unchanged, notes appended (A0.2, I1, I2, I3 with internal review approval 11:16), tag `paper4-E13-20261119b`, commit `7a3c67d`, sha256 `169a2d23edb8e10e023546f750094e1facb97324ac6daeb329c1b459318eb3c2`. Sent to DEP-01 by the responsible author on 2026-11-19. Confirmation, verbatim:
+
+> confermo ricezione E13.md con nuova nota. Tag `paper4-E13-20261119b` su `7a3c67d`; impronta `169a2d23edb8e10e023546f750094e1facb97324ac6daeb329c1b459318eb3c2. Ora: 11:18`
+
+Time of confirmation: 2026-11-19 11:18 (Europe/Rome); fingerprint, tag and commit match. The I3 measurement (`e13_a0_struct.py`) did not run before this time.
