@@ -1,0 +1,127 @@
+ok   derivation: the derived block and train_gf equal their mechanical derivation from e13.py
+ok   constants: arms D1/D0, regime I0 only, 30 cells, E13B paths
+ok   backbone: train_gf builds p4b.GWN with graph=False for D1 and for D0 and records the arm on the setup
+ok   backbone: train_gf refuses an unknown arm
+ok   gate: refuses without an E13B tag reachable from HEAD (an E13 tag does not count)
+ok   gate: refuses before signature
+ok   gate: refuses an uncommitted change of the protocol (dirty tree)
+ok   gate: refuses a protocol changed after the tag
+ok   frozen_tag: nearest E13B tag
+ok   gate: refuses e13b.py changed after the tag (frozen path of E13B)
+ok   HEAD advanced beyond the tag by record commits: frozen files unchanged
+ok   gate: refuses without B0.2
+ok   environment records e13.py and e13b.py fingerprints
+ok   gate: refuses a B0.2 report of another frozen tag
+ok   gate: refuses when a realisation is invalid
+ok   gate: refuses when the dependent control is not passed
+ok   gate: a failed dependent control cannot be accepted by a note
+ok   b0-accept: refuses when the dependent control is not passed
+ok   gate: independent anomaly without acceptance refused
+{
+ "scope": "independent anomaly",
+ "accepted_by": "GDV",
+ "note_commit": "abc1234",
+ "b0_synth_sha16": "7cf5529439666264",
+ "frozen_tag": "paper4-E13B-20261121",
+ "independent_verdict": "anomaly: V(D1) > +3",
+ "written": "2026-11-19T12:08:18.725453+00:00"
+}
+ok   gate: with the acceptance, refuses until the P4R revision is recorded
+ok   p4r-revision: refuses when P4R.md is not committed unchanged
+{
+ "p4r_commit": "abc1234",
+ "p4r_sha16": "1ccb51ead07a377d",
+ "receipt_commit": "def5678",
+ "by": "GDV",
+ "written": "2026-11-19T12:08:19.051643+00:00",
+ "frozen_tag": "paper4-E13B-20261121"
+}
+ok   gate: refuses while e13b_p4r_revision.json is not committed
+ok   gate: passes with valid realisations, dependent passed, accepted independent anomaly, P4R revision recorded — and ignores the failed E13 report
+ok   gate: refuses when P4R.md changed after the recorded revision
+ok   gate: passes with both controls passed and no acceptance
+ok   dev: interrupted attempt leaves no index entry
+{"cell": "madrid_s0_D1_I0", "selected_config": "C1", "selected_checkpoint": 3000, "selected_adequacy": {"min_update": 3000, "min_at_cap": false, "last_improvement_frac": -0.00048709206039936184, "pass": true}}
+ok   dev: re-run after interruption succeeds (attempt 2); record carries arm D1 and protocol E13B
+ok   dev: refuses a completed cell without a registered deviation
+{"cell": "madrid_s0_D1_I0", "selected_config": "C1", "selected_checkpoint": 3000, "selected_adequacy": {"min_update": 3000, "min_at_cap": false, "last_improvement_frac": -0.00048709206039936184, "pass": true}}
+ok   dev: re-run with --deviation recorded (attempt 3)
+ok   dev: refuses an E13 arm name
+{"cell": "madrid_s0_D0_I0", "selected_config": "C1", "selected_checkpoint": 3000, "selected_adequacy": {"min_update": 3000, "min_at_cap": false, "last_improvement_frac": -0.00048709206039936184, "pass": true}}
+{"cell": "madrid_s1_D1_I0", "selected_config": "C1", "selected_checkpoint": 10000, "selected_adequacy": {"min_update": 10000, "min_at_cap": true, "last_improvement_frac": 0.011235955056179784, "pass": false}}
+{"cell": "madrid_s1_D0_I0", "selected_config": "C1", "selected_checkpoint": 3000, "selected_adequacy": {"min_update": 3000, "min_at_cap": false, "last_improvement_frac": -0.00048709206039936184, "pass": true}}
+ok   dev: 4 cells (1 city x 2 seeds x D1/D0) developed; all records under paper4/runs/e13b
+ok   adequacy: pending failure detected, lock False
+ok   extend: interrupted state recorded as incomplete/started
+{
+ "group": "madrid_D1_I0",
+ "status": "incomplete",
+ "seeds": {
+  "0": {
+   "usable": true,
+   "config": "C1"
+  },
+  "1": {
+   "usable": false,
+   "config": "C1"
+  }
+ }
+}
+extension incomplete: seeds without a usable reproduced run: [1] — re-run `extend` to resume (an interruption is not a failure; two completed runs that do not reproduce are a reported failure)
+ok   extend: resumed; seed 1 reproduction failed -> unusable, incomplete, exit 1
+{
+ "group": "madrid_D1_I0",
+ "status": "complete",
+ "seeds": {
+  "0": {
+   "usable": true,
+   "config": "C1"
+  },
+  "1": {
+   "usable": true,
+   "config": "C1"
+  }
+ }
+}
+ok   extend: retry reproduces, group complete
+ok   extend: a third call is refused (once per group)
+{"cell": "madrid_s0_D1_I0", "config": "C1", "selected_checkpoint": 3000, "adequacy": {"min_update": 3000, "min_at_cap": false, "last_improvement_frac": -0.0004823926676313989, "pass": true}}
+{"cell": "madrid_s0_D0_I0", "config": "C1", "selected_checkpoint": 3000, "adequacy": {"min_update": 3000, "min_at_cap": false, "last_improvement_frac": -0.00048709206039936184, "pass": true}}
+{"cell": "madrid_s1_D1_I0", "config": "C1", "selected_checkpoint": 15000, "adequacy": {"min_update": 15000, "min_at_cap": false, "last_improvement_frac": -0.0006373486297005175, "pass": true}}
+{"cell": "madrid_s1_D0_I0", "config": "C1", "selected_checkpoint": 3000, "adequacy": {"min_update": 3000, "min_at_cap": false, "last_improvement_frac": -0.00048709206039936184, "pass": true}}
+ok   final: all 4 up to date, lock True; final records carry the arm
+ok   lock: stale final detected after a new development
+{"cell": "madrid_s0_D0_I0", "config": "C1", "selected_checkpoint": 3000, "adequacy": {"min_update": 3000, "min_at_cap": false, "last_improvement_frac": -0.00048709206039936184, "pass": true}}
+ok   campaign final: stale cell re-run; lock True again
+{
+ "missing_dev": [],
+ "missing_final": [],
+ "final_stale": [],
+ "dev_failures_pending": [],
+ "dev_failures_after_extension": [],
+ "final_failures": [],
+ "excluded_from_adequacy_statements": [],
+ "lock": true,
+ "lock_sha16": "17688db1a9f0f2a9"
+}
+dev_failures_pending: run `extend` for their groups, then `final` again; dev_failures_after_extension and final_failures: feasibility limit / inconclusive, excluded from adequacy-conditioned statements
+ok   lock file is E13B's own (e13b_adequacy.json), not E13's
+ok   test: refused when the lock file is not committed
+ok   gate still passes after the lock commit
+ok   test: refuses a foreign test file
+madrid_s0_D1_I0 test wCE (mean over horizons) 1.0
+madrid_s0_D0_I0 test wCE (mean over horizons) 1.0
+madrid_s1_D1_I0 test wCE (mean over horizons) 1.0
+madrid_s1_D0_I0 test wCE (mean over horizons) 1.0
+ok   test: 4 files written with reach vector
+madrid    V_D1              0.000  CI   0.000   0.000  p 1.0000  inconclusive / advantage>=3 excluded
+madrid    V_D1_reached      0.000  CI   0.000   0.000  p 1.0000  inconclusive / advantage>=3 excluded
+madrid    V_D1_unreached    0.000  CI   0.000   0.000  p 1.0000  inconclusive / advantage>=3 excluded
+sup-t 95 %: {'madrid:V_D1': [0.0, 0.0]}
+statement: PROVISIONAL (marginal intervals; the family-wise correction belongs to the campaign-wide analysis of the revised P4R family): gain below the prespecified 3-point margin at 20 % under adequate training {'cities_candidate': [], 'cities_lower_simultaneous_bound_ge_3': [], 'eligible': {'madrid': True}, 'excluded_cells': []}
+ok   analysis: statement provisional, not confirmatory
+ok   analysis: primary V_D1 and secondary reached/unreached contrasts present, sup-t over V_D1 per city
+ok   metric: per-horizon mean 2.0, not pooled 2.5
+ok   metric: analysis uses per_horizon_mean
+
+48 checks, 0 failed
