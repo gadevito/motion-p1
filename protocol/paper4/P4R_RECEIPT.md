@@ -105,3 +105,11 @@ Document: `protocol/paper4/E13B.md`, signed 2026-11-19 13:57, tag `paper4-E13B-2
 > Ora: 13:58
 
 Time of confirmation: 2026-11-19 13:58 (Europe/Rome). The depositary quoted the first 16 hexadecimal characters of the fingerprint, which match the committed file; tag and commit match. No B0.2 training and no B1 run took place before this time.
+
+### P4R revision 1 and P4R.md with the incorporating note — 2026-11-19
+
+Documents: `protocol/paper4/rafforzamento/P4R_REV1.md`, signed 2026-11-19 14:51, commit `7771a17`, sha256 `9ab6b42fbcb115441d614e1b06a35f919cd794fdde8dcbe1875187f220fb8394`; `protocol/paper4/P4R.md`, signed text unchanged, dated note of 2026-11-19 incorporating the revision by reference, commit `759afdb`, sha256 `5a97f3b510411667e4e548e8c5ff574273faece7d487d37a2e3583bfa7781b4c`. Sent to DEP-01 by the responsible author on 2026-11-19. Confirmation, verbatim:
+
+> Confermo ricezione P4R_REV1.md firmato (SHA-256: 9ab6b42fbcb115441d614e1b06a35f919cd794fdde8dcbe1875187f220fb8394, commit 7771a17) e P4R.md con la nota che lo incorpora (SHA-256: 5a97f3b510411667e4e548e8c5ff574273faece7d487d37a2e3583bfa7781b4c, commit 759afdb), branch paper4 del repository pubblico. Ora: 15:25
+
+Time of confirmation: 2026-11-19 15:25 (Europe/Rome); fingerprints and commits match. No B1 run took place before this time.
