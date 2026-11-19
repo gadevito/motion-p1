@@ -85,3 +85,13 @@ Documents: `protocol/paper4/E13.md`, signed text unchanged, final with the closu
 > Ore: 11:58
 
 Time of confirmation: 2026-11-19 11:58 (Europe/Rome); fingerprints, tag and commit match. E13 is closed; no fit of any kind has been run since I2 (10:51–11:30 window of its execution) and none is authorised until E13B is signed and deposited.
+
+### E13B-pre — 2026-11-19
+
+Document: `protocol/paper4/E13Bpre.md`, signed 2026-11-19 13:42, tag `paper4-E13Bpre-20261119`, commit `cc402bd`, sha256 `8e7ac5212b5d3472fc61e664d5b1d75a33bc166a21bae7828b313adda13f76ef`. Sent to DEP-01 by the responsible author on 2026-11-19. Confirmation, verbatim:
+
+> Confermo ricezione del protocollo preliminare E13Bpre.md (SHA-256 8e7ac5212b5d3472 - — tag paper4-E13Bpre-20261119, commit cc402bd, branch paper4 del repository pubblico).
+>
+> Ora: 13:45
+
+Time of confirmation: 2026-11-19 13:45 (Europe/Rome). The depositary quoted the first 16 hexadecimal characters of the fingerprint, which match the committed file; tag and commit match. No update of any E13B model (B0.1, benchmark) took place before this time.
