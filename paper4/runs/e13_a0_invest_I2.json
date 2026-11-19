@@ -1,0 +1,273 @@
+{
+ "investigation": "I2 (where the neighbours' information is lost)",
+ "status": "complete",
+ "cap": 2000,
+ "ck_every": 500,
+ "config": "C1",
+ "init_stream": 6,
+ "thresholds": {
+  "R1": 10.0,
+  "R2": 3.0,
+  "R3": 3.0
+ },
+ "frozen_tag": "paper4-E13-20261119a",
+ "head": "15129ca",
+ "script_sha16": "90d70ad783adace8",
+ "reference": {
+  "file": "paper4/runs/e13_a0_synth.json",
+  "sha16": "bffd39aaca1d6c9f",
+  "G0_dependent": {
+   "0": 1.1098931410034953,
+   "250": 1.0690841297850306,
+   "500": 1.0619103133290788,
+   "750": 1.0696428262775644,
+   "1000": 1.0655486809955592,
+   "1250": 1.062098844681023,
+   "1500": 1.0612534646257195,
+   "1750": 1.067661328354422,
+   "2000": 1.0608165924912147
+  },
+  "G1_dependent": {
+   "0": 1.107214531723581,
+   "250": 1.0802596748838227,
+   "500": 1.062653520780169,
+   "750": 1.0572436185399208,
+   "1000": 1.0658614541212348,
+   "1250": 1.0612639697679596,
+   "1500": 1.0568744354247483,
+   "1750": 1.0678794311733564,
+   "2000": 1.0600750198794269
+  }
+ },
+ "started": "2026-11-19T08:24:34.057119+00:00",
+ "environment": {
+  "host": "MacBook-Pro-di-gabriele-2.local",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.12.7",
+  "torch": "2.12.1",
+  "numpy": "2.5.1",
+  "pandas": "3.0.3",
+  "networkx": "3.6.1",
+  "mps": true,
+  "cuda": false,
+  "tag": "",
+  "frozen_tag": "paper4-E13-20261119a",
+  "head": "15129ca",
+  "code_sha16": {
+   "p4b.py": "926061038a7472a3",
+   "e9.py": "4dd5628af8879511",
+   "e13.py": "42e357b86a21fd2d"
+  },
+  "prereg_sha16": "89462dc9b187e437",
+  "load_avg": [
+   13.80517578125,
+   16.40087890625,
+   13.0400390625
+  ]
+ },
+ "runs": {
+  "R1_G0_own_readings_restored": {
+   "trajectory": [
+    {
+     "update": 0,
+     "val_wce": 1.1071835465924975,
+     "train_loss": null,
+     "seconds": 1.4197550006210804
+    },
+    {
+     "update": 500,
+     "val_wce": 0.5360321993538107,
+     "train_loss": 0.594311861038208,
+     "seconds": 53.40994116663933
+    },
+    {
+     "update": 1000,
+     "val_wce": 0.5166800780572294,
+     "train_loss": 0.5313724598884583,
+     "seconds": 102.35436850041151
+    },
+    {
+     "update": 1500,
+     "val_wce": 0.507273839257181,
+     "train_loss": 0.5179245103001594,
+     "seconds": 149.26340000052005
+    },
+    {
+     "update": 2000,
+     "val_wce": 0.5152960105933064,
+     "train_loss": 0.5058928498625755,
+     "seconds": 196.66491683293134
+    }
+   ],
+   "seconds": 196.6673615835607,
+   "init_seed": 968622014,
+   "hidden_in_batches": 0,
+   "best_checkpoint": 1500,
+   "V_vs_A02_G0": 52.2005009956707,
+   "threshold": 10.0,
+   "result": "diagnostic threshold reached"
+  },
+  "R2_feature_check": {
+   "max_abs_diff_vs_diagnostic": 5.960334736876405e-08,
+   "nodes_reachable_from_observed": 564,
+   "origins_checked": 64
+  },
+  "R2_G0_graph_feature": {
+   "trajectory": [
+    {
+     "update": 0,
+     "val_wce": 1.1122835282946524,
+     "train_loss": null,
+     "seconds": 6.514728290960193
+    },
+    {
+     "update": 500,
+     "val_wce": 0.926812041100254,
+     "train_loss": 1.0087282115221023,
+     "seconds": 192.47416745778173
+    },
+    {
+     "update": 1000,
+     "val_wce": 0.9058872958437835,
+     "train_loss": 0.965869723200798,
+     "seconds": 427.10816054046154
+    },
+    {
+     "update": 1500,
+     "val_wce": 0.8995272599067694,
+     "train_loss": 0.9621532559394836,
+     "seconds": 602.5111127495766
+    },
+    {
+     "update": 2000,
+     "val_wce": 0.8953083216255583,
+     "train_loss": 0.9429792847633361,
+     "seconds": 782.4401104152203
+    }
+   ],
+   "seconds": 782.4443574575707,
+   "init_seed": 968622014,
+   "hidden_in_batches": 0,
+   "hops": 6,
+   "best_checkpoint": 2000,
+   "V_vs_A02_G0": 15.601968524736014,
+   "threshold": 3.0,
+   "result": "diagnostic threshold reached"
+  },
+  "R3_regular_control": {
+   "bandwidth_m": 3000.0,
+   "G0": {
+    "trajectory": [
+     {
+      "update": 0,
+      "val_wce": 1.1218764538448391,
+      "train_loss": null,
+      "seconds": 1.4727013325318694
+     },
+     {
+      "update": 500,
+      "val_wce": 1.0613282151541457,
+      "train_loss": 1.0518620734214783,
+      "seconds": 91.12864587455988
+     },
+     {
+      "update": 1000,
+      "val_wce": 1.0738337769911381,
+      "train_loss": 1.0339051539897919,
+      "seconds": 219.15027520712465
+     },
+     {
+      "update": 1500,
+      "val_wce": 1.0871203495398643,
+      "train_loss": 1.023266571879387,
+      "seconds": 326.02205920778215
+     },
+     {
+      "update": 2000,
+      "val_wce": 1.1110549887974503,
+      "train_loss": 1.0179818999767303,
+      "seconds": 412.3128219572827
+     }
+    ],
+    "seconds": 412.3148302901536,
+    "init_seed": 968622014,
+    "hidden_in_batches": 0
+   },
+   "tabular_diagnostic_graph": {
+    "feature": "graph_6hops",
+    "hidden_reached_share": 0.6073619631901841,
+    "1": {
+     "wce_calendar": 1.1297762694849307,
+     "wce_calendar_feature": 0.6559943080487887,
+     "V": 41.9359101649516
+    },
+    "2": {
+     "wce_calendar": 1.124910765444897,
+     "wce_calendar_feature": 0.7285482756416126,
+     "V": 35.23501614339382
+    },
+    "4": {
+     "wce_calendar": 1.1124991418559431,
+     "wce_calendar_feature": 0.8189373840858618,
+     "V": 26.387594086620382
+    },
+    "8": {
+     "wce_calendar": 1.0951338977178635,
+     "wce_calendar_feature": 0.9343380064536427,
+     "V": 14.682760856850603
+    },
+    "mean_V": 29.560320312954104
+   },
+   "class_shares": [
+    0.49665035123875373,
+    0.33156478988461935,
+    0.17178485887662692
+   ],
+   "G1": {
+    "trajectory": [
+     {
+      "update": 0,
+      "val_wce": 1.109084092781306,
+      "train_loss": null,
+      "seconds": 4.7840960416942835
+     },
+     {
+      "update": 500,
+      "val_wce": 1.0615024828598516,
+      "train_loss": 1.0559102243185043,
+      "seconds": 170.6616655830294
+     },
+     {
+      "update": 1000,
+      "val_wce": 1.060912570544016,
+      "train_loss": 1.0365831526517868,
+      "seconds": 386.9237190000713
+     },
+     {
+      "update": 1500,
+      "val_wce": 1.068591563232749,
+      "train_loss": 1.0271350413560867,
+      "seconds": 586.9645090419799
+     },
+     {
+      "update": 2000,
+      "val_wce": 1.088288083564295,
+      "train_loss": 1.0223783104419708,
+      "seconds": 815.8744199173525
+     }
+    ],
+    "seconds": 815.8771378332749,
+    "init_seed": 968622014,
+    "hidden_in_batches": 0
+   },
+   "best_checkpoint_G1": 1000,
+   "V_G1_vs_G0": 1.2032780793436206,
+   "threshold": 3.0,
+   "result": "diagnostic threshold not reached"
+  }
+ },
+ "device": "mps",
+ "written": "2026-11-19T09:01:30.974245+00:00",
+ "commit": "15129ca6d7a21051d46560be0f42b409c4ba6429",
+ "code_dirty": false
+}
