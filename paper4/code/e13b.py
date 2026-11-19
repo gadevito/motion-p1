@@ -466,6 +466,48 @@ class SetupGF(p4b.Setup):
         s._stats(); s._tensors(); s._fix_cin()
 
 
+_latest_dev_any_version, _latest_final_any_version = latest_dev, latest_final
+OTHER_VERSION = {"dev": [], "final": []}
+
+
+def _same_version(rec):
+    """A record belongs to the current frozen version: same frozen tag and fingerprints of code and protocol (environment
+    recorded by record13 at the time of the run)."""
+    return _report_matches_version(rec, frozen_tag())
+
+
+def latest_dev(cid, usable_only=True):                                  # noqa: F811  (version-bound view of the derived function)
+    rec = _latest_dev_any_version(cid, usable_only)
+    if rec is not None and not _same_version(rec):
+        if cid not in OTHER_VERSION["dev"]:
+            OTHER_VERSION["dev"].append(cid)
+        return None                                                      # a record of another version is kept on disk but never reused
+    return rec
+
+
+def latest_final(cid):                                                  # noqa: F811
+    rec = _latest_final_any_version(cid)
+    if rec is not None and not _same_version(rec):
+        if cid not in OTHER_VERSION["final"]:
+            OTHER_VERSION["final"].append(cid)
+        return None
+    return rec
+
+
+_compute_adequacy_derived = compute_adequacy
+
+
+def compute_adequacy():                                                 # noqa: F811  (version-bound view of the derived function)
+    """The derived report, plus the cells whose latest records belong to another frozen version (kept on disk, never reused;
+    they count as missing, so the lock is False until the cells are re-run under the current version)."""
+    OTHER_VERSION["dev"].clear(); OTHER_VERSION["final"].clear()
+    rep = _compute_adequacy_derived()
+    rep["records_of_another_version"] = {"dev": sorted(OTHER_VERSION["dev"]), "final": sorted(OTHER_VERSION["final"])}
+    rep["frozen_tag"] = frozen_tag()
+    rep["lock_sha16"] = hashlib.sha256(json.dumps({k: v for k, v in rep.items() if k != "lock_sha16"}, sort_keys=True, default=str).encode()).hexdigest()[:16]
+    return rep
+
+
 def adjacency_gf(su, arm):
     """The GF variant uses no graph convolution: no adjacency is passed to the model (the neighbourhood enters through the
     feature channels of SetupGF). Replaces `e9.adjacency` in the derived code."""
@@ -569,9 +611,20 @@ def gate(phase):
 def p4r_revision(args):
     """The responsible author records that the P4R revision (comparisons kept or withdrawn, statistical family and
     correction, budget, order of blocks) is signed, deposited and committed."""
-    p4r = ROOT / "protocol" / "paper4" / "P4R.md"
+    p4r = ROOT / "protocol" / "paper4" / "P4R.md"; rcpt = "protocol/paper4/P4R_RECEIPT.md"
     if not git_committed_unchanged(p4r.relative_to(ROOT)):
         raise PermissionError("P4R.md is not committed unchanged")
+    for label, h in (("revision", args.commit), ("receipt", args.receipt_commit)):
+        if _git("cat-file", "-e", f"{h}^{{commit}}").returncode != 0:
+            raise PermissionError(f"{label} commit {h} does not exist")
+        if _git("merge-base", "--is-ancestor", h, "HEAD").returncode != 0:
+            raise PermissionError(f"{label} commit {h} is not reachable from HEAD")
+    shown = _git("show", f"{args.commit}:protocol/paper4/P4R.md")
+    if shown.returncode != 0 or hashlib.sha256(shown.stdout.encode()).hexdigest()[:16] != p4b.sha256(p4r, 16):
+        raise PermissionError(f"P4R.md at {args.commit} differs from the committed P4R.md of HEAD: the revision commit must carry the signed revision")
+    touched = _git("show", "--name-only", "--pretty=format:", args.receipt_commit).stdout.split()
+    if rcpt not in touched:
+        raise PermissionError(f"receipt commit {args.receipt_commit} does not touch {rcpt}")
     rec = {"p4r_commit": args.commit, "p4r_sha16": p4b.sha256(p4r, 16), "receipt_commit": args.receipt_commit, "by": args.by,
            "written": datetime.now(timezone.utc).isoformat(), "frozen_tag": frozen_tag()}
     (RUNS / "e13b_p4r_revision.json").write_text(json.dumps(rec, indent=1)); print(json.dumps(rec, indent=1)); return 0
@@ -646,8 +699,8 @@ def analysis(args):
                 for s in SEEDS:
                     nodes = None if sel is None else (RE[(s, "D0")] == sel).astype("float64")
                     w0 = wce_with((s, "D0"), mb, mw, nodes); w1 = wce_with((s, "D1"), mb, mw, nodes)
-                    vs.append(100.0 * (w0 - w1) / w0 if w0 > 0 else float("nan"))        # empty subset in a replicate: undefined, dropped
-                res[name] = float(np.nanmean(vs)); res[f"{name}_by_seed"] = vs
+                    vs.append(100.0 * (w0 - w1) / w0 if w0 > 0 else float("nan"))        # empty subset: the split's contrast is undefined
+                res[name] = float(np.mean(vs)); res[f"{name}_by_seed"] = vs            # NaN propagates: a replicate with an undefined split is undefined
             return res
         obs = contrasts(np.ones(nb), np.ones(nw)); keys = [k for k in obs if not k.endswith("_by_seed")]
         reps = {k: np.empty(B_REPS) for k in keys}
@@ -660,38 +713,60 @@ def analysis(args):
         res = {"n_blocks": int(nb), "n_weeks": int(nw), "observed": obs,
                "unreached_test_hidden_share_by_seed": {str(s): float((~RE[(s, "D0")][np.load(Path(latest_final(cell_id(city, s, "D0", "I0"))["dir"]) / "test_cells.npz")["test_nodes"]]).mean()) for s in SEEDS}}
         for k in keys:
-            lo, hi = np.nanpercentile(reps[k], [2.5, 97.5]); centred = reps[k] - np.nanmean(reps[k])
-            res[k] = {"estimate": obs[k], "ci95": [float(lo), float(hi)], "p_centred": float(np.nanmean(np.abs(centred) >= abs(obs[k]))),
-                      "p_one_sided_positive": float(np.nanmean(centred >= obs[k])), "replicates_undefined": int(np.isnan(reps[k]).sum()),
-                      "sign": "favourable" if lo > 0 else ("unfavourable" if hi < 0 else "inconclusive"),
-                      "margin": "reached" if lo >= MARGIN else ("advantage>=3 excluded" if hi < MARGIN else "not excluded")}
+            res[k] = summarise_replicates(obs[k], reps[k])
         cells_c = {cell_id(city, s, a, "I0") for s in SEEDS for a in ARMS}
         res["V_D1"]["eligible_for_adequacy_statements"] = not (cells_c & excluded); res["V_D1"]["excluded_cells"] = sorted(cells_c & excluded)
         res["_reps"] = reps["V_D1"]
         out["cities"][city] = res
     R = np.stack([out["cities"][c]["_reps"] for c in CITIES], 1); est = np.array([out["cities"][c]["V_D1"]["estimate"] for c in CITIES])
-    sd = np.nanstd(R, 0) + 1e-12; T = np.nanmax(np.abs((R - np.nanmean(R, 0)) / sd), 1); q = float(np.nanpercentile(T, 95))
-    out["supt_95"] = {f"{c}:V_D1": [float(e - q * s_), float(e + q * s_)] for c, e, s_ in zip(CITIES, est, sd)}
+    fin = np.isfinite(R).all(1)                                           # a replicate enters the band only if defined for every city
+    if np.isfinite(est).all() and fin.sum() >= MIN_DEFINED_FRAC * B_REPS:
+        Rf = R[fin]; sd = Rf.std(0) + 1e-12; T = np.abs((Rf - Rf.mean(0)) / sd).max(1); q = float(np.percentile(T, 95))
+        out["supt_95"] = {f"{c}:V_D1": [float(e - q * s_), float(e + q * s_)] for c, e, s_ in zip(CITIES, est, sd)}
+    else:
+        out["supt_95"] = {f"{c}:V_D1": None for c in CITIES}
+    out["supt_replicates_defined"] = int(fin.sum())
     for c in CITIES:
         out["cities"][c].pop("_reps")
     el = {c: out["cities"][c]["V_D1"]["eligible_for_adequacy_statements"] for c in CITIES}
-    cand = [c for c in CITIES if el[c] and out["cities"][c]["V_D1"]["sign"] == "favourable" and out["cities"][c]["V_D1"]["estimate"] >= MARGIN]
+    defined = {c: out["cities"][c]["V_D1"]["defined"] and out["supt_95"][f"{c}:V_D1"] is not None for c in CITIES}
+    cand = [c for c in CITIES if el[c] and defined[c] and out["cities"][c]["V_D1"]["sign"] == "favourable" and out["cities"][c]["V_D1"]["estimate"] >= MARGIN]
     at_least_3 = [c for c in cand if out["supt_95"][f"{c}:V_D1"][0] >= MARGIN]
-    below = all(el[c] and out["supt_95"][f"{c}:V_D1"][1] < MARGIN for c in CITIES)
+    below = all(el[c] and defined[c] and out["supt_95"][f"{c}:V_D1"][1] < MARGIN for c in CITIES)
     raw = ("candidate: observed-site readings, delivered through the normalised neighbourhood feature, help at 20 % under adequate training "
            "(marginal evidence in >= 2 cities; condition (a) of E13B.md requires the corrected positive test of the pre-registered family)" if len(cand) >= 2 else
            "gain below the prespecified 3-point margin at 20 % under adequate training" if below else "undetermined")
     out["confirmatory"] = False
     out["statement"] = f"PROVISIONAL (marginal intervals; the family-wise correction belongs to the campaign-wide analysis of the revised P4R family): {raw}"
-    out["statement_counts"] = {"cities_candidate": cand, "cities_lower_simultaneous_bound_ge_3": at_least_3, "eligible": el, "excluded_cells": sorted(excluded)}
+    out["statement_counts"] = {"cities_candidate": cand, "cities_lower_simultaneous_bound_ge_3": at_least_3, "eligible": el, "defined": defined, "excluded_cells": sorted(excluded)}
     (RUNS / "e13b_analysis.json").write_text(json.dumps(out, indent=1, default=float))
     for c in CITIES:
         for k in ("V_D1", "V_D1_reached", "V_D1_unreached"):
             r = out["cities"][c][k]
-            print(f"{c:9s} {k:15s} {r['estimate']:7.3f}  CI {r['ci95'][0]:7.3f} {r['ci95'][1]:7.3f}  p {r['p_centred']:.4f}  {r['sign']} / {r['margin']}")
-    print("sup-t 95 %:", {k: [round(v[0], 2), round(v[1], 2)] for k, v in out["supt_95"].items()})
+            print(f"{c:9s} {k:15s} " + (f"{r['estimate']:7.3f}  CI {r['ci95'][0]:7.3f} {r['ci95'][1]:7.3f}  p {r['p_centred']:.4f}  {r['sign']} / {r['margin']}" if r["defined"] else f"undefined ({r['undefined_reason']})"))
+    print("sup-t 95 %:", {k: ([round(v[0], 2), round(v[1], 2)] if v else None) for k, v in out["supt_95"].items()})
     print("statement:", out["statement"], out["statement_counts"])
     return 0
+
+
+MIN_DEFINED_FRAC = 0.95
+
+
+def summarise_replicates(obs, reps):
+    """Interval, centred p-values and readings from the FINITE replicates only. A contrast is undefined if its observed value is
+    not finite (an empty subset in a split) or if fewer than MIN_DEFINED_FRAC of the replicates are finite; no p-value is then
+    assigned. Replicates are never averaged across a NaN: a replicate with an undefined split is undefined as a whole."""
+    reps = np.asarray(reps, dtype="float64"); fin = reps[np.isfinite(reps)]; n_undef = int(reps.size - fin.size)
+    base = {"estimate": float(obs) if np.isfinite(obs) else None, "replicates_undefined": n_undef, "replicates_used": int(fin.size)}
+    if not np.isfinite(obs):
+        return base | {"defined": False, "undefined_reason": "observed contrast undefined (empty subset in a split)", "ci95": None, "p_centred": None, "p_one_sided_positive": None, "sign": "undefined", "margin": "undefined"}
+    if fin.size < MIN_DEFINED_FRAC * reps.size:
+        return base | {"defined": False, "undefined_reason": f"only {fin.size} of {reps.size} replicates defined", "ci95": None, "p_centred": None, "p_one_sided_positive": None, "sign": "undefined", "margin": "undefined"}
+    lo, hi = np.percentile(fin, [2.5, 97.5]); centred = fin - fin.mean()
+    return base | {"defined": True, "ci95": [float(lo), float(hi)], "p_centred": float(np.mean(np.abs(centred) >= abs(obs))),
+                   "p_one_sided_positive": float(np.mean(centred >= obs)),
+                   "sign": "favourable" if lo > 0 else ("unfavourable" if hi < 0 else "inconclusive"),
+                   "margin": "reached" if lo >= MARGIN else ("advantage>=3 excluded" if hi < MARGIN else "not excluded")}
 
 
 def b0_synth(args):
@@ -700,8 +775,11 @@ def b0_synth(args):
     gate("b0")
     path = RUNS / "e13b_b0_synth.json"
     if path.exists():
-        raise FileExistsError(f"{path} exists")
-    out = {"protocol": "E13B B0.2", "generator_version": 2, "generator_seeds": SYNTH_SEEDS, "generator": e13.synth_processes.__doc__, "kinds": {}, "trainings": 0}
+        st = json.loads(path.read_text()).get("status", "complete")
+        raise FileExistsError(f"{path} exists (status {st!r}): B0.2 is recorded once; an incomplete attempt stays identifiable and is not repeated without a dated note")
+    out = {"protocol": "E13B B0.2", "status": "started", "generator_version": 2, "generator_seeds": SYNTH_SEEDS, "generator": e13.synth_processes.__doc__, "kinds": {}, "trainings": 0,
+           "started": datetime.now(timezone.utc).isoformat(), "environment": environment()}
+    path.write_text(json.dumps(out, indent=1))                                # the attempt is on record before any fit
     gens = {}
     for kind in ("dependent", "independent"):
         su = SetupGF("madrid", 0); z, flow, occ, C = e13.synth_processes(su, kind, SYNTH_SEEDS[kind]); su.inject(z, flow, occ, C)
@@ -711,15 +789,18 @@ def b0_synth(args):
               "mean", round(dg["mean_V"], 1), "| class shares", np.round(shares, 3), "->", "valid" if valid else "INVALID")
         gens[kind] = (su, dg, shares, valid)
     out["control_check"] = {k: {"tabular_diagnostic": v[1], "class_shares": v[2], "valid": v[3], "seed": SYNTH_SEEDS[k]} for k, v in gens.items()}
+    path.write_text(json.dumps(out, indent=1))
     if not all(v[3] for v in gens.values()):
-        out["verdict"] = "synthetic control invalid on the graph diagnostic: no neural-network training performed (stopping rule)"
-        out["written"] = datetime.now(timezone.utc).isoformat(); out["environment"] = environment()
+        out["status"] = "complete"; out["verdict"] = "synthetic control invalid on the graph diagnostic: no neural-network training performed (stopping rule)"
+        out["written"] = datetime.now(timezone.utc).isoformat()
         path.write_text(json.dumps(out, indent=1)); print("->", path, p4b.sha256(path, 16), "control invalid, stopped before training"); return 1
     for kind in ("dependent", "independent"):
         su = gens[kind][0]; res = {}
         for arm in ARMS:
+            out["status"] = f"incomplete: training {kind} {arm}"; path.write_text(json.dumps(out, indent=1))
             o = train_gf(su, arm, None, 2000, CONFIGS["C1"], p4b.K_INIT, ck_every=250, save_states=False, log=print); out["trainings"] += 1
             res[arm] = [{"update": t["update"], "val_wce": t["val_wce"], "train_loss": t["train_loss"]} for t in o["trajectory"]]
+            out.setdefault("partial", {})[f"{kind}:{arm}"] = res[arm]; path.write_text(json.dumps(out, indent=1))
         V = [(a["update"], 100 * (a["val_wce"] - b["val_wce"]) / a["val_wce"]) for a, b in zip(res["D0"], res["D1"])]
         d1 = [t for t in res["D1"] if t["update"] >= 500]; ub = min(d1, key=lambda t: (t["val_wce"], t["update"]))["update"]
         v_best = next(v for u, v in V if u == ub); after500 = [v for u, v in V if u >= 500]
@@ -731,7 +812,8 @@ def b0_synth(args):
             note = "D1 worse than D0 by > 3 at some checkpoint — reported and investigated, not a block" if min(after500) < -3 else None
         out["kinds"][kind] = {"trajectories": res, "V_D1_by_checkpoint": V, "best_checkpoint_D1": ub, "V_at_best": v_best, "verdict": verdict, "note": note}
         print(kind, "best checkpoint of D1", ub, "V", round(v_best, 2), "->", verdict)
-    out["written"] = datetime.now(timezone.utc).isoformat(); out["environment"] = environment(); c, dirty = p4b.git_commit(); out["commit"] = c; out["code_dirty"] = dirty
+    out.pop("partial", None); out["status"] = "complete"
+    out["written"] = datetime.now(timezone.utc).isoformat(); c, dirty = p4b.git_commit(); out["commit"] = c; out["code_dirty"] = dirty
     path.write_text(json.dumps(out, indent=1)); print("->", path, p4b.sha256(path, 16))
     return 0 if out["kinds"]["dependent"]["verdict"] == "pass" and out["kinds"]["independent"]["verdict"] == "pass" else 1
 
@@ -781,20 +863,43 @@ def struct_measure(city, seed, su=None, draws=20):
 
 def struct(args):
     """`struct`: the I3 reproduction for all (city, seed), compared with `paper4/runs/e13_a0_struct.json` where present."""
-    out = {"hops": HOPS, "draws": 20, "cities": {}, "environment": environment(), "written": None}; ref_p = RUNS / "e13_a0_struct.json"
-    ref = json.loads(ref_p.read_text()) if ref_p.exists() else None; agree = True
+    ref_p = RUNS / "e13_a0_struct.json"
+    if not ref_p.exists():
+        print(f"{ref_p} missing: the I3 reference is required for the reproduction check"); return 1
+    ref = json.loads(ref_p.read_text()); agree = True
+    out = {"hops": HOPS, "draws": 20, "cities": {}, "reference": {"file": str(ref_p), "sha16": p4b.sha256(ref_p, 16), "committed_unchanged": git_committed_unchanged(ref_p.relative_to(ROOT))},
+           "environment": environment(), "written": None}
     for city in CITIES:
         out["cities"][city] = {}
         for s in SEEDS:
             m = struct_measure(city, s); out["cities"][city][str(s)] = m
-            if ref is not None:
-                r = ref["cities"][city]["seeds"][str(s)]
-                same = r["hop_distance_validation_hidden"] == m["hop_distance_validation_hidden"] and all(
-                    abs(r[f"mass_{HOPS}hops"][g][k] - m[f"mass_{HOPS}hops"][g][k]) <= 1e-9 for g in m[f"mass_{HOPS}hops"] for k in m[f"mass_{HOPS}hops"][g])
-                agree &= same; print(city, s, "agrees with e13_a0_struct.json" if same else "DIFFERS from e13_a0_struct.json")
-    out["agrees_with_I3"] = agree if ref is not None else None; out["written"] = datetime.now(timezone.utc).isoformat()
+            r = ref["cities"][city]["seeds"][str(s)]
+            same = r["hop_distance_validation_hidden"] == m["hop_distance_validation_hidden"] and all(
+                abs(r[f"mass_{HOPS}hops"][g][k] - m[f"mass_{HOPS}hops"][g][k]) <= 1e-9 for g in m[f"mass_{HOPS}hops"] for k in m[f"mass_{HOPS}hops"][g])
+            agree &= same; print(city, s, "agrees with e13_a0_struct.json" if same else "DIFFERS from e13_a0_struct.json")
+    out["agrees_with_I3"] = agree; out["written"] = datetime.now(timezone.utc).isoformat()
     (RUNS / "e13b_struct.json").write_text(json.dumps(out, indent=1)); print("->", RUNS / "e13b_struct.json", p4b.sha256(RUNS / "e13b_struct.json", 16))
     return 0 if agree else 1
+
+
+def _preflight_record():
+    """The approved deterministic preflight this `pre` run is bound to: log present, 0 failures, same code fingerprints."""
+    log_p = RUNS / "e13b_preflight.log"
+    if not log_p.exists():
+        raise PermissionError("e13b_preflight.log missing: run and review the deterministic preflight first")
+    txt = log_p.read_text()
+    if "PREFLIGHT: 0 failure(s)" not in txt:
+        raise PermissionError("the deterministic preflight did not pass (or its log is incomplete)")
+    me = environment()["code_sha16"]
+    for name, sha in me.items():
+        if f"{name} {sha}" not in txt:
+            raise PermissionError(f"the preflight log was produced with another {name} ({sha} not in the log)")
+    return {"file": str(log_p), "sha16": p4b.sha256(log_p, 16)}
+
+
+def _require_mps(su):
+    if not torch.backends.mps.is_available() or su.dev.type != "mps":
+        raise PermissionError(f"E13Bpre.md requires MPS; device is {su.dev} (no silent fallback to CPU)")
 
 
 def preflight(args):
@@ -918,10 +1023,16 @@ def pre(args):
     p4b.require_signed(PREPRE)
     path = RUNS / "e13b_pre.json"
     if path.exists():
-        raise FileExistsError(f"{path} exists")
-    out = {"protocol": "E13Bpre", "tag": pre_tag, "started": datetime.now(timezone.utc).isoformat(), "B0.1": {}, "benchmark": {}, "updates": 0}
-    su = SetupGF("madrid", 0); pert = _perturbed_copy(su, np.random.default_rng(12), perturb_val_labels=False)
+        st = json.loads(path.read_text()).get("status", "complete")
+        raise FileExistsError(f"{path} exists (status {st!r}): E13B-pre is recorded once; an incomplete attempt stays identifiable")
+    pf = _preflight_record()
+    su = SetupGF("madrid", 0); _require_mps(su)
+    out = {"protocol": "E13Bpre", "status": "started", "tag": pre_tag, "started": datetime.now(timezone.utc).isoformat(), "B0.1": {}, "benchmark": {}, "updates": 0,
+           "preflight": pf, "prereg_sha16": {"E13Bpre.md": p4b.sha256(PREPRE, 16), "E13B.md": p4b.sha256(PREREG, 16)}, "device": str(su.dev), "environment": environment()}
+    path.write_text(json.dumps(out, indent=1))                                # the attempt is on record before any update
+    pert = _perturbed_copy(su, np.random.default_rng(12), perturb_val_labels=False)
     for arm in ARMS:
+        out["status"] = f"incomplete: B0.1 {arm}"; path.write_text(json.dumps(out, indent=1))
         o0 = train_gf(su, arm, None, 50, CONFIGS["C1"], p4b.K_INIT, ck_every=50, save_states=True, keep_losses=True)
         o1 = train_gf(pert, arm, None, 50, CONFIGS["C1"], p4b.K_INIT, ck_every=50, save_states=True, keep_losses=True); out["updates"] += 100
         same_loss = o0["losses"] == o1["losses"]; same_par = all(torch.equal(o0["states"][50][k], o1["states"][50][k]) for k in o0["states"][50])
@@ -929,15 +1040,15 @@ def pre(args):
         same_pred = bool(np.array_equal(Pa, Pb))
         out["B0.1"][arm] = {"same_losses": same_loss, "same_parameters": same_par, "same_validation_predictions": same_pred, "pass": same_loss and same_par and same_pred,
                             "hidden_in_batches": o0["hidden_in_batches"] + o1["hidden_in_batches"]}
-        print(f"B0.1 {arm}: losses {same_loss} parameters {same_par} predictions {same_pred}")
+        print(f"B0.1 {arm}: losses {same_loss} parameters {same_par} predictions {same_pred}"); path.write_text(json.dumps(out, indent=1))
     for arm in ARMS:
-        spu = []
+        spu = []; out["status"] = f"incomplete: benchmark {arm}"; path.write_text(json.dumps(out, indent=1))
         for rep in range(3):
             o = train_gf(su, arm, None, 60, CONFIGS["C1"], p4b.K_INIT, ck_every=10, save_states=False); out["updates"] += 60
             t = {d["update"]: d["seconds"] for d in o["trajectory"]}; spu.append((t[60] - t[10]) / 50)
-        out["benchmark"][arm] = {"seconds_per_update": spu, "median": float(np.median(spu)), "device": str(su.dev)}
+            out["benchmark"][arm] = {"seconds_per_update": spu, "median": float(np.median(spu)), "device": str(su.dev)}; path.write_text(json.dumps(out, indent=1))
         print(f"benchmark {arm}: s/update {[round(v, 4) for v in spu]} median {np.median(spu):.4f}")
-    out["environment"] = environment(); out["load_avg"] = list(os.getloadavg()); out["written"] = datetime.now(timezone.utc).isoformat()
+    out["status"] = "complete"; out["load_avg"] = list(os.getloadavg()); out["written"] = datetime.now(timezone.utc).isoformat()
     path.write_text(json.dumps(out, indent=1)); print("->", path, p4b.sha256(path, 16))
     return 0 if all(v["pass"] for v in out["B0.1"].values()) else 1
 

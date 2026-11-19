@@ -130,7 +130,11 @@ class FakeSetup:
         r = np.random.default_rng(seed); lab = r.integers(0, 3, K); s.obs, s.val, s.test = lab == 0, lab == 1, lab == 2
         s.cells = r.integers(0, 10, K); s.tr = np.arange(20, 200); s.va = np.arange(220, 260); s.te = np.arange(280, 380)
         s.ts = np.array(["2021-06-01T00:00"], dtype="datetime64[m]") + np.arange(NT) * np.timedelta64(15, "m")
-        s.W = np.array([1.0, 2.0, 3.0], dtype="float32"); s.c_in = 13; s.M64 = np.eye(K) + 0.1 * (r.random((K, K)) < 0.1)
+        s.W = np.array([1.0, 2.0, 3.0], dtype="float32"); s.c_in = 13; s.M64 = np.eye(K) + 0.1 * (r.random((K, K)) < 0.1); s.A_kernel = s.M64
+        s.obs_cells = np.unique(s.cells[s.obs]); s.sigma = 1.0
+    def batch_mask(s, r):
+        inp = s.obs.copy(); inp[np.flatnonzero(s.obs)[::2]] = False; return inp, s.obs & ~inp, 0.7
+    def inject(s, r, flow, occ, C): s.injected = True
     def fingerprints(s): return {"node_sets": f"ns{s.seed}"}
     def shares(s): return {}
     def geometry(s): return {}
@@ -215,6 +219,34 @@ def b0(dep="pass", ind="pass", valid=(True, True), env_=None):
     return {"control_check": {"dependent": {"valid": valid[0]}, "independent": {"valid": valid[1]}},
             "kinds": {"dependent": {"verdict": dep}, "independent": {"verdict": ind}}, "environment": env_ or env}
 B0P = RUNS / "e13b_b0_synth.json"
+# 1b. b0-synth: started record, interruption identifiable, re-run refused; invalid realisation -> no training
+e13.synth_processes = lambda su, kind, seed: (np.zeros((NT, K), "float32"), np.zeros((NT, K), "float32"), np.zeros((NT, K), "float32"), np.ones((NT, K), "int64"))
+DIAG = {"dependent": 20.0, "independent": 0.0}
+e13.tabular_diagnostic = lambda su, z, C, A=None, hops=6: {"mean_V": DIAG["dependent" if STATE.get("kind") == "dependent" else "independent"], "1": {"V": 0}, "2": {"V": 0}, "4": {"V": 0}, "8": {"V": 0}}
+_orig_fake_train = fake_train
+def fake_train_kind(su, arm, A, cap, cfg, init_stream, **k):
+    return _orig_fake_train(su, arm, A, cap, cfg, init_stream, **k)
+_sp = e13.synth_processes
+def synth_kind(su, kind, seed):
+    STATE["kind"] = kind; return _sp(su, kind, seed)
+e13.synth_processes = synth_kind
+STATE["interrupt_at"] = STATE["calls"] + 2
+try:
+    e13b.b0_synth(NS())
+except KeyboardInterrupt:
+    pass
+st0 = json.loads(B0P.read_text())
+ok("b0-synth: an interrupted attempt leaves a report with status 'incomplete' and the realisation checks", st0["status"].startswith("incomplete") and "control_check" in st0)
+ok("b0-synth: re-run refused while the incomplete report exists", "status" in expect_error(e13b.b0_synth, NS()))
+B0P.unlink()
+DIAG["dependent"] = 5.0
+rc = e13b.b0_synth(NS()); st0 = json.loads(B0P.read_text())
+ok("b0-synth: an invalid realisation stops before any training (trainings 0, status complete, exit 1)", rc == 1 and st0["trainings"] == 0 and st0["status"] == "complete" and "no neural-network training" in st0["verdict"])
+B0P.unlink(); DIAG["dependent"] = 20.0
+rc = e13b.b0_synth(NS()); st0 = json.loads(B0P.read_text())
+ok("b0-synth: complete run records 4 trainings, D1 best checkpoint and verdicts (identical fake curves -> dependent not passed)", st0["status"] == "complete" and st0["trainings"] == 4 and "best_checkpoint_D1" in st0["kinds"]["dependent"] and st0["kinds"]["dependent"]["verdict"].startswith("FAIL") and rc == 1)
+ok("gate: refuses on the real b0-synth report with the dependent control not passed", "dependent control not passed" in expect_error(e13b.gate, "dev"))
+B0P.unlink()
 B0P.write_text(json.dumps(b0(env_=env | {"frozen_tag": "paper4-E13B-20261120"})))
 ok("gate: refuses a B0.2 report of another frozen tag", "another version" in expect_error(e13b.gate, "dev"))
 B0P.write_text(json.dumps(b0(valid=(True, False))))
@@ -229,12 +261,17 @@ B0P.write_text(json.dumps(b0(ind="anomaly: V(D1) > +3")))
 ok("gate: independent anomaly without acceptance refused", "b0-accept" in expect_error(e13b.gate, "dev"))
 e13b.b0_accept(NS(by="GDV", note_commit="abc1234"))
 ok("gate: with the acceptance, refuses until the P4R revision is recorded", "P4R revision" in expect_error(e13b.gate, "dev"))
-ok("p4r-revision: refuses when P4R.md is not committed unchanged", "committed" in expect_error(e13b.p4r_revision, NS(commit="abc", receipt_commit="def", by="GDV")) if not e13b.git_committed_unchanged("protocol/paper4/P4R.md") else True)
-e13b.p4r_revision(NS(commit="abc1234", receipt_commit="def5678", by="GDV"))
+ok("p4r-revision: refuses a non-existent revision commit", "does not exist" in expect_error(e13b.p4r_revision, NS(commit="abc1234", receipt_commit="def5678", by="GDV")))
+head0 = git("rev-parse", "--short", "HEAD")
+(ROOT / "protocol" / "paper4" / "P4R.md").write_text("# P4R\n\nbody\n\nrevision\n"); git("add", "-A"); git("commit", "-q", "-m", "P4R revised"); rev_c = git("rev-parse", "--short", "HEAD")
+ok("p4r-revision: refuses a revision commit that does not carry the committed P4R.md", "differs" in expect_error(e13b.p4r_revision, NS(commit=head0, receipt_commit=rev_c, by="GDV")))
+ok("p4r-revision: refuses a receipt commit that does not touch P4R_RECEIPT.md", "does not touch" in expect_error(e13b.p4r_revision, NS(commit=rev_c, receipt_commit=rev_c, by="GDV")))
+(ROOT / "protocol" / "paper4" / "P4R_RECEIPT.md").write_text("receipt\n"); git("add", "-A"); git("commit", "-q", "-m", "receipt"); rcpt_c = git("rev-parse", "--short", "HEAD")
+e13b.p4r_revision(NS(commit=rev_c, receipt_commit=rcpt_c, by="GDV"))
 ok("gate: refuses while e13b_p4r_revision.json is not committed", "not committed" in expect_error(e13b.gate, "dev"))
 git("add", "-f", "paper4/runs/e13b_p4r_revision.json"); git("commit", "-q", "-m", "P4R revision recorded")
 ok("gate: passes with valid realisations, dependent passed, accepted independent anomaly, P4R revision recorded — and ignores the failed E13 report", e13b.gate("dev") == TAG)
-(ROOT / "protocol" / "paper4" / "P4R.md").write_text("# P4R\n\nbody changed\n")
+(ROOT / "protocol" / "paper4" / "P4R.md").write_text("# P4R\n\nbody changed again\n")
 ok("gate: refuses when P4R.md changed after the recorded revision", "clean" in expect_error(e13b.gate, "dev") or "P4R.md differs" in expect_error(e13b.gate, "dev"))
 git("checkout", "--", "protocol/paper4/P4R.md")
 B0P.write_text(json.dumps(b0()))
@@ -300,6 +337,41 @@ e13b.analysis(NS()); an = json.loads((RUNS / "e13b_analysis.json").read_text())
 ok("analysis: statement provisional, not confirmatory", an["statement"].startswith("PROVISIONAL") and an["confirmatory"] is False)
 ok("analysis: primary V_D1 and secondary reached/unreached contrasts present, sup-t over V_D1 per city", all(k in an["cities"]["madrid"] for k in ("V_D1", "V_D1_reached", "V_D1_unreached")) and "madrid:V_D1" in an["supt_95"])
 ok("metric: per-horizon mean 2.0, not pooled 2.5", abs(e13b.per_horizon_mean([1.0, 9.0], [1.0, 3.0]) - 2.0) < 1e-12)
+# 5b. undefined contrasts and replicates
+r_ = np.random.default_rng(1); reps_ok = r_.normal(2.0, 1.0, 1000); reps_some = reps_ok.copy(); reps_some[:20] = np.nan; reps_many = reps_ok.copy(); reps_many[:100] = np.nan
+a1 = e13b.summarise_replicates(2.0, reps_some); a2 = e13b.summarise_replicates(2.0, reps_many); a3 = e13b.summarise_replicates(float("nan"), reps_ok); a4 = e13b.summarise_replicates(2.0, np.full(1000, np.nan))
+ok("replicates: p-values from finite replicates only (2 % undefined: defined, 980 used)", a1["defined"] and a1["replicates_used"] == 980 and 0 < a1["p_centred"] < 1)
+ok("replicates: too many undefined replicates -> contrast undefined, no p-value", not a2["defined"] and a2["p_centred"] is None)
+ok("replicates: undefined observed contrast -> undefined, no p-value", not a3["defined"] and a3["estimate"] is None)
+ok("replicates: all-NaN replicates never yield p = 0", not a4["defined"] and a4["p_centred"] is None)
+# 5c. struct: the I3 reference is required
+ok("struct: refuses (exit 1) when e13_a0_struct.json is missing", e13b.struct(NS()) == 1 and not (RUNS / "e13b_struct.json").exists())
+# 5d. pre: MPS required; bound to the approved preflight; interruption identifiable
+PREPRE = ROOT / "protocol" / "paper4" / "E13Bpre.md"; PREPRE.write_text("# E13Bpre\n\n**Pre-registration.** Date 2026-11-21 · signed: X\n\nbody\n"); git("add", "-A"); git("commit", "-q", "-m", "E13Bpre signed"); git("tag", "paper4-E13Bpre-20261121")
+ok("pre: refuses without the deterministic preflight log", "preflight" in expect_error(e13b.pre, NS()))
+envc = e13b.environment()["code_sha16"]
+(RUNS / "e13b_preflight.log").write_text("E13B preflight\ncode " + " · ".join(f"{k} {v}" for k, v in envc.items()) + "\nPREFLIGHT: 1 failure(s)\n")
+ok("pre: refuses when the preflight did not pass", "did not pass" in expect_error(e13b.pre, NS()))
+(RUNS / "e13b_preflight.log").write_text("E13B preflight\ncode " + " · ".join(f"{k} {v}" for k, v in envc.items()) + "\nPREFLIGHT: 0 failure(s)\n")
+ok("pre: refuses without MPS (no silent fallback to CPU)", "MPS" in expect_error(e13b.pre, NS()))
+e13b._require_mps = lambda su: None; e13b._perturbed_copy = lambda su, nz, perturb_val_labels: su
+STATE["interrupt_at"] = STATE["calls"] + 3
+try:
+    e13b.pre(NS())
+except KeyboardInterrupt:
+    pass
+pr = json.loads((RUNS / "e13b_pre.json").read_text())
+ok("pre: interrupted attempt recorded with status 'incomplete', preflight binding and both protocol fingerprints", pr["status"].startswith("incomplete") and "preflight" in pr and set(pr["prereg_sha16"]) == {"E13Bpre.md", "E13B.md"})
+ok("pre: re-run refused while the incomplete report exists", "status" in expect_error(e13b.pre, NS()))
+(RUNS / "e13b_pre.json").unlink()
+rc = e13b.pre(NS()); pr = json.loads((RUNS / "e13b_pre.json").read_text())
+ok("pre: complete run records B0.1 per arm (4 trajectories) and the benchmark (6), 560 updates", rc == 0 and pr["status"] == "complete" and pr["updates"] == 560 and set(pr["B0.1"]) == {"D1", "D0"} and set(pr["benchmark"]) == {"D1", "D0"})
+# 5e. version binding: a new tag on a changed protocol makes every earlier record unusable, indices kept
+PREREG.write_text(PREREG.read_text() + "\namended\n"); git("add", "-A"); git("commit", "-q", "-m", "E13B amended"); git("tag", "paper4-E13B-20261122")
+n_idx = len(e13b._index("index_dev.jsonl"))
+ok("version: after a new tag, latest_dev/latest_final ignore the records of the previous version (indices kept on disk)", e13b.latest_dev("madrid_s0_D1_I0") is None and e13b.latest_final("madrid_s0_D1_I0") is None and len(e13b._index("index_dev.jsonl")) == n_idx)
+rep_v = e13b.compute_adequacy()
+ok("version: the lock is False and lists the cells whose records belong to another version", not rep_v["lock"] and len(rep_v["records_of_another_version"]["dev"]) == 4 and len(rep_v["records_of_another_version"]["final"]) == 4 and rep_v["frozen_tag"] == "paper4-E13B-20261122")
 ok("metric: analysis uses per_horizon_mean", "per_horizon_mean(" in E13B_PATH.read_text().split("def analysis")[1].split("def wce_with")[1].split("\n\n")[0])
 
 print("\n%d checks, %d failed" % (len(passed), sum(1 for _, c in passed if not c)))

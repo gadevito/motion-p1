@@ -11,6 +11,21 @@ ok   gate: refuses e13b.py changed after the tag (frozen path of E13B)
 ok   HEAD advanced beyond the tag by record commits: frozen files unchanged
 ok   gate: refuses without B0.2
 ok   environment records e13.py and e13b.py fingerprints
+dependent seed 20261119 tabular diagnostic, graph feature: V per horizon {'1': 0, '2': 0, '4': 0, '8': 0} mean 20.0 | class shares [1. 0. 0.] -> valid
+independent seed 20261120 tabular diagnostic, graph feature: V per horizon {'1': 0, '2': 0, '4': 0, '8': 0} mean 0.0 | class shares [1. 0. 0.] -> valid
+ok   b0-synth: an interrupted attempt leaves a report with status 'incomplete' and the realisation checks
+ok   b0-synth: re-run refused while the incomplete report exists
+dependent seed 20261119 tabular diagnostic, graph feature: V per horizon {'1': 0, '2': 0, '4': 0, '8': 0} mean 5.0 | class shares [1. 0. 0.] -> INVALID
+independent seed 20261120 tabular diagnostic, graph feature: V per horizon {'1': 0, '2': 0, '4': 0, '8': 0} mean 0.0 | class shares [1. 0. 0.] -> valid
+-> /var/folders/5j/4x7mn8ls2r7bxy98whtdt53m0000gn/T/e13b_selftest_7hztonwn/root/paper4/runs/e13b_b0_synth.json be7ac2310e1dfdaa control invalid, stopped before training
+ok   b0-synth: an invalid realisation stops before any training (trainings 0, status complete, exit 1)
+dependent seed 20261119 tabular diagnostic, graph feature: V per horizon {'1': 0, '2': 0, '4': 0, '8': 0} mean 20.0 | class shares [1. 0. 0.] -> valid
+independent seed 20261120 tabular diagnostic, graph feature: V per horizon {'1': 0, '2': 0, '4': 0, '8': 0} mean 0.0 | class shares [1. 0. 0.] -> valid
+dependent best checkpoint of D1 2000 V 0.0 -> FAIL: the dependent control is not passed (V(D1) < +3 at the best checkpoint); B1 blocked, no acceptance route
+independent best checkpoint of D1 2000 V 0.0 -> pass
+-> /var/folders/5j/4x7mn8ls2r7bxy98whtdt53m0000gn/T/e13b_selftest_7hztonwn/root/paper4/runs/e13b_b0_synth.json 3ad9a721253c6b4d
+ok   b0-synth: complete run records 4 trainings, D1 best checkpoint and verdicts (identical fake curves -> dependent not passed)
+ok   gate: refuses on the real b0-synth report with the dependent control not passed
 ok   gate: refuses a B0.2 report of another frozen tag
 ok   gate: refuses when a realisation is invalid
 ok   gate: refuses when the dependent control is not passed
@@ -21,19 +36,21 @@ ok   gate: independent anomaly without acceptance refused
  "scope": "independent anomaly",
  "accepted_by": "GDV",
  "note_commit": "abc1234",
- "b0_synth_sha16": "7cf5529439666264",
+ "b0_synth_sha16": "1b97801a159a1f70",
  "frozen_tag": "paper4-E13B-20261121",
  "independent_verdict": "anomaly: V(D1) > +3",
- "written": "2026-11-19T12:08:18.725453+00:00"
+ "written": "2026-11-19T12:20:21.363144+00:00"
 }
 ok   gate: with the acceptance, refuses until the P4R revision is recorded
-ok   p4r-revision: refuses when P4R.md is not committed unchanged
+ok   p4r-revision: refuses a non-existent revision commit
+ok   p4r-revision: refuses a revision commit that does not carry the committed P4R.md
+ok   p4r-revision: refuses a receipt commit that does not touch P4R_RECEIPT.md
 {
- "p4r_commit": "abc1234",
- "p4r_sha16": "1ccb51ead07a377d",
- "receipt_commit": "def5678",
+ "p4r_commit": "21dbe3d",
+ "p4r_sha16": "9b410ab9a625c496",
+ "receipt_commit": "03e371f",
  "by": "GDV",
- "written": "2026-11-19T12:08:19.051643+00:00",
+ "written": "2026-11-19T12:20:23.071646+00:00",
  "frozen_tag": "paper4-E13B-20261121"
 }
 ok   gate: refuses while e13b_p4r_revision.json is not committed
@@ -102,7 +119,7 @@ ok   campaign final: stale cell re-run; lock True again
  "final_failures": [],
  "excluded_from_adequacy_statements": [],
  "lock": true,
- "lock_sha16": "17688db1a9f0f2a9"
+ "lock_sha16": "72a48c0d09c1441b"
 }
 dev_failures_pending: run `extend` for their groups, then `final` again; dev_failures_after_extension and final_failures: feasibility limit / inconclusive, excluded from adequacy-conditioned statements
 ok   lock file is E13B's own (e13b_adequacy.json), not E13's
@@ -116,12 +133,32 @@ madrid_s1_D0_I0 test wCE (mean over horizons) 1.0
 ok   test: 4 files written with reach vector
 madrid    V_D1              0.000  CI   0.000   0.000  p 1.0000  inconclusive / advantage>=3 excluded
 madrid    V_D1_reached      0.000  CI   0.000   0.000  p 1.0000  inconclusive / advantage>=3 excluded
-madrid    V_D1_unreached    0.000  CI   0.000   0.000  p 1.0000  inconclusive / advantage>=3 excluded
+madrid    V_D1_unreached  undefined (only 28 of 30 replicates defined)
 sup-t 95 %: {'madrid:V_D1': [0.0, 0.0]}
-statement: PROVISIONAL (marginal intervals; the family-wise correction belongs to the campaign-wide analysis of the revised P4R family): gain below the prespecified 3-point margin at 20 % under adequate training {'cities_candidate': [], 'cities_lower_simultaneous_bound_ge_3': [], 'eligible': {'madrid': True}, 'excluded_cells': []}
+statement: PROVISIONAL (marginal intervals; the family-wise correction belongs to the campaign-wide analysis of the revised P4R family): gain below the prespecified 3-point margin at 20 % under adequate training {'cities_candidate': [], 'cities_lower_simultaneous_bound_ge_3': [], 'eligible': {'madrid': True}, 'defined': {'madrid': True}, 'excluded_cells': []}
 ok   analysis: statement provisional, not confirmatory
 ok   analysis: primary V_D1 and secondary reached/unreached contrasts present, sup-t over V_D1 per city
 ok   metric: per-horizon mean 2.0, not pooled 2.5
+ok   replicates: p-values from finite replicates only (2 % undefined: defined, 980 used)
+ok   replicates: too many undefined replicates -> contrast undefined, no p-value
+ok   replicates: undefined observed contrast -> undefined, no p-value
+ok   replicates: all-NaN replicates never yield p = 0
+/var/folders/5j/4x7mn8ls2r7bxy98whtdt53m0000gn/T/e13b_selftest_7hztonwn/root/paper4/runs/e13_a0_struct.json missing: the I3 reference is required for the reproduction check
+ok   struct: refuses (exit 1) when e13_a0_struct.json is missing
+ok   pre: refuses without the deterministic preflight log
+ok   pre: refuses when the preflight did not pass
+ok   pre: refuses without MPS (no silent fallback to CPU)
+B0.1 D1: losses True parameters True predictions True
+ok   pre: interrupted attempt recorded with status 'incomplete', preflight binding and both protocol fingerprints
+ok   pre: re-run refused while the incomplete report exists
+B0.1 D1: losses True parameters True predictions True
+B0.1 D0: losses True parameters True predictions True
+benchmark D1: s/update [0.0, 0.0, 0.0] median 0.0000
+benchmark D0: s/update [0.0, 0.0, 0.0] median 0.0000
+-> /var/folders/5j/4x7mn8ls2r7bxy98whtdt53m0000gn/T/e13b_selftest_7hztonwn/root/paper4/runs/e13b_pre.json 13211a9cf06f671f
+ok   pre: complete run records B0.1 per arm (4 trajectories) and the benchmark (6), 560 updates
+ok   version: after a new tag, latest_dev/latest_final ignore the records of the previous version (indices kept on disk)
+ok   version: the lock is False and lists the cells whose records belong to another version
 ok   metric: analysis uses per_horizon_mean
 
-48 checks, 0 failed
+68 checks, 0 failed

@@ -2,7 +2,7 @@
 
 **Pre-registration.** Date ______ · commit ______ (code `p4b.py` ______, `e9.py` ______, `e13.py` ______, `e13b.py` ______; E13B preflight log `e13b_preflight.log` ______, 0 failures) · signed: ______ · internal review: ______ · launched by ______ (Mac M3 Max, MPS).
 
-Draft 1 of 2026-11-19, written under P4R as revised by the collegial decision of 2026-11-19 and under `E13B.md` (draft 3, Order step 3). It covers **every model update that precedes the signature of E13B**, so that the signature of E13B does not document them retroactively. The sequence is binding: implementation → review of `e13b.py` and of its self-test → deterministic preflight of E13B (no update) → this protocol signed, deposited and tagged → the updates below → signature of E13B. No other training is authorised by this protocol; B0.2 and B1 belong to E13B.
+Draft 2 of 2026-11-19 (gate completed on the code review), written under P4R as revised by the collegial decision of 2026-11-19 and under `E13B.md` (draft 3, Order step 3). It covers **every model update that precedes the signature of E13B**, so that the signature of E13B does not document them retroactively. The sequence is binding: implementation → review of `e13b.py` and of its self-test → deterministic preflight of E13B (no update) → this protocol signed, deposited and tagged → the updates below → signature of E13B. No other training is authorised by this protocol; B0.2 and B1 belong to E13B.
 
 ## What runs (`e13b.py pre`, once; the command refuses to run if its report exists)
 
@@ -14,7 +14,7 @@ Total: 200 + 360 = **560 updates**, two arms, one city, one seed; no checkpoint 
 
 ## Gate of this protocol
 
-`e13b.py pre` refuses to run unless: the nearest `paper4-E13Bpre-*` tag is reachable from HEAD; `p4b.py`, `e9.py`, `e11.py`, `e13.py`, `e13b.py`, `E13.md`, `E13B.md` and this protocol are identical to that tag; the working tree is clean; the signature line of this protocol is filled; `paper4/runs/e13b_pre.json` does not exist.
+`e13b.py pre` refuses to run unless: the nearest `paper4-E13Bpre-*` tag is reachable from HEAD; `p4b.py`, `e9.py`, `e11.py`, `e13.py`, `e13b.py`, `E13.md`, `E13B.md` and this protocol are identical to that tag; the working tree is clean; the signature line of this protocol is filled; `paper4/runs/e13b_pre.json` does not exist (an interrupted attempt leaves it with status *incomplete* and is not repeated without a dated note); the approved deterministic preflight log `e13b_preflight.log` exists, reports 0 failures and carries the current code fingerprints (its fingerprint is recorded in the report); the device is **MPS** (no silent fallback to CPU). The report records the fingerprints of this protocol and of `E13B.md`, the device, the environment and the load average, and is written before the first update and after every step.
 
 ## Output
 
