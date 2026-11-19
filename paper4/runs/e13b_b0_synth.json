@@ -1,0 +1,393 @@
+{
+ "protocol": "E13B B0.2",
+ "status": "complete",
+ "generator_version": 2,
+ "generator_seeds": {
+  "dependent": 20261119,
+  "independent": 20261120
+ },
+ "generator": "A0.2 generators, version 2 (dated note of 2026-11-18 in E13.md; version 1 gave the tabular diagnostic of\n    `e13_a0_diag.py` a gain below one point for hidden cells; post-hoc revision of the synthetic control, declared). Both keep the real timestamps and calendar. Classes from\n    thresholds 0.8/0.4 on a latent factor z = base + 0.4*u + measurement noise (sd 0.03), clipped to [0, 1.6], with\n    base_t(i) = profile_t * amp(i) (two daily dips) and u a persistent field, u_t = 0.97*u_{t-1} + sqrt(1-0.97^2)*shock_t.\n    'dependent': amp and the shocks are spatially smoothed by a Gaussian kernel on the UTM coordinates (bandwidth 800 m,\n    row-normalised, shocks rescaled to unit variance): the field is smooth at the scale of the hidden grid cells and\n    persistent over hours, so the observed neighbours' history is informative about a hidden node's future beyond the calendar.\n    'independent': amp i.i.d. per node and shocks i.i.d. per node and time, no smoothing: any dependence between nodes\n    beyond the shared calendar profile is absent by construction. Nothing of the real target processes enters.",
+ "kinds": {
+  "dependent": {
+   "trajectories": {
+    "D1": [
+     {
+      "update": 0,
+      "val_wce": 1.100810709080944,
+      "train_loss": null
+     },
+     {
+      "update": 250,
+      "val_wce": 0.8829458053939485,
+      "train_loss": 1.0079621057510375
+     },
+     {
+      "update": 500,
+      "val_wce": 0.8800367922529213,
+      "train_loss": 0.9656264312267303
+     },
+     {
+      "update": 750,
+      "val_wce": 0.8627016236051452,
+      "train_loss": 0.9539966287612915
+     },
+     {
+      "update": 1000,
+      "val_wce": 0.871432734612785,
+      "train_loss": 0.9539825370311737
+     },
+     {
+      "update": 1250,
+      "val_wce": 0.8504919630339297,
+      "train_loss": 0.952868864774704
+     },
+     {
+      "update": 1500,
+      "val_wce": 0.8761704997005139,
+      "train_loss": 0.952945728302002
+     },
+     {
+      "update": 1750,
+      "val_wce": 0.852748681941784,
+      "train_loss": 0.9346509433984757
+     },
+     {
+      "update": 2000,
+      "val_wce": 0.851347982206952,
+      "train_loss": 0.9279001173973084
+     }
+    ],
+    "D0": [
+     {
+      "update": 0,
+      "val_wce": 1.1006587389063225,
+      "train_loss": null
+     },
+     {
+      "update": 250,
+      "val_wce": 1.0686644078561318,
+      "train_loss": 1.0796837763786316
+     },
+     {
+      "update": 500,
+      "val_wce": 1.0692132313664013,
+      "train_loss": 1.059247227191925
+     },
+     {
+      "update": 750,
+      "val_wce": 1.0643675619321922,
+      "train_loss": 1.0540068945884704
+     },
+     {
+      "update": 1000,
+      "val_wce": 1.067456159403327,
+      "train_loss": 1.053953651189804
+     },
+     {
+      "update": 1250,
+      "val_wce": 1.0653650420573832,
+      "train_loss": 1.0489355368614197
+     },
+     {
+      "update": 1500,
+      "val_wce": 1.0700129840069694,
+      "train_loss": 1.0504579083919525
+     },
+     {
+      "update": 1750,
+      "val_wce": 1.070741295261395,
+      "train_loss": 1.043094097852707
+     },
+     {
+      "update": 2000,
+      "val_wce": 1.0739695456202234,
+      "train_loss": 1.0450687940120698
+     }
+    ]
+   },
+   "V_D1_by_checkpoint": [
+    [
+     0,
+     -0.013807201928233176
+    ],
+    [
+     250,
+     17.378570961744384
+    ],
+    [
+     500,
+     17.6930506996927
+    ],
+    [
+     750,
+     18.9470203282928
+    ],
+    [
+     1000,
+     18.363604262690526
+    ],
+    [
+     1250,
+     20.168962800628474
+    ],
+    [
+     1500,
+     18.11590019969262
+    ],
+    [
+     1750,
+     20.35903670516355
+    ],
+    [
+     2000,
+     20.72885253787213
+    ]
+   ],
+   "best_checkpoint_D1": 1250,
+   "V_at_best": 20.168962800628474,
+   "verdict": "pass",
+   "note": null
+  },
+  "independent": {
+   "trajectories": {
+    "D1": [
+     {
+      "update": 0,
+      "val_wce": 1.101763953536323,
+      "train_loss": null
+     },
+     {
+      "update": 250,
+      "val_wce": 1.0639849073320389,
+      "train_loss": 1.076089382648468
+     },
+     {
+      "update": 500,
+      "val_wce": 1.0627600360092444,
+      "train_loss": 1.0636704201698304
+     },
+     {
+      "update": 750,
+      "val_wce": 1.0652400991039428,
+      "train_loss": 1.0607461140155792
+     },
+     {
+      "update": 1000,
+      "val_wce": 1.061430660641956,
+      "train_loss": 1.0600635194778443
+     },
+     {
+      "update": 1250,
+      "val_wce": 1.06216473281893,
+      "train_loss": 1.0596252207756043
+     },
+     {
+      "update": 1500,
+      "val_wce": 1.0616116316332227,
+      "train_loss": 1.059870735645294
+     },
+     {
+      "update": 1750,
+      "val_wce": 1.0606911058150352,
+      "train_loss": 1.0595259990692139
+     },
+     {
+      "update": 2000,
+      "val_wce": 1.0607335042797699,
+      "train_loss": 1.059262694835663
+     }
+    ],
+    "D0": [
+     {
+      "update": 0,
+      "val_wce": 1.101783024739867,
+      "train_loss": null
+     },
+     {
+      "update": 250,
+      "val_wce": 1.06367782073488,
+      "train_loss": 1.0754374074935913
+     },
+     {
+      "update": 500,
+      "val_wce": 1.0627774802203542,
+      "train_loss": 1.063964937210083
+     },
+     {
+      "update": 750,
+      "val_wce": 1.06487682232582,
+      "train_loss": 1.0611420543193817
+     },
+     {
+      "update": 1000,
+      "val_wce": 1.0611836073634688,
+      "train_loss": 1.0602612671852112
+     },
+     {
+      "update": 1250,
+      "val_wce": 1.0619112300957354,
+      "train_loss": 1.059714831352234
+     },
+     {
+      "update": 1500,
+      "val_wce": 1.0613379823715208,
+      "train_loss": 1.0599783782958985
+     },
+     {
+      "update": 1750,
+      "val_wce": 1.0608529928093828,
+      "train_loss": 1.0595302619934082
+     },
+     {
+      "update": 2000,
+      "val_wce": 1.0607045495079763,
+      "train_loss": 1.0592938976287842
+     }
+    ]
+   },
+   "V_D1_by_checkpoint": [
+    [
+     0,
+     0.0017309400413428808
+    ],
+    [
+     250,
+     -0.028870264207132998
+    ],
+    [
+     500,
+     0.0016413794453202528
+    ],
+    [
+     750,
+     -0.03411444126742433
+    ],
+    [
+     1000,
+     -0.023280917342934884
+    ],
+    [
+     1250,
+     -0.02387230834462812
+    ],
+    [
+     1500,
+     -0.025783423023311162
+    ],
+    [
+     1750,
+     0.015260078016925815
+    ],
+    [
+     2000,
+     -0.002729767851658084
+    ]
+   ],
+   "best_checkpoint_D1": 1750,
+   "V_at_best": 0.015260078016925815,
+   "verdict": "pass",
+   "note": null
+  }
+ },
+ "trainings": 4,
+ "started": "2026-11-19T12:58:43.730350+00:00",
+ "environment": {
+  "host": "MacBook-Pro-di-gabriele-2.local",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.12.7",
+  "torch": "2.12.1",
+  "numpy": "2.5.1",
+  "pandas": "3.0.3",
+  "networkx": "3.6.1",
+  "mps": true,
+  "cuda": false,
+  "tag": "",
+  "frozen_tag": "paper4-E13B-20261119",
+  "head": "0c2a0e1",
+  "code_sha16": {
+   "p4b.py": "926061038a7472a3",
+   "e9.py": "4dd5628af8879511",
+   "e13.py": "42e357b86a21fd2d",
+   "e13b.py": "fda51553fe7ff752"
+  },
+  "prereg_sha16": "46377f67135e9927",
+  "load_avg": [
+   68.87353515625,
+   70.76611328125,
+   71.09326171875
+  ]
+ },
+ "control_check": {
+  "dependent": {
+   "tabular_diagnostic": {
+    "feature": "graph_6hops",
+    "hidden_reached_share": 0.6073619631901841,
+    "1": {
+     "wce_calendar": 1.093251051462612,
+     "wce_calendar_feature": 0.8325881921920818,
+     "V": 23.84290954230512
+    },
+    "2": {
+     "wce_calendar": 1.0941438915385595,
+     "wce_calendar_feature": 0.8650311249851044,
+     "V": 20.93991186399461
+    },
+    "4": {
+     "wce_calendar": 1.095759465340318,
+     "wce_calendar_feature": 0.919038554032551,
+     "V": 16.12771022268847
+    },
+    "8": {
+     "wce_calendar": 1.0955745451838046,
+     "wce_calendar_feature": 0.9768743399048266,
+     "V": 10.834516537536349
+    },
+    "mean_V": 17.93626204163114
+   },
+   "class_shares": [
+    0.513800709864232,
+    0.3281852479723441,
+    0.1580140421634239
+   ],
+   "valid": true,
+   "seed": 20261119
+  },
+  "independent": {
+   "tabular_diagnostic": {
+    "feature": "graph_6hops",
+    "hidden_reached_share": 0.6073619631901841,
+    "1": {
+     "wce_calendar": 1.1440781374515199,
+     "wce_calendar_feature": 1.1466285259922957,
+     "V": -0.22292083532484247
+    },
+    "2": {
+     "wce_calendar": 1.1441158437695436,
+     "wce_calendar_feature": 1.146631183481387,
+     "V": -0.21985008996606695
+    },
+    "4": {
+     "wce_calendar": 1.1442095804402472,
+     "wce_calendar_feature": 1.1468750967363877,
+     "V": -0.23295699858716773
+    },
+    "8": {
+     "wce_calendar": 1.1441975235267532,
+     "wce_calendar_feature": 1.1468923171005783,
+     "V": -0.23551821415579763
+    },
+    "mean_V": -0.2278115345084687
+   },
+   "class_shares": [
+    0.5016483937567404,
+    0.3109152013251784,
+    0.18743640491808122
+   ],
+   "valid": true,
+   "seed": 20261120
+  }
+ },
+ "written": "2026-11-19T13:21:16.946557+00:00",
+ "commit": "0c2a0e1c923151c09c4226fa0948179aa4f0e31d",
+ "code_dirty": false
+}
