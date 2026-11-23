@@ -1,0 +1,871 @@
+{
+ "cells": {
+  "madrid_s0_D1_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/2a189a94983da8e4",
+   "dev_run_sha16": "404332640a64b1f2",
+   "dev_cap": 20000,
+   "dev_selected_config": "C1",
+   "dev_selected_checkpoint": 11000,
+   "dev_adequacy": {
+    "min_update": 11000,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.004108041002013049,
+    "pass": true
+   },
+   "group_cap": 20000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/aa47d69da4360bae",
+   "final_config": "C1",
+   "final_cap": 20000,
+   "final_selected_checkpoint": 9500,
+   "final_adequacy": {
+    "min_update": 9500,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.005541650991927654,
+    "pass": true
+   },
+   "state_sha16": "8b0dc83983bf8487",
+   "final_up_to_date": true
+  },
+  "madrid_s0_D0_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/1ed7f7f0664077fb",
+   "dev_run_sha16": "8f87b31faeac93c5",
+   "dev_cap": 20000,
+   "dev_selected_config": "C1",
+   "dev_selected_checkpoint": 14000,
+   "dev_adequacy": {
+    "min_update": 14000,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.0041159962591911375,
+    "pass": true
+   },
+   "group_cap": 20000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/3c69b5550889075d",
+   "final_config": "C1",
+   "final_cap": 20000,
+   "final_selected_checkpoint": 14000,
+   "final_adequacy": {
+    "min_update": 14000,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.0034283789979872056,
+    "pass": true
+   },
+   "state_sha16": "8d1bf77b64fd6ccc",
+   "final_up_to_date": true
+  },
+  "madrid_s1_D1_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/0566635a6c8aefc4",
+   "dev_run_sha16": "3898ee4e5a7cee2b",
+   "dev_cap": 20000,
+   "dev_selected_config": "C1",
+   "dev_selected_checkpoint": 4500,
+   "dev_adequacy": {
+    "min_update": 4500,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.004919848693495359,
+    "pass": true
+   },
+   "group_cap": 20000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/fbaa333147be17d7",
+   "final_config": "C1",
+   "final_cap": 20000,
+   "final_selected_checkpoint": 4500,
+   "final_adequacy": {
+    "min_update": 4500,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.007097253866501659,
+    "pass": true
+   },
+   "state_sha16": "7d025339848a044a",
+   "final_up_to_date": true
+  },
+  "madrid_s1_D0_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/81bbf7105cdd1940",
+   "dev_run_sha16": "cd587f79a32831c4",
+   "dev_cap": 20000,
+   "dev_selected_config": "C2",
+   "dev_selected_checkpoint": 11500,
+   "dev_adequacy": {
+    "min_update": 11500,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.0015757686323265249,
+    "pass": true
+   },
+   "group_cap": 20000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/20f63867e6ca17a8",
+   "final_config": "C2",
+   "final_cap": 20000,
+   "final_selected_checkpoint": 4500,
+   "final_adequacy": {
+    "min_update": 4500,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.001315246457364588,
+    "pass": true
+   },
+   "state_sha16": "392006aa7edc3d1b",
+   "final_up_to_date": true
+  },
+  "madrid_s2_D1_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/6641ad6adba2cbf2",
+   "dev_run_sha16": "6bb88fb530864616",
+   "dev_cap": 20000,
+   "dev_selected_config": "C2",
+   "dev_selected_checkpoint": 5000,
+   "dev_adequacy": {
+    "min_update": 5000,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.014350669707335988,
+    "pass": false
+   },
+   "group_cap": 20000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/b14b64567858abd4",
+   "final_config": "C2",
+   "final_cap": 20000,
+   "final_selected_checkpoint": 1000,
+   "final_adequacy": {
+    "min_update": 1000,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.013479872033383498,
+    "pass": false
+   },
+   "state_sha16": "b20fa393f718ccf4",
+   "final_up_to_date": true
+  },
+  "madrid_s2_D0_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/a2c43a3baa0a3f11",
+   "dev_run_sha16": "bcb9b2fcb5da87d4",
+   "dev_cap": 20000,
+   "dev_selected_config": "C2",
+   "dev_selected_checkpoint": 20000,
+   "dev_adequacy": {
+    "min_update": 20000,
+    "min_at_cap": true,
+    "last_improvement_frac": 0.010497276631412446,
+    "pass": false
+   },
+   "group_cap": 20000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/75a362e21d31cf63",
+   "final_config": "C2",
+   "final_cap": 20000,
+   "final_selected_checkpoint": 20000,
+   "final_adequacy": {
+    "min_update": 20000,
+    "min_at_cap": true,
+    "last_improvement_frac": 0.01020232749171116,
+    "pass": false
+   },
+   "state_sha16": "4c0404be1ebdfb20",
+   "final_up_to_date": true
+  },
+  "madrid_s3_D1_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/4c22e6fe1c45d46f",
+   "dev_run_sha16": "a371280a049ce704",
+   "dev_cap": 20000,
+   "dev_selected_config": "C1",
+   "dev_selected_checkpoint": 13500,
+   "dev_adequacy": {
+    "min_update": 13500,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.004368685977973244,
+    "pass": true
+   },
+   "group_cap": 20000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/bd634da245c235c6",
+   "final_config": "C1",
+   "final_cap": 20000,
+   "final_selected_checkpoint": 17500,
+   "final_adequacy": {
+    "min_update": 17500,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.0038424664856846103,
+    "pass": true
+   },
+   "state_sha16": "d5bdc4a9d5fe7531",
+   "final_up_to_date": true
+  },
+  "madrid_s3_D0_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/9e554df9c4c6d0bb",
+   "dev_run_sha16": "3f36bd8a399f51f0",
+   "dev_cap": 20000,
+   "dev_selected_config": "C1",
+   "dev_selected_checkpoint": 17500,
+   "dev_adequacy": {
+    "min_update": 17500,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.010575578720095458,
+    "pass": false
+   },
+   "group_cap": 20000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/4b567c3f2829b1cb",
+   "final_config": "C1",
+   "final_cap": 20000,
+   "final_selected_checkpoint": 17500,
+   "final_adequacy": {
+    "min_update": 17500,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.010301953669045764,
+    "pass": false
+   },
+   "state_sha16": "e568fdefa434c50f",
+   "final_up_to_date": true
+  },
+  "madrid_s4_D1_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/e691902f187476f0",
+   "dev_run_sha16": "02f27deac2be2530",
+   "dev_cap": 20000,
+   "dev_selected_config": "C1",
+   "dev_selected_checkpoint": 11000,
+   "dev_adequacy": {
+    "min_update": 11000,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.0051531500775585815,
+    "pass": false
+   },
+   "group_cap": 20000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/3fad5ab96afbe4c0",
+   "final_config": "C1",
+   "final_cap": 20000,
+   "final_selected_checkpoint": 11000,
+   "final_adequacy": {
+    "min_update": 11000,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.008721141578536033,
+    "pass": false
+   },
+   "state_sha16": "2f1754b3e6d2be86",
+   "final_up_to_date": true
+  },
+  "madrid_s4_D0_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/6feefe384585d459",
+   "dev_run_sha16": "92f3c68f37ded1de",
+   "dev_cap": 20000,
+   "dev_selected_config": "C1",
+   "dev_selected_checkpoint": 11000,
+   "dev_adequacy": {
+    "min_update": 11000,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.004775147252431818,
+    "pass": true
+   },
+   "group_cap": 20000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/3404c01855be77f6",
+   "final_config": "C1",
+   "final_cap": 20000,
+   "final_selected_checkpoint": 11000,
+   "final_adequacy": {
+    "min_update": 11000,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.005877950933386892,
+    "pass": false
+   },
+   "state_sha16": "5cbf431daa9cc691",
+   "final_up_to_date": true
+  },
+  "london_s0_D1_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/9d4f78d204715e33",
+   "dev_run_sha16": "4d94a649e7823201",
+   "dev_cap": 10000,
+   "dev_selected_config": "C1",
+   "dev_selected_checkpoint": 4500,
+   "dev_adequacy": {
+    "min_update": 4500,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.022453626553972986,
+    "pass": true
+   },
+   "group_cap": 10000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/9e214515f89bec80",
+   "final_config": "C1",
+   "final_cap": 10000,
+   "final_selected_checkpoint": 4500,
+   "final_adequacy": {
+    "min_update": 4500,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.02359391714406878,
+    "pass": true
+   },
+   "state_sha16": "6a4bc8f059cb0e32",
+   "final_up_to_date": true
+  },
+  "london_s0_D0_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/9a7e745ac71d392a",
+   "dev_run_sha16": "31f273eb024cbc92",
+   "dev_cap": 20000,
+   "dev_selected_config": "C1",
+   "dev_selected_checkpoint": 15500,
+   "dev_adequacy": {
+    "min_update": 15500,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.004637406028647302,
+    "pass": true
+   },
+   "group_cap": 20000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/8d75ebf9506c3b4f",
+   "final_config": "C1",
+   "final_cap": 20000,
+   "final_selected_checkpoint": 15500,
+   "final_adequacy": {
+    "min_update": 15500,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.0021697694893055997,
+    "pass": true
+   },
+   "state_sha16": "a4adb8924b2a00a9",
+   "final_up_to_date": true
+  },
+  "london_s1_D1_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/824db33a685723a0",
+   "dev_run_sha16": "b65c0f741e37adfb",
+   "dev_cap": 10000,
+   "dev_selected_config": "C1",
+   "dev_selected_checkpoint": 5000,
+   "dev_adequacy": {
+    "min_update": 5000,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.0019050312443098783,
+    "pass": true
+   },
+   "group_cap": 10000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/9d07af73c4ca2874",
+   "final_config": "C1",
+   "final_cap": 10000,
+   "final_selected_checkpoint": 6000,
+   "final_adequacy": {
+    "min_update": 6000,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.00468882797848147,
+    "pass": true
+   },
+   "state_sha16": "c15b7e1f74feaa9b",
+   "final_up_to_date": true
+  },
+  "london_s1_D0_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/9f29f2c08a447fed",
+   "dev_run_sha16": "e01ad192f78ce823",
+   "dev_cap": 20000,
+   "dev_selected_config": "C1",
+   "dev_selected_checkpoint": 6000,
+   "dev_adequacy": {
+    "min_update": 6000,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.010826604562675271,
+    "pass": false
+   },
+   "group_cap": 20000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/0d44f2a4e67aadee",
+   "final_config": "C1",
+   "final_cap": 20000,
+   "final_selected_checkpoint": 6000,
+   "final_adequacy": {
+    "min_update": 6000,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.0028579650833072835,
+    "pass": true
+   },
+   "state_sha16": "d6291f38f4fc24ed",
+   "final_up_to_date": true
+  },
+  "london_s2_D1_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/3eea6908c8ab496c",
+   "dev_run_sha16": "70c4a04ce0d8ae73",
+   "dev_cap": 10000,
+   "dev_selected_config": "C2",
+   "dev_selected_checkpoint": 6500,
+   "dev_adequacy": {
+    "min_update": 6500,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.025140538871978684,
+    "pass": true
+   },
+   "group_cap": 10000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/b8eb20f7f9af9469",
+   "final_config": "C2",
+   "final_cap": 10000,
+   "final_selected_checkpoint": 7500,
+   "final_adequacy": {
+    "min_update": 7500,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.03968088028250292,
+    "pass": true
+   },
+   "state_sha16": "e2133b87136158e5",
+   "final_up_to_date": true
+  },
+  "london_s2_D0_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/3bb3c70240329912",
+   "dev_run_sha16": "b30d33f660c40b4c",
+   "dev_cap": 20000,
+   "dev_selected_config": "C3",
+   "dev_selected_checkpoint": 19500,
+   "dev_adequacy": {
+    "min_update": 19500,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.0051963180267340005,
+    "pass": true
+   },
+   "group_cap": 20000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/31d1b986a4f4777f",
+   "final_config": "C3",
+   "final_cap": 20000,
+   "final_selected_checkpoint": 17000,
+   "final_adequacy": {
+    "min_update": 17000,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.005532685674353338,
+    "pass": true
+   },
+   "state_sha16": "7ca7c1a4ef0a1560",
+   "final_up_to_date": true
+  },
+  "london_s3_D1_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/1fec2e913a240c66",
+   "dev_run_sha16": "354d628bb706b873",
+   "dev_cap": 10000,
+   "dev_selected_config": "C1",
+   "dev_selected_checkpoint": 7500,
+   "dev_adequacy": {
+    "min_update": 7500,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.017272472164992222,
+    "pass": true
+   },
+   "group_cap": 10000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/9c61aeeb8a68aadd",
+   "final_config": "C1",
+   "final_cap": 10000,
+   "final_selected_checkpoint": 7500,
+   "final_adequacy": {
+    "min_update": 7500,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.015090826901252035,
+    "pass": true
+   },
+   "state_sha16": "c74382dd70894f05",
+   "final_up_to_date": true
+  },
+  "london_s3_D0_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/5162e42f2ce26c61",
+   "dev_run_sha16": "722b0d6225dc5025",
+   "dev_cap": 20000,
+   "dev_selected_config": "C2",
+   "dev_selected_checkpoint": 15000,
+   "dev_adequacy": {
+    "min_update": 15000,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.004112505221652817,
+    "pass": true
+   },
+   "group_cap": 20000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/7063fb62c8270e64",
+   "final_config": "C2",
+   "final_cap": 20000,
+   "final_selected_checkpoint": 15000,
+   "final_adequacy": {
+    "min_update": 15000,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.004523013296094632,
+    "pass": true
+   },
+   "state_sha16": "dfa2d68fd80db481",
+   "final_up_to_date": true
+  },
+  "london_s4_D1_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/d71d50c3232134f7",
+   "dev_run_sha16": "29d607975d066232",
+   "dev_cap": 10000,
+   "dev_selected_config": "C1",
+   "dev_selected_checkpoint": 6000,
+   "dev_adequacy": {
+    "min_update": 6000,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.0361565835359239,
+    "pass": true
+   },
+   "group_cap": 10000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/4b4d6c1044146af4",
+   "final_config": "C1",
+   "final_cap": 10000,
+   "final_selected_checkpoint": 9500,
+   "final_adequacy": {
+    "min_update": 9500,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.03209242833320068,
+    "pass": true
+   },
+   "state_sha16": "0a3f3fc0c23ca2d9",
+   "final_up_to_date": true
+  },
+  "london_s4_D0_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/051db225a83b4be4",
+   "dev_run_sha16": "37cd4f0528c0e650",
+   "dev_cap": 20000,
+   "dev_selected_config": "C1",
+   "dev_selected_checkpoint": 17500,
+   "dev_adequacy": {
+    "min_update": 17500,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.03884517917423003,
+    "pass": true
+   },
+   "group_cap": 20000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/f59af6d0f9e65bc5",
+   "final_config": "C1",
+   "final_cap": 20000,
+   "final_selected_checkpoint": 9000,
+   "final_adequacy": {
+    "min_update": 9000,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.025406569737822227,
+    "pass": true
+   },
+   "state_sha16": "25d0eb018bc8339b",
+   "final_up_to_date": true
+  },
+  "melbourne_s0_D1_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/db6e8595681f87e1",
+   "dev_run_sha16": "9d93cf394f2b6809",
+   "dev_cap": 20000,
+   "dev_selected_config": "C3",
+   "dev_selected_checkpoint": 6000,
+   "dev_adequacy": {
+    "min_update": 6000,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.014665083587832741,
+    "pass": true
+   },
+   "group_cap": 20000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/f26be9e30e26da5e",
+   "final_config": "C3",
+   "final_cap": 20000,
+   "final_selected_checkpoint": 6000,
+   "final_adequacy": {
+    "min_update": 6000,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.017440970218202043,
+    "pass": true
+   },
+   "state_sha16": "f643a881f7fe7887",
+   "final_up_to_date": true
+  },
+  "melbourne_s0_D0_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/57391fec89353625",
+   "dev_run_sha16": "8eec4583c79984b2",
+   "dev_cap": 20000,
+   "dev_selected_config": "C1",
+   "dev_selected_checkpoint": 15000,
+   "dev_adequacy": {
+    "min_update": 15000,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.010815645148801642,
+    "pass": true
+   },
+   "group_cap": 20000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/ecda6040b4b6812c",
+   "final_config": "C1",
+   "final_cap": 20000,
+   "final_selected_checkpoint": 19000,
+   "final_adequacy": {
+    "min_update": 19000,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.0016380591104570492,
+    "pass": true
+   },
+   "state_sha16": "c9ccf3272c471c49",
+   "final_up_to_date": true
+  },
+  "melbourne_s1_D1_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/76db1776c30e558c",
+   "dev_run_sha16": "a7f14160c90aa675",
+   "dev_cap": 20000,
+   "dev_selected_config": "C1",
+   "dev_selected_checkpoint": 2000,
+   "dev_adequacy": {
+    "min_update": 2000,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.011303679775712425,
+    "pass": true
+   },
+   "group_cap": 20000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/2dc64fa91bb92a35",
+   "final_config": "C1",
+   "final_cap": 20000,
+   "final_selected_checkpoint": 1000,
+   "final_adequacy": {
+    "min_update": 1000,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.014769750771527498,
+    "pass": false
+   },
+   "state_sha16": "f89b3332c49b46c5",
+   "final_up_to_date": true
+  },
+  "melbourne_s1_D0_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/17747d13ed8a5494",
+   "dev_run_sha16": "169216b0b34b00a8",
+   "dev_cap": 20000,
+   "dev_selected_config": "C1",
+   "dev_selected_checkpoint": 8500,
+   "dev_adequacy": {
+    "min_update": 8500,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.019827238525700935,
+    "pass": false
+   },
+   "group_cap": 20000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/4162b2517cd0ddd3",
+   "final_config": "C1",
+   "final_cap": 20000,
+   "final_selected_checkpoint": 8500,
+   "final_adequacy": {
+    "min_update": 8500,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.016645592285771157,
+    "pass": false
+   },
+   "state_sha16": "67104c3da0640363",
+   "final_up_to_date": true
+  },
+  "melbourne_s2_D1_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/26839aa6786aae78",
+   "dev_run_sha16": "919ff2ac611ff8bc",
+   "dev_cap": 20000,
+   "dev_selected_config": "C1",
+   "dev_selected_checkpoint": 0,
+   "dev_adequacy": {
+    "min_update": 0,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.03729743404373702,
+    "pass": false
+   },
+   "group_cap": 20000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/c932595efa39c930",
+   "final_config": "C1",
+   "final_cap": 20000,
+   "final_selected_checkpoint": 0,
+   "final_adequacy": {
+    "min_update": 0,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.07606433440455053,
+    "pass": false
+   },
+   "state_sha16": "014133303418a701",
+   "final_up_to_date": true
+  },
+  "melbourne_s2_D0_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/8ddf578df105c904",
+   "dev_run_sha16": "13a3ba9252d42699",
+   "dev_cap": 20000,
+   "dev_selected_config": "C1",
+   "dev_selected_checkpoint": 0,
+   "dev_adequacy": {
+    "min_update": 0,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.05599910655302198,
+    "pass": false
+   },
+   "group_cap": 20000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/d76f22becfb2b1dd",
+   "final_config": "C1",
+   "final_cap": 20000,
+   "final_selected_checkpoint": 0,
+   "final_adequacy": {
+    "min_update": 0,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.04063367375355727,
+    "pass": false
+   },
+   "state_sha16": "014133303418a701",
+   "final_up_to_date": true
+  },
+  "melbourne_s3_D1_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/e3cfa3020543046e",
+   "dev_run_sha16": "638c290074872c3d",
+   "dev_cap": 20000,
+   "dev_selected_config": "C1",
+   "dev_selected_checkpoint": 8500,
+   "dev_adequacy": {
+    "min_update": 8500,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.004729109279955568,
+    "pass": true
+   },
+   "group_cap": 20000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/f238350db6bb4be7",
+   "final_config": "C1",
+   "final_cap": 20000,
+   "final_selected_checkpoint": 8500,
+   "final_adequacy": {
+    "min_update": 8500,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.008395419313838155,
+    "pass": false
+   },
+   "state_sha16": "fd76ce6297bffea8",
+   "final_up_to_date": true
+  },
+  "melbourne_s3_D0_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/0ab85649b582d73c",
+   "dev_run_sha16": "5e6c4457c84d04cf",
+   "dev_cap": 20000,
+   "dev_selected_config": "C2",
+   "dev_selected_checkpoint": 8500,
+   "dev_adequacy": {
+    "min_update": 8500,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.02602204066044989,
+    "pass": true
+   },
+   "group_cap": 20000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/3a9860ccef487076",
+   "final_config": "C2",
+   "final_cap": 20000,
+   "final_selected_checkpoint": 8500,
+   "final_adequacy": {
+    "min_update": 8500,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.02480394447734956,
+    "pass": true
+   },
+   "state_sha16": "30adc1acac42cf4e",
+   "final_up_to_date": true
+  },
+  "melbourne_s4_D1_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/ac077a906b6f51e9",
+   "dev_run_sha16": "66f79b803d64a2d6",
+   "dev_cap": 20000,
+   "dev_selected_config": "C3",
+   "dev_selected_checkpoint": 500,
+   "dev_adequacy": {
+    "min_update": 500,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.04303921215072818,
+    "pass": false
+   },
+   "group_cap": 20000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/c49303e2290ae093",
+   "final_config": "C3",
+   "final_cap": 20000,
+   "final_selected_checkpoint": 1000,
+   "final_adequacy": {
+    "min_update": 1000,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.04736260195524268,
+    "pass": false
+   },
+   "state_sha16": "9f9976ff901433fd",
+   "final_up_to_date": true
+  },
+  "melbourne_s4_D0_I0": {
+   "dev_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/2d2ea394cfbd4b0d",
+   "dev_run_sha16": "6ff216ed27eeed01",
+   "dev_cap": 20000,
+   "dev_selected_config": "C3",
+   "dev_selected_checkpoint": 20000,
+   "dev_adequacy": {
+    "min_update": 20000,
+    "min_at_cap": true,
+    "last_improvement_frac": 0.0577005450737076,
+    "pass": false
+   },
+   "group_cap": 20000,
+   "final_dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/final/37f7474abf76c7fd",
+   "final_config": "C3",
+   "final_cap": 20000,
+   "final_selected_checkpoint": 20000,
+   "final_adequacy": {
+    "min_update": 20000,
+    "min_at_cap": true,
+    "last_improvement_frac": 0.058539320041479895,
+    "pass": false
+   },
+   "state_sha16": "15db2d98fe52a3e9",
+   "final_up_to_date": true
+  }
+ },
+ "missing_dev": [],
+ "missing_final": [],
+ "final_stale": [],
+ "dev_failures_pending": [],
+ "dev_failures_after_extension": [
+  "madrid_s2_D1_I0",
+  "madrid_s2_D0_I0",
+  "madrid_s3_D0_I0",
+  "madrid_s4_D1_I0",
+  "london_s1_D0_I0",
+  "melbourne_s1_D0_I0",
+  "melbourne_s2_D1_I0",
+  "melbourne_s2_D0_I0",
+  "melbourne_s4_D1_I0",
+  "melbourne_s4_D0_I0"
+ ],
+ "final_failures": [
+  "madrid_s2_D1_I0",
+  "madrid_s2_D0_I0",
+  "madrid_s3_D0_I0",
+  "madrid_s4_D1_I0",
+  "madrid_s4_D0_I0",
+  "melbourne_s1_D1_I0",
+  "melbourne_s1_D0_I0",
+  "melbourne_s2_D1_I0",
+  "melbourne_s2_D0_I0",
+  "melbourne_s3_D1_I0",
+  "melbourne_s4_D1_I0",
+  "melbourne_s4_D0_I0"
+ ],
+ "extensions": {
+  "london_D0_I0": "complete",
+  "madrid_D0_I0": "complete",
+  "madrid_D1_I0": "complete",
+  "melbourne_D1_I0": "complete",
+  "melbourne_D0_I0": "complete"
+ },
+ "extensions_incomplete": [],
+ "excluded_from_adequacy_statements": [
+  "london_s1_D0_I0",
+  "madrid_s2_D0_I0",
+  "madrid_s2_D1_I0",
+  "madrid_s3_D0_I0",
+  "madrid_s4_D0_I0",
+  "madrid_s4_D1_I0",
+  "melbourne_s1_D0_I0",
+  "melbourne_s1_D1_I0",
+  "melbourne_s2_D0_I0",
+  "melbourne_s2_D1_I0",
+  "melbourne_s3_D1_I0",
+  "melbourne_s4_D0_I0",
+  "melbourne_s4_D1_I0"
+ ],
+ "lock": true,
+ "lock_sha16": "fb87297c3b41ccf7",
+ "records_of_another_version": {
+  "dev": [],
+  "final": []
+ },
+ "frozen_tag": "paper4-E13B-20261119",
+ "written": "2026-11-23T23:12:06.998257+00:00",
+ "environment": {
+  "host": "MacBook-Pro-di-gabriele-2.local",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.12.7",
+  "torch": "2.12.1",
+  "numpy": "2.5.1",
+  "pandas": "3.0.3",
+  "networkx": "3.6.1",
+  "mps": true,
+  "cuda": false,
+  "tag": "",
+  "frozen_tag": "paper4-E13B-20261119",
+  "head": "de39ae8",
+  "code_sha16": {
+   "p4b.py": "926061038a7472a3",
+   "e9.py": "4dd5628af8879511",
+   "e13.py": "42e357b86a21fd2d",
+   "e13b.py": "fda51553fe7ff752"
+  },
+  "prereg_sha16": "46377f67135e9927",
+  "load_avg": [
+   3.9267578125,
+   2.75146484375,
+   2.82666015625
+  ]
+ }
+}
