@@ -22,7 +22,7 @@ everything marked [adaptation] is a declared departure of ADAPTER_SPEC_E14.md. `
 equivalent `permute`/`reshape`; `torch.eye(...)` is created on the tensor's device (the original creates it on the CPU).
 
 Also here, because they belong to the method's own machinery: `random_walk_matrix` [original, scipy on the CPU],
-`method_graph` (ADAPTER_SPEC §6: Gaussian kernel on road-network distance, threshold 0.1, zero diagonal), the boolean
+`method_graph` (ADAPTER_SPEC §6: Gaussian kernel on road-network distance within a declared road radius of 2 km, threshold 0.1, zero diagonal), the boolean
 dependency propagation of C0.5(a) (`dependency_rows`, an upper bound: an empty row excludes a dependence, a non-empty row does
 not demonstrate one), the hop distance on A ∪ Aᵀ and the reference linear mass.
 """
@@ -485,26 +485,38 @@ def build_original(pred_len=12, input_len=12):
 
 # ---------------------------------------------------------------- the method's graph (ADAPTER_SPEC §6) -----
 
-def method_graph(graph, kept, kappa=0.1):
-    """Gaussian kernel on road-network distance: d_ij = shortest-path length (metres, edge attribute `weight`) on the aligned
-    road graph between kept sensors; σ = standard deviation of all finite d_ij, the diagonal zeros included (the DCRNN
-    `gen_adj_mx` convention the original dataset inherits); A_ij = exp(−(d_ij/σ)²); entries below kappa (0.1) set to 0; zero
-    diagonal (the experts remove self-loops themselves, the random walk receives what the matrix has). Built from topology
-    only. Returns A (float32), σ, the distance matrix."""
+ROAD_RADIUS_M = 2000.0      # declared adaptation (ADAPTER_SPEC §6, decision note of 2026-11-24): pairs farther than this along the road network are not connected
+
+
+def method_graph(graph, kept, kappa=0.1, radius_m=ROAD_RADIUS_M):
+    """The method's graph: Gaussian kernel on road-network distance. d_ij = shortest-path length (metres, edge attribute `weight`)
+    on the aligned road graph between kept sensors; pairs with d_ij > `radius_m` are treated as not connected (d = ∞) BEFORE σ is
+    estimated — our declared adaptation, a common road radius for the three cities chosen after the inspection of the topology
+    and before any fit, to keep the exchanges local (without it σ is dominated by the far pairs and the graph is dense,
+    density ≈ 0.4); σ = standard deviation of the finite d_ij, the diagonal zeros included; A_ij = exp(−(d_ij/σ)²) (the Gaussian
+    transformation of DCRNN's `gen_adj_mx.py`, which likewise initialises the distances to ∞ and takes σ on the finite ones);
+    entries below kappa (0.1) set to 0, so the effective radius is σ·sqrt(ln(1/kappa)) ≤ radius_m; zero diagonal. Built from
+    topology only. Returns A (float32), σ, the distance matrix (∞ beyond the radius) and a dict of descriptive statistics
+    (density, degree median / min, isolated nodes, the longest surviving edge in metres)."""
     pos = {s: i for i, s in enumerate(kept)}
     K = len(kept)
     D = np.full((K, K), np.inf)
     for src, lengths in nx_all_pairs(graph):
         i = pos[src]
         for dst, d in lengths.items():
-            D[i, pos[dst]] = d
+            if d <= radius_m:
+                D[i, pos[dst]] = d
     finite = D[np.isfinite(D)]
     sigma = float(finite.std())
     A = np.exp(-np.square(D / sigma))
     A[~np.isfinite(D)] = 0.0
     A[A < kappa] = 0.0
     np.fill_diagonal(A, 0.0)
-    return A.astype("float32"), sigma, D
+    deg = (A > 0).sum(1); surviving = D[(A > 0)]
+    stats = {"radius_m": float(radius_m), "kappa": float(kappa), "sigma_m": sigma, "nodes": int(K), "nonzero_pairs": int((A > 0).sum()),
+             "density": float((A > 0).mean()), "degree_median": float(np.median(deg)), "degree_min": int(deg.min()), "isolated_nodes": int((deg == 0).sum()),
+             "max_edge_m": float(surviving.max()) if surviving.size else 0.0, "effective_radius_m": float(sigma * np.sqrt(np.log(1 / kappa)))}
+    return A.astype("float32"), sigma, D, stats
 
 
 def nx_all_pairs(graph):

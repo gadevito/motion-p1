@@ -465,7 +465,7 @@ class SetupE14(p4b.Setup):
             raise ValueError(f"regime {regime!r} not in {REGIMES}")
         s.regime = regime; s.arm = None
         super().__init__(city, p4b.CITY[city]["roads"], seed=seed, grid=e9.GRID[city], targets=e9.targets(F), device=device or device_default())
-        s.A_method, s.sigma_method, s.D_road = mga.method_graph(s.al["graph"], s.kept)
+        s.A_method, s.sigma_method, s.D_road, s.graph_stats = mga.method_graph(s.al["graph"], s.kept)
         s.At = torch.tensor(s.A_method, device=s.dev)
         s.Aq, s.Ah = mga.random_walk_matrix(s.At), mga.random_walk_matrix(s.At.T)
         xy = np.asarray(s.al["coords"], dtype="float64")
@@ -544,10 +544,8 @@ def adjacency_e14(su, arm):
     records the graph's description."""
     if arm not in ARMS:
         raise ValueError(f"unknown arm {arm!r}")
-    A = su.A_method; deg = (A > 0).sum(1)
-    return A, {"graph": "method: Gaussian kernel on road-network distance, kappa 0.1, zero diagonal (ADAPTER_SPEC_E14 §6)",
-               "sigma_m": float(su.sigma_method), "nonzero_pairs": int((A > 0).sum()), "isolated_nodes": int((deg == 0).sum()),
-               "degree_median": float(np.median(deg)), "arm": arm, "regime": su.regime}
+    return su.A_method, {"graph": "method: Gaussian kernel on road-network distance within the declared road radius, kappa 0.1, zero diagonal (ADAPTER_SPEC_E14 §6)",
+                         **su.graph_stats, "arm": arm, "regime": su.regime}
 
 
 # ---------------------------------------------------------------- version-bound records (as E13B) ----------
@@ -1219,7 +1217,7 @@ def struct_measure(su, draws=20):
     hd = mga.hop_distance_undirected(A, su.obs)
     mass, _ = mga.reference_mass(su.Aq.cpu().numpy(), su.obs, REF_HOPS)
     rec = {"observed": int(su.obs.sum()), "validation_hidden": int(su.val.sum()), "test_hidden": int(su.test.sum()), "sigma_m": float(su.sigma_method),
-           "graph": {"nonzero_pairs": int((A > 0).sum()), "isolated_nodes": int(((A > 0).sum(1) == 0).sum()), "degree_median": float(np.median((A > 0).sum(1)))},
+           "graph": dict(su.graph_stats),
            "dependency_bound": "upper bound: an empty row excludes a dependence on the inputs' readings, a non-empty row does not demonstrate one (mogernn_adapter.dependency_rows)",
            "input_nodes_with_missing_readings": {"validation_period": int((missing_in_period(su, su.va) & su.obs).sum()), "test_period": int((missing_in_period(su, su.te) & su.obs).sum()), "training_period": int((miss_tr & su.obs).sum())},
            "dependency": {str(h + 1): {"validation_hidden": _rows_summary(rows_v[h], su.val), "test_hidden": _rows_summary(rows_t[h], su.test)} for h in range(HSTEPS)},
@@ -1276,7 +1274,7 @@ def struct(args):
             same = all(r[k] == m[k] for k in ("observed", "validation_hidden", "test_hidden")) and r["hop_distance_validation_hidden"] == m["hop_distance_kernel_adjacency_validation_hidden"]
             agree &= same
             d1 = m["dependency"]["1"]
-            print(f"{city} seed {s}: sigma {m['sigma_m']:.0f} m, pairs {m['graph']['nonzero_pairs']}, isolated {m['graph']['isolated_nodes']}; dependency possible (non-empty row, bound) at h=1: "
+            print(f"{city} seed {s}: sigma {m['sigma_m']:.0f} m, pairs {m['graph']['nonzero_pairs']}, density {m['graph']['density']:.3f}, isolated {m['graph']['isolated_nodes']}; dependency possible (non-empty row, bound) at h=1: "
                   f"val {d1['validation_hidden']['share_nonempty']:.3f} test {d1['test_hidden']['share_nonempty']:.3f} train {d1['training_targets']['share_nonempty']:.3f}; "
                   f"within 14 hops val {m['hop_distance_method_graph']['share_within_radius']['14']['validation_hidden']:.3f}; shared quantities "
                   f"{'agree' if same else 'DIFFER'} with e13_a0_struct.json", flush=True)
@@ -1395,8 +1393,13 @@ def preflight(args):
     log.check("1a", "node sets disjoint, non-empty, whole cells", whole and su.obs.any() and su.val.any() and su.test.any())
     log.check("rw", "cached random walks equal the ones recomputed from the method's graph (bit for bit)",
               bool(torch.equal(su.Aq, mga.random_walk_matrix(su.At)) and torch.equal(su.Ah, mga.random_walk_matrix(su.At.T))))
-    log(f"[INFO] method graph madrid: sigma {su.sigma_method:.1f} m, nonzero pairs {int((su.A_method > 0).sum())}, isolated nodes {int(((su.A_method > 0).sum(1) == 0).sum())}, "
-        f"factor scaler mean {su.rmu:.4f} sd {su.rsd:.4f}")
+    log(f"[INFO] factor scaler madrid s0: mean {su.rmu:.4f} sd {su.rsd:.4f}")
+    for city in CITIES:
+        al_ = p4b.align_graph(city, p4b.CITY[city]["roads"]); _, _, _, gs = mga.method_graph(al_["graph"], al_["kept"])
+        log(f"[INFO] method graph {city}: road radius {gs['radius_m']:.0f} m, sigma {gs['sigma_m']:.0f} m, effective radius {gs['effective_radius_m']:.0f} m, longest surviving edge {gs['max_edge_m']:.0f} m, "
+            f"density {gs['density']:.3f}, degree median {gs['degree_median']:.0f} min {gs['degree_min']}, isolated nodes {gs['isolated_nodes']} of {gs['nodes']}")
+    log.check("graph-radius", "the method's graph respects the declared road radius (no surviving edge longer than it) in the three cities",
+              all(mga.method_graph(p4b.align_graph(c, p4b.CITY[c]["roads"])["graph"], p4b.align_graph(c, p4b.CITY[c]["roads"])["kept"])[3]["max_edge_m"] <= mga.ROAD_RADIUS_M for c in CITIES))
     hidden = torch.as_tensor(~su.obs, device=su.dev); r = p4b.rng(0, p4b.K_MASKS); bm = bt_ = 0; missing = 0; mono = True; binary = True
     for i in range(100):
         inp, tgt, _ = su.batch_mask(r); bm += int((inp & ~su.obs).sum() + (tgt & ~su.obs).sum())
