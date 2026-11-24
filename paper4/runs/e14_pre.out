@@ -1,0 +1,18 @@
+nohup: input ignorato
+/home/gadevito/paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+/home/gadevito/paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+/home/gadevito/paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+/home/gadevito/paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+C0.1 S0-full: losses True parameters True predictions True scaler/graph True
+C0.1 S0-nodyn: losses True parameters True predictions True scaler/graph True
+C0.1 S1-full: losses True parameters True predictions True scaler/graph True
+C0.1 S1-nodyn: losses True parameters True predictions True scaler/graph True
+benchmark S0-full: s/update net of validations [0.8094, 0.8103, 0.8099] median 0.8099 (gross 2.2461); s/validation median 14.36; peak 6.29 GiB; identical repetitions max |Δ parameter| 0.000e+00
+benchmark S0-nodyn: s/update net of validations [0.8092, 0.81, 0.8095] median 0.8095 (gross 2.2466); s/validation median 14.37; peak 6.29 GiB; identical repetitions max |Δ parameter| 0.000e+00
+benchmark S1-full: s/update net of validations [0.8214, 0.821, 0.8217] median 0.8214 (gross 2.2813); s/validation median 14.59; peak 6.33 GiB; identical repetitions max |Δ parameter| 0.000e+00
+benchmark S1-nodyn: s/update net of validations [0.8211, 0.8203, 0.82] median 0.8203 (gross 2.2770); s/validation median 14.57; peak 6.33 GiB; identical repetitions max |Δ parameter| 0.000e+00
+-> /home/gadevito/paper4/paper4/runs/e14_pre.json 643d4fd050111bc6 C0.1 passed

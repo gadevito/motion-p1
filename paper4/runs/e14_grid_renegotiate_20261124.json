@@ -1,0 +1,18 @@
+{
+ "h_cal": 600.0,
+ "reserve_included": "H_cal includes the 20 % reserve stated by the responsible author",
+ "usable_h": 480.0,
+ "cost_full_h": 844.2241918139862,
+ "cost_reduced_h": 506.5345150883917,
+ "fits": {
+  "full": 300,
+  "reduced": 180
+ },
+ "grid": "renegotiate",
+ "configs": null,
+ "u_max": 12000,
+ "by": "Gabriele De Vito",
+ "pre_sha16": "643d4fd050111bc6",
+ "written": "2026-11-24T18:45:08.565374+00:00",
+ "rule": "full grid if cost <= 0.8 H_cal; else C1 + C2 if its cost <= 0.8 H_cal; else collegial renegotiation; U_max never lowered"
+}

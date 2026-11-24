@@ -1,0 +1,204 @@
+{
+ "protocol": "E14pre",
+ "status": "complete",
+ "tag": "paper4-E14pre-20261124",
+ "started": "2026-11-24T18:00:39.323792+00:00",
+ "C0.1": {
+  "S0-full": {
+   "same_losses": true,
+   "same_parameters": true,
+   "same_validation_predictions": true,
+   "same_scaler_and_graph": true,
+   "pass": true,
+   "hidden_in_batches": 0
+  },
+  "S0-nodyn": {
+   "same_losses": true,
+   "same_parameters": true,
+   "same_validation_predictions": true,
+   "same_scaler_and_graph": true,
+   "pass": true,
+   "hidden_in_batches": 0
+  },
+  "S1-full": {
+   "same_losses": true,
+   "same_parameters": true,
+   "same_validation_predictions": true,
+   "same_scaler_and_graph": true,
+   "pass": true,
+   "hidden_in_batches": 0
+  },
+  "S1-nodyn": {
+   "same_losses": true,
+   "same_parameters": true,
+   "same_validation_predictions": true,
+   "same_scaler_and_graph": true,
+   "pass": true,
+   "hidden_in_batches": 0
+  }
+ },
+ "benchmark": {
+  "S0-full": {
+   "seconds_per_update_gross": [
+    2.2460457418000077,
+    2.2461263969599896,
+    2.2470567021399983
+   ],
+   "seconds_per_update_gross_median": 2.2461263969599896,
+   "seconds_per_update_net": [
+    0.8094254060200546,
+    0.8102724351799406,
+    0.8099477035000018
+   ],
+   "seconds_per_update_net_median": 0.8099477035000018,
+   "seconds_per_validation": [
+    14.363992175000021,
+    14.361166873000911,
+    14.364194208999834
+   ],
+   "seconds_per_validation_median": 14.363992175000021,
+   "memory_peak_bytes": [
+    6756515328,
+    6758408704,
+    6758408704
+   ],
+   "device": "cuda",
+   "identical_repetitions_max_abs_param_diff": 0.0,
+   "identical_repetitions_bitwise": true
+  },
+  "S0-nodyn": {
+   "seconds_per_update_gross": [
+    2.245897254119991,
+    2.247062097140006,
+    2.246614512260021
+   ],
+   "seconds_per_update_gross_median": 2.246614512260021,
+   "seconds_per_update_net": [
+    0.8092419547199461,
+    0.8099789303999932,
+    0.809518284980004
+   ],
+   "seconds_per_update_net_median": 0.809518284980004,
+   "seconds_per_validation": [
+    14.352914785000394,
+    14.368884003000858,
+    14.36895303900019
+   ],
+   "seconds_per_validation_median": 14.368884003000858,
+   "memory_peak_bytes": [
+    6758408704,
+    6758408704,
+    6758408704
+   ],
+   "device": "cuda",
+   "identical_repetitions_max_abs_param_diff": 0.0,
+   "identical_repetitions_bitwise": true
+  },
+  "S1-full": {
+   "seconds_per_update_gross": [
+    2.2822056889799933,
+    2.2791252692800117,
+    2.281283229740002
+   ],
+   "seconds_per_update_gross_median": 2.281283229740002,
+   "seconds_per_update_net": [
+    0.8213850014799391,
+    0.8209953786400002,
+    0.821733347200061
+   ],
+   "seconds_per_update_net_median": 0.8213850014799391,
+   "seconds_per_validation": [
+    14.620529374000398,
+    14.588614559001144,
+    14.589018741000473
+   ],
+   "seconds_per_validation_median": 14.589018741000473,
+   "memory_peak_bytes": [
+    6794073600,
+    6794092032,
+    6794092032
+   ],
+   "device": "cuda",
+   "identical_repetitions_max_abs_param_diff": 0.0,
+   "identical_repetitions_bitwise": true
+  },
+  "S1-nodyn": {
+   "seconds_per_update_gross": [
+    2.2821364589400037,
+    2.276954205360016,
+    2.275377938320016
+   ],
+   "seconds_per_update_gross_median": 2.276954205360016,
+   "seconds_per_update_net": [
+    0.8210772253000322,
+    0.8202630934199988,
+    0.8199909388399829
+   ],
+   "seconds_per_update_net_median": 0.8202630934199988,
+   "seconds_per_validation": [
+    14.61075642799915,
+    14.569447018999199,
+    14.567948249999972
+   ],
+   "seconds_per_validation_median": 14.569447018999199,
+   "memory_peak_bytes": [
+    6794092032,
+    6794092032,
+    6794092032
+   ],
+   "device": "cuda",
+   "identical_repetitions_max_abs_param_diff": 0.0,
+   "identical_repetitions_bitwise": true
+  }
+ },
+ "updates": 1120,
+ "preflight": {
+  "file": "/home/gadevito/paper4/paper4/runs/e14_preflight.log",
+  "sha16": "bcb71976bd480e2a"
+ },
+ "prereg_sha16": {
+  "E14pre.md": "424d6e6f57bedce0",
+  "E14.md": "e95fb2006b424042",
+  "ADAPTER_SPEC_E14.md": "a3a05b02cda6977b"
+ },
+ "device": "cuda",
+ "gpu": "NVIDIA GB10",
+ "environment": {
+  "host": "spark-9809",
+  "platform": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+  "python": "3.13.6",
+  "torch": "2.14.1+cu130",
+  "numpy": "2.5.5",
+  "pandas": "3.1.1",
+  "networkx": "3.7",
+  "mps": false,
+  "cuda": true,
+  "tag": "",
+  "frozen_tag": "",
+  "head": "c25d8a8",
+  "code_sha16": {
+   "p4b.py": "926061038a7472a3",
+   "e9.py": "4dd5628af8879511",
+   "e13.py": "42e357b86a21fd2d",
+   "e14.py": "1cccc2eaa955ad09",
+   "mogernn_adapter.py": "da5388a9b4f251cf"
+  },
+  "prereg_sha16": "e95fb2006b424042",
+  "load_avg": [
+   0.0244140625,
+   0.0380859375,
+   0.056640625
+  ]
+ },
+ "parameters": {
+  "S0": 233182,
+  "S1": 235486
+ },
+ "c0_1_pass": true,
+ "load_avg": [
+  1.0,
+  1.0,
+  0.9716796875
+ ],
+ "written": "2026-11-24T18:40:06.892846+00:00"
+}
