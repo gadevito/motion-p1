@@ -1,0 +1,79 @@
+{
+ "protocol": "E14 C0.5(b)",
+ "c0_synth_sha16": "fce213e51c2c1d34",
+ "origins": 4,
+ "threshold": 1e-12,
+ "states": {
+  "init": {
+   "state_sha16": "9ee242912316e8d4",
+   "share_above_threshold": 1.0,
+   "share_above_threshold_by_horizon": {
+    "1": 1.0,
+    "2": 1.0,
+    "4": 1.0,
+    "8": 1.0
+   },
+   "log10_max_gradient_quantiles": {
+    "0": -5.906279576267369,
+    "5": -5.336085383279995,
+    "25": -4.129276731833648,
+    "50": -3.3128636703492598,
+    "75": -2.837396619266782,
+    "95": -2.4045423673614836,
+    "100": -1.658418162295744
+   },
+   "exact_zero_share": 0.0,
+   "n_targets": 2608
+  },
+  "best": {
+   "state_sha16": "bf7a850c63f3a67d",
+   "share_above_threshold": 1.0,
+   "share_above_threshold_by_horizon": {
+    "1": 1.0,
+    "2": 1.0,
+    "4": 1.0,
+    "8": 1.0
+   },
+   "log10_max_gradient_quantiles": {
+    "0": -2.4938979982092215,
+    "5": -2.3657461295437128,
+    "25": -1.1078152115811122,
+    "50": -0.8565004128190734,
+    "75": -0.7404937943218866,
+    "95": -0.24188637430372786,
+    "100": 0.13704908374227504
+   },
+   "exact_zero_share": 0.0,
+   "n_targets": 2608
+  }
+ },
+ "environment": {
+  "host": "spark-9809",
+  "platform": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+  "python": "3.13.6",
+  "torch": "2.14.1+cu130",
+  "numpy": "2.5.5",
+  "pandas": "3.1.1",
+  "networkx": "3.7",
+  "mps": false,
+  "cuda": true,
+  "tag": "",
+  "frozen_tag": "paper4-E14-20261124",
+  "head": "f0818ba",
+  "code_sha16": {
+   "p4b.py": "926061038a7472a3",
+   "e9.py": "4dd5628af8879511",
+   "e13.py": "42e357b86a21fd2d",
+   "e14.py": "1cccc2eaa955ad09",
+   "mogernn_adapter.py": "da5388a9b4f251cf"
+  },
+  "prereg_sha16": "a04f49a13fbdd45e",
+  "load_avg": [
+   0.1162109375,
+   0.04443359375,
+   0.04541015625
+  ]
+ },
+ "started": "2026-11-24T21:50:40.154103+00:00",
+ "written": "2026-11-24T22:12:21.534381+00:00"
+}

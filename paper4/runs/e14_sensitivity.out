@@ -1,0 +1,8 @@
+nohup: input ignorato
+/home/gadevito/paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+/home/gadevito/paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+init {"state_sha16": "9ee242912316e8d4", "share_above_threshold": 1.0, "share_above_threshold_by_horizon": {"1": 1.0, "2": 1.0, "4": 1.0, "8": 1.0}, "log10_max_gradient_quantiles": {"0": -5.906279576267369, "5": -5.336085383279995, "25": -4.129276731833648, "50": -3.3128636703492598, "75": -2.837396619266782, "95": -2.4045423673614836, "100": -1.658418162295744}, "exact_zero_share": 0.0, "n_targets": 2608}
+best {"state_sha16": "bf7a850c63f3a67d", "share_above_threshold": 1.0, "share_above_threshold_by_horizon": {"1": 1.0, "2": 1.0, "4": 1.0, "8": 1.0}, "log10_max_gradient_quantiles": {"0": -2.4938979982092215, "5": -2.3657461295437128, "25": -1.1078152115811122, "50": -0.8565004128190734, "75": -0.7404937943218866, "95": -0.24188637430372786, "100": 0.13704908374227504}, "exact_zero_share": 0.0, "n_targets": 2608}
+-> /home/gadevito/paper4/paper4/runs/e14_sensitivity.json 354acf2f48c374d5

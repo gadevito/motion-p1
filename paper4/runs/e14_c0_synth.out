@@ -1,0 +1,50 @@
+nohup: input ignorato
+/home/gadevito/paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+/home/gadevito/paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+/home/gadevito/paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+/home/gadevito/paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+dependent seed 20261121 privileged MAE diagnostic: gain per horizon {'1': 24.93, '2': 21.3, '4': 15.24, '8': 7.1} mean 17.15 | hidden reached 1.0 -> valid
+independent seed 20261122 privileged MAE diagnostic: gain per horizon {'1': -0.55, '2': -0.56, '4': -0.57, '8': -0.55} mean -0.56 | hidden reached 1.0 -> valid
+[full S0] update      0  val MAE 0.35614  train None  lr 1.00e-03
+[full S0] update    250  val MAE 0.25256  train 0.81425  lr 1.00e-03
+[full S0] update    500  val MAE 0.21597  train 0.71293  lr 1.00e-03
+[full S0] update    750  val MAE 0.21302  train 0.6579  lr 1.00e-03
+[full S0] update   1000  val MAE 0.20898  train 0.6633  lr 1.00e-03
+[full S0] update   1250  val MAE 0.21191  train 0.6659  lr 1.00e-03
+[full S0] update   1500  val MAE 0.20905  train 0.67572  lr 1.00e-03
+[full S0] update   1750  val MAE 0.20991  train 0.65981  lr 1.00e-03
+[full S0] update   2000  val MAE 0.20993  train 0.61586  lr 1.00e-03
+[nodyn S0] update      0  val MAE 0.35521  train None  lr 1.00e-03
+[nodyn S0] update    250  val MAE 0.33963  train 0.96616  lr 1.00e-03
+[nodyn S0] update    500  val MAE 0.33354  train 0.92382  lr 1.00e-03
+[nodyn S0] update    750  val MAE 0.32676  train 0.90254  lr 1.00e-03
+[nodyn S0] update   1000  val MAE 0.33376  train 0.90997  lr 1.00e-03
+[nodyn S0] update   1250  val MAE 0.33106  train 0.9267  lr 1.00e-03
+[nodyn S0] update   1500  val MAE 0.32970  train 0.93022  lr 1.00e-03
+[nodyn S0] update   1750  val MAE 0.33563  train 0.93038  lr 1.00e-03
+[nodyn S0] update   2000  val MAE 0.33047  train 0.8935  lr 1.00e-03
+dependent best checkpoint of S0-full 1000 V 37.37 -> pass
+[full S0] update      0  val MAE 0.34563  train None  lr 1.00e-03
+[full S0] update    250  val MAE 0.32810  train 0.93213  lr 1.00e-03
+[full S0] update    500  val MAE 0.32614  train 0.92445  lr 1.00e-03
+[full S0] update    750  val MAE 0.32565  train 0.9199  lr 1.00e-03
+[full S0] update   1000  val MAE 0.32576  train 0.91371  lr 1.00e-03
+[full S0] update   1250  val MAE 0.32605  train 0.91549  lr 1.00e-03
+[full S0] update   1500  val MAE 0.32542  train 0.91206  lr 1.00e-03
+[full S0] update   1750  val MAE 0.32574  train 0.9239  lr 1.00e-03
+[full S0] update   2000  val MAE 0.32583  train 0.91322  lr 1.00e-03
+[nodyn S0] update      0  val MAE 0.34556  train None  lr 1.00e-03
+[nodyn S0] update    250  val MAE 0.32818  train 0.93212  lr 1.00e-03
+[nodyn S0] update    500  val MAE 0.32617  train 0.9245  lr 1.00e-03
+[nodyn S0] update    750  val MAE 0.32573  train 0.91995  lr 1.00e-03
+[nodyn S0] update   1000  val MAE 0.32578  train 0.91381  lr 1.00e-03
+[nodyn S0] update   1250  val MAE 0.32593  train 0.91573  lr 1.00e-03
+[nodyn S0] update   1500  val MAE 0.32528  train 0.91235  lr 1.00e-03
+[nodyn S0] update   1750  val MAE 0.32559  train 0.92457  lr 1.00e-03
+[nodyn S0] update   2000  val MAE 0.32568  train 0.91391  lr 1.00e-03
+independent best checkpoint of S0-full 1500 V -0.04 -> pass
+-> /home/gadevito/paper4/paper4/runs/e14_c0_synth.json fce213e51c2c1d34
