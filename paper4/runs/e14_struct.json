@@ -1,0 +1,5279 @@
+{
+ "protocol": "E14 C0.5(a)",
+ "radii": [
+  14,
+  21
+ ],
+ "reference_hops": 14,
+ "draws": 20,
+ "layers": 2,
+ "T_in": 12,
+ "H": 8,
+ "cities": {
+  "madrid": {
+   "0": {
+    "observed": 164,
+    "validation_hidden": 163,
+    "test_hidden": 501,
+    "sigma_m": 547.8382721137725,
+    "graph": {
+     "radius_m": 2000.0,
+     "kappa": 0.1,
+     "sigma_m": 547.8382721137725,
+     "nodes": 828,
+     "nonzero_pairs": 63688,
+     "density": 0.09289598357021167,
+     "degree_median": 76.0,
+     "degree_min": 2,
+     "isolated_nodes": 0,
+     "max_edge_m": 831.20874156244,
+     "effective_radius_m": 831.3046566209206
+    },
+    "dependency_bound": "upper bound: an empty row excludes a dependence on the inputs' readings, a non-empty row does not demonstrate one (mogernn_adapter.dependency_rows)",
+    "input_nodes_with_missing_readings": {
+     "validation_period": 161,
+     "test_period": 162,
+     "training_period": 164
+    },
+    "dependency": {
+     "1": {
+      "validation_hidden": {
+       "n": 163,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 164,
+        "median": 164.0,
+        "max": 164
+       }
+      },
+      "test_hidden": {
+       "n": 501,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 164,
+        "median": 164.0,
+        "max": 164
+       }
+      },
+      "training_targets": {
+       "n": 705,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 88,
+        "median": 120.0,
+        "max": 161
+       }
+      }
+     },
+     "2": {
+      "validation_hidden": {
+       "n": 163,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 164,
+        "median": 164.0,
+        "max": 164
+       }
+      },
+      "test_hidden": {
+       "n": 501,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 164,
+        "median": 164.0,
+        "max": 164
+       }
+      },
+      "training_targets": {
+       "n": 705,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 88,
+        "median": 120.0,
+        "max": 161
+       }
+      }
+     },
+     "3": {
+      "validation_hidden": {
+       "n": 163,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 164,
+        "median": 164.0,
+        "max": 164
+       }
+      },
+      "test_hidden": {
+       "n": 501,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 164,
+        "median": 164.0,
+        "max": 164
+       }
+      },
+      "training_targets": {
+       "n": 705,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 88,
+        "median": 120.0,
+        "max": 161
+       }
+      }
+     },
+     "4": {
+      "validation_hidden": {
+       "n": 163,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 164,
+        "median": 164.0,
+        "max": 164
+       }
+      },
+      "test_hidden": {
+       "n": 501,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 164,
+        "median": 164.0,
+        "max": 164
+       }
+      },
+      "training_targets": {
+       "n": 705,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 88,
+        "median": 120.0,
+        "max": 161
+       }
+      }
+     },
+     "5": {
+      "validation_hidden": {
+       "n": 163,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 164,
+        "median": 164.0,
+        "max": 164
+       }
+      },
+      "test_hidden": {
+       "n": 501,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 164,
+        "median": 164.0,
+        "max": 164
+       }
+      },
+      "training_targets": {
+       "n": 705,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 88,
+        "median": 120.0,
+        "max": 161
+       }
+      }
+     },
+     "6": {
+      "validation_hidden": {
+       "n": 163,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 164,
+        "median": 164.0,
+        "max": 164
+       }
+      },
+      "test_hidden": {
+       "n": 501,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 164,
+        "median": 164.0,
+        "max": 164
+       }
+      },
+      "training_targets": {
+       "n": 705,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 88,
+        "median": 120.0,
+        "max": 161
+       }
+      }
+     },
+     "7": {
+      "validation_hidden": {
+       "n": 163,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 164,
+        "median": 164.0,
+        "max": 164
+       }
+      },
+      "test_hidden": {
+       "n": 501,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 164,
+        "median": 164.0,
+        "max": 164
+       }
+      },
+      "training_targets": {
+       "n": 705,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 88,
+        "median": 120.0,
+        "max": 161
+       }
+      }
+     },
+     "8": {
+      "validation_hidden": {
+       "n": 163,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 164,
+        "median": 164.0,
+        "max": 164
+       }
+      },
+      "test_hidden": {
+       "n": 501,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 164,
+        "median": 164.0,
+        "max": 164
+       }
+      },
+      "training_targets": {
+       "n": 705,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 88,
+        "median": 120.0,
+        "max": 161
+       }
+      }
+     }
+    },
+    "hop_distance_method_graph": {
+     "validation_hidden": {
+      "1": 111,
+      "2": 27,
+      "3": 25
+     },
+     "test_hidden": {
+      "1": 310,
+      "2": 176,
+      "3": 15
+     },
+     "share_within_radius": {
+      "14": {
+       "validation_hidden": 1.0,
+       "test_hidden": 1.0
+      },
+      "21": {
+       "validation_hidden": 1.0,
+       "test_hidden": 1.0
+      }
+     }
+    },
+    "reference_mass_14hops": {
+     "validation_hidden": {
+      "n": 163,
+      "median": 2.1944210816938696,
+      "p25": 0.6571919507882754,
+      "p75": 2.576613247065113,
+      "share_gt_0.1": 1.0,
+      "share_gt_0.01": 1.0,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     },
+     "test_hidden": {
+      "n": 501,
+      "median": 1.3943930402045293,
+      "p25": 0.5454210538444287,
+      "p75": 3.5557036453722537,
+      "share_gt_0.1": 1.0,
+      "share_gt_0.01": 1.0,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     },
+     "observed_self": {
+      "n": 164,
+      "median": 4.236275363023853,
+      "p25": 3.340773843418912,
+      "p75": 4.680816123444757,
+      "share_gt_0.1": 1.0,
+      "share_gt_0.01": 1.0,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     },
+     "training_targets": {
+      "n": 705,
+      "median": 0.7320254064095965,
+      "p25": 0.07808447415025829,
+      "p75": 1.1985533328953695,
+      "share_gt_0.1": 0.7219858156028369,
+      "share_gt_0.01": 0.7943262411347518,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     }
+    },
+    "hop_distance_kernel_adjacency_validation_hidden": {
+     "1": 16,
+     "2": 21,
+     "3": 17,
+     "4": 18,
+     "5": 15,
+     "6": 12,
+     "7": 10,
+     "8": 14,
+     "9": 14,
+     "10": 9,
+     "11": 8,
+     "12": 5,
+     "13": 2,
+     "14": 2
+    }
+   },
+   "1": {
+    "observed": 194,
+    "validation_hidden": 148,
+    "test_hidden": 486,
+    "sigma_m": 547.8382721137725,
+    "graph": {
+     "radius_m": 2000.0,
+     "kappa": 0.1,
+     "sigma_m": 547.8382721137725,
+     "nodes": 828,
+     "nonzero_pairs": 63688,
+     "density": 0.09289598357021167,
+     "degree_median": 76.0,
+     "degree_min": 2,
+     "isolated_nodes": 0,
+     "max_edge_m": 831.20874156244,
+     "effective_radius_m": 831.3046566209206
+    },
+    "dependency_bound": "upper bound: an empty row excludes a dependence on the inputs' readings, a non-empty row does not demonstrate one (mogernn_adapter.dependency_rows)",
+    "input_nodes_with_missing_readings": {
+     "validation_period": 192,
+     "test_period": 193,
+     "training_period": 194
+    },
+    "dependency": {
+     "1": {
+      "validation_hidden": {
+       "n": 148,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 194,
+        "median": 194.0,
+        "max": 194
+       }
+      },
+      "test_hidden": {
+       "n": 486,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 194,
+        "median": 194.0,
+        "max": 194
+       }
+      },
+      "training_targets": {
+       "n": 959,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 57,
+        "median": 122.0,
+        "max": 193
+       }
+      }
+     },
+     "2": {
+      "validation_hidden": {
+       "n": 148,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 194,
+        "median": 194.0,
+        "max": 194
+       }
+      },
+      "test_hidden": {
+       "n": 486,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 194,
+        "median": 194.0,
+        "max": 194
+       }
+      },
+      "training_targets": {
+       "n": 959,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 57,
+        "median": 122.0,
+        "max": 193
+       }
+      }
+     },
+     "3": {
+      "validation_hidden": {
+       "n": 148,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 194,
+        "median": 194.0,
+        "max": 194
+       }
+      },
+      "test_hidden": {
+       "n": 486,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 194,
+        "median": 194.0,
+        "max": 194
+       }
+      },
+      "training_targets": {
+       "n": 959,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 57,
+        "median": 122.0,
+        "max": 193
+       }
+      }
+     },
+     "4": {
+      "validation_hidden": {
+       "n": 148,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 194,
+        "median": 194.0,
+        "max": 194
+       }
+      },
+      "test_hidden": {
+       "n": 486,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 194,
+        "median": 194.0,
+        "max": 194
+       }
+      },
+      "training_targets": {
+       "n": 959,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 57,
+        "median": 122.0,
+        "max": 193
+       }
+      }
+     },
+     "5": {
+      "validation_hidden": {
+       "n": 148,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 194,
+        "median": 194.0,
+        "max": 194
+       }
+      },
+      "test_hidden": {
+       "n": 486,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 194,
+        "median": 194.0,
+        "max": 194
+       }
+      },
+      "training_targets": {
+       "n": 959,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 57,
+        "median": 122.0,
+        "max": 193
+       }
+      }
+     },
+     "6": {
+      "validation_hidden": {
+       "n": 148,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 194,
+        "median": 194.0,
+        "max": 194
+       }
+      },
+      "test_hidden": {
+       "n": 486,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 194,
+        "median": 194.0,
+        "max": 194
+       }
+      },
+      "training_targets": {
+       "n": 959,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 57,
+        "median": 122.0,
+        "max": 193
+       }
+      }
+     },
+     "7": {
+      "validation_hidden": {
+       "n": 148,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 194,
+        "median": 194.0,
+        "max": 194
+       }
+      },
+      "test_hidden": {
+       "n": 486,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 194,
+        "median": 194.0,
+        "max": 194
+       }
+      },
+      "training_targets": {
+       "n": 959,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 57,
+        "median": 122.0,
+        "max": 193
+       }
+      }
+     },
+     "8": {
+      "validation_hidden": {
+       "n": 148,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 194,
+        "median": 194.0,
+        "max": 194
+       }
+      },
+      "test_hidden": {
+       "n": 486,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 194,
+        "median": 194.0,
+        "max": 194
+       }
+      },
+      "training_targets": {
+       "n": 959,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 57,
+        "median": 122.0,
+        "max": 193
+       }
+      }
+     }
+    },
+    "hop_distance_method_graph": {
+     "validation_hidden": {
+      "1": 79,
+      "2": 54,
+      "3": 15
+     },
+     "test_hidden": {
+      "1": 263,
+      "2": 205,
+      "3": 18
+     },
+     "share_within_radius": {
+      "14": {
+       "validation_hidden": 1.0,
+       "test_hidden": 1.0
+      },
+      "21": {
+       "validation_hidden": 1.0,
+       "test_hidden": 1.0
+      }
+     }
+    },
+    "reference_mass_14hops": {
+     "validation_hidden": {
+      "n": 148,
+      "median": 1.9975621321190102,
+      "p25": 0.7395212619318071,
+      "p75": 3.104820375093788,
+      "share_gt_0.1": 1.0,
+      "share_gt_0.01": 1.0,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     },
+     "test_hidden": {
+      "n": 486,
+      "median": 1.800057838096981,
+      "p25": 0.842997996505383,
+      "p75": 3.5927540067629926,
+      "share_gt_0.1": 0.9753086419753086,
+      "share_gt_0.01": 1.0,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     },
+     "observed_self": {
+      "n": 194,
+      "median": 6.401135154422658,
+      "p25": 5.636013626341203,
+      "p75": 8.105820541409672,
+      "share_gt_0.1": 1.0,
+      "share_gt_0.01": 1.0,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     },
+     "training_targets": {
+      "n": 959,
+      "median": 0.19817653561955004,
+      "p25": 0.10830750006525613,
+      "p75": 2.7999867817840642,
+      "share_gt_0.1": 0.7726798748696558,
+      "share_gt_0.01": 0.7935349322210636,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     }
+    },
+    "hop_distance_kernel_adjacency_validation_hidden": {
+     "1": 17,
+     "2": 14,
+     "3": 13,
+     "4": 15,
+     "5": 14,
+     "6": 9,
+     "7": 9,
+     "8": 9,
+     "9": 12,
+     "10": 11,
+     "11": 14,
+     "12": 6,
+     "13": 4,
+     "14": 1
+    }
+   },
+   "2": {
+    "observed": 155,
+    "validation_hidden": 174,
+    "test_hidden": 499,
+    "sigma_m": 547.8382721137725,
+    "graph": {
+     "radius_m": 2000.0,
+     "kappa": 0.1,
+     "sigma_m": 547.8382721137725,
+     "nodes": 828,
+     "nonzero_pairs": 63688,
+     "density": 0.09289598357021167,
+     "degree_median": 76.0,
+     "degree_min": 2,
+     "isolated_nodes": 0,
+     "max_edge_m": 831.20874156244,
+     "effective_radius_m": 831.3046566209206
+    },
+    "dependency_bound": "upper bound: an empty row excludes a dependence on the inputs' readings, a non-empty row does not demonstrate one (mogernn_adapter.dependency_rows)",
+    "input_nodes_with_missing_readings": {
+     "validation_period": 147,
+     "test_period": 149,
+     "training_period": 155
+    },
+    "dependency": {
+     "1": {
+      "validation_hidden": {
+       "n": 174,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 155,
+        "median": 155.0,
+        "max": 155
+       }
+      },
+      "test_hidden": {
+       "n": 499,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 155,
+        "median": 155.0,
+        "max": 155
+       }
+      },
+      "training_targets": {
+       "n": 611,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 71,
+        "median": 112.0,
+        "max": 152
+       }
+      }
+     },
+     "2": {
+      "validation_hidden": {
+       "n": 174,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 155,
+        "median": 155.0,
+        "max": 155
+       }
+      },
+      "test_hidden": {
+       "n": 499,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 155,
+        "median": 155.0,
+        "max": 155
+       }
+      },
+      "training_targets": {
+       "n": 611,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 71,
+        "median": 112.0,
+        "max": 152
+       }
+      }
+     },
+     "3": {
+      "validation_hidden": {
+       "n": 174,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 155,
+        "median": 155.0,
+        "max": 155
+       }
+      },
+      "test_hidden": {
+       "n": 499,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 155,
+        "median": 155.0,
+        "max": 155
+       }
+      },
+      "training_targets": {
+       "n": 611,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 71,
+        "median": 112.0,
+        "max": 152
+       }
+      }
+     },
+     "4": {
+      "validation_hidden": {
+       "n": 174,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 155,
+        "median": 155.0,
+        "max": 155
+       }
+      },
+      "test_hidden": {
+       "n": 499,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 155,
+        "median": 155.0,
+        "max": 155
+       }
+      },
+      "training_targets": {
+       "n": 611,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 71,
+        "median": 112.0,
+        "max": 152
+       }
+      }
+     },
+     "5": {
+      "validation_hidden": {
+       "n": 174,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 155,
+        "median": 155.0,
+        "max": 155
+       }
+      },
+      "test_hidden": {
+       "n": 499,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 155,
+        "median": 155.0,
+        "max": 155
+       }
+      },
+      "training_targets": {
+       "n": 611,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 71,
+        "median": 112.0,
+        "max": 152
+       }
+      }
+     },
+     "6": {
+      "validation_hidden": {
+       "n": 174,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 155,
+        "median": 155.0,
+        "max": 155
+       }
+      },
+      "test_hidden": {
+       "n": 499,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 155,
+        "median": 155.0,
+        "max": 155
+       }
+      },
+      "training_targets": {
+       "n": 611,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 71,
+        "median": 112.0,
+        "max": 152
+       }
+      }
+     },
+     "7": {
+      "validation_hidden": {
+       "n": 174,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 155,
+        "median": 155.0,
+        "max": 155
+       }
+      },
+      "test_hidden": {
+       "n": 499,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 155,
+        "median": 155.0,
+        "max": 155
+       }
+      },
+      "training_targets": {
+       "n": 611,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 71,
+        "median": 112.0,
+        "max": 152
+       }
+      }
+     },
+     "8": {
+      "validation_hidden": {
+       "n": 174,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 155,
+        "median": 155.0,
+        "max": 155
+       }
+      },
+      "test_hidden": {
+       "n": 499,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 155,
+        "median": 155.0,
+        "max": 155
+       }
+      },
+      "training_targets": {
+       "n": 611,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 71,
+        "median": 112.0,
+        "max": 152
+       }
+      }
+     }
+    },
+    "hop_distance_method_graph": {
+     "validation_hidden": {
+      "1": 154,
+      "2": 12,
+      "3": 8
+     },
+     "test_hidden": {
+      "1": 222,
+      "2": 111,
+      "3": 124,
+      "4": 32,
+      "5": 10
+     },
+     "share_within_radius": {
+      "14": {
+       "validation_hidden": 1.0,
+       "test_hidden": 1.0
+      },
+      "21": {
+       "validation_hidden": 1.0,
+       "test_hidden": 1.0
+      }
+     }
+    },
+    "reference_mass_14hops": {
+     "validation_hidden": {
+      "n": 174,
+      "median": 3.367188080699389,
+      "p25": 0.733870923406261,
+      "p75": 3.822046320101747,
+      "share_gt_0.1": 0.9540229885057471,
+      "share_gt_0.01": 0.9597701149425287,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     },
+     "test_hidden": {
+      "n": 499,
+      "median": 0.6295276855720446,
+      "p25": 0.007677010551639244,
+      "p75": 3.586477547589296,
+      "share_gt_0.1": 0.5711422845691383,
+      "share_gt_0.01": 0.7254509018036072,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     },
+     "observed_self": {
+      "n": 155,
+      "median": 6.9261280101811495,
+      "p25": 3.715950553573242,
+      "p75": 7.364702263794431,
+      "share_gt_0.1": 1.0,
+      "share_gt_0.01": 1.0,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     },
+     "training_targets": {
+      "n": 611,
+      "median": 0.2961892067555335,
+      "p25": 0.22529116859584702,
+      "p75": 0.9737550666327421,
+      "share_gt_0.1": 0.9148936170212766,
+      "share_gt_0.01": 1.0,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     }
+    },
+    "hop_distance_kernel_adjacency_validation_hidden": {
+     "1": 32,
+     "2": 38,
+     "3": 25,
+     "4": 24,
+     "5": 14,
+     "6": 11,
+     "7": 11,
+     "8": 7,
+     "9": 3,
+     "10": 1,
+     "26": 1,
+     "27": 1,
+     "29": 1,
+     "30": 1,
+     "31": 2,
+     "32": 2
+    }
+   },
+   "3": {
+    "observed": 169,
+    "validation_hidden": 157,
+    "test_hidden": 502,
+    "sigma_m": 547.8382721137725,
+    "graph": {
+     "radius_m": 2000.0,
+     "kappa": 0.1,
+     "sigma_m": 547.8382721137725,
+     "nodes": 828,
+     "nonzero_pairs": 63688,
+     "density": 0.09289598357021167,
+     "degree_median": 76.0,
+     "degree_min": 2,
+     "isolated_nodes": 0,
+     "max_edge_m": 831.20874156244,
+     "effective_radius_m": 831.3046566209206
+    },
+    "dependency_bound": "upper bound: an empty row excludes a dependence on the inputs' readings, a non-empty row does not demonstrate one (mogernn_adapter.dependency_rows)",
+    "input_nodes_with_missing_readings": {
+     "validation_period": 161,
+     "test_period": 163,
+     "training_period": 169
+    },
+    "dependency": {
+     "1": {
+      "validation_hidden": {
+       "n": 157,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 169,
+        "median": 169.0,
+        "max": 169
+       }
+      },
+      "test_hidden": {
+       "n": 502,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 169,
+        "median": 169.0,
+        "max": 169
+       }
+      },
+      "training_targets": {
+       "n": 799,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 80,
+        "median": 117.0,
+        "max": 161
+       }
+      }
+     },
+     "2": {
+      "validation_hidden": {
+       "n": 157,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 169,
+        "median": 169.0,
+        "max": 169
+       }
+      },
+      "test_hidden": {
+       "n": 502,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 169,
+        "median": 169.0,
+        "max": 169
+       }
+      },
+      "training_targets": {
+       "n": 799,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 80,
+        "median": 117.0,
+        "max": 161
+       }
+      }
+     },
+     "3": {
+      "validation_hidden": {
+       "n": 157,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 169,
+        "median": 169.0,
+        "max": 169
+       }
+      },
+      "test_hidden": {
+       "n": 502,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 169,
+        "median": 169.0,
+        "max": 169
+       }
+      },
+      "training_targets": {
+       "n": 799,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 80,
+        "median": 117.0,
+        "max": 161
+       }
+      }
+     },
+     "4": {
+      "validation_hidden": {
+       "n": 157,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 169,
+        "median": 169.0,
+        "max": 169
+       }
+      },
+      "test_hidden": {
+       "n": 502,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 169,
+        "median": 169.0,
+        "max": 169
+       }
+      },
+      "training_targets": {
+       "n": 799,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 80,
+        "median": 117.0,
+        "max": 161
+       }
+      }
+     },
+     "5": {
+      "validation_hidden": {
+       "n": 157,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 169,
+        "median": 169.0,
+        "max": 169
+       }
+      },
+      "test_hidden": {
+       "n": 502,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 169,
+        "median": 169.0,
+        "max": 169
+       }
+      },
+      "training_targets": {
+       "n": 799,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 80,
+        "median": 117.0,
+        "max": 161
+       }
+      }
+     },
+     "6": {
+      "validation_hidden": {
+       "n": 157,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 169,
+        "median": 169.0,
+        "max": 169
+       }
+      },
+      "test_hidden": {
+       "n": 502,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 169,
+        "median": 169.0,
+        "max": 169
+       }
+      },
+      "training_targets": {
+       "n": 799,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 80,
+        "median": 117.0,
+        "max": 161
+       }
+      }
+     },
+     "7": {
+      "validation_hidden": {
+       "n": 157,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 169,
+        "median": 169.0,
+        "max": 169
+       }
+      },
+      "test_hidden": {
+       "n": 502,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 169,
+        "median": 169.0,
+        "max": 169
+       }
+      },
+      "training_targets": {
+       "n": 799,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 80,
+        "median": 117.0,
+        "max": 161
+       }
+      }
+     },
+     "8": {
+      "validation_hidden": {
+       "n": 157,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 169,
+        "median": 169.0,
+        "max": 169
+       }
+      },
+      "test_hidden": {
+       "n": 502,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 169,
+        "median": 169.0,
+        "max": 169
+       }
+      },
+      "training_targets": {
+       "n": 799,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 80,
+        "median": 117.0,
+        "max": 161
+       }
+      }
+     }
+    },
+    "hop_distance_method_graph": {
+     "validation_hidden": {
+      "1": 112,
+      "2": 39,
+      "3": 6
+     },
+     "test_hidden": {
+      "1": 285,
+      "2": 176,
+      "3": 31,
+      "4": 10
+     },
+     "share_within_radius": {
+      "14": {
+       "validation_hidden": 1.0,
+       "test_hidden": 1.0
+      },
+      "21": {
+       "validation_hidden": 1.0,
+       "test_hidden": 1.0
+      }
+     }
+    },
+    "reference_mass_14hops": {
+     "validation_hidden": {
+      "n": 157,
+      "median": 0.8476626096985582,
+      "p25": 0.40509299189488057,
+      "p75": 3.6794956053700827,
+      "share_gt_0.1": 1.0,
+      "share_gt_0.01": 1.0,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     },
+     "test_hidden": {
+      "n": 502,
+      "median": 0.8129714816932128,
+      "p25": 0.3128531852330424,
+      "p75": 4.075153322880778,
+      "share_gt_0.1": 0.9482071713147411,
+      "share_gt_0.01": 1.0,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     },
+     "observed_self": {
+      "n": 169,
+      "median": 4.4961834319360126,
+      "p25": 3.9438089495261046,
+      "p75": 10.27100038142569,
+      "share_gt_0.1": 1.0,
+      "share_gt_0.01": 1.0,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     },
+     "training_targets": {
+      "n": 799,
+      "median": 2.0527726364248684,
+      "p25": 0.2673186477736536,
+      "p75": 3.269928927325791,
+      "share_gt_0.1": 0.9274092615769712,
+      "share_gt_0.01": 0.9799749687108886,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     }
+    },
+    "hop_distance_kernel_adjacency_validation_hidden": {
+     "1": 9,
+     "2": 10,
+     "3": 15,
+     "4": 16,
+     "5": 13,
+     "6": 13,
+     "7": 14,
+     "8": 10,
+     "9": 6,
+     "10": 8,
+     "11": 13,
+     "12": 8,
+     "13": 2,
+     "14": 2,
+     "15": 6,
+     "16": 7,
+     "17": 5
+    }
+   },
+   "4": {
+    "observed": 165,
+    "validation_hidden": 165,
+    "test_hidden": 498,
+    "sigma_m": 547.8382721137725,
+    "graph": {
+     "radius_m": 2000.0,
+     "kappa": 0.1,
+     "sigma_m": 547.8382721137725,
+     "nodes": 828,
+     "nonzero_pairs": 63688,
+     "density": 0.09289598357021167,
+     "degree_median": 76.0,
+     "degree_min": 2,
+     "isolated_nodes": 0,
+     "max_edge_m": 831.20874156244,
+     "effective_radius_m": 831.3046566209206
+    },
+    "dependency_bound": "upper bound: an empty row excludes a dependence on the inputs' readings, a non-empty row does not demonstrate one (mogernn_adapter.dependency_rows)",
+    "input_nodes_with_missing_readings": {
+     "validation_period": 162,
+     "test_period": 163,
+     "training_period": 165
+    },
+    "dependency": {
+     "1": {
+      "validation_hidden": {
+       "n": 165,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 165,
+        "median": 165.0,
+        "max": 165
+       }
+      },
+      "test_hidden": {
+       "n": 498,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 165,
+        "median": 165.0,
+        "max": 165
+       }
+      },
+      "training_targets": {
+       "n": 802,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 56,
+        "median": 107.0,
+        "max": 160
+       }
+      }
+     },
+     "2": {
+      "validation_hidden": {
+       "n": 165,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 165,
+        "median": 165.0,
+        "max": 165
+       }
+      },
+      "test_hidden": {
+       "n": 498,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 165,
+        "median": 165.0,
+        "max": 165
+       }
+      },
+      "training_targets": {
+       "n": 802,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 56,
+        "median": 107.0,
+        "max": 160
+       }
+      }
+     },
+     "3": {
+      "validation_hidden": {
+       "n": 165,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 165,
+        "median": 165.0,
+        "max": 165
+       }
+      },
+      "test_hidden": {
+       "n": 498,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 165,
+        "median": 165.0,
+        "max": 165
+       }
+      },
+      "training_targets": {
+       "n": 802,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 56,
+        "median": 107.0,
+        "max": 160
+       }
+      }
+     },
+     "4": {
+      "validation_hidden": {
+       "n": 165,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 165,
+        "median": 165.0,
+        "max": 165
+       }
+      },
+      "test_hidden": {
+       "n": 498,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 165,
+        "median": 165.0,
+        "max": 165
+       }
+      },
+      "training_targets": {
+       "n": 802,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 56,
+        "median": 107.0,
+        "max": 160
+       }
+      }
+     },
+     "5": {
+      "validation_hidden": {
+       "n": 165,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 165,
+        "median": 165.0,
+        "max": 165
+       }
+      },
+      "test_hidden": {
+       "n": 498,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 165,
+        "median": 165.0,
+        "max": 165
+       }
+      },
+      "training_targets": {
+       "n": 802,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 56,
+        "median": 107.0,
+        "max": 160
+       }
+      }
+     },
+     "6": {
+      "validation_hidden": {
+       "n": 165,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 165,
+        "median": 165.0,
+        "max": 165
+       }
+      },
+      "test_hidden": {
+       "n": 498,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 165,
+        "median": 165.0,
+        "max": 165
+       }
+      },
+      "training_targets": {
+       "n": 802,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 56,
+        "median": 107.0,
+        "max": 160
+       }
+      }
+     },
+     "7": {
+      "validation_hidden": {
+       "n": 165,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 165,
+        "median": 165.0,
+        "max": 165
+       }
+      },
+      "test_hidden": {
+       "n": 498,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 165,
+        "median": 165.0,
+        "max": 165
+       }
+      },
+      "training_targets": {
+       "n": 802,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 56,
+        "median": 107.0,
+        "max": 160
+       }
+      }
+     },
+     "8": {
+      "validation_hidden": {
+       "n": 165,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 165,
+        "median": 165.0,
+        "max": 165
+       }
+      },
+      "test_hidden": {
+       "n": 498,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 165,
+        "median": 165.0,
+        "max": 165
+       }
+      },
+      "training_targets": {
+       "n": 802,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 56,
+        "median": 107.0,
+        "max": 160
+       }
+      }
+     }
+    },
+    "hop_distance_method_graph": {
+     "validation_hidden": {
+      "1": 127,
+      "2": 36,
+      "3": 2
+     },
+     "test_hidden": {
+      "1": 338,
+      "2": 146,
+      "3": 14
+     },
+     "share_within_radius": {
+      "14": {
+       "validation_hidden": 1.0,
+       "test_hidden": 1.0
+      },
+      "21": {
+       "validation_hidden": 1.0,
+       "test_hidden": 1.0
+      }
+     }
+    },
+    "reference_mass_14hops": {
+     "validation_hidden": {
+      "n": 165,
+      "median": 1.6595970310770993,
+      "p25": 1.487422630945474,
+      "p75": 3.9016540873313277,
+      "share_gt_0.1": 1.0,
+      "share_gt_0.01": 1.0,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     },
+     "test_hidden": {
+      "n": 498,
+      "median": 1.7726897959866736,
+      "p25": 1.0016208129357418,
+      "p75": 3.0094024613816526,
+      "share_gt_0.1": 1.0,
+      "share_gt_0.01": 1.0,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     },
+     "observed_self": {
+      "n": 165,
+      "median": 4.074568952032049,
+      "p25": 3.336276470041157,
+      "p75": 6.140925378905248,
+      "share_gt_0.1": 1.0,
+      "share_gt_0.01": 1.0,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     },
+     "training_targets": {
+      "n": 802,
+      "median": 0.3034205734212947,
+      "p25": 0.15345056792667988,
+      "p75": 0.7983189679302451,
+      "share_gt_0.1": 0.8229426433915212,
+      "share_gt_0.01": 0.9950124688279302,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     }
+    },
+    "hop_distance_kernel_adjacency_validation_hidden": {
+     "1": 26,
+     "2": 26,
+     "3": 15,
+     "4": 11,
+     "5": 11,
+     "6": 13,
+     "7": 14,
+     "8": 13,
+     "9": 11,
+     "10": 8,
+     "11": 2,
+     "12": 1,
+     "13": 4,
+     "14": 4,
+     "15": 2,
+     "16": 3,
+     "17": 1
+    }
+   }
+  },
+  "london": {
+   "0": {
+    "observed": 168,
+    "validation_hidden": 146,
+    "test_hidden": 460,
+    "sigma_m": 544.3008037584626,
+    "graph": {
+     "radius_m": 2000.0,
+     "kappa": 0.1,
+     "sigma_m": 544.3008037584626,
+     "nodes": 774,
+     "nonzero_pairs": 60286,
+     "density": 0.10063163939132931,
+     "degree_median": 80.0,
+     "degree_min": 0,
+     "isolated_nodes": 2,
+     "max_edge_m": 825.9357063781623,
+     "effective_radius_m": 825.9368061692319
+    },
+    "dependency_bound": "upper bound: an empty row excludes a dependence on the inputs' readings, a non-empty row does not demonstrate one (mogernn_adapter.dependency_rows)",
+    "input_nodes_with_missing_readings": {
+     "validation_period": 168,
+     "test_period": 168,
+     "training_period": 168
+    },
+    "dependency": {
+     "1": {
+      "validation_hidden": {
+       "n": 146,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 168,
+        "median": 168.0,
+        "max": 168
+       }
+      },
+      "test_hidden": {
+       "n": 460,
+       "share_nonempty": 0.9956521739130435,
+       "row_size": {
+        "min": 0,
+        "median": 168.0,
+        "max": 168
+       }
+      },
+      "training_targets": {
+       "n": 771,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 93,
+        "median": 119.0,
+        "max": 166
+       }
+      }
+     },
+     "2": {
+      "validation_hidden": {
+       "n": 146,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 168,
+        "median": 168.0,
+        "max": 168
+       }
+      },
+      "test_hidden": {
+       "n": 460,
+       "share_nonempty": 0.9956521739130435,
+       "row_size": {
+        "min": 0,
+        "median": 168.0,
+        "max": 168
+       }
+      },
+      "training_targets": {
+       "n": 771,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 93,
+        "median": 119.0,
+        "max": 166
+       }
+      }
+     },
+     "3": {
+      "validation_hidden": {
+       "n": 146,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 168,
+        "median": 168.0,
+        "max": 168
+       }
+      },
+      "test_hidden": {
+       "n": 460,
+       "share_nonempty": 0.9956521739130435,
+       "row_size": {
+        "min": 0,
+        "median": 168.0,
+        "max": 168
+       }
+      },
+      "training_targets": {
+       "n": 771,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 93,
+        "median": 119.0,
+        "max": 166
+       }
+      }
+     },
+     "4": {
+      "validation_hidden": {
+       "n": 146,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 168,
+        "median": 168.0,
+        "max": 168
+       }
+      },
+      "test_hidden": {
+       "n": 460,
+       "share_nonempty": 0.9956521739130435,
+       "row_size": {
+        "min": 0,
+        "median": 168.0,
+        "max": 168
+       }
+      },
+      "training_targets": {
+       "n": 771,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 93,
+        "median": 119.0,
+        "max": 166
+       }
+      }
+     },
+     "5": {
+      "validation_hidden": {
+       "n": 146,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 168,
+        "median": 168.0,
+        "max": 168
+       }
+      },
+      "test_hidden": {
+       "n": 460,
+       "share_nonempty": 0.9956521739130435,
+       "row_size": {
+        "min": 0,
+        "median": 168.0,
+        "max": 168
+       }
+      },
+      "training_targets": {
+       "n": 771,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 93,
+        "median": 119.0,
+        "max": 166
+       }
+      }
+     },
+     "6": {
+      "validation_hidden": {
+       "n": 146,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 168,
+        "median": 168.0,
+        "max": 168
+       }
+      },
+      "test_hidden": {
+       "n": 460,
+       "share_nonempty": 0.9956521739130435,
+       "row_size": {
+        "min": 0,
+        "median": 168.0,
+        "max": 168
+       }
+      },
+      "training_targets": {
+       "n": 771,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 93,
+        "median": 119.0,
+        "max": 166
+       }
+      }
+     },
+     "7": {
+      "validation_hidden": {
+       "n": 146,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 168,
+        "median": 168.0,
+        "max": 168
+       }
+      },
+      "test_hidden": {
+       "n": 460,
+       "share_nonempty": 0.9956521739130435,
+       "row_size": {
+        "min": 0,
+        "median": 168.0,
+        "max": 168
+       }
+      },
+      "training_targets": {
+       "n": 771,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 93,
+        "median": 119.0,
+        "max": 166
+       }
+      }
+     },
+     "8": {
+      "validation_hidden": {
+       "n": 146,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 168,
+        "median": 168.0,
+        "max": 168
+       }
+      },
+      "test_hidden": {
+       "n": 460,
+       "share_nonempty": 0.9956521739130435,
+       "row_size": {
+        "min": 0,
+        "median": 168.0,
+        "max": 168
+       }
+      },
+      "training_targets": {
+       "n": 771,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 93,
+        "median": 119.0,
+        "max": 166
+       }
+      }
+     }
+    },
+    "hop_distance_method_graph": {
+     "validation_hidden": {
+      "1": 67,
+      "2": 79
+     },
+     "test_hidden": {
+      "-1": 2,
+      "1": 390,
+      "2": 65,
+      "3": 3
+     },
+     "share_within_radius": {
+      "14": {
+       "validation_hidden": 1.0,
+       "test_hidden": 0.9956521739130435
+      },
+      "21": {
+       "validation_hidden": 1.0,
+       "test_hidden": 0.9956521739130435
+      }
+     }
+    },
+    "reference_mass_14hops": {
+     "validation_hidden": {
+      "n": 146,
+      "median": 1.0903833100852003,
+      "p25": 0.985424527146854,
+      "p75": 2.420482350127488,
+      "share_gt_0.1": 1.0,
+      "share_gt_0.01": 1.0,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     },
+     "test_hidden": {
+      "n": 460,
+      "median": 1.4399449801467785,
+      "p25": 1.0642934068542838,
+      "p75": 3.861166907031751,
+      "share_gt_0.1": 0.9956521739130435,
+      "share_gt_0.01": 0.9956521739130435,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.004347826086956522
+     },
+     "observed_self": {
+      "n": 168,
+      "median": 5.454643735421371,
+      "p25": 3.1529851413673575,
+      "p75": 6.725838395868646,
+      "share_gt_0.1": 1.0,
+      "share_gt_0.01": 1.0,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     },
+     "training_targets": {
+      "n": 771,
+      "median": 0.23478322496838833,
+      "p25": 0.1263220039133197,
+      "p75": 1.695290423616295,
+      "share_gt_0.1": 0.8858625162127107,
+      "share_gt_0.01": 0.9118028534370947,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     }
+    },
+    "hop_distance_kernel_adjacency_validation_hidden": {
+     "1": 6,
+     "2": 6,
+     "3": 8,
+     "4": 11,
+     "5": 11,
+     "6": 17,
+     "7": 23,
+     "8": 22,
+     "9": 12,
+     "10": 12,
+     "11": 7,
+     "12": 4,
+     "13": 5,
+     "14": 1,
+     "15": 1
+    }
+   },
+   "1": {
+    "observed": 161,
+    "validation_hidden": 154,
+    "test_hidden": 459,
+    "sigma_m": 544.3008037584626,
+    "graph": {
+     "radius_m": 2000.0,
+     "kappa": 0.1,
+     "sigma_m": 544.3008037584626,
+     "nodes": 774,
+     "nonzero_pairs": 60286,
+     "density": 0.10063163939132931,
+     "degree_median": 80.0,
+     "degree_min": 0,
+     "isolated_nodes": 2,
+     "max_edge_m": 825.9357063781623,
+     "effective_radius_m": 825.9368061692319
+    },
+    "dependency_bound": "upper bound: an empty row excludes a dependence on the inputs' readings, a non-empty row does not demonstrate one (mogernn_adapter.dependency_rows)",
+    "input_nodes_with_missing_readings": {
+     "validation_period": 161,
+     "test_period": 161,
+     "training_period": 161
+    },
+    "dependency": {
+     "1": {
+      "validation_hidden": {
+       "n": 154,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 161,
+        "median": 161.0,
+        "max": 161
+       }
+      },
+      "test_hidden": {
+       "n": 459,
+       "share_nonempty": 0.9956427015250545,
+       "row_size": {
+        "min": 0,
+        "median": 161.0,
+        "max": 161
+       }
+      },
+      "training_targets": {
+       "n": 653,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 88,
+        "median": 110.0,
+        "max": 160
+       }
+      }
+     },
+     "2": {
+      "validation_hidden": {
+       "n": 154,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 161,
+        "median": 161.0,
+        "max": 161
+       }
+      },
+      "test_hidden": {
+       "n": 459,
+       "share_nonempty": 0.9956427015250545,
+       "row_size": {
+        "min": 0,
+        "median": 161.0,
+        "max": 161
+       }
+      },
+      "training_targets": {
+       "n": 653,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 88,
+        "median": 110.0,
+        "max": 160
+       }
+      }
+     },
+     "3": {
+      "validation_hidden": {
+       "n": 154,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 161,
+        "median": 161.0,
+        "max": 161
+       }
+      },
+      "test_hidden": {
+       "n": 459,
+       "share_nonempty": 0.9956427015250545,
+       "row_size": {
+        "min": 0,
+        "median": 161.0,
+        "max": 161
+       }
+      },
+      "training_targets": {
+       "n": 653,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 88,
+        "median": 110.0,
+        "max": 160
+       }
+      }
+     },
+     "4": {
+      "validation_hidden": {
+       "n": 154,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 161,
+        "median": 161.0,
+        "max": 161
+       }
+      },
+      "test_hidden": {
+       "n": 459,
+       "share_nonempty": 0.9956427015250545,
+       "row_size": {
+        "min": 0,
+        "median": 161.0,
+        "max": 161
+       }
+      },
+      "training_targets": {
+       "n": 653,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 88,
+        "median": 110.0,
+        "max": 160
+       }
+      }
+     },
+     "5": {
+      "validation_hidden": {
+       "n": 154,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 161,
+        "median": 161.0,
+        "max": 161
+       }
+      },
+      "test_hidden": {
+       "n": 459,
+       "share_nonempty": 0.9956427015250545,
+       "row_size": {
+        "min": 0,
+        "median": 161.0,
+        "max": 161
+       }
+      },
+      "training_targets": {
+       "n": 653,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 88,
+        "median": 110.0,
+        "max": 160
+       }
+      }
+     },
+     "6": {
+      "validation_hidden": {
+       "n": 154,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 161,
+        "median": 161.0,
+        "max": 161
+       }
+      },
+      "test_hidden": {
+       "n": 459,
+       "share_nonempty": 0.9956427015250545,
+       "row_size": {
+        "min": 0,
+        "median": 161.0,
+        "max": 161
+       }
+      },
+      "training_targets": {
+       "n": 653,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 88,
+        "median": 110.0,
+        "max": 160
+       }
+      }
+     },
+     "7": {
+      "validation_hidden": {
+       "n": 154,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 161,
+        "median": 161.0,
+        "max": 161
+       }
+      },
+      "test_hidden": {
+       "n": 459,
+       "share_nonempty": 0.9956427015250545,
+       "row_size": {
+        "min": 0,
+        "median": 161.0,
+        "max": 161
+       }
+      },
+      "training_targets": {
+       "n": 653,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 88,
+        "median": 110.0,
+        "max": 160
+       }
+      }
+     },
+     "8": {
+      "validation_hidden": {
+       "n": 154,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 161,
+        "median": 161.0,
+        "max": 161
+       }
+      },
+      "test_hidden": {
+       "n": 459,
+       "share_nonempty": 0.9956427015250545,
+       "row_size": {
+        "min": 0,
+        "median": 161.0,
+        "max": 161
+       }
+      },
+      "training_targets": {
+       "n": 653,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 88,
+        "median": 110.0,
+        "max": 160
+       }
+      }
+     }
+    },
+    "hop_distance_method_graph": {
+     "validation_hidden": {
+      "1": 84,
+      "2": 44,
+      "3": 25,
+      "4": 1
+     },
+     "test_hidden": {
+      "-1": 2,
+      "1": 320,
+      "2": 38,
+      "3": 59,
+      "4": 40
+     },
+     "share_within_radius": {
+      "14": {
+       "validation_hidden": 1.0,
+       "test_hidden": 0.9956427015250545
+      },
+      "21": {
+       "validation_hidden": 1.0,
+       "test_hidden": 0.9956427015250545
+      }
+     }
+    },
+    "reference_mass_14hops": {
+     "validation_hidden": {
+      "n": 154,
+      "median": 2.818895686294951,
+      "p25": 0.8320024490095791,
+      "p75": 3.3245231333145115,
+      "share_gt_0.1": 0.8896103896103896,
+      "share_gt_0.01": 1.0,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     },
+     "test_hidden": {
+      "n": 459,
+      "median": 2.3427848958250044,
+      "p25": 1.7614891799772434,
+      "p75": 4.068522545903171,
+      "share_gt_0.1": 0.8736383442265795,
+      "share_gt_0.01": 0.9956427015250545,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.004357298474945534
+     },
+     "observed_self": {
+      "n": 161,
+      "median": 4.490137497866345,
+      "p25": 3.8642407546708357,
+      "p75": 4.767665025791339,
+      "share_gt_0.1": 1.0,
+      "share_gt_0.01": 1.0,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     },
+     "training_targets": {
+      "n": 653,
+      "median": 0.797602441232522,
+      "p25": 0.5064019524982094,
+      "p75": 1.566270882900252,
+      "share_gt_0.1": 0.8790199081163859,
+      "share_gt_0.01": 0.9862174578866769,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     }
+    },
+    "hop_distance_kernel_adjacency_validation_hidden": {
+     "1": 10,
+     "2": 10,
+     "3": 9,
+     "4": 15,
+     "5": 13,
+     "6": 12,
+     "7": 5,
+     "8": 4,
+     "9": 2,
+     "10": 2,
+     "11": 4,
+     "12": 1,
+     "13": 5,
+     "14": 4,
+     "15": 6,
+     "16": 7,
+     "17": 10,
+     "18": 6,
+     "19": 3,
+     "20": 3,
+     "21": 2,
+     "22": 2,
+     "27": 2,
+     "28": 1,
+     "29": 4,
+     "30": 8,
+     "31": 3,
+     "32": 1
+    }
+   },
+   "2": {
+    "observed": 135,
+    "validation_hidden": 156,
+    "test_hidden": 483,
+    "sigma_m": 544.3008037584626,
+    "graph": {
+     "radius_m": 2000.0,
+     "kappa": 0.1,
+     "sigma_m": 544.3008037584626,
+     "nodes": 774,
+     "nonzero_pairs": 60286,
+     "density": 0.10063163939132931,
+     "degree_median": 80.0,
+     "degree_min": 0,
+     "isolated_nodes": 2,
+     "max_edge_m": 825.9357063781623,
+     "effective_radius_m": 825.9368061692319
+    },
+    "dependency_bound": "upper bound: an empty row excludes a dependence on the inputs' readings, a non-empty row does not demonstrate one (mogernn_adapter.dependency_rows)",
+    "input_nodes_with_missing_readings": {
+     "validation_period": 135,
+     "test_period": 135,
+     "training_period": 135
+    },
+    "dependency": {
+     "1": {
+      "validation_hidden": {
+       "n": 156,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 135,
+        "median": 135.0,
+        "max": 135
+       }
+      },
+      "test_hidden": {
+       "n": 483,
+       "share_nonempty": 0.9958592132505176,
+       "row_size": {
+        "min": 0,
+        "median": 135.0,
+        "max": 135
+       }
+      },
+      "training_targets": {
+       "n": 574,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 47,
+        "median": 85.0,
+        "max": 134
+       }
+      }
+     },
+     "2": {
+      "validation_hidden": {
+       "n": 156,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 135,
+        "median": 135.0,
+        "max": 135
+       }
+      },
+      "test_hidden": {
+       "n": 483,
+       "share_nonempty": 0.9958592132505176,
+       "row_size": {
+        "min": 0,
+        "median": 135.0,
+        "max": 135
+       }
+      },
+      "training_targets": {
+       "n": 574,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 47,
+        "median": 85.0,
+        "max": 134
+       }
+      }
+     },
+     "3": {
+      "validation_hidden": {
+       "n": 156,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 135,
+        "median": 135.0,
+        "max": 135
+       }
+      },
+      "test_hidden": {
+       "n": 483,
+       "share_nonempty": 0.9958592132505176,
+       "row_size": {
+        "min": 0,
+        "median": 135.0,
+        "max": 135
+       }
+      },
+      "training_targets": {
+       "n": 574,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 47,
+        "median": 85.0,
+        "max": 134
+       }
+      }
+     },
+     "4": {
+      "validation_hidden": {
+       "n": 156,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 135,
+        "median": 135.0,
+        "max": 135
+       }
+      },
+      "test_hidden": {
+       "n": 483,
+       "share_nonempty": 0.9958592132505176,
+       "row_size": {
+        "min": 0,
+        "median": 135.0,
+        "max": 135
+       }
+      },
+      "training_targets": {
+       "n": 574,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 47,
+        "median": 85.0,
+        "max": 134
+       }
+      }
+     },
+     "5": {
+      "validation_hidden": {
+       "n": 156,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 135,
+        "median": 135.0,
+        "max": 135
+       }
+      },
+      "test_hidden": {
+       "n": 483,
+       "share_nonempty": 0.9958592132505176,
+       "row_size": {
+        "min": 0,
+        "median": 135.0,
+        "max": 135
+       }
+      },
+      "training_targets": {
+       "n": 574,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 47,
+        "median": 85.0,
+        "max": 134
+       }
+      }
+     },
+     "6": {
+      "validation_hidden": {
+       "n": 156,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 135,
+        "median": 135.0,
+        "max": 135
+       }
+      },
+      "test_hidden": {
+       "n": 483,
+       "share_nonempty": 0.9958592132505176,
+       "row_size": {
+        "min": 0,
+        "median": 135.0,
+        "max": 135
+       }
+      },
+      "training_targets": {
+       "n": 574,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 47,
+        "median": 85.0,
+        "max": 134
+       }
+      }
+     },
+     "7": {
+      "validation_hidden": {
+       "n": 156,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 135,
+        "median": 135.0,
+        "max": 135
+       }
+      },
+      "test_hidden": {
+       "n": 483,
+       "share_nonempty": 0.9958592132505176,
+       "row_size": {
+        "min": 0,
+        "median": 135.0,
+        "max": 135
+       }
+      },
+      "training_targets": {
+       "n": 574,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 47,
+        "median": 85.0,
+        "max": 134
+       }
+      }
+     },
+     "8": {
+      "validation_hidden": {
+       "n": 156,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 135,
+        "median": 135.0,
+        "max": 135
+       }
+      },
+      "test_hidden": {
+       "n": 483,
+       "share_nonempty": 0.9958592132505176,
+       "row_size": {
+        "min": 0,
+        "median": 135.0,
+        "max": 135
+       }
+      },
+      "training_targets": {
+       "n": 574,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 47,
+        "median": 85.0,
+        "max": 134
+       }
+      }
+     }
+    },
+    "hop_distance_method_graph": {
+     "validation_hidden": {
+      "1": 110,
+      "2": 44,
+      "3": 2
+     },
+     "test_hidden": {
+      "-1": 2,
+      "1": 288,
+      "2": 181,
+      "3": 12
+     },
+     "share_within_radius": {
+      "14": {
+       "validation_hidden": 1.0,
+       "test_hidden": 0.9958592132505176
+      },
+      "21": {
+       "validation_hidden": 1.0,
+       "test_hidden": 0.9958592132505176
+      }
+     }
+    },
+    "reference_mass_14hops": {
+     "validation_hidden": {
+      "n": 156,
+      "median": 1.9426313813429736,
+      "p25": 1.0212433547235074,
+      "p75": 4.007806830800666,
+      "share_gt_0.1": 1.0,
+      "share_gt_0.01": 1.0,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     },
+     "test_hidden": {
+      "n": 483,
+      "median": 0.6504827400943614,
+      "p25": 0.4497212692359899,
+      "p75": 0.9023662187986814,
+      "share_gt_0.1": 0.9958592132505176,
+      "share_gt_0.01": 0.9958592132505176,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.004140786749482402
+     },
+     "observed_self": {
+      "n": 135,
+      "median": 6.04428748564977,
+      "p25": 5.511753595288287,
+      "p75": 6.360373937228458,
+      "share_gt_0.1": 1.0,
+      "share_gt_0.01": 1.0,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     },
+     "training_targets": {
+      "n": 574,
+      "median": 0.5243458970154038,
+      "p25": 0.08504974541931337,
+      "p75": 0.7850508123988804,
+      "share_gt_0.1": 0.7142857142857143,
+      "share_gt_0.01": 0.9878048780487805,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     }
+    },
+    "hop_distance_kernel_adjacency_validation_hidden": {
+     "1": 11,
+     "2": 21,
+     "3": 20,
+     "4": 22,
+     "5": 13,
+     "6": 17,
+     "7": 12,
+     "8": 9,
+     "9": 4,
+     "10": 5,
+     "11": 2,
+     "12": 4,
+     "13": 2,
+     "14": 1,
+     "15": 3,
+     "16": 4,
+     "17": 3,
+     "18": 1,
+     "22": 1,
+     "23": 1
+    }
+   },
+   "3": {
+    "observed": 163,
+    "validation_hidden": 142,
+    "test_hidden": 469,
+    "sigma_m": 544.3008037584626,
+    "graph": {
+     "radius_m": 2000.0,
+     "kappa": 0.1,
+     "sigma_m": 544.3008037584626,
+     "nodes": 774,
+     "nonzero_pairs": 60286,
+     "density": 0.10063163939132931,
+     "degree_median": 80.0,
+     "degree_min": 0,
+     "isolated_nodes": 2,
+     "max_edge_m": 825.9357063781623,
+     "effective_radius_m": 825.9368061692319
+    },
+    "dependency_bound": "upper bound: an empty row excludes a dependence on the inputs' readings, a non-empty row does not demonstrate one (mogernn_adapter.dependency_rows)",
+    "input_nodes_with_missing_readings": {
+     "validation_period": 163,
+     "test_period": 163,
+     "training_period": 163
+    },
+    "dependency": {
+     "1": {
+      "validation_hidden": {
+       "n": 142,
+       "share_nonempty": 0.9859154929577465,
+       "row_size": {
+        "min": 0,
+        "median": 163.0,
+        "max": 163
+       }
+      },
+      "test_hidden": {
+       "n": 469,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 163,
+        "median": 163.0,
+        "max": 163
+       }
+      },
+      "training_targets": {
+       "n": 823,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 70,
+        "median": 111.0,
+        "max": 155
+       }
+      }
+     },
+     "2": {
+      "validation_hidden": {
+       "n": 142,
+       "share_nonempty": 0.9859154929577465,
+       "row_size": {
+        "min": 0,
+        "median": 163.0,
+        "max": 163
+       }
+      },
+      "test_hidden": {
+       "n": 469,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 163,
+        "median": 163.0,
+        "max": 163
+       }
+      },
+      "training_targets": {
+       "n": 823,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 70,
+        "median": 111.0,
+        "max": 155
+       }
+      }
+     },
+     "3": {
+      "validation_hidden": {
+       "n": 142,
+       "share_nonempty": 0.9859154929577465,
+       "row_size": {
+        "min": 0,
+        "median": 163.0,
+        "max": 163
+       }
+      },
+      "test_hidden": {
+       "n": 469,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 163,
+        "median": 163.0,
+        "max": 163
+       }
+      },
+      "training_targets": {
+       "n": 823,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 70,
+        "median": 111.0,
+        "max": 155
+       }
+      }
+     },
+     "4": {
+      "validation_hidden": {
+       "n": 142,
+       "share_nonempty": 0.9859154929577465,
+       "row_size": {
+        "min": 0,
+        "median": 163.0,
+        "max": 163
+       }
+      },
+      "test_hidden": {
+       "n": 469,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 163,
+        "median": 163.0,
+        "max": 163
+       }
+      },
+      "training_targets": {
+       "n": 823,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 70,
+        "median": 111.0,
+        "max": 155
+       }
+      }
+     },
+     "5": {
+      "validation_hidden": {
+       "n": 142,
+       "share_nonempty": 0.9859154929577465,
+       "row_size": {
+        "min": 0,
+        "median": 163.0,
+        "max": 163
+       }
+      },
+      "test_hidden": {
+       "n": 469,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 163,
+        "median": 163.0,
+        "max": 163
+       }
+      },
+      "training_targets": {
+       "n": 823,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 70,
+        "median": 111.0,
+        "max": 155
+       }
+      }
+     },
+     "6": {
+      "validation_hidden": {
+       "n": 142,
+       "share_nonempty": 0.9859154929577465,
+       "row_size": {
+        "min": 0,
+        "median": 163.0,
+        "max": 163
+       }
+      },
+      "test_hidden": {
+       "n": 469,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 163,
+        "median": 163.0,
+        "max": 163
+       }
+      },
+      "training_targets": {
+       "n": 823,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 70,
+        "median": 111.0,
+        "max": 155
+       }
+      }
+     },
+     "7": {
+      "validation_hidden": {
+       "n": 142,
+       "share_nonempty": 0.9859154929577465,
+       "row_size": {
+        "min": 0,
+        "median": 163.0,
+        "max": 163
+       }
+      },
+      "test_hidden": {
+       "n": 469,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 163,
+        "median": 163.0,
+        "max": 163
+       }
+      },
+      "training_targets": {
+       "n": 823,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 70,
+        "median": 111.0,
+        "max": 155
+       }
+      }
+     },
+     "8": {
+      "validation_hidden": {
+       "n": 142,
+       "share_nonempty": 0.9859154929577465,
+       "row_size": {
+        "min": 0,
+        "median": 163.0,
+        "max": 163
+       }
+      },
+      "test_hidden": {
+       "n": 469,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 163,
+        "median": 163.0,
+        "max": 163
+       }
+      },
+      "training_targets": {
+       "n": 823,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 70,
+        "median": 111.0,
+        "max": 155
+       }
+      }
+     }
+    },
+    "hop_distance_method_graph": {
+     "validation_hidden": {
+      "-1": 2,
+      "1": 129,
+      "2": 10,
+      "3": 1
+     },
+     "test_hidden": {
+      "1": 382,
+      "2": 83,
+      "3": 4
+     },
+     "share_within_radius": {
+      "14": {
+       "validation_hidden": 0.9859154929577465,
+       "test_hidden": 1.0
+      },
+      "21": {
+       "validation_hidden": 0.9859154929577465,
+       "test_hidden": 1.0
+      }
+     }
+    },
+    "reference_mass_14hops": {
+     "validation_hidden": {
+      "n": 142,
+      "median": 1.3560446541202489,
+      "p25": 1.2529503618895248,
+      "p75": 1.849572844449313,
+      "share_gt_0.1": 0.9859154929577465,
+      "share_gt_0.01": 0.9859154929577465,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.014084507042253521
+     },
+     "test_hidden": {
+      "n": 469,
+      "median": 1.7202200902475568,
+      "p25": 1.1692608780506042,
+      "p75": 2.2049675647270863,
+      "share_gt_0.1": 1.0,
+      "share_gt_0.01": 1.0,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     },
+     "observed_self": {
+      "n": 163,
+      "median": 3.0047910089407655,
+      "p25": 2.157825845428442,
+      "p75": 7.296658495529771,
+      "share_gt_0.1": 1.0,
+      "share_gt_0.01": 1.0,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     },
+     "training_targets": {
+      "n": 823,
+      "median": 0.5932945686451796,
+      "p25": 0.16595307509894996,
+      "p75": 2.363481153217623,
+      "share_gt_0.1": 0.8055893074119077,
+      "share_gt_0.01": 0.976913730255164,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     }
+    },
+    "hop_distance_kernel_adjacency_validation_hidden": {
+     "-1": 2,
+     "1": 10,
+     "2": 16,
+     "3": 18,
+     "4": 29,
+     "5": 16,
+     "6": 16,
+     "7": 14,
+     "8": 10,
+     "9": 3,
+     "10": 3,
+     "11": 3,
+     "12": 2
+    }
+   },
+   "4": {
+    "observed": 158,
+    "validation_hidden": 152,
+    "test_hidden": 464,
+    "sigma_m": 544.3008037584626,
+    "graph": {
+     "radius_m": 2000.0,
+     "kappa": 0.1,
+     "sigma_m": 544.3008037584626,
+     "nodes": 774,
+     "nonzero_pairs": 60286,
+     "density": 0.10063163939132931,
+     "degree_median": 80.0,
+     "degree_min": 0,
+     "isolated_nodes": 2,
+     "max_edge_m": 825.9357063781623,
+     "effective_radius_m": 825.9368061692319
+    },
+    "dependency_bound": "upper bound: an empty row excludes a dependence on the inputs' readings, a non-empty row does not demonstrate one (mogernn_adapter.dependency_rows)",
+    "input_nodes_with_missing_readings": {
+     "validation_period": 158,
+     "test_period": 158,
+     "training_period": 158
+    },
+    "dependency": {
+     "1": {
+      "validation_hidden": {
+       "n": 152,
+       "share_nonempty": 0.9868421052631579,
+       "row_size": {
+        "min": 0,
+        "median": 158.0,
+        "max": 158
+       }
+      },
+      "test_hidden": {
+       "n": 464,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 158,
+        "median": 158.0,
+        "max": 158
+       }
+      },
+      "training_targets": {
+       "n": 789,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 65,
+        "median": 99.0,
+        "max": 150
+       }
+      }
+     },
+     "2": {
+      "validation_hidden": {
+       "n": 152,
+       "share_nonempty": 0.9868421052631579,
+       "row_size": {
+        "min": 0,
+        "median": 158.0,
+        "max": 158
+       }
+      },
+      "test_hidden": {
+       "n": 464,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 158,
+        "median": 158.0,
+        "max": 158
+       }
+      },
+      "training_targets": {
+       "n": 789,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 65,
+        "median": 99.0,
+        "max": 150
+       }
+      }
+     },
+     "3": {
+      "validation_hidden": {
+       "n": 152,
+       "share_nonempty": 0.9868421052631579,
+       "row_size": {
+        "min": 0,
+        "median": 158.0,
+        "max": 158
+       }
+      },
+      "test_hidden": {
+       "n": 464,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 158,
+        "median": 158.0,
+        "max": 158
+       }
+      },
+      "training_targets": {
+       "n": 789,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 65,
+        "median": 99.0,
+        "max": 150
+       }
+      }
+     },
+     "4": {
+      "validation_hidden": {
+       "n": 152,
+       "share_nonempty": 0.9868421052631579,
+       "row_size": {
+        "min": 0,
+        "median": 158.0,
+        "max": 158
+       }
+      },
+      "test_hidden": {
+       "n": 464,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 158,
+        "median": 158.0,
+        "max": 158
+       }
+      },
+      "training_targets": {
+       "n": 789,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 65,
+        "median": 99.0,
+        "max": 150
+       }
+      }
+     },
+     "5": {
+      "validation_hidden": {
+       "n": 152,
+       "share_nonempty": 0.9868421052631579,
+       "row_size": {
+        "min": 0,
+        "median": 158.0,
+        "max": 158
+       }
+      },
+      "test_hidden": {
+       "n": 464,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 158,
+        "median": 158.0,
+        "max": 158
+       }
+      },
+      "training_targets": {
+       "n": 789,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 65,
+        "median": 99.0,
+        "max": 150
+       }
+      }
+     },
+     "6": {
+      "validation_hidden": {
+       "n": 152,
+       "share_nonempty": 0.9868421052631579,
+       "row_size": {
+        "min": 0,
+        "median": 158.0,
+        "max": 158
+       }
+      },
+      "test_hidden": {
+       "n": 464,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 158,
+        "median": 158.0,
+        "max": 158
+       }
+      },
+      "training_targets": {
+       "n": 789,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 65,
+        "median": 99.0,
+        "max": 150
+       }
+      }
+     },
+     "7": {
+      "validation_hidden": {
+       "n": 152,
+       "share_nonempty": 0.9868421052631579,
+       "row_size": {
+        "min": 0,
+        "median": 158.0,
+        "max": 158
+       }
+      },
+      "test_hidden": {
+       "n": 464,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 158,
+        "median": 158.0,
+        "max": 158
+       }
+      },
+      "training_targets": {
+       "n": 789,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 65,
+        "median": 99.0,
+        "max": 150
+       }
+      }
+     },
+     "8": {
+      "validation_hidden": {
+       "n": 152,
+       "share_nonempty": 0.9868421052631579,
+       "row_size": {
+        "min": 0,
+        "median": 158.0,
+        "max": 158
+       }
+      },
+      "test_hidden": {
+       "n": 464,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 158,
+        "median": 158.0,
+        "max": 158
+       }
+      },
+      "training_targets": {
+       "n": 789,
+       "share_nonempty": 1.0,
+       "row_size": {
+        "min": 65,
+        "median": 99.0,
+        "max": 150
+       }
+      }
+     }
+    },
+    "hop_distance_method_graph": {
+     "validation_hidden": {
+      "-1": 2,
+      "1": 60,
+      "2": 83,
+      "3": 7
+     },
+     "test_hidden": {
+      "1": 330,
+      "2": 85,
+      "3": 49
+     },
+     "share_within_radius": {
+      "14": {
+       "validation_hidden": 0.9868421052631579,
+       "test_hidden": 1.0
+      },
+      "21": {
+       "validation_hidden": 0.9868421052631579,
+       "test_hidden": 1.0
+      }
+     }
+    },
+    "reference_mass_14hops": {
+     "validation_hidden": {
+      "n": 152,
+      "median": 0.6268263957130773,
+      "p25": 0.4472533346114581,
+      "p75": 1.2576495388356166,
+      "share_gt_0.1": 0.9868421052631579,
+      "share_gt_0.01": 0.9868421052631579,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.013157894736842105
+     },
+     "test_hidden": {
+      "n": 464,
+      "median": 2.2442195550805097,
+      "p25": 0.7768568143158068,
+      "p75": 4.098479862132541,
+      "share_gt_0.1": 1.0,
+      "share_gt_0.01": 1.0,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     },
+     "observed_self": {
+      "n": 158,
+      "median": 6.03360396247678,
+      "p25": 3.755235100072242,
+      "p75": 7.715936452628419,
+      "share_gt_0.1": 1.0,
+      "share_gt_0.01": 1.0,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     },
+     "training_targets": {
+      "n": 789,
+      "median": 1.8919596174213138,
+      "p25": 0.7463701671028729,
+      "p75": 3.347117717169289,
+      "share_gt_0.1": 0.9873257287705957,
+      "share_gt_0.01": 1.0,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0
+     }
+    },
+    "hop_distance_kernel_adjacency_validation_hidden": {
+     "-1": 2,
+     "1": 1,
+     "2": 2,
+     "3": 1,
+     "4": 2,
+     "5": 3,
+     "6": 4,
+     "7": 5,
+     "8": 9,
+     "9": 10,
+     "10": 7,
+     "11": 7,
+     "12": 6,
+     "13": 10,
+     "14": 12,
+     "15": 10,
+     "16": 15,
+     "17": 16,
+     "18": 7,
+     "19": 6,
+     "20": 2,
+     "21": 2,
+     "22": 1,
+     "23": 2,
+     "24": 2,
+     "25": 2,
+     "26": 3,
+     "27": 2,
+     "28": 1
+    }
+   }
+  },
+  "melbourne": {
+   "0": {
+    "observed": 116,
+    "validation_hidden": 126,
+    "test_hidden": 345,
+    "sigma_m": 648.8401693311803,
+    "graph": {
+     "radius_m": 2000.0,
+     "kappa": 0.1,
+     "sigma_m": 648.8401693311803,
+     "nodes": 587,
+     "nonzero_pairs": 6752,
+     "density": 0.019595494661446618,
+     "degree_median": 9.0,
+     "degree_min": 0,
+     "isolated_nodes": 15,
+     "max_edge_m": 984.4389144686332,
+     "effective_radius_m": 984.5676755779853
+    },
+    "dependency_bound": "upper bound: an empty row excludes a dependence on the inputs' readings, a non-empty row does not demonstrate one (mogernn_adapter.dependency_rows)",
+    "input_nodes_with_missing_readings": {
+     "validation_period": 116,
+     "test_period": 116,
+     "training_period": 116
+    },
+    "dependency": {
+     "1": {
+      "validation_hidden": {
+       "n": 126,
+       "share_nonempty": 0.5952380952380952,
+       "row_size": {
+        "min": 0,
+        "median": 32.0,
+        "max": 52
+       }
+      },
+      "test_hidden": {
+       "n": 345,
+       "share_nonempty": 0.672463768115942,
+       "row_size": {
+        "min": 0,
+        "median": 7.0,
+        "max": 52
+       }
+      },
+      "training_targets": {
+       "n": 640,
+       "share_nonempty": 0.65625,
+       "row_size": {
+        "min": 0,
+        "median": 4.0,
+        "max": 28
+       }
+      }
+     },
+     "2": {
+      "validation_hidden": {
+       "n": 126,
+       "share_nonempty": 0.5952380952380952,
+       "row_size": {
+        "min": 0,
+        "median": 32.0,
+        "max": 52
+       }
+      },
+      "test_hidden": {
+       "n": 345,
+       "share_nonempty": 0.672463768115942,
+       "row_size": {
+        "min": 0,
+        "median": 7.0,
+        "max": 52
+       }
+      },
+      "training_targets": {
+       "n": 640,
+       "share_nonempty": 0.65625,
+       "row_size": {
+        "min": 0,
+        "median": 6.0,
+        "max": 42
+       }
+      }
+     },
+     "3": {
+      "validation_hidden": {
+       "n": 126,
+       "share_nonempty": 0.5952380952380952,
+       "row_size": {
+        "min": 0,
+        "median": 32.0,
+        "max": 52
+       }
+      },
+      "test_hidden": {
+       "n": 345,
+       "share_nonempty": 0.672463768115942,
+       "row_size": {
+        "min": 0,
+        "median": 7.0,
+        "max": 52
+       }
+      },
+      "training_targets": {
+       "n": 640,
+       "share_nonempty": 0.65625,
+       "row_size": {
+        "min": 0,
+        "median": 9.0,
+        "max": 47
+       }
+      }
+     },
+     "4": {
+      "validation_hidden": {
+       "n": 126,
+       "share_nonempty": 0.5952380952380952,
+       "row_size": {
+        "min": 0,
+        "median": 32.0,
+        "max": 52
+       }
+      },
+      "test_hidden": {
+       "n": 345,
+       "share_nonempty": 0.672463768115942,
+       "row_size": {
+        "min": 0,
+        "median": 7.0,
+        "max": 52
+       }
+      },
+      "training_targets": {
+       "n": 640,
+       "share_nonempty": 0.65625,
+       "row_size": {
+        "min": 0,
+        "median": 9.0,
+        "max": 47
+       }
+      }
+     },
+     "5": {
+      "validation_hidden": {
+       "n": 126,
+       "share_nonempty": 0.5952380952380952,
+       "row_size": {
+        "min": 0,
+        "median": 32.0,
+        "max": 52
+       }
+      },
+      "test_hidden": {
+       "n": 345,
+       "share_nonempty": 0.672463768115942,
+       "row_size": {
+        "min": 0,
+        "median": 7.0,
+        "max": 52
+       }
+      },
+      "training_targets": {
+       "n": 640,
+       "share_nonempty": 0.65625,
+       "row_size": {
+        "min": 0,
+        "median": 9.0,
+        "max": 47
+       }
+      }
+     },
+     "6": {
+      "validation_hidden": {
+       "n": 126,
+       "share_nonempty": 0.5952380952380952,
+       "row_size": {
+        "min": 0,
+        "median": 32.0,
+        "max": 52
+       }
+      },
+      "test_hidden": {
+       "n": 345,
+       "share_nonempty": 0.672463768115942,
+       "row_size": {
+        "min": 0,
+        "median": 7.0,
+        "max": 52
+       }
+      },
+      "training_targets": {
+       "n": 640,
+       "share_nonempty": 0.65625,
+       "row_size": {
+        "min": 0,
+        "median": 9.0,
+        "max": 47
+       }
+      }
+     },
+     "7": {
+      "validation_hidden": {
+       "n": 126,
+       "share_nonempty": 0.5952380952380952,
+       "row_size": {
+        "min": 0,
+        "median": 32.0,
+        "max": 52
+       }
+      },
+      "test_hidden": {
+       "n": 345,
+       "share_nonempty": 0.672463768115942,
+       "row_size": {
+        "min": 0,
+        "median": 7.0,
+        "max": 52
+       }
+      },
+      "training_targets": {
+       "n": 640,
+       "share_nonempty": 0.65625,
+       "row_size": {
+        "min": 0,
+        "median": 9.0,
+        "max": 47
+       }
+      }
+     },
+     "8": {
+      "validation_hidden": {
+       "n": 126,
+       "share_nonempty": 0.5952380952380952,
+       "row_size": {
+        "min": 0,
+        "median": 32.0,
+        "max": 52
+       }
+      },
+      "test_hidden": {
+       "n": 345,
+       "share_nonempty": 0.672463768115942,
+       "row_size": {
+        "min": 0,
+        "median": 7.0,
+        "max": 52
+       }
+      },
+      "training_targets": {
+       "n": 640,
+       "share_nonempty": 0.65625,
+       "row_size": {
+        "min": 0,
+        "median": 9.0,
+        "max": 47
+       }
+      }
+     }
+    },
+    "hop_distance_method_graph": {
+     "validation_hidden": {
+      "-1": 51,
+      "1": 13,
+      "2": 15,
+      "3": 20,
+      "4": 7,
+      "5": 6,
+      "6": 7,
+      "7": 2,
+      "8": 1,
+      "9": 2,
+      "10": 2
+     },
+     "test_hidden": {
+      "-1": 113,
+      "1": 58,
+      "2": 35,
+      "3": 41,
+      "4": 30,
+      "5": 18,
+      "6": 17,
+      "7": 12,
+      "8": 10,
+      "9": 4,
+      "10": 2,
+      "11": 4,
+      "12": 1
+     },
+     "share_within_radius": {
+      "14": {
+       "validation_hidden": 0.5952380952380952,
+       "test_hidden": 0.672463768115942
+      },
+      "21": {
+       "validation_hidden": 0.5952380952380952,
+       "test_hidden": 0.672463768115942
+      }
+     }
+    },
+    "reference_mass_14hops": {
+     "validation_hidden": {
+      "n": 126,
+      "median": 0.008678153108827125,
+      "p25": 0.0,
+      "p75": 0.26039801909418286,
+      "share_gt_0.1": 0.42063492063492064,
+      "share_gt_0.01": 0.49206349206349204,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.40476190476190477
+     },
+     "test_hidden": {
+      "n": 345,
+      "median": 0.017909970461007278,
+      "p25": 0.0,
+      "p75": 0.7271495775506762,
+      "share_gt_0.1": 0.37681159420289856,
+      "share_gt_0.01": 0.5333333333333333,
+      "share_tiny_0_to_1e-6": 0.008695652173913044,
+      "share_exact_zero": 0.32753623188405795
+     },
+     "observed_self": {
+      "n": 116,
+      "median": 13.282025572214165,
+      "p25": 10.441637970997704,
+      "p75": 13.357379037404518,
+      "share_gt_0.1": 0.9913793103448276,
+      "share_gt_0.01": 0.9913793103448276,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.008620689655172414
+     },
+     "training_targets": {
+      "n": 640,
+      "median": 2.065320221401169e-06,
+      "p25": 0.0,
+      "p75": 0.00010193685690814617,
+      "share_gt_0.1": 0.071875,
+      "share_gt_0.01": 0.190625,
+      "share_tiny_0_to_1e-6": 0.05625,
+      "share_exact_zero": 0.409375
+     }
+    },
+    "hop_distance_kernel_adjacency_validation_hidden": {
+     "1": 6,
+     "2": 19,
+     "3": 21,
+     "4": 12,
+     "5": 16,
+     "6": 12,
+     "7": 13,
+     "8": 10,
+     "9": 8,
+     "10": 5,
+     "11": 3,
+     "12": 1
+    }
+   },
+   "1": {
+    "observed": 102,
+    "validation_hidden": 134,
+    "test_hidden": 351,
+    "sigma_m": 648.8401693311803,
+    "graph": {
+     "radius_m": 2000.0,
+     "kappa": 0.1,
+     "sigma_m": 648.8401693311803,
+     "nodes": 587,
+     "nonzero_pairs": 6752,
+     "density": 0.019595494661446618,
+     "degree_median": 9.0,
+     "degree_min": 0,
+     "isolated_nodes": 15,
+     "max_edge_m": 984.4389144686332,
+     "effective_radius_m": 984.5676755779853
+    },
+    "dependency_bound": "upper bound: an empty row excludes a dependence on the inputs' readings, a non-empty row does not demonstrate one (mogernn_adapter.dependency_rows)",
+    "input_nodes_with_missing_readings": {
+     "validation_period": 102,
+     "test_period": 102,
+     "training_period": 102
+    },
+    "dependency": {
+     "1": {
+      "validation_hidden": {
+       "n": 134,
+       "share_nonempty": 0.5223880597014925,
+       "row_size": {
+        "min": 0,
+        "median": 5.0,
+        "max": 70
+       }
+      },
+      "test_hidden": {
+       "n": 351,
+       "share_nonempty": 0.6267806267806267,
+       "row_size": {
+        "min": 0,
+        "median": 7.0,
+        "max": 70
+       }
+      },
+      "training_targets": {
+       "n": 491,
+       "share_nonempty": 0.7087576374745418,
+       "row_size": {
+        "min": 0,
+        "median": 30.0,
+        "max": 67
+       }
+      }
+     },
+     "2": {
+      "validation_hidden": {
+       "n": 134,
+       "share_nonempty": 0.5223880597014925,
+       "row_size": {
+        "min": 0,
+        "median": 5.0,
+        "max": 70
+       }
+      },
+      "test_hidden": {
+       "n": 351,
+       "share_nonempty": 0.6267806267806267,
+       "row_size": {
+        "min": 0,
+        "median": 7.0,
+        "max": 70
+       }
+      },
+      "training_targets": {
+       "n": 491,
+       "share_nonempty": 0.7087576374745418,
+       "row_size": {
+        "min": 0,
+        "median": 30.0,
+        "max": 69
+       }
+      }
+     },
+     "3": {
+      "validation_hidden": {
+       "n": 134,
+       "share_nonempty": 0.5223880597014925,
+       "row_size": {
+        "min": 0,
+        "median": 5.0,
+        "max": 70
+       }
+      },
+      "test_hidden": {
+       "n": 351,
+       "share_nonempty": 0.6267806267806267,
+       "row_size": {
+        "min": 0,
+        "median": 7.0,
+        "max": 70
+       }
+      },
+      "training_targets": {
+       "n": 491,
+       "share_nonempty": 0.7087576374745418,
+       "row_size": {
+        "min": 0,
+        "median": 30.0,
+        "max": 69
+       }
+      }
+     },
+     "4": {
+      "validation_hidden": {
+       "n": 134,
+       "share_nonempty": 0.5223880597014925,
+       "row_size": {
+        "min": 0,
+        "median": 5.0,
+        "max": 70
+       }
+      },
+      "test_hidden": {
+       "n": 351,
+       "share_nonempty": 0.6267806267806267,
+       "row_size": {
+        "min": 0,
+        "median": 7.0,
+        "max": 70
+       }
+      },
+      "training_targets": {
+       "n": 491,
+       "share_nonempty": 0.7087576374745418,
+       "row_size": {
+        "min": 0,
+        "median": 30.0,
+        "max": 69
+       }
+      }
+     },
+     "5": {
+      "validation_hidden": {
+       "n": 134,
+       "share_nonempty": 0.5223880597014925,
+       "row_size": {
+        "min": 0,
+        "median": 5.0,
+        "max": 70
+       }
+      },
+      "test_hidden": {
+       "n": 351,
+       "share_nonempty": 0.6267806267806267,
+       "row_size": {
+        "min": 0,
+        "median": 7.0,
+        "max": 70
+       }
+      },
+      "training_targets": {
+       "n": 491,
+       "share_nonempty": 0.7087576374745418,
+       "row_size": {
+        "min": 0,
+        "median": 30.0,
+        "max": 69
+       }
+      }
+     },
+     "6": {
+      "validation_hidden": {
+       "n": 134,
+       "share_nonempty": 0.5223880597014925,
+       "row_size": {
+        "min": 0,
+        "median": 5.0,
+        "max": 70
+       }
+      },
+      "test_hidden": {
+       "n": 351,
+       "share_nonempty": 0.6267806267806267,
+       "row_size": {
+        "min": 0,
+        "median": 7.0,
+        "max": 70
+       }
+      },
+      "training_targets": {
+       "n": 491,
+       "share_nonempty": 0.7087576374745418,
+       "row_size": {
+        "min": 0,
+        "median": 30.0,
+        "max": 69
+       }
+      }
+     },
+     "7": {
+      "validation_hidden": {
+       "n": 134,
+       "share_nonempty": 0.5223880597014925,
+       "row_size": {
+        "min": 0,
+        "median": 5.0,
+        "max": 70
+       }
+      },
+      "test_hidden": {
+       "n": 351,
+       "share_nonempty": 0.6267806267806267,
+       "row_size": {
+        "min": 0,
+        "median": 7.0,
+        "max": 70
+       }
+      },
+      "training_targets": {
+       "n": 491,
+       "share_nonempty": 0.7087576374745418,
+       "row_size": {
+        "min": 0,
+        "median": 30.0,
+        "max": 69
+       }
+      }
+     },
+     "8": {
+      "validation_hidden": {
+       "n": 134,
+       "share_nonempty": 0.5223880597014925,
+       "row_size": {
+        "min": 0,
+        "median": 5.0,
+        "max": 70
+       }
+      },
+      "test_hidden": {
+       "n": 351,
+       "share_nonempty": 0.6267806267806267,
+       "row_size": {
+        "min": 0,
+        "median": 7.0,
+        "max": 70
+       }
+      },
+      "training_targets": {
+       "n": 491,
+       "share_nonempty": 0.7087576374745418,
+       "row_size": {
+        "min": 0,
+        "median": 30.0,
+        "max": 69
+       }
+      }
+     }
+    },
+    "hop_distance_method_graph": {
+     "validation_hidden": {
+      "-1": 64,
+      "1": 7,
+      "2": 19,
+      "3": 11,
+      "4": 12,
+      "5": 9,
+      "6": 6,
+      "7": 1,
+      "8": 1,
+      "9": 1,
+      "10": 3
+     },
+     "test_hidden": {
+      "-1": 131,
+      "1": 46,
+      "2": 40,
+      "3": 13,
+      "4": 20,
+      "5": 31,
+      "6": 29,
+      "7": 15,
+      "8": 23,
+      "9": 2,
+      "10": 1
+     },
+     "share_within_radius": {
+      "14": {
+       "validation_hidden": 0.5223880597014925,
+       "test_hidden": 0.6267806267806267
+      },
+      "21": {
+       "validation_hidden": 0.5223880597014925,
+       "test_hidden": 0.6267806267806267
+      }
+     }
+    },
+    "reference_mass_14hops": {
+     "validation_hidden": {
+      "n": 134,
+      "median": 0.0017381566526544542,
+      "p25": 0.0,
+      "p75": 0.0778032592312874,
+      "share_gt_0.1": 0.17164179104477612,
+      "share_gt_0.01": 0.3358208955223881,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.47761194029850745
+     },
+     "test_hidden": {
+      "n": 351,
+      "median": 0.00018514001899750553,
+      "p25": 0.0,
+      "p75": 0.44893368608610384,
+      "share_gt_0.1": 0.3190883190883191,
+      "share_gt_0.01": 0.3646723646723647,
+      "share_tiny_0_to_1e-6": 0.045584045584045586,
+      "share_exact_zero": 0.3732193732193732
+     },
+     "observed_self": {
+      "n": 102,
+      "median": 11.010747875097241,
+      "p25": 8.138208863914926,
+      "p75": 13.980978232008528,
+      "share_gt_0.1": 0.9215686274509803,
+      "share_gt_0.01": 0.9215686274509803,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.0784313725490196
+     },
+     "training_targets": {
+      "n": 491,
+      "median": 0.017684124615485027,
+      "p25": 0.0,
+      "p75": 0.04967538134366902,
+      "share_gt_0.1": 0.2240325865580448,
+      "share_gt_0.01": 0.5743380855397149,
+      "share_tiny_0_to_1e-6": 0.010183299389002037,
+      "share_exact_zero": 0.29124236252545826
+     }
+    },
+    "hop_distance_kernel_adjacency_validation_hidden": {
+     "1": 10,
+     "2": 11,
+     "3": 18,
+     "4": 13,
+     "5": 11,
+     "6": 7,
+     "7": 14,
+     "8": 14,
+     "9": 13,
+     "10": 6,
+     "11": 2,
+     "12": 2,
+     "13": 2,
+     "14": 2,
+     "15": 5,
+     "16": 3,
+     "17": 1
+    }
+   },
+   "2": {
+    "observed": 113,
+    "validation_hidden": 122,
+    "test_hidden": 352,
+    "sigma_m": 648.8401693311803,
+    "graph": {
+     "radius_m": 2000.0,
+     "kappa": 0.1,
+     "sigma_m": 648.8401693311803,
+     "nodes": 587,
+     "nonzero_pairs": 6752,
+     "density": 0.019595494661446618,
+     "degree_median": 9.0,
+     "degree_min": 0,
+     "isolated_nodes": 15,
+     "max_edge_m": 984.4389144686332,
+     "effective_radius_m": 984.5676755779853
+    },
+    "dependency_bound": "upper bound: an empty row excludes a dependence on the inputs' readings, a non-empty row does not demonstrate one (mogernn_adapter.dependency_rows)",
+    "input_nodes_with_missing_readings": {
+     "validation_period": 113,
+     "test_period": 113,
+     "training_period": 113
+    },
+    "dependency": {
+     "1": {
+      "validation_hidden": {
+       "n": 122,
+       "share_nonempty": 0.6721311475409836,
+       "row_size": {
+        "min": 0,
+        "median": 15.0,
+        "max": 37
+       }
+      },
+      "test_hidden": {
+       "n": 352,
+       "share_nonempty": 0.53125,
+       "row_size": {
+        "min": 0,
+        "median": 7.0,
+        "max": 37
+       }
+      },
+      "training_targets": {
+       "n": 364,
+       "share_nonempty": 0.2802197802197802,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 34
+       }
+      }
+     },
+     "2": {
+      "validation_hidden": {
+       "n": 122,
+       "share_nonempty": 0.6721311475409836,
+       "row_size": {
+        "min": 0,
+        "median": 37.0,
+        "max": 37
+       }
+      },
+      "test_hidden": {
+       "n": 352,
+       "share_nonempty": 0.53125,
+       "row_size": {
+        "min": 0,
+        "median": 8.5,
+        "max": 37
+       }
+      },
+      "training_targets": {
+       "n": 364,
+       "share_nonempty": 0.2802197802197802,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 34
+       }
+      }
+     },
+     "3": {
+      "validation_hidden": {
+       "n": 122,
+       "share_nonempty": 0.6721311475409836,
+       "row_size": {
+        "min": 0,
+        "median": 37.0,
+        "max": 37
+       }
+      },
+      "test_hidden": {
+       "n": 352,
+       "share_nonempty": 0.53125,
+       "row_size": {
+        "min": 0,
+        "median": 10.0,
+        "max": 37
+       }
+      },
+      "training_targets": {
+       "n": 364,
+       "share_nonempty": 0.2802197802197802,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 34
+       }
+      }
+     },
+     "4": {
+      "validation_hidden": {
+       "n": 122,
+       "share_nonempty": 0.6721311475409836,
+       "row_size": {
+        "min": 0,
+        "median": 37.0,
+        "max": 37
+       }
+      },
+      "test_hidden": {
+       "n": 352,
+       "share_nonempty": 0.53125,
+       "row_size": {
+        "min": 0,
+        "median": 10.0,
+        "max": 37
+       }
+      },
+      "training_targets": {
+       "n": 364,
+       "share_nonempty": 0.2802197802197802,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 34
+       }
+      }
+     },
+     "5": {
+      "validation_hidden": {
+       "n": 122,
+       "share_nonempty": 0.6721311475409836,
+       "row_size": {
+        "min": 0,
+        "median": 37.0,
+        "max": 37
+       }
+      },
+      "test_hidden": {
+       "n": 352,
+       "share_nonempty": 0.53125,
+       "row_size": {
+        "min": 0,
+        "median": 10.0,
+        "max": 37
+       }
+      },
+      "training_targets": {
+       "n": 364,
+       "share_nonempty": 0.2802197802197802,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 34
+       }
+      }
+     },
+     "6": {
+      "validation_hidden": {
+       "n": 122,
+       "share_nonempty": 0.6721311475409836,
+       "row_size": {
+        "min": 0,
+        "median": 37.0,
+        "max": 37
+       }
+      },
+      "test_hidden": {
+       "n": 352,
+       "share_nonempty": 0.53125,
+       "row_size": {
+        "min": 0,
+        "median": 10.0,
+        "max": 37
+       }
+      },
+      "training_targets": {
+       "n": 364,
+       "share_nonempty": 0.2802197802197802,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 34
+       }
+      }
+     },
+     "7": {
+      "validation_hidden": {
+       "n": 122,
+       "share_nonempty": 0.6721311475409836,
+       "row_size": {
+        "min": 0,
+        "median": 37.0,
+        "max": 37
+       }
+      },
+      "test_hidden": {
+       "n": 352,
+       "share_nonempty": 0.53125,
+       "row_size": {
+        "min": 0,
+        "median": 10.0,
+        "max": 37
+       }
+      },
+      "training_targets": {
+       "n": 364,
+       "share_nonempty": 0.2802197802197802,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 34
+       }
+      }
+     },
+     "8": {
+      "validation_hidden": {
+       "n": 122,
+       "share_nonempty": 0.6721311475409836,
+       "row_size": {
+        "min": 0,
+        "median": 37.0,
+        "max": 37
+       }
+      },
+      "test_hidden": {
+       "n": 352,
+       "share_nonempty": 0.53125,
+       "row_size": {
+        "min": 0,
+        "median": 10.0,
+        "max": 37
+       }
+      },
+      "training_targets": {
+       "n": 364,
+       "share_nonempty": 0.2802197802197802,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 34
+       }
+      }
+     }
+    },
+    "hop_distance_method_graph": {
+     "validation_hidden": {
+      "-1": 40,
+      "1": 9,
+      "2": 25,
+      "3": 12,
+      "4": 10,
+      "5": 8,
+      "6": 1,
+      "7": 4,
+      "8": 3,
+      "9": 1,
+      "10": 1,
+      "11": 2,
+      "12": 4,
+      "15": 2
+     },
+     "test_hidden": {
+      "-1": 165,
+      "1": 17,
+      "2": 47,
+      "3": 24,
+      "4": 20,
+      "5": 28,
+      "6": 15,
+      "7": 15,
+      "8": 7,
+      "9": 4,
+      "10": 2,
+      "13": 2,
+      "14": 3,
+      "15": 2,
+      "16": 1
+     },
+     "share_within_radius": {
+      "14": {
+       "validation_hidden": 0.6557377049180327,
+       "test_hidden": 0.5227272727272727
+      },
+      "21": {
+       "validation_hidden": 0.6721311475409836,
+       "test_hidden": 0.53125
+      }
+     }
+    },
+    "reference_mass_14hops": {
+     "validation_hidden": {
+      "n": 122,
+      "median": 0.10405983373901172,
+      "p25": 0.0,
+      "p75": 0.6108506602050627,
+      "share_gt_0.1": 0.5081967213114754,
+      "share_gt_0.01": 0.5409836065573771,
+      "share_tiny_0_to_1e-6": 0.04918032786885246,
+      "share_exact_zero": 0.3442622950819672
+     },
+     "test_hidden": {
+      "n": 352,
+      "median": 1.5332988342829576e-05,
+      "p25": 0.0,
+      "p75": 0.033014345625086886,
+      "share_gt_0.1": 0.21022727272727273,
+      "share_gt_0.01": 0.30113636363636365,
+      "share_tiny_0_to_1e-6": 0.014204545454545454,
+      "share_exact_zero": 0.4772727272727273
+     },
+     "observed_self": {
+      "n": 113,
+      "median": 13.345009524735302,
+      "p25": 10.43270402856388,
+      "p75": 13.995847213589094,
+      "share_gt_0.1": 0.9823008849557522,
+      "share_gt_0.01": 0.9823008849557522,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.017699115044247787
+     },
+     "training_targets": {
+      "n": 364,
+      "median": 0.0,
+      "p25": 0.0,
+      "p75": 1.6120055873376965e-08,
+      "share_gt_0.1": 0.1510989010989011,
+      "share_gt_0.01": 0.1510989010989011,
+      "share_tiny_0_to_1e-6": 0.06043956043956044,
+      "share_exact_zero": 0.7362637362637363
+     }
+    },
+    "hop_distance_kernel_adjacency_validation_hidden": {
+     "1": 13,
+     "2": 12,
+     "3": 18,
+     "4": 14,
+     "5": 7,
+     "6": 7,
+     "7": 5,
+     "8": 7,
+     "9": 6,
+     "10": 2,
+     "11": 4,
+     "12": 5,
+     "13": 7,
+     "14": 7,
+     "15": 5,
+     "16": 1,
+     "17": 1,
+     "18": 1
+    }
+   },
+   "3": {
+    "observed": 123,
+    "validation_hidden": 115,
+    "test_hidden": 349,
+    "sigma_m": 648.8401693311803,
+    "graph": {
+     "radius_m": 2000.0,
+     "kappa": 0.1,
+     "sigma_m": 648.8401693311803,
+     "nodes": 587,
+     "nonzero_pairs": 6752,
+     "density": 0.019595494661446618,
+     "degree_median": 9.0,
+     "degree_min": 0,
+     "isolated_nodes": 15,
+     "max_edge_m": 984.4389144686332,
+     "effective_radius_m": 984.5676755779853
+    },
+    "dependency_bound": "upper bound: an empty row excludes a dependence on the inputs' readings, a non-empty row does not demonstrate one (mogernn_adapter.dependency_rows)",
+    "input_nodes_with_missing_readings": {
+     "validation_period": 123,
+     "test_period": 123,
+     "training_period": 123
+    },
+    "dependency": {
+     "1": {
+      "validation_hidden": {
+       "n": 115,
+       "share_nonempty": 0.4956521739130435,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 68
+       }
+      },
+      "test_hidden": {
+       "n": 349,
+       "share_nonempty": 0.6762177650429799,
+       "row_size": {
+        "min": 0,
+        "median": 7.0,
+        "max": 68
+       }
+      },
+      "training_targets": {
+       "n": 594,
+       "share_nonempty": 0.6565656565656566,
+       "row_size": {
+        "min": 0,
+        "median": 20.0,
+        "max": 54
+       }
+      }
+     },
+     "2": {
+      "validation_hidden": {
+       "n": 115,
+       "share_nonempty": 0.4956521739130435,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 68
+       }
+      },
+      "test_hidden": {
+       "n": 349,
+       "share_nonempty": 0.6762177650429799,
+       "row_size": {
+        "min": 0,
+        "median": 7.0,
+        "max": 68
+       }
+      },
+      "training_targets": {
+       "n": 594,
+       "share_nonempty": 0.6565656565656566,
+       "row_size": {
+        "min": 0,
+        "median": 21.0,
+        "max": 54
+       }
+      }
+     },
+     "3": {
+      "validation_hidden": {
+       "n": 115,
+       "share_nonempty": 0.4956521739130435,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 68
+       }
+      },
+      "test_hidden": {
+       "n": 349,
+       "share_nonempty": 0.6762177650429799,
+       "row_size": {
+        "min": 0,
+        "median": 7.0,
+        "max": 68
+       }
+      },
+      "training_targets": {
+       "n": 594,
+       "share_nonempty": 0.6565656565656566,
+       "row_size": {
+        "min": 0,
+        "median": 21.0,
+        "max": 54
+       }
+      }
+     },
+     "4": {
+      "validation_hidden": {
+       "n": 115,
+       "share_nonempty": 0.4956521739130435,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 68
+       }
+      },
+      "test_hidden": {
+       "n": 349,
+       "share_nonempty": 0.6762177650429799,
+       "row_size": {
+        "min": 0,
+        "median": 7.0,
+        "max": 68
+       }
+      },
+      "training_targets": {
+       "n": 594,
+       "share_nonempty": 0.6565656565656566,
+       "row_size": {
+        "min": 0,
+        "median": 32.0,
+        "max": 54
+       }
+      }
+     },
+     "5": {
+      "validation_hidden": {
+       "n": 115,
+       "share_nonempty": 0.4956521739130435,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 68
+       }
+      },
+      "test_hidden": {
+       "n": 349,
+       "share_nonempty": 0.6762177650429799,
+       "row_size": {
+        "min": 0,
+        "median": 7.0,
+        "max": 68
+       }
+      },
+      "training_targets": {
+       "n": 594,
+       "share_nonempty": 0.6565656565656566,
+       "row_size": {
+        "min": 0,
+        "median": 32.0,
+        "max": 54
+       }
+      }
+     },
+     "6": {
+      "validation_hidden": {
+       "n": 115,
+       "share_nonempty": 0.4956521739130435,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 68
+       }
+      },
+      "test_hidden": {
+       "n": 349,
+       "share_nonempty": 0.6762177650429799,
+       "row_size": {
+        "min": 0,
+        "median": 7.0,
+        "max": 68
+       }
+      },
+      "training_targets": {
+       "n": 594,
+       "share_nonempty": 0.6565656565656566,
+       "row_size": {
+        "min": 0,
+        "median": 32.0,
+        "max": 54
+       }
+      }
+     },
+     "7": {
+      "validation_hidden": {
+       "n": 115,
+       "share_nonempty": 0.4956521739130435,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 68
+       }
+      },
+      "test_hidden": {
+       "n": 349,
+       "share_nonempty": 0.6762177650429799,
+       "row_size": {
+        "min": 0,
+        "median": 7.0,
+        "max": 68
+       }
+      },
+      "training_targets": {
+       "n": 594,
+       "share_nonempty": 0.6565656565656566,
+       "row_size": {
+        "min": 0,
+        "median": 32.0,
+        "max": 54
+       }
+      }
+     },
+     "8": {
+      "validation_hidden": {
+       "n": 115,
+       "share_nonempty": 0.4956521739130435,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 68
+       }
+      },
+      "test_hidden": {
+       "n": 349,
+       "share_nonempty": 0.6762177650429799,
+       "row_size": {
+        "min": 0,
+        "median": 7.0,
+        "max": 68
+       }
+      },
+      "training_targets": {
+       "n": 594,
+       "share_nonempty": 0.6565656565656566,
+       "row_size": {
+        "min": 0,
+        "median": 32.0,
+        "max": 54
+       }
+      }
+     }
+    },
+    "hop_distance_method_graph": {
+     "validation_hidden": {
+      "-1": 58,
+      "1": 8,
+      "2": 16,
+      "3": 6,
+      "4": 14,
+      "5": 10,
+      "6": 3
+     },
+     "test_hidden": {
+      "-1": 113,
+      "1": 37,
+      "2": 44,
+      "3": 25,
+      "4": 37,
+      "5": 28,
+      "6": 24,
+      "7": 11,
+      "8": 14,
+      "9": 7,
+      "10": 6,
+      "11": 3
+     },
+     "share_within_radius": {
+      "14": {
+       "validation_hidden": 0.4956521739130435,
+       "test_hidden": 0.6762177650429799
+      },
+      "21": {
+       "validation_hidden": 0.4956521739130435,
+       "test_hidden": 0.6762177650429799
+      }
+     }
+    },
+    "reference_mass_14hops": {
+     "validation_hidden": {
+      "n": 115,
+      "median": 0.0,
+      "p25": 0.0,
+      "p75": 0.07796075902048918,
+      "share_gt_0.1": 0.24347826086956523,
+      "share_gt_0.01": 0.48695652173913045,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.5043478260869565
+     },
+     "test_hidden": {
+      "n": 349,
+      "median": 0.0027611975161897697,
+      "p25": 0.0,
+      "p75": 0.14398003402666767,
+      "share_gt_0.1": 0.27793696275071633,
+      "share_gt_0.01": 0.4326647564469914,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.3237822349570201
+     },
+     "observed_self": {
+      "n": 123,
+      "median": 12.39589073468586,
+      "p25": 10.875902783101349,
+      "p75": 13.856486389197984,
+      "share_gt_0.1": 0.967479674796748,
+      "share_gt_0.01": 0.967479674796748,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.032520325203252036
+     },
+     "training_targets": {
+      "n": 594,
+      "median": 7.023158908818917e-07,
+      "p25": 0.0,
+      "p75": 0.04970269222975352,
+      "share_gt_0.1": 0.18518518518518517,
+      "share_gt_0.01": 0.35185185185185186,
+      "share_tiny_0_to_1e-6": 0.08585858585858586,
+      "share_exact_zero": 0.4208754208754209
+     }
+    },
+    "hop_distance_kernel_adjacency_validation_hidden": {
+     "1": 16,
+     "2": 19,
+     "3": 16,
+     "4": 14,
+     "5": 3,
+     "8": 4,
+     "9": 6,
+     "10": 7,
+     "11": 9,
+     "12": 5,
+     "13": 3,
+     "14": 2,
+     "15": 2,
+     "16": 5,
+     "17": 3,
+     "18": 1
+    }
+   },
+   "4": {
+    "observed": 136,
+    "validation_hidden": 109,
+    "test_hidden": 342,
+    "sigma_m": 648.8401693311803,
+    "graph": {
+     "radius_m": 2000.0,
+     "kappa": 0.1,
+     "sigma_m": 648.8401693311803,
+     "nodes": 587,
+     "nonzero_pairs": 6752,
+     "density": 0.019595494661446618,
+     "degree_median": 9.0,
+     "degree_min": 0,
+     "isolated_nodes": 15,
+     "max_edge_m": 984.4389144686332,
+     "effective_radius_m": 984.5676755779853
+    },
+    "dependency_bound": "upper bound: an empty row excludes a dependence on the inputs' readings, a non-empty row does not demonstrate one (mogernn_adapter.dependency_rows)",
+    "input_nodes_with_missing_readings": {
+     "validation_period": 136,
+     "test_period": 136,
+     "training_period": 136
+    },
+    "dependency": {
+     "1": {
+      "validation_hidden": {
+       "n": 109,
+       "share_nonempty": 0.27522935779816515,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 80
+       }
+      },
+      "test_hidden": {
+       "n": 342,
+       "share_nonempty": 0.43859649122807015,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 80
+       }
+      },
+      "training_targets": {
+       "n": 633,
+       "share_nonempty": 0.7819905213270142,
+       "row_size": {
+        "min": 0,
+        "median": 23.0,
+        "max": 74
+       }
+      }
+     },
+     "2": {
+      "validation_hidden": {
+       "n": 109,
+       "share_nonempty": 0.27522935779816515,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 80
+       }
+      },
+      "test_hidden": {
+       "n": 342,
+       "share_nonempty": 0.43859649122807015,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 80
+       }
+      },
+      "training_targets": {
+       "n": 633,
+       "share_nonempty": 0.7946287519747235,
+       "row_size": {
+        "min": 0,
+        "median": 34.0,
+        "max": 74
+       }
+      }
+     },
+     "3": {
+      "validation_hidden": {
+       "n": 109,
+       "share_nonempty": 0.27522935779816515,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 80
+       }
+      },
+      "test_hidden": {
+       "n": 342,
+       "share_nonempty": 0.43859649122807015,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 80
+       }
+      },
+      "training_targets": {
+       "n": 633,
+       "share_nonempty": 0.7946287519747235,
+       "row_size": {
+        "min": 0,
+        "median": 34.0,
+        "max": 78
+       }
+      }
+     },
+     "4": {
+      "validation_hidden": {
+       "n": 109,
+       "share_nonempty": 0.27522935779816515,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 80
+       }
+      },
+      "test_hidden": {
+       "n": 342,
+       "share_nonempty": 0.43859649122807015,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 80
+       }
+      },
+      "training_targets": {
+       "n": 633,
+       "share_nonempty": 0.7946287519747235,
+       "row_size": {
+        "min": 0,
+        "median": 36.0,
+        "max": 78
+       }
+      }
+     },
+     "5": {
+      "validation_hidden": {
+       "n": 109,
+       "share_nonempty": 0.27522935779816515,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 80
+       }
+      },
+      "test_hidden": {
+       "n": 342,
+       "share_nonempty": 0.43859649122807015,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 80
+       }
+      },
+      "training_targets": {
+       "n": 633,
+       "share_nonempty": 0.7946287519747235,
+       "row_size": {
+        "min": 0,
+        "median": 36.0,
+        "max": 78
+       }
+      }
+     },
+     "6": {
+      "validation_hidden": {
+       "n": 109,
+       "share_nonempty": 0.27522935779816515,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 80
+       }
+      },
+      "test_hidden": {
+       "n": 342,
+       "share_nonempty": 0.43859649122807015,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 80
+       }
+      },
+      "training_targets": {
+       "n": 633,
+       "share_nonempty": 0.7946287519747235,
+       "row_size": {
+        "min": 0,
+        "median": 36.0,
+        "max": 78
+       }
+      }
+     },
+     "7": {
+      "validation_hidden": {
+       "n": 109,
+       "share_nonempty": 0.27522935779816515,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 80
+       }
+      },
+      "test_hidden": {
+       "n": 342,
+       "share_nonempty": 0.43859649122807015,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 80
+       }
+      },
+      "training_targets": {
+       "n": 633,
+       "share_nonempty": 0.7946287519747235,
+       "row_size": {
+        "min": 0,
+        "median": 36.0,
+        "max": 78
+       }
+      }
+     },
+     "8": {
+      "validation_hidden": {
+       "n": 109,
+       "share_nonempty": 0.27522935779816515,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 80
+       }
+      },
+      "test_hidden": {
+       "n": 342,
+       "share_nonempty": 0.43859649122807015,
+       "row_size": {
+        "min": 0,
+        "median": 0.0,
+        "max": 80
+       }
+      },
+      "training_targets": {
+       "n": 633,
+       "share_nonempty": 0.7946287519747235,
+       "row_size": {
+        "min": 0,
+        "median": 36.0,
+        "max": 78
+       }
+      }
+     }
+    },
+    "hop_distance_method_graph": {
+     "validation_hidden": {
+      "-1": 79,
+      "1": 3,
+      "2": 3,
+      "3": 5,
+      "4": 9,
+      "5": 9,
+      "6": 1
+     },
+     "test_hidden": {
+      "-1": 192,
+      "1": 31,
+      "2": 37,
+      "3": 28,
+      "4": 8,
+      "5": 2,
+      "6": 3,
+      "7": 16,
+      "8": 19,
+      "9": 5,
+      "10": 1
+     },
+     "share_within_radius": {
+      "14": {
+       "validation_hidden": 0.27522935779816515,
+       "test_hidden": 0.43859649122807015
+      },
+      "21": {
+       "validation_hidden": 0.27522935779816515,
+       "test_hidden": 0.43859649122807015
+      }
+     }
+    },
+    "reference_mass_14hops": {
+     "validation_hidden": {
+      "n": 109,
+      "median": 0.0,
+      "p25": 0.0,
+      "p75": 0.029901452522047678,
+      "share_gt_0.1": 0.21100917431192662,
+      "share_gt_0.01": 0.27522935779816515,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.7247706422018348
+     },
+     "test_hidden": {
+      "n": 342,
+      "median": 0.0,
+      "p25": 0.0,
+      "p75": 0.32346477533026674,
+      "share_gt_0.1": 0.3128654970760234,
+      "share_gt_0.01": 0.3157894736842105,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.5614035087719298
+     },
+     "observed_self": {
+      "n": 136,
+      "median": 13.459238085070739,
+      "p25": 10.787881610179372,
+      "p75": 13.927758248643984,
+      "share_gt_0.1": 0.9926470588235294,
+      "share_gt_0.01": 0.9926470588235294,
+      "share_tiny_0_to_1e-6": 0.0,
+      "share_exact_zero": 0.007352941176470588
+     },
+     "training_targets": {
+      "n": 633,
+      "median": 0.0037236590333985502,
+      "p25": 0.0,
+      "p75": 0.8177503574058952,
+      "share_gt_0.1": 0.4075829383886256,
+      "share_gt_0.01": 0.43601895734597157,
+      "share_tiny_0_to_1e-6": 0.053712480252764615,
+      "share_exact_zero": 0.29067930489731436
+     }
+    },
+    "hop_distance_kernel_adjacency_validation_hidden": {
+     "1": 10,
+     "2": 13,
+     "3": 13,
+     "4": 20,
+     "5": 19,
+     "6": 13,
+     "7": 10,
+     "8": 5,
+     "9": 4,
+     "10": 2
+    }
+   }
+  }
+ },
+ "method": "Boolean dependency of each decoder output on the input nodes' series, composed in the order of the forward pass:\ncompletion (`completion_support`) \u2192 encoder (T_in steps \u00d7 `layers` cells) \u2192 decoder (H steps \u00d7 `layers` cells, the output\nre-entering as the next step's factor input), with the cell rule of `cell_support`: one hop at a layer's first step (zero\nhidden state), two hops afterwards. D_h[n, j] = True iff output h of node n can structurally depend on input node j.\nUpper bound of the architecture's information path on 0/1 patterns (no weights, no activations): an EMPTY row excludes a\ndependence; a NON-EMPTY row does not demonstrate one (the secondary classification of E14 is therefore \"dependency possible /\ndependency excluded\", not \"reached / unreached\"). Returns the list [D_1 \u2026 D_H] (bool (N, n_in)) and the input indices.",
+ "completion_support": "Structural support of the experts' completion, union over the five experts, restricted to the input nodes' columns:\nmean / weighted mean / diffusion-A_q read the ROW of the adjacency without self-loops (node l depends on k with A[l, k] > 0),\nmax / min / diffusion-A_h read the COLUMN (A[k, l] > 0); only input nodes contribute (the unknown columns are zeroed in every\nexpert); the gating network reads each node's own series, which is non-zero for input nodes only, so the identity is added\nfor input nodes. The completion enters a node's series only where m_in = 0: for a non-input node everywhere, for an input node\nat its missing steps. `completed` (N,) bool marks the nodes whose series receives the completion somewhere in the window\n(default: the non-input nodes only, i.e. no missing reading on any input node); an input node not in `completed` keeps its own\nseries exactly and depends on itself only. Returns D_comp (N, n_in) bool and the input nodes' indices.",
+ "cell_support": "One-hop support S of a DCRNN cell's gates: each DiffConv of order 1 reads I, A_q (rows of A) and A_h (rows of A\u1d40), hence\nS = I \u222a [A > 0] \u222a [A\u1d40 > 0]. Returns S and S\u00b2. Inside a cell the reset gate r = \u03c3(S\u00b7[x; h]) multiplies h before the candidate\nc = tanh(S\u00b7[x; r\u00b7h]), and h' = u\u00b7h + (1 \u2212 u)\u00b7c with u = \u03c3(S\u00b7[x; h]): with a non-zero hidden state deps(h') = S\u00b2\u00b7(deps x \u222a deps h)\n(two convolutions compose through r\u00b7h; S\u00b2 \u2287 S \u2287 I covers the untouched part u\u00b7h); with the hidden state identically zero (the\nfirst recurrent step of a layer) r\u00b7h \u2261 0 and u\u00b7h \u2261 0, so deps(h') = S\u00b7deps(x): one hop only.",
+ "reference": {
+  "file": "/home/gadevito/paper4/paper4/runs/e13_a0_struct.json",
+  "sha16": "3a937ce44f27bc8c",
+  "committed_unchanged": true
+ },
+ "environment": {
+  "host": "spark-9809",
+  "platform": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+  "python": "3.13.6",
+  "torch": "2.14.1+cu130",
+  "numpy": "2.5.5",
+  "pandas": "3.1.1",
+  "networkx": "3.7",
+  "mps": false,
+  "cuda": true,
+  "tag": "",
+  "frozen_tag": "",
+  "head": "4209ad0",
+  "code_sha16": {
+   "p4b.py": "926061038a7472a3",
+   "e9.py": "4dd5628af8879511",
+   "e13.py": "42e357b86a21fd2d",
+   "e14.py": "1cccc2eaa955ad09",
+   "mogernn_adapter.py": "da5388a9b4f251cf"
+  },
+  "prereg_sha16": "e95fb2006b424042",
+  "load_avg": [
+   1.46435546875,
+   1.41455078125,
+   0.81884765625
+  ]
+ },
+ "written": "2026-11-24T17:08:58.028587+00:00",
+ "agrees_with_I3_shared_quantities": true
+}

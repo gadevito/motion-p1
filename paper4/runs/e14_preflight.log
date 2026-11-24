@@ -1,0 +1,48 @@
+E14 preflight — 2026-11-24T17:08:19.861931+00:00 — commit 4209ad0406befbb39b57f81c08df7b813cdac8a7 (code dirty: False) — tag ''
+code p4b.py 926061038a7472a3 · e9.py 4dd5628af8879511 · e13.py 42e357b86a21fd2d · e14.py 1cccc2eaa955ad09 · mogernn_adapter.py da5388a9b4f251cf · ADAPTER_SPEC_E14.md a3a05b02cda6977b · torch 2.14.1+cu130
+[PASS] const  T_IN = 12 and horizons (1, 2, 4, 8) within the 8 decoder steps
+[PASS] spec   ADAPTER_SPEC_E14.md present in protocol/paper4/rafforzamento/
+[PASS] graph  road graph connected after alignment in the three cities
+[PASS] sets   f = 20 %: no empty set, shares within ±15, ≥ 8 test blocks (15 pairs)
+[PASS] C0.4   London data files differ from Madrid's — {"madrid": {"targets": "4d75bd9ef37e99b4", "sensors": "cea1ffd8ebe5ae48", "roads": "3c1280a75411f3ec"}, "london": {"targets": "8b379b9bb980f5a8", "sensors": "52176d76b09a7441", "roads": "030850b3a5733a96"}}
+[INFO] original checkout commit 86b153fb4bf9358e32079930ccaea1cbcffa66f8 (reference 86b153fb4bf9358e32079930ccaea1cbcffa66f8); files {"model/MoGERNN.py": "d9eef73bf1249344", "layers/DCRNNCell.py": "b085f5e0a3315b62", "layers/GRUCell.py": "2e6e4a9547ef9498", "layers/agg.py": "5d6345aa8298d5eb", "layers/gnn.py": "4cfcffa6bd9c489d", "args.py": "684e4d03b225410a"}
+[PASS] eq-commit the original checkout is at the reference commit — 86b153fb4bf9358e32079930ccaea1cbcffa66f8
+[INFO] parameters: original configuration (T 12, H 8) 226270; adapter S0 233182, S1 235486
+[PASS] eq-forward adapter (original mode) forward equals the original Model within 1e-6: eval, train with teacher forcing ratio 0 (epoch 40) and 1 (epoch 0) — {"eval": 0.0, "train-tf0": 0.0, "train-tf1": 0.0}
+[PASS] eq-isolated removing an isolated node leaves the other nodes' outputs identical (within 1e-5) — max |diff| 2.61e-08
+[PASS] eq-perm a consistent permutation of nodes permutes the outputs (within 1e-5) — max |diff| 3.73e-08
+[PASS] eq-state evaluation leaves the state unchanged and is repeatable
+[PASS] 1a     node sets disjoint, non-empty, whole cells
+[PASS] rw     cached random walks equal the ones recomputed from the method's graph (bit for bit)
+[INFO] factor scaler madrid s0: mean 0.7845 sd 0.2820
+[INFO] method graph madrid: road radius 2000 m, sigma 548 m, effective radius 831 m, longest surviving edge 831 m, density 0.093, degree median 76 min 2, isolated nodes 0 of 828
+[INFO] method graph london: road radius 2000 m, sigma 544 m, effective radius 826 m, longest surviving edge 826 m, density 0.101, degree median 80 min 0, isolated nodes 2 of 774
+[INFO] method graph melbourne: road radius 2000 m, sigma 649 m, effective radius 985 m, longest surviving edge 984 m, density 0.020, degree median 9 min 0, isolated nodes 15 of 587
+[PASS] graph-radius the method's graph respects the declared road radius (no surviving edge longer than it) in the three cities
+[PASS] 1b     no hidden index in input mask or loss of 100 batches
+[PASS] 1c     hidden nodes zero in r_in, m_in, node_in and the target mask of 20 batches
+[PASS] C0.3-notions three notions distinct and consistent: m_in ≤ node_in (missing reading only on admitted nodes), masks binary — entries with node_in = 1 and m_in = 0 (missing readings) over 20 batches: 156624
+[PASS] 2a     every origin admissible
+[PASS] 2b     no target of a period overlaps an input of the next
+[PASS] 2c     causality: noise after the origin leaves r_in, m_in, cal_in identical to the bit
+[PASS] C0.3-mask m_in equals node_in × validity of the series recomputed independently
+[PASS] 2d     noise on hidden nodes (all) leaves the factor scaler, the coordinates' standardisation and the method's graph identical
+[PASS] graph-topology the method's graph is unchanged by a replacement of every series (built from topology only)
+[PASS] C0.1-batch noise on hidden nodes' readings (test labels replaced, validation labels kept): every input tensor, the target mask and the masked targets of a training batch identical to the bit
+[PASS] C0.3-nodyn S0-nodyn: r_in exactly zero in a training and a validation batch; every other tensor identical to S0-full's
+[PASS] C0.3-S1 S1 cells differ from S0 cells only in the coordinate channels (xy present in S1, None in S0; every other tensor identical)
+[PASS] C0.3-coords perturbing hidden nodes' coordinates leaves the observed nodes' coordinates and every other channel identical; hidden coordinates are the true ones otherwise
+[PASS] C0.3-values a non-input node whose series is set to a non-zero constant yields identical inputs and masks (no inference of presence from values)
+[PASS] C0.3-completion mask-driven completion: entries with m_in = 1 unchanged, entries with m_in = 0 replaced by the experts' combination; a valid value exactly 0 is kept
+[PASS] ch     encoder input channels: S0 7, S1 9; forward shapes (B, 8, K, 1)
+[PASS] fp     node sets, origins, factor scaler, method graph and coordinates identical across the four cell types
+[INFO] calendar baseline madrid s0: 0 of 672 slots on the global fallback; global median 0.7897
+[PASS] cal    calendar table has 672 slots and uses observed-training values only (identical under the perturbation of hidden nodes)
+[PASS] C0.5-static no reference to test origins or test nodes in the development, extension and final code
+[PASS] derived the derived block equals the mechanical derivation from e13.py (substitution table)
+[PASS] C0.5a  structural dependency bound computed on all 15 (city, seed); shared quantities agree with e13_a0_struct.json
+[PASS] 9      an existing run folder blocks the launch
+[PASS] guard  test metrics refused while the E14 signature line is blank
+[INFO] gate refuses dev now: no E14 tag reachable from HEAD (git describe --match paper4-E14-*: '')
+[PASS] gate   the launch gate refuses `dev` before signature / tag / budget / C0.2
+PREFLIGHT: 0 failure(s) — no model update was performed
