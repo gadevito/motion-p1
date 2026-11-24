@@ -1,0 +1,339 @@
+{
+ "written": "2026-11-23T23:18:34.736067+00:00",
+ "B": 4000,
+ "seed": 20261119,
+ "metric": "mean over horizons of per-horizon wCE on test-hidden nodes",
+ "environment": {
+  "host": "MacBook-Pro-di-gabriele-2.local",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.12.7",
+  "torch": "2.12.1",
+  "numpy": "2.5.1",
+  "pandas": "3.0.3",
+  "networkx": "3.6.1",
+  "mps": true,
+  "cuda": false,
+  "tag": "",
+  "frozen_tag": "paper4-E13B-20261119",
+  "head": "f5cff46",
+  "code_sha16": {
+   "p4b.py": "926061038a7472a3",
+   "e9.py": "4dd5628af8879511",
+   "e13.py": "42e357b86a21fd2d",
+   "e13b.py": "fda51553fe7ff752"
+  },
+  "prereg_sha16": "46377f67135e9927",
+  "load_avg": [
+   3.67529296875,
+   3.4384765625,
+   3.2138671875
+  ]
+ },
+ "cities": {
+  "madrid": {
+   "n_blocks": 45,
+   "n_weeks": 7,
+   "observed": {
+    "V_D1": 0.019860055091896207,
+    "V_D1_by_seed": [
+     0.006983031220031095,
+     0.04116392126303077,
+     0.1144068846303874,
+     -0.012975340945776822,
+     -0.05027822070819139
+    ],
+    "V_D1_reached": -0.02800036226979417,
+    "V_D1_reached_by_seed": [
+     0.01696747295875675,
+     0.14890798607434377,
+     -0.24063715325877558,
+     -0.05703017188283436,
+     -0.008209945240461454
+    ],
+    "V_D1_unreached": 0.04072701188937317,
+    "V_D1_unreached_by_seed": [
+     -0.007213711628674387,
+     -0.06493936815587088,
+     0.3614045343142276,
+     0.025580675327985337,
+     -0.11119707041080182
+    ]
+   },
+   "unreached_test_hidden_share_by_seed": {
+    "0": 0.3992015968063872,
+    "1": 0.5102880658436214,
+    "2": 0.5891783567134269,
+    "3": 0.5378486055776892,
+    "4": 0.39558232931726905
+   },
+   "V_D1": {
+    "estimate": 0.019860055091896207,
+    "replicates_undefined": 0,
+    "replicates_used": 4000,
+    "defined": true,
+    "ci95": [
+     -0.16225622667940137,
+     0.20540402040969702
+    ],
+    "p_centred": 0.8155,
+    "p_one_sided_positive": 0.416,
+    "sign": "inconclusive",
+    "margin": "advantage>=3 excluded",
+    "eligible_for_adequacy_statements": false,
+    "excluded_cells": [
+     "madrid_s2_D0_I0",
+     "madrid_s2_D1_I0",
+     "madrid_s3_D0_I0",
+     "madrid_s4_D0_I0",
+     "madrid_s4_D1_I0"
+    ]
+   },
+   "V_D1_reached": {
+    "estimate": -0.02800036226979417,
+    "replicates_undefined": 0,
+    "replicates_used": 4000,
+    "defined": true,
+    "ci95": [
+     -0.3892980988545056,
+     0.35236425006418154
+    ],
+    "p_centred": 0.874,
+    "p_one_sided_positive": 0.56025,
+    "sign": "inconclusive",
+    "margin": "advantage>=3 excluded"
+   },
+   "V_D1_unreached": {
+    "estimate": 0.04072701188937317,
+    "replicates_undefined": 0,
+    "replicates_used": 4000,
+    "defined": true,
+    "ci95": [
+     -0.0097314261329655,
+     0.10385268876648894
+    ],
+    "p_centred": 0.14675,
+    "p_one_sided_positive": 0.0745,
+    "sign": "inconclusive",
+    "margin": "advantage>=3 excluded"
+   }
+  },
+  "london": {
+   "n_blocks": 46,
+   "n_weeks": 4,
+   "observed": {
+    "V_D1": 0.9587443412131288,
+    "V_D1_by_seed": [
+     4.723111701673343,
+     1.078879564368316,
+     -1.1239452255965827,
+     0.3262122925696321,
+     -0.21053662694906577
+    ],
+    "V_D1_reached": 1.1010446341393885,
+    "V_D1_reached_by_seed": [
+     6.707421553273643,
+     2.0686965580208194,
+     -3.1055825380892137,
+     0.6796024861968788,
+     -0.8449148887051839
+    ],
+    "V_D1_unreached": 0.11415565741517417,
+    "V_D1_unreached_by_seed": [
+     0.18858898764325252,
+     0.038972928593969086,
+     -0.007498984047074167,
+     -0.0362105131955366,
+     0.38692586808125995
+    ]
+   },
+   "unreached_test_hidden_share_by_seed": {
+    "0": 0.358695652173913,
+    "1": 0.5098039215686274,
+    "2": 0.6583850931677019,
+    "3": 0.511727078891258,
+    "4": 0.5043103448275862
+   },
+   "V_D1": {
+    "estimate": 0.9587443412131288,
+    "replicates_undefined": 0,
+    "replicates_used": 4000,
+    "defined": true,
+    "ci95": [
+     -0.7047262074629973,
+     2.9925686625866628
+    ],
+    "p_centred": 0.30925,
+    "p_one_sided_positive": 0.16,
+    "sign": "inconclusive",
+    "margin": "advantage>=3 excluded",
+    "eligible_for_adequacy_statements": false,
+    "excluded_cells": [
+     "london_s1_D0_I0"
+    ]
+   },
+   "V_D1_reached": {
+    "estimate": 1.1010446341393885,
+    "replicates_undefined": 0,
+    "replicates_used": 4000,
+    "defined": true,
+    "ci95": [
+     -1.9557309243249235,
+     4.43483151097996
+    ],
+    "p_centred": 0.5035,
+    "p_one_sided_positive": 0.245,
+    "sign": "inconclusive",
+    "margin": "not excluded"
+   },
+   "V_D1_unreached": {
+    "estimate": 0.11415565741517417,
+    "replicates_undefined": 0,
+    "replicates_used": 4000,
+    "defined": true,
+    "ci95": [
+     -0.4391661003652606,
+     0.6084677690757665
+    ],
+    "p_centred": 0.679,
+    "p_one_sided_positive": 0.33725,
+    "sign": "inconclusive",
+    "margin": "advantage>=3 excluded"
+   }
+  },
+  "melbourne": {
+   "n_blocks": 53,
+   "n_weeks": 4,
+   "observed": {
+    "V_D1": 0.4644627579245066,
+    "V_D1_by_seed": [
+     1.8633222963272156,
+     -1.0329634367265785,
+     -0.007575707684622976,
+     0.3199460916311438,
+     1.179584546075375
+    ],
+    "V_D1_reached": -0.9330965823457165,
+    "V_D1_reached_by_seed": [
+     -0.16095145768977354,
+     -4.552508656818675,
+     -0.012176028775262636,
+     -0.37398639716701626,
+     0.4341396287221445
+    ],
+    "V_D1_unreached": 3.196090164476427,
+    "V_D1_unreached_by_seed": [
+     4.714776838652107,
+     7.236109892506877,
+     0.0,
+     1.3461432875052186,
+     2.683420803717931
+    ]
+   },
+   "unreached_test_hidden_share_by_seed": {
+    "0": 0.3536231884057971,
+    "1": 0.21082621082621084,
+    "2": 0.3522727272727273,
+    "3": 0.3237822349570201,
+    "4": 0.2953216374269006
+   },
+   "V_D1": {
+    "estimate": 0.4644627579245066,
+    "replicates_undefined": 0,
+    "replicates_used": 4000,
+    "defined": true,
+    "ci95": [
+     -0.9451408681603298,
+     1.6878174364001315
+    ],
+    "p_centred": 0.49725,
+    "p_one_sided_positive": 0.249,
+    "sign": "inconclusive",
+    "margin": "advantage>=3 excluded",
+    "eligible_for_adequacy_statements": false,
+    "excluded_cells": [
+     "melbourne_s1_D0_I0",
+     "melbourne_s1_D1_I0",
+     "melbourne_s2_D0_I0",
+     "melbourne_s2_D1_I0",
+     "melbourne_s3_D1_I0",
+     "melbourne_s4_D0_I0",
+     "melbourne_s4_D1_I0"
+    ]
+   },
+   "V_D1_reached": {
+    "estimate": -0.9330965823457165,
+    "replicates_undefined": 0,
+    "replicates_used": 4000,
+    "defined": true,
+    "ci95": [
+     -2.304113587841733,
+     0.12301543121411507
+    ],
+    "p_centred": 0.1215,
+    "p_one_sided_positive": 0.9345,
+    "sign": "inconclusive",
+    "margin": "advantage>=3 excluded"
+   },
+   "V_D1_unreached": {
+    "estimate": 3.196090164476427,
+    "replicates_undefined": 0,
+    "replicates_used": 4000,
+    "defined": true,
+    "ci95": [
+     1.0908950052428488,
+     4.220217495084539
+    ],
+    "p_centred": 0.00175,
+    "p_one_sided_positive": 0.0,
+    "sign": "favourable",
+    "margin": "not excluded"
+   }
+  }
+ },
+ "supt_95": {
+  "madrid:V_D1": [
+   -0.20651489924679792,
+   0.24623500943059032
+  ],
+  "london:V_D1": [
+   -1.365670780861664,
+   3.2831594632879213
+  ],
+  "melbourne:V_D1": [
+   -1.1890122153489935,
+   2.1179377311980065
+  ]
+ },
+ "supt_replicates_defined": 4000,
+ "confirmatory": false,
+ "statement": "PROVISIONAL (marginal intervals; the family-wise correction belongs to the campaign-wide analysis of the revised P4R family): undetermined",
+ "statement_counts": {
+  "cities_candidate": [],
+  "cities_lower_simultaneous_bound_ge_3": [],
+  "eligible": {
+   "madrid": false,
+   "london": false,
+   "melbourne": false
+  },
+  "defined": {
+   "madrid": true,
+   "london": true,
+   "melbourne": true
+  },
+  "excluded_cells": [
+   "london_s1_D0_I0",
+   "madrid_s2_D0_I0",
+   "madrid_s2_D1_I0",
+   "madrid_s3_D0_I0",
+   "madrid_s4_D0_I0",
+   "madrid_s4_D1_I0",
+   "melbourne_s1_D0_I0",
+   "melbourne_s1_D1_I0",
+   "melbourne_s2_D0_I0",
+   "melbourne_s2_D1_I0",
+   "melbourne_s3_D1_I0",
+   "melbourne_s4_D0_I0",
+   "melbourne_s4_D1_I0"
+  ]
+ }
+}

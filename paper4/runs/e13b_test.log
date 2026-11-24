@@ -1,0 +1,90 @@
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+madrid_s0_D1_I0 test wCE (mean over horizons) 1.07971
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+madrid_s0_D0_I0 test wCE (mean over horizons) 1.07979
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+madrid_s1_D1_I0 test wCE (mean over horizons) 1.07675
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+madrid_s1_D0_I0 test wCE (mean over horizons) 1.07719
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+madrid_s2_D1_I0 test wCE (mean over horizons) 1.07272
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+madrid_s2_D0_I0 test wCE (mean over horizons) 1.07394
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+madrid_s3_D1_I0 test wCE (mean over horizons) 1.07778
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+madrid_s3_D0_I0 test wCE (mean over horizons) 1.07764
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+madrid_s4_D1_I0 test wCE (mean over horizons) 1.09365
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+madrid_s4_D0_I0 test wCE (mean over horizons) 1.0931
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+london_s0_D1_I0 test wCE (mean over horizons) 1.05053
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+london_s0_D0_I0 test wCE (mean over horizons) 1.1026
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+london_s1_D1_I0 test wCE (mean over horizons) 1.0426
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+london_s1_D0_I0 test wCE (mean over horizons) 1.05397
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+london_s2_D1_I0 test wCE (mean over horizons) 1.0774
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+london_s2_D0_I0 test wCE (mean over horizons) 1.06542
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+london_s3_D1_I0 test wCE (mean over horizons) 1.05346
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+london_s3_D0_I0 test wCE (mean over horizons) 1.0569
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+london_s4_D1_I0 test wCE (mean over horizons) 1.04502
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+london_s4_D0_I0 test wCE (mean over horizons) 1.04282
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+melbourne_s0_D1_I0 test wCE (mean over horizons) 1.06221
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+melbourne_s0_D0_I0 test wCE (mean over horizons) 1.08237
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+melbourne_s1_D1_I0 test wCE (mean over horizons) 1.15581
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+melbourne_s1_D0_I0 test wCE (mean over horizons) 1.14399
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+melbourne_s2_D1_I0 test wCE (mean over horizons) 1.10204
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+melbourne_s2_D0_I0 test wCE (mean over horizons) 1.10195
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+melbourne_s3_D1_I0 test wCE (mean over horizons) 1.08676
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+melbourne_s3_D0_I0 test wCE (mean over horizons) 1.09024
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+melbourne_s4_D1_I0 test wCE (mean over horizons) 1.04202
+/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/code/p4b.py:367: RuntimeWarning: Mean of empty slice
+  sm = np.nanmean(np.where(np.isfinite(ht), ht, np.nan), 1)
+melbourne_s4_D0_I0 test wCE (mean over horizons) 1.05446

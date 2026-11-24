@@ -1,0 +1,210 @@
+{
+ "group": "melbourne_D0_I0",
+ "status": "complete",
+ "started": "2026-11-22T20:58:53.426807+00:00",
+ "cap": 20000,
+ "failing_seeds_at_10000": [
+  0,
+  1
+ ],
+ "base_dirs": {
+  "0": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/8c29ae16d027756c",
+  "1": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/730b8a063cc977ef",
+  "2": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/e9de92c262080cbb",
+  "3": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/ff3aee25864b6891",
+  "4": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/29e1f1b5cca63f7e"
+ },
+ "seeds": {
+  "0": {
+   "dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/57391fec89353625",
+   "usable": true,
+   "selected_config": "C1",
+   "selected_checkpoint": 15000,
+   "adequacy": {
+    "min_update": 15000,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.010815645148801642,
+    "pass": true
+   },
+   "reproduction": {
+    "C1": {
+     "max_abs_diff_val_wce": 0.0,
+     "ok": true
+    },
+    "C2": {
+     "max_abs_diff_val_wce": 0.0,
+     "ok": true
+    },
+    "C3": {
+     "max_abs_diff_val_wce": 0.0,
+     "ok": true
+    },
+    "C4": {
+     "max_abs_diff_val_wce": 0.0,
+     "ok": true
+    }
+   }
+  },
+  "1": {
+   "dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/17747d13ed8a5494",
+   "usable": true,
+   "selected_config": "C1",
+   "selected_checkpoint": 8500,
+   "adequacy": {
+    "min_update": 8500,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.019827238525700935,
+    "pass": false
+   },
+   "reproduction": {
+    "C1": {
+     "max_abs_diff_val_wce": 0.0,
+     "ok": true
+    },
+    "C2": {
+     "max_abs_diff_val_wce": 0.0,
+     "ok": true
+    },
+    "C3": {
+     "max_abs_diff_val_wce": 0.0,
+     "ok": true
+    },
+    "C4": {
+     "max_abs_diff_val_wce": 0.0,
+     "ok": true
+    }
+   }
+  },
+  "2": {
+   "dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/8ddf578df105c904",
+   "usable": true,
+   "selected_config": "C1",
+   "selected_checkpoint": 0,
+   "adequacy": {
+    "min_update": 0,
+    "min_at_cap": false,
+    "last_improvement_frac": 0.05599910655302198,
+    "pass": false
+   },
+   "reproduction": {
+    "C1": {
+     "max_abs_diff_val_wce": 0.0,
+     "ok": true
+    },
+    "C2": {
+     "max_abs_diff_val_wce": 0.0,
+     "ok": true
+    },
+    "C3": {
+     "max_abs_diff_val_wce": 0.0,
+     "ok": true
+    },
+    "C4": {
+     "max_abs_diff_val_wce": 0.0,
+     "ok": true
+    }
+   }
+  },
+  "3": {
+   "dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/0ab85649b582d73c",
+   "usable": true,
+   "selected_config": "C2",
+   "selected_checkpoint": 8500,
+   "adequacy": {
+    "min_update": 8500,
+    "min_at_cap": false,
+    "last_improvement_frac": -0.02602204066044989,
+    "pass": true
+   },
+   "reproduction": {
+    "C1": {
+     "max_abs_diff_val_wce": 0.0,
+     "ok": true
+    },
+    "C2": {
+     "max_abs_diff_val_wce": 0.0,
+     "ok": true
+    },
+    "C3": {
+     "max_abs_diff_val_wce": 0.0,
+     "ok": true
+    },
+    "C4": {
+     "max_abs_diff_val_wce": 0.0,
+     "ok": true
+    }
+   }
+  },
+  "4": {
+   "dir": "/Users/gabrieledevito/Personal/MOTION/deliverables/repo-paper4/paper4/runs/e13b/dev/2d2ea394cfbd4b0d",
+   "usable": true,
+   "selected_config": "C3",
+   "selected_checkpoint": 20000,
+   "adequacy": {
+    "min_update": 20000,
+    "min_at_cap": true,
+    "last_improvement_frac": 0.0577005450737076,
+    "pass": false
+   },
+   "reproduction": {
+    "C1": {
+     "max_abs_diff_val_wce": 0.0,
+     "ok": true
+    },
+    "C2": {
+     "max_abs_diff_val_wce": 0.0,
+     "ok": true
+    },
+    "C3": {
+     "max_abs_diff_val_wce": 0.0,
+     "ok": true
+    },
+    "C4": {
+     "max_abs_diff_val_wce": 0.0,
+     "ok": true
+    }
+   }
+  }
+ },
+ "attempts": {
+  "0": 1,
+  "1": 1,
+  "2": 1,
+  "3": 1,
+  "4": 1
+ },
+ "reproduction_failures": {
+  "0": 0,
+  "1": 0,
+  "2": 0,
+  "3": 0,
+  "4": 0
+ },
+ "environment": {
+  "host": "MacBook-Pro-di-gabriele-2.local",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.12.7",
+  "torch": "2.12.1",
+  "numpy": "2.5.1",
+  "pandas": "3.0.3",
+  "networkx": "3.6.1",
+  "mps": true,
+  "cuda": false,
+  "tag": "",
+  "frozen_tag": "paper4-E13B-20261119",
+  "head": "de39ae8",
+  "code_sha16": {
+   "p4b.py": "926061038a7472a3",
+   "e9.py": "4dd5628af8879511",
+   "e13.py": "42e357b86a21fd2d",
+   "e13b.py": "fda51553fe7ff752"
+  },
+  "prereg_sha16": "46377f67135e9927",
+  "load_avg": [
+   1.83056640625,
+   1.96484375,
+   2.1533203125
+  ]
+ },
+ "written": "2026-11-23T03:31:45.890760+00:00"
+}
