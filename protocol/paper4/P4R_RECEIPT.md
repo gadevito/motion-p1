@@ -113,3 +113,11 @@ Documents: `protocol/paper4/rafforzamento/P4R_REV1.md`, signed 2026-11-19 14:51,
 > Confermo ricezione P4R_REV1.md firmato (SHA-256: 9ab6b42fbcb115441d614e1b06a35f919cd794fdde8dcbe1875187f220fb8394, commit 7771a17) e P4R.md con la nota che lo incorpora (SHA-256: 5a97f3b510411667e4e548e8c5ff574273faece7d487d37a2e3583bfa7781b4c, commit 759afdb), branch paper4 del repository pubblico. Ora: 15:25
 
 Time of confirmation: 2026-11-19 15:25 (Europe/Rome); fingerprints and commits match. No B1 run took place before this time.
+
+## E14pre.md — signed, deposited 2026-11-24
+
+> Confermo la ricezione del protocollo firmato (commit `64a60fc`, `E14pre.md` `424d6e6f57bedce0`).
+>
+> Ora 18:58
+
+Time of confirmation: 2026-11-24 18:58 (Europe/Rome). The depositary quotes the 16-character fingerprint; full SHA-256 of `protocol/paper4/E14pre.md` at commit 64a60fc (tag `paper4-E14pre-20261124`): 424d6e6f57bedce0498802708edfbbd604637041ab164ef6ced855f98e4742b2. Fingerprint and commit match. No E14-pre update took place before this time.
